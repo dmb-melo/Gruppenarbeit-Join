@@ -1,0 +1,204 @@
+.content_addTask{
+    display: flex;
+    flex-direction: column;
+}
+.textContainer_addTask{
+    width: 278px;
+    height: 73px;
+    margin-top: 206px;
+    margin-left: 328px;
+    /* gap:1px; */
+    background-color: aqua;
+}
+.text_addTask{/*was ist mir dem Layout höhe und BReite?*/
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 61px;
+    color: #000000;
+    line-height: 73.2px;
+}
+
+.group66_addTask{
+    width: 976.25px;
+    height: 424px;
+    display: flex;
+    margin-top: 327px;
+    margin-left: 328px;
+    justify-content: space-between;
+}
+
+/* input left */
+
+.inputLeft_addTask{
+    width: 440px;
+    height: 376px;
+    /* background-color: blueviolet; */
+}
+
+.title_v1{
+    display: flex;
+    flex-direction: column;
+    height: 96px;
+    gap: 8px;
+    /* background-color: #0cce5d; */
+    /* border-style: solid; */
+}
+
+.title{
+    height: 24px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.frame203{
+    display: flex;
+    flex-direction: column;
+    height: 64px;
+    gap: 4px;
+    /* background-color: aliceblue; */
+}
+
+.frame14{ /*some styles do not work*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    border-radius: 10px;
+    border: 2px solid #D1D1D1;
+    /* padding: 12px, 21px, 12px, 21px;
+    
+    gap: 10px;
+    color: #FFFFFF; */
+}
+
+.text_enterTitle{
+    width: 398px;
+    height: 24px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    background-color: transparent;
+    border-style: none;
+}
+
+input::placeholder{/*changes the colour of the placeholder text in the input field*/
+    color:#D1D1D1
+}
+
+.titleFieldRequired{
+    width: 119px;
+    height: 12px;
+    font-family: 'Poppins'; 
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    color: #FF8190;
+    /* border-color: #000000;
+    border-style: solid; */
+}
+
+.description_v1{ 
+    display: flex;
+    flex-direction: column;
+    height: 168px;
+    gap: 8px;
+    margin-top: 16px; /* (112px - 96px (height title_v1) soll hier noch die Diffezenz zum oberen div berechnet werden?*/
+}
+
+.description{ 
+    height: 24px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.frame207{    
+    width: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    height: 136px;
+}
+
+.frame17{
+position: relative;
+height: 120px;
+flex: 1;
+display:flex;
+box-sizing: border-box;
+font-family: 'Inter';
+width: 440px;
+}
+
+
+/*https://join-776.developerakademie.net/Join/task.html*/
+
+.recursor{
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 6.1px;
+    right: 6.1px;
+    width: 18.9px;
+    height: 18.9px;
+    display: inline-block; 
+    pointer-events: none;
+}
+
+.text_enterDescription{
+    /* position: absolute; */
+    display: flex;
+    font-family: 'Inter';
+    background-color: white;
+    padding: 18px 16px; 
+    border: 2px solid #D1D1D1;
+    border-radius: 10px;
+    font-size: 20px;      
+    width: 100%;
+    resize: none;
+}
+
+textarea::placeholder { /*changes the colour of the placeholder text in the textarea*/
+    color: #D1D1D1;
+}
+
+.descriptionFieldRequired{
+    width: 438px;
+    height: 12px;
+    font-family: 'Poppins'; 
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    color: #FF8190;
+}
+
+
+/* input left end*/
+
+.vector4{
+    width: 2px;
+    height: 424px;
+    border: 1px;
+    border-style: #D1D1D1;
+    background-color: #D1D1D1;
+}
+
+
+    
+
+/* input right */
+
+.inputRight_addTask{
+    width: 440px;
+    height: 416px;
+    background-color: yellow;
+}
+
+/* input right end*/
+
+
+
