@@ -4,8 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            background: #2A3647;
+            width: 232px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidbarLogo {
+            padding: 64px 0px 64px 0px;
+            width: 100%;
+        }
+        .sidebarMenu {
+            display: flex;
+            flex-direction: column;
+
+        }
+        .sidebarMenu a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            height: 46px;
+        }
+        .privacy {
+            height: 317px;
+        }
+    </style>
+
 </head>
 <body>
-    
+    <div class="sidebar">
+        <!-- Logo -->
+        <div class="sidbarLogo">
+            <img src="/img/join.logo-white.svg" alt="logo">
+        </div>
+        <!-- Menu -->
+        <div class="sidebarMenu">
+            <a href="/summary.html">
+                <div class="sidebarMenuIcon">
+                    <img src="/img/summary-icon.svg" alt="icon">
+                </div>
+                <div class="sidebarMenuText"><p>Summary</p></div>
+            </a>
+            <a href="/add_task.html">
+                <div class="sidebarMenuIcon">
+                    <img src="/img/add.task.icons.svg" alt="icon">
+                </div>
+                <div class="sidebarMenuText">Add Task</div>
+            </a>
+            <a href="/board.html">
+                <div class="sidebarMenuIcon">
+                    <img src="/img/board-icon.svg" alt="icon">
+                </div>
+                <div class="sidebarMenuText">Board</div>
+            </a>
+            <a href="/contacts.html">
+                <div class="sidebarMenuIcon">
+                    <img src="/contacts.html" alt="icon">
+                </div>
+                <div class="sidebarMenuText">Contacts</div>
+            </a>
+        </div>
+        <!-- Datenschutz -->
+        <div class="privacy">
+            <div class="">Privacy Polivy</div>
+            <div class="">Legal notice</div>
+        </div>
+    </div>
 </body>
 </html>
