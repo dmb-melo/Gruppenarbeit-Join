@@ -1,8 +1,8 @@
 * {
     margin: 0;
-    box-sizing: border-box;
     font-family: 'Inter' !important;
 }
+
 
 :root {
     --sidbarlinkHover: #1aa7e4;
@@ -13,7 +13,10 @@
     --sideHeight: 100vh;
     --fonSiz16: 16px;
 }
-
+.box-sizing {
+    box-sizing: border-box;
+    width: 100%;
+}
 .sidebar {
     background: var(--sidebarBgColor);
     display: flex;
@@ -25,6 +28,7 @@
     align-items: center;
     z-index: 2;
     position: fixed;
+    
 }
 
 .sidebarLinks {
