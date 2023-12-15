@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 header {
   height: 96px;
   width: 100%;
@@ -52,7 +56,6 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 8px;
   border-radius: 20px 0px 20px 20px;
   background-color: #2a3647;
   color: #A8A8A8;
@@ -60,18 +63,28 @@ header {
   width: 150px;
   height: 158px;
   padding: 10px;
+  transform: translateX(500px);
+  transition: all 225ms ease-in-out;
+}
+
+.show-submenu {
+  transform: translateX(0);
 }
 
 .submenu-text {
   display: flex;
   width: 130px;
-  height: 46px;
-  padding: 8px 16px;
+  padding-left: 16px;
+  padding-right: 8px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   align-items: center;
-  gap: 8px;
+
+  font-size: 16px;
   cursor: pointer;
 }
 
 .submenu-text:hover {
+  background-color: #36465d;
    /* hover color not visible */
 }
