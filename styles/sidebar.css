@@ -14,8 +14,7 @@
     --fonSiz16: 16px;
 }
 .box-sizing {
-    box-sizing: border-box;
-    width: 100%;
+    
 }
 .sidebar {
     background: var(--sidebarBgColor);
