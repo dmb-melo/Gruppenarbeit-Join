@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="fonts.css">
 </head>
 <body>
-
+   
     <div class="content_addTask">
         <div class = "textContainer_addTask">
             <div class ="text_addTask">Add Task</div>
@@ -19,11 +19,15 @@
         <div class ="inputLeft_addTask">
 
             <div class="title_v1">
-                <div class="title">Title<span style="color:#FF8190">*</span>
-                    <div class="frame14">
-                        <input type="text"  class="text_enterTitle" placeholder="Enter a Title">
-                    </div>     
-                    <div class="titleFieldRequired">This field is required</div>     
+                <div class="title">Title<span class="span">*</span>
+                    <div class="frame203">
+                        <div class="frame14">
+                            <input  type="text"  class="text_enterTitle" placeholder="Enter a Title">
+                        </div> 
+                        <div class="titleFieldRequired">This field is required</div> 
+                    </div>
+                      
+                       
                 </div>                         
             </div>
 
@@ -33,23 +37,174 @@
                 <div class="frame207">
                   <div class="frame17">
                     <textarea  class="text_enterDescription" type="text"  id="" placeholder="Enter a Description"></textarea>
-                    <img class ="recursor" src="./assets/img/Recurso 1 1.jpg">
-                  </div>
-                       
+                    <img class ="recursor" src="./assets/img/Recurso 1 1.png">
+                  </div>                       
                   <div class="descriptionFieldRequired">This field is required</div> 
                 </div>
             </div>
 
             <div class="asignedTo_v1">
-                <div class="pcAsignedTo_v1">Assigned to</div> <!-- pc = parent componet -->
-                <div class="frame74">Select contacts to assign</div> <!--https://www.w3schools.com/howto/howto_js_dropdown.asp-->
+                <div class="asignedTo">Assigned to</div>
+                <div class="frame74">
+                    <div class="text_assignedTo">Select contacts to assign</div>        
+                        <div class =imgArrows>
+                            <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png" alt="">   
+                            <!--DAS KANN DOCH NICHT RICHTIG SEIN ODER?--> 
+                            <svg class="arrow_drop_downHover" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                <g id="Property 1=Variant2">
+                                    <rect y="0.96582" width="24" height="24" rx="12" fill="#EEEEEE"/>
+                                    <mask id="mask0_75597_14127" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                    <rect id="Bounding box" y="0.96582" width="24" height="24" fill="#D9D9D9"/>
+                                    </mask>
+                                    <g mask="url(#mask0_75597_14127)">
+                                        <path id="arrow_drop_down" d="M11.3005 15.2658L8.70046 12.6658C8.3838 12.3492 8.31296 11.9867 8.48796 11.5783C8.66296 11.17 8.97546 10.9658 9.42546 10.9658H14.5755C15.0255 10.9658 15.338 11.17 15.513 11.5783C15.688 11.9867 15.6171 12.3492 15.3005 12.6658L12.7005 15.2658C12.6005 15.3658 12.4921 15.4408 12.3755 15.4908C12.2588 15.5408 12.1338 15.5658 12.0005 15.5658C11.8671 15.5658 11.7421 15.5408 11.6255 15.4908C11.5088 15.4408 11.4005 15.3658 11.3005 15.2658Z" fill="#2A3647"/>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    
+                </div> <!--https://www.w3schools.com/howto/howto_js_dropdown.asp-->
             </div>
-            
-        
         </div>
+
         <div class="vector4"></div>
-        <div class ="inputRight_addTask"></div>
+
+        <div class ="inputRight_addTask">
+            <div class="dueDate">
+                <div class="text_DueDate">Due date<span class="span">*</span></div>
+                <div class="frame211">
+                    <div class="frame14">
+                        <input class="inputDate"  placeholder="dd/mm/yyyy" id=""> <!--https://codepen.io/raindahl/pen/vzBXgV-->
+                        <img class="event" src="./assets/img/event.png" alt="">                        
+                    </div>
+                    <div class="dueDateFieldRequired">This field is required</div> 
+                </div>
+            </div>
+
+            <div class="frame28">
+                <div class="textPrio">Prio</div>
+                <div class="priority">
+                    <div class="priorityUrgent">
+                        <div class="textUrgent">Urgent</div>
+                        <img class="imgPrioAlta" src="./assets/img/Prio alta.png" alt="">
+                    </div>
+                    <div class="priorityMedium">
+                        <div class="textMedium">Medium</div>
+                        <img class="imgPrioMedium" src="./assets/img/Capa 2_prio medium.png" alt="">
+                    </div>
+                    <div class="priorityLow">
+                        <div class="textLow">Low</div>
+                        <img class="imgPrioLow" src="./assets/img/Prio baja.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="textCategory">Category<span class="span">*</ssan></div>
+                <div class="categoryFrame74">
+                    <div class="textSelectCategory">Select task category</div>
+                    <div class =imgArrows>
+                        <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png" alt="">
+                        <!--DAS KANN DOCH NICHT RICHTIG SEIN ODER?-->
+                        <svg class="arrow_drop_downHover" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <g id="Property 1=Variant2">
+                                <rect y="0.96582" width="24" height="24" rx="12" fill="#EEEEEE"/>
+                                <mask id="mask0_75597_14127" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                                <rect id="Bounding box" y="0.96582" width="24" height="24" fill="#D9D9D9"/>
+                                </mask>
+                                <g mask="url(#mask0_75597_14127)">
+                                    <path id="arrow_drop_down" d="M11.3005 15.2658L8.70046 12.6658C8.3838 12.3492 8.31296 11.9867 8.48796 11.5783C8.66296 11.17 8.97546 10.9658 9.42546 10.9658H14.5755C15.0255 10.9658 15.338 11.17 15.513 11.5783C15.688 11.9867 15.6171 12.3492 15.3005 12.6658L12.7005 15.2658C12.6005 15.3658 12.4921 15.4408 12.3755 15.4908C12.2588 15.5408 12.1338 15.5658 12.0005 15.5658C11.8671 15.5658 11.7421 15.5408 11.6255 15.4908C11.5088 15.4408 11.4005 15.3658 11.3005 15.2658Z" fill="#2A3647"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="subtasks">
+                <div class="textSubtasks">Subtasks</div>
+                    <div class="subtasksFrame14">
+                        <div class="textAddSubtasks">Add new subtask</div>
+                        <div class="imgSubtasks" >
+
+                            <div class="imgPlusContainer">
+                                <img class="imgPlus" class src="./assets/img/Subtasks.png" alt="">
+                                <!--DAS KANN DOCH NICHT RICHTIG SEIN ODER?-->
+                                <svg class="imgPlusHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                    <g id="Property 1=add hover">
+                                        <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
+                                        <mask id="mask0_75592_9978" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                                        <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
+                                        </mask>
+                                        <g mask="url(#mask0_75592_9978)">
+                                            <path id="add" d="M11.1445 13H6.14453C5.8612 13 5.6237 12.9042 5.43203 12.7125C5.24036 12.5208 5.14453 12.2833 5.14453 12C5.14453 11.7167 5.24036 11.4792 5.43203 11.2875C5.6237 11.0958 5.8612 11 6.14453 11H11.1445V6C11.1445 5.71667 11.2404 5.47917 11.432 5.2875C11.6237 5.09583 11.8612 5 12.1445 5C12.4279 5 12.6654 5.09583 12.857 5.2875C13.0487 5.47917 13.1445 5.71667 13.1445 6V11H18.1445C18.4279 11 18.6654 11.0958 18.857 11.2875C19.0487 11.4792 19.1445 11.7167 19.1445 12C19.1445 12.2833 19.0487 12.5208 18.857 12.7125C18.6654 12.9042 18.4279 13 18.1445 13H13.1445V18C13.1445 18.2833 13.0487 18.5208 12.857 18.7125C12.6654 18.9042 12.4279 19 12.1445 19C11.8612 19 11.6237 18.9042 11.432 18.7125C11.2404 18.5208 11.1445 18.2833 11.1445 18V13Z" fill="#2A3647"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <img class="imgVector" src="./assets/img/Vector 3.png" alt="">                        
+                           
+                            <!--DAS KANN DOCH NICHT RICHTIG SEIN ODER?-->
+
+                            <div class="subtasksImgCheck">
+                                <svg class="subtaskCheck" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                    <g id="Subtasks icons11">
+                                        <mask id="mask0_75601_14762" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                                        <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
+                                        </mask>
+                                        <g mask="url(#mask0_75601_14762)">
+                                            <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
+                                        </g>
+                                    </g>
+                                </svg>
+
+                                <svg class="subtaskCheckHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                    <g id="Property 1=check hover">
+                                        <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
+                                        <mask id="mask0_75592_9966" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                                        <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
+                                        </mask>
+                                        <g mask="url(#mask0_75592_9966)">
+                                            <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
+                                        </g>
+                                    </g>
+                                </svg>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
+    <div class="addTasksFooter">
+        <div class="comment"><span class="span">*</span>This field is required</div>
+        <div class="frame27">
+            <div class="secondary">
+                <div class="textClear">Clear</div>
+
+                <div class="clear">
+                    <img class="imgCancel" src="./assets/img/cancel.png" alt="">
+                    <!--DAS KANN DOCH NICHT RICHTIG SEIN ODER?-->
+                    <svg class="imgCancelHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                        <g id="iconoir:cancel">
+                            <path id="Vector" d="M12.0692 12.0001L17.3122 17.2431M6.82617 17.2431L12.0692 12.0001L6.82617 17.2431ZM17.3122 6.75708L12.0682 12.0001L17.3122 6.75708ZM12.0682 12.0001L6.82617 6.75708L12.0682 12.0001Z" stroke="#29ABE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                </div>
+
+            </div>
+            <div class="primary">
+                <div class="textCreateTask">Create task</div>
+                <img class="imgCheckBlack" src="./assets/img/check.png" alt="">
+
+              
+            </div>
+        </div>
+    </div>
 </body>
 </html>
