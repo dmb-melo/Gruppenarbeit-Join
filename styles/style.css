@@ -1,79 +1,116 @@
-        /* Global Css */
-        .dNone{
-            display: none;
-        }
-        /* end */
-        
-        
-        .animationJoinLogo {
-            position: absolute;
-            width: 100vw;
-            height: 100vh;
-            background: #F6F7F8;
-            z-index: 2;
-        }
-        
-        .join-logo {
-            position: absolute;
-            width: 273px;
-            height: 334px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .animationJoinLogo img {
-            width: 919px;
-            height: 240px;
-            padding: 5px 5px 5px 5px;
-        }
-        
-        
-        /* transparen Animation */
-        .animationJoinLogo.animated {
-            animation: containerAnimation 625ms forwards;
-            animation-delay: 2s;
-        }
-        
-        @keyframes containerAnimation {
-            0% {
-                opacity: 1;
-                visibility: visible;
-            }
-            99% {
-                opacity: 0;
-                visibility: visible;
-            }
-            100% {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-        
-        
-        /* move Animation */
-        @keyframes logoAnimation {
-            0% {
-                height: 334px;
-                width: 273px;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                background: #F6F7F8;
-            }
-            100% {
-                height: 121px;
-                width: 100px;
-                left: 0;
-                top: 10px;
-                transform: translateY(0);
-                background: #f6f7f800;
-            }
-        }
-        
-        .join-logo.animated {
-            animation: logoAnimation 625ms forwards;
-            animation-delay: 2s;
-            animation-fill-mode: forwards;
-        }
-        
+/* Global Css */
+.dNone {
+  display: none;
+}
+/* end */
+
+*{
+  margin: 0;  
+}
+
+.animationJoinLogo {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #f6f7f8;
+  z-index: 2;
+}
+
+.join-logo {
+  position: absolute;
+  width: 273px;
+  height: 334px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.animationJoinLogo img {
+  width: 919px;
+  height: 240px;
+  padding: 5px 5px 5px 5px;
+}
+
+/* transparen Animation */
+.animationJoinLogo.animated {
+  animation: containerAnimation 625ms forwards;
+  animation-delay: 2s;
+}
+
+@keyframes containerAnimation {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* move Animation */
+@keyframes logoAnimation {
+  0% {
+    height: 334px;
+    width: 273px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #f6f7f8;
+  }
+  100% {
+    height: 121px;
+    width: 100px;
+    left: 0;
+    top: 10px;
+    transform: translateY(0);
+    background: #f6f7f800;
+  }
+}
+
+.join-logo.animated {
+  animation: logoAnimation 625ms forwards;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+/* end */
+
+/* style homepage */
+
+.logo-sign-up-container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 80px;
+  left: 77px;
+}
+
+.sign-up-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 67px;
+  right: 122px;
+  gap: 35px;
+}
+
+.sign-up-button {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 8px;
+  background-color: rgba(42, 54, 71, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+.sign-up-button:hover {
+ background-color: rgba(41, 171, 226, 1);
+ box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
