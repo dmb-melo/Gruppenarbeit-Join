@@ -1,7 +1,3 @@
-function init() {
-    includeHTML()
-}
-
 /**
  * This function opens and closes the submenu and the closeSubmenu() function must be added to the body
  *
@@ -21,10 +17,19 @@ function showSubmenu() {
 function closeSubmenu() {
   if (submenuIsOpen === true) {
     document.getElementById("submenu").classList.remove("show-submenu");
-    submenuIsOpen = false;
   }
 }
 
 function doNotClose(event) {
   event.stopPropagation();
+}
+
+function initLoading() {
+  startAnimation();
+}
+function startAnimation() {
+  // Animation immer starten
+  document.querySelector('.animationJoinLogo').classList.add('animated');
+  document.querySelector('.animationJoinLogo').classList.remove('dNone');
+  document.querySelector('.join-logo').classList.add('animated');
 }
