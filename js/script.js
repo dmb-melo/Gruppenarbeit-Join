@@ -17,6 +17,7 @@ function showSubmenu() {
 function closeSubmenu() {
   if (submenuIsOpen === true) {
     document.getElementById("submenu").classList.remove("show-submenu");
+    submenuIsOpen = false;
   }
 }
 
