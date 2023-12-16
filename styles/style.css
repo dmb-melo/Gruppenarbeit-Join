@@ -4,8 +4,13 @@
 }
 /* end */
 
-*{
-  margin: 0;  
+* {
+  margin: 0;
+}
+
+body {
+  background-color: rgb(246, 247, 248);
+  font-family: "Inter";
 }
 
 .animationJoinLogo {
@@ -111,6 +116,75 @@
 }
 
 .sign-up-button:hover {
- background-color: rgba(41, 171, 226, 1);
- box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: rgba(41, 171, 226, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#content-user-validation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.log-in-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 652px;
+  height: 493px;
+  border-radius: 30px;
+  gap: 32px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+}
+
+.headline-log-in-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 315px;
+  height: 89px;
+  gap: 16px;
+}
+
+.headline-log-in {
+  font-size: 61px;
+}
+
+.bottom-line {
+  height: 3px;
+  width: 150px;
+  background-color: rgba(41, 171, 226, 1);
+}
+
+.input-log-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-field {
+  width: 422px;
+  height: 48px;
+  border-radius: 10px;
+  padding-left: 21px;
+  padding-right: 21px;
+  border: 1px solid rgba(209, 209, 209, 1) !important;
+  font-size: 20px;
+  gap: 10px;
+  background: url(../) no-repeat left;
+}
+
+.input-field::placeholder {
+  display: flex;
+  justify-content: space-between;
+  height: 24px;
+  font-size: 20px;
+  color: rgba(209, 209, 209, 1) !important;
 }
