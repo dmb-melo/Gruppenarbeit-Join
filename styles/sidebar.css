@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    font-family: 'Inter' !important;
+    
 }
 
 
@@ -13,7 +13,8 @@
     --sideHeight: 100vh;
     --fonSiz16: 16px;
 }
-.box-sizing{
+
+.box-sizing {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -21,7 +22,9 @@
     width: 232px;
     background: var(--sidebarBgColor);
     z-index: 999;
+    font-family: 'Inter', sans-serif ;
 }
+
 .sidebar {
     width: 100%;
     height: calc(100vh - 96px);
@@ -29,8 +32,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
 }
+
 .sidbarLogo {
     display: flex;
     width: 100%;
@@ -38,13 +42,68 @@
     align-items: center;
 }
 
-
-
-.sidebarCategory{
+.sidebarLinks {
     display: flex;
-    width: 232px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sidebarCategory {
+    display: flex;
+    width: 100%;
     height: 46px;
     padding: 8px 56px;
     align-items: center;
     gap: 8px;
+    justify-content: center;
+}
+.sidebarCategory :hover {
+    background-color: var(--sidbarlinkHover);
+    
+}
+.sidebarCategory a {
+    text-decoration: none;
+    color: var(--textColor);
+    display: flex;
+    width: 232px;
+}
+
+.sidebarLink {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 20px 60px;
+
+}
+
+.sidebarMenuText {
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%
+}
+
+.privacy {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+.privacy a {
+    text-decoration: none;
+    color: var(--textColor);
+    font-size: 16px;
+}
+
+.privacy a:hover {
+    color: #0eadf1;
+    font-weight: bolder;
+
 }
