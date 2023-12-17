@@ -1,11 +1,3 @@
-async function summraryInit(){
-    
-    await includeHTML();
-    
-}
- async function addTaskInit(){
- await includeHTML();
-}   
 
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
