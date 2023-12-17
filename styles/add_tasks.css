@@ -78,6 +78,7 @@
     font-size: 20px;
     line-height: 24px;
     border-style: none;
+    outline:none;
 }
 
 input::placeholder{/*changes the colour of the placeholder text in the input field*/
@@ -160,6 +161,7 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
     font-size: 20px;      
     width: 100%;
     resize: none;
+    outline:none;
 }
 
 textarea::placeholder { /*changes the colour of the placeholder text in the textarea*/
@@ -273,6 +275,7 @@ span{
 }
 
 .dueDate{
+    
     width: 440px;
     height: 96px;
     display: flex;
@@ -311,14 +314,25 @@ span{
 }
 
 .inputDate{
-    width: 119px;
+    display: flex;
+    justify-content: space-between;
+    width: 404px;
     height: 24px;
-    font-family: 'Inter';
+    font-family:'inter' ;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
     color: var(--Style, #D1D1D1);
     border-style: none;
+    outline:none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cmask id='mask0_75592_13837' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.855469' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_13837)'%3E%3Cpath d='M15.3555 18C14.6555 18 14.0638 17.7583 13.5805 17.275C13.0971 16.7917 12.8555 16.2 12.8555 15.5C12.8555 14.8 13.0971 14.2083 13.5805 13.725C14.0638 13.2417 14.6555 13 15.3555 13C16.0555 13 16.6471 13.2417 17.1305 13.725C17.6138 14.2083 17.8555 14.8 17.8555 15.5C17.8555 16.2 17.6138 16.7917 17.1305 17.275C16.6471 17.7583 16.0555 18 15.3555 18ZM5.85547 22C5.30547 22 4.83464 21.8042 4.44297 21.4125C4.0513 21.0208 3.85547 20.55 3.85547 20V6C3.85547 5.45 4.0513 4.97917 4.44297 4.5875C4.83464 4.19583 5.30547 4 5.85547 4H6.85547V3C6.85547 2.71667 6.9513 2.47917 7.14297 2.2875C7.33464 2.09583 7.57214 2 7.85547 2C8.1388 2 8.3763 2.09583 8.56797 2.2875C8.75964 2.47917 8.85547 2.71667 8.85547 3V4H16.8555V3C16.8555 2.71667 16.9513 2.47917 17.143 2.2875C17.3346 2.09583 17.5721 2 17.8555 2C18.1388 2 18.3763 2.09583 18.568 2.2875C18.7596 2.47917 18.8555 2.71667 18.8555 3V4H19.8555C20.4055 4 20.8763 4.19583 21.268 4.5875C21.6596 4.97917 21.8555 5.45 21.8555 6V20C21.8555 20.55 21.6596 21.0208 21.268 21.4125C20.8763 21.8042 20.4055 22 19.8555 22H5.85547ZM5.85547 20H19.8555V10H5.85547V20ZM5.85547 8H19.8555V6H5.85547V8Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
 }
 
 .event{
@@ -371,6 +385,7 @@ span{
     border-radius: 10px;
     background: var(--white, #FFF);
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+
 }
 
 .priorityUrgent:hover{
@@ -385,9 +400,16 @@ span{
     line-height: 24px;
 }
 
-.imgPrioAlta{    
+.img-priorityUrgent{    
     width: 20px;
     height: 14.51px;
+    
+  
+}
+
+.imgPrio-active{    
+   
+    background-color: #7AE229;
 }
 
 .priorityMedium{
@@ -416,7 +438,7 @@ span{
     line-height: 24px;
 }
 
-.imgPrioMedium{ 
+.img-PriorityMedium{ 
     width: 20px;
     height: 14.51px;
 }
@@ -447,7 +469,7 @@ span{
     line-height: 24px;
 }
 
-.imgPrioLow{    
+.img-PriorityLow{    
     width: 20px;
     height: 14.51px;
 }
@@ -704,18 +726,127 @@ span{
 
 
 
-
-
 .cardA{
-    height: 225px;
+    margin-left: 500px;
     display: flex;
-    width: 252px;
-    padding: 16px;
+    width: 525px;   
+    padding: 48px 40px;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-end;
+    gap: 24px;
+    border-radius: 30px;  
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+    
+.taskTitle{       
+    align-self: stretch;
+    color: var(--black, #000);
+    font-family: 'Inter';
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 73.2px;
+}
+
+.description{
+    color: var(--black, #000);
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px; /* 24px */
+    align-self: stretch;
+}
+
+.taskDueDate{
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    align-self: stretch;
+}
+
+.TitleDueDate{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+  
+ 
+}
+.date{
+    color: var(--black, #000);
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px; 
+}
+
+.prio{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    align-self: stretch;
+ 
+}
+
+.selectedPriorityContent{
+    display: flex;
     align-items: center;
     gap: 10px;
-    border-radius: 24px;
-    background: var(--white, #FFF);
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
-    }
+ 
+    height: 32px;  
+}
+
+.titelPrio{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 73px;
+}
+
+.priorityUrgent-active {
+    background-color: #FF3D00; /* Your color for Urgent */
+}
+
+.priorityMedium-active {
+    background-color: #FFA800; /* Your color for Medium */
+}
+
+.priorityLow-active {
+    background-color: #7AE229; /* Your color for Low */
+}
+
+.assigned{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap:25px;
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    background-color: #7AE229;
+}
+
+.assignedSecond{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    background-color: red;
+}
+
+.assigns{
+    background-color: #29ABE2;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    align-self: stretch; 
+}
