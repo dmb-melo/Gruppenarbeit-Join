@@ -151,6 +151,9 @@
     gap: 28px;
 }
 
+.summaryTasks a{
+    text-decoration: none;
+}
 /* desing der Drei buttons */
 .taskspanels {
     display: flex;
@@ -164,10 +167,67 @@
     flex-shrink: 0;
     border-radius: 30px;
     background: white;
-
-    /* nuevo */
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
+
+.tasksText {
+    color: #2A3647;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-decoration: none;
+}
+
+.tasksNumber {
+    color: #000;
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+
+/* left End */
+
+
+/* RightSide */
+.summaryRight {
+    width: 50%;
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+.greetin {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+}
+.greetin h2 {
+    color: #2A3647;
+    /* font-family: Inter; */
+    font-size: 47px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+}
+.greetin p{
+    width: 385px;
+    color: var(--Ligth-blue, #29ABE2);
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+/* Rightend */
 
 /* text Inside Dialog */
 .toDoIcon {
@@ -217,6 +277,7 @@
 .toDoPanel:hover .editHover img {
     content: url('../assets/img/editeWhite.png');
 }
+
 .toDoPanel:hover .checkhover img {
     content: url('../assets/img/checkwhite.png');
 }
@@ -225,17 +286,24 @@
 .toDoPanel:hover .taskText {
     color: white;
 }
-.toDoPanelBig:hover #date{
+
+.toDoPanelBig:hover #date {
     color: white;
 }
-.toDoPanelBig:hover .deadLineText{
+
+.toDoPanelBig:hover .deadLineText {
     color: white;
 }
+
 .toDoPanelBig:hover .taskNumber,
 .toDoPanelBig:hover .taskText {
     color: white;
 }
+.taskspanels:hover .tasksNumber,
+.taskspanels:hover .tasksText {
+    color: white
+    
+}
 .partingLine:hover {
     background-color: white;
 }
-
