@@ -1,7 +1,7 @@
 .summaryMain {
     width: calc(100% - 23px);
     height: calc(100vh - 96px);
-    background: #F6F7F8;
+    background: #e5e5e6;
     margin-top: 96px;
     margin-left: 232px;
     font-family: 'Inter', sans-serif;
@@ -15,6 +15,7 @@
 
 .summaryLeft {
     margin-top: 110px;
+    max-width: 560px;
 }
 
 .summaryHeader {
@@ -22,6 +23,7 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
+    margin-bottom: 56px;
 }
 
 .summaryHeader h1 {
@@ -56,4 +58,104 @@
     justify-content: center;
     align-items: flex-start;
     gap: 28px;
+}
+
+.summaryTodoDone {
+    display: flex;
+    width: 560px;
+    height: 168px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.summaryTodoDone a {
+    display: flex;
+    width: 264px;
+    height: auto;
+    padding: 19px;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: white;
+    text-decoration: none;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.summaryUrgendDeadLine {
+    display: flex;
+    width: 560px;
+    height: 168px;
+    padding: 28px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 61px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: white;
+
+    /* nuevo */
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.summaryTasks {
+    display: flex;
+    width: 560px;
+    height: 170px;
+    padding: 1px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.taskspanels {
+    display: flex;
+    width: 168px;
+    height: 168px;
+    padding: 25px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: white;
+
+    /* nuevo */
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.toDoIcon {
+    width: 69px;
+    height: 69px;
+}
+
+#toDos {
+    color: #000;
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.toDoText {
+    color: #2A3647;
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+/* Hover */
+.toDoPanel:hover,
+.toDoPanelBig:hover,
+.taskspanels:hover {
+    transform: scale(1.05);
+    background: #2A3647;
+    transition: 225ms ease-in-out;
 }
