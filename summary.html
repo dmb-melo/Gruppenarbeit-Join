@@ -13,17 +13,19 @@
     <script src="./js/include.js"></script>
     <script src="./js/script.js"></script>
 
-5
+    5
 </head>
 
-<body onload="summraryInit()" onclick="closeSubmenu()" >
+<body onload="summraryInit()" onclick="closeSubmenu()">
     <div w3-include-html="./assets/templates/sidebar.html"></div>
     <div w3-include-html="./assets/templates/header.html"></div>
     <div class="summaryMain">
         <div class="summaryContainer">
             <div class="summaryLeft">
                 <div class="summaryHeader">
-                    <span><h1><b>Summary</b></h1></span>
+                    <span>
+                        <h1><b>Summary</b></h1>
+                    </span>
                     <div class="blueLineText">
                         <div class="blueLine"></div>
                         <div class="summaryKey"><span>key Metrics at Glance</span></div>
@@ -65,16 +67,30 @@
                         </div>
                     </a>
                     <div class="summaryTasks">
-                        <a class="taskspanels" href="board.html"></a>
-                        <a class="taskspanels" href="board.html"></a>
-                        <a class="taskspanels" href="board.html"></a>
+                        <a class="taskspanels" id="" href="board.html">
+                            <div class="tasksNumber">5</div>
+                            <div class="tasksText">Task in Borad</div>
+                        </a>
+                        <a class="taskspanels" id="" href="board.html">
+                            <div class="tasksNumber">5</div>
+                            <div class="tasksText">Task in Progress</div>
+                        </a>
+                        <a class="taskspanels" id="" href="board.html">
+                            <div class="tasksNumber">5</div>
+                            <div class="tasksText">Task in Feedack</div>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="summaryRight"><div class="greetin"><h2>Guten Abend</h2><p><b>Bekir Labjani</b></p></div></div>
+            <div class="summaryRight">
+                <div class="greetin">
+                    <h2>Guten Abend</h2>
+                    <p><b>Bekir Labjani</b></p>
+                </div>
+            </div>
         </div>
     </div>
-    
+
 </body>
 
 </html>
