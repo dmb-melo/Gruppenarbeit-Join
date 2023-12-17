@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join-Board</title>
+        <!-- Css link -->
+        <link rel="stylesheet" href="./styles/sidebar.css">
+        <link rel="stylesheet" href="./styles/summary.css ">
+        <link rel="stylesheet" href="./styles/header.css">
+        <!-- main Script -->
+        <script src="./js/include.js"></script>
+        <script src="./js/script.js"></script>
+        <script src="./js/board.js"></script>
 </head>
-<body>
+<body onload="boardInit()">
+    <div w3-include-html="./assets/templates/sidebar.html"></div>
+    <div w3-include-html="./assets/templates/header.html"></div>
 
 <div class="tasksToDo" id = "tasks">
     <div class ="cardA"></div>
