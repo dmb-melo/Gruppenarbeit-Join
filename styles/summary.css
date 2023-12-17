@@ -1,8 +1,12 @@
+/* Allround Class */
+
+
+
 .summaryMain {
     width: calc(100% - 23px);
     height: calc(100vh - 96px);
     background: #e5e5e6;
-    margin-top: 96px;
+    margin-top: 77px;
     margin-left: 232px;
     font-family: 'Inter', sans-serif;
 }
@@ -13,11 +17,13 @@
     justify-content: space-around;
 }
 
+/* Linke Seite des Mains */
 .summaryLeft {
     margin-top: 110px;
     max-width: 560px;
 }
 
+/* Der Header */
 .summaryHeader {
     display: inline-flex;
     justify-content: center;
@@ -51,6 +57,10 @@
     line-height: 120%;
 }
 
+/* header ende */
+
+/* Übersicht der Aufgaben */
+
 .summaryTaskContainer {
     display: flex;
     width: 560px;
@@ -60,6 +70,7 @@
     gap: 28px;
 }
 
+/* Die zweit Buttons oben */
 .summaryTodoDone {
     display: flex;
     width: 560px;
@@ -71,7 +82,7 @@
 
 .summaryTodoDone a {
     display: flex;
-    width: 264px;
+    width: 40%;
     height: auto;
     padding: 19px;
     justify-content: center;
@@ -84,22 +95,52 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
+/* der Button in der Mitte */
 .summaryUrgendDeadLine {
     display: flex;
     width: 560px;
     height: 168px;
-    padding: 28px 48px;
+    padding: 27px 30px;
     justify-content: center;
     align-items: center;
     gap: 61px;
     flex-shrink: 0;
     border-radius: 30px;
     background: white;
-
-    /* nuevo */
+    box-sizing: border-box;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    text-decoration: none;
 }
 
+.urgend {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.partingLine {
+    width: 2px;
+    color: black;
+    height: 80%;
+    background-color: #a8a8a8;
+}
+
+.deadline {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#date {
+    color: #2A3647;
+    font-family: Inter;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+/* Die Drei Button Unten */
 .summaryTasks {
     display: flex;
     width: 560px;
@@ -110,6 +151,7 @@
     gap: 28px;
 }
 
+/* desing der Drei buttons */
 .taskspanels {
     display: flex;
     width: 168px;
@@ -127,12 +169,13 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
+/* text Inside Dialog */
 .toDoIcon {
     width: 69px;
     height: 69px;
 }
 
-#toDos {
+.taskNumber {
     color: #000;
     text-align: center;
     font-size: 64px;
@@ -141,7 +184,7 @@
     line-height: 120%;
 }
 
-.toDoText {
+.taskText {
     color: #2A3647;
     /* Version 2/t6 */
     font-family: Inter;
@@ -149,6 +192,16 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+
+}
+
+.deadLineText {
+    color: #2A3647;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    display: flex;
 }
 
 /* Hover */
@@ -158,4 +211,31 @@
     transform: scale(1.05);
     background: #2A3647;
     transition: 225ms ease-in-out;
+    color: white;
 }
+
+.toDoPanel:hover .editHover img {
+    content: url('../assets/img/editeWhite.png');
+}
+.toDoPanel:hover .checkhover img {
+    content: url('../assets/img/checkwhite.png');
+}
+
+.toDoPanel:hover .taskNumber,
+.toDoPanel:hover .taskText {
+    color: white;
+}
+.toDoPanelBig:hover #date{
+    color: white;
+}
+.toDoPanelBig:hover .deadLineText{
+    color: white;
+}
+.toDoPanelBig:hover .taskNumber,
+.toDoPanelBig:hover .taskText {
+    color: white;
+}
+.partingLine:hover {
+    background-color: white;
+}
+
