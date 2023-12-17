@@ -29,12 +29,16 @@
         </div>
         <form class="input-log-in" action="">
           <div class="input-field-container">
-            <input placeholder="Email" type="email" id="emailInput" name="email" required class="input-field"/>
+            <input placeholder="Email" type="email" id="emailInput" name="email" required class="input-field" required/>
             <img class="img-login-email" src="./assets/img/mail_add_contact.png" alt="mail" />
           </div>
           <div class="input-field-container">
-          <input class="input-field" placeholder="Passwort" type="password" id="passwordInput" name="password" required />
-          <img class="img-login-email" onclick="myFunction()" src="./assets/img/visibility_off.svg" alt="mail" />
+          <input oninput="passwordInputLogIn()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required/>
+          <img class="img-login-email" onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="mail" />
+        </div>
+        <div class="remember-me-container">
+          <img onclick="rememberMe()"src="./assets/img/propertydefault.svg" alt="propertydefault">
+          <p>Remember me</p>
         </div>
         </form>
       </div>

@@ -199,6 +199,14 @@ body {
   color: rgba(209, 209, 209, 1) !important;
 }
 
+.remember-me-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 39px;
+  width: 422px;
+}
+
 
 
 
