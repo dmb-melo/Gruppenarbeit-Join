@@ -11,6 +11,9 @@ let priorityContentArray = [];
 load();
 add();
 
+async function addTaskInit(){
+    await includeHTML();
+}
 
 let selectedPriorityContent = '';
 window.onload = function() {
