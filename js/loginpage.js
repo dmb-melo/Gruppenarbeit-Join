@@ -34,3 +34,12 @@ function startAnimation() {
   document.querySelector('.animationJoinLogo').classList.remove('dNone');
   document.querySelector('.join-logo').classList.add('animated');
 }
+
+function myFunction() {
+  var x = document.getElementById("passwordInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
