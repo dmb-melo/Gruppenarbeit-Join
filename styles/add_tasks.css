@@ -400,17 +400,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     line-height: 24px;
 }
 
-.img-priorityUrgent{    
+.img-priorityUrgentSize{    
     width: 20px;
     height: 14.51px;
-    
-  
 }
 
-.imgPrio-active{    
-   
-    background-color: #7AE229;
+
+.imgPrio-active{
+
+  fill: #fff;
 }
+
 
 .priorityMedium{
     display: flex;
