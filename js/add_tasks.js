@@ -8,6 +8,8 @@ let subtasks = [];
 let priorityContentArray = []; 
 
 
+
+
 load();
 add();
 
@@ -22,134 +24,140 @@ window.onload = function() {
     render();
 };
 
+function render() {
+    let content = document.getElementById('inhalt');
+    content.innerHTML = '';
 
+    for (let i = 0; i < title.length; i++) {
+        let currentTitle = title[i];
+        let currentDescription = description[i];
+        let currentAssigned = assigned[i];
+        let currentDueDate = dueDate[i];
+        let currentCategory = category[i];
+        let currentSubTasks = subtasks[i];
 
-    function render() {
-        let content = document.getElementById('inhalt');
-        content.innerHTML = '';
+        let currentPriorityContent = priorityContentArray[i] || '';
 
-        for (let i = 0; i < title.length; i++) {
-            let currentTitle = title[i];
-            let currentDescription = description[i];
-            let currentAssigned = assigned[i];
-            let currentDueDate = dueDate[i];
-            let currentCategory = category[i];
-            let currentSubTasks = subtasks[i];
-            let currentPriorityContent = priorityContentArray[i]; // Retrieve priorityContent from array
+        let tempDiv = document.createElement('div');
+        tempDiv.innerHTML = currentPriorityContent;
 
-            // Create a temporary div to handle the currentPriorityContent HTML
-            let tempDiv = document.createElement('div');
-            tempDiv.innerHTML = currentPriorityContent;
+        let svgElements = tempDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
+        svgElements.forEach(svgElement => {
+            svgElement.classList.remove('imgPrio-active');
+        });
 
-            // Find the SVG element within the currentPriorityContent
-            let svgElement = tempDiv.querySelector('svg');
-            if (svgElement) {
-                svgElement.classList.remove('imgPrio-active'); // Remove imgPrio-active class if present
-            }
+        // Create a cloned content div and process its contents
+        let clonedContentDiv = document.createElement('div');
+        clonedContentDiv.appendChild(tempDiv.cloneNode(true));
 
-            // Clone the modified content to prevent changes to the original
-            let clonedContent = tempDiv.cloneNode(true);
+        // Remove imgPrio-active class from SVG elements in the cloned content
+        let clonedSvgElements = clonedContentDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
+        clonedSvgElements.forEach(svgElement => {
+            svgElement.classList.remove('imgPrio-active');
+        });
 
-            // Create the noteElement and set its innerHTML with the cloned content
-            let noteElement = document.createElement('div');
-            noteElement.classList.add('cardA');
-            noteElement.innerHTML = `
-                <p class="taskTitle"><b>${currentTitle}</b></p>
-                <p class="description">${currentDescription}</p>
-                <div class="taskDueDate">
-                    <p class="TitleDueDate">Due Date:</p>
-                    <div class="date">${currentDueDate}</div>
-                </div>
-                <div class="prio">
-                    <p class="titelPrio">Priority:</p>
-                    <div class="selectedPriorityContent">${clonedContent.innerHTML}</div> <!-- Set the cloned content -->
-                </div>
-                <div class="assigned">
-                    <div class="assignedSecond">assigned to:</div>
-                    <div class="assigns">rrrr</div>
-                  
-                </div>
+        let noteElement = document.createElement('div');
+        noteElement.classList.add('cardA');
+        noteElement.innerHTML = `
+            <p class="taskTitle"><b>${currentTitle}</b></p>
+            <p class="description">${currentDescription}</p>
+            <div class="taskDueDate">
+                <p class="TitleDueDate">Due Date:</p>
+                <div class="date">${currentDueDate}</div>
+            </div>
+            <div class="prio">
+                <p class="titelPrio">Priority:</p>
+                <div class="selectedPriorityContent">${clonedContentDiv.innerHTML}</div>
+            </div>
+            <div class="assigned">
+                <div class="assignedSecond">assigned to:</div>
+                <div class="assigns">rrrr</div>
+            </div>
+            <div class="category">
+                <p >${currentCategory}</p>
+            </div>
+            <p class="subTasks">${currentSubTasks}</p>
+        `;
 
-                <div class="category">
-                <p >${currentCategory}</p> 
-                </div>
-                
-                
-                <p class="subTasks">${currentSubTasks}</p>
-            `;
-            content.appendChild(noteElement);
-        }
-        save();
+        content.appendChild(noteElement);
     }
-
-
-function save() {
-    localStorage.setItem('title', JSON.stringify(title));
-    localStorage.setItem('description', JSON.stringify(description));
-    localStorage.setItem('dueDate', JSON.stringify(dueDate));
-    localStorage.setItem('priorityContentArray', JSON.stringify(priorityContentArray)); // Save the array to localStorage
-}
-
-function add() {
-    let x = document.getElementById('title').value;
-    document.getElementById('title').value = '';
-    title.unshift(x);
-
-    let y = document.getElementById('description').value;
-    document.getElementById('description').value = '';
-    description.unshift(y);
-
-    let d = document.getElementById('dueDate').value;
-    document.getElementById('dueDate').value = '';
-    dueDate.unshift(d);
-
-    let selectedPriority = document.querySelector('.priorityUrgent-active, .priorityMedium-active, .priorityLow-active');
-    let priorityContent = selectedPriority ? selectedPriority.innerHTML : '';
-
-    priorityContentArray.unshift(priorityContent); // Store the priorityContent in the array
-
-    localStorage.setItem('selectedPriorityContent', priorityContent);
-
     save();
-    render();
 }
 
-
-function load() {
-    let titleAsText = localStorage.getItem('title');
-    let descriptionAsText = localStorage.getItem('description');
-    let dueDateAsText = localStorage.getItem('dueDate');
-    let priorityContentArrayText = localStorage.getItem('priorityContentArray'); // Retrieve the priorityContent array from localStorage
-
-    if (titleAsText && descriptionAsText && dueDateAsText && priorityContentArrayText) {
-        title = JSON.parse(titleAsText);
-        description = JSON.parse(descriptionAsText);
-        dueDate = JSON.parse(dueDateAsText);
-        priorityContentArray = JSON.parse(priorityContentArrayText); // Parse the priorityContent array
+    function save() {
+        localStorage.setItem('title', JSON.stringify(title));
+        localStorage.setItem('description', JSON.stringify(description));
+        localStorage.setItem('dueDate', JSON.stringify(dueDate));
+        localStorage.setItem('priorityContentArray', JSON.stringify(priorityContentArray)); // Save the array to localStorage
     }
-}
+    
 
-
-function changeColour(divID) {
-    const selected = document.getElementById(divID);
-    const urgent = document.getElementById('priorityUrgent');
-    const medium = document.getElementById('priorityMedium');
-    const low = document.getElementById('priorityLow');
-
-    let priorities = [urgent, medium, low];
-
-    for (let i = 0; i < priorities.length; i++) {
-        let prio = priorities[i];
-
-        if (prio !== selected) {
-            prio.classList.remove(`${prio.id}-active`);
-            let img = document.querySelector(`.img-${prio.id}`);
-            img.classList.remove('imgPrio-active');
-        }    
+    
+    function add() {
+        let x = document.getElementById('title').value;
+        document.getElementById('title').value = '';
+        title.unshift(x);
+    
+        let y = document.getElementById('description').value;
+        document.getElementById('description').value = '';
+        description.unshift(y);
+    
+        let d = document.getElementById('dueDate').value;
+        document.getElementById('dueDate').value = '';
+        dueDate.unshift(d);
+    
+        let selectedPriority = document.querySelector('.priorityUrgent-active, .priorityMedium-active, .priorityLow-active');
+        let priorityContent = selectedPriority ? selectedPriority.innerHTML : '';
+    
+        priorityContentArray.unshift(priorityContent); // Store the priorityContent in the array
+    
+        localStorage.setItem('selectedPriorityContent', priorityContent);
+    
+        save();
+        render();
     }
-
-    selected.classList.toggle(`${divID}-active`);
-    let selectedImg = document.querySelector(`.img-${divID}`);
-    selectedImg.classList.toggle('imgPrio-active');
-
-}
+    
+    
+    function load() {
+        let titleAsText = localStorage.getItem('title');
+        let descriptionAsText = localStorage.getItem('description');
+        let dueDateAsText = localStorage.getItem('dueDate');
+        let priorityContentArrayText = localStorage.getItem('priorityContentArray'); // Retrieve the priorityContent array from localStorage
+    
+        if (titleAsText && descriptionAsText && dueDateAsText && priorityContentArrayText) {
+            title = JSON.parse(titleAsText);
+            description = JSON.parse(descriptionAsText);
+            dueDate = JSON.parse(dueDateAsText);
+            priorityContentArray = JSON.parse(priorityContentArrayText); // Parse the priorityContent array
+        }
+    }
+    
+    function changeColour(divID) {
+        const selected = document.getElementById(divID);
+        if (!selected) return; // Exit function if element with given ID is not found
+    
+        const urgent = document.getElementById('priorityUrgent');
+        const medium = document.getElementById('priorityMedium');
+        const low = document.getElementById('priorityLow');
+    
+        let priorities = [urgent, medium, low];
+    
+        for (let i = 0; i < priorities.length; i++) {
+            let prio = priorities[i];
+    
+            if (prio && prio !== selected) {
+                prio.classList.remove(`${prio.id}-active`);
+                let imgPaths = document.querySelectorAll(`.img-${prio.id}`);
+                imgPaths.forEach(path => {
+                    path.classList.remove('imgPrio-active');
+                });
+            }
+        }
+    
+        selected.classList.toggle(`${divID}-active`);
+        let selectedImgPaths = document.querySelectorAll(`.img-${divID}`);
+        selectedImgPaths.forEach(path => {
+            path.classList.toggle('imgPrio-active');
+        });
+    }
+    
