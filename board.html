@@ -4,13 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join-Board</title>
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/sidebar.css">
+    <link rel="stylesheet" href="./styles/board.css">
+
+    
+    <script src="./js/board.js"></script>
+    <script src="./js/include.js"></script>
+
 </head>
 <body onload="boardInit()">
     <div w3-include-html="./assets/templates/sidebar.html"></div>
     <div w3-include-html="./assets/templates/header.html"></div>
 
 <div class="tasksToDo" id = "tasks">
-    <div class ="cardA"></div>
+    <div class="searchBar">
+        <div class="headlineBoard"></div>
+        <div class="searchBox">
+            <div class="searchinput"></div>
+            <div class="searchbuton"></div>
+        </div>
+    </div>
+    <div class="taskAria">
+        <section>
+            <div class="statusheadline">
+                <span class="fontSize20"><b>To do</b></span>
+                <img onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('toDo'), slide('addTaskPopupPositionFront', 'addTaskPop')"
+                    src="img/Property 1=Default.svg" alt="Not found">
+            </div>
+
+            <div id="toDo" class="drag-area show-scrollbar" ondrop="moveTo('toDo')"
+                ondragleave="removeHighlight('toDo')" ondragover="allowDrop(event); highlight('toDo')">
+            </div>
+        </section>
+        <section></section>
+        <section></section>
+        <section></section>
+    </div>
 
 </div>
 
