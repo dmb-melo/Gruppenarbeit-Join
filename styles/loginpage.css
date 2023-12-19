@@ -99,7 +99,7 @@ body {
   left: 82px;
 }
 
-.sign-up-container {
+.sign-up-button-container {
   display: flex;
   align-items: center;
   position: absolute;
@@ -126,7 +126,7 @@ body {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-#content-user-validation {
+#contentUserValidation {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -272,3 +272,35 @@ body {
   font-weight: 700;
   color: rgba(41, 171, 226, 1);
 }
+
+.sign-up-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 197px;
+  width: 598px;
+  height: 630px;
+  border-radius: 30px;
+  gap: 32px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+}
+
+.arrow-back-sign-up-container {
+  height: 32px;
+  position: absolute;
+  top: 72px;
+  left: 32px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.arrow-back-sign-up-container:hover {
+  background-color: rgba(12, 46, 98, 0.12);
+  transform: scale(1.1);
+}
+
+
+

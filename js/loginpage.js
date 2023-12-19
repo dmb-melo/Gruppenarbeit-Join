@@ -20,6 +20,7 @@ function doNotClose(event) {
  */
 function initLoading() {
   startAnimation();
+  renderLogInContent();
 }
 
 function startAnimation() {
@@ -100,4 +101,77 @@ function setRememberMe() {
     rememberMeIsSet = false;
     document.getElementById("rememberMe").src = "./assets/img/propertydefault.svg";
   }
+}
+
+function renderLogInContent() {
+  document.getElementById("contentUserValidation").innerHTML = generateLogInContent();
+}
+
+function renderSignUpContent() {
+  document.getElementById("contentUserValidation").innerHTML = generateSignUpContent();
+}
+
+function generateLogInContent() {
+  return /*html*/ `<div class="log-in-container">
+  <div class="headline-log-in-container">
+    <h1 class="headline-log-in">Log in</h1>
+    <div class="bottom-line"></div>
+  </div>
+  <form onsubmit="setLogin()" class="input-log-in" action="">
+    <div class="input-field-container">
+      <input placeholder="Email" type="email" id="emailInput" name="email" required class="input-field" required/>
+      <img src="./assets/img/mail_add_contact.png" alt="mail" />
+    </div>
+    <div class="input-field-container">
+    <input oninput="passwordInputLogIn()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required/>
+    <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
+  </div>
+  <div class="remember-me-container">
+    <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault">
+    <p>Remember me</p>
+  </div>
+  <div class="submit-login-container">
+    <button class="sign-up-log-in-button">Log in</button>
+    <a href="./summary.html" class="guest-log-in-button">Guest Log in</a>
+  </div>
+  </form>
+</div>`;
+}
+
+function generateSignUpContent() {
+  return /*html*/ `<div class="sign-up-container">
+  <div class="arrow-back-sign-up-container">
+    <img onclick="renderLogInContent()" class="arrow-back-sign-up" src="./assets/img/arrow-left-line.svg" alt="arrowback" />
+  </div>
+  <div class="headline-log-in-container">
+    <h1 class="headline-log-in">Sign up</h1>
+    <div class="bottom-line"></div>
+  </div>
+  <form onsubmit="setLogin()" class="input-log-in" action="">
+    <div class="input-field-container">
+      <input placeholder="Name" type="text" id="nameInput" name="name" required class="input-field" required />
+      <img src="./assets/img/person_add_contact.png" alt="mail" />
+    </div>
+    <div class="input-field-container">
+      <input placeholder="Email" type="email" id="emailInput" name="email" required class="input-field" required />
+      <img src="./assets/img/mail_add_contact.png" alt="mail" />
+    </div>
+    <div class="input-field-container">
+      <input oninput="passwordInputLogIn()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required />
+      <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
+    </div>
+    <div class="input-field-container">
+      <input oninput="passwordInputLogIn()" class="input-field" placeholder="Confirm Password" type="password" id="passwordInput" name="confirmpassword" required />
+      <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
+    </div>
+    <div class="remember-me-container">
+      <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault" />
+      <p>I accept the<a class="loginpage-data-protection-link">Privacy Policy</a></p>
+    </div>
+    <div class="submit-login-container">
+      <button class="sign-up-log-in-button">Log in</button>
+      <a href="./summary.html" class="guest-log-in-button">Guest Log in</a>
+    </div>
+  </form>
+</div>`;
 }
