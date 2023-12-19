@@ -11,6 +11,7 @@
 body {
   background-color: rgb(246, 247, 248);
   font-family: "Inter", sans-serif;
+  overflow: hidden;
 }
 
 .animationJoinLogo {
@@ -70,8 +71,8 @@ body {
   100% {
     height: 121px;
     width: 100px;
-    left: 0;
-    top: 10px;
+    top: 80px;
+    left: 77px;
     transform: translateY(0);
     background: #f6f7f800;
   }
@@ -79,7 +80,7 @@ body {
 
 .join-logo.animated {
   animation: logoAnimation 625ms forwards;
-  animation-delay: 2s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 
@@ -90,9 +91,12 @@ body {
 .logo-sign-up-container {
   display: flex;
   justify-content: space-between;
+}
+
+.jlogo {
   position: absolute;
-  top: 80px;
-  left: 77px;
+  top: 85px;
+  left: 82px;
 }
 
 .sign-up-container {
@@ -104,18 +108,20 @@ body {
   gap: 35px;
 }
 
-.sign-up-button {
+.sign-up-log-in-button {
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 15px;
   padding-bottom: 15px;
   border-radius: 8px;
+  border: none;
   background-color: rgba(42, 54, 71, 1);
   color: rgba(255, 255, 255, 1);
   cursor: pointer;
+  font-size: 21px;
 }
 
-.sign-up-button:hover {
+.sign-up-log-in-button:hover {
   background-color: rgba(41, 171, 226, 1);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -133,6 +139,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: absolute;
+  top: 265.5px;
   width: 652px;
   height: 493px;
   border-radius: 30px;
@@ -189,7 +197,6 @@ body {
   border: none;
 }
 
-
 .input-field::placeholder {
   display: flex;
   justify-content: space-between;
@@ -207,6 +214,61 @@ body {
   width: 422px;
 }
 
+.remember-me-icon {
+  cursor: pointer;
+  margin: 0;
+}
 
+.remember-me-icon:hover {
+  transform: scale(1.05);
+}
 
+.guest-log-in-button {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(42, 54, 71, 1);
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(42, 54, 71, 1);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 21px;
+}
 
+.guest-log-in-button:hover {
+  border: 1px solid rgba(41, 171, 226, 1);
+  color: rgba(41, 171, 226, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.submit-login-container {
+  display: flex;
+  gap: 35px;
+}
+
+.loginpage-data-protection-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 35px;
+  gap: 8px;
+  width: 100%;
+}
+
+.loginpage-data-protection-link {
+  padding: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(168, 168, 168, 1);
+  cursor: pointer;
+}
+
+.loginpage-data-protection-link:hover {
+  padding: 5px;
+  font-weight: 700;
+  color: rgba(41, 171, 226, 1);
+}

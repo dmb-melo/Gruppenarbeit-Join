@@ -19,7 +19,7 @@
     </div>
     <div class="sign-up-container">
       <p>Not a Join user?</p>
-      <p class="sign-up-button">Sign up</p>
+      <p class="sign-up-log-in-button">Sign up</p>
     </div>
     <div id="content-user-validation">
       <div class="log-in-container">
@@ -27,7 +27,7 @@
           <h1 class="headline-log-in">Log in</h1>
           <div class="bottom-line"></div>
         </div>
-        <form class="input-log-in" action="">
+        <form onsubmit="setLogin()" class="input-log-in" action="">
           <div class="input-field-container">
             <input placeholder="Email" type="email" id="emailInput" name="email" required class="input-field" required/>
             <img class="img-login-email" src="./assets/img/mail_add_contact.png" alt="mail" />
@@ -37,11 +37,19 @@
           <img class="img-login-email" onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="mail" />
         </div>
         <div class="remember-me-container">
-          <img onclick="rememberMe()"src="./assets/img/propertydefault.svg" alt="propertydefault">
+          <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault">
           <p>Remember me</p>
+        </div>
+        <div class="submit-login-container">
+          <button class="sign-up-log-in-button">Log in</button>
+          <a href="./summary.html" class="guest-log-in-button">Guest Log in</a>
         </div>
         </form>
       </div>
+    </div>
+    <div class="loginpage-data-protection-container">
+      <a class="loginpage-data-protection-link">Privacy Policy</a>
+      <a class="loginpage-data-protection-link">Legal notice</a>
     </div>
   </body>
 </html>
