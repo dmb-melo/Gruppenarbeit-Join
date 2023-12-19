@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,42 +9,106 @@
     <link rel="stylesheet" href="./styles/sidebar.css">
     <link rel="stylesheet" href="./styles/board.css">
 
-    
+
     <script src="./js/board.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/include.js"></script>
 
 </head>
+
 <body onload="boardInit()">
     <div w3-include-html="./assets/templates/sidebar.html"></div>
     <div w3-include-html="./assets/templates/header.html"></div>
 
-<div class="tasksToDo" id = "tasks">
-    <div class="searchBar">
-        <div class="headlineBoard"></div>
-        <div class="searchBox">
-            <div class="searchinput"></div>
-            <div class="searchbuton"></div>
+    <div class="tasksToDo" id="tasks">
+        <div class="searchBar">
+            <div class="searchbarIn">
+                <div class="headlineBoard">
+                    <h1>Board</h1>
+                </div>
+                <div class="searchBox">
+                    <div class="searchinput">
+                        <div class="src">
+                            <input type="text" name="" id="">
+                            <span><img src="./assets/img/board-search.png" alt=""></span>
+                        </div>
+                    </div>
+                    <div class="addButton"></div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="taskAria">
-        <section>
-            <div class="statusheadline">
-                <span class=""><b>To do</b></span>
-                <img onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('toDo'), slide('addTaskPopupPositionFront', 'addTaskPop')"
-                    src="img/Property 1=Default.svg" alt="Not found">
-            </div>
+        <div class="taskAria">
+            <!-- todo -->
+            <section class="taskBoardTtle">
 
-            <div id="toDo" class="drag-area show-scrollbar" ondrop="moveTo('toDo')"
-                ondragleave="removeHighlight('toDo')" ondragover="allowDrop(event); highlight('toDo')">
-            </div>
-        </section>
-        <section></section>
-        <section></section>
-        <section></section>
-    </div>
+                <div class="todoHeadline" id="TodoHeadline">
+                    <h2>To-Do</h2>
+                    <a href="#"></a>
+                </div>
+                <!-- tskBoard -->
+                <div class="todo" id="todo">
+                    <div>
+                        <div>
+                          <div>Technical Task</div>
+                        </div>
+                        <span id="" class="">
+                          <a href="#">Inprogress</a>
+                          <a href="#">Feedback</a>
+                          <a href="#">Done</a>
+                        </span>
+                        <div>
+                          <h1>title</h1>
+                          <p>text</p>
+                        </div>
+                        <div class="progress-section" id="">
+                          <div id="progress">
+                            <div id="" class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                          </div>
+                          <div>0/2 Subtasks</div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="w-100 d-flex justify-content-space-btw align-items-center">
+                            <div class="profileBadges" id=""></div>
+                            <div class="prioIcon" id="">
+                      <img src="./assets/img/prio-baja.png">
+                    </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                
+            </section>
+            <!-- in Progress -->
+            <section class="taskBoardTtle">
+                <div class="inProgressHeadline" id="inProgressHeadline">
+                    <h2>In Progress</h2>
+                    <a href="#"></a>
+                </div>
+                <!-- tskBoard -->
+                <div class="inProgress" id="inProgress"></div>
+            </section>
+            <!-- Await Feedback -->
+            <section class="taskBoardTtle">
 
-</div>
+                <div class="awaitFeedbackHeadline" id="awaitFeedbackHeadline">
+                    <h2>Await FeedBack</h2>
+                    <a href="#"></a>
+                </div>
+                <!-- tskBoard -->
+                <div class="awaitFreedback" id="awaitFreedback"></div>
+            </section>
+            <!-- done -->
+            <section class="taskBoardTtle">
+                <div class="doneHeadline" id="doneHeadline">
+                    <h2>Done</h2>
+                    <a href="#"></a>
+                </div>
+                <!-- tskBoard -->
+                <div class="done" id="done"></div>
+            </section>
+        </div>
+
+    </div>
 
 </body>
 
