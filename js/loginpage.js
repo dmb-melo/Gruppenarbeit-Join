@@ -1,29 +1,6 @@
-/**
- * This function opens and closes the submenu and the closeSubmenu() function must be added to the body
- * @function
- * @name showSubmenu
- *
- * @type {boolean}
- * @description submenuIsOpen specifies whether the submenu is open or closed. With the value false, we define the submenu as closed
- */
-
 let submenuIsOpen = false;
-
-function showSubmenu() {
-  if (!submenuIsOpen) {
-    document.getElementById("submenu").classList.add("show-submenu");
-    submenuIsOpen = true;
-  } else {
-    closeSubmenu();
-  }
-}
-
-function closeSubmenu() {
-  if (submenuIsOpen === true) {
-    document.getElementById("submenu").classList.remove("show-submenu");
-    submenuIsOpen = false;
-  }
-}
+let passwordIsVisible = false;
+let rememberMeIsSet = false;
 
 /**
  *This function prevents the submenu from being closed if the submenu is clicked on
@@ -44,6 +21,7 @@ function doNotClose(event) {
 function initLoading() {
   startAnimation();
 }
+
 function startAnimation() {
   document.querySelector(".animationJoinLogo").classList.add("animated");
   document.querySelector(".animationJoinLogo").classList.remove("dNone");
@@ -65,7 +43,7 @@ function startAnimation() {
  * @function
  * @name passwordInputLogIn
  */
-let passwordIsVisible = false;
+
 function passwordInputLogIn() {
   let inputValuePassword = document.getElementById("passwordInput").value;
   if (inputValuePassword) {
@@ -102,5 +80,24 @@ function passwordVisible() {
       document.getElementById("passwordImg").src = "./assets/img/visibility_off.svg";
       passwordIsVisible = false;
     }
+  }
+}
+
+/**
+ * The function changes the SVG based on the state of the field
+ * @function
+ * @name setRememberMe
+ * 
+ * @type {boolean}
+ * @description The global variable rememberMeIsSet defines whether the checkmark is set or not
+ */
+
+function setRememberMe() {
+  if (!rememberMeIsSet) {
+    rememberMeIsSet = true;
+    document.getElementById("rememberMe").src = "./assets/img/propertychecked.svg";
+  } else {
+    rememberMeIsSet = false;
+    document.getElementById("rememberMe").src = "./assets/img/propertydefault.svg";
   }
 }
