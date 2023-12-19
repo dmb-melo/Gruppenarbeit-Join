@@ -15,6 +15,7 @@ add();
 
 async function addTaskInit(){
     await includeHTML();
+    renderTakContent();
 }
 
 let selectedPriorityContent = '';
