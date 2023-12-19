@@ -1,13 +1,77 @@
-.cardA{
-height: 225px;
-display: flex;
-width: 252px;
-padding: 16px;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border-radius: 24px;
-background: var(--white, #FFF);
-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+.tasksToDo {
+    width: calc(100% - 232px);
+    height: calc(100vh - 96px);
+    width: calc(100% - 232px);
+    height: calc(100vh - 96px);
+    margin-left: 232px;
+    margin-top: 96px;
+}
+
+.searchBar {
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchbarIn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-left: 64px;
+    margin-right: 82px;
+    margin-top: 79.5px;
+    margin-bottom: 48px;
+}
+
+/* tasBoard */
+.taskAria {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 64px;
+    height: 648px;
+    padding: 0px 64px;
+    align-items: flex-start;
+    gap: 26px;
+    flex-shrink: 0;
+
+}
+
+.taskBoardTtle {
+    width: 244px;
+}
+.todoHeadline{
+    margin-bottom: 15.5px;
+}
+.todoHeadline {
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+
+
+
+
+
+
+.cardA {
+    height: 225px;
+    display: flex;
+    width: 252px;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 24px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
 }
