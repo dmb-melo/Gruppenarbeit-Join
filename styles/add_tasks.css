@@ -6,26 +6,27 @@
 .textContainer_addTask{
     width: 278px;
     height: 73px;
-    margin-top: 206px;
+    margin-top: 155px;
     margin-left: 328px;
     /* gap:1px; */
 
 }
-.text_addTask{/*was ist mir dem Layout höhe und BReite?*/
-    font-family: 'Inter';
+.text_addTask{
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 61px;
     color: #000000;
     line-height: 73.2px;
+    
 }
 
 .group66_addTask{
     width: 976.25px;
     height: 424px;
     display: flex;
-    /* margin-top: 327px; */
     margin-left: 328px;
     justify-content: space-between;
+    margin-top: 35px;
 }
 
 /* input left */
@@ -45,7 +46,7 @@
 
 .title{  
     height: 24px;
-    font-family: 'Inter';
+    font-family: 'Inter' , sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
@@ -73,7 +74,7 @@
 .text_enterTitle{
     width: 398px;
     height: 24px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
@@ -103,6 +104,7 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
     display: flex;
     flex-direction: column;
     height: 168px;   
+   
     /* (112px - 96px (height title_v1) soll hier noch die Diffezenz zum oberen div berechnet werden?*/
 }
 
@@ -110,10 +112,28 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
     height: 24px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
+    font-size: 20px;
     line-height: 24px;
  
     
 }
+
+
+
+.selectedPriorityContentDiv{
+
+    display: flex;
+padding: 4px 18px;
+
+align-items: center;
+margin-left: 10px;
+gap: 10px;
+width: 139px;
+height: 32px;
+
+}
+
+
 
 .frame207{    
     width: 440px;
@@ -130,7 +150,7 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
     flex: 1;
     display:flex;
     box-sizing: border-box;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     width: 440px;
     
 }
@@ -152,7 +172,7 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
 .text_enterDescription{
     /* position: absolute; */
     display: flex;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     background-color: white;
     padding: 18px 16px; 
     border: 1px solid #D1D1D1;
@@ -170,7 +190,7 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
 .descriptionFieldRequired{
     width: 438px;
     height: 12px;
-    font-family: 'Poppins'; 
+    font-family: 'Poppins', sans-serif;; 
     font-weight: 400;
     font-size: 12px;
     line-height: 14.4px;
@@ -188,7 +208,7 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
 
 .asignedTo{
     width: 112px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px; 
@@ -212,7 +232,7 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
 
 .text_assignedTo{
     color: var(--black, #000);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -244,7 +264,7 @@ display: block; /* Show the hover image when the container is being hovered */
 
 span{
     color: #FF8190;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -284,7 +304,7 @@ span{
 }
 
 .text_DueDate{
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -317,7 +337,7 @@ span{
     justify-content: space-between;
     width: 404px;
     height: 24px;
-    font-family:'inter' ;
+    font-family:'inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -342,7 +362,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .dueDateFieldRequired{
     width: 119px;
     height: 12px;
-    font-family: 'Poppins'; 
+    font-family: 'Poppins', sans-serif; 
     font-weight: 400;
     font-size: 12px;
     line-height: 14.4px;
@@ -357,7 +377,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .textPrio{
     width: 37px;
     height: 24px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -393,7 +413,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .textUrgent{
     width: 65px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -431,7 +451,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .textMedium{
     width: 84px;
     height: 24px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -462,7 +482,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .textLow{
     width: 40px;
     height: 24px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -483,7 +503,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .textCategory{
     color: var(--Version-2-main-color, #2A3647);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -491,27 +511,59 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .categoryFrame74{
     display: flex;
-    width: 406px; /*440px-2(16px padding)*/
     padding: 12px 16px;
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: var(--white, #FFF);
+    color: var(--black, #000);
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;
+    border-style: none;
+    width: 100%;  
 }
 
 .categoryFrame74:hover{
     border: 1px solid var(--Style, #bdbcbc);
 }
 
-.textSelectCategory{
-    color: var(--black, #000);
-    font-family: 'Inter';
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
+
+    .categories{
+ 
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+    }                 
+                                        
+
+.disabledSelected{
+    display: none;
 }
 
+
+/* Warum functioniert das HOVERN hier nicht? */
+
+.custom-select{      
+    border: 1px solid var(--Style, #D1D1D1);               
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Apply the background image to the select element */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 25 24' fill='none'%3E%3Cmask id='mask0_116471_1860' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.144531' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_116471_1860)'%3E%3Cpath d='M11.4445 14.3L8.84451 11.7C8.52784 11.3833 8.45701 11.0208 8.63201 10.6125C8.80701 10.2042 9.11951 10 9.56951 10H14.7195C15.1695 10 15.482 10.2042 15.657 10.6125C15.832 11.0208 15.7612 11.3833 15.4445 11.7L12.8445 14.3C12.7445 14.4 12.6362 14.475 12.5195 14.525C12.4028 14.575 12.2778 14.6 12.1445 14.6C12.0112 14.6 11.8862 14.575 11.7695 14.525C11.6528 14.475 11.5445 14.4 11.4445 14.3Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right center;   
+  }   
+
+
+
+.custom-select:hover{      
+  background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 24 25' fill='none'%3E%3Cg id='Property 1=Variant2'%3E%3Crect y='0.96582' width='24' height='24' rx='12' fill='%23EEEEEE'/%3E%3Cmask id='mask0_75597_14127' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='25'%3E%3Crect id='Bounding box' y='0.96582' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75597_14127)'%3E%3Cpath id='arrow_drop_down' d='M11.3005 15.2658L8.70046 12.6658C8.3838 12.3492 8.31296 11.9867 8.48796 11.5783C8.66296 11.17 8.97546 10.9658 9.42546 10.9658H14.5755C15.0255 10.9658 15.338 11.17 15.513 11.5783C15.688 11.9867 15.6171 12.3492 15.3005 12.6658L12.7005 15.2658C12.6005 15.3658 12.4921 15.4408 12.3755 15.4908C12.2588 15.5408 12.1338 15.5658 12.0005 15.5658C11.8671 15.5658 11.7421 15.5408 11.6255 15.4908C11.5088 15.4408 11.4005 15.3658 11.3005 15.2658Z' fill='%232A3647'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}                                                               
 
 .subtasks{
     height: 76px;
@@ -519,14 +571,99 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 440px;
     flex-direction: column;
     align-items: flex-start;
+    gap: 8px;    
+}
+
+
+.subtasksContents{
+display: flex;
+height: 32px;
+padding: 6px 16px;
+align-items: center;
+gap: 16px;
+}
+
+
+
+.titleSubtasks{
+width: 100%;
+
+color: var(--Version-2-main-color, #2A3647);
+
+font-family: 'Inter', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; /* 24px */
+}
+
+
+.subtasksContents {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* Adjust margin between checkboxes */
+   
+}
+
+/* Style the custom checkbox */
+.checkbox-custom {
+    display: inline-block;
+    width: 25px; /* Width of the SVG */
+    height: 25px; /* Height of the SVG */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"%3E%3Crect x="4.68213" y="4.39673" width="16" height="16" rx="3" stroke="%232A3647" stroke-width="2"%3E%3C/rect%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-size: contain; /* Adjust to cover, contain, or other values based on your need */
+}
+
+
+.checkbox-custom:hover {
+    background-color: #7AE229;
+}
+/* Style the custom checkbox for checked state */
+.checkbox-input:checked + .checkbox-custom {
+    /* display: inline-block; */
+    width: 25px; /* Width of the SVG */
+    height: 25px; /* Height of the SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19' fill='none'%3E%3Cpath d='M17.6821 8.39673V14.3967C17.6821 16.0536 16.339 17.3967 14.6821 17.3967H4.68213C3.02527 17.3967 1.68213 16.0536 1.68213 14.3967V4.39673C1.68213 2.73987 3.02527 1.39673 4.68213 1.39673H12.6821' stroke='%232A3647' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5.68213 9.39673L9.68213 13.3967L17.6821 1.89673' stroke='%232A3647' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain; /* Adjust to cover, contain, or other values based on your need */
+}
+
+.subtasksContents {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* Adjust margin between checkboxes */
+}
+
+/* Hide the default checkbox */
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkbox-label{
+    display: flex;
+    align-items: center;
     gap: 8px;
+
+}
+
+.subTasksCard{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-self: stretch;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
 }
 
 .textSubtasks{
     width: 88px;
     height: 24px;
     color: var(--Version-2-main-color, #2A3647);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -546,11 +683,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .textAddSubtasks{
     width: 170px;
     height: 24px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
     color: var(--Style, #D1D1D1);
+    border-style: none;
+    outline: none;
 }
 
 .imgSubtasks{
@@ -610,7 +749,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: space-between;
     width: 976.25px;
     height: 60px;    
-    margin-top: 200px;
+    margin-top: 160px;
     /* margin-top: 297.02px; */
     margin-left: 328px;
 }
@@ -618,7 +757,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .comment{
     width: 170px;
     height: 27px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -654,7 +793,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 50px;
     height: 24px;
     color: var(--Version-2-main-color, #2A3647);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -710,7 +849,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 24px;
     color: #FFF;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 21px;
     font-weight: 700;
     line-height: 24px;
@@ -741,7 +880,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .taskTitle{       
     align-self: stretch;
     color: var(--black, #000);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 61px;
     font-weight: 700;
     line-height: 73.2px;
@@ -749,7 +888,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .description{
     color: var(--black, #000);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px; /* 24px */
@@ -758,26 +897,33 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .taskDueDate{
     display: flex;
-    align-items: flex-start;
     gap: 25px;
     align-self: stretch;
 }
 
 .TitleDueDate{
     color: var(--Version-2-main-color, #2A3647);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
-  
- 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 }
 .date{
     color: var(--black, #000);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px; 
+    width: 139px;
+    height: 32px;
+    align-items: center;
+    display: flex;
+    padding: 4px 18px;
 }
 
 .prio{
@@ -785,7 +931,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-items: center;
     gap: 35px;
     align-self: stretch;
- 
+    color: var(--black, #000);
+   
 }
 
 .selectedPriorityContent{
@@ -796,13 +943,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 32px;  
 }
 
-.titelPrio{
-    color: var(--Version-2-main-color, #2A3647);
-    font-family: 'Inter';
+.titlePrio{
+  
+   
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
     width: 73px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    
 }
 
 .priorityUrgent-active {
@@ -823,7 +974,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100%;
     gap:25px;
     color: var(--Version-2-main-color, #2A3647);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 120%; /* 24px */
@@ -832,7 +983,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .assignedSecond{
     color: var(--Version-2-main-color, #2A3647);
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 120%; /* 24px */
@@ -849,3 +1000,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     gap: 4px;
     align-self: stretch; 
 }
+
+
+.allSubtasks{
+    display: flex;
+    height: 200px;
+    width: 100px;
+   background-color: #FF8190;
+   
+}
+
+
