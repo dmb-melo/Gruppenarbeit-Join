@@ -43,9 +43,8 @@ function startAnimation() {
  * @description The global variable `passwordIsVisible` defines whether the password is visible or not
  *
  * @function
- * @name passwordInputLogIn
+ * @name passwordInputVisible
  */
-
 function passwordInputVisible() {
   let inputValuePassword = document.getElementById("passwordInput").value;
   if (inputValuePassword) {
@@ -59,21 +58,54 @@ function passwordInputVisible() {
   }
 }
 
-
+/**
+ * Updates the image next to the confirmation password input field based on the field's content.
+ *
+ * When the confirmation password input field is empty, the image is set to a lock symbol.
+ * If the field is not empty, the image is changed to a visibility symbol (eye icon).
+ * Additionally, logs the current value of the password field to the console.
+ *
+ * The value of the confirmation password input field is stored in the variable `confirmPasswordInput`.
+ *
+ * @type {boolean}
+ * @description The global variable `confirmPasswordIsVisible` defines whether the password is visible or not
+ *
+ * @function
+ * @name confirmPasswordInputVisible
+ */
 function confirmPasswordInputVisible() {
   let inputValuePassword = document.getElementById("confirmPasswordInput").value;
   if (inputValuePassword) {
-    if (!passwordIsVisible) {
+    validatePassword();
+    if (!confirmPasswordIsVisible) {
       document.getElementById("confirmPasswordImg").src = "./assets/img/visibility_off.svg";
     } else {
       document.getElementById("confirmPasswordImg").src = "./assets/img/visibility.svg";
     }
   } else {
     document.getElementById("confirmPasswordImg").src = "./assets/img/lock.svg";
+    document.getElementById("inputFieldConfirmPassword").style = '';
+    document.getElementById("textThePasswordNotMatch").innerHTML = '';
   }
 }
 
-
+/**
+ *If the passwords entered do not match, the confirmation password field is surrounded by a red border and a warning text is displayed.
+ * @function
+ * @name validatePassword
+ *
+ */
+function validatePassword() {
+  let inputValuePassword = document.getElementById("passwordInput").value;
+  let confirmInputValuePassword = document.getElementById("confirmPasswordInput").value;
+  if (inputValuePassword != confirmInputValuePassword) {
+    document.getElementById("inputFieldConfirmPassword").style = `border: 1px solid rgb(255,128,143) !important;`;
+    document.getElementById("textThePasswordNotMatch").innerHTML = `Ups! your password don't match`;
+  } else {
+    document.getElementById("inputFieldConfirmPassword").style = '';
+    document.getElementById("textThePasswordNotMatch").innerHTML = '';
+  }
+}
 
 /**
  *Makes the entered value in the password input field visible and changes the SVG, furthermore the type of the input field is changed
@@ -101,6 +133,16 @@ function passwordVisible() {
   }
 }
 
+/**
+ *Makes the entered value in the password input field visible and changes the SVG, furthermore the type of the input field is changed
+ * @function
+ * @name confirmPasswordVisible
+ *
+ * The value of the confirmation password input field is stored in the variable `inputValuePassword `.
+ *
+ * @type {boolean}
+ * @description The global variable `passwordIsVisible` defines whether the password is visible or not
+ */
 function confirmPasswordVisible() {
   let x = document.getElementById("confirmPasswordInput");
   let inputValuePassword = document.getElementById("confirmPasswordInput").value;
@@ -121,7 +163,7 @@ function confirmPasswordVisible() {
  * The function changes the SVG based on the state of the field
  * @function
  * @name setRememberMe
- * 
+ *
  * @type {boolean}
  * @description The global variable rememberMeIsSet defines whether the checkmark is set or not
  */
@@ -205,10 +247,11 @@ function generateSignUpContent() {
       <input oninput="passwordInputVisible()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required />
       <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
     </div>
-    <div class="input-field-container">
+    <div id="inputFieldConfirmPassword" class="input-field-container">
       <input oninput="confirmPasswordInputVisible()" class="input-field" placeholder="Confirm Password" type="password" id="confirmPasswordInput" name="confirmpassword" required />
       <img onclick="confirmPasswordVisible()" id="confirmPasswordImg" src="./assets/img/lock.svg" alt="lock" />
     </div>
+    <p id="textThePasswordNotMatch"></p>
     <div class="accept-privacy-policy-container">
       <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault" />
       <p>I accept the<a href="#" class="sign-up-data-protection-link">Privacy Policy</a></p>

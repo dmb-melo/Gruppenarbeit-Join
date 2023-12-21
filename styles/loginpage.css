@@ -351,10 +351,21 @@ body {
 
 .sign-up-data-protection-link:hover {
   text-decoration: underline;
-  .remember-me-icon {
-    transform: scale(1.05);
-  }
 }
+
+#textThePasswordNotMatch{
+  position: absolute;
+  top: 440px;
+  left: 70px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 129, 144, 1);
+}
+
+
+
+
 
 
 
