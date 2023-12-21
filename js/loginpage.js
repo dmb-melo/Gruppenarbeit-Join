@@ -1,5 +1,6 @@
 let submenuIsOpen = false;
 let passwordIsVisible = false;
+let confirmPasswordIsVisible = false;
 let rememberMeIsSet = false;
 
 /**
@@ -45,7 +46,7 @@ function startAnimation() {
  * @name passwordInputLogIn
  */
 
-function passwordInputLogIn() {
+function passwordInputVisible() {
   let inputValuePassword = document.getElementById("passwordInput").value;
   if (inputValuePassword) {
     if (!passwordIsVisible) {
@@ -57,6 +58,22 @@ function passwordInputLogIn() {
     document.getElementById("passwordImg").src = "./assets/img/lock.svg";
   }
 }
+
+
+function confirmPasswordInputVisible() {
+  let inputValuePassword = document.getElementById("confirmPasswordInput").value;
+  if (inputValuePassword) {
+    if (!passwordIsVisible) {
+      document.getElementById("confirmPasswordImg").src = "./assets/img/visibility_off.svg";
+    } else {
+      document.getElementById("confirmPasswordImg").src = "./assets/img/visibility.svg";
+    }
+  } else {
+    document.getElementById("confirmPasswordImg").src = "./assets/img/lock.svg";
+  }
+}
+
+
 
 /**
  *Makes the entered value in the password input field visible and changes the SVG, furthermore the type of the input field is changed
@@ -84,6 +101,22 @@ function passwordVisible() {
   }
 }
 
+function confirmPasswordVisible() {
+  let x = document.getElementById("confirmPasswordInput");
+  let inputValuePassword = document.getElementById("confirmPasswordInput").value;
+  if (inputValuePassword) {
+    if (x.type === "password") {
+      x.type = "text";
+      document.getElementById("confirmPasswordImg").src = "./assets/img/visibility.svg";
+      confirmPasswordIsVisible = true;
+    } else {
+      x.type = "password";
+      document.getElementById("confirmPasswordImg").src = "./assets/img/visibility_off.svg";
+      confirmPasswordIsVisible = false;
+    }
+  }
+}
+
 /**
  * The function changes the SVG based on the state of the field
  * @function
@@ -103,12 +136,24 @@ function setRememberMe() {
   }
 }
 
+/**
+ * Renders the login page
+ * @function
+ * @name renderLogInContent
+ * */
 function renderLogInContent() {
   document.getElementById("contentUserValidation").innerHTML = generateLogInContent();
+  document.getElementById("signUpButtonHeadline").classList.remove("d-none");
 }
 
+/**
+ * Renders the Sign Up page
+ * @function
+ * @name renderSignUpContent
+ * */
 function renderSignUpContent() {
   document.getElementById("contentUserValidation").innerHTML = generateSignUpContent();
+  document.getElementById("signUpButtonHeadline").classList.add("d-none");
 }
 
 function generateLogInContent() {
@@ -123,16 +168,16 @@ function generateLogInContent() {
       <img src="./assets/img/mail_add_contact.png" alt="mail" />
     </div>
     <div class="input-field-container">
-    <input oninput="passwordInputLogIn()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required/>
+    <input oninput="passwordInputVisible()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required/>
     <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
   </div>
   <div class="remember-me-container">
     <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault">
     <p>Remember me</p>
   </div>
-  <div class="submit-login-container">
-    <button class="sign-up-log-in-button">Log in</button>
-    <a href="./summary.html" class="guest-log-in-button">Guest Log in</a>
+  <div class="submit-log-in-container">
+    <button class="sign-up-log-in-button width-log-in-button ">Log in</button>
+    <a href="./summary.html" class="guest-log-in-button width-guest-log-in-button">Guest Log in</a>
   </div>
   </form>
 </div>`;
@@ -157,20 +202,19 @@ function generateSignUpContent() {
       <img src="./assets/img/mail_add_contact.png" alt="mail" />
     </div>
     <div class="input-field-container">
-      <input oninput="passwordInputLogIn()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required />
+      <input oninput="passwordInputVisible()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required />
       <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
     </div>
     <div class="input-field-container">
-      <input oninput="passwordInputLogIn()" class="input-field" placeholder="Confirm Password" type="password" id="passwordInput" name="confirmpassword" required />
-      <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
+      <input oninput="confirmPasswordInputVisible()" class="input-field" placeholder="Confirm Password" type="password" id="confirmPasswordInput" name="confirmpassword" required />
+      <img onclick="confirmPasswordVisible()" id="confirmPasswordImg" src="./assets/img/lock.svg" alt="lock" />
     </div>
-    <div class="remember-me-container">
+    <div class="accept-privacy-policy-container">
       <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault" />
-      <p>I accept the<a class="loginpage-data-protection-link">Privacy Policy</a></p>
+      <p>I accept the<a href="#" class="sign-up-data-protection-link">Privacy Policy</a></p>
     </div>
-    <div class="submit-login-container">
-      <button class="sign-up-log-in-button">Log in</button>
-      <a href="./summary.html" class="guest-log-in-button">Guest Log in</a>
+    <div class="submit-sign-up-container">
+      <button class="sign-up-log-in-button">Sign up</button>
     </div>
   </form>
 </div>`;
