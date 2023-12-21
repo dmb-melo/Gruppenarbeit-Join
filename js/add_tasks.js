@@ -9,7 +9,6 @@ let priorityContentArray = [];
 
 
 
-
 load();
 add();
 
@@ -31,7 +30,6 @@ function render() {
     for (let i = 0; i < title.length; i++) {
         let currentTitle = title[i];
         let currentDescription = description[i];
-        let currentAssigned = assigned[i];
         let currentDueDate = dueDate[i];
         let currentCategory = category[i];
         let currentSubTasks = subtasks[i];
@@ -46,11 +44,9 @@ function render() {
             svgElement.classList.remove('imgPrio-active');
         });
 
-        // Create a cloned content div and process its contents
         let clonedContentDiv = document.createElement('div');
         clonedContentDiv.appendChild(tempDiv.cloneNode(true));
 
-        // Remove imgPrio-active class from SVG elements in the cloned content
         let clonedSvgElements = clonedContentDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
         clonedSvgElements.forEach(svgElement => {
             svgElement.classList.remove('imgPrio-active');
@@ -81,7 +77,6 @@ function render() {
 
         content.appendChild(noteElement);
     }
-    save();
 }
 
     function save() {
@@ -115,21 +110,6 @@ function render() {
     
         save();
         render();
-    }
-    
-    
-    function load() {
-        let titleAsText = localStorage.getItem('title');
-        let descriptionAsText = localStorage.getItem('description');
-        let dueDateAsText = localStorage.getItem('dueDate');
-        let priorityContentArrayText = localStorage.getItem('priorityContentArray'); // Retrieve the priorityContent array from localStorage
-    
-        if (titleAsText && descriptionAsText && dueDateAsText && priorityContentArrayText) {
-            title = JSON.parse(titleAsText);
-            description = JSON.parse(descriptionAsText);
-            dueDate = JSON.parse(dueDateAsText);
-            priorityContentArray = JSON.parse(priorityContentArrayText); // Parse the priorityContent array
-        }
     }
     
     function changeColour(divID) {

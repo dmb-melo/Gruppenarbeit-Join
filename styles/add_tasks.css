@@ -108,9 +108,8 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
 
 .description{ 
     height: 24px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 20px;
     line-height: 24px;
  
     
