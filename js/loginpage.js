@@ -1,29 +1,6 @@
-/**
- * This function opens and closes the submenu and the closeSubmenu() function must be added to the body
- * @function
- * @name showSubmenu
- *
- * @type {boolean}
- * @description submenuIsOpen specifies whether the submenu is open or closed. With the value false, we define the submenu as closed
- */
-
 let submenuIsOpen = false;
-
-function showSubmenu() {
-  if (!submenuIsOpen) {
-    document.getElementById("submenu").classList.add("show-submenu");
-    submenuIsOpen = true;
-  } else {
-    closeSubmenu();
-  }
-}
-
-function closeSubmenu() {
-  if (submenuIsOpen === true) {
-    document.getElementById("submenu").classList.remove("show-submenu");
-    submenuIsOpen = false;
-  }
-}
+let passwordIsVisible = false;
+let rememberMeIsSet = false;
 
 /**
  *This function prevents the submenu from being closed if the submenu is clicked on
@@ -43,7 +20,9 @@ function doNotClose(event) {
  */
 function initLoading() {
   startAnimation();
+  renderLogInContent();
 }
+
 function startAnimation() {
   document.querySelector(".animationJoinLogo").classList.add("animated");
   document.querySelector(".animationJoinLogo").classList.remove("dNone");
@@ -65,7 +44,7 @@ function startAnimation() {
  * @function
  * @name passwordInputLogIn
  */
-let passwordIsVisible = false;
+
 function passwordInputLogIn() {
   let inputValuePassword = document.getElementById("passwordInput").value;
   if (inputValuePassword) {
@@ -103,4 +82,96 @@ function passwordVisible() {
       passwordIsVisible = false;
     }
   }
+}
+
+/**
+ * The function changes the SVG based on the state of the field
+ * @function
+ * @name setRememberMe
+ * 
+ * @type {boolean}
+ * @description The global variable rememberMeIsSet defines whether the checkmark is set or not
+ */
+
+function setRememberMe() {
+  if (!rememberMeIsSet) {
+    rememberMeIsSet = true;
+    document.getElementById("rememberMe").src = "./assets/img/propertychecked.svg";
+  } else {
+    rememberMeIsSet = false;
+    document.getElementById("rememberMe").src = "./assets/img/propertydefault.svg";
+  }
+}
+
+function renderLogInContent() {
+  document.getElementById("contentUserValidation").innerHTML = generateLogInContent();
+}
+
+function renderSignUpContent() {
+  document.getElementById("contentUserValidation").innerHTML = generateSignUpContent();
+}
+
+function generateLogInContent() {
+  return /*html*/ `<div class="log-in-container">
+  <div class="headline-log-in-container">
+    <h1 class="headline-log-in">Log in</h1>
+    <div class="bottom-line"></div>
+  </div>
+  <form onsubmit="setLogin()" class="input-log-in" action="">
+    <div class="input-field-container">
+      <input placeholder="Email" type="email" id="emailInput" name="email" required class="input-field" required/>
+      <img src="./assets/img/mail_add_contact.png" alt="mail" />
+    </div>
+    <div class="input-field-container">
+    <input oninput="passwordInputLogIn()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required/>
+    <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
+  </div>
+  <div class="remember-me-container">
+    <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault">
+    <p>Remember me</p>
+  </div>
+  <div class="submit-login-container">
+    <button class="sign-up-log-in-button">Log in</button>
+    <a href="./summary.html" class="guest-log-in-button">Guest Log in</a>
+  </div>
+  </form>
+</div>`;
+}
+
+function generateSignUpContent() {
+  return /*html*/ `<div class="sign-up-container">
+  <div class="arrow-back-sign-up-container">
+    <img onclick="renderLogInContent()" class="arrow-back-sign-up" src="./assets/img/arrow-left-line.svg" alt="arrowback" />
+  </div>
+  <div class="headline-log-in-container">
+    <h1 class="headline-log-in">Sign up</h1>
+    <div class="bottom-line"></div>
+  </div>
+  <form onsubmit="setLogin()" class="input-log-in" action="">
+    <div class="input-field-container">
+      <input placeholder="Name" type="text" id="nameInput" name="name" required class="input-field" required />
+      <img src="./assets/img/person_add_contact.png" alt="mail" />
+    </div>
+    <div class="input-field-container">
+      <input placeholder="Email" type="email" id="emailInput" name="email" required class="input-field" required />
+      <img src="./assets/img/mail_add_contact.png" alt="mail" />
+    </div>
+    <div class="input-field-container">
+      <input oninput="passwordInputLogIn()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required />
+      <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
+    </div>
+    <div class="input-field-container">
+      <input oninput="passwordInputLogIn()" class="input-field" placeholder="Confirm Password" type="password" id="passwordInput" name="confirmpassword" required />
+      <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
+    </div>
+    <div class="remember-me-container">
+      <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault" />
+      <p>I accept the<a class="loginpage-data-protection-link">Privacy Policy</a></p>
+    </div>
+    <div class="submit-login-container">
+      <button class="sign-up-log-in-button">Log in</button>
+      <a href="./summary.html" class="guest-log-in-button">Guest Log in</a>
+    </div>
+  </form>
+</div>`;
 }

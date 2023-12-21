@@ -1,13 +1,93 @@
-.cardA{
-height: 225px;
-display: flex;
-width: 252px;
-padding: 16px;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border-radius: 24px;
-background: var(--white, #FFF);
-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+.tasksToDo {
+    width: calc(100% - 232px);
+    height: calc(100vh - 96px);
+    width: calc(100% - 232px);
+    height: calc(100vh - 96px);
+    margin-left: 232px;
+    margin-top: 96px;
+}
+
+.searchBar {
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchbarIn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-left: 64px;
+    margin-right: 82px;
+    margin-top: 79.5px;
+    margin-bottom: 48px;
+}
+
+/* tasBoard */
+.taskAria {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 64px;
+    height: 648px;
+    padding: 0px 64px;
+    align-items: flex-start;
+    gap: 26px;
+    flex-shrink: 0;
+
+}
+
+.taskBoardTtle {
+    max-width: 252px;
+    height: 648px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.headLineCss {
+    display: flex;
+    max-width: 252px;
+    justify-content: space-between;
+    margin-bottom: 7.5px;
+    display: flex;
+    max-width: 252px;
+    justify-content: space-between;
+    margin-bottom: 7.5px;
+    height: 40px;
+
+}
+
+.headLineCss a {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 2px solid var(--Version-2-main-color, #2A3647);
+}
+
+.cardA {
+    display: flex;
+    width: 252px;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid var(--Version-2-main-color, #2A3647);
+    border-radius: 24px;
+    background: var(--white, #FFF);
+    box-sizing: border-box;
+    /* shadoe backlog box */
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+
 }
