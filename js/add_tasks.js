@@ -82,9 +82,26 @@ function render() {
             allSubtasksDiv.innerHTML = '';
         }
 
+
+        
+
         let noteElement = document.createElement('div');
+
+      
+
+// Convert currentCategory to a class name without spaces
+let className = currentCategory.replace(/\s+/g, ''); // Removes spaces
         noteElement.classList.add('cardA');
         noteElement.innerHTML = `
+
+             <div class="categoryCard">
+                
+                    <p class="${className}">${currentCategory}</p>
+               
+               
+                <img src="./assets/img/Close.png" alt="">
+            </div>
+
             <p class="taskTitle"><b>${currentTitle}</b></p>
             <p class="description">${currentDescription}</p>
             <div class="taskDueDate">
@@ -99,9 +116,7 @@ function render() {
                 <div class="assignedSecond">assigned to:</div>
                 <div class="assigns">rrrr</div>
             </div>
-            <div class="category">
-                <p>${currentCategory}</p>
-            </div>
+            
            
             <!-- Displaying subtasks -->
 
@@ -148,8 +163,6 @@ function render() {
         allSubtasksDiv.appendChild(subtasksContainer);
         
     }
-
-    
         save();
     }
 
@@ -224,16 +237,18 @@ function render() {
         subtasks = []; // Reset subtasks array to empty
 
 
-        let taskCategory = document.getElementById('taskCategory').value;
-        category.unshift(taskCategory);
-    
+        clearTaskCategory();
         save();
         changeColour(selectedPriorityID);
         render();   
         clearTask();    
     }
 
-                           
+    function clearTaskCategory() {
+        document.getElementById('taskCategory').textContent = 'Select a task category';
+    }
+
+       
     
     function changeColour(divID) {
         const selected = document.getElementById(divID);
@@ -300,6 +315,8 @@ function render() {
         save(); // Save the updated subtasks array to localStorage
     }
 
+
+
     function deleteTask(event) {
         let noteElement = event.target.closest('.cardA');
         
@@ -350,15 +367,30 @@ function render() {
 
     }
 
-    function selectCategory() {
-        let selectElement = document.getElementById('taskCategory2');
-        let selectedIndex = selectElement.selectedIndex;
-        let selectedOption = selectElement.options[selectedIndex].value;
+                               
+    function selectCategory(clickedElement) {
+        let selectText = clickedElement.querySelector('p').getAttribute('value');
+        let taskCategory = document.getElementById("taskCategory");
     
-        if (selectedOption === 'Technical Task') {
-            category.unshift('Technical Task');
-        } else if (selectedOption === 'User Story') {
-            category.unshift('User Story');
+        if (selectText && selectText !== 'Select a task category') {
+            category.unshift(selectText);
+            save(); // Save the updated category array to localStorage
+            console.log('Category Array:', category); // Log the updated category array for testing
+            
+            // Update the text content of the taskCategory element
+            taskCategory.querySelector('p').textContent = selectText;
         }
     }
- 
+
+
+ function hide(){
+  
+    let list = document.getElementById("list");
+    let arrow = document.getElementById("arrow"); 
+   
+    list.classList.toggle("hide");
+    arrow.classList.toggle("rotate");   
+    arrow_drop_downHover.classList.toggle("rotate");
+   
+}
+
