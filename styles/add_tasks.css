@@ -300,9 +300,6 @@ span{
 }
 
 .dueDate{
-    
-    width: 440px;
-    height: 96px;
     display: flex;
     width: 440px;
     flex-direction: column;

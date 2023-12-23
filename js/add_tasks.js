@@ -16,6 +16,7 @@ let priorityContentArray = [];
 load();
 add();
 
+
 async function addTaskInit(){
     await includeHTML();
     renderTakContent();
@@ -28,7 +29,7 @@ window.onload = function() {
     load();
     selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
     render();
-
+  
 
     
     document.addEventListener('click', function(event) {
@@ -90,7 +91,7 @@ function render() {
       
 
 // Convert currentCategory to a class name without spaces
-let className = currentCategory.replace(/\s+/g, ''); // Removes spaces
+let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Removes spaces
         noteElement.classList.add('cardA');
         noteElement.innerHTML = `
 
@@ -164,6 +165,7 @@ let className = currentCategory.replace(/\s+/g, ''); // Removes spaces
         
     }
         save();
+    
     }
 
     function save() {
@@ -241,7 +243,9 @@ let className = currentCategory.replace(/\s+/g, ''); // Removes spaces
         save();
         changeColour(selectedPriorityID);
         render();   
-        clearTask();    
+        clearTask();   
+        taskSuccess(); 
+       
     }
 
     function clearTaskCategory() {
@@ -365,6 +369,8 @@ let className = currentCategory.replace(/\s+/g, ''); // Removes spaces
 
         document.getElementById('taskCategory').value = '';
 
+        clearTaskCategory();
+
     }
 
                                
@@ -394,3 +400,126 @@ let className = currentCategory.replace(/\s+/g, ''); // Removes spaces
    
 }
 
+
+
+//task_success
+
+function taskSuccess(){
+    const success = document. getElementById('task_succes');
+    success.classList.remove('d-none'); 
+    
+    setTimeout(function(){
+        document.getElementById('task_succes').classList.add('d-none')},1500); 
+}
+
+
+//required inputs
+
+function handleInput(inputElement) {
+    const elementId = inputElement.id;
+    if (elementId === 'title') {
+                                                               
+removeBorderColorAndHideIndicator('titleFieldRequired');
+} else if (elementId === 'description') {
+    removeBorderColorAndHideIndicator('descriptionFieldRequired');
+} else if (elementId === 'dueDate') {
+    removeBorderColorAndHideIndicator('dueDateFieldRequired');
+}
+
+}
+
+
+function removeBorderColorAndHideIndicator(fieldId) {
+    const fieldIndicator = document.getElementById(fieldId);
+
+    // Remove border color and hide the respective field indicator
+    const frameSelector = getFrameSelector(fieldId);
+    const frame = document.querySelector(frameSelector);
+
+    if (frame) {
+        frame.style.border = ''; // Remove border color
+    }
+
+    if (fieldIndicator) {
+        fieldIndicator.style.display = 'none'; // Hide the specified field indicator
+    }
+}
+
+function getFrameSelector(fieldId) {
+    switch (fieldId) {
+        case 'titleFieldRequired':
+            return '.title_frame14';
+        case 'descriptionFieldRequired':
+            return '.frame17';
+        case 'dueDateFieldRequired':
+            return '.dueDate_frame14';
+        default:
+            return '';
+    }
+}
+
+//hide the specific indicator
+function hideFieldIndicator(selector) {
+    const fieldIndicator = document.querySelector(selector);
+    if (fieldIndicator) {
+        fieldIndicator.style.display = 'none';
+    }
+}
+                                                                  
+
+function required(element) {
+    if (element.classList.contains('frame211')) {
+        changeBorderColorAndDisplayField('.dueDate_frame14', '#dueDateFieldRequired');
+        hideFieldIndicatorsExcept('#dueDateFieldRequired');
+    } else if (element.classList.contains('frame203')) {
+        changeBorderColorAndDisplayField('.title_frame14', '#titleFieldRequired');
+        hideFieldIndicatorsExcept('#titleFieldRequired');
+    } else if (element.classList.contains('frame207')) {
+        changeBorderColorAndDisplayField('.frame17', '#descriptionFieldRequired');
+        hideFieldIndicatorsExcept('#descriptionFieldRequired');
+    }
+}
+                                                            
+
+function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector) {
+    const frame = document.querySelector(frameSelector);
+    const fieldIndicator = document.querySelector(fieldIndicatorSelector);
+
+    if (frame) {
+        frame.style.border = '1px solid #FF8190'; // Change border color
+    }
+
+    if (fieldIndicator) {
+        fieldIndicator.style.display = 'block'; // Show the specified field indicator
+    }
+}
+
+  // Hide all field indicators except the specified one
+  function hideFieldIndicatorsExcept(exceptSelector) {
+    const allIndicators = document.querySelectorAll('#titleFieldRequired, #descriptionFieldRequired, #dueDateFieldRequired');
+    allIndicators.forEach(indicator => {
+        if (indicator !== document.querySelector(exceptSelector)) {
+            indicator.style.display = 'none';
+        }
+    });
+}
+
+
+                                                                
+
+
+                                                               
+
+
+                                                              
+                                                                
+
+                                                            
+                                                               
+                                                              
+       
+
+
+                                                               
+
+//NEU
