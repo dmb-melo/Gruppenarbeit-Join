@@ -35,49 +35,65 @@ body{
 
 /* input left */
 
-.inputLeft_addTask{
+.inputLeft_addTask{    
+    display: flex;
     width: 440px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
     height: 376px;
 }
 
+
+
+
 .title_v1{
     display: flex;
+    height: 96px; /*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
+    width: 440px;
     flex-direction: column;
-    height: 96px;
-    gap: 8px;
-    align-items: flex-start;
+    align-items: flex-start; 
 }
 
 .title{  
-    height: 24px;
-    font-family: 'Inter' , sans-serif;
+    height: 24px; /*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
+    font-family: "Inter" , sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
+    color: var(--Version-2-main-color, #2A3647);
 }
 
 .frame203{
     display: flex;
     flex-direction: column;
-    height: 64px;
+    height: 64px;/*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
     border: 1px;
     gap: 4px;
+    width: 440px; /*wird wahrscheinlich nicht benötigt - figma ist ohne width*/
 }
 
-.frame14{ /*some styles do not work*/
-
+.title_frame14{
+    
     display: flex;
     padding: 12px 21px;
     align-items: center;
     gap: 10px;
     align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    background: #FFF; 
     margin-top: 8px;
-    height: 48px;
 }
 
+
+
+
+
 .text_enterTitle{
-    width: 398px;
-    height: 24px;
+    width: 398px;/*wird wahrscheinlich nicht benötigt - figma ist ohne width*/
+    height: 24px;/*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -91,6 +107,7 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
 }
 
 .titleFieldRequired{
+    display: none;
     width: 119px;
     height: 12px;
     font-family: 'Poppins'; 
@@ -98,8 +115,7 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
     font-size: 12px;
     line-height: 14.4px;
     color: #FF8190;
-    /* border-color: #000000;
-    border-style: solid; */
+
 }
 
 .description_v1{ 
@@ -118,8 +134,7 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
- 
-    
+    color: var(--Version-2-main-color, #2A3647);    
 }
 
 
@@ -127,17 +142,15 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
 .selectedPriorityContentDiv{
 
     display: flex;
-padding: 4px 18px;
+    padding: 4px 18px;
 
-align-items: center;
-margin-left: 10px;
-gap: 10px;
-width: 139px;
-height: 32px;
+    align-items: center;
+    margin-left: 10px;
+    gap: 10px;
+    width: 139px;
+    height: 32px;
 
 }
-
-
 
 .frame207{    
     width: 440px;
@@ -156,10 +169,8 @@ height: 32px;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
     width: 440px;
-    
+    border-radius: 10px;
 }
-
-
 
 
 .recursor{
@@ -192,6 +203,7 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
 }
 
 .descriptionFieldRequired{
+    display: none;
     width: 438px;
     height: 12px;
     font-family: "Poppins", sans-serif;; 
@@ -216,6 +228,7 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
     font-size: 20px;
     font-weight: 400;
     line-height: 24px; 
+    color: var(--Version-2-main-color, #2A3647);    
   
 }
 
@@ -297,44 +310,50 @@ span{
     justify-content: center;
     align-items: flex-start;
     gap: 24px;
+    
+    height: 416px;
 }
 
 .dueDate{
     display: flex;
+    height: 96px; 
     width: 440px;
     flex-direction: column;
-    gap: 8px;
+    align-items: flex-start; 
 }
 
-.text_DueDate{
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
+.dueDate_frame14{
     
-}
-
-.frame211{
-    width: 100%;
-    height: 48px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 4px;
-    align-self: stretch;
-    margin-top: 8px;
-}
-
-.frame14{
-    display: flex;
-    padding: 12px 16px;
-    justify-content: space-between;
+    padding: 12px 21px;
     align-items: center;
+    gap: 10px;
     align-self: stretch;
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
-    background: #FFF;
+    background: #FFF; 
+    margin-top: 8px;
 }
+
+.text_DueDate{  
+    height: 24px; 
+    font-family: "Inter" , sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;    
+    color: var(--Version-2-main-color, #2A3647);    
+}
+
+.frame211{ 
+    display: flex;
+    flex-direction: column;
+    height: 64px;
+    border: 1px;
+    gap: 4px;
+    width: 440px;
+}
+
+/*  */
 
 .inputDate{
     display: flex;
@@ -364,6 +383,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .dueDateFieldRequired{
+    display: none;
     width: 119px;
     height: 12px;
     font-family: "Poppins", sans-serif; 
@@ -530,11 +550,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .textCategory{
-    color: var(--black, #000);
+    color: var(--Version-2-main-color, #2A3647);    
     font-family: "Inter", sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
+}
+
+.category{
+    margin-bottom: 8px;
 }
 
 .categoryFrame74{
@@ -553,6 +577,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     line-height: 24px;
     outline: none;   
     width: 410px;  
+    margin-top: 8px;
 }
 
 .categoryFrame74:hover{
@@ -623,7 +648,6 @@ gap: 16px;
 .titleSubtasks{
 width: 100%;
 color: var(--black, #000);
-
 font-family: "Inter", sans-serif;
 font-size: 20px;
 font-style: normal;
@@ -693,7 +717,7 @@ line-height: 120%; /* 24px */
 .textSubtasks{
     width: 88px;
     height: 24px;
-    color: var(--black, #000);
+    color: var(--Version-2-main-color, #2A3647);    
     font-family: "Inter", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -780,8 +804,7 @@ line-height: 120%; /* 24px */
     justify-content: space-between;
     width: 976.25px;
     height: 60px;    
-    margin-top: 160px;
-    /* margin-top: 297.02px; */
+    margin-top: 145px; 
     margin-left: 328px;
 }
 
@@ -917,14 +940,7 @@ line-height: 120%; /* 24px */
     line-height: 73.2px;
 }
 
-.description{
-    color: var(--black, #000);
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px; /* 24px */
-    align-self: stretch;
-}
+
 
 .taskDueDate{
     display: flex;
@@ -976,7 +992,7 @@ line-height: 120%; /* 24px */
 
 .titlePrio{
   
-   
+    color: var(--Version-2-main-color, #2A3647);    
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -1087,4 +1103,65 @@ margin-top: 14px;
 
 .rotate{
     transform: rotate(180deg);
+}
+
+/*success add task*/
+
+.task_succes{    
+    z-index: 100;   
+    position: absolute;
+    z-index: 100;
+    width: 50%;   
+    margin-left: 20%;
+    margin-top: 10%;
+
+   
+}
+
+.task_succes_container{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color:#2A3647 ;
+    border-radius: 18px;
+    padding: 1px 20px;
+    opacity: 0;
+    transform: translateY(600%);
+    animation: slideln 0.35s ease-in-out forwards;
+    width: 270px;
+    height: 60px;
+    color: white;
+   
+}
+
+@keyframes slideln{
+    from{
+        opacity:0;
+        transform: translateY(600%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-100%);
+    }
+}
+
+.task_succes_message{
+    color: rgb(255, 255, 255);
+    font-size:24px;
+    text-align: center;
+}
+
+.task_success_icon_board{
+    width: 24px;
+    height: 24px;
+}
+
+.task_success_visibiity{
+    visibility: visible;
+}
+
+.d-none{
+    display: none;
 }
