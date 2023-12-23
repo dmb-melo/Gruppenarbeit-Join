@@ -101,9 +101,11 @@ function validatePassword() {
   if (inputValuePassword != confirmInputValuePassword) {
     document.getElementById("inputFieldConfirmPassword").style = `border: 1px solid rgb(255,128,143) !important;`;
     document.getElementById("textThePasswordNotMatch").innerHTML = `Ups! your password don't match`;
+    signUpButton.disabled = true;
   } else {
     document.getElementById("inputFieldConfirmPassword").style = '';
     document.getElementById("textThePasswordNotMatch").innerHTML = '';
+    signUpButton.disabled = false;
   }
 }
 
@@ -234,7 +236,7 @@ function generateSignUpContent() {
     <h1 class="headline-log-in">Sign up</h1>
     <div class="bottom-line"></div>
   </div>
-  <form onsubmit="setLogin()" class="input-log-in" action="">
+  <form onsubmit="register()" class="input-log-in" action="">
     <div class="input-field-container">
       <input placeholder="Name" type="text" id="nameInput" name="name" required class="input-field" required />
       <img src="./assets/img/person_add_contact.png" alt="mail" />
@@ -257,8 +259,9 @@ function generateSignUpContent() {
       <p>I accept the<a href="#" class="sign-up-data-protection-link">Privacy Policy</a></p>
     </div>
     <div class="submit-sign-up-container">
-      <button class="sign-up-log-in-button">Sign up</button>
+      <button id="signUpButton" class="sign-up-log-in-button">Sign up</button>
     </div>
   </form>
 </div>`;
 }
+
