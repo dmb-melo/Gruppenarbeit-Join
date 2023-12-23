@@ -32,17 +32,25 @@
     </div>
     <div class ="group66_addTask">
 
+
+        <div class="task_succes d-none" id="task_succes">
+            <div class="task_succes_container">
+                <span class="task_succes_message">Task added to board</span>
+                <img class="task_success_icon_board" src="./assets/img/Icons_board_white.png">
+            </div>
+        </div>
+
         <div class ="inputLeft_addTask">
 
             <div class="title_v1">
                 <div class="title">Title<span class="span">*</span>
-                    <div class="frame203">
-                        <div class="frame14">
-                            <input  type="text"  class="text_enterTitle" placeholder="Enter a Title" id="title">
+                    <div class="frame203" onclick="required(this)">
+                        <div class="title_frame14">
+                            <input  type="text"  class="text_enterTitle" placeholder="Enter a Title" id="title" required oninput="handleInput(this)">
+                           
                         </div> 
-                        <div class="titleFieldRequired">This field is required</div> 
-                    </div>
-                      
+                        <div class="titleFieldRequired" id="titleFieldRequired" onclick="required(this)">This field is required</div> 
+                    </div>                      
                        
                 </div>                         
             </div>
@@ -50,12 +58,13 @@
             <div class="description_v1">
                 <div class="description">Description</div> 
            
-                <div class="frame207">
+                <div class="frame207" onclick="required(this)">
                   <div class="frame17">
-                    <textarea  class="text_enterDescription" type="text"  id="description" placeholder="Enter a Description"></textarea>
+                    <textarea  class="text_enterDescription" type="text"  id="description" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
+      
                     <img class ="recursor" src="./assets/img/Recurso 1 1.png">
                   </div>                       
-                  <div class="descriptionFieldRequired">This field is required</div> 
+                  <div class="descriptionFieldRequired" id="descriptionFieldRequired" onclick="required(this)">This field is required</div> 
                 </div>
             </div>
 
@@ -93,12 +102,15 @@
         <div class ="inputRight_addTask">
             <div class="dueDate">
                 <div class="text_DueDate">Due date<span class="span">*</span></div>
-                <div class="frame211">
-                    <div class="frame14">
-                        <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate"> <!--https://codepen.io/raindahl/pen/vzBXgV-->
-                 
-                    </div>
-                    <div class="dueDateFieldRequired">This field is required</div> 
+                <div class="frame211" onclick="required(this)">
+                   
+                        <div class="dueDate_frame14">
+                            <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" > 
+                            <!-- https://codepen.io/raindahl/pen/vzBXgV -->
+                            
+                        </div>
+                        <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
+                
                 </div>
             </div>
 
@@ -278,6 +290,13 @@
     </div>
 
     <div class="inhalt" id="inhalt"></div>
+
+    <!-- <div class="task_succes" id="task_succes">
+        <div class="task_succes_container">
+            <span class="task_succes_message">Task added to board</span>
+            <img class="task_success_icon_board" src="./assets/img/Icons_board.png">
+        </div>
+    </div> -->
     
 
 </body>
