@@ -351,6 +351,9 @@ body {
 
 .sign-up-data-protection-link:hover {
   text-decoration: underline;
+  .remember-me-icon {
+    transform: scale(1.05);
+  }
 }
 
 #textThePasswordNotMatch{
@@ -362,10 +365,5 @@ body {
   font-weight: 400;
   color: rgba(255, 129, 144, 1);
 }
-
-
-
-
-
 
 

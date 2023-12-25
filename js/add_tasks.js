@@ -16,7 +16,12 @@ let currentId = 0;
 load();
 add();
 
+<<<<<<< HEAD
 async function addTaskInit() {
+=======
+
+async function addTaskInit(){
+>>>>>>> 95e8578f1cf9eda3852360dc2b8787486ee0a782
     await includeHTML();
 }
 
@@ -27,7 +32,7 @@ window.onload = function () {
     load();
     selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
     render();
-
+  
 
 
     document.addEventListener('click', function (event) {
@@ -81,9 +86,26 @@ function render() {
             allSubtasksDiv.innerHTML = '';
         }
 
+
+        
+
         let noteElement = document.createElement('div');
+
+      
+
+// Convert currentCategory to a class name without spaces
+let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Removes spaces
         noteElement.classList.add('cardA');
         noteElement.innerHTML = `
+
+             <div class="categoryCard">
+                
+                    <p class="${className}">${currentCategory}</p>
+               
+               
+                <img src="./assets/img/Close.png" alt="">
+            </div>
+
             <p class="taskTitle"><b>${currentTitle}</b></p>
             <p class="description">${currentDescription}</p>
             <div class="taskDueDate">
@@ -98,9 +120,7 @@ function render() {
                 <div class="assignedSecond">assigned to:</div>
                 <div class="assigns">rrrr</div>
             </div>
-            <div class="category">
-                <p>${currentCategory}</p>
-            </div>
+            
            
             <!-- Displaying subtasks -->
 
@@ -145,7 +165,48 @@ function render() {
 
         // Append subtasks container to the designated div
         allSubtasksDiv.appendChild(subtasksContainer);
+<<<<<<< HEAD
 
+=======
+        
+    }
+        save();
+    
+    }
+
+    function save() {
+        localStorage.setItem('title', JSON.stringify(title));
+        localStorage.setItem('description', JSON.stringify(description));
+        localStorage.setItem('dueDate', JSON.stringify(dueDate));
+        localStorage.setItem('priorityContentArray', JSON.stringify(priorityContentArray)); 
+        localStorage.setItem('subtasks', JSON.stringify(subtasks));
+        localStorage.setItem('tasks', JSON.stringify(tasks)); // Store tasks array in localStorage
+        localStorage.setItem('category', JSON.stringify (category ));
+        localStorage.setItem('subT', JSON.stringify(subT));
+    }                                
+
+  
+    function load() {
+        let titleAsText = localStorage.getItem('title');
+        let descriptionAsText = localStorage.getItem('description');
+        let dueDateAsText = localStorage.getItem('dueDate');
+        let priorityContentArrayText = localStorage.getItem('priorityContentArray'); 
+        let subtaskAsText = localStorage.getItem('subtasks');
+        let tasksAsText = localStorage.getItem('tasks'); 
+        let categoryAsText = localStorage.getItem('category');
+        let subTAsText = localStorage.getItem('subT');
+    
+        if (titleAsText && descriptionAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
+            title = JSON.parse(titleAsText);
+            description = JSON.parse(descriptionAsText);
+            dueDate = JSON.parse(dueDateAsText);
+            priorityContentArray = JSON.parse(priorityContentArrayText); 
+            subtasks = JSON.parse(subtaskAsText);
+            tasks = JSON.parse(tasksAsText) || []; // Load tasks array or initialize as empty array
+            subT =JSON.parse(subTAsText) || [];
+            category =JSON.parse(categoryAsText) || [];
+        }
+>>>>>>> 95e8578f1cf9eda3852360dc2b8787486ee0a782
     }
 
 
@@ -223,6 +284,7 @@ function add() {
     subtasks = []; // Reset subtasks array to empty
 
 
+<<<<<<< HEAD
     let taskCategory = document.getElementById('taskCategory').value;
     category.unshift(taskCategory);
 
@@ -350,9 +412,19 @@ function deleteTask(event) {
         priorityContentArray.splice(index, 1);
         save();
         render();
+=======
+        clearTaskCategory();
+        save();
+        changeColour(selectedPriorityID);
+        render();   
+        clearTask();   
+        taskSuccess(); 
+       
+>>>>>>> 95e8578f1cf9eda3852360dc2b8787486ee0a782
     }
 }
 
+<<<<<<< HEAD
 
 function clearTask() {
 
@@ -392,3 +464,280 @@ function selectCategory() {
         category.unshift('User Story');
     }
 }
+=======
+    function clearTaskCategory() {
+        document.getElementById('taskCategory').textContent = 'Select a task category';
+    }
+
+       
+    
+    function changeColour(divID) {
+        const selected = document.getElementById(divID);
+        if (!selected) return; // Exit function if element with given ID is not found
+    
+        const urgent = document.getElementById('priorityUrgent');
+        const medium = document.getElementById('priorityMedium');
+        const low = document.getElementById('priorityLow');
+    
+        let priorities = [urgent, medium, low];
+    
+        for (let i = 0; i < priorities.length; i++) {
+            let prio = priorities[i];
+    
+            if (prio && prio !== selected) {
+                prio.classList.remove(`${prio.id}-active`);
+                let imgPaths = document.querySelectorAll(`.img-${prio.id}`);
+                imgPaths.forEach(path => {
+                    path.classList.remove('imgPrio-active');
+                });
+            }
+        }
+    
+        selected.classList.toggle(`${divID}-active`);
+        let selectedImgPaths = document.querySelectorAll(`.img-${divID}`);
+        selectedImgPaths.forEach(path => {
+            path.classList.toggle('imgPrio-active');
+        });
+    }
+
+
+    function removePrioActiveClass(divID) {
+        const prio = document.getElementById(divID);
+        if (prio) {
+            prio.classList.remove(`${divID}-active`);
+        }
+    }
+
+    function removeImgPrioActive(divID) {
+        const imgPaths = document.querySelectorAll(`.img-${divID}`);
+        imgPaths.forEach(path => {
+            path.classList.remove('imgPrio-active');
+        });
+    }
+    
+
+
+    function addSubtasks() {
+        let subtaskInput = document.getElementById('inputSubtasks').value;
+        document.getElementById('inputSubtasks').value = ''; // Set input value to empty after capturing subtask
+        subtasks.unshift(subtaskInput);
+       
+    
+        let allSubtasksDiv = document.getElementById('allSubtasks');
+    
+        if (subtasks.length === 0) {
+            allSubtasksDiv.innerHTML = ''; // Clear allSubtasksDiv if subtasks array is empty
+        } else {
+            let subtaskItem = document.createElement('li');
+            subtaskItem.classList.add('subtaskItem');
+            subtaskItem.innerText = subtasks[0]; // Display only the most recent subtask
+            allSubtasksDiv.appendChild(subtaskItem);
+        }
+        save(); // Save the updated subtasks array to localStorage
+    }
+
+
+
+    function deleteTask(event) {
+        let noteElement = event.target.closest('.cardA');
+        
+        if (noteElement) {
+            let parentElement = noteElement.parentElement;
+            let index = Array.from(parentElement.children).indexOf(noteElement);
+    
+            noteElement.remove();
+            title.splice(index, 1);
+            description.splice(index, 1);
+            assigned.splice(index, 1);
+            dueDate.splice(index, 1);
+            prio.splice(index, 1);
+            category.splice(index, 1);
+            subtasks.splice(index, 1);
+            subT.splice(index, 1);
+            priorityContentArray.splice(index, 1);    
+            save();
+            render();
+        }
+    }
+
+
+    function clearTask() {
+        
+        // Clear input values in render function
+        document.getElementById('title').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('dueDate').value = '';
+        document.getElementById('inputSubtasks').value = '';
+       
+    
+        let allSubtasksDiv = document.getElementById('allSubtasks');
+        allSubtasksDiv.innerHTML = '';
+       
+
+        removePrioActiveClass('priorityUrgent'); // Replace 'priorityUrgent' with the desired ID
+        removePrioActiveClass('priorityMedium'); // Replace 'priorityMedium' with the desired ID
+        removePrioActiveClass('priorityLow'); // Replace 'priorityLow' with the desired ID
+
+
+
+        removeImgPrioActive('priorityUrgent');
+        removeImgPrioActive('priorityMedium');
+        removeImgPrioActive('priorityLow');
+
+        document.getElementById('taskCategory').value = '';
+
+        clearTaskCategory();
+
+    }
+
+                               
+    function selectCategory(clickedElement) {
+        let selectText = clickedElement.querySelector('p').getAttribute('value');
+        let taskCategory = document.getElementById("taskCategory");
+    
+        if (selectText && selectText !== 'Select a task category') {
+            category.unshift(selectText);
+            save(); // Save the updated category array to localStorage
+            console.log('Category Array:', category); // Log the updated category array for testing
+            
+            // Update the text content of the taskCategory element
+            taskCategory.querySelector('p').textContent = selectText;
+        }
+    }
+
+
+ function hide(){
+  
+    let list = document.getElementById("list");
+    let arrow = document.getElementById("arrow"); 
+   
+    list.classList.toggle("hide");
+    arrow.classList.toggle("rotate");   
+    arrow_drop_downHover.classList.toggle("rotate");
+   
+}
+
+
+
+//task_success
+
+function taskSuccess(){
+    const success = document. getElementById('task_succes');
+    success.classList.remove('d-none'); 
+    
+    setTimeout(function(){
+        document.getElementById('task_succes').classList.add('d-none')},1500); 
+}
+
+
+//required inputs
+
+function handleInput(inputElement) {
+    const elementId = inputElement.id;
+    if (elementId === 'title') {
+                                                               
+removeBorderColorAndHideIndicator('titleFieldRequired');
+} else if (elementId === 'description') {
+    removeBorderColorAndHideIndicator('descriptionFieldRequired');
+} else if (elementId === 'dueDate') {
+    removeBorderColorAndHideIndicator('dueDateFieldRequired');
+}
+
+}
+
+
+function removeBorderColorAndHideIndicator(fieldId) {
+    const fieldIndicator = document.getElementById(fieldId);
+
+    // Remove border color and hide the respective field indicator
+    const frameSelector = getFrameSelector(fieldId);
+    const frame = document.querySelector(frameSelector);
+
+    if (frame) {
+        frame.style.border = ''; // Remove border color
+    }
+
+    if (fieldIndicator) {
+        fieldIndicator.style.display = 'none'; // Hide the specified field indicator
+    }
+}
+
+function getFrameSelector(fieldId) {
+    switch (fieldId) {
+        case 'titleFieldRequired':
+            return '.title_frame14';
+        case 'descriptionFieldRequired':
+            return '.frame17';
+        case 'dueDateFieldRequired':
+            return '.dueDate_frame14';
+        default:
+            return '';
+    }
+}
+
+//hide the specific indicator
+function hideFieldIndicator(selector) {
+    const fieldIndicator = document.querySelector(selector);
+    if (fieldIndicator) {
+        fieldIndicator.style.display = 'none';
+    }
+}
+                                                                  
+
+function required(element) {
+    if (element.classList.contains('frame211')) {
+        changeBorderColorAndDisplayField('.dueDate_frame14', '#dueDateFieldRequired');
+        hideFieldIndicatorsExcept('#dueDateFieldRequired');
+    } else if (element.classList.contains('frame203')) {
+        changeBorderColorAndDisplayField('.title_frame14', '#titleFieldRequired');
+        hideFieldIndicatorsExcept('#titleFieldRequired');
+    } else if (element.classList.contains('frame207')) {
+        changeBorderColorAndDisplayField('.frame17', '#descriptionFieldRequired');
+        hideFieldIndicatorsExcept('#descriptionFieldRequired');
+    }
+}
+                                                            
+
+function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector) {
+    const frame = document.querySelector(frameSelector);
+    const fieldIndicator = document.querySelector(fieldIndicatorSelector);
+
+    if (frame) {
+        frame.style.border = '1px solid #FF8190'; // Change border color
+    }
+
+    if (fieldIndicator) {
+        fieldIndicator.style.display = 'block'; // Show the specified field indicator
+    }
+}
+
+  // Hide all field indicators except the specified one
+  function hideFieldIndicatorsExcept(exceptSelector) {
+    const allIndicators = document.querySelectorAll('#titleFieldRequired, #descriptionFieldRequired, #dueDateFieldRequired');
+    allIndicators.forEach(indicator => {
+        if (indicator !== document.querySelector(exceptSelector)) {
+            indicator.style.display = 'none';
+        }
+    });
+}
+
+
+                                                                
+
+
+                                                               
+
+
+                                                              
+                                                                
+
+                                                            
+                                                               
+                                                              
+       
+
+
+                                                               
+
+//NEU
+>>>>>>> 95e8578f1cf9eda3852360dc2b8787486ee0a782
