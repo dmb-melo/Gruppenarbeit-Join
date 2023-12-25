@@ -16,7 +16,7 @@ let currentId = 0;
 load();
 add();
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 async function addTaskInit() {
 =======
 
@@ -165,9 +165,9 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
 
         // Append subtasks container to the designated div
         allSubtasksDiv.appendChild(subtasksContainer);
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
-=======
+// =======
         
     }
         save();
@@ -206,8 +206,8 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
             subT =JSON.parse(subTAsText) || [];
             category =JSON.parse(categoryAsText) || [];
         }
->>>>>>> 95e8578f1cf9eda3852360dc2b8787486ee0a782
-    }
+// >>>>>>> 95e8578f1cf9eda3852360dc2b8787486ee0a782
+
 
 
     save();
@@ -284,7 +284,7 @@ function add() {
     subtasks = []; // Reset subtasks array to empty
 
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
     let taskCategory = document.getElementById('taskCategory').value;
     category.unshift(taskCategory);
 
@@ -412,7 +412,7 @@ function deleteTask(event) {
         priorityContentArray.splice(index, 1);
         save();
         render();
-=======
+// =======
         clearTaskCategory();
         save();
         changeColour(selectedPriorityID);
@@ -420,11 +420,11 @@ function deleteTask(event) {
         clearTask();   
         taskSuccess(); 
        
->>>>>>> 95e8578f1cf9eda3852360dc2b8787486ee0a782
+// >>>>>>> 95e8578f1cf9eda3852360dc2b8787486ee0a782
     }
 }
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
 function clearTask() {
 
@@ -740,4 +740,4 @@ function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector)
                                                                
 
 //NEU
->>>>>>> 95e8578f1cf9eda3git PublicKeyCredential852360dc2b8787486ee0a782
+// >>>>>>> 95e8578f1cf9eda3git PublicKeyCredential852360dc2b8787486ee0a782
