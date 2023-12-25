@@ -1,6 +1,7 @@
-
+let users = [];
 const STORAGE_TOKEN = 'XULVXKXQ87YFSN0Q9PFZSMP577RV8CAJX896XQXQ';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
+
 
 
 /**
@@ -32,12 +33,6 @@ async function getItem(key) {
             return res.data.value;
         } throw `Could not find data with key "${key}".`;
     });
-}
-
-let users = [];
-
-async function init(){
-    loadUsers();
 }
 
 /**
@@ -74,6 +69,17 @@ async function register() {
     });
     await setItem('users', JSON.stringify(users));
     resetForm();
+    renderRegisteSuccessfully();
+}
+
+function renderRegisteSuccessfully() {
+    document.getElementById('registerSuccessfullyContent').innerHTML = generateRegisteSuccessfully();
+    renderLogInContent();
+    setTimeout(resetRegisteSuccessfully, 2000);
+}
+
+function resetRegisteSuccessfully() {
+    document.getElementById('registerSuccessfullyContent').innerHTML = '';
 }
 
 /**
@@ -82,10 +88,18 @@ async function register() {
  * @name resetForm
  * 
  * */
-function resetForm() { //entsperren den Button und leeren alle Inputfelder
-    email.value = '';
-    password.value = '';
+function resetForm() { 
+    nameInput.value = '';
+    emailInput.value = '';
     passwordInput.value = '';
     confirmPasswordInput.value = '';
     signUpButton.disabled = false;
 }
+
+function generateRegisteSuccessfully() {
+    return /*html*/ `
+      <div class="container-register-successfully">
+        <p class="msg-register-successfully">You Signed Up successfully</p>
+      </div>
+  `;
+  }

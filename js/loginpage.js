@@ -20,6 +20,7 @@ function doNotClose(event) {
  * @name startAnimation
  */
 function initLoading() {
+  loadUsers();
   startAnimation();
   renderLogInContent();
 }
@@ -48,6 +49,7 @@ function startAnimation() {
 function passwordInputVisible() {
   let inputValuePassword = document.getElementById("passwordInput").value;
   if (inputValuePassword) {
+    validatePassword();
     if (!passwordIsVisible) {
       document.getElementById("passwordImg").src = "./assets/img/visibility_off.svg";
     } else {
@@ -84,8 +86,8 @@ function confirmPasswordInputVisible() {
     }
   } else {
     document.getElementById("confirmPasswordImg").src = "./assets/img/lock.svg";
-    document.getElementById("inputFieldConfirmPassword").style = '';
-    document.getElementById("textThePasswordNotMatch").innerHTML = '';
+    document.getElementById("inputFieldConfirmPassword").style = "";
+    document.getElementById("textThePasswordNotMatch").innerHTML = "";
   }
 }
 
@@ -103,8 +105,8 @@ function validatePassword() {
     document.getElementById("textThePasswordNotMatch").innerHTML = `Ups! your password don't match`;
     signUpButton.disabled = true;
   } else {
-    document.getElementById("inputFieldConfirmPassword").style = '';
-    document.getElementById("textThePasswordNotMatch").innerHTML = '';
+    document.getElementById("inputFieldConfirmPassword").style = "";
+    document.getElementById("textThePasswordNotMatch").innerHTML = "";
     signUpButton.disabled = false;
   }
 }
@@ -173,10 +175,8 @@ function confirmPasswordVisible() {
 function setRememberMe() {
   if (!rememberMeIsSet) {
     rememberMeIsSet = true;
-    document.getElementById("rememberMe").src = "./assets/img/propertychecked.svg";
   } else {
     rememberMeIsSet = false;
-    document.getElementById("rememberMe").src = "./assets/img/propertydefault.svg";
   }
 }
 
@@ -206,7 +206,7 @@ function generateLogInContent() {
     <h1 class="headline-log-in">Log in</h1>
     <div class="bottom-line"></div>
   </div>
-  <form onsubmit="setLogin()" class="input-log-in" action="">
+  <form onsubmit="setLogin() return false" class="input-log-in" action="">
     <div class="input-field-container">
       <input placeholder="Email" type="email" id="emailInput" name="email" required class="input-field" required/>
       <img src="./assets/img/mail_add_contact.png" alt="mail" />
@@ -216,7 +216,7 @@ function generateLogInContent() {
     <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
   </div>
   <div class="remember-me-container">
-    <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault">
+    <input onclick="setRememberMe()" type="checkbox" id="rememberMe" class="accept-icon"/>
     <p>Remember me</p>
   </div>
   <div class="submit-log-in-container">
@@ -236,7 +236,7 @@ function generateSignUpContent() {
     <h1 class="headline-log-in">Sign up</h1>
     <div class="bottom-line"></div>
   </div>
-  <form onsubmit="register()" class="input-log-in" action="">
+  <form onsubmit="register(); return false" class="input-log-in">
     <div class="input-field-container">
       <input placeholder="Name" type="text" id="nameInput" name="name" required class="input-field" required />
       <img src="./assets/img/person_add_contact.png" alt="mail" />
@@ -255,7 +255,7 @@ function generateSignUpContent() {
     </div>
     <p id="textThePasswordNotMatch"></p>
     <div class="accept-privacy-policy-container">
-      <img onclick="setRememberMe()" id="rememberMe" class="remember-me-icon" src="./assets/img/propertydefault.svg" alt="propertydefault" />
+      <input required type="checkbox" id="rememberMe" class="accept-icon"/>
       <p>I accept the<a href="#" class="sign-up-data-protection-link">Privacy Policy</a></p>
     </div>
     <div class="submit-sign-up-container">
@@ -264,4 +264,3 @@ function generateSignUpContent() {
   </form>
 </div>`;
 }
-
