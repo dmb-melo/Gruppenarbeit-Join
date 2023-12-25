@@ -15,8 +15,8 @@ add();
 
 async function addTaskInit(){
     await includeHTML();
-    render();
 }
+
 let selectedPriorityContent = '';
 window.onload = function() {
    
@@ -48,10 +48,18 @@ function render() {
         let tempDiv = document.createElement('div');
         tempDiv.innerHTML = currentPriorityContent;
         tempDiv.classList.add('selectedPriorityContentDiv'); 
+        
+        
+        
+        
+        
         let svgElements = tempDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
         svgElements.forEach(svgElement => {
             svgElement.classList.remove('imgPrio-active');
         });
+
+
+
         // Create a cloned content div and process its contents
         let clonedContentDiv = document.createElement('div');
         clonedContentDiv.appendChild(tempDiv.cloneNode(true));
@@ -133,9 +141,7 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
                     <p class = "edit-task-title">Edit</p>
                 </div>
               
-            </div>
-           
-            
+            </div>            
         `;
         
     
@@ -151,7 +157,7 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
 
     }
         save();
-
+       
     }
 
     function save() {
@@ -198,7 +204,7 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
         let d = document.getElementById('dueDate').value;
         document.getElementById('dueDate').value = '';
         dueDate.unshift(d);
-    
+       
         let selectedPriority = document.querySelector('.priorityUrgent-active, .priorityMedium-active, .priorityLow-active');
         let priorityContent = selectedPriority ? selectedPriority.innerHTML : '';
         let selectedPriorityID = ''; // Initialize selectedPriorityID variable
@@ -217,20 +223,20 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
         subT.unshift(subtasks.slice()); // Store a copy of subtasks in subT
     
         localStorage.setItem('selectedPriorityContent', priorityContent);
-    
+
         subtasks = []; // Reset subtasks array to empty
-        clearTaskCategory();
+
+        clearTaskCategory();        
         save();
         changeColour(selectedPriorityID);
         render();   
         clearTask();    
-        clearTask();   
         taskSuccess(); 
-
+     
     }
 
     function clearTaskCategory() {
-        document.getElementById('taskCategory').textContent = 'Select a task category';
+        document.getElementById('categorySelect').textContent = 'Select a task category';
     }
        
     
@@ -343,16 +349,21 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
     function selectCategory(clickedElement) {
         let selectText = clickedElement.querySelector('p').getAttribute('value');
         let taskCategory = document.getElementById("taskCategory");
+      
     
-        if (selectText && selectText !== 'Select a task category') {
+        if (selectText !== 'Select a task category') {
             category.unshift(selectText);
-            save(); // Save the updated category array to localStorage
-            console.log('Category Array:', category); // Log the updated category array for testing
+            category.push(categorySelect);
+            save(); // Save the updated category array to localStorage      
             
             // Update the text content of the taskCategory element
             taskCategory.querySelector('p').textContent = selectText;
+           
         }
+        
     }
+
+
  function hide(){
   
     let list = document.getElementById("list");
