@@ -8,6 +8,8 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+
 .textContainer_addTask{
     width: 278px;
     height: 73px;
@@ -916,7 +918,7 @@ line-height: 120%; /* 24px */
 /* input right end*/
 
 
-
+/*CardA*/
 
 .cardA{
     margin-left: 500px;
@@ -940,7 +942,16 @@ line-height: 120%; /* 24px */
     line-height: 73.2px;
 }
 
-
+.task_description{
+    width: 100%;
+    height: 24px;
+    color: var(--black, #000);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: "Inter", sans-serif;
+}
 
 .taskDueDate{
     display: flex;
@@ -949,7 +960,7 @@ line-height: 120%; /* 24px */
 }
 
 .TitleDueDate{
-    color: var(--Version-2-main-color, #2A3647);
+    color: var(--black, #000);
     font-family: "Inter", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -979,14 +990,79 @@ line-height: 120%; /* 24px */
     gap: 35px;
     align-self: stretch;
     color: var(--black, #000);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+}
+/*delete and edit*/
+.deleteAndEdit{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 8px;
+    width:100%;
+ 
+    height: 24px;
    
 }
+
+.delete_task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 73px;
+    height: 24px;
+}
+
+.delete-task-img{
+    width: 24px;
+    height: 24px;
+}
+.delete-task-title{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+}
+
+.deleteAndEdit_vector{  
+    height: 24px;
+    width: 1px;
+    stroke: var(--Style, #D1D1D1);
+}
+
+.edit_task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 73px;
+    height: 24px;
+}
+
+.imgEdit_task{
+    width: 24px;
+    height: 24px;
+}
+
+.edit-task-title{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: "Inter", sans-serif;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2%;
+}
+
+/**/
+
+
 
 .selectedPriorityContent{
     display: flex;
     align-items: center;
     gap: 10px;
- 
     height: 32px;  
 }
 
