@@ -779,34 +779,60 @@ line-height: 120%; /* 24px */
     display: none; /* Hide the normal image when the container is being hovered */
 }
 
+
+.vectorAndImgCheck{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.imgCancelHover {
+    display: none;
+    position: relative;  
+}
+
+.imgCancelContainer:hover .imgCancel {
+    display: none;
+}
+
+.imgCancelContainer:hover .imgCancelHover {
+    display: block;
+}
+
 .subtasksImgCheck{
     width: 24px;
     height: 24px;
 }
+
 .subtasksCheck{
     width: 24px;
     height: 24px;
 }
 
-
-.subtaskCheckHover{
-    display: none; /* Hide the hover image by default */
+/* Hide the hover image by default */
+.subtaskCheckHover {
+    display: none;
 }
 
-.subtasksImgCheck:hover .subtaskCheckHover{
-    display: block;  /* Show the hover image when the container is being hovered */
+/* Show the hover image when hovering over the parent */
+.subtasksImgCheck:hover .subtaskCheckHover {
+    display: block;
 }
 
-.subtasksImgCheck:hover .subtaskCheck{
-    display: none; /* Hide the normal image when the container is being hovered */
+/* Hide the normal image when the container is being hovered */
+.subtasksImgCheck:hover .subtaskCheck {
+    display: none;
 }
+
+
 
 .addTasksFooter{
     display: flex;
     justify-content: space-between;
     width: 976.25px;
     height: 60px;    
-    margin-top: 145px; 
+    margin-top: 145px; /*55px*/
     margin-left: 328px;
 }
 
@@ -1114,13 +1140,42 @@ line-height: 120%; /* 24px */
 
 .assigns{
     background-color: #29ABE2;
-    width: 100%;
-    
+    width: 100%;    
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 4px;
     align-self: stretch; 
+}
+
+.subtaskItem{
+    display: flex;
+    width: 410px;
+    padding: 4px 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.iconsContainer{  
+    display: none;     
+    align-items: flex-start;
+    gap: 4px;
+}
+
+
+.subtaskItem:hover{
+background-color: #eeeeee;
+}
+
+.subtaskItem:hover .iconsContainer{
+display: flex;
+}
+
+
+.edit{
+    width: 24px;
+    height: 24px;  
 }
 
 
@@ -1132,7 +1187,7 @@ line-height: 120%; /* 24px */
     font-size: 16px;
     font-weight: 400;
     line-height: 120%;
-    margin-left: 24px;   
+    /* margin-left: 24px;    */
 }
 
 
