@@ -83,11 +83,11 @@ function showCard(i, firstname, surname){
 
     document.getElementById('buttonsCard').innerHTML = `                            
     <div class="editCard" id="editCard" onclick="editContact(${i})">
-        <img src="./edit_contacts.png">
+        <img src="./assets/img/edit_contacts.png">
         Edit
     </div>
     <div class="deleteCard" id="deleteCard" onclick="deleteContact(${i})">
-        <img src="./delete_contacts.png">
+        <img src="./assets/img/delete_contacts.png">
         Delete  
     </div>`;
 }
