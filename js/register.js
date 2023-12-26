@@ -4,8 +4,16 @@ const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
 
 function login() {
-  email: emailInput.value,
-  password: passwordInput.value,
+  let email = document.getElementById("emailInput").value;
+  let password = document.getElementById("passwordInput").value;
+  let user = users.find(u => u.email == email && u.password == password);
+  if (user) {
+    window.location.href = './summary.html';
+  } else {
+    document.getElementById("inputFieldPassword").style = `border: 1px solid rgb(255,128,143) !important;`;
+    document.getElementById("textThePasswordNotMatchLogin").innerHTML = `Ups! your password don't match`;
+  }
+
 }
 
 /**

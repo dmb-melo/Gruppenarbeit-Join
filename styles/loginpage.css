@@ -366,7 +366,17 @@ body {
   }
 }
 
-#textThePasswordNotMatch{
+#textThePasswordNotMatchLogin {
+  position: absolute;
+  top: 300px;
+  left: 96px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 129, 144, 1);
+}
+
+#textThePasswordNotMatchSignUp {
   position: absolute;
   top: 440px;
   left: 70px;

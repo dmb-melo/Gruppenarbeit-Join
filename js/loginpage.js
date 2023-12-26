@@ -49,7 +49,6 @@ function startAnimation() {
 function passwordInputVisible() {
   let inputValuePassword = document.getElementById("passwordInput").value;
   if (inputValuePassword) {
-    validatePassword();
     if (!passwordIsVisible) {
       document.getElementById("passwordImg").src = "./assets/img/visibility_off.svg";
     } else {
@@ -78,7 +77,6 @@ function passwordInputVisible() {
 function confirmPasswordInputVisible() {
   let inputValuePassword = document.getElementById("confirmPasswordInput").value;
   if (inputValuePassword) {
-    validatePassword();
     if (!confirmPasswordIsVisible) {
       document.getElementById("confirmPasswordImg").src = "./assets/img/visibility_off.svg";
     } else {
@@ -102,11 +100,11 @@ function validatePassword() {
   let confirmInputValuePassword = document.getElementById("confirmPasswordInput").value;
   if (inputValuePassword != confirmInputValuePassword) {
     document.getElementById("inputFieldConfirmPassword").style = `border: 1px solid rgb(255,128,143) !important;`;
-    document.getElementById("textThePasswordNotMatch").innerHTML = `Ups! your password don't match`;
+    document.getElementById("textThePasswordNotMatchSignUp").innerHTML = `Ups! your password don't match`;
     signUpButton.disabled = true;
   } else {
     document.getElementById("inputFieldConfirmPassword").style = "";
-    document.getElementById("textThePasswordNotMatch").innerHTML = "";
+    document.getElementById("textThePasswordNotMatchSignUp").innerHTML = "";
     signUpButton.disabled = false;
   }
 }
@@ -186,6 +184,7 @@ function setRememberMe() {
  * @name renderLogInContent
  * */
 function renderLogInContent() {
+  passwordIsVisible = false;
   document.getElementById("contentUserValidation").innerHTML = generateLogInContent();
   document.getElementById("signUpButtonHeadline").classList.remove("d-none");
 }
@@ -196,6 +195,7 @@ function renderLogInContent() {
  * @name renderSignUpContent
  * */
 function renderSignUpContent() {
+  passwordIsVisible = false;
   document.getElementById("contentUserValidation").innerHTML = generateSignUpContent();
   document.getElementById("signUpButtonHeadline").classList.add("d-none");
 }
@@ -206,15 +206,16 @@ function generateLogInContent() {
     <h1 class="headline-log-in">Log in</h1>
     <div class="bottom-line"></div>
   </div>
-  <form onsubmit="setLogin() return false" class="input-log-in" action="">
+  <form onsubmit="login(); return false" class="input-log-in" action="">
     <div class="input-field-container">
       <input placeholder="Email" type="email" id="emailInput" name="email" required class="input-field" required/>
       <img src="./assets/img/mail_add_contact.png" alt="mail" />
     </div>
-    <div class="input-field-container">
+    <div class="input-field-container" id="inputFieldPassword">
     <input oninput="passwordInputVisible()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required/>
     <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
   </div>
+  <p id="textThePasswordNotMatchLogin"></p>
   <div class="remember-me-container">
     <input onclick="setRememberMe()" type="checkbox" id="rememberMe" class="accept-icon"/>
     <p>Remember me</p>
@@ -246,14 +247,14 @@ function generateSignUpContent() {
       <img src="./assets/img/mail_add_contact.png" alt="mail" />
     </div>
     <div class="input-field-container">
-      <input oninput="passwordInputVisible()" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required />
+      <input oninput="passwordInputVisible(), validatePassword();" class="input-field" placeholder="Password" type="password" id="passwordInput" name="password" required />
       <img onclick="passwordVisible()" id="passwordImg" src="./assets/img/lock.svg" alt="lock" />
     </div>
     <div id="inputFieldConfirmPassword" class="input-field-container">
-      <input oninput="confirmPasswordInputVisible()" class="input-field" placeholder="Confirm Password" type="password" id="confirmPasswordInput" name="confirmpassword" required />
+      <input oninput="confirmPasswordInputVisible(), validatePassword();" class="input-field" placeholder="Confirm Password" type="password" id="confirmPasswordInput" name="confirmpassword" required />
       <img onclick="confirmPasswordVisible()" id="confirmPasswordImg" src="./assets/img/lock.svg" alt="lock" />
     </div>
-    <p id="textThePasswordNotMatch"></p>
+    <p id="textThePasswordNotMatchSignUp"></p>
     <div class="accept-privacy-policy-container">
       <input required type="checkbox" id="rememberMe" class="accept-icon"/>
       <p>I accept the<a href="#" class="sign-up-data-protection-link">Privacy Policy</a></p>
