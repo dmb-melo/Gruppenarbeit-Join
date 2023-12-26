@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
-    <link rel="stylesheet" href="contacts.css">
-    <script src="contacts.js"></script>
+    <link rel="stylesheet" href="./styles/contacts.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/sidebar.css">
+    <script src="./js/contacts.js"></script>
 </head>
 <body onload="renderContacts()">
-    <header></header>
+    <div w3-include-html="./assets/templates/sidebar.html"></div>
+    <div w3-include-html="./assets/templates/header.html"></div>
 
 
     <div class="addContactPopup d-none" id="addContact">
         <div class="addContactMain">
             <div class="addContactLeft">
-                <img src="./logo-white.svg">
+                <img src="./assets/img/logo-white.svg">
                 <div class="addContactHeadline">Add contact</div>
                 <div class="addContactHeadline2">Tasks are better with a team!</div>
                 <div class="line2"></div>
@@ -26,7 +29,7 @@
                     </div>
                     <div class="formDiv">
                         <form id="addContactForm">
-                            <img src="./Close.png" onclick="closeAddContact()">
+                            <img src="./assets/img/Close.png" onclick="closeAddContact()">
                             <div class="input">
                                 <input class="inputField" type="text" placeholder="Name" id="userName">
                                 <input class="inputField" type="email" placeholder="Email" id="userEmail">
@@ -44,7 +47,7 @@
     <div class="editContactPopup d-none" id="editContact">
         <div class="editContactMain">
             <div class="editContactLeft">
-                <img src="./logo-white.svg">
+                <img src="./assets/img/logo-white.svg">
                 <div class="editContactHeadline">Edit contact</div>
                 <div class="line2"></div>
             </div>
@@ -55,7 +58,7 @@
                     </div>
                     <div class="formDiv">
                         <form id="editContactForm">
-                            <img src="./Close.png" onclick="closeEditContact()">
+                            <img src="./assets/img/Close.png" onclick="closeEditContact()">
                             <div class="input" id="editInput"></div>
 
 
@@ -71,7 +74,7 @@
             <button class="add-contact" onclick="addNewContact()">
                 <div class="add-contact-main">
                     <div>Add new contact</div>
-                    <div><img class="add-contact-image" src="./person_add.png"></div>
+                    <div><img class="add-contact-image" src="./assets/img/person_add.png"></div>
                 </div>
             </button>
             <div class="contacts" id="contacts"></div>
