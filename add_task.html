@@ -14,9 +14,8 @@
     <script src="./js/include.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/add_tasks.js"></script>
-    <script src="./js/saveALoad.js"></script>
+   
 </head>
-
 
 <body onload="addTaskInit(); render()">
 
@@ -173,7 +172,7 @@
                 </div>         
                                      
                     <div class="categoryFrame74" id="taskCategory" onclick="hide()">
-                        <p>Select a task category</p>
+                        <p id ="categorySelect" Value="Select a task category">Select a task category</p>
 
                         <div class ="imgArrows" id="imgArrows" onclick="hide()">
                             <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide()" > 
