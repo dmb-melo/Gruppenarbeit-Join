@@ -33,6 +33,8 @@ window.onload = function() {
         }
     });
 };
+
+
 function render() {
     let content = document.getElementById('inhalt');
     content.innerHTML = '';
@@ -48,17 +50,11 @@ function render() {
         let tempDiv = document.createElement('div');
         tempDiv.innerHTML = currentPriorityContent;
         tempDiv.classList.add('selectedPriorityContentDiv'); 
-        
-        
-        
-        
-        
+                
         let svgElements = tempDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
         svgElements.forEach(svgElement => {
             svgElement.classList.remove('imgPrio-active');
         });
-
-
 
         // Create a cloned content div and process its contents
         let clonedContentDiv = document.createElement('div');
@@ -81,8 +77,7 @@ function render() {
 
 
 // Convert currentCategory to a class name without spaces
-
-let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Removes spaces
+let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
         noteElement.classList.add('cardA');
         noteElement.innerHTML = `
              <div class="categoryCard">
@@ -160,6 +155,7 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
        
     }
 
+
     function save() {
         localStorage.setItem('title', JSON.stringify(title));
         localStorage.setItem('description', JSON.stringify(description));
@@ -192,6 +188,7 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
             category =JSON.parse(categoryAsText) || [];
         }
     }
+
     function add() {
         let x = document.getElementById('title').value;
         document.getElementById('title').value = '';
@@ -231,8 +228,7 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
         changeColour(selectedPriorityID);
         render();   
         clearTask();    
-        taskSuccess(); 
-     
+        taskSuccess();      
     }
 
     function clearTaskCategory() {
@@ -268,6 +264,7 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
             path.classList.toggle('imgPrio-active');
         });
     }
+
     function removePrioActiveClass(divID) {
         const prio = document.getElementById(divID);
         if (prio) {
@@ -281,24 +278,63 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
         });
     }
     
+
     function addSubtasks() {
         let subtaskInput = document.getElementById('inputSubtasks').value;
         document.getElementById('inputSubtasks').value = ''; // Set input value to empty after capturing subtask
         subtasks.unshift(subtaskInput);
-       
     
         let allSubtasksDiv = document.getElementById('allSubtasks');
     
         if (subtasks.length === 0) {
             allSubtasksDiv.innerHTML = ''; // Clear allSubtasksDiv if subtasks array is empty
         } else {
-            let subtaskItem = document.createElement('li');
-            subtaskItem.classList.add('subtaskItem');
-            subtaskItem.innerText = subtasks[0]; // Display only the most recent subtask
-            allSubtasksDiv.appendChild(subtaskItem);
+            let subtaskItemDiv = document.createElement('div');
+            subtaskItemDiv.classList.add('subtaskItem');
+    
+            let subtaskItemText = document.createElement('li');
+            subtaskItemText.innerText = subtasks[0];
+            subtaskItemDiv.appendChild(subtaskItemText);
+    
+            let iconsContainer = document.createElement('div');
+            iconsContainer.classList.add('iconsContainer');
+    
+            let editImg = document.createElement('img');
+            editImg.classList.add('edit');
+            editImg.src = './assets/img/edit_task.png'; // Replace with your edit image URL
+            iconsContainer.appendChild(editImg);
+    
+
+            let vector = document.createElement('img');
+            vector.classList.add('vector');
+            vector.src = './assets/img/vector 3.png'; // Replace with your edit image URL
+            iconsContainer.appendChild(vector);
+
+            let deleteImg = document.createElement('img');
+            deleteImg.classList.add('delete');
+            deleteImg.src = './assets/img/delete_contacts.png'; // Replace with your delete image URL
+            iconsContainer.appendChild(deleteImg);
+
+            deleteImg.addEventListener('click', function() {
+                subtaskItemDiv.remove(); // Remove the entire subtask container when deleteImg is clicked
+                // Get the index of the subtask being deleted
+                let index = subtasks.indexOf(subtaskInput);
+                if (index !== -1) {
+                    subtasks.splice(index, 1); // Remove the subtask from the subtasks array
+                }
+                save(); // Save the updated subtasks array to localStorage
+            })
+    
+            subtaskItemDiv.appendChild(iconsContainer);
+            allSubtasksDiv.appendChild(subtaskItemDiv);
         }
         save(); // Save the updated subtasks array to localStorage
+        hideVectorAndImgCheck();
     }
+
+
+
+
     function deleteTask(event) {
         let noteElement = event.target.closest('.cardA');
         
@@ -320,6 +356,7 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
             render();
         }
     }
+
     function clearTask() {
         
         // Clear input values in render function
@@ -342,9 +379,14 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
         document.getElementById('taskCategory').value = '';
 
         clearTaskCategory();
-
+        clearInputSubTask();
     }
 
+
+    function clearInputSubTask(){            
+        document.getElementById('inputSubtasks').value = '';
+        hideVectorAndImgCheck();        
+    }
 
     function selectCategory(clickedElement) {
         let selectText = clickedElement.querySelector('p').getAttribute('value');
@@ -358,23 +400,39 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
             
             // Update the text content of the taskCategory element
             taskCategory.querySelector('p').textContent = selectText;
-           
         }
         
     }
 
-
- function hide(){
+function hide(event) {    
   
-    let list = document.getElementById("list");
-    let arrow = document.getElementById("arrow"); 
-   
-    list.classList.toggle("hide");
-    arrow.classList.toggle("rotate");   
-    arrow_drop_downHover.classList.toggle("rotate");
-
+    if (event.target.id !== "inputSubtasks") {
+      let list = document.getElementById("list");
+      let arrow = document.getElementById("arrow");
+      let arrow_drop_downHover = document.getElementById("arrow_drop_downHover");
+  
+      list.classList.toggle("hide");
+      arrow.classList.toggle("rotate");
+      arrow_drop_downHover.classList.toggle("rotate");
+    }
 }
 
+//Subtasks
+function clearInputSubTask(){            
+    document.getElementById('inputSubtasks').value = '';
+    hideVectorAndImgCheck();        
+}
+
+function hideVectorAndImgCheck(){
+    let vectorAndImgCheck = document.getElementById("vectorAndImgCheck");
+    let imgPlus = document.getElementById("addSubtasksPlus");
+    let imgPlusContainer = document.getElementById("imgPlusContainer");
+        if (vectorAndImgCheck && imgPlus) {
+        vectorAndImgCheck.classList.toggle("d-none");
+            imgPlus.classList.toggle("d-none");   
+            imgPlusContainer.classList.toggle("d-none");
+        }
+}
 
 
 //task_success
