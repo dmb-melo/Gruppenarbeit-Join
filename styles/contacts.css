@@ -11,6 +11,8 @@ h3{
 hr{
     margin-right: 32px;
     margin-left: 3px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     border-color: rgba(231, 231, 231, 0.4);
 }
 .line{
@@ -49,6 +51,10 @@ hr{
     margin-bottom: 24px;
     height: 42px;
 }
+.add-contact:hover{
+    background-color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 .add-contact-main{
     display: flex;
     flex-direction: row;
@@ -68,6 +74,9 @@ hr{
     margin-top: 11px;
     font-size: 12px;
 }
+.nameIdEdit{
+    font-size: 48px;
+}
 .circle{
     border-radius: 100px;
     width: 36px;
@@ -80,12 +89,13 @@ hr{
 }
 .editCircle{
     border-radius: 100px;
-    width: 60px;
-    height: 60px;
-    margin: 24px;
+    width: 90px;
+    height: 90px;
     text-align: center;
     color: white;
+    margin-top: 170px;
     border: solid;
+    margin-left: 60px;
 }
 .contact-info{
     display: flex;
@@ -125,15 +135,19 @@ hr{
 }
 .contactCard{
     margin-left: 24px;
+    margin-top: 24px;
 }
 .buttonsCard{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+}
+.logo-mini{
+    height: 18px;
+    margin-right: 6px;
 }
 .contactNameButtons{
     display: flex;
     flex-direction: column;
+    margin-top: 21px;
 }
 .contactTitle{
     display: flex;
@@ -186,7 +200,7 @@ hr{
     background-color: #2AAAE2;
     width: 70px;
     height: 2px;
-    margin-left: 45px;
+    margin-left: 40px;
     margin-top: 12px;
 }
 .addContactRight2{
@@ -214,27 +228,27 @@ hr{
 }
 .editContactLeft{
     background-color: #2B3646;
-    width: 300px;
+    width: 350px;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
 }
 .editContactPopup{
     position: fixed;
-    height: 600px;
+    height: 800px;
     left: 120px;
 }
 .editContactRight{
     background-color: white;
-    width: 45vw;
+    width: 440px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    width: 30vw;
+
 }
 .editContactMain{
     display: flex;
     flex-direction: row;
-    height: 400px;
-    width: 900px;
+    height: 460px;
+
     border-radius: 36px;
     margin-top: 200px;
     margin-left: 80px;
@@ -243,20 +257,27 @@ hr{
 .editContactHeadline{
     color: white;
     font-size: 50px;
-    text-align: center;
+    margin-left: 40px;
 }
 .editContactMiddle{
     display: flex;
     flex-direction: row;
     background-color: white;
+    width: 200px;
 }
-
+.editContactLogo{
+    margin-top: 120px;
+    margin-left: 40px;
+    width: 50px;
+}
 .deleteCard{
     cursor: pointer;
+    display: flex;
 }
 .editCard{
     cursor: pointer;
-
+    margin-right: 18px;
+    display: flex;
 }
 .group-header{
     margin-left: 36px;

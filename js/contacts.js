@@ -73,21 +73,25 @@ function showCard(i, firstname, surname){
     let name = document.getElementById('nameCard').innerHTML = `${contacts[i][0]}`;
     let email = document.getElementById('emailCard').innerHTML = `Email ${contacts[i][1]}`;
     let phone = document.getElementById('phoneCard').innerHTML = `Phone ${contacts[i][2]}`;
+
     let circle = document.getElementById('circleCard');
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
     circle.style = `background-color: ${colors[i]};`;
-    //document.getElementById('editCard').classList.remove('d-none');
-    //document.getElementById('deleteCard').classList.remove('d-none');
+
+    let editCircle = document.getElementById('editCircle');
+    editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
+    editCircle.style = `background-color: ${colors[i]};`;
+
     document.getElementById('textCard').classList.remove('d-none');
     document.getElementById('circleCard').classList.remove('d-none');
 
     document.getElementById('buttonsCard').innerHTML = `                            
     <div class="editCard" id="editCard" onclick="editContact(${i})">
-        <img src="./assets/img/edit_contacts.png">
+        <img class="logo-mini" src="./assets/img/edit_contacts.png">
         Edit
     </div>
     <div class="deleteCard" id="deleteCard" onclick="deleteContact(${i})">
-        <img src="./assets/img/delete_contacts.png">
+        <img class="logo-mini" src="./assets/img/delete_contacts.png">
         Delete  
     </div>`;
 }

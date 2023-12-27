@@ -15,7 +15,7 @@
    <div w3-include-html="assets/templates/sidebar.html"></div>
     <div w3-include-html="assets/templates/header.html"></div>
 
-
+    <!--add contact popup-->
     <div class="addContactPopup d-none" id="addContact">
         <div class="addContactMain">
             <div class="addContactLeft">
@@ -46,15 +46,16 @@
         </div>
     </div>
 
+    <!--edit contact popup-->
     <div class="editContactPopup d-none" id="editContact">
         <div class="editContactMain">
             <div class="editContactLeft">
-                <img src="./assets/img/logo-white.svg">
+                <img class="editContactLogo" src="./assets/img/logo-white.svg">
                 <div class="editContactHeadline">Edit contact</div>
                 <div class="line2"></div>
             </div>
             <div class="editContactMiddle">
-                <div class="editCircle"></div>
+                <div class="editCircle" id="editCircle"></div>
             </div>
             <div class="editContactRight">
                 <div class="formDiv">
@@ -68,6 +69,7 @@
     </div>
 
     <div class="contacts-content">
+        <!--contact list-->
         <div class="contact-list">
             <button class="add-contact" onclick="addNewContact()">
                 <div class="add-contact-main">
@@ -78,6 +80,7 @@
             <div class="contacts" id="contacts"></div>
         </div>
 
+        <!--contact details-->
         <div class="contact-details">
             <div class="contact-details-headline">
                 <h1>Contacts</h1>
