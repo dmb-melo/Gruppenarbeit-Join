@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="./styles/contacts.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/sidebar.css">
+    <script src="./js/include.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/contacts.js"></script>
+</head>
+<body onload="renderContacts()">
+   <div w3-include-html="assets/templates/sidebar.html"></div>
+    <div w3-include-html="assets/templates/header.html"></div>
+
+
+    <div class="addContactPopup d-none" id="addContact">
+        <div class="addContactMain">
+            <div class="addContactLeft">
+                <img src="./logo-white.svg">
+                <div class="addContactHeadline">Add contact</div>
+                <div class="addContactHeadline2">Tasks are better with a team!</div>
+                <div class="line2"></div>
+            </div>
+            <div class="addContactRight">
+                <div class="addContactRight2">
+                    <div class="addContactRight3">
+                        <img src="#">
+                    </div>
+                    <div class="formDiv">
+                        <form id="addContactForm">
+                            <img src="./Close.png" onclick="closeAddContact()">
+                            <div class="input">
+                                <input class="inputField" type="text" placeholder="Name" id="userName">
+                                <input class="inputField" type="email" placeholder="Email" id="userEmail">
+                                <input class="inputField" type="tel" placeholder="Phone" id="userPhone">
+                            </div>
+                            <button onclick="closeAddContact()">Cancel</button>
+                            <button onclick="createContact()">Create Contact</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="editContactPopup d-none" id="editContact">
+        <div class="editContactMain">
+            <div class="editContactLeft">
+                <img src="./logo-white.svg">
+                <div class="editContactHeadline">Edit contact</div>
+                <div class="line2"></div>
+            </div>
+            <div class="editContactRight">
+                <div class="editContactRight2">
+                    <div class="editContactRight3">
+                        <img src="#">
+                    </div>
+                    <div class="formDiv">
+                        <form id="editContactForm">
+                            <img src="./Close.png" onclick="closeEditContact()">
+                            <div class="input" id="editInput"></div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contacts-content">
+        <div class="contact-list">
+            <button class="add-contact" onclick="addNewContact()">
+                <div class="add-contact-main">
+                    <div>Add new contact</div>
+                    <div><img class="add-contact-image" src="./person_add.png"></div>
+                </div>
+            </button>
+            <div class="contacts" id="contacts"></div>
+        </div>
+
+        <div class="contact-details">
+            <div class="contact-details-headline">
+                <h1>Contacts</h1>
+                <div class="line"></div>
+                <h3>Better with a team</h3>
+            </div>
+            <div class="contactCard" id="contactCard">
+                <div class="contactTitle">
+                    <div class="circleCard d-none" id="circleCard"></div>
+                    <div class="contactNameButtons">
+                        <h2 class="nameCard" id="nameCard"></h2>  
+                        <div class="buttonsCard" id="buttonsCard">        
+                        </div>
+                    </div>
+                </div>
+                <div class="textCard d-none" id="textCard">Contact Information</div>
+                <div class="emailCard" id="emailCard"></div>
+                <div class="phoneCard" id="phoneCard"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
