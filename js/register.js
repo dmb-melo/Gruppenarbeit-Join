@@ -1,7 +1,63 @@
+let users = [];
+let rememberMeIsSet;
+let emailRememberMe = [];
+let passwordRememberMe = [];
+const STORAGE_TOKEN = "XULVXKXQ87YFSN0Q9PFZSMP577RV8CAJX896XQXQ";
+const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
-const STORAGE_TOKEN = 'XULVXKXQ87YFSN0Q9PFZSMP577RV8CAJX896XQXQ';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
+/**
+ * Validation of user data. If the user and password are correct, they are forwarded to summary. If password or user do not match, the user is informed.
+ * @function
+ * @name login
+ * */
+function login() {
+  let email = document.getElementById("emailInput").value;
+  let password = document.getElementById("passwordInput").value;
+  let user = users.find((u) => u.email == email && u.password == password);
+  if (user) {
+    //window.location.href = "./summary.html";
+    rememberMe();
+  } else {
+    document.getElementById("inputFieldPassword").style = `border: 1px solid rgb(255,128,143) !important;`;
+    document.getElementById("textThePasswordNotMatchLogin").innerHTML = `Ups! your password don't match`;
+  }
+}
 
+/**
+ * The function changes the SVG based on the state of the field
+ * @function
+ * @name setRememberMe
+ *
+ * @type {boolean}
+ * @description The global variable rememberMeIsSet defines whether the checkmark is set or not
+ */
+function setRememberMe() {
+  if (!rememberMeIsSet) {
+    rememberMeIsSet = true;
+  } else {
+    rememberMeIsSet = false;
+  }
+}
+
+/**
+ * The function changes the SVG based on the state of the field
+ * @function
+ * @name rememberMe
+ *
+ * @type {boolean}
+ * @description The global variable rememberMeIsSet defines whether the checkmark is set or not
+ */
+function rememberMe() {
+  let email = document.getElementById("emailInput").value;
+  let password = document.getElementById("passwordInput").value;
+  emailRememberMe = [];
+  passwordRememberMe = [];
+  if (rememberMeIsSet) {
+    emailRememberMe.push(email);
+    passwordRememberMe.push(password);
+  }
+  saveUserLoginData();
+}
 
 /**
  * Saving the data on the server
@@ -12,9 +68,8 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
  * @param {string} res - Feedback from the server
  * */
 async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
-        .then(res => res.json());
+  const payload = { key, value, token: STORAGE_TOKEN };
+  return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
 }
 
 /**
@@ -23,21 +78,18 @@ async function setItem(key, value) {
  * @name getItem
  * @param {string} key - the key to the request
  * @param {string} res - Feedback from the server
- * 
+ *
  * */
 async function getItem(key) {
-    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json()).then(res => {
-        if (res.data) { 
-            return res.data.value;
-        } throw `Could not find data with key "${key}".`;
+  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+  return fetch(url)
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data.value;
+      }
+      throw `Could not find data with key "${key}".`;
     });
-}
-
-let users = [];
-
-async function init(){
-    loadUsers();
 }
 
 /**
@@ -46,14 +98,14 @@ async function init(){
  * @name loadUsers
  * @param {string} key - the key to the request
  * @param {string} res - Feedback from the server
- * 
+ *
  * */
-async function loadUsers(){
-    try {
-        users = JSON.parse(await getItem('users'));
-    } catch(e){
-        console.error('Loading error:', e);
-    }
+async function loadUsers() {
+  try {
+    users = JSON.parse(await getItem("users"));
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
 }
 
 /**
@@ -63,29 +115,97 @@ async function loadUsers(){
  * @param {string} name - Name from the input field
  * @param {string} email - E-mail from the input field
  * @param {string} password - Password from the input field
- * 
+ *
  * */
 async function register() {
-    signUpButton.disabled = true; 
-    users.push({ 
-        name: nameInput.value,
-        email: emailInput.value,
-        password: passwordInput.value,
-    });
-    await setItem('users', JSON.stringify(users));
-    resetForm();
+  signUpButton.disabled = true;
+  users.push({
+    name: nameInput.value,
+    email: emailInput.value,
+    password: passwordInput.value,
+  });
+  await setItem("users", JSON.stringify(users));
+  resetForm();
+  renderRegisteSuccessfully();
+}
+
+/**
+ * generates a pop-up window when registration is successful
+ * @function
+ * @name renderRegisteSuccessfully
+ *
+ * */
+function renderRegisteSuccessfully() {
+  document.getElementById("registerSuccessfullyContent").innerHTML = generateRegisteSuccessfully();
+  renderLogInContent();
+  setTimeout(resetRegisteSuccessfully, 2000);
+}
+/**
+ * Resets the pop-up window after successful registration
+ * @function
+ * @name resetRegisteSuccessfully
+ *
+ * */
+function resetRegisteSuccessfully() {
+  document.getElementById("registerSuccessfullyContent").innerHTML = "";
 }
 
 /**
  * Reset all input fields and activate the registration button
  * @function
  * @name resetForm
- * 
+ *
  * */
-function resetForm() { //entsperren den Button und leeren alle Inputfelder
-    email.value = '';
-    password.value = '';
-    passwordInput.value = '';
-    confirmPasswordInput.value = '';
-    signUpButton.disabled = false;
+function resetForm() {
+  nameInput.value = "";
+  emailInput.value = "";
+  passwordInput.value = "";
+  confirmPasswordInput.value = "";
+  signUpButton.disabled = false;
+}
+
+/**
+ * Saves the data from the local storage.
+ * @function
+ * @name saveUserLoginData
+ *
+ * @param {string} emailRememberMe - Saved e-mail from local storage
+ * @param {string} passwordRememberMe - Saved password from local storage
+ * */
+function saveUserLoginData() {
+  let emailRememberMeAtText = JSON.stringify(emailRememberMe);
+  let passwordRememberMeAtText = JSON.stringify(passwordRememberMe);
+  localStorage.setItem("email", emailRememberMeAtText);
+  localStorage.setItem("password", passwordRememberMeAtText);
+}
+
+/**
+ * Loads the data from the local storage.
+ * @function
+ * @name loadUserLoginData
+ *
+ * @param {string} emailRememberMe - Saved e-mail from local storage
+ * @param {string} passwordRememberMe - Saved password from local storage
+ * */
+function loadUserLoginData() {
+  let emailRememberMeAtText = localStorage.getItem("email");
+  let passwordRememberMeAtText = localStorage.getItem("password");
+  if (emailRememberMeAtText && passwordRememberMeAtText) {
+    emailRememberMe = JSON.parse(emailRememberMeAtText);
+    passwordRememberMe = JSON.parse(passwordRememberMeAtText);
+  }
+}
+
+/**
+ * Generates the HTML content of the pop-up window if you have been successfully registered
+ * @function
+ * @name generateRegisteSuccessfully
+ *
+ * */
+function generateRegisteSuccessfully() {
+  return /*html*/ `
+      <div class="container-register-successfully">
+        <p class="msg-register-successfully">You Signed Up successfully</p>
+      </div>
+  `;
 }
