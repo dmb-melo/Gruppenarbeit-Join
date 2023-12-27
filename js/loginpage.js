@@ -1,7 +1,6 @@
 let submenuIsOpen = false;
 let passwordIsVisible = false;
 let confirmPasswordIsVisible = false;
-let rememberMeIsSet = false;
 
 /**
  *This function prevents the submenu from being closed if the submenu is clicked on
@@ -21,10 +20,17 @@ function doNotClose(event) {
  */
 function initLoading() {
   loadUsers();
+  loadUserLoginData();
   startAnimation();
   renderLogInContent();
 }
 
+/**
+ * Starts the animation of the join box when the page is loaded
+ * @function
+ * @name startAnimation
+ *
+ * */
 function startAnimation() {
   document.querySelector(".animationJoinLogo").classList.add("animated");
   document.querySelector(".animationJoinLogo").classList.remove("dNone");
@@ -162,23 +168,6 @@ function confirmPasswordVisible() {
 }
 
 /**
- * The function changes the SVG based on the state of the field
- * @function
- * @name setRememberMe
- *
- * @type {boolean}
- * @description The global variable rememberMeIsSet defines whether the checkmark is set or not
- */
-
-function setRememberMe() {
-  if (!rememberMeIsSet) {
-    rememberMeIsSet = true;
-  } else {
-    rememberMeIsSet = false;
-  }
-}
-
-/**
  * Renders the login page
  * @function
  * @name renderLogInContent
@@ -187,6 +176,30 @@ function renderLogInContent() {
   passwordIsVisible = false;
   document.getElementById("contentUserValidation").innerHTML = generateLogInContent();
   document.getElementById("signUpButtonHeadline").classList.remove("d-none");
+  automaticCompletionLoginData();
+}
+
+/**
+ * Automatically fills in the e-mail and password fields in the login area if Remember me was set in the last login.
+ * @function
+ * @name automaticCompletionLoginData
+ *
+ * @type {boolean}
+ * @description The global variable rememberMeIsSet defines whether the checkmark is set or not
+ *  @param {string} emailRememberMe - Saved e-mail from local storage
+ * @param {string} passwordRememberMe - Saved password from local storage
+ * */
+function automaticCompletionLoginData() {
+  let checkboxRememberMe = document.getElementById("rememberMe");
+  if (emailRememberMe.length === 0 && passwordRememberMe.length === 0) {
+    checkboxRememberMe.checked = false;
+    rememberMeIsSet = false;
+  } else {
+    document.getElementById("emailInput").value = emailRememberMe;
+    document.getElementById("passwordInput").value = passwordRememberMe;
+    checkboxRememberMe.checked = true;
+    rememberMeIsSet = true;
+  }
 }
 
 /**
@@ -200,6 +213,12 @@ function renderSignUpContent() {
   document.getElementById("signUpButtonHeadline").classList.add("d-none");
 }
 
+/**
+ * Generates the HTML content of the login page if you have been successfully registered
+ * @function
+ * @name generateLogInContent
+ *
+ * */
 function generateLogInContent() {
   return /*html*/ `<div class="log-in-container">
   <div class="headline-log-in-container">
@@ -228,6 +247,12 @@ function generateLogInContent() {
 </div>`;
 }
 
+/**
+ * Generates the HTML content of the Sign up page when you are successfully registered
+ * @function
+ * @name generateSignUpContent
+ *
+ * */
 function generateSignUpContent() {
   return /*html*/ `<div class="sign-up-container">
   <div class="arrow-back-sign-up-container">
