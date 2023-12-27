@@ -78,6 +78,15 @@ hr{
     border: solid;
     
 }
+.editCircle{
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+    margin: 24px;
+    text-align: center;
+    color: white;
+    border: solid;
+}
 .contact-info{
     display: flex;
     justify-content: center;
@@ -205,7 +214,7 @@ hr{
 }
 .editContactLeft{
     background-color: #2B3646;
-    width: 40vw;
+    width: 300px;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
 }
@@ -219,6 +228,7 @@ hr{
     width: 45vw;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    width: 30vw;
 }
 .editContactMain{
     display: flex;
@@ -235,19 +245,12 @@ hr{
     font-size: 50px;
     text-align: center;
 }
-.editContactHeadline2{
-    color: white;
-    font-size: 24px;
-    text-align: center;
-}
-
-.editContactRight2{
+.editContactMiddle{
     display: flex;
     flex-direction: row;
+    background-color: white;
 }
-.editContactRight3{
-    width: 30vw;
-}
+
 .deleteCard{
     cursor: pointer;
 }
