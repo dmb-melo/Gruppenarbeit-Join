@@ -345,7 +345,6 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
 
     }
 
-
     function selectCategory(clickedElement) {
         let selectText = clickedElement.querySelector('p').getAttribute('value');
         let taskCategory = document.getElementById("taskCategory");
@@ -358,7 +357,6 @@ let className = currentCategory? currentCategory.replace(/\s+/g, '') : ''; // Re
             
             // Update the text content of the taskCategory element
             taskCategory.querySelector('p').textContent = selectText;
-           
         }
         
     }
@@ -481,20 +479,3 @@ function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//NEU
