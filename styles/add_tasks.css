@@ -8,6 +8,8 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+
 .textContainer_addTask{
     width: 278px;
     height: 73px;
@@ -31,6 +33,7 @@ body{
     margin-left: 328px;
     justify-content: space-between;
     margin-top: 35px;
+   
 }
 
 /* input left */
@@ -802,30 +805,35 @@ line-height: 120%; /* 24px */
     width: 24px;
     height: 24px;
 }
+
 .subtasksCheck{
     width: 24px;
     height: 24px;
 }
 
-
-.subtaskCheckHover{
-    display: none; /* Hide the hover image by default */
+/* Hide the hover image by default */
+.subtaskCheckHover {
+    display: none;
 }
 
-.subtasksImgCheck:hover .subtaskCheckHover{
-    display: block;  /* Show the hover image when the container is being hovered */
+/* Show the hover image when hovering over the parent */
+.subtasksImgCheck:hover .subtaskCheckHover {
+    display: block;
 }
 
-.subtasksImgCheck:hover .subtaskCheck{
-    display: none; /* Hide the normal image when the container is being hovered */
+/* Hide the normal image when the container is being hovered */
+.subtasksImgCheck:hover .subtaskCheck {
+    display: none;
 }
+
+
 
 .addTasksFooter{
     display: flex;
     justify-content: space-between;
     width: 976.25px;
     height: 60px;    
-    margin-top: 145px; 
+    margin-top: 145px; /*55px*/
     margin-left: 328px;
 }
 
@@ -937,7 +945,7 @@ line-height: 120%; /* 24px */
 /* input right end*/
 
 
-
+/*CardA*/
 
 .cardA{
     margin-left: 500px;
@@ -961,7 +969,16 @@ line-height: 120%; /* 24px */
     line-height: 73.2px;
 }
 
-
+.task_description{
+    width: 100%;
+    height: 24px;
+    color: var(--black, #000);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: "Inter", sans-serif;
+}
 
 .taskDueDate{
     display: flex;
@@ -970,7 +987,7 @@ line-height: 120%; /* 24px */
 }
 
 .TitleDueDate{
-    color: var(--Version-2-main-color, #2A3647);
+    color: var(--black, #000);
     font-family: "Inter", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -1000,8 +1017,74 @@ line-height: 120%; /* 24px */
     gap: 35px;
     align-self: stretch;
     color: var(--black, #000);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+}
+/*delete and edit*/
+.deleteAndEdit{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 8px;
+    width:100%;
+ 
+    height: 24px;
    
 }
+
+.delete_task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 73px;
+    height: 24px;
+}
+
+.delete-task-img{
+    width: 24px;
+    height: 24px;
+}
+.delete-task-title{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+}
+
+.deleteAndEdit_vector{  
+    height: 24px;
+    width: 1px;
+    stroke: var(--Style, #D1D1D1);
+}
+
+.edit_task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 73px;
+    height: 24px;
+}
+
+.imgEdit_task{
+    width: 24px;
+    height: 24px;
+}
+
+.edit-task-title{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: "Inter", sans-serif;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2%;
+}
+
+/**/
+
+
 
 .selectedPriorityContent{
     display: flex;
@@ -1058,12 +1141,43 @@ line-height: 120%; /* 24px */
 
 .assigns{
     background-color: #29ABE2;
-    width: 100%;
+    width: 100%;    
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 4px;
     align-self: stretch; 
+}
+
+.subtaskItem{
+    display: flex;
+    width: 410px;
+    height: 32px;
+    padding: 4px 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.iconsContainer{  
+    display: none;     
+    align-items: flex-start;
+    gap: 4px;
+}
+
+
+.subtaskItem:hover{
+background-color: #eeeeee;
+}
+
+.subtaskItem:hover .iconsContainer{
+display: flex;
+}
+
+
+.edit{
+    width: 24px;
+    height: 24px;  
 }
 
 
@@ -1075,7 +1189,7 @@ line-height: 120%; /* 24px */
     font-size: 16px;
     font-weight: 400;
     line-height: 120%;
-    margin-left: 24px;   
+    /* margin-left: 24px;    */
 }
 
 
@@ -1183,4 +1297,14 @@ margin-top: 14px;
 
 .d-none{
     display: none;
+}
+
+@media (max-width: 830px){
+
+    .group66_addTask{
+     flex-direction: column;
+       
+       
+    }
+    
 }
