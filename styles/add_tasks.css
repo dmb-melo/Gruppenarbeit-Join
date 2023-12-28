@@ -777,6 +777,27 @@ line-height: 120%; /* 24px */
     display: none; /* Hide the normal image when the container is being hovered */
 }
 
+
+.vectorAndImgCheck{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.imgCancelHover {
+    display: none;
+    position: relative;  
+}
+
+.imgCancelContainer:hover .imgCancel {
+    display: none;
+}
+
+.imgCancelContainer:hover .imgCancelHover {
+    display: block;
+}
+
 .subtasksImgCheck{
     width: 24px;
     height: 24px;
@@ -986,7 +1007,6 @@ line-height: 120%; /* 24px */
     display: flex;
     align-items: center;
     gap: 10px;
- 
     height: 32px;  
 }
 
@@ -1039,7 +1059,6 @@ line-height: 120%; /* 24px */
 .assigns{
     background-color: #29ABE2;
     width: 100%;
-    
     display: flex;
     flex-direction: column;
     align-items: flex-end;
