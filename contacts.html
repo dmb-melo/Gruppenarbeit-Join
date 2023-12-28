@@ -19,16 +19,15 @@
     <div class="addContactPopup d-none" id="addContact">
         <div class="addContactMain">
             <div class="addContactLeft">
-                <img src="./assets/img/logo-white.svg">
+                <img class="addContactLogo" src="./assets/img/logo-white.svg">
                 <div class="addContactHeadline">Add contact</div>
                 <div class="addContactHeadline2">Tasks are better with a team!</div>
-                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <div class="addContactMiddle">
+                <div class="editCircle"></div>
             </div>
             <div class="addContactRight">
-                <div class="addContactRight2">
-                    <div class="addContactRight3">
-                        <img src="#">
-                    </div>
                     <div class="formDiv">
                         <form id="addContactForm">
                             <img src="./assets/img/Close.png" onclick="closeAddContact()">
@@ -41,8 +40,31 @@
                             <button onclick="createContact()">Create Contact</button>
                         </form>
                     </div>
+            </div>
+<!--
+            <div class="editContactRight">
+                <div class="inputFieldName">
+                    <input class="inputField" type="text"> 
+                    <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
+                </div>
+                <div class="inputFieldName">
+                    <input class="inputField" type="email"> 
+                    <img class="logo-edit-input" src="./assets/img/mail_add_contact.png">
+                </div>
+                <div class="inputFieldName">
+                    <input class="inputField" type="tel"> 
+                    <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
+                </div>
+                <div class="editButtons">
+                    <button class="deleteButton" onclick="deleteContact(${i})">Delete</button>
+                    <button class="saveButton" onclick="saveContact(${i})">
+                        <div class="save-button-div">
+                        <div class="save-text">Save</div>
+                        <div><img class="save-check-img" src="./assets/img/check.png"></div>
+                    </button>
                 </div>
             </div>
+        -->
         </div>
     </div>
 

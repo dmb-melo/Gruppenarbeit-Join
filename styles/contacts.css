@@ -174,9 +174,9 @@ hr{
 }
 .addContactLeft{
     background-color: #2B3646;
-    width: 40vw;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
+    width: 400px;
 }
 .addContactPopup{
     position: fixed;
@@ -201,19 +201,30 @@ hr{
 }
 .addContactHeadline{
     color: white;
-    font-size: 50px;
-    text-align: center;
+    font-size: 45px;
+    margin-top: 12px;
+    margin-left: 30px;
+    
 }
 .addContactHeadline2{
     color: white;
-    font-size: 24px;
-    text-align: center;
+    font-size: 21px;
+    font-weight: 200;
+    margin-left: 30px;
+    margin-top: 12px;
 }
 .line2{
     background-color: #2AAAE2;
     width: 70px;
     height: 2px;
     margin-left: 40px;
+    margin-top: 12px;
+}
+.line3{
+    background-color: #2AAAE2;
+    width: 70px;
+    height: 2px;
+    margin-left: 30px;
     margin-top: 12px;
 }
 .addContactRight2{
@@ -230,11 +241,18 @@ hr{
 }
 .inputField{
     border: none;
-    width: 310px;
+    width: 348px;
     border-radius: 12px;
     padding: 0;
     height: 36px;
     padding-left: 12px;
+    margin-right: -70px;
+}
+.inputField:hover{
+    border: 2px solid #2AAAE2 !important;
+}
+.inputField:focus{
+    border: 2px solid #2AAAE2 !important;
 }
 .formDiv{
     margin-top: 80px;
@@ -243,7 +261,7 @@ hr{
 }
 .editContactLeft{
     background-color: #2B3646;
-    width: 350px;
+    width: 380px;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
 }
@@ -282,8 +300,19 @@ hr{
     background-color: white;
     width: 200px;
 }
+.addContactMiddle{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 200px;
+}
 .editContactLogo{
     margin-top: 120px;
+    margin-left: 40px;
+    width: 50px;
+}
+.addContactLogo{
+    margin-top: 100px;
     margin-left: 40px;
     width: 50px;
 }
