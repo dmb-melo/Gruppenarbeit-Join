@@ -383,11 +383,6 @@ let className = typeof currentCategory === 'string' ? currentCategory.replace(/\
     }
 
 
-    function clearInputSubTask(){            
-        document.getElementById('inputSubtasks').value = '';
-        hideVectorAndImgCheck();        
-    }
-
     function selectCategory(clickedElement) {
         let selectText = clickedElement.querySelector('p').getAttribute('value');
         let taskCategory = document.getElementById("taskCategory");
@@ -556,4 +551,3 @@ function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector)
 
 
 //NEU
->>>>>>> 95e8578f1cf9eda3git PublicKeyCredential852360dc2b8787486ee0a782

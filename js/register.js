@@ -17,33 +17,45 @@ function login() {
   let password = document.getElementById("passwordInput").value;
   let user = users.find((u) => u.email == email && u.password == password);
   if (user) {
-    setInitialsOfTheUser(user);
-    //window.location.href = "./summary.html";
+    let name = user["name"];
+    setInitialsOfTheUser(name);
+    window.location.href = "./summary.html";
     rememberMe();
-   
   } else {
     document.getElementById("inputFieldPassword").style = `border: 1px solid rgb(255,128,143) !important;`;
     document.getElementById("textThePasswordNotMatchLogin").innerHTML = `Ups! your password don't match`;
   }
 }
 
+function guestLogin() {
+  let name = "Guest";
+  setInitialsOfTheUser(name);
+  window.location.href = "./summary.html";
+}
+
 /**
  * Validation of user data. If the user and password are correct, they are forwarded to summary. If password or user do not match, the user is informed.
  * @function
  * @name setInitialsOfTheUser
- * 
+ *
  * @param {string} user  - User data that matches the login data entered.
  * @param {string} userName  - User name.
  * @param {string} initials - Initials from User name.
  * */
-function setInitialsOfTheUser(user) {
+function setInitialsOfTheUser(name) {
   userName = [];
   initials = [];
-  userName = user['name'];
-  names = userName.split(' ');
-  initials = names[0].charAt(0).toUpperCase() + names[1].charAt(0).toUpperCase();
+  userName = name;
+  splitNames = name.split(" ");
+  if (splitNames.lengt > 2) {
+    
+    initials = splitNames[0].charAt(0).toUpperCase() + splitNames[1].charAt(0).toUpperCase();
+    
+  } else {
+    initials  = userName[0].charAt(0).toUpperCase();
+  }
   saveUserData();
- }
+}
 
 /**
  * The function changes the SVG based on the state of the field

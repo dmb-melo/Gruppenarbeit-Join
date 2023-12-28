@@ -242,7 +242,7 @@ function generateLogInContent() {
   </div>
   <div class="submit-log-in-container">
     <button class="sign-up-log-in-button width-log-in-button ">Log in</button>
-    <a href="./summary.html" class="guest-log-in-button width-guest-log-in-button">Guest Log in</a>
+    <p onclick="guestLogin()" class="guest-log-in-button width-guest-log-in-button">Guest Log in</p>
   </div>
   </form>
 </div>`;

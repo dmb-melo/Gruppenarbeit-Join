@@ -22,3 +22,6 @@ function showSubmenu() {
     }
   }
 
+  function setInitialsInTheHeader() {
+    document.getElementById("initialsUserHeader").innerHTML = initials;
+  }
