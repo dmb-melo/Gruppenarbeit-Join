@@ -47,12 +47,11 @@ function setInitialsOfTheUser(name) {
   initials = [];
   userName = name;
   splitNames = name.split(" ");
-  if (splitNames.lengt > 2) {
-    
-    initials = splitNames[0].charAt(0).toUpperCase() + splitNames[1].charAt(0).toUpperCase();
+  if (!splitNames[1]) {
+    initials  = userName[0].charAt(0).toUpperCase();
     
   } else {
-    initials  = userName[0].charAt(0).toUpperCase();
+    initials = splitNames[0].charAt(0).toUpperCase() + splitNames[1].charAt(0).toUpperCase();
   }
   saveUserData();
 }
