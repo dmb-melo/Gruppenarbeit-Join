@@ -72,28 +72,23 @@
                 <div class="asignedTo">Assigned to</div>
                
                                     
-                <!-- <div class="categoryFrame74" id="taskCategory" onclick="hide()">
+                <div class="categoryFrame74" id="assigned" onclick="hideAssigned(event)">
                     <p>Select contacts to assign</p>
 
-                    <div class ="imgArrows" id="imgArrows" onclick="hide()">
-                        <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide()" > 
-                        <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHover" onclick="hide()">                            
+                    <div class ="imgArrows" id="imgArrows" onclick="hideAssigned(event)">
+                        <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssigned" onclick="hideAssigned(event)" > 
+                        <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssigned" onclick="hideAssigned(event)">                            
                     </div>
-                </div> -->
+                </div>
 
                 
-                <!-- <div class="list"  class="hide">
-                    <ul id="list" class="hide underList"> 
-                        <li class="options optionsMarginTop" onclick="selectCategory(this)" >
-                            <p value="Technical Task" onclick="hide()">Technical Task</p>
-                        </li>
-                        <li class="options" onclick="selectCategory(this)" >
-                            <p value="UserStory" onclick="hide()">User Story</p>
-                        </li>
+                <div class="list"  class="hide">
+                    <ul id="listContact" class="hide underList"> 
+                        <li id ="contactList" class="options optionsMarginTop" onclick="selectAssigned(this)" >
+                            <!-- <p onclick="hideAssigned(event)">Technical Task</p> -->
+                        </li>                       
                     </ul>
-                </div>
-                                                               --> 
-             
+                </div>                                                                       
             </div>
         </div>
 
@@ -133,11 +128,11 @@
                                     <rect width="20" height="14.5098" transform="translate(0.748535 0.745117)"/>
                                 </clipPath>
                             </defs>
-                        </svg>
-                    
+                        </svg>                   
 
 
                     </div>
+
                     <div class="priorityMedium" id="priorityMedium" onclick="changeColour('priorityMedium')" >
                         <div class="textMedium">Medium</div>
                        
@@ -151,7 +146,7 @@
                             <rect width="20" height="7.45098" transform="translate(0.855469 0.466064)"/>
                             </clipPath>
                             </defs>
-                            </svg>
+                        </svg>
 
                     </div>
 
@@ -172,8 +167,12 @@
                 </div>         
                                      
                     <div class="categoryFrame74" id="taskCategory" onclick="hide(event)">
+                    <div class="categoryFrame74" id="taskCategory" onclick="hide(event)">
                         <p id ="categorySelect" Value="Select a task category">Select a task category</p>
 
+                        <div class ="imgArrows" id="imgArrows" onclick="hide(event)">
+                            <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide(event)" > 
+                            <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHover" onclick="hide(event)">                            
                         <div class ="imgArrows" id="imgArrows" onclick="hide(event)">
                             <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide(event)" > 
                             <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHover" onclick="hide(event)">                            
@@ -195,11 +194,6 @@
                             </li>
                         </ul>
                     </div>
-
-
-
-
-
 
             </div>
 
@@ -296,13 +290,16 @@
 
             </div>
             <div class="primary">
-                <div class="textCreateTask" onclick="add()">Create task</div>
+                <div class="textCreateTask" onclick="addTask()">Create task</div>
                 <img class="imgCheckBlack" src="./assets/img/check.png" alt="">              
             </div>
         </div>
     </div>
 
-    <div class="inhalt" id="inhalt"></div>
+    <div class="inhalt" id="inhalt"></div>    
 
 </body>
 </html>
+<!--https://www.youtube.com/watch?v=x0VcigW9kN0-->
+<!--https://www.youtube.com/watch?v=0eV-tf-W2rQ-->
+<!--https://www.tutorialspoint.com/how-to-copy-the-content-of-a-div-into-another-div-using-jquery#:~:text=Using%20the%20jQuery%20html(),when%20called%20without%20any%20arguments.-->

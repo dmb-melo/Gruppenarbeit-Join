@@ -33,6 +33,7 @@ body{
     margin-left: 328px;
     justify-content: space-between;
     margin-top: 35px;
+   
 }
 
 /* input left */
@@ -1295,4 +1296,14 @@ margin-top: 14px;
 
 .d-none{
     display: none;
+}
+
+@media (max-width: 830px){
+
+    .group66_addTask{
+     flex-direction: column;
+       
+       
+    }
+    
 }
