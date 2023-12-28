@@ -71,8 +71,8 @@ function selectContact(i, firstname, surname){
 function showCard(i, firstname, surname){
     document.getElementById('contactCard').classList.remove('d-none');
     let name = document.getElementById('nameCard').innerHTML = `${contacts[i][0]}`;
-    let email = document.getElementById('emailCard').innerHTML = `Email ${contacts[i][1]}`;
-    let phone = document.getElementById('phoneCard').innerHTML = `Phone ${contacts[i][2]}`;
+    let email = document.getElementById('emailCard').innerHTML = `<div class="head-info"> Email </div><div class="main-info-mail">${contacts[i][1]}</div>`;
+    let phone = document.getElementById('phoneCard').innerHTML = `<div class="head-info"> Phone </div><div class="main-info"> ${contacts[i][2]}</div>`;
 
     let circle = document.getElementById('circleCard');
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
@@ -117,20 +117,31 @@ function addNewContact(){
 function editContact(i){
     document.getElementById('editContact').classList.remove('d-none');
     document.getElementById('editInput').innerHTML = `
-
-        <input class="inputField" type="text" id="userNameEdit">
-        <input class="inputField" type="email" id="userEmailEdit">
-        <input class="inputField" type="tel" id="userPhoneEdit">
-        <div>
-            <button onclick="deleteContact(${i})">Delete</button>
-            <button onclick="saveContact(${i})">Save</button>
+        <div class="inputFieldName">
+            <input class="inputField" type="text" id="userNameEdit"> 
+            <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
+        </div>
+        <div class="inputFieldName">
+            <input class="inputField" type="email" id="userEmailEdit"> 
+            <img class="logo-edit-input" src="./assets/img/mail_add_contact.png">
+        </div>
+        <div class="inputFieldName">
+            <input class="inputField" type="tel" id="userPhoneEdit"> 
+            <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
+        </div>
+        <div class="editButtons">
+            <button class="deleteButton" onclick="deleteContact(${i})">Delete</button>
+            <button class="saveButton" onclick="saveContact(${i})">
+                <div class="save-button-div">
+                <div class="save-text">Save</div>
+                <div><img class="save-check-img" src="./assets/img/check.png"></div>
+            </button>
         </div>
     `;
     document.getElementById('userNameEdit').value = `${contacts[i][0]}`;
     document.getElementById('userEmailEdit').value = `${contacts[i][1]}`;
     document.getElementById('userPhoneEdit').value = `${contacts[i][2]}`;
 }
-
 
 function deleteContact(i){
     contacts.splice(i, 1);

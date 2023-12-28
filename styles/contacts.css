@@ -1,3 +1,6 @@
+body{
+    font-family: "Inter", sans-serif;
+}
 h1{
     font-size: 42px;
 }
@@ -155,6 +158,16 @@ hr{
 }
 .textCard{
     font-size: 18px;
+    margin-bottom: 36px;
+
+}
+.head-info{
+    margin-bottom: 12px;
+    margin-top: 12px;
+    font-weight: bold;
+}
+.main-info-mail{
+    color: #459DF0;
 }
 .d-none{
     display: none;
@@ -213,13 +226,15 @@ hr{
 .input{
     display: flex;
     flex-direction: column;
+    margin-top: 36px;
 }
 .inputField{
-    border-color: #D2D2D2;
-    border-radius: 9px;
-    margin: 12px;
-    padding: 6px;
-    width: 300px;
+    border: none;
+    width: 310px;
+    border-radius: 12px;
+    padding: 0;
+    height: 36px;
+    padding-left: 12px;
 }
 .formDiv{
     margin-top: 80px;
@@ -236,6 +251,7 @@ hr{
     position: fixed;
     height: 800px;
     left: 120px;
+    font-weight: 700;
 }
 .editContactRight{
     background-color: white;
@@ -258,6 +274,7 @@ hr{
     color: white;
     font-size: 50px;
     margin-left: 40px;
+    margin-top: 24px;
 }
 .editContactMiddle{
     display: flex;
@@ -281,4 +298,70 @@ hr{
 }
 .group-header{
     margin-left: 36px;
+}
+.close-img{
+    position: relative;
+}
+.close-img-div{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -48px;
+    margin-right: 18px;
+}
+.logo-edit-input{
+    width: auto;
+    height: 18px;
+    margin-right: 24px;
+}
+.inputFieldName{
+    display: flex;
+    border: 1px solid #D9D9D9;
+    height: 36px;
+    margin-bottom: 30px;
+    border-radius: 9px;
+    justify-content: space-between;
+    width: 360px;
+    align-items: center;
+}
+.deleteButton{
+    width: 70px;
+    height: 35px;
+    border: 1px solid #293647;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 12px;
+}
+.deleteButton:hover{
+    border: 1px solid #2AAAE2;
+    color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.saveButton{
+    width: 70px;
+    height: 35px;
+    border: 1px solid #293647;
+    border-radius: 6px;
+    background-color: #293647;
+    cursor: pointer;
+    margin-right: 12px;
+    color: white;
+}
+.saveButton:hover{
+    background-color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid #2AAAE2;
+}
+.editButtons{
+    display: flex;
+    flex-direction: row;
+}
+.save-button-div{
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+}
+.save-check-img{
+    width: 18px;
+    margin-left: 4px;
 }
