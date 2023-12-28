@@ -801,6 +801,27 @@ line-height: 120%; /* 24px */
     display: block;
 }
 
+
+.vectorAndImgCheck{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.imgCancelHover {
+    display: none;
+    position: relative;  
+}
+
+.imgCancelContainer:hover .imgCancel {
+    display: none;
+}
+
+.imgCancelContainer:hover .imgCancelHover {
+    display: block;
+}
+
 .subtasksImgCheck{
     width: 24px;
     height: 24px;
@@ -1147,37 +1168,6 @@ line-height: 120%; /* 24px */
     align-items: flex-end;
     gap: 4px;
     align-self: stretch; 
-}
-
-.subtaskItem{
-    display: flex;
-    width: 410px;
-    height: 32px;
-    padding: 4px 16px;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-}
-
-.iconsContainer{  
-    display: none;     
-    align-items: flex-start;
-    gap: 4px;
-}
-
-
-.subtaskItem:hover{
-background-color: #eeeeee;
-}
-
-.subtaskItem:hover .iconsContainer{
-display: flex;
-}
-
-
-.edit{
-    width: 24px;
-    height: 24px;  
 }
 
 

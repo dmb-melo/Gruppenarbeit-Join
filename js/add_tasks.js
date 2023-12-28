@@ -33,6 +33,8 @@ window.onload = function() {
 };
 
 
+
+
 function render() {
 
     let contacts = document.getElementById('contactList');
@@ -60,6 +62,7 @@ for (let i = 0; i < title.length; i++){
         let tempDiv = document.createElement('div');
         tempDiv.innerHTML = currentPriorityContent;
         tempDiv.classList.add('selectedPriorityContentDiv'); 
+                
                 
         let svgElements = tempDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
         svgElements.forEach(svgElement => {
@@ -185,6 +188,7 @@ function deleteTask(event) {// wird nicht mehr gebraucht
         save();
         render();
     }
+
 }  
 
 
@@ -603,6 +607,23 @@ function hide(event) {
 
 
 
+//Subtasks
+function clearInputSubTask(){            
+    document.getElementById('inputSubtasks').value = '';
+    hideVectorAndImgCheck();        
+}
+
+function hideVectorAndImgCheck(){
+    let vectorAndImgCheck = document.getElementById("vectorAndImgCheck");
+    let imgPlus = document.getElementById("addSubtasksPlus");
+    let imgPlusContainer = document.getElementById("imgPlusContainer");
+        if (vectorAndImgCheck && imgPlus) {
+        vectorAndImgCheck.classList.toggle("d-none");
+            imgPlus.classList.toggle("d-none");   
+            imgPlusContainer.classList.toggle("d-none");
+        }
+}
+
 
 //task_success
 
@@ -707,3 +728,20 @@ function hideFieldIndicatorsExcept(exceptSelector) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//NEU
