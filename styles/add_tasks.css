@@ -801,6 +801,7 @@ line-height: 120%; /* 24px */
     display: block;
 }
 
+<<<<<<< HEAD
 
 .vectorAndImgCheck{
     display: flex;
@@ -822,6 +823,8 @@ line-height: 120%; /* 24px */
     display: block;
 }
 
+=======
+>>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
 .subtasksImgCheck{
     width: 24px;
     height: 24px;
@@ -1173,6 +1176,10 @@ line-height: 120%; /* 24px */
 .subtaskItem{
     display: flex;
     width: 410px;
+<<<<<<< HEAD
+=======
+    height: 32px;
+>>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
     padding: 4px 16px;
     justify-content: space-between;
     align-items: center;

@@ -14,6 +14,10 @@
     <script src="./js/include.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/add_tasks.js"></script>
+<<<<<<< HEAD
+=======
+    <script src="./js/register.js"></script>
+>>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
    
 </head>
 
@@ -167,15 +171,21 @@
                 </div>         
                                      
                     <div class="categoryFrame74" id="taskCategory" onclick="hide(event)">
+<<<<<<< HEAD
                     <div class="categoryFrame74" id="taskCategory" onclick="hide(event)">
+=======
+>>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
                         <p id ="categorySelect" Value="Select a task category">Select a task category</p>
 
                         <div class ="imgArrows" id="imgArrows" onclick="hide(event)">
                             <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide(event)" > 
                             <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHover" onclick="hide(event)">                            
+<<<<<<< HEAD
                         <div class ="imgArrows" id="imgArrows" onclick="hide(event)">
                             <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide(event)" > 
                             <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHover" onclick="hide(event)">                            
+=======
+>>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
                         </div>
                     </div>
 
@@ -200,8 +210,8 @@
             <div class="subtasks">
                 <div class="textSubtasks">Subtasks</div>
                     <div class="subtasksFrame14" >
-                        <!-- <div class="textAddSubtasks">Add new subtask</div> -->
-                        <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasks" placeholder="Add new subtask">
+
+                        <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasks" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()">
                      
                         <div class="imgSubtasks" >
 
@@ -221,20 +231,8 @@
                                     </g>
                                 </svg>
                             </div>
-                            <img class="imgVector" src="./assets/img/Vector 3.png" alt="">                        
-                           
-                            <div class="subtasksImgCheck">
-                                <svg class="subtaskCheck" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                    <g id="Subtasks icons11">
-                                        <mask id="mask0_75601_14762" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                                        <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
-                                        </mask>
-                                        <g mask="url(#mask0_75601_14762)">
-                                            <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
-                                        </g>
-                                    </g>
-                                </svg>
 
+<<<<<<< HEAD
                                     <svg class="subtaskCheckHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                                         <g id="Property 1=check hover">
                                             <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
@@ -249,6 +247,44 @@
 
                                        
                                 </div>
+=======
+
+                            <div id="vectorAndImgCheck"  class="vectorAndImgCheck d-none">
+
+                                <div class="imgCancelContainer" id="imgCancelContainer" onclick="clearInputSubTask()">
+                                    <img class="imgCancel"  src="./assets/img/cancel.png">
+                                    <img class="imgCancelHover" src="./assets/img/close hover.png">
+                                </div>
+                                
+
+                                <img class="imgVector" src="./assets/img/vector.png" alt="">                        
+                            
+                                <div class="subtasksImgCheck" onclick="addSubtasks()">
+                                    
+                                    <svg class="subtaskCheck" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                        <g id="Subtasks icons11">
+                                            <mask id="mask0_75601_14762" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                                            <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
+                                            </mask>
+                                            <g mask="url(#mask0_75601_14762)">
+                                                <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
+                                            </g>
+                                        </g>
+                                    </svg>    
+
+                                    <svg class="subtaskCheckHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                        <g id="Property 1=check hover">
+                                            <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
+                                            <mask id="mask0_75592_9966" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                                            <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
+                                            </mask>
+                                            <g mask="url(#mask0_75592_9966)">
+                                                <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
+                                            </g>
+                                        </g>
+                                    </svg>                             
+
+>>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
                                        
                                 </div>
 
@@ -291,6 +327,12 @@
 
 </body>
 </html>
+<<<<<<< HEAD
+=======
+
+
+Hier Änderung
+>>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
 <!--https://www.youtube.com/watch?v=x0VcigW9kN0-->
 <!--https://www.youtube.com/watch?v=0eV-tf-W2rQ-->
 <!--https://www.tutorialspoint.com/how-to-copy-the-content-of-a-div-into-another-div-using-jquery#:~:text=Using%20the%20jQuery%20html(),when%20called%20without%20any%20arguments.-->

@@ -1,3 +1,4 @@
+let = submenuIsOpen = false;
 /**
  * This function opens and closes the submenu and the closeSubmenu() function must be added to the body
  * @function
