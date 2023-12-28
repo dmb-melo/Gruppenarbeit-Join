@@ -21,6 +21,7 @@ function doNotClose(event) {
 function initLoading() {
   loadUsers();
   loadUserLoginData();
+  loadUserData();
   startAnimation();
   renderLogInContent();
 }

@@ -2,6 +2,8 @@ let users = [];
 let rememberMeIsSet;
 let emailRememberMe = [];
 let passwordRememberMe = [];
+let userName = [];
+let initials = [];
 const STORAGE_TOKEN = "XULVXKXQ87YFSN0Q9PFZSMP577RV8CAJX896XQXQ";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
@@ -15,13 +17,33 @@ function login() {
   let password = document.getElementById("passwordInput").value;
   let user = users.find((u) => u.email == email && u.password == password);
   if (user) {
+    setInitialsOfTheUser(user);
     //window.location.href = "./summary.html";
     rememberMe();
+   
   } else {
     document.getElementById("inputFieldPassword").style = `border: 1px solid rgb(255,128,143) !important;`;
     document.getElementById("textThePasswordNotMatchLogin").innerHTML = `Ups! your password don't match`;
   }
 }
+
+/**
+ * Validation of user data. If the user and password are correct, they are forwarded to summary. If password or user do not match, the user is informed.
+ * @function
+ * @name setInitialsOfTheUser
+ * 
+ * @param {string} user  - User data that matches the login data entered.
+ * @param {string} userName  - User name.
+ * @param {string} initials - Initials from User name.
+ * */
+function setInitialsOfTheUser(user) {
+  userName = [];
+  initials = [];
+  userName = user['name'];
+  names = userName.split(' ');
+  initials = names[0].charAt(0).toUpperCase() + names[1].charAt(0).toUpperCase();
+  saveUserData();
+ }
 
 /**
  * The function changes the SVG based on the state of the field
@@ -169,8 +191,8 @@ function resetForm() {
  * @function
  * @name saveUserLoginData
  *
- * @param {string} emailRememberMe - Saved e-mail from local storage
- * @param {string} passwordRememberMe - Saved password from local storage
+ * @param {string} emailRememberMe - Saved e-mail in the local storage
+ * @param {string} passwordRememberMe - Saved password in the local storage
  * */
 function saveUserLoginData() {
   let emailRememberMeAtText = JSON.stringify(emailRememberMe);
@@ -184,8 +206,8 @@ function saveUserLoginData() {
  * @function
  * @name loadUserLoginData
  *
- * @param {string} emailRememberMe - Saved e-mail from local storage
- * @param {string} passwordRememberMe - Saved password from local storage
+ * @param {string} emailRememberMe - Load e-mail from local storage
+ * @param {string} passwordRememberMe - Load password from local storage
  * */
 function loadUserLoginData() {
   let emailRememberMeAtText = localStorage.getItem("email");
@@ -193,6 +215,38 @@ function loadUserLoginData() {
   if (emailRememberMeAtText && passwordRememberMeAtText) {
     emailRememberMe = JSON.parse(emailRememberMeAtText);
     passwordRememberMe = JSON.parse(passwordRememberMeAtText);
+  }
+}
+
+/**
+ * Saves the data from the local storage.
+ * @function
+ * @name saveUserData
+ *
+ * @param {string} userName - Saved name in the local storage
+ * @param {string} initials - Saved initials in the local storage
+ * */
+function saveUserData() {
+  let userNameAtText = JSON.stringify(userName);
+  let initialsAtText = JSON.stringify(initials);
+  localStorage.setItem("userName", userNameAtText);
+  localStorage.setItem("initials", initialsAtText);
+}
+
+/**
+ * Loads the data from the local storage.
+ * @function
+ * @name loadUserLoginData
+ *
+ * @param {string} userName  - Load name local storage
+ * @param {string} initials - Load initials from local storage
+ * */
+function loadUserData() {
+  let userNameAtText = localStorage.getItem("userName");
+  let initialsAtText = localStorage.getItem("initials");
+  if (userNameAtText && initialsAtText) {
+    userName = JSON.parse(userNameAtText);
+    initials = JSON.parse(initialsAtText);
   }
 }
 
