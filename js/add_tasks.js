@@ -42,8 +42,13 @@ contactsList.innerHTML = '';
 contacts.forEach(contact => {
     let contactElement = document.createElement('li');
     contactElement.innerHTML = `
-        <img src="" alt="" id="imgContactScr">
-        <p onclick="hideAssigned(event)" class="nameContact">${contact[0]}</p>
+    <div class ="contaktElement">
+        <div class="singleContact>
+            <img src="" alt="" id="imgContactScr">
+            <p onclick="hideAssigned(event)" class="nameContact">${contact[0]}</p>
+            
+        </div>
+    </div>
     `;
     contactsList.appendChild(contactElement);
 });
