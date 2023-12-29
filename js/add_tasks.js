@@ -46,13 +46,18 @@ contacts.forEach(contact => {
     
     
     <img class ="abbreviation" src=".assets/.img/Prio alta.png" alt="" id="imgContactScr"></img>  
-        <div class="singleContact>
-        <div class ="contactElement">
-        <div class = "custom-checkbox">
-            <input class="contaktName" onclick="hideAssigned(event)" type="checkbox"></input>
-            <label for= myCheckbox">${contact[0]}</label>
-        </div>
-    </div>
+      
+       
+            <div class = "custom-checkbox">
+                <div class="checkboxContaint">           
+                <label for="myCheckbox">${contact[0]}</label>
+                <input class="inputCheckBox" type="checkbox"></input>
+                
+                </div>
+            
+                
+            </div>
+    
     `;
     contactsList.appendChild(contactElement);
 });

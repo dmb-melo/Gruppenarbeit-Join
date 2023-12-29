@@ -1180,8 +1180,8 @@ display: flex;
 .underList{ 
      margin-top: -13px;
     position: absolute;  
-    display: flex;
-    padding-inline-start: 0px;
+   
+    
     flex-direction: column;
     border-radius: 10px;
     background: var(--white, #FFF); 
@@ -1191,7 +1191,7 @@ display: flex;
 .underListContact{
     margin-top: -13px;
     position: absolute;  
-    display: flex;
+   
     padding-inline-start: 0px;
     flex-direction: column;
     border-radius: 10px;
@@ -1201,36 +1201,43 @@ display: flex;
     width: 440px;
 }
 
+
+
 .custom-checkbox {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color: #bdbcbc;
-    */
+    background-color: #FF3D00;
     width: 358px; 
-    height:42px;
+    height: 42px;
     color: var(--black, #000);
-    
     font-size: 20px;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    line-height: 120%; /* 24px */
-   
+    line-height: 120%;
 }
 
-.custom-checkbox input[type="checkbox"] {
+.custom-checkbox input[type="checkbox"] {    
+    display: none;
     order: 2; /* Change the order */
     margin-right: 5px; /* Optional spacing between checkbox and label */
 }
 
 .custom-checkbox label {
-    order: 1; /* Change the order */
+    display: flex; /* Remove unnecessary background color and unnecessary width */
+    align-items: center;
+    cursor: pointer;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"%3E%3Crect x="4.68213" y="4.39673" width="16" height="16" rx="3" stroke="%232A3647" stroke-width="2"%3E%3C/rect%3E%3C/svg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    order: 1;
 }
+
 
 .contactList{
     display: flex;
     gap:8px;
-    align-items: center;
+   
     border-radius: 10px;
     background-color: #eeeeee;
     margin-top: 8px;
@@ -1243,11 +1250,7 @@ display: flex;
     
 }
 
-.contactElement{
-display: flex;
 
-align-items: center;
-}
 
 .abbreviation{
     height: 42px;
