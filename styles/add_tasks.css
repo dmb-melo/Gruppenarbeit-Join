@@ -3,9 +3,6 @@ body{
     background-color: rgb(246,247,248);
 }
 
-
-
-
 .content_addTask{
     display: flex;
     flex-direction: column;
