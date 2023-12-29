@@ -47,7 +47,7 @@ contacts.forEach(contact => {
        
         <div class = "custom-checkbox">   
             <input class ="inputCheckBox" type="checkbox" id="myCheckbox"></input>                       
-            <label class ="nameContact" for="myCheckbox">${contact[0]}</label>                              
+            <label class ="nameContact" for="myCheckbox" >${contact[0]}</label>                              
         </div>         
     `;
     contactsList.appendChild(contactElement);
@@ -57,18 +57,7 @@ contacts.forEach(contact => {
 }
 
 
-function selectAssigned(clickedElement) {
-    let selectText = clickedElement.querySelector('.nameContact').textContent;
-    let assignedElement = document.getElementById("assigned");
 
-    if (selectText !== 'Select contacts to assign') {
-        assigned.unshift(selectText);
-        save(); // Save the updated assigned array to localStorage
-
-        // Update the text content of the assigned element
-        assignedElement.querySelector.textContent = selectText;
-    }
-}
 
 
 function addTask() {
