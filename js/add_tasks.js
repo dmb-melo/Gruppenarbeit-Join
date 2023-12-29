@@ -35,9 +35,6 @@ window.onload = function() {
 
 function render() {
 
-
-    
-
     let contacts = document.getElementById('contactList');
     contacts.innerHTML = '';
 for (let i = 0; i < title.length; i++){
