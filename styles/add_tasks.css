@@ -666,27 +666,8 @@ line-height: 120%; /* 24px */
    
 }
 
-/* Style the custom checkbox */
-.checkbox-custom {
-    display: inline-block;
-    width: 25px; /* Width of the SVG */
-    height: 25px; /* Height of the SVG */
-    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"%3E%3Crect x="4.68213" y="4.39673" width="16" height="16" rx="3" stroke="%232A3647" stroke-width="2"%3E%3C/rect%3E%3C/svg%3E');
-    background-repeat: no-repeat;
-    background-size: contain; /* Adjust to cover, contain, or other values based on your need */
-}
 
 
-
-/* Style the custom checkbox for checked state */
-.checkbox-input:checked + .checkbox-custom {
-    /* display: inline-block; */
-    width: 25px; /* Width of the SVG */
-    height: 25px; /* Height of the SVG */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19' fill='none'%3E%3Cpath d='M17.6821 8.39673V14.3967C17.6821 16.0536 16.339 17.3967 14.6821 17.3967H4.68213C3.02527 17.3967 1.68213 16.0536 1.68213 14.3967V4.39673C1.68213 2.73987 3.02527 1.39673 4.68213 1.39673H12.6821' stroke='%232A3647' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5.68213 9.39673L9.68213 13.3967L17.6821 1.89673' stroke='%232A3647' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: contain; /* Adjust to cover, contain, or other values based on your need */
-}
 
 .subtasksContents {
     display: flex;
@@ -1197,7 +1178,7 @@ display: flex;
 /*Category*/
 
 .underList{ 
-     margin-top: -20px;
+     margin-top: -13px;
     position: absolute;  
     display: flex;
     padding-inline-start: 0px;
@@ -1205,6 +1186,73 @@ display: flex;
     border-radius: 10px;
     background: var(--white, #FFF); 
     z-index: 1;
+}
+
+.underListContact{
+    margin-top: -13px;
+    position: absolute;  
+    display: flex;
+    padding-inline-start: 0px;
+    flex-direction: column;
+    border-radius: 10px;
+    background: var(--white, #FFF); 
+    z-index: 1;
+    background-color: #29ABE2;
+    width: 440px;
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: #bdbcbc;
+    */
+    width: 358px; 
+    height:42px;
+    color: var(--black, #000);
+    
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+   
+}
+
+.custom-checkbox input[type="checkbox"] {
+    order: 2; /* Change the order */
+    margin-right: 5px; /* Optional spacing between checkbox and label */
+}
+
+.custom-checkbox label {
+    order: 1; /* Change the order */
+}
+
+.contactList{
+    display: flex;
+    gap:8px;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    margin-top: 8px;
+    height:42px;
+    padding: 7px 16px;
+}
+
+.liContact{
+    list-style: none;
+    
+}
+
+.contactElement{
+display: flex;
+
+align-items: center;
+}
+
+.abbreviation{
+    height: 42px;
+    width:42px;
+    background-color: #1FD7C1;
 }
 
 .options{  

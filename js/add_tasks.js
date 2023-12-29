@@ -41,12 +41,16 @@ contactsList.innerHTML = '';
 // Iterate through contacts and create list elements
 contacts.forEach(contact => {
     let contactElement = document.createElement('li');
+    contactElement.classList.add('contactList');
     contactElement.innerHTML = `
-    <div class ="contaktElement">
+    
+    
+    <img class ="abbreviation" src=".assets/.img/Prio alta.png" alt="" id="imgContactScr"></img>  
         <div class="singleContact>
-            <img src="" alt="" id="imgContactScr">
-            <p onclick="hideAssigned(event)" class="nameContact">${contact[0]}</p>
-            
+        <div class ="contactElement">
+        <div class = "custom-checkbox">
+            <input class="contaktName" onclick="hideAssigned(event)" type="checkbox"></input>
+            <label for= myCheckbox">${contact[0]}</label>
         </div>
     </div>
     `;
@@ -177,7 +181,7 @@ function load() {
 
 
 function selectAssigned(clickedElement) {
-    let selectText = clickedElement.querySelector('p').textContent;
+    let selectText = clickedElement.querySelector('label').textContent;
     let assignedElement = document.getElementById("assigned");
 
     if (selectText !== 'Select contacts to assign') {
@@ -185,7 +189,7 @@ function selectAssigned(clickedElement) {
         save(); // Save the updated assigned array to localStorage
 
         // Update the text content of the assigned element
-        assignedElement.querySelector('p').textContent = selectText;
+        assignedElement.querySelector('label').textContent = selectText;
     }
 }
 
