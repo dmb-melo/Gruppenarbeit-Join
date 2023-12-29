@@ -57,21 +57,10 @@ contacts.forEach(contact => {
     save();
 }
 
-// function selectAssigned(clickedElement) {
-//     let selectText = clickedElement.querySelector('label').textContent;
-//     let assignedElement = document.getElementById("assigned");
 
-//     if (selectText !== 'Select contacts to assign') {
-//         assigned.unshift(selectText);
-//         save(); // Save the updated assigned array to localStorage
-
-//         // Update the text content of the assigned element
-//         assignedElement.querySelector('label').textContent = selectText;
-//     }
-// }
 
 function selectAssigned(clickedElement) {
-    let selectText = clickedElement.querySelector('.nameContact').textContent;
+    let selectText = clickedElement.querySelector('nameContact').textContent;
     let assignedElement = document.getElementById("assigned");
 
     if (selectText !== 'Select contacts to assign') {
@@ -79,7 +68,7 @@ function selectAssigned(clickedElement) {
         save(); // Save the updated assigned array to localStorage
 
         // Update the text content of the assigned element
-        assignedElement.querySelector('.nameContact').textContent = selectText;
+        assignedElement.querySelector('nameContact').textContent = selectText;
     }
 }
 
