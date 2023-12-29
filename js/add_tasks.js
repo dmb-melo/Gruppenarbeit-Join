@@ -88,66 +88,66 @@ for (let i = 0; i < title.length; i++){
 
     // Convert currentCategory to a class name without spaces
     let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
-    //         noteElement.classList.add('cardA');
-    //         noteElement.innerHTML = `
-    //             <div class="categoryCard">
+            noteElement.classList.add('cardA');
+            noteElement.innerHTML = `
+                <div class="categoryCard">
                     
-    //                 <p class="${className}">${currentCategory}</p>
+                    <p class="${className}">${currentCategory}</p>
                
                
-    //             <img src="./assets/img/Close.png" alt="">
-    //         </div>
-    //         <p class="taskTitle"><b>${currentTitle}</b></p>
-    //         <p class="task_description">${currentDescription}</p>
-    //         <div class="taskDueDate">
-    //             <p class="TitleDueDate">Due Date:</p>
-    //             <div class="date">${currentDueDate}</div>
-    //         </div>
-    //         <div class="prio">
-    //             <p class="titelPrio">Priority:</p>
-    //             <div class="selectedPriorityContent">${clonedContentDiv.innerHTML}</div>
-    //         </div>
-    //         <div class="assigned">
-    //             <div class="assignedSecond">assigned to:</div>
-    //             <div class="assigns">rrrr</div>
-    //         </div>
+                <img src="./assets/img/Close.png" alt="">
+            </div>
+            <p class="taskTitle"><b>${currentTitle}</b></p>
+            <p class="task_description">${currentDescription}</p>
+            <div class="taskDueDate">
+                <p class="TitleDueDate">Due Date:</p>
+                <div class="date">${currentDueDate}</div>
+            </div>
+            <div class="prio">
+                <p class="titelPrio">Priority:</p>
+                <div class="selectedPriorityContent">${clonedContentDiv.innerHTML}</div>
+            </div>
+            <div class="assigned">
+                <div class="assignedSecond">assigned to:</div>
+                <div class="assigns">rrrr</div>
+            </div>
             
            
-    //         <!-- Displaying subtasks -->
-    //         <div class="subTasksCard">
-    //         <div class="titleSubtasks">Subtasks</div>
+            <!-- Displaying subtasks -->
+            <div class="subTasksCard">
+            <div class="titleSubtasks">Subtasks</div>
                           
-    //                         <div class="subtasksContainer">
-    // <!-- Loop through and generate checkboxes for subtasks -->
-    // ${currentSubTasks.map(subtask => `
-    //     <div class="subtasksContents">
-    //         <label class="checkbox-label">
-    //             <input type="checkbox" class="checkbox-input">
-    //             <span class="checkbox-custom"></span>
-    //             ${subtask}
-    //         </label>
-    //     </div>
-    // `).join('')}
-    //         </div>
+                            <div class="subtasksContainer">
+    <!-- Loop through and generate checkboxes for subtasks -->
+    ${currentSubTasks.map(subtask => `
+        <div class="subtasksContents">
+            <label class="checkbox-label">
+                <input type="checkbox" class="checkbox-input">
+                <span class="checkbox-custom"></span>
+                ${subtask}
+            </label>
+        </div>
+    `).join('')}
+            </div>
            
-    //         <!-- Button for deleting task -->
-    //         <div class="deleteAndEdit">
+            <!-- Button for deleting task -->
+            <div class="deleteAndEdit">
              
-    //             <div class="delete_task" onclick="deleteTask(event)">
-    //                 <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
-    //                 <p class = "delete-task-title">Delete</p>
-    //             </div>
+                <div class="delete_task" onclick="deleteTask(event)">
+                    <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
+                    <p class = "delete-task-title">Delete</p>
+                </div>
                 
-    //             <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
+                <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
                 
-    //             <div class ="edit_task">
+                <div class ="edit_task">
                 
-    //                 <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
-    //                 <p class = "edit-task-title">Edit</p>
-    //             </div>
+                    <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
+                    <p class = "edit-task-title">Edit</p>
+                </div>
               
-    //         </div>            
-    //     `;
+            </div>            
+        `;
         
     
         content.appendChild(noteElement);
