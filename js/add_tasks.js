@@ -56,7 +56,21 @@ contacts.forEach(contact => {
     save();
 }
 
+function selectAssigned(clickedElement) {
+    let selectText = clickedElement.querySelector('.nameContact').textContent;
+    let assignedElement = document.getElementById("assigned");
 
+    if (selectText !== 'Select contacts to assign') {
+        let label = clickedElement.querySelector('.nameContact');
+        if (label) {
+            assigned.unshift(selectText);
+            save(); // Save the updated assigned array to localStorage
+            assignedElement.textContent = selectText;
+        } else {
+            console.error('Label element not found inside clickedElement.');
+        }
+    }
+}
 
 
 
