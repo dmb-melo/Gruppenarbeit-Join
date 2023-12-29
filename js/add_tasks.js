@@ -53,8 +53,23 @@ function render() {
         contactsList.appendChild(contactElement);
     });
 
+   
     save();
 }
+
+// function selectAssigned() {
+//     let checkboxes = document.querySelectorAll('.inputCheckBox');
+//     assigned = []; // Clear the array to store only the currently checked labels
+
+//     checkboxes.forEach((checkbox, index) => {
+//         let label = document.querySelector(`.nameContact[for=myCheckbox_${index}]`);
+//         if (checkbox.checked && label) {
+//             assigned.push(label.textContent);
+//         }
+//     });
+
+//     save(); // Save the updated assigned array to localStorage
+// }
 
 
 
@@ -70,6 +85,17 @@ function addTask() {
     let dueDateValue = document.getElementById('dueDate').value;
     document.getElementById('dueDate').value = '';
     dueDate.unshift(dueDateValue);
+
+    let checkboxes = document.querySelectorAll('.inputCheckBox');
+    assigned = []; // Clear the array to store only the currently checked labels
+
+    checkboxes.forEach((checkbox, index) => {
+        let label = document.querySelector(`.nameContact[for=myCheckbox_${index}]`);
+        if (checkbox.checked && label) {
+            assigned.push(label.textContent);
+        }
+    });
+
     
     let selectedPriority = document.querySelector('.priorityUrgent-active, .priorityMedium-active, .priorityLow-active');
     let priorityContent = selectedPriority ? selectedPriority.innerHTML : '';
