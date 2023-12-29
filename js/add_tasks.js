@@ -57,7 +57,6 @@ contacts.forEach(contact => {
 }
 
 
-
 function selectAssigned(clickedElement) {
     let selectText = clickedElement.querySelector('.nameContact').textContent;
     let assignedElement = document.getElementById("assigned");
