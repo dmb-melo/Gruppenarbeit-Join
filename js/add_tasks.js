@@ -35,16 +35,28 @@ window.onload = function() {
 
 function render() {
 
-    let contacts = document.getElementById('contactList');
-    contacts.innerHTML = '';
-for (let i = 0; i < title.length; i++){
-    let currentAssigned = assigned[i];
-    let ContacElement =  document.createElement('li');
-    ContacElement.innerHTML='';
-    ContacElement.innerHTML +=`
-    <p onclick="hideAssigned(event)">${currentAssigned}</p>
-    `
-}
+    let contactsList = document.getElementById('contactList');
+contactsList.innerHTML = '';
+
+// Iterate through contacts and create list elements
+contacts.forEach(contact => {
+    let contactElement = document.createElement('li');
+    contactElement.innerHTML = `
+        <img src="" alt="" id="imgContactScr">
+        <p onclick="hideAssigned(event)" class="nameContact">${contact[0]}</p>
+    `;
+    contactsList.appendChild(contactElement);
+});
+
+// Add onclick functionality for each contact name
+let nameContactElements = document.querySelectorAll('.nameContact');
+nameContactElements.forEach((element, index) => {
+    element.addEventListener('click', function(event) {
+        hideAssigned(event);
+        // Access data for the clicked contact using contactsData[index]
+    });
+});
+
 
     let content = document.getElementById('inhalt');
     content.innerHTML = '';
