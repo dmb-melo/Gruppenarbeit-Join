@@ -57,21 +57,6 @@ function render() {
     save();
 }
 
-// function selectAssigned() {
-//     let checkboxes = document.querySelectorAll('.inputCheckBox');
-//     assigned = []; // Clear the array to store only the currently checked labels
-
-//     checkboxes.forEach((checkbox, index) => {
-//         let label = document.querySelector(`.nameContact[for=myCheckbox_${index}]`);
-//         if (checkbox.checked && label) {
-//             assigned.push(label.textContent);
-//         }
-//     });
-
-//     save(); // Save the updated assigned array to localStorage
-// }
-
-
 
 function addTask() {
     let titleValue = document.getElementById('title').value;
