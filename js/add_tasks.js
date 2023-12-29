@@ -599,23 +599,6 @@ function hideVectorAndImgCheck(){
         }
 }
 
-function hide(event) {    
-    
-    if (event.target.id !== "inputSubtasks") {
-    let list = document.getElementById("list");
-    let arrow = document.getElementById("arrow");
-    let arrow_drop_downHover = document.getElementById("arrow_drop_downHover");
-
-    list.classList.toggle("hide");
-    arrow.classList.toggle("rotate");
-    arrow_drop_downHover.classList.toggle("rotate");
-    }
-
-}
-
-
-
-
 //task_success
 
 function taskSuccess(){
