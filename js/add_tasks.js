@@ -43,39 +43,45 @@ contacts.forEach(contact => {
     let contactElement = document.createElement('li');
     contactElement.classList.add('contactList');
     contactElement.innerHTML = `
-    
-    
-    <img class ="abbreviation" src=".assets/.img/Prio alta.png" alt="" id="imgContactScr"></img>  
-      
+        <img class ="abbreviation" src="" alt="" id="imgContactScr"></img>     
        
-            <div class = "custom-checkbox">
-                <div class="checkboxContaint">           
-                <label for="myCheckbox">${contact[0]}</label>
-                <input class="inputCheckBox" type="checkbox"></input>
-                
-                </div>
-            
-                
-            </div>
+        <div class = "custom-checkbox">   
+            <input class="inputCheckBox" type="checkbox" id="myCheckbox"></input>                       
+            <label class ="nameContact" for="myCheckbox">${contact[0]}</label>                              
+        </div>        
     
     `;
     contactsList.appendChild(contactElement);
 });
 
-// Add onclick functionality for each contact name
-let nameContactElements = document.querySelectorAll('.nameContact');
-nameContactElements.forEach((element, index) => {
-    element.addEventListener('click', function(event) {
-        hideAssigned(event);
-        // Access data for the clicked contact using contactsData[index]
-    });
-});
-   
-        save();
+    save();
 }
 
+// function selectAssigned(clickedElement) {
+//     let selectText = clickedElement.querySelector('label').textContent;
+//     let assignedElement = document.getElementById("assigned");
 
- 
+//     if (selectText !== 'Select contacts to assign') {
+//         assigned.unshift(selectText);
+//         save(); // Save the updated assigned array to localStorage
+
+//         // Update the text content of the assigned element
+//         assignedElement.querySelector('label').textContent = selectText;
+//     }
+// }
+
+function selectAssigned(clickedElement) {
+    let selectText = clickedElement.querySelector('.nameContact').textContent;
+    let assignedElement = document.getElementById("assigned");
+
+    if (selectText !== 'Select contacts to assign') {
+        assigned.unshift(selectText);
+        save(); // Save the updated assigned array to localStorage
+
+        // Update the text content of the assigned element
+        assignedElement.querySelector('nameContact').textContent = selectText;
+    }
+}
 
 
 function addTask() {
@@ -185,18 +191,6 @@ function load() {
 //assigned to
 
 
-function selectAssigned(clickedElement) {
-    let selectText = clickedElement.querySelector('label').textContent;
-    let assignedElement = document.getElementById("assigned");
-
-    if (selectText !== 'Select contacts to assign') {
-        assigned.unshift(selectText);
-        save(); // Save the updated assigned array to localStorage
-
-        // Update the text content of the assigned element
-        assignedElement.querySelector('label').textContent = selectText;
-    }
-}
 
 
 function hideAssigned(event) {
