@@ -42,8 +42,6 @@ body{
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    /* height: 376px; */
-    background-color: #A8A8A8;
 }
 
 
@@ -61,7 +59,7 @@ body{
     height: 24px; /*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
     font-family: "Inter" , sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 24px;
     color: var(--Version-2-main-color, #2A3647);
 }
@@ -305,7 +303,6 @@ span{
     justify-content: center;
     align-items: flex-start;
     gap: 24px;
-    background-color: #1FD7C1;
 }
 
 .dueDate{
