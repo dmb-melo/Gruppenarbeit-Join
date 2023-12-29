@@ -569,7 +569,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: flex;
     padding: 12px 16px;
     justify-content: space-between;
-  position: relative;
+    position: relative;
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: var(--white, #FFF);
@@ -586,23 +586,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .categoryFrame74:hover{
     border: 1px solid var(--Style, #bdbcbc);
 }
-
-
-    .categories{
+.categories{
  
-        font-family: "Inter", sans-serif;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 24px;    
-       
-    }        
-    
-    .options select:hover{
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;    
+   
+}
 
-        background-color: #FF3D00; 
-    }
-                                        
+.options select:hover{
 
+    background-color: #FF3D00; 
+}         
 
 .disabledSelected{
     display: none;
