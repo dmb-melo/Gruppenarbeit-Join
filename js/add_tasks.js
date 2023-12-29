@@ -33,8 +33,6 @@ window.onload = function() {
 };
 
 
-
-
 function render() {
     let contactsList = document.getElementById('contactList');
     contactsList.innerHTML = '';
