@@ -1,0 +1,367 @@
+body{
+    font-family: "Inter", sans-serif;
+}
+h1{
+    font-size: 42px;
+}
+h2{
+    font-size: 40px;
+    margin-bottom: 6px;
+}
+h3{
+    font-size: 24px;
+}
+hr{
+    margin-right: 32px;
+    margin-left: 3px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-color: rgba(231, 231, 231, 0.4);
+}
+.line{
+    width: 3px;
+    height: 55px;
+    background-color: #2AAAE2;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+.contacts-content{
+    display: flex;
+    justify-content: center;
+}
+.contact-list{
+    width: 30%;
+    height: 100vh;
+    -webkit-box-shadow: 3px 0px 4px -4px rgba(77,77,77,0.53);
+    -moz-box-shadow: 3px 0px 4px -4px rgba(77,77,77,0.53);
+    box-shadow: 3px 0px 4px -4px rgba(77,77,77,0.53);
+}
+.contact-details{
+    width: 60%;
+    height: 100vh;
+    background-color: #F6F7F8;
+    padding-left: 36px;
+}
+.add-contact{
+    background-color: #293647;
+    color: white;
+    padding-right: 42px;
+    padding-left: 42px;
+    cursor: pointer;
+    border: 1px;
+    border-radius: 9px;
+    width: 90%;
+    margin-bottom: 24px;
+    height: 42px;
+}
+.add-contact:hover{
+    background-color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.add-contact-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.add-contact-image{
+    height: 24px;
+}
+.contact-details-headline{
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    margin-top: 48px;
+}
+.nameIdList{
+    margin-top: 11px;
+    font-size: 12px;
+}
+.nameIdEdit{
+    font-size: 48px;
+}
+.circle{
+    border-radius: 100px;
+    width: 36px;
+    height: 36px;
+    margin: 12px;
+    text-align: center;
+    color: white;
+    border: solid;
+    
+}
+.editCircle{
+    border-radius: 100px;
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    color: white;
+    margin-top: 170px;
+    border: solid;
+    margin-left: 60px;
+}
+.contact-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    width: 90%;
+    height: 65px;
+    margin-bottom: 12px;
+}
+.contact-info:hover{
+    background-color: #F6F7F8;
+}
+.contact-info-right{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.contact-info-left{
+    margin: 10px;
+}
+.contact-info-mail{
+    color: #55A5F4;
+}
+.circleCard{
+    border-radius: 100px;
+    width: 90px;
+    height: 90px;
+    margin: 12px;
+    text-align: center;
+    color: white;
+    border: solid white 3px;
+    margin-right: 36px;
+}
+.nameId{
+    font-size: 36px;
+}
+.contactCard{
+    margin-left: 24px;
+    margin-top: 24px;
+}
+.buttonsCard{
+    display: flex;
+}
+.logo-mini{
+    height: 18px;
+    margin-right: 6px;
+}
+.contactNameButtons{
+    display: flex;
+    flex-direction: column;
+    margin-top: 21px;
+}
+.contactTitle{
+    display: flex;
+    margin-bottom: 24px;
+}
+.textCard{
+    font-size: 18px;
+    margin-bottom: 36px;
+
+}
+.head-info{
+    margin-bottom: 12px;
+    margin-top: 12px;
+    font-weight: bold;
+}
+.main-info-mail{
+    color: #459DF0;
+}
+.d-none{
+    display: none;
+}
+.addContactLeft{
+    background-color: #2B3646;
+    width: 40vw;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+}
+.addContactPopup{
+    position: fixed;
+    height: 600px;
+    left: 120px;
+}
+.addContactRight{
+    background-color: white;
+    width: 45vw;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.addContactMain{
+    display: flex;
+    flex-direction: row;
+    height: 400px;
+    width: 900px;
+    border-radius: 36px;
+    margin-top: 200px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.addContactHeadline{
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+.addContactHeadline2{
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+.line2{
+    background-color: #2AAAE2;
+    width: 70px;
+    height: 2px;
+    margin-left: 40px;
+    margin-top: 12px;
+}
+.addContactRight2{
+    display: flex;
+    flex-direction: row;
+}
+.addContactRight3{
+    width: 30vw;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    margin-top: 36px;
+}
+.inputField{
+    border: none;
+    width: 310px;
+    border-radius: 12px;
+    padding: 0;
+    height: 36px;
+    padding-left: 12px;
+}
+.formDiv{
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-right: 24px;
+}
+.editContactLeft{
+    background-color: #2B3646;
+    width: 350px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+}
+.editContactPopup{
+    position: fixed;
+    height: 800px;
+    left: 120px;
+    font-weight: 700;
+}
+.editContactRight{
+    background-color: white;
+    width: 440px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+}
+.editContactMain{
+    display: flex;
+    flex-direction: row;
+    height: 460px;
+
+    border-radius: 36px;
+    margin-top: 200px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.editContactHeadline{
+    color: white;
+    font-size: 50px;
+    margin-left: 40px;
+    margin-top: 24px;
+}
+.editContactMiddle{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 200px;
+}
+.editContactLogo{
+    margin-top: 120px;
+    margin-left: 40px;
+    width: 50px;
+}
+.deleteCard{
+    cursor: pointer;
+    display: flex;
+}
+.editCard{
+    cursor: pointer;
+    margin-right: 18px;
+    display: flex;
+}
+.group-header{
+    margin-left: 36px;
+}
+.close-img{
+    position: relative;
+}
+.close-img-div{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -48px;
+    margin-right: 18px;
+}
+.logo-edit-input{
+    width: auto;
+    height: 18px;
+    margin-right: 24px;
+}
+.inputFieldName{
+    display: flex;
+    border: 1px solid #D9D9D9;
+    height: 36px;
+    margin-bottom: 30px;
+    border-radius: 9px;
+    justify-content: space-between;
+    width: 360px;
+    align-items: center;
+}
+.deleteButton{
+    width: 70px;
+    height: 35px;
+    border: 1px solid #293647;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 12px;
+}
+.deleteButton:hover{
+    border: 1px solid #2AAAE2;
+    color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.saveButton{
+    width: 70px;
+    height: 35px;
+    border: 1px solid #293647;
+    border-radius: 6px;
+    background-color: #293647;
+    cursor: pointer;
+    margin-right: 12px;
+    color: white;
+}
+.saveButton:hover{
+    background-color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid #2AAAE2;
+}
+.editButtons{
+    display: flex;
+    flex-direction: row;
+}
+.save-button-div{
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+}
+.save-check-img{
+    width: 18px;
+    margin-left: 4px;
+}
