@@ -33,43 +33,27 @@ window.onload = function() {
 };
 
 
+
+
 function render() {
-
     let contactsList = document.getElementById('contactList');
-contactsList.innerHTML = '';
+    contactsList.innerHTML = '';
 
-// Iterate through contacts and create list elements
-contacts.forEach(contact => {
-    let contactElement = document.createElement('li');
-    contactElement.classList.add('contactList');
-    contactElement.innerHTML = `
-        <img class ="abbreviation" src="" alt="" id="imgContactScr"></img>     
-       
-        <div class = "custom-checkbox">   
-            <input class ="inputCheckBox" type="checkbox" id="myCheckbox"></input>                       
-            <label class ="nameContact" for="myCheckbox" >${contact[0]}</label>                              
-        </div>         
-    `;
-    contactsList.appendChild(contactElement);
-});
+    // Iterate through contacts and create list elements
+    contacts.forEach((contact, index) => {
+        let contactElement = document.createElement('li');
+        contactElement.classList.add('contactList');
+        contactElement.innerHTML = `
+            <img class="abbreviation" src="" alt="" id="imgContactScr_${index}"></img>     
+            <div class="custom-checkbox">   
+                <input class="inputCheckBox" type="checkbox" id="myCheckbox_${index}"></input>                       
+                <label class="nameContact" for="myCheckbox_${index}" >${contact[0]}</label>                              
+            </div>         
+        `;
+        contactsList.appendChild(contactElement);
+    });
 
     save();
-}
-
-function selectAssigned(clickedElement) {
-    let selectText = clickedElement.querySelector('.nameContact').textContent;
-    let assignedElement = document.getElementById("assigned");
-
-    if (selectText !== 'Select contacts to assign') {
-        let label = clickedElement.querySelector('.nameContact');
-        if (label) {
-            assigned.unshift(selectText);
-            save(); // Save the updated assigned array to localStorage
-            assignedElement.textContent = selectText;
-        } else {
-            console.error('Label element not found inside clickedElement.');
-        }
-    }
 }
 
 
@@ -147,6 +131,7 @@ function clearTask() {
 function save() {
     localStorage.setItem('title', JSON.stringify(title));
     localStorage.setItem('description', JSON.stringify(description));
+    localStorage.setItem('assigned', JSON.stringify(assigned));
     localStorage.setItem('dueDate', JSON.stringify(dueDate));
     localStorage.setItem('priorityContentArray', JSON.stringify(priorityContentArray)); 
     localStorage.setItem('subtasks', JSON.stringify(subtasks));
@@ -159,6 +144,7 @@ function save() {
 function load() {
     let titleAsText = localStorage.getItem('title');
     let descriptionAsText = localStorage.getItem('description');
+    let assignedAsText = localStorage.getItem('assigned');
     let dueDateAsText = localStorage.getItem('dueDate');
     let priorityContentArrayText = localStorage.getItem('priorityContentArray'); 
     let subtaskAsText = localStorage.getItem('subtasks');
@@ -166,9 +152,10 @@ function load() {
     let categoryAsText = localStorage.getItem('category');
     let subTAsText = localStorage.getItem('subT');
     
-    if (titleAsText && descriptionAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
+    if (titleAsText && descriptionAsText &&assignedAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
         title = JSON.parse(titleAsText);
         description = JSON.parse(descriptionAsText);
+        assigned =JSON.parse(assignedAsText);
         dueDate = JSON.parse(dueDateAsText);
         priorityContentArray = JSON.parse(priorityContentArrayText); 
         subtasks = JSON.parse(subtaskAsText);
