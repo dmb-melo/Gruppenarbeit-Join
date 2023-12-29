@@ -46,10 +46,9 @@ contacts.forEach(contact => {
         <img class ="abbreviation" src="" alt="" id="imgContactScr"></img>     
        
         <div class = "custom-checkbox">   
-            <input class="inputCheckBox" type="checkbox" id="myCheckbox"></input>                       
+            <input class ="inputCheckBox" type="checkbox" id="myCheckbox"></input>                       
             <label class ="nameContact" for="myCheckbox">${contact[0]}</label>                              
-        </div>        
-    
+        </div>         
     `;
     contactsList.appendChild(contactElement);
 });
@@ -60,7 +59,7 @@ contacts.forEach(contact => {
 
 
 function selectAssigned(clickedElement) {
-    let selectText = clickedElement.querySelector('nameContact').textContent;
+    let selectText = clickedElement.querySelector('.nameContact').textContent;
     let assignedElement = document.getElementById("assigned");
 
     if (selectText !== 'Select contacts to assign') {
@@ -68,7 +67,7 @@ function selectAssigned(clickedElement) {
         save(); // Save the updated assigned array to localStorage
 
         // Update the text content of the assigned element
-        assignedElement.querySelector('nameContact').textContent = selectText;
+        assignedElement.querySelector.textContent = selectText;
     }
 }
 
