@@ -908,7 +908,6 @@ line-height: 120%; /* 24px */
     width: 123px;
     height: 24px;
     color: #FFF;
-
     font-family: "Inter", sans-serif;
     font-size: 21px;
     font-weight: 700;
@@ -972,9 +971,8 @@ line-height: 120%; /* 24px */
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
+
 .date{
     color: var(--black, #000);
     font-family: "Inter", sans-serif;
@@ -997,16 +995,15 @@ line-height: 120%; /* 24px */
     font-family: "Inter", sans-serif;
     font-size: 20px;
 }
+
 /*delete and edit*/
 .deleteAndEdit{
     display: flex;
     justify-content: end;
     align-items: center;
     gap: 8px;
-    width:100%;
- 
-    height: 24px;
-   
+    width:100%; 
+    height: 24px;   
 }
 
 .delete_task{
@@ -1059,9 +1056,6 @@ line-height: 120%; /* 24px */
     line-height: 19.2%;
 }
 
-/**/
-
-
 
 .selectedPriorityContent{
     display: flex;
@@ -1110,18 +1104,16 @@ line-height: 120%; /* 24px */
 }
 
 
-.underListContact{
-    margin-top: -13px;
+.underListContact{    
     position: absolute;    
     padding-inline-start: 0px;
     flex-direction: column;
     border-radius: 10px;
     background: var(--white, #FFF); 
     z-index: 1;
-    max-height:200px;
-    width: 440px;
-   
-    overflow: auto; 
+    max-height:170px;
+    width: 440px;   
+    overflow: auto;
 }
 
 ::-webkit-scrollbar-thumb{
@@ -1194,16 +1186,15 @@ height:0px;
     gap:8px;
     align-items: center;   
     border-radius: 10px;
-    background-color: #eeeeee;
-    margin-top: 8px;
+ 
     height:42px;
     padding: 7px 16px;
 }
 
-.liContact{
-    list-style: none;
-    
+.contactList:hover{
+    background-color: #eeeeee; 
 }
+
 
 .abbreviation{
     height: 42px;
