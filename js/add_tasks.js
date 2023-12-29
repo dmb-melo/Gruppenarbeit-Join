@@ -79,7 +79,7 @@ function selectAssigned(clickedElement) {
         save(); // Save the updated assigned array to localStorage
 
         // Update the text content of the assigned element
-        assignedElement.querySelector('nameContact').textContent = selectText;
+        assignedElement.querySelector('.nameContact').textContent = selectText;
     }
 }
 
