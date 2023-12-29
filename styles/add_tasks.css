@@ -89,9 +89,6 @@ body{
 }
 
 
-
-
-
 .text_enterTitle{
     width: 398px;/*wird wahrscheinlich nicht benötigt - figma ist ohne width*/
     height: 24px;/*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
@@ -1107,7 +1104,7 @@ line-height: 120%; /* 24px */
     border-radius: 10px;
     background: var(--white, #FFF); 
     z-index: 1;
-    max-height:170px;
+    max-height:110px;
     width: 440px;   
     overflow: auto;
 }
