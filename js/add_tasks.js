@@ -52,7 +52,6 @@ function render() {
         `;
         contactsList.appendChild(contactElement);
     });
-
    
     save();
 }
