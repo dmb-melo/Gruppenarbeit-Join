@@ -10,6 +10,7 @@
     <script src="./js/include.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/contacts.js"></script>
+    <script src="./js/register.js"></script>
 </head>
 <body onload="renderContacts()">
    <div w3-include-html="assets/templates/sidebar.html"></div>
@@ -19,29 +20,46 @@
     <div class="addContactPopup d-none" id="addContact">
         <div class="addContactMain">
             <div class="addContactLeft">
-                <img src="./assets/img/logo-white.svg">
+                <img class="addContactLogo" src="./assets/img/logo-white.svg">
                 <div class="addContactHeadline">Add contact</div>
                 <div class="addContactHeadline2">Tasks are better with a team!</div>
-                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <div class="addContactMiddle">
+                <div class="editCircle"></div>
             </div>
             <div class="addContactRight">
-                <div class="addContactRight2">
-                    <div class="addContactRight3">
-                        <img src="#">
-                    </div>
                     <div class="formDiv">
                         <form id="addContactForm">
-                            <img src="./assets/img/Close.png" onclick="closeAddContact()">
+                            <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()"></div>
                             <div class="input">
-                                <input class="inputField" type="text" placeholder="Name" id="userName">
-                                <input class="inputField" type="email" placeholder="Email" id="userEmail">
-                                <input class="inputField" type="tel" placeholder="Phone" id="userPhone">
+                                <div class="inputFieldName">
+                                    <input class="inputField" type="text" placeholder="Name"> 
+                                    <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
+                                </div>
+                                <div class="inputFieldName">
+                                    <input class="inputField" type="email"placeholder="Email"> 
+                                    <img class="logo-edit-input" src="./assets/img/mail_add_contact.png">
+                                </div>
+                                <div class="inputFieldName">
+                                    <input class="inputField" type="tel" placeholder="Phone"> 
+                                    <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
+                                </div>
                             </div>
-                            <button onclick="closeAddContact()">Cancel</button>
-                            <button onclick="createContact()">Create Contact</button>
+                            <div class="editButtons">
+                                <button class="closeButton" onclick="closeAddContact()">
+                                    <div class="cancel-button-div">
+                                    <div class="cancel-text">Cancel</div>
+                                    <div><img class="cancel-img" src="./assets/img/cancel.png"></div>
+                                </button>
+                                <button class="createButton" onclick="createContact()">
+                                    <div class="create-button-div">
+                                    <div class="create-text">Create Contact</div>
+                                    <div><img class="create-img" src="./assets/img/check.png"></div>
+                                </button>
+                            </div>
                         </form>
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -60,7 +78,7 @@
             <div class="editContactRight">
                 <div class="formDiv">
                     <form id="editContactForm">
-                        <div class="close-img-div"><img class="close-img" src="./assets/img/Close.png" onclick="closeEditContact()"></div>
+                        <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeEditContact()"></div>
                         <div class="input" id="editInput"></div>
                     </form>
                 </div>

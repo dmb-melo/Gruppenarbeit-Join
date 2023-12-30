@@ -174,9 +174,9 @@ hr{
 }
 .addContactLeft{
     background-color: #2B3646;
-    width: 40vw;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
+    width: 500px;
 }
 .addContactPopup{
     position: fixed;
@@ -201,19 +201,31 @@ hr{
 }
 .addContactHeadline{
     color: white;
-    font-size: 50px;
-    text-align: center;
+    font-size: 45px;
+    margin-top: 12px;
+    margin-left: 30px;
+
+    
 }
 .addContactHeadline2{
     color: white;
-    font-size: 24px;
-    text-align: center;
+    font-size: 21px;
+    font-weight: 200;
+    margin-left: 30px;
+    margin-top: 12px;
 }
 .line2{
     background-color: #2AAAE2;
     width: 70px;
     height: 2px;
     margin-left: 40px;
+    margin-top: 12px;
+}
+.line3{
+    background-color: #2AAAE2;
+    width: 70px;
+    height: 2px;
+    margin-left: 30px;
     margin-top: 12px;
 }
 .addContactRight2{
@@ -230,11 +242,18 @@ hr{
 }
 .inputField{
     border: none;
-    width: 310px;
+    width: 348px;
     border-radius: 12px;
     padding: 0;
     height: 36px;
     padding-left: 12px;
+    margin-right: -70px;
+}
+.inputField:hover{
+    border: 2px solid #2AAAE2 !important;
+}
+.inputField:focus{
+    border: 2px solid #2AAAE2 !important;
 }
 .formDiv{
     margin-top: 80px;
@@ -243,7 +262,7 @@ hr{
 }
 .editContactLeft{
     background-color: #2B3646;
-    width: 350px;
+    width: 380px;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
 }
@@ -282,8 +301,19 @@ hr{
     background-color: white;
     width: 200px;
 }
+.addContactMiddle{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 200px;
+}
 .editContactLogo{
     margin-top: 120px;
+    margin-left: 40px;
+    width: 50px;
+}
+.addContactLogo{
+    margin-top: 100px;
     margin-left: 40px;
     width: 50px;
 }
@@ -301,6 +331,7 @@ hr{
 }
 .close-img{
     position: relative;
+    cursor: pointer;
 }
 .close-img-div{
     display: flex;
@@ -337,9 +368,38 @@ hr{
     color: #2AAAE2;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.closeButton:hover{
+    border: 1px solid #2AAAE2;
+    color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.createButton:hover{
+    background-color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid #2AAAE2;
+}
 .saveButton{
-    width: 70px;
+    width: 80px;
     height: 35px;
+    border: 1px solid #293647;
+    border-radius: 6px;
+    background-color: #293647;
+    cursor: pointer;
+    margin-right: 12px;
+    color: white;
+}
+.closeButton{
+    width: 90px;
+    height: 40px;
+    border: 1px solid #293647;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 12px;
+}
+.createButton{
+    width: 150px;
+    height: 40px;
     border: 1px solid #293647;
     border-radius: 6px;
     background-color: #293647;
@@ -361,7 +421,27 @@ hr{
     align-items: center;
     margin-left: 3px;
 }
+.cancel-button-div{
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+}
+.create-button-div{
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+}
 .save-check-img{
     width: 18px;
     margin-left: 4px;
+}
+.cancel-img{
+    width: 18px;
+}
+.create-img{
+    width: 18px;
+}
+.create-text{
+    font-size: 15px;
+
 }

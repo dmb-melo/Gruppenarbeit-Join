@@ -15,6 +15,7 @@ body {
   right: 133px;
   border-radius: 100%;
   cursor: pointer;
+  z-index: 999;
 }
 
 .arrow-back:hover {
@@ -46,5 +47,14 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 27px;
     font-weight: 700;
-    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.text {
+  display: block;
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 16px;
 }
