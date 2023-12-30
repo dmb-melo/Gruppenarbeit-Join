@@ -56,13 +56,13 @@ function render() {
         contactElement.classList.add('contactList');
         contactElement.innerHTML = `
             <div class="circleAvatar">
-            <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
-                <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-            </div>
-            </div>
-            <div class="custom-checkbox">   
-                <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
-                <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
+                <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
+                    <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+                </div>
+                </div>
+                <div class="custom-checkbox">   
+                    <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
+                    <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
             </div>
         `;
         contactsList.appendChild(contactElement);       
