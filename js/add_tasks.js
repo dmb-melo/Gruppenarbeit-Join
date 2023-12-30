@@ -90,26 +90,30 @@ function handleContactSearch() {
         } else {
             contact.style.display = 'none'; // Hide non-matching contacts
         }
-            // Add event listener for checkbox changes to trigger contact display update
 
+        // Add event listener for checkbox changes to trigger contact display update
+        let checkbox = contact.querySelector(`#myCheckbox_${i}`);
+        checkbox.addEventListener('change', function() {
+            displayAvatar(i, firstname, surnam, colors); // Call the function to display content in contactAvatar
+        });
     } 
-    
 }
 
-function displaySelectedContacts() {
+// Function to display content inside contactAvatar
+function displayAvatar(i, firstname, surname, colors) {
     let contactAvatar = document.getElementById('contactAvatar');
-    contactAvatar.innerHTML = ''; // Clear the content before adding new content
+    contactAvatar.innerHTML = ''; // Clear previous content
 
-    // Iterate through selected contacts and clone the circle content into contactAvatar
-    selectedContacts.forEach((contact, index) => {
-        let circleDiv = document.getElementById(`circle-${index}`);
-        if (circleDiv) {
-            let clonedContent = circleDiv.cloneNode(true);
-            contactAvatar.appendChild(clonedContent);
-        }
-    });
+    let currentContactContent = `
+        <div class="circleAvatar">
+            <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
+                <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+            </div>
+        </div>
+    `;
+
+    contactAvatar.innerHTML = currentContactContent; // Set the content inside contactAvatar
 }
-
 
 
 function addTask() {
