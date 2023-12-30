@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: rgb(246, 247, 248);
+  font-family: "Inter", sans-serif;
+  display: flex;
+}
+
+.arrow-back {
+  height: 32px;
+  position: absolute;
+  top: 225px;
+  right: 133px;
+  border-radius: 100%;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.arrow-back:hover {
+  background-color: rgba(12, 46, 98, 0.12);
+  transform: scale(1.1);
+}
+
+.content-container {
+  position: absolute;
+  top: 206px;
+  left: 328px;
+  right: 133px;
+}
+
+.headline-legal-help-privacy {
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inter", sans-serif;
+  font-size: 61px;
+  font-weight: 700;
+  padding-bottom: 30px;
+}
+
+.blue-words {
+  color: rgba(41, 171, 226, 1);
+}
+
+.second-headline-legal-help-privacy {
+    color: rgba(0, 0, 0, 1);
+    font-family: "Inter", sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    padding-bottom: 24px;
+}
+
+.text {
+  display: block;
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 16px;
+}

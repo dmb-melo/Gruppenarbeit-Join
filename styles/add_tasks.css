@@ -3,7 +3,6 @@ body{
     background-color: rgb(246,247,248);
 }
 
-
 .content_addTask{
     display: flex;
     flex-direction: column;
@@ -31,9 +30,8 @@ body{
     height: 424px;
     display: flex;
     margin-left: 328px;
-    justify-content: space-between;
-    margin-top: 35px;
-   
+    justify-content: space-between;   
+    margin-top: 40px;
 }
 
 /* input left */
@@ -42,10 +40,8 @@ body{
     display: flex;
     width: 440px;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
     gap: 16px;
-    height: 376px;
 }
 
 
@@ -78,7 +74,7 @@ body{
 }
 
 .title_frame14{
-    
+    cursor: pointer; 
     display: flex;
     padding: 12px 21px;
     align-items: center;
@@ -91,10 +87,8 @@ body{
 }
 
 
-
-
-
 .text_enterTitle{
+    cursor: pointer; 
     width: 398px;/*wird wahrscheinlich nicht benötigt - figma ist ohne width*/
     height: 24px;/*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
     font-family: "Inter", sans-serif;
@@ -122,13 +116,10 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
 }
 
 .description_v1{ 
-    margin-top: 16px;
     gap:8px;
     display: flex;
     flex-direction: column;
     height: 168px;   
-   
-    /* (112px - 96px (height title_v1) soll hier noch die Diffezenz zum oberen div berechnet werden?*/
 }
 
 .description{ 
@@ -165,6 +156,7 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
 }
 
 .frame17{
+    cursor: pointer; 
     position: relative;
     height: 120px;
     flex: 1;
@@ -188,7 +180,7 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
 }
 
 .text_enterDescription{
-    /* position: absolute; */
+    cursor: pointer; 
     display: flex;
     font-family: "Inter", sans-serif;
     background-color: white;
@@ -236,6 +228,7 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
 }
 
 .frame74{
+    
     display: flex;
     width: 408px;
     padding: 12px 16px;
@@ -259,16 +252,22 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
     line-height: 24px;
 }
 
+.searchContacts{
+    cursor:pointer;
+}
+
 .imgArrows{
     width: 24px;
     height: 24px; 
-    
+    transition: 100ms ease-in-out; 
+    cursor: pointer; 
 }
 
 .arrow_drop_down{
     width: 24px;
-    height: 24px;   
-    
+    height: 24px;  
+    transition: 100ms ease-in-out; 
+    cursor: pointer;      
 }
 
 .arrow_drop_downHover{
@@ -277,10 +276,35 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
 
 .imgArrows:hover .arrow_drop_downHover{
 display: block; /* Show the hover image when the container is being hovered */
+transition: 100ms ease-in-out; 
+cursor: pointer; 
 }
 
 .imgArrows:hover:hover .arrow_drop_down{
     display: none; /* Hide the normal image when the container is being hovered */
+}
+
+.circle{
+    border-radius: 45px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    color: white;
+    border: solid;  
+    font-family: "Inter", sans-serif; 
+}
+
+.circleAvatar{
+    width: 42px;
+    height: 42px;
+}
+
+.contactAvatar{
+    display: flex;
+    height: 100px;
+    width:440px;
 }
 
 
@@ -313,20 +337,17 @@ span{
     justify-content: center;
     align-items: flex-start;
     gap: 24px;
-    
-    height: 416px;
 }
 
 .dueDate{
     display: flex;
-    height: 96px; 
     width: 440px;
     flex-direction: column;
     align-items: flex-start; 
 }
 
-.dueDate_frame14{
-    
+.dueDate_frame14{ 
+    cursor: pointer;  
     display: flex;
     padding: 12px 21px;
     align-items: center;
@@ -348,6 +369,7 @@ span{
 }
 
 .frame211{ 
+  
     display: flex;
     flex-direction: column;
     height: 64px;
@@ -359,6 +381,7 @@ span{
 /*  */
 
 .inputDate{
+    cursor:pointer;
     display: flex;
     justify-content: space-between;
     width: 404px;
@@ -378,6 +401,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: block;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cmask id='mask0_75592_13837' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.855469' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_13837)'%3E%3Cpath d='M15.3555 18C14.6555 18 14.0638 17.7583 13.5805 17.275C13.0971 16.7917 12.8555 16.2 12.8555 15.5C12.8555 14.8 13.0971 14.2083 13.5805 13.725C14.0638 13.2417 14.6555 13 15.3555 13C16.0555 13 16.6471 13.2417 17.1305 13.725C17.6138 14.2083 17.8555 14.8 17.8555 15.5C17.8555 16.2 17.6138 16.7917 17.1305 17.275C16.6471 17.7583 16.0555 18 15.3555 18ZM5.85547 22C5.30547 22 4.83464 21.8042 4.44297 21.4125C4.0513 21.0208 3.85547 20.55 3.85547 20V6C3.85547 5.45 4.0513 4.97917 4.44297 4.5875C4.83464 4.19583 5.30547 4 5.85547 4H6.85547V3C6.85547 2.71667 6.9513 2.47917 7.14297 2.2875C7.33464 2.09583 7.57214 2 7.85547 2C8.1388 2 8.3763 2.09583 8.56797 2.2875C8.75964 2.47917 8.85547 2.71667 8.85547 3V4H16.8555V3C16.8555 2.71667 16.9513 2.47917 17.143 2.2875C17.3346 2.09583 17.5721 2 17.8555 2C18.1388 2 18.3763 2.09583 18.568 2.2875C18.7596 2.47917 18.8555 2.71667 18.8555 3V4H19.8555C20.4055 4 20.8763 4.19583 21.268 4.5875C21.6596 4.97917 21.8555 5.45 21.8555 6V20C21.8555 20.55 21.6596 21.0208 21.268 21.4125C20.8763 21.8042 20.4055 22 19.8555 22H5.85547ZM5.85547 20H19.8555V10H5.85547V20ZM5.85547 8H19.8555V6H5.85547V8Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
     background-size: cover;
+    cursor:pointer;
 }
 
 .event{
@@ -396,11 +420,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: #FF8190;
 }
 
-.frame28{
-    width: 440px;
-    height: 88px;
-}
-
 .textPrio{
     width: 37px;
     height: 24px;
@@ -411,7 +430,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .priority{
-    height: 56px;
     display: flex;
     width: 440px;
     justify-content: center;
@@ -421,6 +439,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .priorityUrgent{
+    cursor:pointer;
     display: flex;
     padding: 16px 10px;
     justify-content: center;
@@ -459,6 +478,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 .priorityMedium{
+    cursor:pointer;
     display: flex;
     padding: 16px 10px;
     justify-content: center;
@@ -490,6 +510,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .priorityLow{
+    cursor:pointer;
     display: flex;
     padding: 16px 10px;
     justify-content: center;
@@ -518,13 +539,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .img-PriorityLow{    
     width: 20px;
     height: 14.51px;
-}
-
-.categoryCard{  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;    
 }
 
 
@@ -560,16 +574,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     line-height: 24px;
 }
 
-.category{
-    margin-bottom: 8px;
-}
-
 .categoryFrame74{
+    cursor: pointer; 
     z-index: 6;
     display: flex;
     padding: 12px 16px;
     justify-content: space-between;
-  position: relative;
+    position: relative;
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: var(--white, #FFF);
@@ -586,23 +597,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .categoryFrame74:hover{
     border: 1px solid var(--Style, #bdbcbc);
 }
-
-
-    .categories{
+.categories{
  
-        font-family: "Inter", sans-serif;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 24px;    
-       
-    }        
-    
-    .options select:hover{
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;    
+   
+}
 
-        background-color: #FF3D00; 
-    }
-                                        
+.options select:hover{
 
+    background-color: #FF3D00; 
+}         
 
 .disabledSelected{
     display: none;
@@ -627,7 +634,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }                                                             
 
 .subtasks{
-    height: 76px;
     display: flex;
     width: 440px;
     flex-direction: column;
@@ -666,27 +672,8 @@ line-height: 120%; /* 24px */
    
 }
 
-/* Style the custom checkbox */
-.checkbox-custom {
-    display: inline-block;
-    width: 25px; /* Width of the SVG */
-    height: 25px; /* Height of the SVG */
-    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"%3E%3Crect x="4.68213" y="4.39673" width="16" height="16" rx="3" stroke="%232A3647" stroke-width="2"%3E%3C/rect%3E%3C/svg%3E');
-    background-repeat: no-repeat;
-    background-size: contain; /* Adjust to cover, contain, or other values based on your need */
-}
 
 
-
-/* Style the custom checkbox for checked state */
-.checkbox-input:checked + .checkbox-custom {
-    /* display: inline-block; */
-    width: 25px; /* Width of the SVG */
-    height: 25px; /* Height of the SVG */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19' fill='none'%3E%3Cpath d='M17.6821 8.39673V14.3967C17.6821 16.0536 16.339 17.3967 14.6821 17.3967H4.68213C3.02527 17.3967 1.68213 16.0536 1.68213 14.3967V4.39673C1.68213 2.73987 3.02527 1.39673 4.68213 1.39673H12.6821' stroke='%232A3647' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5.68213 9.39673L9.68213 13.3967L17.6821 1.89673' stroke='%232A3647' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: contain; /* Adjust to cover, contain, or other values based on your need */
-}
 
 .subtasksContents {
     display: flex;
@@ -728,6 +715,7 @@ line-height: 120%; /* 24px */
 }
 
 .subtasksFrame14{
+    cursor:pointer;
     display: flex;
     padding: 12px 16px;
     justify-content: space-between;
@@ -739,6 +727,7 @@ line-height: 120%; /* 24px */
 }
 
 .textAddSubtasks{
+    cursor:pointer;
     width: 170px;
     height: 24px;
     font-family: "Inter", sans-serif;
@@ -788,9 +777,16 @@ line-height: 120%; /* 24px */
     gap: 4px;
 }
 
+.imgCanel{
+    width: 24px;
+    height: 24px;
+}
+
 .imgCancelHover {
     display: none;
     position: relative;  
+    width: 24px;
+    height: 24px;
 }
 
 .imgCancelContainer:hover .imgCancel {
@@ -809,9 +805,16 @@ line-height: 120%; /* 24px */
     gap: 4px;
 }
 
+.imgCanel{
+    width: 24px;
+    height: 24px;
+}
+
 .imgCancelHover {
     display: none;
     position: relative;  
+    width: 24px;
+    height: 24px;
 }
 
 .imgCancelContainer:hover .imgCancel {
@@ -825,21 +828,32 @@ line-height: 120%; /* 24px */
 .subtasksImgCheck{
     width: 24px;
     height: 24px;
+    cursor:pointer;
 }
 
 
-.subtasksCheck{
+.subtaskCheck{
+    cursor:pointer;
     width: 24px;
     height: 24px;
 }
-
-/* Hide the hover image by default */
+/* 
+Hide the hover image by default */
 .subtaskCheckHover {
     display: none;
 }
 
+.subtaskCheck:hover{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Crect x='0.144531' width='24' height='24' rx='12' fill='%23EEEEEE'/%3E%3Cmask id='mask0_75592_9966' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.144531' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_9966)'%3E%3Cpath d='M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.deleteImg:hover{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Crect x='0.144531' width='24' height='24' rx='12' fill='%23EEEEEE'/%3E%3Cmask id='mask0_75592_9954' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.144531' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_9954)'%3E%3Cpath d='M7.14453 21C6.59453 21 6.1237 20.8042 5.73203 20.4125C5.34036 20.0208 5.14453 19.55 5.14453 19V6C4.8612 6 4.6237 5.90417 4.43203 5.7125C4.24036 5.52083 4.14453 5.28333 4.14453 5C4.14453 4.71667 4.24036 4.47917 4.43203 4.2875C4.6237 4.09583 4.8612 4 5.14453 4H9.14453C9.14453 3.71667 9.24036 3.47917 9.43203 3.2875C9.6237 3.09583 9.8612 3 10.1445 3H14.1445C14.4279 3 14.6654 3.09583 14.857 3.2875C15.0487 3.47917 15.1445 3.71667 15.1445 4H19.1445C19.4279 4 19.6654 4.09583 19.857 4.2875C20.0487 4.47917 20.1445 4.71667 20.1445 5C20.1445 5.28333 20.0487 5.52083 19.857 5.7125C19.6654 5.90417 19.4279 6 19.1445 6V19C19.1445 19.55 18.9487 20.0208 18.557 20.4125C18.1654 20.8042 17.6945 21 17.1445 21H7.14453ZM7.14453 6V19H17.1445V6H7.14453ZM9.14453 16C9.14453 16.2833 9.24036 16.5208 9.43203 16.7125C9.6237 16.9042 9.8612 17 10.1445 17C10.4279 17 10.6654 16.9042 10.857 16.7125C11.0487 16.5208 11.1445 16.2833 11.1445 16V9C11.1445 8.71667 11.0487 8.47917 10.857 8.2875C10.6654 8.09583 10.4279 8 10.1445 8C9.8612 8 9.6237 8.09583 9.43203 8.2875C9.24036 8.47917 9.14453 8.71667 9.14453 9V16ZM13.1445 16C13.1445 16.2833 13.2404 16.5208 13.432 16.7125C13.6237 16.9042 13.8612 17 14.1445 17C14.4279 17 14.6654 16.9042 14.857 16.7125C15.0487 16.5208 15.1445 16.2833 15.1445 16V9C15.1445 8.71667 15.0487 8.47917 14.857 8.2875C14.6654 8.09583 14.4279 8 14.1445 8C13.8612 8 13.6237 8.09583 13.432 8.2875C13.2404 8.47917 13.1445 8.71667 13.1445 9V16Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 /* Show the hover image when hovering over the parent */
 .subtasksImgCheck:hover .subtaskCheckHover {
+    cursor: pointer;
     display: block;
 }
 
@@ -851,8 +865,17 @@ line-height: 120%; /* 24px */
     display: none;
 }
 
+.subtaskCheck:hover{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Crect x='0.144531' width='24' height='24' rx='12' fill='%23EEEEEE'/%3E%3Cmask id='mask0_75592_9966' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.144531' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_9966)'%3E%3Cpath d='M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.deleteImg:hover{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Crect x='0.144531' width='24' height='24' rx='12' fill='%23EEEEEE'/%3E%3Cmask id='mask0_75592_9954' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.144531' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_9954)'%3E%3Cpath d='M7.14453 21C6.59453 21 6.1237 20.8042 5.73203 20.4125C5.34036 20.0208 5.14453 19.55 5.14453 19V6C4.8612 6 4.6237 5.90417 4.43203 5.7125C4.24036 5.52083 4.14453 5.28333 4.14453 5C4.14453 4.71667 4.24036 4.47917 4.43203 4.2875C4.6237 4.09583 4.8612 4 5.14453 4H9.14453C9.14453 3.71667 9.24036 3.47917 9.43203 3.2875C9.6237 3.09583 9.8612 3 10.1445 3H14.1445C14.4279 3 14.6654 3.09583 14.857 3.2875C15.0487 3.47917 15.1445 3.71667 15.1445 4H19.1445C19.4279 4 19.6654 4.09583 19.857 4.2875C20.0487 4.47917 20.1445 4.71667 20.1445 5C20.1445 5.28333 20.0487 5.52083 19.857 5.7125C19.6654 5.90417 19.4279 6 19.1445 6V19C19.1445 19.55 18.9487 20.0208 18.557 20.4125C18.1654 20.8042 17.6945 21 17.1445 21H7.14453ZM7.14453 6V19H17.1445V6H7.14453ZM9.14453 16C9.14453 16.2833 9.24036 16.5208 9.43203 16.7125C9.6237 16.9042 9.8612 17 10.1445 17C10.4279 17 10.6654 16.9042 10.857 16.7125C11.0487 16.5208 11.1445 16.2833 11.1445 16V9C11.1445 8.71667 11.0487 8.47917 10.857 8.2875C10.6654 8.09583 10.4279 8 10.1445 8C9.8612 8 9.6237 8.09583 9.43203 8.2875C9.24036 8.47917 9.14453 8.71667 9.14453 9V16ZM13.1445 16C13.1445 16.2833 13.2404 16.5208 13.432 16.7125C13.6237 16.9042 13.8612 17 14.1445 17C14.4279 17 14.6654 16.9042 14.857 16.7125C15.0487 16.5208 15.1445 16.2833 15.1445 16V9C15.1445 8.71667 15.0487 8.47917 14.857 8.2875C14.6654 8.09583 14.4279 8 14.1445 8C13.8612 8 13.6237 8.09583 13.432 8.2875C13.2404 8.47917 13.1445 8.71667 13.1445 9V16Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 /* Show the hover image when hovering over the parent */
 .subtasksImgCheck:hover .subtaskCheckHover {
+    cursor: pointer;
     display: block;
 }
 
@@ -870,7 +893,7 @@ line-height: 120%; /* 24px */
     justify-content: space-between;
     width: 976.25px;
     height: 60px;    
-    margin-top: 145px; /*55px*/
+    margin-top: 70px; /*55px*/
     margin-left: 328px;
 }
 
@@ -923,12 +946,8 @@ line-height: 120%; /* 24px */
     color: #29ABE2;
 }
 
-.clear{
-    width: 24px;
-    height: 24px;
-}
 
-.imgCancel{
+.clear .imgCancelContainer .imgCancel{
     width: 24px;
     height: 24px;
 }
@@ -959,16 +978,12 @@ line-height: 120%; /* 24px */
 .primary:hover{   
     background: #29ABE2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  /*ONLY ON CLICK: Animation and animation-Duration*/
-    /* animation: ease-in-out;    
-    animation-duration: 100s; */
 }
 
 .textCreateTask{
     width: 123px;
     height: 24px;
     color: #FFF;
-
     font-family: "Inter", sans-serif;
     font-size: 21px;
     font-weight: 700;
@@ -1032,9 +1047,8 @@ line-height: 120%; /* 24px */
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
+
 .date{
     color: var(--black, #000);
     font-family: "Inter", sans-serif;
@@ -1057,16 +1071,15 @@ line-height: 120%; /* 24px */
     font-family: "Inter", sans-serif;
     font-size: 20px;
 }
+
 /*delete and edit*/
 .deleteAndEdit{
     display: flex;
     justify-content: end;
     align-items: center;
     gap: 8px;
-    width:100%;
- 
-    height: 24px;
-   
+    width:100%; 
+    height: 24px;   
 }
 
 .delete_task{
@@ -1119,9 +1132,6 @@ line-height: 120%; /* 24px */
     line-height: 19.2%;
 }
 
-/**/
-
-
 
 .selectedPriorityContent{
     display: flex;
@@ -1155,6 +1165,8 @@ line-height: 120%; /* 24px */
     background-color: #7AE229; /* Your color for Low */
 }
 
+/*assigned*/
+
 .assigned{
     display: flex;
     flex-direction: column;
@@ -1167,24 +1179,107 @@ line-height: 120%; /* 24px */
     line-height: 120%; /* 24px */
 }
 
-.assignedSecond{
-    color: var(--Version-2-main-color, #2A3647);
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 120%; /* 24px */
-    background-color: red;
+
+.underListContact{    
+    position: absolute;    
+    padding-inline-start: 0px;
+    flex-direction: column;
+    border-radius: 10px;
+    background: var(--white, #FFF); 
+    z-index: 1;
+    max-height:110px;
+    width: 440px;   
+    overflow: auto;
 }
 
-.assigns{
-    background-color: #29ABE2;
-    width: 100%;    
+::-webkit-scrollbar-thumb{
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-    align-self: stretch; 
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+   background-color: #A8A8A8; 
+   cursor:pointer;
 }
+
+::-webkit-scrollbar-track{
+    margin-top: 16px;   
+    cursor:pointer;
+}
+
+::-webkit-scrollbar{
+height:0px;    
+cursor:pointer;   
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust as per your design */
+    cursor:pointer;
+    width: 400px; /* Adjust width to fit both label and checkbox */
+    height: 42px;
+    color: var(--black, #000);
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 120%;
+   
+}
+
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.custom-checkbox label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative; /* Add a position to the label */
+}
+
+.custom-checkbox label:before {
+    content: '';
+    width: 24px; /* Set the width and height for the checkbox */
+    height: 24px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 25 25" fill="none"%3E%3Crect x="4.68213" y="4.39673" width="16" height="16" rx="3" stroke="%232A3647" stroke-width="2"%3E%3C/rect%3E%3C/svg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 320px; 
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label:before {
+    content: '';
+    width: 24px; /* Set the width and height for the checkbox */
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 18 19' fill='none'%3E%3Cpath d='M17 8.96582V14.9658C17 16.6227 15.6569 17.9658 14 17.9658H4C2.34315 17.9658 1 16.6227 1 14.9658V4.96582C1 3.30897 2.34315 1.96582 4 1.96582H12' stroke='%232A3647' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5 9.96582L9 13.9658L17 2.46582' stroke='%232A3647' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 320px;
+}
+
+.contactList{
+    display: flex;
+    gap:8px;
+    align-items: center;   
+    border-radius: 10px;
+ 
+    height:42px;
+    padding: 7px 16px;
+}
+
+.contactList:hover{
+    background-color: #eeeeee; 
+}
+
+
+.abbreviation{
+    height: 42px;
+    width:42px;
+    background-color: #1FD7C1;
+}
+
 
 .subtaskItem{
     display: flex;
@@ -1245,8 +1340,12 @@ display: flex;
 .edit{
     width: 24px;
     height: 24px;  
+    cursor:pointer;
 }
 
+.delete{
+    cursor:pointer;
+}
 
 .allSubtasks{
     display: flex;
@@ -1256,7 +1355,6 @@ display: flex;
     font-size: 16px;
     font-weight: 400;
     line-height: 120%;
-    /* margin-left: 24px;    */
 }
 
 
@@ -1264,35 +1362,39 @@ display: flex;
 /*Category*/
 
 .underList{ 
-     margin-top: -20px;
-    position: absolute;  
-    display: flex;
-    padding-inline-start: 0px;
-    flex-direction: column;
-    border-radius: 10px;
-    background: var(--white, #FFF); 
-    z-index: 1;
+   position: absolute;  
+   display: flex;
+   padding-inline-start: 0px;
+   flex-direction: column;
+   border-radius: 10px;
+   background: var(--white, #FFF); 
+   z-index: 1;
 }
 
-.options{  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-    background: var(--white, #FFF);
-    list-style: none;
-    padding: 12px 16px;
-    align-items: center;
-    font-family: "Inter", sans-serif;
-    font-size: 20px;   
-    font-weight: 400;
-    line-height: 24px;
-    width:410px;
+.options{    
+    cursor:pointer;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-radius: 10px;
+   background: var(--white, #FFF);
+   list-style: none;
+   padding: 12px 16px;
+   align-items: center;
+   font-family: "Inter", sans-serif;
+   font-size: 20px;   
+   font-weight: 400;
+   line-height: 24px;
+   width:410px;
 }
 
-.optionsMarginTop{
-margin-top: 14px;
-}
+
+
+
+/* .optionsMarginTop{
+
+} */
+
 .options:hover{
    background: #eeeeee;
 }
