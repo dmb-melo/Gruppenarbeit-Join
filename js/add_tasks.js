@@ -111,7 +111,6 @@ function displayAvatar(i, firstname, surname, colors) {
             </div>
         </div>
     `;
-
     contactAvatar.innerHTML = currentContactContent; // Set the content inside contactAvatar
 }
 
