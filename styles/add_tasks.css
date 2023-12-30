@@ -256,6 +256,7 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
 }
 
 .arrow_drop_down{
+    transition: all 100ms ease-in-out;
     width: 24px;
     height: 24px;       
 }
