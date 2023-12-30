@@ -67,10 +67,11 @@ function render() {
                     <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
             </div>
         `;
-        contactsList.appendChild(contactElement);       
+        contactsList.appendChild(contactElement);     
+        
     }
-    document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch);
-    
+    document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch); 
+}
 
 function handleContactSearch() {
     let input = document.getElementById('searchContacts');
@@ -89,25 +90,26 @@ function handleContactSearch() {
         } else {
             contact.style.display = 'none'; // Hide non-matching contacts
         }
-        
-    }
+            // Add event listener for checkbox changes to trigger contact display update
+
+    } 
     
 }
 
-
 function displaySelectedContacts() {
     let contactAvatar = document.getElementById('contactAvatar');
-    contactAvatar.innerHTML = '';
+    contactAvatar.innerHTML = ''; // Clear the content before adding new content
 
-    // Iterate through selected contacts and display in the contactAvatar div
+    // Iterate through selected contacts and clone the circle content into contactAvatar
     selectedContacts.forEach((contact, index) => {
-        contactAvatar.innerHTML += `
-            <div class="circle" id="selectedCircle-${index}" style="background-color: ${colors[i]}">
-                <p class="nameIdList" id="selectedName-id">${contact}</p>
-            </div>
-        `;
+        let circleDiv = document.getElementById(`circle-${index}`);
+        if (circleDiv) {
+            let clonedContent = circleDiv.cloneNode(true);
+            contactAvatar.appendChild(clonedContent);
+        }
     });
 }
+
 
 
 function addTask() {
