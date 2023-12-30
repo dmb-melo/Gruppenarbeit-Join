@@ -281,7 +281,8 @@ display: block; /* Show the hover image when the container is being hovered */
     align-items: center;
     justify-content: center;    
     color: white;
-    border: solid;    
+    border: solid;  
+    font-family: "Inter", sans-serif;  
 }
 
 
