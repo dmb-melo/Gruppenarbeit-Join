@@ -168,6 +168,15 @@ function saveContact(event, i) {
     renderContacts();
     closeEditContact();
     selectContact(i);
+    
+    let name = contacts[i][0];
+    let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
+    let names = contacts[i][0].split(" ");
+    let surname = names[1].toUpperCase().charAt(0);
+    let circle = document.getElementById('circleCard'); //undefined
+    circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
+    let editCircle = document.getElementById('editCircle'); //undefined
+    editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     event.preventDefault();
 }
 
