@@ -11,8 +11,7 @@ let subT = [];
 let tasks = [];
 let priorityContentArray = []; 
 
-load();
-addTask();
+
 
 
 async function addTaskInit(){
