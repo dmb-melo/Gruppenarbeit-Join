@@ -120,7 +120,6 @@ function addTask() {
     let titleValue = document.getElementById('title').value;
     document.getElementById('title').value = '';   
     title.unshift('titleValue');
-    
     let descriptionValue = document.getElementById('description').value;
     document.getElementById('description').value = '';
     description.unshift(descriptionValue);
