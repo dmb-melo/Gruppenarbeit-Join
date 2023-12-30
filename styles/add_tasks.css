@@ -33,6 +33,7 @@ body{
     margin-left: 328px;
     justify-content: space-between;
     margin-top: 35px;
+   
 }
 
 /* input left */
@@ -800,10 +801,32 @@ line-height: 120%; /* 24px */
     display: block;
 }
 
+
+.vectorAndImgCheck{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.imgCancelHover {
+    display: none;
+    position: relative;  
+}
+
+.imgCancelContainer:hover .imgCancel {
+    display: none;
+}
+
+.imgCancelContainer:hover .imgCancelHover {
+    display: block;
+}
+
 .subtasksImgCheck{
     width: 24px;
     height: 24px;
 }
+
 
 .subtasksCheck{
     width: 24px;
@@ -823,7 +846,22 @@ line-height: 120%; /* 24px */
 /* Hide the normal image when the container is being hovered */
 .subtasksImgCheck:hover .subtaskCheck {
     display: none;
+/* Hide the hover image by default */
+.subtaskCheckHover {
+    display: none;
 }
+
+/* Show the hover image when hovering over the parent */
+.subtasksImgCheck:hover .subtaskCheckHover {
+    display: block;
+}
+
+/* Hide the normal image when the container is being hovered */
+.subtasksImgCheck:hover .subtaskCheck {
+    display: none;
+}
+
+
 
 
 
@@ -1178,6 +1216,37 @@ display: flex;
     height: 24px;  
 }
 
+.subtaskItem{
+    display: flex;
+    width: 410px;
+    height: 32px;
+    padding: 4px 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.iconsContainer{  
+    display: none;     
+    align-items: flex-start;
+    gap: 4px;
+}
+
+
+.subtaskItem:hover{
+background-color: #eeeeee;
+}
+
+.subtaskItem:hover .iconsContainer{
+display: flex;
+}
+
+
+.edit{
+    width: 24px;
+    height: 24px;  
+}
+
 
 .allSubtasks{
     display: flex;
@@ -1295,4 +1364,14 @@ margin-top: 14px;
 
 .d-none{
     display: none;
+}
+
+@media (max-width: 830px){
+
+    .group66_addTask{
+     flex-direction: column;
+       
+       
+    }
+    
 }

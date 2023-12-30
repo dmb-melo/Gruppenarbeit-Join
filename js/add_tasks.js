@@ -10,7 +10,7 @@ let subT = [];
 let tasks = [];
 let priorityContentArray = []; 
 load();
-add();
+addTask();
 
 
 async function addTaskInit(){
@@ -24,8 +24,6 @@ window.onload = function() {
     selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
     render();
 
-  
-
 
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('delete-task-bt')) {
@@ -35,13 +33,27 @@ window.onload = function() {
 };
 
 
+
+
 function render() {
+
+    let contacts = document.getElementById('contactList');
+    contacts.innerHTML = '';
+for (let i = 0; i < title.length; i++){
+    let currentAssigned = assigned[i];
+    let ContacElement =  document.createElement('li');
+    ContacElement.innerHTML='';
+    ContacElement.innerHTML +=`
+    <p onclick="hideAssigned(event)">${currentAssigned}</p>
+    `
+}
+
     let content = document.getElementById('inhalt');
     content.innerHTML = '';
     for (let i = 0; i < title.length; i++) {
         let currentTitle = title[i];
         let currentDescription = description[i];
-        let currentAssigned = assigned[i];
+   
         let currentDueDate = dueDate[i];
         let currentCategory = category[i];
         let currentSubTasks = subT[i];
@@ -50,6 +62,7 @@ function render() {
         let tempDiv = document.createElement('div');
         tempDiv.innerHTML = currentPriorityContent;
         tempDiv.classList.add('selectedPriorityContentDiv'); 
+                
                 
         let svgElements = tempDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
         svgElements.forEach(svgElement => {
@@ -85,59 +98,59 @@ let className = typeof currentCategory === 'string' ? currentCategory.replace(/\
                     <p class="${className}">${currentCategory}</p>
                
                
-                <img src="./assets/img/Close.png" alt="">
-            </div>
-            <p class="taskTitle"><b>${currentTitle}</b></p>
-            <p class="task_description">${currentDescription}</p>
-            <div class="taskDueDate">
-                <p class="TitleDueDate">Due Date:</p>
-                <div class="date">${currentDueDate}</div>
-            </div>
-            <div class="prio">
-                <p class="titelPrio">Priority:</p>
-                <div class="selectedPriorityContent">${clonedContentDiv.innerHTML}</div>
-            </div>
-            <div class="assigned">
-                <div class="assignedSecond">assigned to:</div>
-                <div class="assigns">rrrr</div>
-            </div>
+    //             <img src="./assets/img/Close.png" alt="">
+    //         </div>
+    //         <p class="taskTitle"><b>${currentTitle}</b></p>
+    //         <p class="task_description">${currentDescription}</p>
+    //         <div class="taskDueDate">
+    //             <p class="TitleDueDate">Due Date:</p>
+    //             <div class="date">${currentDueDate}</div>
+    //         </div>
+    //         <div class="prio">
+    //             <p class="titelPrio">Priority:</p>
+    //             <div class="selectedPriorityContent">${clonedContentDiv.innerHTML}</div>
+    //         </div>
+    //         <div class="assigned">
+    //             <div class="assignedSecond">assigned to:</div>
+    //             <div class="assigns">rrrr</div>
+    //         </div>
             
            
-            <!-- Displaying subtasks -->
-            <div class="subTasksCard">
-            <div class="titleSubtasks">Subtasks</div>
+    //         <!-- Displaying subtasks -->
+    //         <div class="subTasksCard">
+    //         <div class="titleSubtasks">Subtasks</div>
                           
-                            <div class="subtasksContainer">
-    <!-- Loop through and generate checkboxes for subtasks -->
-    ${currentSubTasks.map(subtask => `
-        <div class="subtasksContents">
-            <label class="checkbox-label">
-                <input type="checkbox" class="checkbox-input">
-                <span class="checkbox-custom"></span>
-                ${subtask}
-            </label>
-        </div>
-    `).join('')}
-            </div>
+    //                         <div class="subtasksContainer">
+    // <!-- Loop through and generate checkboxes for subtasks -->
+    // ${currentSubTasks.map(subtask => `
+    //     <div class="subtasksContents">
+    //         <label class="checkbox-label">
+    //             <input type="checkbox" class="checkbox-input">
+    //             <span class="checkbox-custom"></span>
+    //             ${subtask}
+    //         </label>
+    //     </div>
+    // `).join('')}
+    //         </div>
            
-            <!-- Button for deleting task -->
-            <div class="deleteAndEdit">
+    //         <!-- Button for deleting task -->
+    //         <div class="deleteAndEdit">
              
-                <div class="delete_task" onclick="deleteTask(event)">
-                    <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
-                    <p class = "delete-task-title">Delete</p>
-                </div>
+    //             <div class="delete_task" onclick="deleteTask(event)">
+    //                 <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
+    //                 <p class = "delete-task-title">Delete</p>
+    //             </div>
                 
-                <img class="deleteAndEdit_vector" src="./assets/img/Vector 3.png" alt="">
+    //             <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
                 
-                <div class ="edit_task">
+    //             <div class ="edit_task">
                 
-                    <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
-                    <p class = "edit-task-title">Edit</p>
-                </div>
+    //                 <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
+    //                 <p class = "edit-task-title">Edit</p>
+    //             </div>
               
-            </div>            
-        `;
+    //         </div>            
+    //     `;
         
     
         content.appendChild(noteElement);
@@ -150,32 +163,121 @@ let className = typeof currentCategory === 'string' ? currentCategory.replace(/\
         // Append subtasks container to the designated div
         allSubtasksDiv.appendChild(subtasksContainer);
 
-    }
+         
         save();
-       
+}}
+
+
+function deleteTask(event) {// wird nicht mehr gebraucht
+    let noteElement = event.target.closest('.cardA');
+    
+    if (noteElement) {
+        let parentElement = noteElement.parentElement;
+        let index = Array.from(parentElement.children).indexOf(noteElement);
+
+        noteElement.remove();
+        title.splice(index, 1);
+        description.splice(index, 1);
+        assigned.splice(index, 1);
+        dueDate.splice(index, 1);
+        prio.splice(index, 1);
+        category.splice(index, 1);
+        subtasks.splice(index, 1);
+        subT.splice(index, 1);
+        priorityContentArray.splice(index, 1);    
+        save();
+        render();
     }
 
+}  
 
-    function save() {
-        localStorage.setItem('title', JSON.stringify(title));
-        localStorage.setItem('description', JSON.stringify(description));
-        localStorage.setItem('dueDate', JSON.stringify(dueDate));
-        localStorage.setItem('priorityContentArray', JSON.stringify(priorityContentArray)); 
-        localStorage.setItem('subtasks', JSON.stringify(subtasks));
-        localStorage.setItem('tasks', JSON.stringify(tasks)); // Store tasks array in localStorage
-        localStorage.setItem('category', JSON.stringify (category ));
-        localStorage.setItem('subT', JSON.stringify(subT));
-    }                                
+
+function addTask() {
+    let titleValue = document.getElementById('title').value;
+    document.getElementById('title').value = '';   
+    title.unshift('titleValue');
+    
+    let descriptionValue = document.getElementById('description').value;
+    document.getElementById('description').value = '';
+    description.unshift(descriptionValue);
+    
+    let dueDateValue = document.getElementById('dueDate').value;
+    document.getElementById('dueDate').value = '';
+    dueDate.unshift(dueDateValue);
+    
+    let selectedPriority = document.querySelector('.priorityUrgent-active, .priorityMedium-active, .priorityLow-active');
+    let priorityContent = selectedPriority ? selectedPriority.innerHTML : '';
+    let selectedPriorityID = ''; // Initialize selectedPriorityID variable
+    title.unshift(titleValue); 
+ 
+    if (selectedPriority) {
+        selectedPriorityID = selectedPriority.id; // Get the ID of the selected priority
+    }
+    
+    
+    priorityContentArray.unshift(priorityContent); // Store the priorityContent in the array
+    let newTask = {
+          subtasks: subtasks.slice() // Store a copy of subtasks in newTask
+    };
+    
+    subT.unshift(subtasks.slice()); // Store a copy of subtasks in subT
+    tasks.unshift(newTask); // Store the task object in the tasks array
+    
+   
+    localStorage.setItem('selectedPriorityContent', priorityContent);
+    document.getElementById('categorySelect').textContent = 'Select a task category';
+    subtasks = []; // Reset subtasks array to empty
+    save();
+    
+   
+    render();   
+    changeColour(selectedPriorityID);
+    clearPrioActiveClass();
+    taskSuccess();      
+     
+}
+
+function clearTask() {
+
+    subtasks = [];
+    
+    // Clear input values in render function
+    document.getElementById('title').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('dueDate').value = '';
+    document.getElementById('inputSubtasks').value = '';
+   
+
+    let allSubtasksDiv = document.getElementById('allSubtasks');
+    allSubtasksDiv.innerHTML = '';
+    document.getElementById('taskCategory').value = '';
+    
+    clearPrioActiveClass();    
+    clearTaskCategory();       
+}
+
+
+function save() {
+    localStorage.setItem('title', JSON.stringify(title));
+    localStorage.setItem('description', JSON.stringify(description));
+    localStorage.setItem('dueDate', JSON.stringify(dueDate));
+    localStorage.setItem('priorityContentArray', JSON.stringify(priorityContentArray)); 
+    localStorage.setItem('subtasks', JSON.stringify(subtasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks)); // Store tasks array in localStorage
+    localStorage.setItem('category', JSON.stringify (category ));
+    localStorage.setItem('subT', JSON.stringify(subT));
+        
+}                                
   
-    function load() {
-        let titleAsText = localStorage.getItem('title');
-        let descriptionAsText = localStorage.getItem('description');
-        let dueDateAsText = localStorage.getItem('dueDate');
-        let priorityContentArrayText = localStorage.getItem('priorityContentArray'); 
-        let subtaskAsText = localStorage.getItem('subtasks');
-        let tasksAsText = localStorage.getItem('tasks'); 
-        let categoryAsText = localStorage.getItem('category');
-        let subTAsText = localStorage.getItem('subT');
+function load() {
+    let titleAsText = localStorage.getItem('title');
+    let descriptionAsText = localStorage.getItem('description');
+    let dueDateAsText = localStorage.getItem('dueDate');
+    let priorityContentArrayText = localStorage.getItem('priorityContentArray'); 
+    let subtaskAsText = localStorage.getItem('subtasks');
+    let tasksAsText = localStorage.getItem('tasks'); 
+    let categoryAsText = localStorage.getItem('category');
+    let subTAsText = localStorage.getItem('subT');
     
         if (titleAsText && descriptionAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
             title = JSON.parse(titleAsText);
@@ -417,6 +519,8 @@ function hide(event) {
     }
 }
 
+
+
 //Subtasks
 function clearInputSubTask(){            
     document.getElementById('inputSubtasks').value = '';
@@ -448,21 +552,19 @@ function taskSuccess(){
 
 //required inputs
 
-function handleInput(inputElement) {
+function handleInput(inputElement){
     const elementId = inputElement.id;
-    if (elementId === 'title') {
+        if (elementId === 'title') {
 
-removeBorderColorAndHideIndicator('titleFieldRequired');
-} else if (elementId === 'description') {
-    removeBorderColorAndHideIndicator('descriptionFieldRequired');
-} else if (elementId === 'dueDate') {
-    removeBorderColorAndHideIndicator('dueDateFieldRequired');
+        removeBorderColorAndHideIndicator('titleFieldRequired');
+        } else if (elementId === 'description') {
+            removeBorderColorAndHideIndicator('descriptionFieldRequired');
+        } else if (elementId === 'dueDate') {
+            removeBorderColorAndHideIndicator('dueDateFieldRequired');
+        }        
 }
 
-}
-
-
-function removeBorderColorAndHideIndicator(fieldId) {
+function removeBorderColorAndHideIndicator(fieldId){
     const fieldIndicator = document.getElementById(fieldId);
 
     // Remove border color and hide the respective field indicator
@@ -475,8 +577,9 @@ function removeBorderColorAndHideIndicator(fieldId) {
 
     if (fieldIndicator) {
         fieldIndicator.style.display = 'none'; // Hide the specified field indicator
-    }
+    }       
 }
+  
 
 function getFrameSelector(fieldId) {
     switch (fieldId) {
@@ -528,7 +631,7 @@ function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector)
 }
 
   // Hide all field indicators except the specified one
-  function hideFieldIndicatorsExcept(exceptSelector) {
+function hideFieldIndicatorsExcept(exceptSelector) {
     const allIndicators = document.querySelectorAll('#titleFieldRequired, #descriptionFieldRequired, #dueDateFieldRequired');
     allIndicators.forEach(indicator => {
         if (indicator !== document.querySelector(exceptSelector)) {
@@ -540,20 +643,4 @@ function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//NEU
 >>>>>>> 95e8578f1cf9eda3git PublicKeyCredential852360dc2b8787486ee0a782

@@ -176,7 +176,7 @@ hr{
     background-color: #2B3646;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
-    width: 400px;
+    width: 500px;
 }
 .addContactPopup{
     position: fixed;
@@ -204,6 +204,7 @@ hr{
     font-size: 45px;
     margin-top: 12px;
     margin-left: 30px;
+
     
 }
 .addContactHeadline2{
@@ -330,6 +331,7 @@ hr{
 }
 .close-img{
     position: relative;
+    cursor: pointer;
 }
 .close-img-div{
     display: flex;
@@ -366,9 +368,38 @@ hr{
     color: #2AAAE2;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.closeButton:hover{
+    border: 1px solid #2AAAE2;
+    color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.createButton:hover{
+    background-color: #2AAAE2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid #2AAAE2;
+}
 .saveButton{
-    width: 70px;
+    width: 80px;
     height: 35px;
+    border: 1px solid #293647;
+    border-radius: 6px;
+    background-color: #293647;
+    cursor: pointer;
+    margin-right: 12px;
+    color: white;
+}
+.closeButton{
+    width: 90px;
+    height: 40px;
+    border: 1px solid #293647;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 12px;
+}
+.createButton{
+    width: 150px;
+    height: 40px;
     border: 1px solid #293647;
     border-radius: 6px;
     background-color: #293647;
@@ -390,7 +421,27 @@ hr{
     align-items: center;
     margin-left: 3px;
 }
+.cancel-button-div{
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+}
+.create-button-div{
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+}
 .save-check-img{
     width: 18px;
     margin-left: 4px;
+}
+.cancel-img{
+    width: 18px;
+}
+.create-img{
+    width: 18px;
+}
+.create-text{
+    font-size: 15px;
+
 }

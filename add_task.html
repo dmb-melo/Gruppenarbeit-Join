@@ -72,28 +72,23 @@
                 <div class="asignedTo">Assigned to</div>
                
                                     
-                <!-- <div class="categoryFrame74" id="taskCategory" onclick="hide()">
+                <div class="categoryFrame74" id="assigned" onclick="hideAssigned(event)">
                     <p>Select contacts to assign</p>
 
-                    <div class ="imgArrows" id="imgArrows" onclick="hide()">
-                        <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide()" > 
-                        <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHover" onclick="hide()">                            
+                    <div class ="imgArrows" id="imgArrows" onclick="hideAssigned(event)">
+                        <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssigned" onclick="hideAssigned(event)" > 
+                        <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssigned" onclick="hideAssigned(event)">                            
                     </div>
-                </div> -->
+                </div>
 
                 
-                <!-- <div class="list"  class="hide">
-                    <ul id="list" class="hide underList"> 
-                        <li class="options optionsMarginTop" onclick="selectCategory(this)" >
-                            <p value="Technical Task" onclick="hide()">Technical Task</p>
-                        </li>
-                        <li class="options" onclick="selectCategory(this)" >
-                            <p value="UserStory" onclick="hide()">User Story</p>
-                        </li>
+                <div class="list"  class="hide">
+                    <ul id="listContact" class="hide underList"> 
+                        <li id ="contactList" class="options optionsMarginTop" onclick="selectAssigned(this)" >
+                            <!-- <p onclick="hideAssigned(event)">Technical Task</p> -->
+                        </li>                       
                     </ul>
-                </div>
-                                                               --> 
-             
+                </div>                                                                       
             </div>
         </div>
 
@@ -133,11 +128,11 @@
                                     <rect width="20" height="14.5098" transform="translate(0.748535 0.745117)"/>
                                 </clipPath>
                             </defs>
-                        </svg>
-                    
+                        </svg>                   
 
 
                     </div>
+
                     <div class="priorityMedium" id="priorityMedium" onclick="changeColour('priorityMedium')" >
                         <div class="textMedium">Medium</div>
                        
@@ -151,7 +146,7 @@
                             <rect width="20" height="7.45098" transform="translate(0.855469 0.466064)"/>
                             </clipPath>
                             </defs>
-                            </svg>
+                        </svg>
 
                     </div>
 
@@ -171,12 +166,12 @@
                 <div class="textCategory">Category<span class="span">*</span>
                 </div>         
                                      
-                    <div class="categoryFrame74" id="taskCategory" onclick="hide(event)">
+                    <div class="categoryFrame74" id="taskCategory" onclick="hide(eventevent)">
                         <p id ="categorySelect" Value="Select a task category">Select a task category</p>
 
-                        <div class ="imgArrows" id="imgArrows" onclick="hide(event)">
-                            <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide(event)" > 
-                            <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHover" onclick="hide(event)">                            
+                        <div class ="imgArrows" id="imgArrows" onclick="hide(eventevent)">
+                            <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide(eventevent)" > 
+                            <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHover" onclick="hide(eventevent)">                            
                         </div>
                     </div>
 
@@ -185,37 +180,33 @@
                         <ul id="list" class="hide underList"> 
                             <div >
                                 <li class="options optionsMarginTop"  onclick="selectCategory(this)" >
-                                    <p class="category" value="Technical Task" onclick="hide(event)">Technical Task</p>
+                                    <p class="category" value="Technical Task" onclick="hide(eventevent)">Technical Task</p>
                                 </li>
                             </div>
 
                             <div></div>
                             <li class="options"  onclick="selectCategory(this)" >
-                                <p value="User Story" onclick="hide(event)">User Story</p>
+                                <p value="User Story" onclick="hide(eventevent)">User Story</p>
                             </li>
                         </ul>
                     </div>
-
-
-
-
-
 
             </div>
 
             <div class="subtasks">
                 <div class="textSubtasks">Subtasks</div>
                     <div class="subtasksFrame14" >
-                        <!-- <div class="textAddSubtasks">Add new subtask</div> -->
-                        <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasks" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()">
+
+                        <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasks" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()" onclick="hideVectorAndImgCheck()">
                      
                         <div class="imgSubtasks" >
 
                             <div class="imgPlusContainer" id ="imgPlusContainer" onclick="hideVectorAndImgCheck()">
+                            <div class="imgPlusContainer" id ="imgPlusContainer" onclick="hideVectorAndImgCheck()">
                                 <img  class="imgPlus" class src="./assets/img/Subtasks.png" alt="" id="addSubtasksPlus">
                                
                               
-                                <svg  class="imgPlusHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                <svg   class="imgPlusHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                                     <g id="Property 1=add hover">
                                         <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
                                         <mask id="mask0_75592_9978" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
@@ -252,18 +243,20 @@
                                         </g>
                                     </svg>    
 
-                                    <svg class="subtaskCheckHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                        <g id="Property 1=check hover">
-                                            <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
-                                            <mask id="mask0_75592_9966" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                                            <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
-                                            </mask>
-                                            <g mask="url(#mask0_75592_9966)">
-                                                <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
+                                        <svg class="subtaskCheckHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                            <g id="Property 1=check hover">
+                                                <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
+                                                <mask id="mask0_75592_9966" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                                                <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
+                                                </mask>
+                                                <g mask="url(#mask0_75592_9966)">
+                                                    <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
+                                                </g>
                                             </g>
-                                        </g>
-                                    </svg>                             
+                                        </svg>                                                          
 
+                                       
+                                </div>
                                        
                                 </div>
 
@@ -296,21 +289,16 @@
 
             </div>
             <div class="primary">
-                <div class="textCreateTask" onclick="add()">Create task</div>
+                <div class="textCreateTask" onclick="addTask()">Create task</div>
                 <img class="imgCheckBlack" src="./assets/img/check.png" alt="">              
             </div>
         </div>
     </div>
 
-    <div class="inhalt" id="inhalt"></div>
-
-    <!-- <div class="task_succes" id="task_succes">
-        <div class="task_succes_container">
-            <span class="task_succes_message">Task added to board</span>
-            <img class="task_success_icon_board" src="./assets/img/Icons_board.png">
-        </div>
-    </div> -->
-    
+    <div class="inhalt" id="inhalt"></div>    
 
 </body>
 </html>
+<!--https://www.youtube.com/watch?v=x0VcigW9kN0-->
+<!--https://www.youtube.com/watch?v=0eV-tf-W2rQ-->
+<!--https://www.tutorialspoint.com/how-to-copy-the-content-of-a-div-into-another-div-using-jquery#:~:text=Using%20the%20jQuery%20html(),when%20called%20without%20any%20arguments.-->
