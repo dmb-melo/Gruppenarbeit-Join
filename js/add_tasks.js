@@ -34,11 +34,6 @@ window.onload = function() {
     });
 };
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
 function render() {
     let contactsList = document.getElementById('contactList');
     contactsList.innerHTML = '';
@@ -126,7 +121,7 @@ function addTask() {
     document.getElementById('title').value = '';   
     title.unshift('titleValue');
     
->>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
+a872f1967ed5121c71844e5ea6471e16ed0b1dfd
     let descriptionValue = document.getElementById('description').value;
     document.getElementById('description').value = '';
     description.unshift(descriptionValue);
@@ -164,23 +159,6 @@ function addTask() {
     subT.unshift(subtasks.slice()); // Store a copy of subtasks in subT
     tasks.unshift(newTask); // Store the task object in the tasks array
     
-<<<<<<< HEAD
-        localStorage.setItem('selectedPriorityContent', priorityContent);
-
-        subtasks = []; // Reset subtasks array to empty
-
-        clearTaskCategory();        
-        save();
-        changeColour(selectedPriorityID);
-        render();   
-        clearTask();    
-        taskSuccess();      
-    }
-
-    function clearTaskCategory() {
-        document.getElementById('categorySelect').textContent = 'Select a task category';
-    }
-=======
    
     localStorage.setItem('selectedPriorityContent', priorityContent);
     document.getElementById('categorySelect').textContent = 'Select a task category';
@@ -472,7 +450,6 @@ function handleEditClick(subtaskItemDiv, subtaskText) {
         editInput.value = currentText;
         editInput.style.outline = 'none';
         editInput.style.border = 'none';
->>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
        
 
         subtaskItemDiv.replaceChild(editInput, subtaskItemText);
@@ -493,164 +470,15 @@ function handleEditClick(subtaskItemDiv, subtaskText) {
             }
         });
 
-<<<<<<< HEAD
-    function removePrioActiveClass(divID) {
-        const prio = document.getElementById(divID);
-        if (prio) {
-            prio.classList.remove(`${divID}-active`);
-        }
-    }
-    function removeImgPrioActive(divID) {
-        const imgPaths = document.querySelectorAll(`.img-${divID}`);
-        imgPaths.forEach(path => {
-            path.classList.remove('imgPrio-active');
-=======
         editInput.addEventListener('keyup', function (event) {
             if (event.key === 'Enter') {
                 editInput.blur();
             }
->>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
         });
 
         const iconsContainer = createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, subtasks.indexOf(subtaskText));
         subtaskItemDiv.replaceChild(iconsContainer, subtaskItemDiv.lastChild); // Replace iconsContainerWhenEdit with regular iconsContainer
     }
-<<<<<<< HEAD
-    
-
-    function addSubtasks() {
-        let subtaskInput = document.getElementById('inputSubtasks').value;
-        document.getElementById('inputSubtasks').value = ''; // Set input value to empty after capturing subtask
-        subtasks.unshift(subtaskInput);
-    
-        let allSubtasksDiv = document.getElementById('allSubtasks');
-    
-        if (subtasks.length === 0) {
-            allSubtasksDiv.innerHTML = ''; // Clear allSubtasksDiv if subtasks array is empty
-        } else {
-            let subtaskItemDiv = document.createElement('div');
-            subtaskItemDiv.classList.add('subtaskItem');
-    
-            let subtaskItemText = document.createElement('li');
-            subtaskItemText.innerText = subtasks[0];
-            subtaskItemDiv.appendChild(subtaskItemText);
-    
-            let iconsContainer = document.createElement('div');
-            iconsContainer.classList.add('iconsContainer');
-    
-            let editImg = document.createElement('img');
-            editImg.classList.add('edit');
-            editImg.src = './assets/img/edit_task.png'; // Replace with your edit image URL
-            iconsContainer.appendChild(editImg);
-    
-
-            let vector = document.createElement('img');
-            vector.classList.add('vector');
-            vector.src = './assets/img/vector 3.png'; // Replace with your edit image URL
-            iconsContainer.appendChild(vector);
-
-            let deleteImg = document.createElement('img');
-            deleteImg.classList.add('delete');
-            deleteImg.src = './assets/img/delete_contacts.png'; // Replace with your delete image URL
-            iconsContainer.appendChild(deleteImg);
-
-            deleteImg.addEventListener('click', function() {
-                subtaskItemDiv.remove(); // Remove the entire subtask container when deleteImg is clicked
-                // Get the index of the subtask being deleted
-                let index = subtasks.indexOf(subtaskInput);
-                if (index !== -1) {
-                    subtasks.splice(index, 1); // Remove the subtask from the subtasks array
-                }
-                save(); // Save the updated subtasks array to localStorage
-            })
-    
-            subtaskItemDiv.appendChild(iconsContainer);
-            allSubtasksDiv.appendChild(subtaskItemDiv);
-        }
-        save(); // Save the updated subtasks array to localStorage
-        hideVectorAndImgCheck();
-    }
-
-
-
-
-    function deleteTask(event) {
-        let noteElement = event.target.closest('.cardA');
-        
-        if (noteElement) {
-            let parentElement = noteElement.parentElement;
-            let index = Array.from(parentElement.children).indexOf(noteElement);
-    
-            noteElement.remove();
-            title.splice(index, 1);
-            description.splice(index, 1);
-            assigned.splice(index, 1);
-            dueDate.splice(index, 1);
-            prio.splice(index, 1);
-            category.splice(index, 1);
-            subtasks.splice(index, 1);
-            subT.splice(index, 1);
-            priorityContentArray.splice(index, 1);    
-            save();
-            render();
-        }
-    }
-
-    function clearTask() {
-        
-        // Clear input values in render function
-        document.getElementById('title').value = '';
-        document.getElementById('description').value = '';
-        document.getElementById('dueDate').value = '';
-        document.getElementById('inputSubtasks').value = '';
-       
-    
-        let allSubtasksDiv = document.getElementById('allSubtasks');
-        allSubtasksDiv.innerHTML = '';
-       
-        removePrioActiveClass('priorityUrgent'); // Replace 'priorityUrgent' with the desired ID
-        removePrioActiveClass('priorityMedium'); // Replace 'priorityMedium' with the desired ID
-        removePrioActiveClass('priorityLow'); // Replace 'priorityLow' with the desired ID
-        removeImgPrioActive('priorityUrgent');
-        removeImgPrioActive('priorityMedium');
-        removeImgPrioActive('priorityLow');
-
-        document.getElementById('taskCategory').value = '';
-
-        clearTaskCategory();
-        clearInputSubTask();
-    }
-
-
-    function selectCategory(clickedElement) {
-        let selectText = clickedElement.querySelector('p').getAttribute('value');
-        let taskCategory = document.getElementById("taskCategory");
-      
-    
-        if (selectText !== 'Select a task category') {
-            category.unshift(selectText);
-            category.push(categorySelect);
-            save(); // Save the updated category array to localStorage      
-            
-            // Update the text content of the taskCategory element
-            taskCategory.querySelector('p').textContent = selectText;
-        }
-        
-    }
-
-function hide(event) {    
-  
-    if (event.target.id !== "inputSubtasks") {
-      let list = document.getElementById("list");
-      let arrow = document.getElementById("arrow");
-      let arrow_drop_downHover = document.getElementById("arrow_drop_downHover");
-  
-      list.classList.toggle("hide");
-      arrow.classList.toggle("rotate");
-      arrow_drop_downHover.classList.toggle("rotate");
-    }
-=======
->>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
 }
 
 
@@ -799,23 +627,3 @@ function hideFieldIndicatorsExcept(exceptSelector) {
 
 
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//NEU
-=======
->>>>>>> a872f1967ed5121c71844e5ea6471e16ed0b1dfd
