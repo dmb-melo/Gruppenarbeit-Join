@@ -281,7 +281,7 @@ display: block; /* Show the hover image when the container is being hovered */
     justify-content: center;    
     color: white;
     border: solid;  
-    font-family: "Inter", sans-serif;  
+    font-family: "Inter", sans-serif; 
 }
 
 .circleAvatar{
