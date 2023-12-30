@@ -448,7 +448,6 @@ function createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, index) {
     iconsContainerWhenEdit.classList.add('iconsContainer');
 
     const deleteImg = createImage('./assets/img/delete_contacts.png', 'delete');
-    deleteImg.classList.add('deleteImg');
     iconsContainerWhenEdit.appendChild(deleteImg);
     deleteImg.addEventListener('click', () => handleDeleteClick(subtaskItemDiv, index));
 
@@ -456,7 +455,6 @@ function createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, index) {
     iconsContainerWhenEdit.appendChild(vector);
 
     const check = createImage('./assets/img/done.png', 'subtaskCheck');
-    deleteImg.classList.add('subtaskCheck');
     iconsContainerWhenEdit.appendChild(check);
 
     check.addEventListener('click', () => handleCheckClick(subtaskItemDiv, iconsContainerWhenEdit, subtaskText));
