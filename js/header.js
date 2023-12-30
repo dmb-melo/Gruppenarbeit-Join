@@ -26,3 +26,8 @@ function showSubmenu() {
   function setInitialsInTheHeader() {
     document.getElementById("initialsUserHeader").innerHTML = initials;
   }
+
+  function loadHelp() {
+    window.location.href = "./help.html";
+    document.getElementById('helpIcon').classList.add('d-none');
+  }

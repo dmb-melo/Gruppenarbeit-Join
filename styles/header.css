@@ -87,3 +87,7 @@ header {
   background-color: #36465d;
    /* hover color not visible */
 }
+
+.d-none {
+  display: none;
+}
