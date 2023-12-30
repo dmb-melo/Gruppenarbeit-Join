@@ -149,8 +149,6 @@ function displayAvatar(selectedContacts, contacts, colors) {
     }
 }
 
-
-
 function addTask() {
     let titleValue = document.getElementById('title').value;
     document.getElementById('title').value = '';   
