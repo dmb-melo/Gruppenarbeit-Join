@@ -147,6 +147,11 @@ function displayAvatar(selectedContacts, contacts, colors) {
     }
 }
 
+function clearContactAvatar() {
+    let contactAvatar = document.getElementById('contactAvatar');
+    contactAvatar.innerHTML = ''; // Clear avatars
+}
+
 function addTask() {
     let titleValue = document.getElementById('title').value;
     document.getElementById('title').value = '';   
@@ -197,6 +202,7 @@ function addTask() {
     
    
     render();   
+    clearContactAvatar();
     changeColour(selectedPriorityID);
     clearPrioActiveClass();
     taskSuccess();      
@@ -221,6 +227,7 @@ function clearTask() {
     allSubtasksDiv.innerHTML = '';
     document.getElementById('taskCategory').value = '';
 
+    clearContactAvatar();
     clearPrioActiveClass();    
     clearTaskCategory();    
       
