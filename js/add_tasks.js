@@ -25,13 +25,8 @@ window.onload = function() {
     selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
     render();
 
-
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('delete-task-bt')) {
-            deleteTask(event);
-        }
-    });
-};
+    
+}
 
 function render() {
     let contactsList = document.getElementById('contactList');
@@ -69,7 +64,41 @@ function render() {
         contactsList.appendChild(contactElement);     
         
     }
+
+    
+    // Add an event listener to the checkboxes
+    for (let i = 0; i < contacts.length; i++) {
+        document.getElementById(`myCheckbox_${i}`).addEventListener('change', function(event) {
+            if (event.target.checked) {
+                // Get the selected contact details
+                let contact = contacts[i];
+                let name = contact[0];
+                let firstname = name.split(" ")[0][0].toUpperCase();
+                let surname = name.split(" ")[1][0].toUpperCase();
+
+                // Add the selected contact to the array if not already added
+                if (!selectedContacts.includes(i)) {
+                    selectedContacts.push(i);
+                }
+
+                // Call displayAvatar to show the selected contacts' avatars
+                displayAvatar(selectedContacts, contacts, colors);
+            } else {
+                // Remove the unselected contact from the array
+                let index = selectedContacts.indexOf(i);
+                if (index > -1) {
+                    selectedContacts.splice(index, 1);
+                }
+
+                // Call displayAvatar to update displayed avatars
+                displayAvatar(selectedContacts, contacts, colors);
+            }
+        });
+    }
+
+
     document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch); 
+    
 }
 
 function handleContactSearch() {
@@ -90,29 +119,36 @@ function handleContactSearch() {
             contact.style.display = 'none'; // Hide non-matching contacts
         }
 
-        // Add event listener for checkbox changes to trigger contact display update
-        let checkbox = contact.querySelector(`#myCheckbox_${i}`);
-        checkbox.addEventListener('change', function() {
-            displayAvatar(i, firstname, surname, colors); // Call the function to display content in contactAvatar
-        });
     } 
 }
 
-function displayAvatar(i, firstname, surname, colors) {
+
+function displayAvatar(selectedContacts, contacts, colors) {
     let contactAvatar = document.getElementById('contactAvatar');
     contactAvatar.innerHTML = ''; // Clear previous content
-    for (let i = 0; i < contacts.length; i++) {
-        
-    let currentContactContent = `
-        <div class="circleAvatar">
-            <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
-                <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+
+    // Iterate through the selected contacts and append their avatars
+    for (let i = 0; i < selectedContacts.length; i++) {
+        let selectedIndex = selectedContacts[i];
+        let contact = contacts[selectedIndex];
+        let name = contact[0];
+        let firstname = name.split(" ")[0][0].toUpperCase();
+        let surname = name.split(" ")[1][0].toUpperCase();
+
+        // Create the avatar element for the selected contact
+        let currentContactContent = `
+            <div class="circleAvatar">
+                <div class="circle" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+                    <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+                </div>
             </div>
-        </div>
-    `;
-    contactAvatar.innerHTML = currentContactContent; // Set the content inside contactAvatar
+        `;
+
+        // Append the avatar to the contactAvatar element
+        contactAvatar.innerHTML += currentContactContent;
     }
 }
+
 
 
 function addTask() {
