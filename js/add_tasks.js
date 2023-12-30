@@ -461,6 +461,7 @@ function hideVectorAndImgCheck(){
         }
 }
 
+
 //task_success
 
 function taskSuccess(){
