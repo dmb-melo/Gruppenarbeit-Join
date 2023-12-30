@@ -94,16 +94,16 @@ function handleContactSearch() {
         // Add event listener for checkbox changes to trigger contact display update
         let checkbox = contact.querySelector(`#myCheckbox_${i}`);
         checkbox.addEventListener('change', function() {
-            displayAvatar(i, firstname, surnam, colors); // Call the function to display content in contactAvatar
+            displayAvatar(i, firstname, surname, colors); // Call the function to display content in contactAvatar
         });
     } 
 }
 
-// Function to display content inside contactAvatar
 function displayAvatar(i, firstname, surname, colors) {
     let contactAvatar = document.getElementById('contactAvatar');
     contactAvatar.innerHTML = ''; // Clear previous content
-
+    for (let i = 0; i < contacts.length; i++) {
+        
     let currentContactContent = `
         <div class="circleAvatar">
             <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
@@ -112,6 +112,7 @@ function displayAvatar(i, firstname, surname, colors) {
         </div>
     `;
     contactAvatar.innerHTML = currentContactContent; // Set the content inside contactAvatar
+    }
 }
 
 
