@@ -2,6 +2,7 @@
 let title = []; // Move it outside the window.onload function
 let description = [];
 let assigned = [];
+let selectedContacts = [];
 let dueDate = [];
 let prio = [];
 let category = [];
@@ -9,6 +10,7 @@ let subtasks = [];
 let subT = [];
 let tasks = [];
 let priorityContentArray = []; 
+
 load();
 addTask();
 
@@ -67,9 +69,8 @@ function render() {
         `;
         contactsList.appendChild(contactElement);       
     }
-
     document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch);
-}
+    
 
 function handleContactSearch() {
     let input = document.getElementById('searchContacts');
@@ -88,10 +89,25 @@ function handleContactSearch() {
         } else {
             contact.style.display = 'none'; // Hide non-matching contacts
         }
+        
     }
+    
 }
 
 
+function displaySelectedContacts() {
+    let contactAvatar = document.getElementById('contactAvatar');
+    contactAvatar.innerHTML = '';
+
+    // Iterate through selected contacts and display in the contactAvatar div
+    selectedContacts.forEach((contact, index) => {
+        contactAvatar.innerHTML += `
+            <div class="circle" id="selectedCircle-${index}" style="background-color: ${colors[i]}">
+                <p class="nameIdList" id="selectedName-id">${contact}</p>
+            </div>
+        `;
+    });
+}
 
 
 function addTask() {

@@ -289,6 +289,12 @@ display: block; /* Show the hover image when the container is being hovered */
     height: 42px;
 }
 
+.contactAvatar{
+    display: flex;
+    height: 100px;
+    width:440px;
+}
+
 
 span{
     color: #FF8190;
