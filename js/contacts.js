@@ -49,7 +49,7 @@ function showContacts() {
                         ${contacts[i][1]}
                     </div>
                 </div>
-            </div>`;
+            </div>`; //id="circle-${i}
     }
 }
 
@@ -61,7 +61,8 @@ function resetSelectedContact() {
     }
 }
 
-function selectContact(i, firstname, surname){
+function selectContact(i, firstname, surname, event){
+    document.getElementById('editContact').classList.add('d-none');
     resetSelectedContact();
     document.getElementById(`contact-info-${i}`).style = "background-color: #293647; color: white";
     selectedContactIndex = i;
@@ -69,17 +70,18 @@ function selectContact(i, firstname, surname){
 }
 
 function showCard(i, firstname, surname){
+   // console.log('Trying to set styles on:', document.getElementById(`contact-info-${i}`));
     document.getElementById('addContact').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
     let name = document.getElementById('nameCard').innerHTML = `${contacts[i][0]}`;
     let email = document.getElementById('emailCard').innerHTML = `<div class="head-info"> Email </div><div class="main-info-mail">${contacts[i][1]}</div>`;
     let phone = document.getElementById('phoneCard').innerHTML = `<div class="head-info"> Phone </div><div class="main-info"> ${contacts[i][2]}</div>`;
 
-    let circle = document.getElementById('circleCard');
+    let circle = document.getElementById('circleCard'); //undefined
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
     circle.style = `background-color: ${colors[i]};`;
 
-    let editCircle = document.getElementById('editCircle');
+    let editCircle = document.getElementById('editCircle'); //undefined
     editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     editCircle.style = `background-color: ${colors[i]};`;
 
@@ -134,8 +136,8 @@ function editContact(i){
             <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
         </div>
         <div class="editButtons">
-            <button class="deleteButton" onclick="deleteContact(${i})">Delete</button>
-            <button class="saveButton" onclick="saveContact(${i})">
+            <button class="deleteButton" onclick="deleteContact(event, ${i})">Delete</button>
+            <button class="saveButton" onclick="saveContact(event, ${i})">
                 <div class="save-button-div">
                 <div class="save-text">Save</div>
                 <div><img class="save-check-img" src="./assets/img/check.png"></div>
@@ -147,21 +149,26 @@ function editContact(i){
     document.getElementById('userPhoneEdit').value = `${contacts[i][2]}`;
 }
 
-function deleteContact(i){
+function deleteContact(event, i){
     contacts.splice(i, 1);
     renderContacts();
     document.getElementById('contactCard').classList.add('d-none');
     selectedContactIndex = null;
-    console.log(contacts);
+    document.getElementById('editContact').classList.add('d-none');
+    event.preventDefault();
 }
 
-function saveContact(i){
-    contacts[i][0] = document.getElementById('userNameEdit').value;
-    contacts[i][1] = document.getElementById('userEmailEdit').value;
-    contacts[i][2] = document.getElementById('userPhoneEdit').value;
+function saveContact(event, i) {
+    let editedContact = [
+        document.getElementById('userNameEdit').value,
+        document.getElementById('userEmailEdit').value,
+        document.getElementById('userPhoneEdit').value
+    ];
+    contacts[i] = editedContact;
     renderContacts();
     closeEditContact();
     selectContact(i);
+    event.preventDefault();
 }
 
 function closeEditContact(){
