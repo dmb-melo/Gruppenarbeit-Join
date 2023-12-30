@@ -285,7 +285,10 @@ display: block; /* Show the hover image when the container is being hovered */
     font-family: "Inter", sans-serif;  
 }
 
-
+.circleAvatar{
+    width: 42px;
+    height: 42px;
+}
 
 
 span{
