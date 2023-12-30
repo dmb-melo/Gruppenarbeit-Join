@@ -273,6 +273,19 @@ display: block; /* Show the hover image when the container is being hovered */
     display: none; /* Hide the normal image when the container is being hovered */
 }
 
+.circle{
+    border-radius: 45px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    color: white;
+    border: solid;    
+}
+
+
+
 
 span{
     color: #FF8190;
