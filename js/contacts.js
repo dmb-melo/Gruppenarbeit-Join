@@ -69,6 +69,7 @@ function selectContact(i, firstname, surname){
 }
 
 function showCard(i, firstname, surname){
+    document.getElementById('addContact').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
     let name = document.getElementById('nameCard').innerHTML = `${contacts[i][0]}`;
     let email = document.getElementById('emailCard').innerHTML = `<div class="head-info"> Email </div><div class="main-info-mail">${contacts[i][1]}</div>`;
@@ -111,10 +112,13 @@ function createContact(){
 }
     
 function addNewContact(){
+    document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('addContact').classList.remove('d-none');
+    resetSelectedContact();
 }
 
 function editContact(i){
+    document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('editContact').classList.remove('d-none');
     document.getElementById('editInput').innerHTML = `
         <div class="inputFieldName">
@@ -162,5 +166,6 @@ function saveContact(i){
 
 function closeEditContact(){
     document.getElementById('editContact').classList.add('d-none');
+    document.getElementById('contactCard').classList.remove('d-none');
 }
 
