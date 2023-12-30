@@ -65,9 +65,32 @@ function render() {
                 <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
             </div>
         `;
-        contactsList.appendChild(contactElement);
+        contactsList.appendChild(contactElement);       
+    }
+
+    document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch);
+}
+
+function handleContactSearch() {
+    let input = document.getElementById('searchContacts');
+    let filter = input.value.toUpperCase();
+    let contacts = document.getElementsByClassName('contactList');
+
+    // Loop through all contact list elements and hide/show based on the search input
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        let nameElement = contact.getElementsByClassName('nameContact')[0];
+        let txtValue = nameElement.textContent || nameElement.innerText;
+        
+        // Check if the contact name contains the search filter
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            contact.style.display = ''; // Show the matching contact
+        } else {
+            contact.style.display = 'none'; // Hide non-matching contacts
+        }
     }
 }
+
 
 
 
