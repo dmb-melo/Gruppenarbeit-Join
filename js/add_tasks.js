@@ -64,8 +64,7 @@ function render() {
         contactsList.appendChild(contactElement);     
         
     }
-
-    
+   
     // Add an event listener to the checkboxes
     for (let i = 0; i < contacts.length; i++) {
         document.getElementById(`myCheckbox_${i}`).addEventListener('change', function(event) {
@@ -121,7 +120,6 @@ function handleContactSearch() {
 
     } 
 }
-
 
 function displayAvatar(selectedContacts, contacts, colors) {
     let contactAvatar = document.getElementById('contactAvatar');
@@ -206,7 +204,6 @@ function addTask() {
 }
 
 function clearTask() {
-
     subtasks = [];
     
     // Clear input values in render function
@@ -283,8 +280,6 @@ function hideAssigned(event) {
         arrowDrop.classList.toggle("rotate");
     }
 }
-
-
 
 //priority
 
