@@ -71,32 +71,6 @@ function render() {
 
 
 
-// function render() {
-//     let contactsList = document.getElementById('contactList');
-//     contactsList.innerHTML = '';
-
-//     // Iterate through contacts and create list elements
-//     for (let i = 0; i < contacts.length; i++) {
-//         let contact = contacts[i];
-//         let name = contact[0];
-//         let firstname = name.split(" ")[0][0].toUpperCase(); // First name's first letter in uppercase
-//         let surname = name.split(" ")[1][0].toUpperCase(); // Last name's first letter in uppercase
-
-//         let contactElement = document.createElement('li');
-//         contactElement.classList.add('contactList');
-//         contactElement.innerHTML = `
-//             <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
-//                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-//             </div>
-//             <div class="custom-checkbox">   
-//                 <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
-//                 <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
-//             </div>
-//         `;
-//         contactsList.appendChild(contactElement);
-//     }}
-
-
 function addTask() {
     let titleValue = document.getElementById('title').value;
     document.getElementById('title').value = '';   
