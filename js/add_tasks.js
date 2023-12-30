@@ -33,26 +33,32 @@ window.onload = function() {
 };
 
 
+
+
 function render() {
     let contactsList = document.getElementById('contactList');
     contactsList.innerHTML = '';
 
     // Iterate through contacts and create list elements
-    contacts.forEach((contact, index) => {
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        let name = contact[0];
+        let firstname = name.split(" ")[0][0].toUpperCase(); // First name's first letter in uppercase
+        let surname = name.split(" ")[1][0].toUpperCase(); // Last name's first letter in uppercase
+
         let contactElement = document.createElement('li');
         contactElement.classList.add('contactList');
         contactElement.innerHTML = `
-            <img class="abbreviation" src="" alt="" id="imgContactScr_${index}"></img>     
+            <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
+                <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+            </div>
             <div class="custom-checkbox">   
-                <input class="inputCheckBox" type="checkbox" id="myCheckbox_${index}"></input>                       
-                <label class="nameContact" for="myCheckbox_${index}" >${contact[0]}</label>                              
-            </div>         
+                <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
+                <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
+            </div>
         `;
         contactsList.appendChild(contactElement);
-    });
-   
-    save();
-}
+    }}
 
 
 function addTask() {
