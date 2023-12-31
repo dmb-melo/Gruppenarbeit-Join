@@ -1345,9 +1345,20 @@ display: flex;
 @media (max-width: 830px){
 
     .group66_addTask{
-     flex-direction: column;
-       
-       
+     flex-direction: column;      
+    
+    }
+
+    .vector4{
+        display: none;
+    }
+
+    .inputRight_addTask{
+        margin-top: 30px;
+    }
+
+    .addTasksFooter{
+        width: 440px;
     }
     
 }
