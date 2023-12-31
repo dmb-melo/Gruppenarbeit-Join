@@ -1,8 +1,8 @@
 
-@media(max-width: 396px){
-    .textContainer_addTask{
+@media(max-width: 397px){
+
+   .textContainer_addTask{
         font-size: 47px;        
-        margin-left: 10px;
     }
 
     .content_addTask{       
@@ -10,9 +10,11 @@
     }
 
     .group66_addTask{
-        display: flex;
-        padding: 10px;
-        width: 376px;
+        background-color: rgb(255, 94, 0);
+        display: flex;      
+        padding:5px;
+        width: ;
+        justify-content: center;
         gap:8px;
         margin-left: 0%;
         flex-direction: column;        
@@ -22,17 +24,16 @@
         display: none;
     }      
 
-    .inputRight_addTask{
-        width: 376px;   
+    .inputRight_addTask{ 
         margin-top: 44px;        
     }
 
     .inputLeft_addTask{
-        width: 376px;        
+        width:397px;     
     }
 
     .title_v1{
-        width: 376px;
+        width:397px;
     }
 
     .title{
@@ -44,7 +45,7 @@
     }
 
     .frame203{
-        width: 376px;
+        width: 375px;
     }
 
     .title_frame14{    
@@ -233,12 +234,12 @@
     }
 }
 
-@media(min-width: 397px) and (max-width: 577.50px){
+@media(min-width: 398px) and (max-width: 577.50px){
     .textContainer_addTask{
         font-size: 107px; 
-        background-color: antiquewhite;
         margin-left: 10px;      
         width: 577.50px;
+       
     }
 
     .content_addTask{       
@@ -246,13 +247,12 @@
     }
 
     .group66_addTask{
-        background-color: aqua;
         display: flex;
         padding: 10px;
         width: 577.50px;
-        /* gap: 8px; */
         margin-left: 0%;
-        flex-direction: column;        
+        flex-direction: column;     
+        background-color: aqua;   
     }
 
     .vector4{
@@ -273,11 +273,11 @@
     }
 
     .title{
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .span{
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .frame203{
@@ -290,12 +290,12 @@
     }
 
     .text_enterTitle{
-    font-size: 16px;
+    font-size: 20px;
     width: 560px;
     }
 
     .description{
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .description_v1{        
@@ -309,7 +309,7 @@
     .text_enterDescription{
         height: 88px;
         padding: 18px 21px;
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .recursor{
@@ -339,16 +339,13 @@
         font-size: 20px;
     }
 
-    .underList{
-        
+    .underList{        
         width: 560px;
     }
 
     .underListContact{
         width: 560px;
-    }
-
-    
+    }    
 
     .contactAvatar{
         width: 560px;
@@ -378,6 +375,7 @@
     }
 
     .dueDate{
+        margin-top: 15px;
         width: 560px;
     }
 
@@ -460,6 +458,7 @@
     }
 
     .subtasksFrame14{
+        width: 518px;
         padding: 14px 20px;
     }
 
@@ -468,22 +467,30 @@
         margin-left: 0;
         width: 560px;
    } 
+   
+   .allSubtasks{
+    width: 560px;
+   }
 
+   .subtaskItem{
+    width: 525px;
+   }
    .primary{
         padding: 16px;
         gap: 4px;
     }
 
    .textCreateTask{
-        font-size: 21px;
+        font-size: 20px;
     }
 
    .comment{
-        font: 20px;
+        width: 230px;
+        font-size: 20px;
     }
 }
 
-
+@media(min-width: 578px) and (max-width: 777px){}
 
 
 
