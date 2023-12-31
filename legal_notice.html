@@ -1,31 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-    <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Legal Notice</title>
-          <!-- script -->
-          <script src="./js/include.js"></script>
-          <script src="./js/header.js"></script>
-          <script src="./js/register.js"></script>
-          <script src="./js/legal_help_privacy.js"></script>
-          
-          <!-- styles -->
-          <link rel="icon" type="image/x-icon" href="./assets/img/favicon.svg">
-          <link rel="stylesheet" href="./styles/sidebar.css">
-          <link rel="stylesheet" href="./styles/header.css">
-          <link rel="stylesheet" href="./styles/fonts.css" />
-          <link rel="stylesheet" href="./styles/legal_help_privacy.css">
-        </head>
-<body onload="legalHelpPrivacyinit()" onclick="closeSubmenu()">
-    <div w3-include-html="./assets/templates/sidebar.html"></div>
-    <div w3-include-html="./assets/templates/header.html"></div>
-    <div id="conten">
-        <div class="arrow-back">
-            <img onclick="closeHelp()" class="arrow-back-sign-up" src="./assets/img/arrow-left-line.svg" alt="arrowback" />
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Legal Notice</title>
+      <!-- script -->
+      <script src="./js/include.js"></script>
+      <script src="./js/header.js"></script>
+      <script src="./js/register.js"></script>
+      <script src="./js/legal_help_privacy.js"></script>
+
+      <!-- styles -->
+      <link rel="icon" type="image/x-icon" href="./assets/img/favicon.svg" />
+      <link rel="stylesheet" href="./styles/sidebar.css" />
+      <link rel="stylesheet" href="./styles/header.css" />
+      <link rel="stylesheet" href="./styles/fonts.css" />
+      <link rel="stylesheet" href="./styles/legal_help_privacy.css" />
+    </head>
+    <body onload="legalHelpPrivacyinit()" onclick="closeSubmenu()">
+      <div w3-include-html="./assets/templates/sidebar.html"></div>
+      <div w3-include-html="./assets/templates/header.html"></div>
+      <div id="conten">
+        <div class="close-arrow-container">
+          <img onclick="closeHelp()" class="arrow-back" src="./assets/img/arrow-left-line.svg" alt="arrowback" />
+        </div>
+        <div class="content-container">
+          <h1 class="headline-legal-help-privacy">Legal Notice</h1>
+          <h2 class="second-headline-legal-help-privacy">Imprint</h2>
+          <div class="text">
+            <li>Hilal Yozkoyunu</li>
+            <li>Beethovenstr. 26</li>
+            <li>69502 Hemsbach DE</li>
+            <br />
+            <li>Barbara De Melo Mauricio</li>
+            <li>Ulrichsbergstrasse 3</li>
+            <li>81673 München DE</li>
+            <br />
+            <li>Bekir Labjani</li>
+            <li>Fröchlichgasse 62</li>
+            <li>8010 Graz AUT</li>
+            <br />
+            <li>Silvan Stuber</li>
+            <li>Bernstrass 46</li>
+            <li>3267 Seedorf CH</li>
           </div>
-    </div>
-     
-</body>
+          <h3>Exploring the Board</h3>
+          <div class="text">
+            <li>Email: hilal_2501@hotmail.de</li>
+            <li>Email: bardemelo@yahoo.de</li>
+            <li>Email: Business.life.bekir@gmail.com</li>
+            <li>Email: silvan.stuber1@gmail.com</li>
+          </div>
+          <h3>Acceptance of terms</h3>
+          <div class="text">
+            By accessing and using <span class="blue-words">Join</span> (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto
+            that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.
+          </div>
+          <h3>Scope and ownership of the product</h3>
+          <div class="text">
+            <span class="blue-words">Join</span> has been developed as part of a student group project in a web development bootcamp at the <span class="blue-words">Developer Akademie GmbH</span>. It
+            has an educational purpose and is not intended for extensive personal & business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of
+            quality regarding this Product. The design of <span class="blue-words">Jpin</span> is owned by the <span class="blue-words">Developer Akademie GmbH</span>. Unauthorized use, reproduction,
+            modification, distribution, or replication of the design is strictly prohibited.
+          </div>
+          <h3>Proprietary rights</h3>
+          <div class="text">
+            Aside from the design owned by <span class="blue-words">Developer Akademie GmbH</span>, we, the listed students, retain all proprietary rights in <span class="blue-words">Join</span>,
+            including any associated copyrighted material, trademarks, and other proprietary information.
+          </div>
+          <h3>Use of the product</h3>
+          <div class="text">
+            <span class="blue-words">Join</span> is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use of
+            <span class="blue-words">Join</span> for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your
+            interactions with other users of <span class="blue-words">Join</span>.
+          </div>
+          <h3>Disclaimer of warranties and limitation of liability</h3>
+          <div class="text">
+            <span class="blue-words">Join</span> is provided "as is" without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability,
+            fitness for a particular purpose, and non-infringement. In no event will we, the listed students, or the <span class="blue-words">Developer Akademie</span>, be liable for any direct,
+            indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we
+            have been advised of the possibility of such damages, arising out of or in connection with the use or performance of <span class="blue-words">Join</span>.
+          </div>
+          <h3>Indemnity</h3>
+          <div class="text">
+            You agree to indemnify, defend and hold harmless us, the listed students, the <span class="blue-words">Developer Akademie</span>, and our affiliates, partners, officers, directors, agents,
+            and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of
+            <span class="blue-words">Join</span> and/or your breach of this Legal Notice.
+            <span class="text pd-top">For any questions or notices, please contact us at [Contact Email].</span>
+            <span class="text">Date: July 26, 2023</span>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
 </html>
