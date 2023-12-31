@@ -50,7 +50,7 @@ function showContacts() {
                         ${contacts[i][1]}
                     </div>
                 </div>
-            </div>`; //id="circle-${i}
+            </div>`;
     }
 }
 
@@ -70,18 +70,17 @@ function selectContact(i, firstname, surname, event){
 }
 
 function showCard(i, firstname, surname){
-   // console.log('Trying to set styles on:', document.getElementById(`contact-info-${i}`));
     document.getElementById('addContact').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
     let name = document.getElementById('nameCard').innerHTML = `${contacts[i][0]}`;
     let email = document.getElementById('emailCard').innerHTML = `<div class="head-info"> Email </div><div class="main-info-mail">${contacts[i][1]}</div>`;
     let phone = document.getElementById('phoneCard').innerHTML = `<div class="head-info"> Phone </div><div class="main-info"> ${contacts[i][2]}</div>`;
 
-    let circle = document.getElementById('circleCard'); //undefined
+    let circle = document.getElementById('circleCard'); 
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
     circle.style = `background-color: ${colors[i]};`;
 
-    let editCircle = document.getElementById('editCircle'); //undefined
+    let editCircle = document.getElementById('editCircle');
     editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     editCircle.style = `background-color: ${colors[i]};`;
 
@@ -111,6 +110,11 @@ function createContact(event) {
     let userEmail = document.getElementById('2').value;
     let userPhone = document.getElementById('3').value;
 
+    if (!userName || !userEmail || !userPhone) {
+        alert("Please fill out all fields before creating a contact.");
+        return;
+    }
+
     let newContact = [userName, userEmail, userPhone];
     contacts.push(newContact);
     contacts.sort(); 
@@ -120,12 +124,16 @@ function createContact(event) {
     renderContacts();
     closeAddContact();
 
+    // Leere die Input-Felder
+    document.getElementById('1').value = '';
+    document.getElementById('2').value = '';
+    document.getElementById('3').value = '';
+
     // Wähle den neu hinzugefügten Kontakt aus
     selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
+    document.getElementById('success').classList.remove('d-none');
 }
 
-
-    
 function addNewContact(){
     document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('addContact').classList.remove('d-none');
@@ -170,7 +178,6 @@ function deleteContact(event, i){
     document.getElementById('editContact').classList.add('d-none');
     event.preventDefault();
 }
-
 
 function saveContact(event, i) {
     let editedContact = [

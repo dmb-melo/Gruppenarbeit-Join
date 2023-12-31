@@ -452,4 +452,17 @@ hr{
     bottom: 150px;
     color: white;
     border-radius: 12px;
+    animation-duration: 3s;
+    animation-name: slideSuccess;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: 2;
+}
+@keyframes slideSuccess {
+    0% {
+        margin-left: 0%;
+    }
+    100% {
+        margin-left: 100%;
+        display: none;
+    }
 }
