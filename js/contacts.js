@@ -93,7 +93,7 @@ function showCard(i, firstname, surname){
         <img class="logo-mini" src="./assets/img/edit_contacts.png">
         Edit
     </div>
-    <div class="deleteCard" id="deleteCard" onclick="deleteContact(${i})">
+    <div class="deleteCard" id="deleteCard" onclick="deleteContact(event, ${i})">
         <img class="logo-mini" src="./assets/img/delete_contacts.png">
         Delete  
     </div>`;
@@ -111,10 +111,6 @@ function createContact(event) {
     let userEmail = document.getElementById('2').value;
     let userPhone = document.getElementById('3').value;
 
-    console.log('UserName:', userName);
-    console.log('UserEmail:', userEmail);
-    console.log('UserPhone:', userPhone);
-
     let newContact = [userName, userEmail, userPhone];
     contacts.push(newContact);
     contacts.sort(); 
@@ -123,7 +119,6 @@ function createContact(event) {
 
     renderContacts();
     closeAddContact();
-    showContacts();
 
     // Wähle den neu hinzugefügten Kontakt aus
     selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
@@ -175,6 +170,7 @@ function deleteContact(event, i){
     document.getElementById('editContact').classList.add('d-none');
     event.preventDefault();
 }
+
 
 function saveContact(event, i) {
     let editedContact = [
