@@ -1,0 +1,244 @@
+
+@media(max-width: 396px){
+    .textContainer_addTask{
+        font-size: 47px;        
+        margin-left: 10px;
+    }
+
+    .content_addTask{       
+        margin-left: 0px;       
+    }
+
+    .group66_addTask{
+        display: flex;
+        padding: 10px;
+        width: 376px;
+        gap:8px;
+        margin-left: 0%;
+        flex-direction: column;        
+    }
+
+    .vector4{
+        display: none;
+    }      
+
+    .inputRight_addTask{
+        width: 376px;   
+        margin-top: 44px;        
+    }
+
+    .inputLeft_addTask{
+        width: 376px;        
+    }
+
+    .title_v1{
+        width: 376px;
+    }
+
+    .title{
+        font-size: 16px;
+    }
+
+    .span{
+        font-size: 16px;
+    }
+
+    .frame203{
+        width: 376px;
+    }
+
+    .title_frame14{    
+        padding: 10px 21px;
+        gap: 10px;
+    }
+
+    .text_enterTitle{
+    font-size: 16px;
+    width: 100%;
+    }
+
+    .description{
+        font-size: 16px;
+    }
+
+    .description_v1{        
+    width: 376px;
+    }
+
+    .frame207 {
+        width: 376px;
+    }
+
+    .text_enterDescription{
+        height: 88px;
+        padding: 18px 21px;
+        font-size: 16px;
+    }
+
+    .recursor{
+        display:none ;
+    } 
+
+    .frame17{
+        width: 376px;
+    }
+
+    .asignedTo_v1{
+        width: 376px;
+    }
+
+    .asignedTo{
+        font-size: 16px;
+    }
+
+    .categoryFrame74{
+        width: 333px;
+    
+        padding: 10px 21px;
+    }
+
+    .searchContacts{
+        width: 376px;
+        font-size: 16px;
+    }
+
+    .underList{
+        width: 376px;
+    }
+
+    .underListContact{
+        width: 376px;
+
+    }
+
+    .contactAvatar{
+        width: 376px;
+    }
+
+    .nameContact{
+        font-size: 16px;
+    }
+
+    .circle{
+        margin-top: 5px;
+        font-size: 16px; 
+        width: 34px;
+        height: 34px;
+    }
+
+    .dueDate{
+        width: 376px;
+    }
+
+    .text_DueDate{
+        font-size: 16px;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+       width:20px;
+    }
+    .frame211{
+        width: 376px;
+    }
+
+    .inputDate{
+        font-size: 16px;    
+    }
+
+    .frame28{
+        width: 376px;
+    }
+
+    .titlePrio{
+        font-size: 16px;
+    }
+
+
+    .inputDate{
+        font-size: 16px;
+    }
+
+    .priority{
+        width: 376px;         
+    }
+
+    .priorityUrgent, .priorityMedium, .priorityLow{    
+        padding: 13px 8px;     
+        gap: 8px;   
+    }
+
+    .textUrgent{
+        font-size: 16px;
+        width: 55px;
+    }
+
+    .textMedium{
+        font-size: 16px;
+        width: 62px;
+    }
+
+    .textLow{
+        font-size: 16px;
+        width: 34px;
+    }
+
+    .category{
+        width: 376px;
+    }
+
+    .textCategory{
+        font-size: 16px;
+    }
+
+    .categoryFrame74{
+        font-size: 16px;        
+    }
+
+     .options{
+        width: 344px;
+    }
+
+    .subtasks{
+        width: 373px;
+    }
+
+    .textSubtasks, .textAddSubtasks{    
+        font-size: 16px;
+    }
+
+    .subtasksFrame14{
+        padding: 12px 16px;
+    }
+
+   .addTasksFooter{
+        padding: 10px;
+        margin-left: 0;
+        width: 376px;
+   } 
+
+   .secondary{
+        display: none;
+   }
+
+   .primary{
+        padding: 16px;
+        gap: 4px;
+    }
+
+   .textCreateTask{
+        font-size: 21px;
+    }
+
+   .comment{
+        font: 16px;
+    }
+
+}
+
+
+
+
+
+
+
+
