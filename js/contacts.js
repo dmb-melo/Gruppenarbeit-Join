@@ -9,6 +9,7 @@ let contacts = [
     ["Tatjana Wolf", "wolf@gmail.com", "+49 7362 836 98 1"]
 ];
 const colors = ['#9227FE', '#3BDBC7', '#FD81FF', '#FFBB2A', '#6E52FF', '#169857', '#6B5E5F',
+                '#FF7915', '#9227FE', '#3BDBC7', '#FD81FF', '#FFBB2A', '#6E52FF', '#169857', '#6B5E5F',
                 '#FF7915'];
 let selectedContactIndex = null;
 
@@ -52,7 +53,6 @@ function showContacts() {
             </div>`; //id="circle-${i}
     }
 }
-
 
 function resetSelectedContact() {
     if (selectedContactIndex !== null) {
@@ -104,14 +104,32 @@ function closeAddContact(){
     document.getElementById('addContact').classList.add('d-none');
 }
 
-function createContact(){
-        let userName = document.getElementById('userName').value;
-        let userEmail = document.getElementById('userEmail').value;
-        let userPhone = document.getElementById('userPhone').value;
-        contacts.push([userName, userEmail, userPhone]);
-        renderContacts();
-        closeAddContact();
+function createContact(event) {
+    event.preventDefault();
+
+    let userName = document.getElementById('1').value;
+    let userEmail = document.getElementById('2').value;
+    let userPhone = document.getElementById('3').value;
+
+    console.log('UserName:', userName);
+    console.log('UserEmail:', userEmail);
+    console.log('UserPhone:', userPhone);
+
+    let newContact = [userName, userEmail, userPhone];
+    contacts.push(newContact);
+    contacts.sort(); 
+    
+    let newIndex = contacts.findIndex(contact => contact === newContact);
+
+    renderContacts();
+    closeAddContact();
+    showContacts();
+
+    // Wähle den neu hinzugefügten Kontakt aus
+    selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
 }
+
+
     
 function addNewContact(){
     document.getElementById('contactCard').classList.add('d-none');
@@ -168,7 +186,7 @@ function saveContact(event, i) {
     renderContacts();
     closeEditContact();
     selectContact(i);
-    
+
     let name = contacts[i][0];
     let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
     let names = contacts[i][0].split(" ");
