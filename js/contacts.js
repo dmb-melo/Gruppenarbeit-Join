@@ -9,6 +9,7 @@ let contacts = [
     ["Tatjana Wolf", "wolf@gmail.com", "+49 7362 836 98 1"]
 ];
 const colors = ['#9227FE', '#3BDBC7', '#FD81FF', '#FFBB2A', '#6E52FF', '#169857', '#6B5E5F',
+                '#FF7915', '#9227FE', '#3BDBC7', '#FD81FF', '#FFBB2A', '#6E52FF', '#169857', '#6B5E5F',
                 '#FF7915'];
 let selectedContactIndex = null;
 
@@ -49,10 +50,9 @@ function showContacts() {
                         ${contacts[i][1]}
                     </div>
                 </div>
-            </div>`; //id="circle-${i}
+            </div>`;
     }
 }
-
 
 function resetSelectedContact() {
     if (selectedContactIndex !== null) {
@@ -70,18 +70,17 @@ function selectContact(i, firstname, surname, event){
 }
 
 function showCard(i, firstname, surname){
-   // console.log('Trying to set styles on:', document.getElementById(`contact-info-${i}`));
     document.getElementById('addContact').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
     let name = document.getElementById('nameCard').innerHTML = `${contacts[i][0]}`;
     let email = document.getElementById('emailCard').innerHTML = `<div class="head-info"> Email </div><div class="main-info-mail">${contacts[i][1]}</div>`;
     let phone = document.getElementById('phoneCard').innerHTML = `<div class="head-info"> Phone </div><div class="main-info"> ${contacts[i][2]}</div>`;
 
-    let circle = document.getElementById('circleCard'); //undefined
+    let circle = document.getElementById('circleCard'); 
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
     circle.style = `background-color: ${colors[i]};`;
 
-    let editCircle = document.getElementById('editCircle'); //undefined
+    let editCircle = document.getElementById('editCircle');
     editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     editCircle.style = `background-color: ${colors[i]};`;
 
@@ -93,7 +92,7 @@ function showCard(i, firstname, surname){
         <img class="logo-mini" src="./assets/img/edit_contacts.png">
         Edit
     </div>
-    <div class="deleteCard" id="deleteCard" onclick="deleteContact(${i})">
+    <div class="deleteCard" id="deleteCard" onclick="deleteContact(event, ${i})">
         <img class="logo-mini" src="./assets/img/delete_contacts.png">
         Delete  
     </div>`;
@@ -104,15 +103,37 @@ function closeAddContact(){
     document.getElementById('addContact').classList.add('d-none');
 }
 
-function createContact(){
-        let userName = document.getElementById('userName').value;
-        let userEmail = document.getElementById('userEmail').value;
-        let userPhone = document.getElementById('userPhone').value;
-        contacts.push([userName, userEmail, userPhone]);
-        renderContacts();
-        closeAddContact();
-}
+function createContact(event) {
+    event.preventDefault();
+
+    let userName = document.getElementById('1').value;
+    let userEmail = document.getElementById('2').value;
+    let userPhone = document.getElementById('3').value;
+
+    if (!userName || !userEmail || !userPhone) {
+        alert("Please fill out all fields before creating a contact.");
+        return;
+    }
+
+    let newContact = [userName, userEmail, userPhone];
+    contacts.push(newContact);
+    contacts.sort(); 
     
+    let newIndex = contacts.findIndex(contact => contact === newContact);
+
+    renderContacts();
+    closeAddContact();
+
+    // Leere die Input-Felder
+    document.getElementById('1').value = '';
+    document.getElementById('2').value = '';
+    document.getElementById('3').value = '';
+
+    // Wähle den neu hinzugefügten Kontakt aus
+    selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
+    document.getElementById('success').classList.remove('d-none');
+}
+
 function addNewContact(){
     document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('addContact').classList.remove('d-none');
@@ -168,7 +189,7 @@ function saveContact(event, i) {
     renderContacts();
     closeEditContact();
     selectContact(i);
-    
+
     let name = contacts[i][0];
     let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
     let names = contacts[i][0].split(" ");

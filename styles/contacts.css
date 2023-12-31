@@ -443,30 +443,26 @@ hr{
 }
 .create-text{
     font-size: 15px;
-
 }
-.slide-left{
-    animation: animation 1s ease 0s 1 normal forwards;
+.success{
+    background-color: #293647;
+    padding: 23px;
+    position: fixed;
+    left: 570px;
+    bottom: 150px;
+    color: white;
+    border-radius: 12px;
+    animation-duration: 3s;
+    animation-name: slideSuccess;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: 2;
 }
-@keyframes animation {
-	0% {
-		transform: translateX(400px);
-	}
-
-	100% {
-		transform: translateX(0px);
-	}
-}
-
-.slide-left-3{
-    animation: animation 2s ease 0s 1 normal forwards;
-}
-@keyframes animation {
-	0% {
-		transform: translateX(500px);
-	}
-
-	100% {
-		transform: translateX(0px);
-	}
+@keyframes slideSuccess {
+    0% {
+        margin-left: 0%;
+    }
+    100% {
+        margin-left: 100%;
+        display: none;
+    }
 }
