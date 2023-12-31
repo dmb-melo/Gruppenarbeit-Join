@@ -4,6 +4,12 @@ body{
 }
 
 
+
+.task{
+    background-color: #A8A8A8;
+}
+
+
 .textContainer_addTask{
     width: 278px;
     height: 73px;
@@ -20,9 +26,10 @@ body{
     line-height: 73.2px;    
 }
 
-.group66_addTask{
-    width: 976.25px;
 
+
+.group66_addTask{   
+    width: 976.25px;
     display: flex;
     margin-left: 328px;
     justify-content: space-between;   
@@ -393,7 +400,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
     display: block;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cmask id='mask0_75592_13837' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.855469' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_13837)'%3E%3Cpath d='M15.3555 18C14.6555 18 14.0638 17.7583 13.5805 17.275C13.0971 16.7917 12.8555 16.2 12.8555 15.5C12.8555 14.8 13.0971 14.2083 13.5805 13.725C14.0638 13.2417 14.6555 13 15.3555 13C16.0555 13 16.6471 13.2417 17.1305 13.725C17.6138 14.2083 17.8555 14.8 17.8555 15.5C17.8555 16.2 17.6138 16.7917 17.1305 17.275C16.6471 17.7583 16.0555 18 15.3555 18ZM5.85547 22C5.30547 22 4.83464 21.8042 4.44297 21.4125C4.0513 21.0208 3.85547 20.55 3.85547 20V6C3.85547 5.45 4.0513 4.97917 4.44297 4.5875C4.83464 4.19583 5.30547 4 5.85547 4H6.85547V3C6.85547 2.71667 6.9513 2.47917 7.14297 2.2875C7.33464 2.09583 7.57214 2 7.85547 2C8.1388 2 8.3763 2.09583 8.56797 2.2875C8.75964 2.47917 8.85547 2.71667 8.85547 3V4H16.8555V3C16.8555 2.71667 16.9513 2.47917 17.143 2.2875C17.3346 2.09583 17.5721 2 17.8555 2C18.1388 2 18.3763 2.09583 18.568 2.2875C18.7596 2.47917 18.8555 2.71667 18.8555 3V4H19.8555C20.4055 4 20.8763 4.19583 21.268 4.5875C21.6596 4.97917 21.8555 5.45 21.8555 6V20C21.8555 20.55 21.6596 21.0208 21.268 21.4125C20.8763 21.8042 20.4055 22 19.8555 22H5.85547ZM5.85547 20H19.8555V10H5.85547V20ZM5.85547 8H19.8555V6H5.85547V8Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='' height='' viewBox='0 0 25 24' fill='none'%3E%3Cmask id='mask0_75592_13837' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.855469' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_13837)'%3E%3Cpath d='M15.3555 18C14.6555 18 14.0638 17.7583 13.5805 17.275C13.0971 16.7917 12.8555 16.2 12.8555 15.5C12.8555 14.8 13.0971 14.2083 13.5805 13.725C14.0638 13.2417 14.6555 13 15.3555 13C16.0555 13 16.6471 13.2417 17.1305 13.725C17.6138 14.2083 17.8555 14.8 17.8555 15.5C17.8555 16.2 17.6138 16.7917 17.1305 17.275C16.6471 17.7583 16.0555 18 15.3555 18ZM5.85547 22C5.30547 22 4.83464 21.8042 4.44297 21.4125C4.0513 21.0208 3.85547 20.55 3.85547 20V6C3.85547 5.45 4.0513 4.97917 4.44297 4.5875C4.83464 4.19583 5.30547 4 5.85547 4H6.85547V3C6.85547 2.71667 6.9513 2.47917 7.14297 2.2875C7.33464 2.09583 7.57214 2 7.85547 2C8.1388 2 8.3763 2.09583 8.56797 2.2875C8.75964 2.47917 8.85547 2.71667 8.85547 3V4H16.8555V3C16.8555 2.71667 16.9513 2.47917 17.143 2.2875C17.3346 2.09583 17.5721 2 17.8555 2C18.1388 2 18.3763 2.09583 18.568 2.2875C18.7596 2.47917 18.8555 2.71667 18.8555 3V4H19.8555C20.4055 4 20.8763 4.19583 21.268 4.5875C21.6596 4.97917 21.8555 5.45 21.8555 6V20C21.8555 20.55 21.6596 21.0208 21.268 21.4125C20.8763 21.8042 20.4055 22 19.8555 22H5.85547ZM5.85547 20H19.8555V10H5.85547V20ZM5.85547 8H19.8555V6H5.85547V8Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
     background-size: cover;
 }
 
@@ -596,10 +603,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
    
 }
 
-.options select:hover{
+/* .options select:hover{
 
     background-color: #FF3D00; 
-}         
+}          */
 
 .disabledSelected{
     display: none;
@@ -662,9 +669,6 @@ line-height: 120%; /* 24px */
    
 }
 
-
-
-
 .subtasksContents {
     display: flex;
     align-items: center;
@@ -672,16 +676,16 @@ line-height: 120%; /* 24px */
 }
 
 /* Hide the default checkbox */
-.checkbox-input {
+/* .checkbox-input {
     position: absolute;
     opacity: 0;
-}
+} */
 
-.checkbox-label{
+/* .checkbox-label{
     display: flex;
     align-items: center;
     gap: 8px;
-}
+} */
 
 .subTasksCard{
     display: flex;
@@ -835,6 +839,7 @@ line-height: 120%; /* 24px */
 }
 
 .frame27{
+   
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -842,6 +847,7 @@ line-height: 120%; /* 24px */
 }
 
 .secondary{
+    cursor: pointer;
     display: flex;
     padding: 16px;
     justify-content: center;
@@ -854,9 +860,7 @@ line-height: 120%; /* 24px */
 .secondary:hover{
     border: 1px solid var(--Ligth-blue, #29ABE2);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    /*ONLY ON CLICK: Animation and animation-Duration*/
-    /* animation: ease-in-out;    
-    animation-duration: 100s; */
+    transition: all 100ms ease-in-out;
 }
 
 .textClear{
@@ -897,6 +901,7 @@ line-height: 120%; /* 24px */
 }
 
 .primary{
+    transition: all 100ms ease-in-out;
     display: flex;
     padding: 16px;
     justify-content: center;
@@ -907,11 +912,10 @@ line-height: 120%; /* 24px */
 }
 
 .primary:hover{   
+    cursor: pointer;
     background: #29ABE2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  /*ONLY ON CLICK: Animation and animation-Duration*/
-    /* animation: ease-in-out;    
-    animation-duration: 100s; */
+
 }
 
 .textCreateTask{
@@ -1114,7 +1118,7 @@ line-height: 120%; /* 24px */
     border-radius: 10px;
     background: var(--white, #FFF); 
     z-index: 1;
-    max-height:110px;
+    max-height: 119px;
     width: 440px;   
     overflow: auto;
 }
@@ -1197,14 +1201,6 @@ height:0px;
 .contactList:hover{
     background-color: #eeeeee; 
 }
-
-
-.abbreviation{
-    height: 42px;
-    width:42px;
-    background-color: #1FD7C1;
-}
-
 
 .subtaskItem{
     cursor: pointer;
@@ -1356,23 +1352,250 @@ display: flex;
     display: none;
 }
 
-@media (max-width: 830px){
 
-    .group66_addTask{
-     flex-direction: column;      
-    
+@media(max-width: 396px){
+
+
+    .textContainer_addTask{
+        font-size: 47px;        
+        margin-left: 10px;
+    }
+
+    .content_addTask{       
+        margin-left: 0px;       
+    }
+        .group66_addTask{
+        display: flex;
+        background-color: #1FD7C1;
+        padding: 10px;
+        width: 376px;
+        gap:8px;
+        margin-left: 0%;
+        flex-direction: column;
     }
 
     .vector4{
         display: none;
-    }
+    }      
 
     .inputRight_addTask{
-        margin-top: 30px;
+        width: 376px;   
+        margin-top: 44px;        
     }
 
-    .addTasksFooter{
-        width: 440px;
+    .inputLeft_addTask{
+        width: 376px;        
     }
+
+    .title_v1{
+        width: 376px;
+    }
+
+    .title{
+        font-size: 16px;
+    }
+
+    .span{
+        font-size: 16px;
+    }
+
+    .frame203{
+        width: 376px;
+    }
+
+    .title_frame14{    
+        padding: 10px 21px;
+        gap: 10px;
+    }
+
+    .text_enterTitle{
+    font-size: 16px;
+    width: 100%;
+    }
+
+    .description{
+        font-size: 16px;
+    }
+
+    .description_v1{        
+    width: 376px;
+    }
+
+    .frame207 {
+        width: 376px;
+    }
+
+    .text_enterDescription{
+        height: 88px;
+        padding: 18px 21px;
+        font-size: 16px;
+    }
+
+    .recursor{
+        display:none ;
+    } 
+
+    .frame17{
+    width: 376px;
+
+    }
+
+    .asignedTo_v1{
+        width: 376px;
+    }
+    .asignedTo{
+        font-size: 16px;
+    }
+
+    .categoryFrame74{
+        width: 333px;
     
+        padding: 10px 21px;
+    }
+
+    .searchContacts{
+        width: 376px;
+        font-size: 16px;
+    }
+
+    .underList{
+        width: 376px;
+    }
+
+    .underListContact{
+        width: 376px;
+
+    }
+
+    .contactAvatar{
+        width: 376px;
+    }
+
+    .nameContact{
+        font-size: 16px;
+    }
+
+    .circle{
+        margin-top: 5px;
+        font-size: 16px; 
+        width: 34px;
+        height: 34px;
+    }
+
+    .dueDate{
+        width: 376px;
+    }
+
+    .text_DueDate{
+        font-size: 16px;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+       width:20px;
+    }
+    .frame211{
+        width: 376px;
+    }
+
+    .inputDate{
+        font-size: 16px;    
+    }
+
+    .frame28{
+        width: 376px;
+    }
+
+    .titlePrio{
+        font-size: 16px;
+    }
+
+
+    .inputDate{
+        font-size: 16px;
+    }
+
+    .priority{
+        width: 376px;
+         
+    }
+
+    .priorityUrgent, .priorityMedium, .priorityLow{    
+        padding: 13px 8px;     
+        gap: 8px;   
+    }
+
+    .textUrgent{
+        font-size: 16px;
+        width: 55px;
+    }
+
+    .textMedium{
+        font-size: 16px;
+        width: 62px;
+    }
+
+    .textLow{
+        font-size: 16px;
+        width: 34px;
+    }
+
+    .category{
+        width: 376px;
+    }
+
+    .textCategory{
+        font-size: 16px;
+    }
+
+    .categoryFrame74{
+        font-size: 16px;        
+    }
+
+     .options{
+        width: 344px;
+    }
+
+    .subtasks{
+        width: 373px;
+    }
+
+    .textSubtasks, .textAddSubtasks{    
+        font-size: 16px;
+    }
+
+    .subtasksFrame14{
+        padding: 12px 16px;
+    }
+
+   .addTasksFooter{
+        padding: 10px;
+        margin-left: 0;
+        width: 376px;
+   } 
+
+   .secondary{
+    display: none;
+   }
+
+   .primary{
+        padding: 16px;
+        gap: 4px;
+    }
+
+   .textCreateTask{
+        font-size: 21px;
+    }
+
+   .comment{
+        font: 16px;
+    }
+
 }
+
+
+
+
+
+
+
+
