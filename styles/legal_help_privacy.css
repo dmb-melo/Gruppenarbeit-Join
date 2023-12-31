@@ -91,3 +91,10 @@ body {
 .text-listing-container {
   padding-left: 35px;
 }
+
+.privacy-policy-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px !important;
+  margin-bottom: 24px;
+}
