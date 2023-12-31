@@ -6,10 +6,22 @@
 body {
   background-color: rgb(246, 247, 248);
   font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+#conten {
+  overflow-y: scroll !important;
+  height: 100vh !important;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#conten::-webkit-scrollbar {
+  display: none;
 }
 
 .close-arrow-container {
-  position: sticky;
+  position: absolute;
   top: 235px;
   right: 133px;
   z-index: 999;
@@ -27,10 +39,9 @@ body {
 }
 
 .content-container {
-  position: absolute;
-  top: 206px;
-  left: 328px;
-  right: 133px;
+  margin-top: 200px;
+  margin-left: 328px;
+  margin-right: 133px;
 }
 
 .headline-legal-help-privacy {
@@ -38,6 +49,7 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 61px;
   font-weight: 700;
+  padding-bottom: 30px;
 }
 
 .blue-words {

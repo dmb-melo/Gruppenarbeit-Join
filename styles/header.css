@@ -2,16 +2,13 @@
   margin: 0;
 }
 
-body {
-  overflow-x: hidden;
-}
 
 header {
   height: 96px;
   width: 100%;
+  display: flex;
   position: absolute;
   top: 0;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: 'Inter', sans-serif;
