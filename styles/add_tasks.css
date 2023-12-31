@@ -3,11 +3,6 @@ body{
     background-color: rgb(246,247,248);
 }
 
-.content_addTask{
-    display: flex;
-    flex-direction: column;
-}
-
 
 .textContainer_addTask{
     width: 278px;
@@ -27,11 +22,11 @@ body{
 
 .group66_addTask{
     width: 976.25px;
-    height: 424px;
+
     display: flex;
     margin-left: 328px;
     justify-content: space-between;   
-    margin-top: 40px;
+    margin-top: 60px; 
 }
 
 /* input left */
@@ -800,8 +795,7 @@ line-height: 120%; /* 24px */
     display: flex;
     justify-content: space-between;
     width: 976.25px;
-    height: 60px;    
-    margin-top: 70px; /*55px*/
+    margin-top: 50px;
     margin-left: 328px;
 }
 
