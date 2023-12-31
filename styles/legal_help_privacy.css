@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
 }
@@ -5,17 +6,19 @@
 body {
   background-color: rgb(246, 247, 248);
   font-family: "Inter", sans-serif;
-  display: flex;
+}
+
+.close-arrow-container {
+  position: sticky;
+  top: 235px;
+  right: 133px;
+  z-index: 999;
 }
 
 .arrow-back {
   height: 32px;
-  position: absolute;
-  top: 225px;
-  right: 133px;
   border-radius: 100%;
   cursor: pointer;
-  z-index: 999;
 }
 
 .arrow-back:hover {
@@ -35,7 +38,6 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 61px;
   font-weight: 700;
-  padding-bottom: 30px;
 }
 
 .blue-words {
@@ -57,4 +59,23 @@ body {
   font-size: 16px;
   font-weight: 400;
   padding-bottom: 16px;
+}
+
+.listing-container {
+  padding-bottom: 16px;
+}
+
+.use-listing-container {
+  display: flex;
+}
+
+.point-listing-container {
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inter", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.text-listing-container {
+  padding-left: 35px;
 }
