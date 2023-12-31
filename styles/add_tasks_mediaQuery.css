@@ -6,17 +6,14 @@
     }
 
     .content_addTask{       
-        margin-left: 0px;       
+            margin-left: 0;
     }
 
     .group66_addTask{
-        background-color: rgb(255, 94, 0);
-        display: flex;      
-        padding:5px;
-        width: ;
-        justify-content: center;
-        gap:8px;
-        margin-left: 0%;
+        margin-left: 0;    
+        max-width:397px;
+        gap:8px;        
+        align-items: center;
         flex-direction: column;        
     }
 
@@ -29,7 +26,10 @@
     }
 
     .inputLeft_addTask{
-        width:397px;     
+        width:397px;    
+
+        background-color: aliceblue;
+   
     }
 
     .title_v1{
@@ -45,7 +45,7 @@
     }
 
     .frame203{
-        width: 375px;
+        width: 397px;
     }
 
     .title_frame14{    
@@ -55,7 +55,7 @@
 
     .text_enterTitle{
     font-size: 16px;
-    width: 100%;
+    width: 397px;
     }
 
     .description{
@@ -63,11 +63,11 @@
     }
 
     .description_v1{        
-    width: 376px;
+    width: 397px;
     }
 
     .frame207 {
-        width: 376px;
+        width: 397px;
     }
 
     .text_enterDescription{
@@ -81,38 +81,40 @@
     } 
 
     .frame17{
-        width: 376px;
+        width: 397px;
     }
 
     .asignedTo_v1{
-        width: 376px;
+        
+        width: 397px;
     }
 
-    .asignedTo{
+    .asignedTo{ background-color: bisque;
         font-size: 16px;
     }
 
     .categoryFrame74{
-        width: 330px;    
+        width: 397px;    
         padding: 10px 21px;
     }
 
     .searchContacts{
-        width: 376px;
+        width: 397px;
         font-size: 16px;
     }
 
     .underList{
-        width: 376px;
+        width: 397px;
+       
     }
 
     .underListContact{
-        width: 376px;
+        width: 397px;
 
     }
 
     .contactAvatar{
-        width: 376px;
+        width: 397px;
     }
 
     .nameContact{
@@ -127,7 +129,7 @@
     }
 
     .dueDate{
-        width: 376px;
+        width: 397px;
     }
 
     .text_DueDate{
@@ -138,7 +140,7 @@
        width:20px;
     }
     .frame211{
-        width: 376px;
+        width: 397px;
     }
 
     .inputDate{
@@ -146,7 +148,7 @@
     }
 
     .frame28{
-        width: 376px;
+        width: 397px;
     }
 
     .titlePrio{
@@ -159,7 +161,7 @@
     }
 
     .priority{
-        width: 376px;         
+        width: 397px;         
     }
 
     .priorityUrgent, .priorityMedium, .priorityLow{    
@@ -183,7 +185,7 @@
     }
 
     .category{
-        width: 376px;
+        width: 397px;
     }
 
     .textCategory{
@@ -195,11 +197,11 @@
     }
 
      .options{
-        width: 344px;
+        width: 397px;
     }
 
     .subtasks{
-        width: 373px;
+        width: 397px;
     }
 
     .textSubtasks, .textAddSubtasks{    
@@ -213,7 +215,7 @@
    .addTasksFooter{
         padding: 10px;
         margin-left: 0;
-        width: 376px;
+        width: 397px;
    } 
 
    .secondary{
