@@ -259,7 +259,7 @@
 @media(min-width: 398px) and (max-width: 577px){
     .span, .description, .asignedTo, .nameContact,
     .nameContact, .titlePrio, .textCategory,
-    .categoryFrame74, .subtasks, .comment,
+    .categoryFrame74, .subtasks, 
     .textSubtasks, .textAddSubtasks{    
         font-size: 20px;
     }
@@ -407,16 +407,10 @@
         padding: 10px 21px;       
     }   
    
-   .addTasksFooter{
-       
+   .addTasksFooter{       
         margin-left: 0;
         width: 548px;
         background-color: aqua;
-   }
-   
-   .comment{
-    width: 260px;
-    background-color: brown;
    }
 
    .primary{
