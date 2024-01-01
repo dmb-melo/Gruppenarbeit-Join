@@ -55,25 +55,21 @@ function render() {
                 <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
                     <p class="nameIdList" id="name-id">${firstname}${surname}</p>
                 </div>
-                </div>
-                <div class="custom-checkbox">   
-                    <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
-                    <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
+            </div>
+            <div class="custom-checkbox">   
+                <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
+                <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
             </div>
         `;
-        contactsList.appendChild(contactElement);     
-        
-    }
-   
-    // Add an event listener to the checkboxes
-    for (let i = 0; i < contacts.length; i++) {
+        contactsList.appendChild(contactElement);
+
+        // Add event listener to toggle class 'contactListSelected' for the corresponding li element
+        const liElement = contactsList.getElementsByTagName('li')[i];
         document.getElementById(`myCheckbox_${i}`).addEventListener('change', function(event) {
             if (event.target.checked) {
                 // Get the selected contact details
                 let contact = contacts[i];
                 let name = contact[0];
-                let firstname = name.split(" ")[0][0].toUpperCase();
-                let surname = name.split(" ")[1][0].toUpperCase();
 
                 // Add the selected contact to the array if not already added
                 if (!selectedContacts.includes(i)) {
@@ -82,6 +78,8 @@ function render() {
 
                 // Call displayAvatar to show the selected contacts' avatars
                 displayAvatar(selectedContacts, contacts, colors);
+                // Toggle 'contactListSelected' class for the corresponding li element
+                liElement.classList.add('contactListSelected');
             } else {
                 // Remove the unselected contact from the array
                 let index = selectedContacts.indexOf(i);
@@ -91,13 +89,13 @@ function render() {
 
                 // Call displayAvatar to update displayed avatars
                 displayAvatar(selectedContacts, contacts, colors);
+                // Toggle 'contactListSelected' class for the corresponding li element
+                liElement.classList.remove('contactListSelected');
             }
         });
     }
 
-
-    document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch); 
-    
+    document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch);
 }
 
 function handleContactSearch() {
@@ -117,7 +115,6 @@ function handleContactSearch() {
         } else {
             contact.style.display = 'none'; // Hide non-matching contacts
         }
-
     } 
 }
 

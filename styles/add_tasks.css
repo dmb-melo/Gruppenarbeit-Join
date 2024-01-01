@@ -243,6 +243,10 @@ line-height: 24px;
     line-height: 24px;
 }
 
+.contactListSelected{
+background-color:#2A3647;
+}
+
 .imgArrows{
     width: 24px;
     height: 24px;     
@@ -953,15 +957,15 @@ line-height: 120%; /* 24px */
 }
 
 .priorityUrgent-active {
-    background-color: #FF3D00; /* Your color for Urgent */
+    background-color: #FF3D00;
 }
 
 .priorityMedium-active {
-    background-color: #FFA800; /* Your color for Medium */
+    background-color: #FFA800; 
 }
 
 .priorityLow-active {
-    background-color: #7AE229; /* Your color for Low */
+    background-color: #7AE229;
 }
 
 /*assigned*/
@@ -1011,8 +1015,8 @@ height:0px;
 .custom-checkbox {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Adjust as per your design */    
-    width: 400px; /* Adjust width to fit both label and checkbox */
+    justify-content: space-between;
+    width: 400px; 
     height: 42px;
     color: var(--black, #000);
     font-size: 20px;
