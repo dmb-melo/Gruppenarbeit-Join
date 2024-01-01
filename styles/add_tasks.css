@@ -1151,6 +1151,10 @@ display: flex;
 
 /*success add task*/
 
+.leadsToBoard{
+    text-decoration: none;
+}
+
 .task_succes{    
     z-index: 100;   
     position: absolute;
@@ -1190,7 +1194,7 @@ display: flex;
 
 .task_succes_message{
     color: rgb(255, 255, 255);
-    font-size:24px;
+    font-size:20px;
     text-align: center;
 }
 

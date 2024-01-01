@@ -565,6 +565,19 @@ function hideVectorAndImgCheck(){
 
 //task_success
 
+function handleTaskClick(event) {
+    // Prevent the default behavior of the anchor tag
+    event.preventDefault();
+
+    // Call addTask function which triggers taskSuccess
+    addTask();
+
+    // Redirect to the board page after a delay (e.g., 1500 milliseconds)
+    setTimeout(function () {
+        window.location.href = "./board.html";
+    }, 1500);
+}
+
 function taskSuccess(){
     const success = document. getElementById('task_succes');
     success.classList.remove('d-none'); 
@@ -572,7 +585,6 @@ function taskSuccess(){
     setTimeout(function(){
         document.getElementById('task_succes').classList.add('d-none')},1500); 
 }
-
 
 //required inputs
 
