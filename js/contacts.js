@@ -209,6 +209,7 @@ function closeEditContact(){
 function render_contactsHtml(){
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generate_contactsHtml();
+    renderContacts();
 }
 
 function generate_contactsHtml(){
