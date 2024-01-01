@@ -1,6 +1,5 @@
 function generate_addTask(){
-    return`    
-    render();    
+    return` 
         <div class="content_addTask">
             <div class = "textContainer_addTask">
                 <div class ="text_addTask">Add Task</div>

@@ -12,26 +12,23 @@ let tasks = [];
 let priorityContentArray = []; 
 
 
-function render_addTask(){
+
+function render_addTask() {
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generate_addTask();
+    addTaskInit();
 }
 
-async function addTaskInit(){
-    await includeHTML();
+function addTaskInit(){
+    load();
+    selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
+    renderAddTask();
 }
 
 let selectedPriorityContent = '';
-window.onload = function() {
-   
-    load();
-    selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
-    render();
 
-    
-}
 
-function render() {
+function renderAddTask() {
     let contactsList = document.getElementById('contactList');
     contactsList.innerHTML = '';
 
@@ -47,7 +44,7 @@ function render() {
     // Iterate through sorted contacts and create list elements
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
-        let name = contact[0];
+        let name = contacts[0];
         let firstname = name.split(" ")[0][0].toUpperCase(); // First name's first letter in uppercase
         let surname = name.split(" ")[1][0].toUpperCase(); // Last name's first letter in uppercase
 
@@ -57,15 +54,15 @@ function render() {
     
             <div class="circleAvatar">
                 <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
-                    <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+                    // <p class="nameIdList" id="name-id">${firstname}${surname}</p>
                 </div>
             </div>
 
             <div class="checkedBoxWhite">
-            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-            <path d="M17.6821 8.39673V14.3967C17.6821 16.0536 16.339 17.3967 14.6821 17.3967H4.68213C3.02527 17.3967 1.68213 16.0536 1.68213 14.3967V4.39673C1.68213 2.73987 3.02527 1.39673 4.68213 1.39673H12.6821" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-            <path d="M5.68213 9.39673L9.68213 13.3967L17.6821 1.89673" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                <path d="M17.6821 8.39673V14.3967C17.6821 16.0536 16.339 17.3967 14.6821 17.3967H4.68213C3.02527 17.3967 1.68213 16.0536 1.68213 14.3967V4.39673C1.68213 2.73987 3.02527 1.39673 4.68213 1.39673H12.6821" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5.68213 9.39673L9.68213 13.3967L17.6821 1.89673" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </div>
             <div class="custom-checkbox">            
                 <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
@@ -90,7 +87,7 @@ function render() {
 
     
                 // Call displayAvatar to show the selected contacts' avatars
-                displayAvatar(selectedContacts, contacts, colors);
+                displayAvatar(selectedContacts, colors);
                 // Toggle 'contactListSelected' class for the corresponding li element
                 liElement.classList.add('contactListSelected');
                 nameElement.classList.add('nameContactWhite');
@@ -106,7 +103,7 @@ function render() {
                 }
 
                 // Call displayAvatar to update displayed avatars
-                displayAvatar(selectedContacts, contacts, colors);
+                displayAvatar(selectedContacts,  colors);
                 // Toggle 'contactListSelected' class for the corresponding li element
                 liElement.classList.remove('contactListSelected');
                 nameElement.classList.remove('nameContactWhite');
