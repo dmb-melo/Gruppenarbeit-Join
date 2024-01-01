@@ -23,10 +23,10 @@ let selectedPriorityContent = '';
 function addTaskInit(){
     load();
     selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
-    renderAddTask();
+    render();
 }
 
-function renderAddTask() {
+function render() {
     let contactsList = document.getElementById('contactList');
     contactsList.innerHTML = '';
 
@@ -38,10 +38,9 @@ function renderAddTask() {
         if (nameA > nameB) return 1;
         return 0;
     });
-  
+
     // Iterate through sorted contacts and create list elements
     for (let i = 0; i < contacts.length; i++) {
-       
         let contact = contacts[i];
         let name = contact[0];
         let firstname = name.split(" ")[0][0].toUpperCase(); // First name's first letter in uppercase
@@ -67,15 +66,15 @@ function renderAddTask() {
                 <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
             </div>
         `;
-        contactsList.appendChild(contactElement);        
+        contactsList.appendChild(contactElement);
 
         // Add event listener to toggle class 'contactListSelected' for the corresponding li element
         const liElement = contactsList.getElementsByTagName('li')[i];
-     
+
         const nameElement = contactsList.getElementsByTagName('label')[i];
-        document.getElementById(`myCheckbox_${i}`).addEventListener('change', function(event) {
-        const checkedBoxWhite = document.getElementById('checkedBoxWhite');
-            
+        document.getElementById(`myCheckbox_${i}`).addEventListener('change', function (event) {
+            const checkedBoxWhite = document.getElementById('checkedBoxWhite');
+
             if (event.target.checked) {
 
                 // Add the selected contact to the array if not already added
@@ -83,16 +82,13 @@ function renderAddTask() {
                     selectedContacts.push(i);
                 }
 
-    
+
                 // Call displayAvatar to show the selected contacts' avatars
-                displayAvatar(selectedContacts, colors);
+                displayAvatar(selectedContacts, contacts, colors);
                 // Toggle 'contactListSelected' class for the corresponding li element
                 liElement.classList.add('contactListSelected');
                 nameElement.classList.add('nameContactWhite');
-               
-                
 
-                
             } else {
                 // Remove the unselected contact from the array
                 let index = selectedContacts.indexOf(i);
@@ -101,22 +97,16 @@ function renderAddTask() {
                 }
 
                 // Call displayAvatar to update displayed avatars
-                displayAvatar(selectedContacts,  colors);
+                displayAvatar(selectedContacts, contacts, colors);
                 // Toggle 'contactListSelected' class for the corresponding li element
                 liElement.classList.remove('contactListSelected');
                 nameElement.classList.remove('nameContactWhite');
-               
             }
         });
-
-        
-        
     }
 
     document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch);
 }
-
-
 
 function handleContactSearch() {
     let input = document.getElementById('searchContacts');
