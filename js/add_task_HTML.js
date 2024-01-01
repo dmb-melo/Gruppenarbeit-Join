@@ -32,7 +32,7 @@ function generate_addTask(){
             </div>
 
             <div class="description_v1">
-                <div class="description">Description</div> 
+                <div class="description">Description<span class="spanClass">*</span></div> 
         
                 <div class="frame207" onclick="required(this)">
                 <div class="frame17">

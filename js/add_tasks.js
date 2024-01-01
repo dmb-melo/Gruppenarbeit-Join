@@ -23,10 +23,10 @@ let selectedPriorityContent = '';
 function addTaskInit(){
     load();
     selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
-    render();
+    renderTask();
 }
 
-function render() {
+function renderTask() {
     let contactsList = document.getElementById('contactList');
     contactsList.innerHTML = '';
 
@@ -209,7 +209,7 @@ function addTask() {
     save();
     
    
-    render();   
+    renderTask();   
     clearContactAvatar();
     changeColour(selectedPriorityID);
     clearPrioActiveClass();
