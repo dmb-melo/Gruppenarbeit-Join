@@ -1,17 +1,29 @@
 
 @media(max-width: 397px){
 
-   .textContainer_addTask{
-        font-size: 47px; 
-        margin-left: 5px; 
-        background-color: aqua;      
+    .span, .nameContact,.nameContact, .text_DueDate,
+    .inputDate, .titlePrio, .inputDate,  .textCategory
+    .categoryFrame74, .comment, .textSubtasks, 
+    .textAddSubtasks, .description{    
+        font-size: 16px;
+    }
+    
+    .description_v1, .frame207, .frame17,.asignedTo_v1,
+    .underListContact, .contactAvatar, .dueDate, .frame211,
+    .priority,  .inputLeft_addTask, .frame203{
+        width: 357px;         
     }
 
-    .group66_addTask{
-        margin-left: 0;    
+   .textContainer_addTask{
+        font-size: 47px; 
+        margin-left: 5px;   
+    }
+
+    .group66_addTask{  
         max-width: 367px;  
-        background-color: bisque;
-        gap: 8px;        
+        gap: 8px;  
+        margin-left: 0px;
+        padding: 5px;    
         align-items: center;
         flex-direction: column;        
     }
@@ -22,14 +34,7 @@
 
     .inputRight_addTask{ 
         margin-top: 44px;   
-        width: 357px;  
-        background-color: aquamarine;     
-    }
-
-    .inputLeft_addTask{
-        width:357px;   
-        background-color: rgb(12, 122, 217);
-   
+        width: 357px;   
     }
 
     .title_v1{
@@ -41,35 +46,14 @@
         width: 347px;
     }
 
-    .span{
-        font-size: 16px;
-    }
-
-    .frame203{
-        width: 357px;
-    }
-
     .title_frame14{    
         padding: 10px 21px;
         gap: 10px;
     }
 
     .text_enterTitle{
-    font-size: 16px;
-    width: 310px;
-    background-color: black;
-    }
-
-    .description{
         font-size: 16px;
-    }
-
-    .description_v1{        
-    width: 357px;
-    }
-
-    .frame207 {
-        width: 357px;
+        width: 310px;
     }
 
     .text_enterDescription{
@@ -79,32 +63,19 @@
     }
 
     .recursor{
-        display:none ;
+        display: none ;
     } 
 
-    .frame17{
-        width: 357px;
-    }
-
-    .asignedTo_v1{
-        background-color: brown;
-        width: 357px;
-    }
-
     .asignedTo{
-        background-color: brown; 
         font-size: 16px;
     }
 
     .categoryFrame74{
         width: 313px;  
-        background-color: blue;
-        padding: 10px 21px;
-        
+        padding: 10px 21px;        
     }
 
     .searchContacts{
-        background-color: yellow;
         width: 300x;       
         font-size: 16px;
     }
@@ -113,26 +84,10 @@
         margin-top: 0;
     }
 
-    .underListContact{
-        width: 357px;        
-    }
-
-    .contactAvatar{
-        width: 357px;
-    }
-
-    .nameContact{
-        font-size: 16px;
-    }
-
     .custom-checkbox{
         margin-left: 10px;
         margin-top: 5px;
         width: 210px;
-    }
-
-    .nameContact{
-        font-size: 16px;
     }
 
     .circle{
@@ -142,38 +97,10 @@
         height: 34px;
     }
 
-    .dueDate{
-        width: 357px;
-    }
-
-    .text_DueDate{
-        font-size: 16px;
-    }
-
     input[type="date"]::-webkit-calendar-picker-indicator {
        width:20px;
     }
-    .frame211{
-        width: 357px;
-    }
-
-    .inputDate{
-        font-size: 16px;    
-    }
-
-    .titlePrio{
-        font-size: 16px;
-    }
-
-
-    .inputDate{
-        font-size: 16px;
-    }
-
-    .priority{
-        width: 357px;         
-    }
-
+    
     .priorityUrgent, .priorityMedium, .priorityLow{    
         padding: 13px 8px;     
         gap: 8px;   
@@ -199,42 +126,27 @@
         font-size: 16px;
     }
 
-
-    .textCategory{
-        font-size: 16px;
-    }
-
-    .categoryFrame74{
-        font-size: 16px; 
-        
-            
-    }
-
-     .options{background-color: cadetblue;
-        width: 326px;
+     .options{
+        width: 325px;
     }
 
     .subtasks{
         width: 357px;
     }
 
-    .textSubtasks, .textAddSubtasks{    
-        font-size: 16px;
+    .subtasksFrame14{
+        padding: 10px 21px;       
     }
 
-    .subtasksFrame14{background-color: blueviolet;
-        padding: 10px 21px;
-       
-    }
     .subtaskItem{
         width: 325px;
     }
     
-
    .addTasksFooter{
         padding: 10px;
         margin-left: 0;
-        width: 357px;
+        padding: 5px;
+        width: 360px;
    } 
 
    .secondary{
@@ -249,11 +161,7 @@
    .textCreateTask{
         font-size: 21px;
         gap: 4px;
-    }
-
-   .comment{
-        font: 16px;
-    }
+    }  
 }
 
 @media(min-width: 398px) and (max-width: 577px){
