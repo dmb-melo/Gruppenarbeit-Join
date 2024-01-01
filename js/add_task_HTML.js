@@ -18,7 +18,7 @@ function generate_addTask(){
     
                     <div class="title_v1">
                        
-                        <div class="title">Title<span class="span">*</span>
+                        <div class="title">Title<span class="spanClass">*</span>
                             <div class="frame203" onclick="required(this)">
                                 <div class="title_frame14">
                                     <input  type="text"  class="text_enterTitle" placeholder="Enter a Title" id="title" required oninput="handleInput(this)">
@@ -71,7 +71,7 @@ function generate_addTask(){
     
                 <div class ="inputRight_addTask">
                     <div class="dueDate">
-                        <div class="text_DueDate">Due date<span class="span">*</span></div>
+                        <div class="text_DueDate">Due date<span class="spanClass">*</span></div>
                         <div class="frame211" onclick="required(this)">
                         
                                 <div class="dueDate_frame14">
@@ -138,7 +138,7 @@ function generate_addTask(){
                     </div>
     
                     <div class="category">
-                        <div class="textCategory">Category<span class="span">*</span></div>         
+                        <div class="textCategory">Category<span class="spanClass">*</span></div>         
                                             
                         <div class="categoryFrame74" id="taskCategory" onclick="hide(event)">
                             <p id ="categorySelect" Value="Select a task category">Select a task category</p>
@@ -236,7 +236,7 @@ function generate_addTask(){
             </div>
     
             <div class="addTasksFooter">
-                <div class="comment"><span class="span">*</span>This field is required</div>
+                <div class="comment"><span class="spanClass">*</span>This field is required</div>
                 <div class="frame27">
                     <div class="secondary" onclick="clearTask()">
                         <div class="textClear">Clear</div>
