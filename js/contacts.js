@@ -13,7 +13,7 @@ const colors = ['#9227FE', '#3BDBC7', '#FD81FF', '#FFBB2A', '#6E52FF', '#169857'
                 '#FF7915'];
 let selectedContactIndex = null;
 
-async function renderContacts(){
+async function renderContacts() {
     contacts.sort();
     showContacts();
 }
@@ -209,6 +209,7 @@ function closeEditContact(){
 function render_contactsHtml(){
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generate_contactsHtml();
+    renderContacts();
 }
 
 function generate_contactsHtml(){
