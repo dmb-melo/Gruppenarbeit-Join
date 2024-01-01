@@ -41,7 +41,7 @@ function renderAddTask() {
   
     // Iterate through sorted contacts and create list elements
     for (let i = 0; i < contacts.length; i++) {
-        
+       
         let contact = contacts[i];
         let name = contacts[0];
         let firstname = name.split(" ")[0][0].toUpperCase(); // First name's first letter in uppercase
