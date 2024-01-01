@@ -3,8 +3,6 @@ body{
     background-color: rgb(246, 248, 246);   
 }
 
-
-
 .task{
     background-color: #A8A8A8;
 }
@@ -25,8 +23,6 @@ body{
     line-height: 73.2px;    
 }
 
-
-
 .group66_addTask{   
     width: 976.25px;
     display: flex;
@@ -44,9 +40,6 @@ body{
     align-items: flex-start;
     gap: 16px;
 }
-
-
-
 
 .title_v1{
     display: flex;
@@ -87,7 +80,6 @@ body{
     margin-top: 8px;
 }
 
-
 .text_enterTitle{
     cursor: pointer;
     width: 398px;
@@ -112,7 +104,6 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
     font-size: 12px;
     line-height: 14.4px;
     color: #FF8190;
-
 }
 
 .description_v1{ 
@@ -131,23 +122,17 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
     color: var(--Version-2-main-color, #2A3647);    
 }
 
-
-
 .selectedPriorityContentDiv{
-
     display: flex;
     padding: 4px 18px;
-
     align-items: center;
     margin-left: 10px;
     gap: 10px;
     width: 139px;
     height: 32px;
-
 }
 
-.frame207{  
-    
+.frame207{      
     width: 440px;
     display: flex;
     flex-direction: column;
@@ -166,7 +151,6 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
     width: 440px;
     border-radius: 10px;
 }
-
 
 .recursor{
     box-sizing: border-box;
@@ -223,8 +207,7 @@ textarea::placeholder { /*changes the colour of the placeholder text in the text
     font-size: 20px;
     font-weight: 400;
     line-height: 24px; 
-    color: var(--Version-2-main-color, #2A3647);    
-  
+    color: var(--Version-2-main-color, #2A3647);      
 }
 
 .frame74{
@@ -262,8 +245,7 @@ line-height: 24px;
 
 .imgArrows{
     width: 24px;
-    height: 24px; 
-    
+    height: 24px;     
 }
 
 .arrow_drop_down{
@@ -307,7 +289,6 @@ display: block; /* Show the hover image when the container is being hovered */
     width:440px;
 }
 
-
 span{
     color: #FF8190;
     font-family: "Inter", sans-serif;
@@ -315,7 +296,6 @@ span{
     font-weight: 400;
     line-height: 24px;
     }
-
 
 /* input left end*/
 
@@ -326,7 +306,6 @@ span{
     border-style: #D1D1D1;
     background-color: #D1D1D1;
 }
-
 
 /* input right */
 
@@ -376,8 +355,6 @@ span{
     gap: 4px;
     width: 440px;
 }
-
-/*  */
 
 .inputDate{
     cursor: pointer; 
@@ -448,7 +425,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 10px;
     background: var(--white, #FFF);
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
-
 }
 
 .priorityUrgent:hover{
@@ -468,12 +444,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 14.51px;
 }
 
-
 .imgPrio-active{
 
   fill: #fff;
 }
-
 
 .priorityMedium{
     display: flex;
@@ -549,8 +523,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     line-height: 27.6px; 
 }
 
-
-
 .UserStory{
     padding: 4px 24px;
     border-radius: 8px;
@@ -602,15 +574,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
    
 }
 
-/* .options select:hover{
-
-    background-color: #FF3D00; 
-}          */
-
 .disabledSelected{
     display: none;
 }
-
 
 .custom-select{    
    
@@ -635,11 +601,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;    
-    
 }
-
-
-
 
 .subtasksContents{
 display: flex;
@@ -660,12 +622,10 @@ font-weight: 400;
 line-height: 120%; /* 24px */
 }
 
-
 .subtasksContents {
     display: flex;
     align-items: center;
-    margin-bottom: 8px; /* Adjust margin between checkboxes */
-   
+    margin-bottom: 8px; /* Adjust margin between checkboxes */   
 }
 
 .subtasksContents {
@@ -673,18 +633,6 @@ line-height: 120%; /* 24px */
     align-items: center;
     margin-bottom: 8px; /* Adjust margin between checkboxes */
 }
-
-/* Hide the default checkbox */
-/* .checkbox-input {
-    position: absolute;
-    opacity: 0;
-} */
-
-/* .checkbox-label{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-} */
 
 .subTasksCard{
     display: flex;
@@ -762,7 +710,6 @@ line-height: 120%; /* 24px */
     display: none; /* Hide the normal image when the container is being hovered */
 }
 
-
 .vectorAndImgCheck{
     display: flex;
     justify-content: center;
@@ -816,8 +763,6 @@ line-height: 120%; /* 24px */
 .subtasksImgCheck:hover .subtaskCheck {
     display: none;
 }
-
-
 
 .addTasksFooter{
     display: flex;
@@ -933,81 +878,6 @@ line-height: 120%; /* 24px */
 }
 /* input right end*/
 
-
-/*CardA*/
-
-.cardA{
-    margin-left: 500px;
-    display: flex;
-    width: 525px;   
-    padding: 48px 40px;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 24px;
-    border-radius: 30px;  
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
-}
-    
-.taskTitle{       
-    align-self: stretch;
-    color: var(--black, #000);
-    font-family: "Inter", sans-serif;
-    font-size: 61px;
-    font-weight: 700;
-    line-height: 73.2px;
-}
-
-.task_description{
-    width: 100%;
-    height: 24px;
-    color: var(--black, #000);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    font-family: "Inter", sans-serif;
-}
-
-.taskDueDate{
-    display: flex;
-    gap: 25px;
-    align-self: stretch;
-}
-
-.TitleDueDate{
-    color: var(--black, #000);
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.date{
-    color: var(--black, #000);
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px; 
-    width: 139px;
-    height: 32px;
-    align-items: center;
-    display: flex;
-    padding: 4px 18px;
-}
-
-.prio{
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    align-self: stretch;
-    color: var(--black, #000);
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-}
 
 /*delete and edit*/
 .deleteAndEdit{
@@ -1141,16 +1011,14 @@ height:0px;
 .custom-checkbox {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Adjust as per your design */
-    
+    justify-content: space-between; /* Adjust as per your design */    
     width: 400px; /* Adjust width to fit both label and checkbox */
     height: 42px;
     color: var(--black, #000);
     font-size: 20px;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    line-height: 120%;
-   
+    line-height: 120%;   
 }
 
 .custom-checkbox input[type="checkbox"] {
@@ -1191,8 +1059,7 @@ height:0px;
     display: flex;
     gap:8px;
     align-items: center;   
-    border-radius: 10px;
- 
+    border-radius: 10px; 
     height:42px;
     padding: 7px 16px;
 }
@@ -1218,7 +1085,6 @@ height:0px;
     gap: 4px;
 }
 
-
 .subtaskItem:hover{
 background-color: #eeeeee;
 }
@@ -1227,12 +1093,10 @@ background-color: #eeeeee;
 display: flex;
 }
 
-
 .edit{
     width: 24px;
     height: 24px;  
 }
-
 
 .allSubtasks{
     display: flex;
@@ -1244,11 +1108,7 @@ display: flex;
     line-height: 120%;
 }
 
-
-
 /*Category*/
-
-
 
 .underList{ 
     cursor: pointer;
@@ -1277,7 +1137,6 @@ display: flex;
    width:410px;
 }
 
-
 .options:hover{
    background: #eeeeee;
 }
@@ -1298,9 +1157,7 @@ display: flex;
     z-index: 100;
     width: 50%;   
     margin-left: 20%;
-    margin-top: 10%;
-
-   
+    margin-top: 10%;   
 }
 
 .task_succes_container{
@@ -1317,8 +1174,7 @@ display: flex;
     animation: slideln 0.35s ease-in-out forwards;
     width: 270px;
     height: 60px;
-    color: white;
-   
+    color: white;   
 }
 
 @keyframes slideln{
