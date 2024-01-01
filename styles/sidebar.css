@@ -3,7 +3,6 @@
     
 }
 
-
 :root {
     --sidbarlinkHover: #1aa7e4;
     --sidebarBgColor: #2A3647;
@@ -105,5 +104,8 @@
 .privacy a:hover {
     color: #0eadf1;
     font-weight: bolder;
+}
 
+.dataProtection {
+    cursor: pointer;
 }

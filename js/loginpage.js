@@ -132,14 +132,14 @@ function renderLogInPrivacyPolicyContent() {
 function renderLogInLegalNoticeContent() {
   legalInformationLogin = true;
   removeContentLogin();
-  renderLogInHeaderAndSidebar();  
+  renderLogInHeaderAndSidebar();
   legalNoticeContent();
 }
 
 function renderSignupPrivacyPolicyContent() {
   legalInformationSignup = true;
   removeContentLogin();
-  renderLogInHeaderAndSidebar(); 
+  renderLogInHeaderAndSidebar();
   privacyPolicyContent();
 }
 
@@ -152,14 +152,13 @@ function legalNoticeContent() {
 }
 
 function removeContentLogin() {
-  document.getElementById("signUpButtonHeadline").classList.add('d-none');
-  document.getElementById("loginpageDataProtectionContainer").classList.add('d-none');
+  document.getElementById("signUpButtonHeadline").classList.add("d-none");
+  document.getElementById("loginpageDataProtectionContainer").classList.add("d-none");
 }
 
 function renderLogInHeaderAndSidebar() {
   document.getElementById("contentUserValidation").innerHTML = generateLogInHeaderAndSidebar();
 }
-
 
 function generateLogInContent() {
   return /*html*/ `<div class="log-in-container">
@@ -240,8 +239,8 @@ function generateLogInHeaderAndSidebar() {
       <img src="./assets/img/logo-white.svg" alt="logo" />
     </div>
     <div class="privacy">
-      <span onclick="" class="dataProtection">Privacy Policy</span>
-      <span onclick="" class="dataProtection">Legal Notice</span>
+     <span onclick="renderSignupPrivacyPolicyContent()" class="dataProtection">Privacy Policy</span>
+     <span onclick="renderLogInLegalNoticeContent()" class="dataProtection">Legal Notice</span>
     </div>
   </div>
 </div>
