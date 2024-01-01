@@ -1,12 +1,12 @@
 async function boardInit() {
     await includeHTML();
-    render();
+    renderBoardHTML();
 }
 
 function renderBoardHTML() {
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generateBoardHTML();
-    boardInit();
+ 
 }
 
 
