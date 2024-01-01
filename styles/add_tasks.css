@@ -312,7 +312,7 @@ display: block; /* Show the hover image when the container is being hovered */
     width:440px;
 }
 
-span{
+spanClass{
     color: #FF8190;
     font-family: "Inter", sans-serif;
     font-size: 20px;
