@@ -23,7 +23,7 @@ let selectedPriorityContent = '';
 function addTaskInit(){
     load();
     selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
-    render();
+    renderAddTask();
 }
 
 function renderAddTask() {
@@ -43,7 +43,7 @@ function renderAddTask() {
     for (let i = 0; i < contacts.length; i++) {
         
         let contact = contacts[i];
-        let name = contacts[0];
+        let name = contact[0];
         let firstname = name.split(" ")[0][0].toUpperCase(); // First name's first letter in uppercase
         let surname = name.split(" ")[1][0].toUpperCase(); // Last name's first letter in uppercase
 
@@ -52,7 +52,7 @@ function renderAddTask() {
         contactElement.innerHTML = `
             <div class="circleAvatar">
                 <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
-                    // <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+                    <p class="nameIdList" id="name-id">${firstname}${surname}</p>
                 </div>
             </div>
 
