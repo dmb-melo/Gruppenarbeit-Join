@@ -51,35 +51,50 @@ function render() {
         let contactElement = document.createElement('li');
         contactElement.classList.add('contactList');
         contactElement.innerHTML = `
+    
             <div class="circleAvatar">
                 <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
                     <p class="nameIdList" id="name-id">${firstname}${surname}</p>
                 </div>
             </div>
-            <div class="custom-checkbox">   
+
+            <div class="checkedBoxWhite">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+            <path d="M17.6821 8.39673V14.3967C17.6821 16.0536 16.339 17.3967 14.6821 17.3967H4.68213C3.02527 17.3967 1.68213 16.0536 1.68213 14.3967V4.39673C1.68213 2.73987 3.02527 1.39673 4.68213 1.39673H12.6821" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+            <path d="M5.68213 9.39673L9.68213 13.3967L17.6821 1.89673" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+            <div class="custom-checkbox">            
                 <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
                 <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
             </div>
         `;
-        contactsList.appendChild(contactElement);
+        contactsList.appendChild(contactElement);        
 
         // Add event listener to toggle class 'contactListSelected' for the corresponding li element
         const liElement = contactsList.getElementsByTagName('li')[i];
+     
+        const nameElement = contactsList.getElementsByTagName('label')[i];
         document.getElementById(`myCheckbox_${i}`).addEventListener('change', function(event) {
+        const checkedBoxWhite = document.getElementById('checkedBoxWhite');
+            
             if (event.target.checked) {
-                // Get the selected contact details
-                let contact = contacts[i];
-                let name = contact[0];
 
                 // Add the selected contact to the array if not already added
                 if (!selectedContacts.includes(i)) {
                     selectedContacts.push(i);
                 }
 
+    
                 // Call displayAvatar to show the selected contacts' avatars
                 displayAvatar(selectedContacts, contacts, colors);
                 // Toggle 'contactListSelected' class for the corresponding li element
                 liElement.classList.add('contactListSelected');
+                nameElement.classList.add('nameContactWhite');
+               
+                
+
+                
             } else {
                 // Remove the unselected contact from the array
                 let index = selectedContacts.indexOf(i);
@@ -91,12 +106,19 @@ function render() {
                 displayAvatar(selectedContacts, contacts, colors);
                 // Toggle 'contactListSelected' class for the corresponding li element
                 liElement.classList.remove('contactListSelected');
+                nameElement.classList.remove('nameContactWhite');
+               
             }
         });
+
+        
+        
     }
 
     document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch);
 }
+
+
 
 function handleContactSearch() {
     let input = document.getElementById('searchContacts');
@@ -270,9 +292,6 @@ function load() {
 }
 
 //assigned to
-
-
-
 
 function hideAssigned(event) {
     if (event.target.id !== "assigned") {
