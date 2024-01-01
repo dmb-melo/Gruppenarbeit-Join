@@ -28,6 +28,6 @@ function showSubmenu() {
   }
 
   function loadHelp() {
-    window.location.href = "./help.html";
+    document.getElementById('contentJoin').innerHTML = generateHelpContent();
     document.getElementById('helpIcon').classList.add('d-none');
   }

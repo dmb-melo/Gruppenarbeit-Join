@@ -26,9 +26,9 @@ function closelegalInformationLoginPage() {
 }
 
 function renderPrivacyPolicyContent() {
-  document.getElementById("summaryMain").innerHTML = generatePrivacyPolicyContent();
+  document.getElementById("contentJoin").innerHTML = generatePrivacyPolicyContent();
 }
 
 function renderLegalNoticeContent() {
-  document.getElementById("summaryMain").innerHTML = generateLegalNoticeContent();
+  document.getElementById("contentJoin").innerHTML = generateLegalNoticeContent();
 }
