@@ -12,7 +12,9 @@ let tasks = [];
 let priorityContentArray = []; 
 
 
-
+function render_addTask(){
+    document.getElementById('contentJoin').innerHTML = generate_addTask();
+}
 
 async function addTaskInit(){
     await includeHTML();
