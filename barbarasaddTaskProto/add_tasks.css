@@ -1,0 +1,1310 @@
+body{
+    margin: 0;
+    background-color: rgb(246,247,248);
+}
+
+
+.content_addTask{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.textContainer_addTask{
+    width: 278px;
+    height: 73px;
+    margin-top: 155px;
+    margin-left: 328px;
+    /* gap:1px; */
+}
+
+.text_addTask{
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 61px;
+    color: #000000;
+    line-height: 73.2px;    
+}
+
+.group66_addTask{
+    width: 976.25px;
+    height: 424px;
+    display: flex;
+    margin-left: 328px;
+    justify-content: space-between;
+    margin-top: 35px;
+   
+}
+
+/* input left */
+
+.inputLeft_addTask{    
+    display: flex;
+    width: 440px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    height: 376px;
+}
+
+
+
+
+.title_v1{
+    display: flex;
+    height: 96px; /*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
+    width: 440px;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.title{  
+    height: 24px; /*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
+    font-family: "Inter" , sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--Version-2-main-color, #2A3647);
+}
+
+.frame203{
+    display: flex;
+    flex-direction: column;
+    height: 64px;/*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
+    border: 1px;
+    gap: 4px;
+    width: 440px; /*wird wahrscheinlich nicht benötigt - figma ist ohne width*/
+}
+
+.title_frame14{
+    
+    display: flex;
+    padding: 12px 21px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    background: #FFF; 
+    margin-top: 8px;
+}
+
+
+
+
+
+.text_enterTitle{
+    width: 398px;/*wird wahrscheinlich nicht benötigt - figma ist ohne width*/
+    height: 24px;/*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    border-style: none;
+    outline:none;
+}
+
+input::placeholder{/*changes the colour of the placeholder text in the input field*/
+    color:#D1D1D1
+}
+
+.titleFieldRequired{
+    display: none;
+    width: 119px;
+    height: 12px;
+    font-family: 'Poppins'; 
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    color: #FF8190;
+
+}
+
+.description_v1{ 
+    margin-top: 16px;
+    gap:8px;
+    display: flex;
+    flex-direction: column;
+    height: 168px;   
+   
+    /* (112px - 96px (height title_v1) soll hier noch die Diffezenz zum oberen div berechnet werden?*/
+}
+
+.description{ 
+    height: 24px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--Version-2-main-color, #2A3647);    
+}
+
+
+
+.selectedPriorityContentDiv{
+
+    display: flex;
+    padding: 4px 18px;
+
+    align-items: center;
+    margin-left: 10px;
+    gap: 10px;
+    width: 139px;
+    height: 32px;
+
+}
+
+.frame207{    
+    width: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    height: 136px;
+}
+
+.frame17{
+    position: relative;
+    height: 120px;
+    flex: 1;
+    display:flex;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    width: 440px;
+    border-radius: 10px;
+}
+
+
+.recursor{
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 6.1px;
+    right: 6.1px;
+    width: 18.9px;
+    height: 18.9px;
+    display: inline-block; 
+    pointer-events: none;
+}
+
+.text_enterDescription{
+    /* position: absolute; */
+    display: flex;
+    font-family: "Inter", sans-serif;
+    background-color: white;
+    padding: 18px 16px; 
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    font-size: 20px;      
+    width: 100%;
+    resize: none;
+    outline:none;
+}
+
+textarea::placeholder { /*changes the colour of the placeholder text in the textarea*/
+    color: #D1D1D1;
+}
+
+.descriptionFieldRequired{
+    display: none;
+    width: 438px;
+    height: 12px;
+    font-family: "Poppins", sans-serif;; 
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    color: #FF8190;
+}
+
+.asignedTo_v1{
+    display: flex;
+    width: 440px;
+    height: 80px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 16px;
+}
+
+.asignedTo{
+    width: 112px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px; 
+    color: var(--Version-2-main-color, #2A3647);    
+  
+}
+
+.frame74{
+    display: flex;
+    width: 408px;
+    padding: 12px 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    margin-top: 8px;
+}
+
+.frame74:hover{
+    border: 1px solid var(--Style, #bdbcbc);
+}
+
+.text_assignedTo{
+    color: var(--black, #000);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.imgArrows{
+    width: 24px;
+    height: 24px; 
+    
+}
+
+.arrow_drop_down{
+    width: 24px;
+    height: 24px;   
+    
+}
+
+.arrow_drop_downHover{
+    display: none; /* Hide the hover image by default */
+}
+
+.imgArrows:hover .arrow_drop_downHover{
+display: block; /* Show the hover image when the container is being hovered */
+}
+
+.imgArrows:hover:hover .arrow_drop_down{
+    display: none; /* Hide the normal image when the container is being hovered */
+}
+
+
+span{
+    color: #FF8190;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    }
+
+
+/* input left end*/
+
+.vector4{
+    width: 2px;
+    height: 424px;
+    border: 1px;
+    border-style: #D1D1D1;
+    background-color: #D1D1D1;
+}
+
+
+/* input right */
+
+.inputRight_addTask{
+    display: flex;
+    width: 440px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    
+    height: 416px;
+}
+
+.dueDate{
+    display: flex;
+    height: 96px; 
+    width: 440px;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.dueDate_frame14{
+    
+    display: flex;
+    padding: 12px 21px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    background: #FFF; 
+    margin-top: 8px;
+}
+
+.text_DueDate{  
+    height: 24px; 
+    font-family: "Inter" , sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;    
+    color: var(--Version-2-main-color, #2A3647);    
+}
+
+.frame211{ 
+    display: flex;
+    flex-direction: column;
+    height: 64px;
+    border: 1px;
+    gap: 4px;
+    width: 440px;
+}
+
+/*  */
+
+.inputDate{
+    display: flex;
+    justify-content: space-between;
+    width: 404px;
+    height: 24px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--black, #000);
+    border-style: none;
+    outline:none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cmask id='mask0_75592_13837' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.855469' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_13837)'%3E%3Cpath d='M15.3555 18C14.6555 18 14.0638 17.7583 13.5805 17.275C13.0971 16.7917 12.8555 16.2 12.8555 15.5C12.8555 14.8 13.0971 14.2083 13.5805 13.725C14.0638 13.2417 14.6555 13 15.3555 13C16.0555 13 16.6471 13.2417 17.1305 13.725C17.6138 14.2083 17.8555 14.8 17.8555 15.5C17.8555 16.2 17.6138 16.7917 17.1305 17.275C16.6471 17.7583 16.0555 18 15.3555 18ZM5.85547 22C5.30547 22 4.83464 21.8042 4.44297 21.4125C4.0513 21.0208 3.85547 20.55 3.85547 20V6C3.85547 5.45 4.0513 4.97917 4.44297 4.5875C4.83464 4.19583 5.30547 4 5.85547 4H6.85547V3C6.85547 2.71667 6.9513 2.47917 7.14297 2.2875C7.33464 2.09583 7.57214 2 7.85547 2C8.1388 2 8.3763 2.09583 8.56797 2.2875C8.75964 2.47917 8.85547 2.71667 8.85547 3V4H16.8555V3C16.8555 2.71667 16.9513 2.47917 17.143 2.2875C17.3346 2.09583 17.5721 2 17.8555 2C18.1388 2 18.3763 2.09583 18.568 2.2875C18.7596 2.47917 18.8555 2.71667 18.8555 3V4H19.8555C20.4055 4 20.8763 4.19583 21.268 4.5875C21.6596 4.97917 21.8555 5.45 21.8555 6V20C21.8555 20.55 21.6596 21.0208 21.268 21.4125C20.8763 21.8042 20.4055 22 19.8555 22H5.85547ZM5.85547 20H19.8555V10H5.85547V20ZM5.85547 8H19.8555V6H5.85547V8Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+}
+
+.event{
+    width: 24px;
+    height: 24px;
+}
+
+.dueDateFieldRequired{
+    display: none;
+    width: 119px;
+    height: 12px;
+    font-family: "Poppins", sans-serif; 
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    color: #FF8190;
+}
+
+.frame28{
+    width: 440px;
+    height: 88px;
+}
+
+.textPrio{
+    width: 37px;
+    height: 24px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.priority{
+    height: 56px;
+    display: flex;
+    width: 440px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.priorityUrgent{
+    display: flex;
+    padding: 16px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 24px;
+    width: 136px;
+    border-radius: 10px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+
+}
+
+.priorityUrgent:hover{
+    box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.4);
+}
+
+.textUrgent{
+    width: 65px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.img-priorityUrgentSize{    
+    width: 20px;
+    height: 14.51px;
+}
+
+
+.imgPrio-active{
+
+  fill: #fff;
+}
+
+
+.priorityMedium{
+    display: flex;
+    padding: 16px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 24px;
+    width: 136px;
+    border-radius: 10px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.priorityMedium:hover{
+    box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.4);
+}
+
+.textMedium{
+    width: 84px;
+    height: 24px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.img-PriorityMedium{ 
+    width: 20px;
+    height: 14.51px;
+}
+
+.priorityLow{
+    display: flex;
+    padding: 16px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 24px;
+    width: 136px;
+    border-radius: 10px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.priorityLow:hover{
+    box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.4);
+}
+
+.textLow{
+    width: 40px;
+    height: 24px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.img-PriorityLow{    
+    width: 20px;
+    height: 14.51px;
+}
+
+.categoryCard{  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;    
+}
+
+
+.TechnicalTask{
+    padding: 4px 24px;
+    border-radius: 8px;
+    background: #1FD7C1;
+    color: #FFF;
+    font-family: "open-sans", sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px; 
+}
+
+
+
+.UserStory{
+    padding: 4px 24px;
+    border-radius: 8px;
+    background: #0038FF;
+    color: #FFF;
+    font-family: "open-sans", sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px; 
+}
+
+.textCategory{
+    color: var(--Version-2-main-color, #2A3647);    
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.category{
+    margin-bottom: 8px;
+}
+
+.categoryFrame74{
+    z-index: 6;
+    display: flex;
+    padding: 12px 16px;
+    justify-content: space-between;
+  position: relative;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    background: var(--white, #FFF);
+    color: var(--black, #000);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;   
+    width: 410px;  
+    margin-top: 8px;
+}
+
+.categoryFrame74:hover{
+    border: 1px solid var(--Style, #bdbcbc);
+}
+
+
+    .categories{
+ 
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;    
+       
+    }        
+    
+    .options select:hover{
+
+        background-color: #FF3D00; 
+    }
+                                        
+
+
+.disabledSelected{
+    display: none;
+}
+
+
+.custom-select{    
+   
+    border: 1px solid var(--Style, #D1D1D1);               
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Apply the background image to the select element */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 25 24' fill='none'%3E%3Cmask id='mask0_116471_1860' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.144531' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_116471_1860)'%3E%3Cpath d='M11.4445 14.3L8.84451 11.7C8.52784 11.3833 8.45701 11.0208 8.63201 10.6125C8.80701 10.2042 9.11951 10 9.56951 10H14.7195C15.1695 10 15.482 10.2042 15.657 10.6125C15.832 11.0208 15.7612 11.3833 15.4445 11.7L12.8445 14.3C12.7445 14.4 12.6362 14.475 12.5195 14.525C12.4028 14.575 12.2778 14.6 12.1445 14.6C12.0112 14.6 11.8862 14.575 11.7695 14.525C11.6528 14.475 11.5445 14.4 11.4445 14.3Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;    
+    background-position: calc(100% - 16px) center;/* Adjusted position with margin-right */
+}
+
+.custom-select:hover{      
+    background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 24 25' fill='none'%3E%3Cg id='Property 1=Variant2'%3E%3Crect y='0.96582' width='24' height='24' rx='12' fill='%23EEEEEE'/%3E%3Cmask id='mask0_75597_14127' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='25'%3E%3Crect id='Bounding box' y='0.96582' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75597_14127)'%3E%3Cpath id='arrow_drop_down' d='M11.3005 15.2658L8.70046 12.6658C8.3838 12.3492 8.31296 11.9867 8.48796 11.5783C8.66296 11.17 8.97546 10.9658 9.42546 10.9658H14.5755C15.0255 10.9658 15.338 11.17 15.513 11.5783C15.688 11.9867 15.6171 12.3492 15.3005 12.6658L12.7005 15.2658C12.6005 15.3658 12.4921 15.4408 12.3755 15.4908C12.2588 15.5408 12.1338 15.5658 12.0005 15.5658C11.8671 15.5658 11.7421 15.5408 11.6255 15.4908C11.5088 15.4408 11.4005 15.3658 11.3005 15.2658Z' fill='%232A3647'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-position: calc(100% - 16px) center; /* Adjusted position with margin-right on hover */
+}                                                             
+
+.subtasks{
+    height: 76px;
+    display: flex;
+    width: 440px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;    
+    
+}
+
+
+
+
+.subtasksContents{
+display: flex;
+height: 32px;
+padding: 6px 16px;
+align-items: center;
+gap: 16px;
+}
+
+
+.titleSubtasks{
+width: 100%;
+color: var(--black, #000);
+font-family: "Inter", sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; /* 24px */
+}
+
+
+.subtasksContents {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* Adjust margin between checkboxes */
+   
+}
+
+/* Style the custom checkbox */
+.checkbox-custom {
+    display: inline-block;
+    width: 25px; /* Width of the SVG */
+    height: 25px; /* Height of the SVG */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"%3E%3Crect x="4.68213" y="4.39673" width="16" height="16" rx="3" stroke="%232A3647" stroke-width="2"%3E%3C/rect%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-size: contain; /* Adjust to cover, contain, or other values based on your need */
+}
+
+
+
+/* Style the custom checkbox for checked state */
+.checkbox-input:checked + .checkbox-custom {
+    /* display: inline-block; */
+    width: 25px; /* Width of the SVG */
+    height: 25px; /* Height of the SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19' fill='none'%3E%3Cpath d='M17.6821 8.39673V14.3967C17.6821 16.0536 16.339 17.3967 14.6821 17.3967H4.68213C3.02527 17.3967 1.68213 16.0536 1.68213 14.3967V4.39673C1.68213 2.73987 3.02527 1.39673 4.68213 1.39673H12.6821' stroke='%232A3647' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5.68213 9.39673L9.68213 13.3967L17.6821 1.89673' stroke='%232A3647' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain; /* Adjust to cover, contain, or other values based on your need */
+}
+
+.subtasksContents {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* Adjust margin between checkboxes */
+}
+
+/* Hide the default checkbox */
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkbox-label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.subTasksCard{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-self: stretch;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.textSubtasks{
+    width: 88px;
+    height: 24px;
+    color: var(--Version-2-main-color, #2A3647);    
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.subtasksFrame14{
+    display: flex;
+    padding: 12px 16px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    background: #FFF;
+}
+
+.textAddSubtasks{
+    width: 170px;
+    height: 24px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--Style, #D1D1D1);
+    border-style: none;
+    outline: none;
+}
+
+.imgSubtasks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    height: 24px;
+}
+
+.imgPlusContainer{
+    width: 24px;
+    height: 24px;
+}
+
+.imgPlus{
+    width: 24px;
+    height: 24px;
+}
+
+.imgPlusHover{    
+    display: none;  /* Hide the hover image by default */
+}
+
+.imgPlusContainer:hover .imgPlusHover{
+    display: block; /* Show the hover image when the container is being hovered */
+}
+
+.imgPlusContainer:hover .imgPlus{
+    display: none; /* Hide the normal image when the container is being hovered */
+}
+
+
+.vectorAndImgCheck{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.imgCancelHover {
+    display: none;
+    position: relative;  
+}
+
+.imgCancelContainer:hover .imgCancel {
+    display: none;
+}
+
+.imgCancelContainer:hover .imgCancelHover {
+    display: block;
+}
+
+.subtasksImgCheck{
+    width: 24px;
+    height: 24px;
+}
+
+.subtasksCheck{
+    width: 24px;
+    height: 24px;
+}
+
+/* Hide the hover image by default */
+.subtaskCheckHover {
+    display: none;
+}
+
+/* Show the hover image when hovering over the parent */
+.subtasksImgCheck:hover .subtaskCheckHover {
+    display: block;
+}
+
+/* Hide the normal image when the container is being hovered */
+.subtasksImgCheck:hover .subtaskCheck {
+    display: none;
+}
+
+
+
+.addTasksFooter{
+    display: flex;
+    justify-content: space-between;
+    width: 976.25px;
+    height: 60px;    
+    margin-top: 145px; /*55px*/
+    margin-left: 328px;
+}
+
+.comment{
+    width: 170px;
+    height: 27px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: 33px;
+}
+
+.frame27{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;    
+}
+
+.secondary{
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 10px;
+    border: 1px solid var(--Version-2-main-color, #2A3647);
+}
+
+.secondary:hover{
+    border: 1px solid var(--Ligth-blue, #29ABE2);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    /*ONLY ON CLICK: Animation and animation-Duration*/
+    /* animation: ease-in-out;    
+    animation-duration: 100s; */
+}
+
+.textClear{
+    width: 50px;
+    height: 24px;
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.secondary:hover .textClear{
+    color: #29ABE2;
+}
+
+.clear{
+    width: 24px;
+    height: 24px;
+}
+
+.imgCancel{
+    width: 24px;
+    height: 24px;
+}
+
+
+.imgCancelHover{
+    display: none; /* Hide the hover image by default */
+}
+
+.secondary:hover .imgCancelHover{
+    display: block;  /* Show the hover image when the container is being hovered */
+}
+
+.secondary:hover .imgCancel{
+    display: none; /* Hide the normal image when the container is being hovered */
+}
+
+.primary{
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 10px;
+    background: #2A3647;    
+}
+
+.primary:hover{   
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /*ONLY ON CLICK: Animation and animation-Duration*/
+    /* animation: ease-in-out;    
+    animation-duration: 100s; */
+}
+
+.textCreateTask{
+    width: 123px;
+    height: 24px;
+    color: #FFF;
+
+    font-family: "Inter", sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.imgCheck{
+    width: 24px;
+    height: 24px;
+}
+/* input right end*/
+
+
+/*CardA*/
+
+.cardA{
+    margin-left: 500px;
+    display: flex;
+    width: 525px;   
+    padding: 48px 40px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    border-radius: 30px;  
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+    
+.taskTitle{       
+    align-self: stretch;
+    color: var(--black, #000);
+    font-family: "Inter", sans-serif;
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 73.2px;
+}
+
+.task_description{
+    width: 100%;
+    height: 24px;
+    color: var(--black, #000);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: "Inter", sans-serif;
+}
+
+.taskDueDate{
+    display: flex;
+    gap: 25px;
+    align-self: stretch;
+}
+
+.TitleDueDate{
+    color: var(--black, #000);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.date{
+    color: var(--black, #000);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px; 
+    width: 139px;
+    height: 32px;
+    align-items: center;
+    display: flex;
+    padding: 4px 18px;
+}
+
+.prio{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    align-self: stretch;
+    color: var(--black, #000);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+}
+/*delete and edit*/
+.deleteAndEdit{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 8px;
+    width:100%;
+ 
+    height: 24px;
+   
+}
+
+.delete_task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 73px;
+    height: 24px;
+}
+
+.delete-task-img{
+    width: 24px;
+    height: 24px;
+}
+.delete-task-title{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+}
+
+.deleteAndEdit_vector{  
+    height: 24px;
+    width: 1px;
+    stroke: var(--Style, #D1D1D1);
+}
+
+.edit_task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 73px;
+    height: 24px;
+}
+
+.imgEdit_task{
+    width: 24px;
+    height: 24px;
+}
+
+.edit-task-title{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: "Inter", sans-serif;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2%;
+}
+
+/**/
+
+
+
+.selectedPriorityContent{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 32px;  
+}
+
+.titlePrio{
+  
+    color: var(--Version-2-main-color, #2A3647);    
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 73px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    
+}
+
+.priorityUrgent-active {
+    background-color: #FF3D00; /* Your color for Urgent */
+}
+
+.priorityMedium-active {
+    background-color: #FFA800; /* Your color for Medium */
+}
+
+.priorityLow-active {
+    background-color: #7AE229; /* Your color for Low */
+}
+
+.assigned{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap:25px;
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+}
+
+.assignedSecond{
+    color: var(--Version-2-main-color, #2A3647);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    background-color: red;
+}
+
+.assigns{
+    background-color: #29ABE2;
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    align-self: stretch; 
+}
+
+.subtaskItem{
+    display: flex;
+    width: 410px;
+    height: 32px;
+    padding: 4px 16px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.iconsContainer{  
+    display: none;     
+    align-items: flex-start;
+    gap: 4px;
+}
+
+
+.subtaskItem:hover{
+background-color: #eeeeee;
+}
+
+.subtaskItem:hover .iconsContainer{
+display: flex;
+}
+
+
+.edit{
+    width: 24px;
+    height: 24px;  
+}
+
+
+.allSubtasks{
+    display: flex;
+    flex-direction: column; 
+    gap: 8px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    /* margin-left: 24px;    */
+}
+
+
+
+/*Category*/
+
+.underList{ 
+     margin-top: -20px;
+    position: absolute;  
+    display: flex;
+    padding-inline-start: 0px;
+    flex-direction: column;
+    border-radius: 10px;
+    background: var(--white, #FFF); 
+    z-index: 1;
+}
+
+.options{  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--white, #FFF);
+    list-style: none;
+    padding: 12px 16px;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;   
+    font-weight: 400;
+    line-height: 24px;
+    width:410px;
+}
+
+.optionsMarginTop{
+margin-top: 14px;
+}
+.options:hover{
+   background: #eeeeee;
+}
+
+.hide{
+    visibility: hidden;
+}
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+/*success add task*/
+
+.task_succes{    
+    z-index: 100;   
+    position: absolute;
+    z-index: 100;
+    width: 50%;   
+    margin-left: 20%;
+    margin-top: 10%;
+
+   
+}
+
+.task_succes_container{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color:#2A3647 ;
+    border-radius: 18px;
+    padding: 1px 20px;
+    opacity: 0;
+    transform: translateY(600%);
+    animation: slideln 0.35s ease-in-out forwards;
+    width: 270px;
+    height: 60px;
+    color: white;
+   
+}
+
+@keyframes slideln{
+    from{
+        opacity:0;
+        transform: translateY(600%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-100%);
+    }
+}
+
+.task_succes_message{
+    color: rgb(255, 255, 255);
+    font-size:24px;
+    text-align: center;
+}
+
+.task_success_icon_board{
+    width: 24px;
+    height: 24px;
+}
+
+.task_success_visibiity{
+    visibility: visible;
+}
+
+.d-none{
+    display: none;
+}
+
+@media (max-width: 830px){
+
+    .group66_addTask{
+     flex-direction: column;
+       
+       
+    }
+    
+}

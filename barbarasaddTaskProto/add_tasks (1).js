@@ -2,7 +2,6 @@
 let title = []; // Move it outside the window.onload function
 let description = [];
 let assigned = [];
-let selectedContacts = [];
 let dueDate = [];
 let prio = [];
 let category = [];
@@ -10,8 +9,8 @@ let subtasks = [];
 let subT = [];
 let tasks = [];
 let priorityContentArray = []; 
-
-
+load();
+addTask();
 
 
 async function addTaskInit(){
@@ -25,154 +24,173 @@ window.onload = function() {
     selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
     render();
 
-    
-}
+
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('delete-task-bt')) {
+            deleteTask(event);
+        }
+    });
+};
+
 
 function render() {
-    let contactsList = document.getElementById('contactList');
-    contactsList.innerHTML = '';
 
-    // Sort the contacts array alphabetically based on the first name
-    contacts.sort((a, b) => {
-        let nameA = a[0].toUpperCase();
-        let nameB = b[0].toUpperCase();
-        if (nameA < nameB) return -1;
-        if (nameA > nameB) return 1;
-        return 0;
-    });
+    let contacts = document.getElementById('contactList');
+    contacts.innerHTML = '';
+for (let i = 0; i < title.length; i++){
+    let currentAssigned = assigned[i];
+    let ContacElement =  document.createElement('li');
+    ContacElement.innerHTML='';
+    ContacElement.innerHTML +=`
+    <p onclick="hideAssigned(event)">${currentAssigned}</p>
+    `
+}
 
-    // Iterate through sorted contacts and create list elements
-    for (let i = 0; i < contacts.length; i++) {
-        let contact = contacts[i];
-        let name = contact[0];
-        let firstname = name.split(" ")[0][0].toUpperCase(); // First name's first letter in uppercase
-        let surname = name.split(" ")[1][0].toUpperCase(); // Last name's first letter in uppercase
-
-        let contactElement = document.createElement('li');
-        contactElement.classList.add('contactList');
-        contactElement.innerHTML = `
-    
-            <div class="circleAvatar">
-                <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
-                    <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-                </div>
-            </div>
-
-            <div class="checkedBoxWhite">
-            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-            <path d="M17.6821 8.39673V14.3967C17.6821 16.0536 16.339 17.3967 14.6821 17.3967H4.68213C3.02527 17.3967 1.68213 16.0536 1.68213 14.3967V4.39673C1.68213 2.73987 3.02527 1.39673 4.68213 1.39673H12.6821" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-            <path d="M5.68213 9.39673L9.68213 13.3967L17.6821 1.89673" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            </div>
-            <div class="custom-checkbox">            
-                <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
-                <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
-            </div>
-        `;
-        contactsList.appendChild(contactElement);        
-
-        // Add event listener to toggle class 'contactListSelected' for the corresponding li element
-        const liElement = contactsList.getElementsByTagName('li')[i];
-     
-        const nameElement = contactsList.getElementsByTagName('label')[i];
-        document.getElementById(`myCheckbox_${i}`).addEventListener('change', function(event) {
-        const checkedBoxWhite = document.getElementById('checkedBoxWhite');
-            
-            if (event.target.checked) {
-
-                // Add the selected contact to the array if not already added
-                if (!selectedContacts.includes(i)) {
-                    selectedContacts.push(i);
-                }
-
-    
-                // Call displayAvatar to show the selected contacts' avatars
-                displayAvatar(selectedContacts, contacts, colors);
-                // Toggle 'contactListSelected' class for the corresponding li element
-                liElement.classList.add('contactListSelected');
-                nameElement.classList.add('nameContactWhite');
-               
+    let content = document.getElementById('todo');
+    content.innerHTML = '';
+    for (let i = 0; i < title.length; i++) {
+  
+      
+        let currentPriorityContent = priorityContentArray[i] || '';
+        let tempDiv = document.createElement('div');
+        tempDiv.innerHTML = currentPriorityContent;
+        tempDiv.classList.add('selectedPriorityContentDiv'); 
                 
-
-                
-            } else {
-                // Remove the unselected contact from the array
-                let index = selectedContacts.indexOf(i);
-                if (index > -1) {
-                    selectedContacts.splice(index, 1);
-                }
-
-                // Call displayAvatar to update displayed avatars
-                displayAvatar(selectedContacts, contacts, colors);
-                // Toggle 'contactListSelected' class for the corresponding li element
-                liElement.classList.remove('contactListSelected');
-                nameElement.classList.remove('nameContactWhite');
-               
-            }
+        let svgElements = tempDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
+        svgElements.forEach(svgElement => {
+            svgElement.classList.remove('imgPrio-active');
         });
 
+        // Create a cloned content div and process its contents
+        let clonedContentDiv = document.createElement('div');
+        clonedContentDiv.appendChild(tempDiv.cloneNode(true));
+        // Remove imgPrio-active class from SVG elements in the cloned content
+        let clonedSvgElements = clonedContentDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
+        clonedSvgElements.forEach(svgElement => {
+            svgElement.classList.remove('imgPrio-active');
+        });
+        let allSubtasksDiv = document.getElementById('allSubtasks');
+        allSubtasksDiv.innerHTML = ''; // Clear existing content
+        let subtasksContainer = document.createElement('div');
+        subtasksContainer.classList.add('subtasksContainer');
         
-        
-    }
-
-    document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch);
-}
-
-
-
-function handleContactSearch() {
-    let input = document.getElementById('searchContacts');
-    let filter = input.value.toUpperCase();
-    let contacts = document.getElementsByClassName('contactList');
-
-    // Loop through all contact list elements and hide/show based on the search input
-    for (let i = 0; i < contacts.length; i++) {
-        let contact = contacts[i];
-        let nameElement = contact.getElementsByClassName('nameContact')[0];
-        let txtValue = nameElement.textContent || nameElement.innerText;
-        
-        // Check if the contact name contains the search filter
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            contact.style.display = ''; // Show the matching contact
-        } else {
-            contact.style.display = 'none'; // Hide non-matching contacts
+        if (subtasks.length === 0) {
+            allSubtasksDiv.innerHTML = '';
         }
-    } 
-}
+        
+        let noteElement = document.createElement('div');
 
-function displayAvatar(selectedContacts, contacts, colors) {
-    let contactAvatar = document.getElementById('contactAvatar');
-    contactAvatar.innerHTML = ''; // Clear previous content
-
-    // Iterate through the selected contacts and append their avatars
-    for (let i = 0; i < selectedContacts.length; i++) {
-        let selectedIndex = selectedContacts[i];
-        let contact = contacts[selectedIndex];
-        let name = contact[0];
-        let firstname = name.split(" ")[0][0].toUpperCase();
-        let surname = name.split(" ")[1][0].toUpperCase();
-
-        // Create the avatar element for the selected contact
-        let currentContactContent = `
-            <div class="circleAvatar">
-                <div class="circle" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
-                    <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-                </div>
+        let currentTitle = title[i];
+        let currentDescription = description[i];
+   
+        let currentDueDate = dueDate[i];
+        let currentCategory = category[i];
+        let currentSubTasks = subT[i];
+    // Convert currentCategory to a class name without spaces
+    let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
+            noteElement.classList.add('cardA');
+            noteElement.innerHTML = `
+                <div class="categoryCard">
+                    
+                    <p class="${className}">${currentCategory}</p>
+               
+               
+                <img src="./assets/img/Close.png" alt="">
             </div>
+            <p class="taskTitle"><b>${currentTitle}</b></p>
+            <p class="task_description">${currentDescription}</p>
+            <div class="taskDueDate">
+                <p class="TitleDueDate">Due Date:</p>
+                <div class="date">${currentDueDate}</div>
+            </div>
+            <div class="prio">
+                <p class="titelPrio">Priority:</p>
+                <div class="selectedPriorityContent">${clonedContentDiv.innerHTML}</div>
+            </div>
+            <div class="assigned">
+                <div class="assignedSecond">assigned to:</div>
+                <div class="assigns">rrrr</div>
+            </div>
+            
+           
+            <!-- Displaying subtasks -->
+            <div class="subTasksCard">
+            <div class="titleSubtasks">Subtasks</div>
+                          
+                            <div class="subtasksContainer">
+    <!-- Loop through and generate checkboxes for subtasks -->
+    ${currentSubTasks.map(subtask => `
+        <div class="subtasksContents">
+            <label class="checkbox-label">
+                <input type="checkbox" class="checkbox-input">
+                <span class="checkbox-custom"></span>
+                ${subtask}
+            </label>
+        </div>
+    `).join('')}
+            </div>
+           
+            <!-- Button for deleting task -->
+            <div class="deleteAndEdit">
+             
+                <div class="delete_task" onclick="deleteTask(event)">
+                    <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
+                    <p class = "delete-task-title">Delete</p>
+                </div>
+                
+                <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
+                
+                <div class ="edit_task">
+                
+                    <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
+                    <p class = "edit-task-title">Edit</p>
+                </div>
+              
+            </div>            
         `;
+        
+    
+        content.appendChild(noteElement);
+        for (let i = 0; i < subtasks.length; i++) {
+            let subtaskItem = document.createElement('div');
+            subtaskItem.classList.add('subtaskItem');
+            subtaskItem.innerText = subtasks[i];
+            subtasksContainer.appendChild(subtaskItem);
+        }
+        // Append subtasks container to the designated div
+        allSubtasksDiv.appendChild(subtasksContainer);
 
-        // Append the avatar to the contactAvatar element
-        contactAvatar.innerHTML += currentContactContent;
+         
+        save();
+}}
+
+
+function deleteTask(event) {// wird nicht mehr gebraucht
+    let noteElement = event.target.closest('.cardA');
+    
+    if (noteElement) {
+        let parentElement = noteElement.parentElement;
+        let index = Array.from(parentElement.children).indexOf(noteElement);
+
+        noteElement.remove();
+        title.splice(index, 1);
+        description.splice(index, 1);
+        assigned.splice(index, 1);
+        dueDate.splice(index, 1);
+        prio.splice(index, 1);
+        category.splice(index, 1);
+        subtasks.splice(index, 1);
+        subT.splice(index, 1);
+        priorityContentArray.splice(index, 1);    
+        save();
+        render();
     }
-}
+}  
 
-
-function clearContactAvatar() {
-    let contactAvatar = document.getElementById('contactAvatar');
-    contactAvatar.innerHTML = ''; // Clear avatars
-}
 
 function addTask() {
+    
+    
     let titleValue = document.getElementById('title').value;
     document.getElementById('title').value = '';   
     title.unshift('titleValue');
@@ -184,17 +202,6 @@ function addTask() {
     let dueDateValue = document.getElementById('dueDate').value;
     document.getElementById('dueDate').value = '';
     dueDate.unshift(dueDateValue);
-
-    let checkboxes = document.querySelectorAll('.inputCheckBox');
-    assigned = []; // Clear the array to store only the currently checked labels
-
-    checkboxes.forEach((checkbox, index) => {
-        let label = document.querySelector(`.nameContact[for=myCheckbox_${index}]`);
-        if (checkbox.checked && label) {
-            assigned.push(label.textContent);
-        }
-    });
-
     
     let selectedPriority = document.querySelector('.priorityUrgent-active, .priorityMedium-active, .priorityLow-active');
     let priorityContent = selectedPriority ? selectedPriority.innerHTML : '';
@@ -222,15 +229,14 @@ function addTask() {
     
    
     render();   
-    clearContactAvatar();
     changeColour(selectedPriorityID);
     clearPrioActiveClass();
     taskSuccess();      
-    updateSubtasksDisplay();
-    saveTasksUser();
+     
 }
 
 function clearTask() {
+
     subtasks = [];
     
     // Clear input values in render function
@@ -238,39 +244,32 @@ function clearTask() {
     document.getElementById('description').value = '';
     document.getElementById('dueDate').value = '';
     document.getElementById('inputSubtasks').value = '';
-
-    removeBorderColorAndHideIndicator('titleFieldRequired');
-    removeBorderColorAndHideIndicator('descriptionFieldRequired');
-    removeBorderColorAndHideIndicator('dueDateFieldRequired');
    
 
     let allSubtasksDiv = document.getElementById('allSubtasks');
     allSubtasksDiv.innerHTML = '';
     document.getElementById('taskCategory').value = '';
-
-    clearContactAvatar();
+    
     clearPrioActiveClass();    
-    clearTaskCategory();    
-      
+    clearTaskCategory();       
 }
 
 
 function save() {
     localStorage.setItem('title', JSON.stringify(title));
     localStorage.setItem('description', JSON.stringify(description));
-    localStorage.setItem('assigned', JSON.stringify(assigned));
     localStorage.setItem('dueDate', JSON.stringify(dueDate));
     localStorage.setItem('priorityContentArray', JSON.stringify(priorityContentArray)); 
     localStorage.setItem('subtasks', JSON.stringify(subtasks));
     localStorage.setItem('tasks', JSON.stringify(tasks)); // Store tasks array in localStorage
     localStorage.setItem('category', JSON.stringify (category ));
     localStorage.setItem('subT', JSON.stringify(subT));
+        
 }                                
   
 function load() {
     let titleAsText = localStorage.getItem('title');
     let descriptionAsText = localStorage.getItem('description');
-    let assignedAsText = localStorage.getItem('assigned');
     let dueDateAsText = localStorage.getItem('dueDate');
     let priorityContentArrayText = localStorage.getItem('priorityContentArray'); 
     let subtaskAsText = localStorage.getItem('subtasks');
@@ -278,10 +277,9 @@ function load() {
     let categoryAsText = localStorage.getItem('category');
     let subTAsText = localStorage.getItem('subT');
     
-    if (titleAsText && descriptionAsText &&assignedAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
+    if (titleAsText && descriptionAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
         title = JSON.parse(titleAsText);
         description = JSON.parse(descriptionAsText);
-        assigned =JSON.parse(assignedAsText);
         dueDate = JSON.parse(dueDateAsText);
         priorityContentArray = JSON.parse(priorityContentArrayText); 
         subtasks = JSON.parse(subtaskAsText);
@@ -292,6 +290,21 @@ function load() {
 }
 
 //assigned to
+
+
+function selectAssigned(clickedElement) {
+    let selectText = clickedElement.querySelector('p').textContent;
+    let assignedElement = document.getElementById("assigned");
+
+    if (selectText !== 'Select contacts to assign') {
+        assigned.unshift(selectText);
+        save(); // Save the updated assigned array to localStorage
+
+        // Update the text content of the assigned element
+        assignedElement.querySelector('p').textContent = selectText;
+    }
+}
+
 
 function hideAssigned(event) {
     if (event.target.id !== "assigned") {
@@ -414,7 +427,7 @@ function updateSubtasksDisplay() {
     allSubtasksDiv.innerHTML = '';
 
     if (subtasks.length === 0) { //brauche ich das??
-        
+        allSubtasksDiv.innerHTML = 'No subtasks available.';
     } else {
         subtasks.forEach((subtask, index) => {
             const subtaskItemDiv = createSubtaskItem(subtask);
@@ -467,7 +480,6 @@ function createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, index) {
     iconsContainerWhenEdit.classList.add('iconsContainer');
 
     const deleteImg = createImage('./assets/img/delete_contacts.png', 'delete');
-    deleteImg.classList.add('delete');
     iconsContainerWhenEdit.appendChild(deleteImg);
     deleteImg.addEventListener('click', () => handleDeleteClick(subtaskItemDiv, index));
 
@@ -475,7 +487,6 @@ function createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, index) {
     iconsContainerWhenEdit.appendChild(vector);
 
     const check = createImage('./assets/img/done.png', 'subtaskCheck');
-    check.classList.add('subtasksCheck');
     iconsContainerWhenEdit.appendChild(check);
 
     check.addEventListener('click', () => handleCheckClick(subtaskItemDiv, iconsContainerWhenEdit, subtaskText));
@@ -578,21 +589,24 @@ function hideVectorAndImgCheck(){
         }
 }
 
+function hide(event) {    
+    
+    if (event.target.id !== "inputSubtasks") {
+    let list = document.getElementById("list");
+    let arrow = document.getElementById("arrow");
+    let arrow_drop_downHover = document.getElementById("arrow_drop_downHover");
+
+    list.classList.toggle("hide");
+    arrow.classList.toggle("rotate");
+    arrow_drop_downHover.classList.toggle("rotate");
+    }
+
+}
+
+
+
 
 //task_success
-
-function handleTaskClick(event) {
-    // Prevent the default behavior of the anchor tag
-    event.preventDefault();
-
-    // Call addTask function which triggers taskSuccess
-    addTask();
-
-    // Redirect to the board page after a delay (e.g., 1500 milliseconds)
-    setTimeout(function () {
-        window.location.href = "./board.html";
-    }, 1500);
-}
 
 function taskSuccess(){
     const success = document. getElementById('task_succes');
@@ -601,6 +615,7 @@ function taskSuccess(){
     setTimeout(function(){
         document.getElementById('task_succes').classList.add('d-none')},1500); 
 }
+
 
 //required inputs
 

@@ -60,7 +60,7 @@ header {
   width: 150px;
   height: 158px;
   padding: 10px;
-  transform: translateX(500px);
+  transform: translateX(-500px);
   transition: all 225ms ease-in-out;
 }
 
@@ -70,6 +70,8 @@ header {
 
 .submenu-text {
   display: flex;
+  text-decoration: none;
+  color: #A8A8A8;
   width: 130px;
   padding-left: 16px;
   padding-right: 8px;
@@ -81,7 +83,7 @@ header {
 }
 
 .submenu-text:hover {
-  background-color: #36465d;
+  background-color: #2a3d59;
    /* hover color not visible */
 }
 

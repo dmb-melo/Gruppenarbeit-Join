@@ -8,8 +8,13 @@
     <script src="./js/header.js"></script>
     <script src="./js/loginpage.js"></script>
     <script src="./js/register.js"></script>
+    <script src="./js/legal_help_privacy.js"></script>
+    <script src="./js/legal_help_privacy_HTML.js"></script>
     <!-- styles -->
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.svg">
+    <link rel="stylesheet" href="./styles/sidebar.css">
+    <link rel="stylesheet" href="./styles/legal_help_privacy.css"/>
+    <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/loginpage.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
   </head>
@@ -25,12 +30,11 @@
       <p>Not a Join user?</p>
       <p onclick="renderSignUpContent()" class="sign-up-log-in-button">Sign up</p>
     </div>
-    <div id="contentUserValidation">
-      
+    <div id="contentUserValidation">  
     </div>
-    <div class="loginpage-data-protection-container">
-      <a class="loginpage-data-protection-link">Privacy Policy</a>
-      <a class="loginpage-data-protection-link">Legal notice</a>
+    <div id="loginpageDataProtectionContainer" class="loginpage-data-protection-container">
+      <span onclick="renderLogInPrivacyPolicyContent()" class="loginpage-data-protection-link">Privacy Policy</span>
+      <span onclick="renderLogInLegalNoticeContent()" class="loginpage-data-protection-link">Legal notice</span>
     </div>
   </body>
 </html>

@@ -1,3 +1,6 @@
+.d-None{
+    display: none;
+}
 .tasksToDo {
     width: calc(100% - 232px);
     height: calc(100vh - 96px);
