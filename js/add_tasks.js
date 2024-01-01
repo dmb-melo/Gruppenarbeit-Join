@@ -12,23 +12,18 @@ let tasks = [];
 let priorityContentArray = []; 
 
 
-function render_addTask(){
+function render_addTask() {
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generate_addTask();
-}
-
-async function addTaskInit(){
-    await includeHTML();
+    addTaskInit();
 }
 
 let selectedPriorityContent = '';
-window.onload = function() {
-   
+
+function addTaskInit(){
     load();
     selectedPriorityContent = localStorage.getItem('selectedPriorityContent');
     render();
-
-    
 }
 
 function render() {
@@ -43,9 +38,10 @@ function render() {
         if (nameA > nameB) return 1;
         return 0;
     });
-
+  
     // Iterate through sorted contacts and create list elements
     for (let i = 0; i < contacts.length; i++) {
+        
         let contact = contacts[i];
         let name = contact[0];
         let firstname = name.split(" ")[0][0].toUpperCase(); // First name's first letter in uppercase
@@ -54,7 +50,6 @@ function render() {
         let contactElement = document.createElement('li');
         contactElement.classList.add('contactList');
         contactElement.innerHTML = `
-    
             <div class="circleAvatar">
                 <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
                     <p class="nameIdList" id="name-id">${firstname}${surname}</p>

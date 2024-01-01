@@ -60,7 +60,7 @@ header {
   width: 150px;
   height: 158px;
   padding: 10px;
-  transform: translateX(-500px);
+  transform: translateX(500px);
   transition: all 225ms ease-in-out;
 }
 
