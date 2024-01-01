@@ -23,7 +23,7 @@
         max-width: 367px;  
         gap: 8px;  
         margin-left: 0px;
-        padding: 5px;    
+        padding: 15px;    
         align-items: center;
         flex-direction: column;        
     }
@@ -145,7 +145,7 @@
    .addTasksFooter{
         padding: 10px;
         margin-left: 0;
-        padding: 5px;
+        padding: 15px;
         width: 360px;
    } 
 
@@ -164,32 +164,30 @@
     }  
 }
 
-@media(min-width: 398px) and (max-width: 577px){
+@media(min-width: 398px) and (max-width: 578px){
     .span, .description, .asignedTo, .nameContact,
-    .nameContact, .titlePrio, .textCategory,
-    .categoryFrame74, .subtasks, 
-    .textSubtasks, .textAddSubtasks{    
+    .nameContact, .titlePrio, .textCategory, .categoryFrame74,
+    .subtasks, .textSubtasks, .textAddSubtasks{    
         font-size: 20px;
     }
 
     .title_v1, .frame203, .description_v1, .frame207, 
     .frame17,.asignedTo_v1, .underListContact, .frame211, 
-    .priority.inputLeft_addTask,.contactAvatar, .dueDate{
-        width: 560px;
+    .priority, .inputLeft_addTask,.contactAvatar, .priority,
+    .dueDate{
+        width: 518px;
     }
 
     .textContainer_addTask{
         font-size: 47px; 
-        margin-left: 5px; 
-        background-color: aqua;      
+        margin-left: 5px;      
     }
 
-    .group66_addTask{
+    .group66_addTask{       
         margin-left: 0;    
         max-width: 560px;  
-        background-color: bisque;
-        gap: 8px;        
-        align-items: center;
+        gap: 8px;  
+        align-items: center;      
         flex-direction: column;        
     }
 
@@ -199,31 +197,21 @@
 
     .inputRight_addTask{ 
         margin-top: 44px;   
-        width: 560px;  
-        background-color: aquamarine;     
+        width: 518px;   
     }
-
-    .inputLeft_addTask{ 
-        margin-top: 44px;   
-        width: 560px;  
-        background-color: aquamarine;     
-    }
-
 
     .title{
         font-size: 20px;
-        width: 560px;
+        width: 530px;
     }
    
-    .title_frame14{    
+    .title_frame14{  
         padding: 10px 21px;
         gap: 10px;
     }
 
     .text_enterTitle{
     font-size: 20px;
-    width: 310px;
-    background-color: black;
     }
 
     .text_enterDescription{
@@ -236,51 +224,39 @@
         display:none ;
     } 
 
-      .categoryFrame74{
-        width: 515px;  
-        background-color: blue;
+    .categoryFrame74{  
+        width: 475px;  
         padding: 10px 21px;        
     }
 
     .searchContacts{
-        background-color: yellow;
         width: 300x;       
         font-size: 20px;
     }
 
-    .custom-checkbox{background-color: chartreuse;
+    .custom-checkbox{
         margin-top: 5px;
         width: 210px;
     }
 
     .custom-checkbox label:before{
-        margin-left: 85px;
-        background-color: black;
+        margin-left: 75px;
     }
    
     .text_DueDate{
-        background-color: crimson;
         font-size: 20px;
     }
 
     input[type="date"]::-webkit-calendar-picker-indicator {
        width:20px;
-       background-color: blue;
        margin-left: 280px;
     }
       
     .inputDate{
-        background-color: cornflowerblue;
         font-size: 16px;  
-        width: 560px;  
+        width: 480px;  
     }  
     
-    .priority{
-        background-color: brown;
-        width: 560px;         
-    }
-
-
     .priorityUrgent, .priorityMedium, .priorityLow{    
         padding: 13px 8px;     
         gap: 18px;   
@@ -304,21 +280,23 @@
     .category{      
         width: 306px;
         font-size: 20px;
-    }   
+    } 
 
-     .options, .subtaskItem{background-color: cadetblue;
-        width: 525px;
+     .options, .subtaskItem{
+        width: 485px;
     }
 
-    .subtasksFrame14{background-color: blueviolet;
-        width: 516px;
+    .subtasks{
+        width:100%;
+    }
+
+    .subtasksFrame14{
         padding: 10px 21px;       
     }   
    
    .addTasksFooter{       
-        margin-left: 0;
-        width: 548px;
-        background-color: aqua;
+        margin-left: 20px;
+        width: 520px;
    }
 
    .primary{
@@ -331,9 +309,152 @@
     }  
 }
 
-@media(min-width: 578px) and (max-width: 775px){
+@media(min-width: 579px) and (max-width: 776px){
   
+    .title_v1, .frame203, .description_v1, .frame207, 
+    .frame17,.asignedTo_v1, .underListContact, .frame211, 
+    .priority.inputLeft_addTask,.contactAvatar, .dueDate{
+        width: 710px;
+    }
 
+    .textContainer_addTask{
+        font-size: 47px; 
+        margin-left: 5px;      
+    }
+
+    .group66_addTask{
+        margin-left: 0;    
+        max-width: 760px;  
+        gap: 8px;        
+        align-items: center;
+        flex-direction: column;        
+    }
+
+    .vector4{
+        display: none;
+    }      
+
+    .inputRight_addTask{ 
+        margin-top: 44px;   
+        width: 710px;   
+    }
+
+    .inputLeft_addTask{ 
+        margin-top: 44px;   
+        width: 710px;    
+    }
+
+    .title{
+        width: 560px;
+    }
+   
+    .title_frame14{    
+        padding: 10px 21px;
+        gap: 10px;
+    }
+
+    .text_enterTitle{
+        width: 310px;
+    }
+
+    .text_enterDescription{
+        height: 88px;
+        padding: 18px 21px;
+    }
+
+    .recursor{
+        display:none ;
+    } 
+
+      .categoryFrame74{
+        width: 668px;  
+        padding: 10px 21px;        
+    }
+
+    .searchContacts{
+        width: 300x;       
+    }
+
+    .custom-checkbox{
+        margin-top: 5px;
+        width: 210px;
+    }
+
+    .custom-checkbox label:before{
+        margin-left: 85px;
+    }
+   
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+       width:20px;
+       margin-left: 380px;
+    }
+      
+    .inputDate{
+        width: 760px;  
+    }  
+    
+    .priority{
+        width: 710px;         
+    }
+
+
+    .priorityUrgent, .priorityMedium, .priorityLow{    
+        gap: 18px;   
+    }
+
+    .textUrgent{
+        width: 60px;
+    }
+
+    .textMedium{
+        width: 72px;
+    }
+
+    .textLow{
+        width: 34px;
+    }
+
+    .category{      
+        width: 306px;
+    }   
+
+     .options, .subtaskItem{
+        width: 525px;
+    }
+
+    .subtasksFrame14{
+        width: 666px;
+        padding: 10px 21px;       
+    }   
+   
+   .addTasksFooter{       
+        margin-left: 25px;
+        width: 710px;
+   }
+
+
+}
+
+@media(min-width: 781px){
+
+    .group66_addTask{
+        margin-left: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vector4{
+        display: none;
+    }
+
+    .inputRight_addTask{ 
+        margin-top: 54px;    
+    }
+    .addTasksFooter{       
+        margin-left: 225px;
+        width: 480px;
+   }
 }
 
 
