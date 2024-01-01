@@ -124,19 +124,42 @@ function renderSignUpContent() {
 
 function renderLogInPrivacyPolicyContent() {
   legalInformationLogin = true;
-  document.getElementById("contentUserValidation").innerHTML = generateLogInHeaderAndSidebar();
-  document.getElementById("contentUserValidation").innerHTML += generatePrivacyPolicyContent();
-  document.getElementById("signUpButtonHeadline").classList.add('d-none');
-  document.getElementById("loginpageDataProtectionContainer").classList.add('d-none');
+  removeContentLogin();
+  renderLogInHeaderAndSidebar();
+  privacyPolicyContent();
 }
 
 function renderLogInLegalNoticeContent() {
   legalInformationLogin = true;
-  document.getElementById("contentUserValidation").innerHTML = generateLogInHeaderAndSidebar();
+  removeContentLogin();
+  renderLogInHeaderAndSidebar();  
+  legalNoticeContent();
+}
+
+function renderSignupPrivacyPolicyContent() {
+  legalInformationSignup = true;
+  removeContentLogin();
+  renderLogInHeaderAndSidebar(); 
+  privacyPolicyContent();
+}
+
+function privacyPolicyContent() {
+  document.getElementById("contentUserValidation").innerHTML += generatePrivacyPolicyContent();
+}
+
+function legalNoticeContent() {
   document.getElementById("contentUserValidation").innerHTML += generateLegalNoticeContent();
+}
+
+function removeContentLogin() {
   document.getElementById("signUpButtonHeadline").classList.add('d-none');
   document.getElementById("loginpageDataProtectionContainer").classList.add('d-none');
 }
+
+function renderLogInHeaderAndSidebar() {
+  document.getElementById("contentUserValidation").innerHTML = generateLogInHeaderAndSidebar();
+}
+
 
 function generateLogInContent() {
   return /*html*/ `<div class="log-in-container">
@@ -195,7 +218,7 @@ function generateSignUpContent() {
     <p id="textThePasswordNotMatchSignUp"></p>
     <div class="accept-privacy-policy-container">
       <input required type="checkbox" id="rememberMe" class="accept-icon"/>
-      <p>I accept the<a href="#" class="sign-up-data-protection-link">Privacy Policy</a></p>
+      <p>I accept the<span onclick="renderSignupPrivacyPolicyContent()" class="sign-up-data-protection-link">Privacy Policy</span></p>
     </div>
     <div class="submit-sign-up-container">
       <button id="signUpButton" class="sign-up-log-in-button">Sign up</button>
