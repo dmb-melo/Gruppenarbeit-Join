@@ -1,23 +1,13 @@
 let submenuIsOpen = false;
 let passwordIsVisible = false;
 let confirmPasswordIsVisible = false;
+let legalInformationLogin = false;
+let legalInformationSignup = false;
 
-/**
- *This function prevents the submenu from being closed if the submenu is clicked on
- *
- * @function
- * @name doNotClose
- */
 function doNotClose(event) {
   event.stopPropagation();
 }
 
-/**
- *Animation of the join logo when the start page is loaded
- *
- * @function
- * @name startAnimation
- */
 function initLoading() {
   loadUsers();
   loadUserLoginData();
@@ -26,33 +16,12 @@ function initLoading() {
   renderLogInContent();
 }
 
-/**
- * Starts the animation of the join box when the page is loaded
- * @function
- * @name startAnimation
- *
- * */
 function startAnimation() {
   document.querySelector(".animationJoinLogo").classList.add("animated");
   document.querySelector(".animationJoinLogo").classList.remove("dNone");
   document.querySelector(".join-logo").classList.add("animated");
 }
 
-/**
- * Updates the image next to the password input field based on the field's content.
- *
- * When the password input field is empty, the image is set to a lock symbol.
- * If the field is not empty, the image is changed to a visibility symbol (eye icon).
- * Additionally, logs the current value of the password field to the console.
- *
- * The value of the password input field is stored in the variable `inputValuePassword `.
- *
- * @type {boolean}
- * @description The global variable `passwordIsVisible` defines whether the password is visible or not
- *
- * @function
- * @name passwordInputVisible
- */
 function passwordInputVisible() {
   let inputValuePassword = document.getElementById("passwordInput").value;
   if (inputValuePassword) {
@@ -66,21 +35,6 @@ function passwordInputVisible() {
   }
 }
 
-/**
- * Updates the image next to the confirmation password input field based on the field's content.
- *
- * When the confirmation password input field is empty, the image is set to a lock symbol.
- * If the field is not empty, the image is changed to a visibility symbol (eye icon).
- * Additionally, logs the current value of the password field to the console.
- *
- * The value of the confirmation password input field is stored in the variable `confirmPasswordInput`.
- *
- * @type {boolean}
- * @description The global variable `confirmPasswordIsVisible` defines whether the password is visible or not
- *
- * @function
- * @name confirmPasswordInputVisible
- */
 function confirmPasswordInputVisible() {
   let inputValuePassword = document.getElementById("confirmPasswordInput").value;
   if (inputValuePassword) {
@@ -96,12 +50,6 @@ function confirmPasswordInputVisible() {
   }
 }
 
-/**
- *If the passwords entered do not match, the confirmation password field is surrounded by a red border and a warning text is displayed.
- * @function
- * @name validatePassword
- *
- */
 function validatePassword() {
   let inputValuePassword = document.getElementById("passwordInput").value;
   let confirmInputValuePassword = document.getElementById("confirmPasswordInput").value;
@@ -116,16 +64,6 @@ function validatePassword() {
   }
 }
 
-/**
- *Makes the entered value in the password input field visible and changes the SVG, furthermore the type of the input field is changed
- * @function
- * @name passwordVisible
- *
- * The value of the password input field is stored in the variable `inputValuePassword `.
- *
- * @type {boolean}
- * @description The global variable `passwordIsVisible` defines whether the password is visible or not
- */
 function passwordVisible() {
   let x = document.getElementById("passwordInput");
   let inputValuePassword = document.getElementById("passwordInput").value;
@@ -142,16 +80,6 @@ function passwordVisible() {
   }
 }
 
-/**
- *Makes the entered value in the password input field visible and changes the SVG, furthermore the type of the input field is changed
- * @function
- * @name confirmPasswordVisible
- *
- * The value of the confirmation password input field is stored in the variable `inputValuePassword `.
- *
- * @type {boolean}
- * @description The global variable `passwordIsVisible` defines whether the password is visible or not
- */
 function confirmPasswordVisible() {
   let x = document.getElementById("confirmPasswordInput");
   let inputValuePassword = document.getElementById("confirmPasswordInput").value;
@@ -168,11 +96,6 @@ function confirmPasswordVisible() {
   }
 }
 
-/**
- * Renders the login page
- * @function
- * @name renderLogInContent
- * */
 function renderLogInContent() {
   passwordIsVisible = false;
   document.getElementById("contentUserValidation").innerHTML = generateLogInContent();
@@ -180,16 +103,6 @@ function renderLogInContent() {
   automaticCompletionLoginData();
 }
 
-/**
- * Automatically fills in the e-mail and password fields in the login area if Remember me was set in the last login.
- * @function
- * @name automaticCompletionLoginData
- *
- * @type {boolean}
- * @description The global variable rememberMeIsSet defines whether the checkmark is set or not
- *  @param {string} emailRememberMe - Saved e-mail from local storage
- * @param {string} passwordRememberMe - Saved password from local storage
- * */
 function automaticCompletionLoginData() {
   let checkboxRememberMe = document.getElementById("rememberMe");
   if (emailRememberMe.length === 0 && passwordRememberMe.length === 0) {
@@ -203,23 +116,28 @@ function automaticCompletionLoginData() {
   }
 }
 
-/**
- * Renders the Sign Up page
- * @function
- * @name renderSignUpContent
- * */
 function renderSignUpContent() {
   passwordIsVisible = false;
   document.getElementById("contentUserValidation").innerHTML = generateSignUpContent();
   document.getElementById("signUpButtonHeadline").classList.add("d-none");
 }
 
-/**
- * Generates the HTML content of the login page if you have been successfully registered
- * @function
- * @name generateLogInContent
- *
- * */
+function renderLogInPrivacyPolicyContent() {
+  legalInformationLogin = true;
+  document.getElementById("contentUserValidation").innerHTML = generateLogInHeaderAndSidebar();
+  document.getElementById("contentUserValidation").innerHTML += generatePrivacyPolicyContent();
+  document.getElementById("signUpButtonHeadline").classList.add('d-none');
+  document.getElementById("loginpageDataProtectionContainer").classList.add('d-none');
+}
+
+function renderLogInLegalNoticeContent() {
+  legalInformationLogin = true;
+  document.getElementById("contentUserValidation").innerHTML = generateLogInHeaderAndSidebar();
+  document.getElementById("contentUserValidation").innerHTML += generateLegalNoticeContent();
+  document.getElementById("signUpButtonHeadline").classList.add('d-none');
+  document.getElementById("loginpageDataProtectionContainer").classList.add('d-none');
+}
+
 function generateLogInContent() {
   return /*html*/ `<div class="log-in-container">
   <div class="headline-log-in-container">
@@ -248,12 +166,6 @@ function generateLogInContent() {
 </div>`;
 }
 
-/**
- * Generates the HTML content of the Sign up page when you are successfully registered
- * @function
- * @name generateSignUpContent
- *
- * */
 function generateSignUpContent() {
   return /*html*/ `<div class="sign-up-container">
   <div class="arrow-back-sign-up-container">
@@ -290,4 +202,25 @@ function generateSignUpContent() {
     </div>
   </form>
 </div>`;
+}
+
+function generateLogInHeaderAndSidebar() {
+  return /*html*/ `
+  <header>
+  <div class="headline-header">
+    <b>Kanban Project Management Tool</b>
+  </div>
+</header>
+<div class="box-sizing">
+  <div class="sidebar">
+    <div class="sidbarLogo">
+      <img src="./assets/img/logo-white.svg" alt="logo" />
+    </div>
+    <div class="privacy">
+      <span onclick="" class="dataProtection">Privacy Policy</span>
+      <span onclick="" class="dataProtection">Legal Notice</span>
+    </div>
+  </div>
+</div>
+`;
 }
