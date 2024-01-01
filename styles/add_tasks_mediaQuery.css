@@ -295,6 +295,13 @@
         background-color: aquamarine;     
     }
 
+    .inputLeft_addTask{ 
+        margin-top: 44px;   
+        width: 560px;  
+        background-color: aquamarine;     
+    }
+
+
     .title{
         font-size: 20px;
         width: 560px;
@@ -358,21 +365,27 @@
         background-color: cornflowerblue;
         font-size: 16px;  
         width: 560px;  
-    }   
+    }  
+    
+    .priority{
+        background-color: brown;
+        width: 560px;         
+    }
+
 
     .priorityUrgent, .priorityMedium, .priorityLow{    
         padding: 13px 8px;     
-        gap: 8px;   
+        gap: 18px;   
     }
 
     .textUrgent{
         font-size: 20px;
-        width: 55px;
+        width: 60px;
     }
 
     .textMedium{
         font-size: 20px;
-        width: 62px;
+        width: 72px;
     }
 
     .textLow{
@@ -395,13 +408,18 @@
     }   
    
    .addTasksFooter{
-        padding: 10px;
+       
         margin-left: 0;
         width: 548px;
-   } 
+        background-color: aqua;
+   }
+   
+   .comment{
+    width: 260px;
+    background-color: brown;
+   }
 
    .primary{
-        padding: 24px;
         gap: 4px;
     }
 
