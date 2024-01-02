@@ -1,111 +1,115 @@
 .box-sizing {
-    margin: 0;
-    
+  margin: 0;
 }
 
 :root {
-    --sidbarlinkHover: #1aa7e4;
-    --sidebarBgColor: #2A3647;
-    --linkActive: #091931;
-    --textColor: #FFF;
-    --sideWidth: 232px;
-    --sideHeight: 100vh;
-    --fonSiz16: 16px;
+  --sidbarlinkHover: #2a3d59;
+  --sidebarTextHover: #1aa7e4;
+  --sidebarBgColor: #2a3647;
+  --linkActive: #091931;
+  --textColor: #fff;
+  --sideWidth: 232px;
+  --sideHeight: 100vh;
+  --fonSiz16: 16px;
 }
 
 .box-sizing {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 232px;
-    background: var(--sidebarBgColor);
-    z-index: 999;
-    font-family: 'Inter', sans-serif ;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 232px;
+  background: var(--sidebarBgColor);
+  z-index: 999;
+  font-family: "Inter", sans-serif;
 }
 
 .sidebar {
-    width: 100%;
-    height: calc(100vh - 96px);
-    padding: 64px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+  width: 232px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .sidbarLogo {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 64px;
 }
 
 .sidebarLinks {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 232px;
+}
+
+.sidebarIMG {
+  padding-left: 60px;
 }
 
 .sidebarCategory {
-    display: flex;
-    width: 100%;
-    height: 46px;
-    padding: 8px 56px;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
+  display: flex;
+  height: 46px;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  width: 232px;
+  cursor: pointer;
 }
-.sidebarCategory :hover {
-    background-color: var(--sidbarlinkHover);
-    
+
+.sidebarCategory:hover {
+  background-color: var(--sidbarlinkHover);
 }
-.sidebarCategory a {
-    text-decoration: none;
-    color: var(--textColor);
-    display: flex;
-    width: 232px;
+
+.sidebarCategoryLinkActive {
+  color: var(--linkActive) !important;
+}
+
+.sidebarLinkContainer {
+  position: absolute;
+  top: 300px;
 }
 
 .sidebarLink {
-    width: 100%;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 20px 60px;
-
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .sidebarMenuText {
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  color: var(--textColor);
 }
 
 .privacy {
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 20px;
-}
-.privacy a {
-    text-decoration: none;
-    color: var(--textColor);
-    font-size: 16px;
-}
-
-.privacy a:hover {
-    color: #0eadf1;
-    font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-bottom: 48px;
 }
 
 .dataProtection {
-    cursor: pointer;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--textColor);
+  padding-bottom: 8px;
+}
+
+.dataProtection:hover {
+  color: var(--sidebarTextHover);
+  transform: scale(1.1);
 }
