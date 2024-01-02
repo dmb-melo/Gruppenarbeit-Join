@@ -625,7 +625,6 @@ function hideFieldIndicator(selector) {
     }
 }
 
-
 function required(element) {
     if (element.classList.contains('frame211')) {
         changeBorderColorAndDisplayField('.dueDate_frame14', '#dueDateFieldRequired');
