@@ -2,10 +2,6 @@ body{
     margin: 0
 }
 
-.box-sizingResponsiv{
-   box-sizing: 0;
-}
-
 :root {
    
     --sidebarBgColorResponsiv: #2A3647;
@@ -15,6 +11,7 @@ body{
 }
 
 .box-sizingResponsiv {
+   visibility: hidden;
     display: flex;
     align-items: center;
     width: 100%;
