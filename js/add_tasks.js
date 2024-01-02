@@ -86,11 +86,7 @@ function renderTask() {
                 let index = selectedContacts.indexOf(i);
                 if (index > -1) {
                     selectedContacts.splice(index, 1);
-                }
-
-                // Call displayAvatar to update displayed avatars
-                displayAvatar(selectedContacts, contacts, colors);
-                // Toggle 'contactListSelected' class for the corresponding li element
+                }                               
                 liElement.classList.remove('contactListSelected');
                 nameElement.classList.remove('nameContactWhite');
                 labelElement.style.setProperty('background-image', "url('')");
@@ -141,7 +137,6 @@ function displayAvatar(selectedContacts, contacts, colors) {
                 </div>
             </div>
         `;
-
         // Append the avatar to the contactAvatar element
         contactAvatar.innerHTML += currentContactContent;
     }
@@ -151,6 +146,27 @@ function displayAvatar(selectedContacts, contacts, colors) {
 function clearContactAvatar() {
     let contactAvatar = document.getElementById('contactAvatar');
     contactAvatar.innerHTML = ''; // Clear avatars
+}
+
+function clearAllSelections() {
+    // Iterate through all checkboxes and labels
+    const checkboxes = document.querySelectorAll('.inputCheckBox');
+    const labels = document.querySelectorAll('.nameContact');
+
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.checked = false; // Deselect the checkbox
+
+        // Remove 'contactListSelected' class from the corresponding li element
+        const liElement = checkbox.closest('li');
+        if (liElement) {
+            liElement.classList.remove('contactListSelected');
+        }
+
+        // Remove any additional classes or styles related to selection
+        labels[index].classList.remove('nameContactWhite');
+        // Clear any additional styles set for the background image
+        labels[index].style.setProperty('background-image', 'none');
+    });
 }
 
 function addTask() {
@@ -207,6 +223,7 @@ function addTask() {
     clearPrioActiveClass();
     taskSuccess();      
     updateSubtasksDisplay();
+    clearAllSelections();
     // saveTasksUser();
 }
 
@@ -229,6 +246,7 @@ function clearTask() {
     document.getElementById('taskCategory').value = '';
 
     clearContactAvatar();
+    clearAllSelections();
     clearPrioActiveClass();    
     clearTaskCategory();          
 }
