@@ -248,22 +248,8 @@ background-color:#2A3647;
 
 }
 
-.nameContactWhite{
-    color: white;
-}
-
-.checked-image {
-    background-repeat: no-repeat;
-    background-color: #1FD7C1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M17 8V14C17 15.6569 15.6569 17 14 17H4C2.34315 17 1 15.6569 1 14V4C1 2.34315 2.34315 1 4 1H12' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5 9L9 13L17 1.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-/* .unchecked-image {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 18 19' fill='none'%3E%3Cpath d='M17 8.96582V14.9658C17 16.6227 15.6569 17.9658 14 17.9658H4C2.34315 17.9658 1 16.6227 1 14.9658V4.96582C1 3.30897 2.34315 1.96582 4 1.96582H12' stroke='%232A3647' stroke-width='2'%3E%3C/path%3E%3Cpath d='M5 9.96582L9 13.9658L17 2.46582' stroke='%232A3647' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
-} */
-
-.contactList:hover  .nameContactWhite{
-    color:black;
+.contactList:hover .nameContactWhite{
+    color: black;
 }
 
 .imgArrows{
@@ -1006,26 +992,49 @@ line-height: 120%; /* 24px */
     border-radius: 10px;
     background: var(--white, #FFF); 
     z-index: 1;
-    max-height: 119px;
-    width: 440px;   
+    max-height: 112px;   
+    width: 512px;
     overflow: auto;
 }
 
-::-webkit-scrollbar-thumb{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-   background-color: #A8A8A8; 
+/*SCROLL BAR*/
+
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-::-webkit-scrollbar-track{
-    margin-top: 16px;   
-}
+::-webkit-scrollbar-track {
+    background: #fafafa;
+  }
 
-::-webkit-scrollbar{
-    height:0px;       
-}
+::-webkit-scrollbar-thumb {
+    background-color: #a8a8a8;
+    border-radius: 10px;
+  }
+
+ /* Buttons */
+::-webkit-scrollbar-button:single-button {
+    background-color: #bbbbbb;
+    display: block;
+    border-style: solid;
+    height: 13px;
+    width: 16px;
+  }
+  
+  /* Down */
+  ::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-width: 8px;
+    border-color: white white#bbbbbb White;
+    
+  }
+
+  /* Up */
+  ::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-width: 8px 8px 0px 8px;
+    border-color: #bbbbbb  White White White  ;
+  } 
+
+/**/
 
 .custom-checkbox {     
     font-size: 20px;
@@ -1090,6 +1099,8 @@ line-height: 120%; /* 24px */
 .contactList:hover{
     background-color: #eeeeee; 
 }
+
+/*SUBTASK*/
 
 .subtaskItem{
     cursor: pointer;
