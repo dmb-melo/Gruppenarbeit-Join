@@ -994,7 +994,7 @@ line-height: 120%; /* 24px */
     background: var(--white, #FFF); 
     z-index: 1;
     max-height: 112px;   
-    width: 512px;
+    width: 435px;
     overflow: auto;
 }
 
