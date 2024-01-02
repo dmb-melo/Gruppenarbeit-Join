@@ -2,12 +2,9 @@ body{
     margin: 0
 }
 
-:root {
-   
+:root {   
     --sidebarBgColorResponsiv: #2A3647;
-    --linkActiveResponsiv: #091931;
-   
- 
+    --linkActiveResponsiv: #091931; 
 }
 
 .box-sizingResponsiv {
@@ -22,7 +19,6 @@ body{
     z-index: 999;
     font-family: 'Inter', sans-serif ;
 }
-
 
 .sidebarLinkResponsiv {
     display: flex;
@@ -65,8 +61,6 @@ body{
 .sidebarCategoryResponsiv:hover .summaryBt{
     display: none;
 } 
-
-
 
 .addTaskBtHover{
     display:none;
