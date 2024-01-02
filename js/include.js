@@ -16,6 +16,7 @@ function renderSummaryContent() {
   document.getElementById("contentJoin").innerHTML = ``;
   document.getElementById("contentJoin").innerHTML = generateSummaryContent();
   removeStyleSidebar();
+  addTextColor();
   document.getElementById("sidebarCategorySummary").classList.add("sidebarCategoryLinkActive");
 }
 
@@ -23,6 +24,7 @@ function render_addTask() {
   document.getElementById("contentJoin").innerHTML = ``;
   document.getElementById("contentJoin").innerHTML = generate_addTask();
   removeStyleSidebar();
+  addTextColor();
   document.getElementById("sidebarCategoryAddTask").classList.add("sidebarCategoryLinkActive");
   addTaskInit();
 }
@@ -31,6 +33,7 @@ function renderBoardHTML() {
   document.getElementById("contentJoin").innerHTML = ``;
   document.getElementById("contentJoin").innerHTML = generateBoardHTML();
   removeStyleSidebar();
+  addTextColor();
   document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive");
 }
 
@@ -38,6 +41,7 @@ function render_contactsHtml() {
   document.getElementById("contentJoin").innerHTML = ``;
   document.getElementById("contentJoin").innerHTML = generate_contactsHtml();
   removeStyleSidebar();
+  addTextColor();
   document.getElementById("sidebarCategoryContacts").classList.add("sidebarCategoryLinkActive");
   renderContacts();
 }
@@ -45,13 +49,17 @@ function render_contactsHtml() {
 function renderPrivacyPolicyContent() {
   document.getElementById("contentJoin").innerHTML = generatePrivacyPolicyContent();
   removeStyleSidebar();
+  addTextColor();
   document.getElementById("sidebarCategoryPrivacyPolicy").classList.add("sidebarCategoryLinkActive");
+  document.getElementById("sidebarTextPrivacyPolicy").classList.remove("dataProtectionTextColor");
 }
 
 function renderLegalNoticeContent() {
   document.getElementById("contentJoin").innerHTML = generateLegalNoticeContent();
   removeStyleSidebar();
+  addTextColor();
   document.getElementById("sidebarCategoryLegalNotice").classList.add("sidebarCategoryLinkActive");
+  document.getElementById("sidebarTextLegalNotice").classList.remove("dataProtectionTextColor");
 }
 
 function removeStyleSidebar() {
@@ -61,4 +69,9 @@ function removeStyleSidebar() {
   document.getElementById("sidebarCategoryContacts").classList.remove("sidebarCategoryLinkActive");
   document.getElementById("sidebarCategoryPrivacyPolicy").classList.remove("sidebarCategoryLinkActive");
   document.getElementById("sidebarCategoryLegalNotice").classList.remove("sidebarCategoryLinkActive");
+}
+
+function addTextColor() {
+  document.getElementById("sidebarTextPrivacyPolicy").classList.add("dataProtectionTextColor");
+  document.getElementById("sidebarTextLegalNotice").classList.add("dataProtectionTextColor");
 }
