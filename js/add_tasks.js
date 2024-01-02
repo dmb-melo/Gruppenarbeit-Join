@@ -54,13 +54,6 @@ function renderTask() {
                     <p class="nameIdList" id="name-id">${firstname}${surname}</p>
                 </div>
             </div>
-
-            <div class="checkedBoxWhite">
-                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                <path d="M17.6821 8.39673V14.3967C17.6821 16.0536 16.339 17.3967 14.6821 17.3967H4.68213C3.02527 17.3967 1.68213 16.0536 1.68213 14.3967V4.39673C1.68213 2.73987 3.02527 1.39673 4.68213 1.39673H12.6821" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-                <path d="M5.68213 9.39673L9.68213 13.3967L17.6821 1.89673" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
             <div class="custom-checkbox">            
                 <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
                 <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
@@ -73,8 +66,8 @@ function renderTask() {
 
         const nameElement = contactsList.getElementsByTagName('label')[i];
         document.getElementById(`myCheckbox_${i}`).addEventListener('change', function (event) {
-            const checkedBoxWhite = document.getElementById('checkedBoxWhite');
-
+            
+            const labelElement = document.querySelectorAll('.nameContact')[i];
             if (event.target.checked) {
 
                 // Add the selected contact to the array if not already added
@@ -82,12 +75,11 @@ function renderTask() {
                     selectedContacts.push(i);
                 }
 
-
                 // Call displayAvatar to show the selected contacts' avatars
                 displayAvatar(selectedContacts, contacts, colors);
-                // Toggle 'contactListSelected' class for the corresponding li element
                 liElement.classList.add('contactListSelected');
                 nameElement.classList.add('nameContactWhite');
+                labelElement.style.setProperty('background-image', "url('')");                
 
             } else {
                 // Remove the unselected contact from the array
@@ -101,6 +93,7 @@ function renderTask() {
                 // Toggle 'contactListSelected' class for the corresponding li element
                 liElement.classList.remove('contactListSelected');
                 nameElement.classList.remove('nameContactWhite');
+                labelElement.style.setProperty('background-image', "url('')");
             }
         });
     }
@@ -182,7 +175,6 @@ function addTask() {
             assigned.push(label.textContent);
         }
     });
-
     
     let selectedPriority = document.querySelector('.priorityUrgent-active, .priorityMedium-active, .priorityLow-active');
     let priorityContent = selectedPriority ? selectedPriority.innerHTML : '';
@@ -238,10 +230,8 @@ function clearTask() {
 
     clearContactAvatar();
     clearPrioActiveClass();    
-    clearTaskCategory();    
-      
+    clearTaskCategory();          
 }
-
 
 function save() {
     localStorage.setItem('title', JSON.stringify(title));
@@ -293,8 +283,6 @@ function hideAssigned(event) {
     }
 }
 
-
-
 //priority
 
 function clearPrioActiveClass(){
@@ -345,13 +333,10 @@ function removeImgPrioActive(divID) {
     });
 }
 
-
-
 //category
 function clearTaskCategory() {
     document.getElementById('categorySelect').textContent = 'Select a task category';
-}
-        
+}      
  
 
 function selectCategory(clickedElement) {
@@ -381,7 +366,6 @@ function hide(event) {
     arrow_drop_downHover.classList.toggle("rotate");
     }
 }
-
 
 //subtasks
 
@@ -618,8 +602,7 @@ function removeBorderColorAndHideIndicator(fieldId){
     if (fieldIndicator) {
         fieldIndicator.style.display = 'none'; // Hide the specified field indicator
     }       
-}
-  
+}  
 
 function getFrameSelector(fieldId) {
     switch (fieldId) {
@@ -655,7 +638,6 @@ function required(element) {
         hideFieldIndicatorsExcept('#descriptionFieldRequired');
     }
 }
-
 
 function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector) {
     const frame = document.querySelector(frameSelector);
