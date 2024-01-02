@@ -1,5 +1,5 @@
 function generate_addTask(){
-    return`  
+    return /*html*/`  
      <div class = "contentTask">  
         <div class="content_addTask">
             <div class = "textContainer_addTask">
