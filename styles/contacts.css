@@ -1,5 +1,6 @@
 body{
     font-family: "Inter", sans-serif;
+
 }
 h1{
     font-size: 42px;
@@ -28,18 +29,21 @@ hr{
 .contacts-content{
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 .contact-list{
+    background-color: white;
     margin-left: 280px;
-    margin-top: 100px;
+    margin-top: 110px;
     width: 30%;
-    height: 100vh;
+    height: 88vh;
     -webkit-box-shadow: 3px 0px 4px -4px rgba(77,77,77,0.53);
     -moz-box-shadow: 3px 0px 4px -4px rgba(77,77,77,0.53);
     box-shadow: 3px 0px 4px -4px rgba(77,77,77,0.53);
+    overflow: scroll;
 }
 .contact-details{
-    margin-top: 120px;
+    margin-top: 100px;
     width: 60%;
     height: 100vh;
     background-color: #F6F7F8;
@@ -224,26 +228,23 @@ hr{
     background-color: #2B3646;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
-    width: 500px;
+    width: 380px;
 }
 .addContactPopup{
     position: fixed;
-    height: 600px;
     left: 250px;
 }
 .addContactRight{
     background-color: white;
-    width: 45vw;
+    width: 440px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }
 .addContactMain{
     display: flex;
     flex-direction: row;
-    height: 400px;
-    width: 900px;
+    height: 460px;
     border-radius: 36px;
-    margin-top: 200px;
     margin-left: 80px;
     margin-right: 80px;
 }
@@ -252,8 +253,6 @@ hr{
     font-size: 45px;
     margin-top: 12px;
     margin-left: 30px;
-
-    
 }
 .addContactHeadline2{
     color: white;
@@ -275,13 +274,6 @@ hr{
     height: 2px;
     margin-left: 30px;
     margin-top: 12px;
-}
-.addContactRight2{
-    display: flex;
-    flex-direction: row;
-}
-.addContactRight3{
-    width: 30vw;
 }
 .input{
     display: flex;
@@ -316,7 +308,6 @@ hr{
 }
 .editContactPopup{
     position: fixed;
-    height: 800px;
     left: 250px;
     font-weight: 700;
 }
@@ -325,15 +316,12 @@ hr{
     width: 440px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-
 }
 .editContactMain{
     display: flex;
     flex-direction: row;
     height: 460px;
-
     border-radius: 36px;
-    margin-top: 200px;
     margin-left: 80px;
     margin-right: 80px;
 }
