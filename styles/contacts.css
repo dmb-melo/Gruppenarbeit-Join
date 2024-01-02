@@ -61,6 +61,16 @@ hr{
     background-color: #2AAAE2;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.addCircle{
+    border-radius: 100px;
+    background-color: #D1D1D1;
+    width: 90px;
+    height: 90px;
+    margin-top: 170px;
+    border: solid 1px white;
+    margin-left: 55px;
+    margin-right: 55px;
+}
 .add-contact-main{
     display: flex;
     flex-direction: row;

@@ -223,7 +223,9 @@ function generate_contactsHtml(){
                 <div class="line3"></div>
             </div>
             <div class="addContactMiddle">
-                <div class="editCircle"></div>
+                <div class="addCircle" id="addCircle">
+                    <img src="./assets/img/person_add_contact.png">
+                </div>
             </div>
             <div class="addContactRight">
                     <div class="formDiv">
