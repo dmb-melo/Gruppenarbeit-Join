@@ -2,7 +2,7 @@
 @media(max-width: 397px){
 
     .span, .nameContact,.nameContact, .text_DueDate,
-    .inputDate, .titlePrio, .inputDate,  .textCategory
+    .inputDate, .titlePrio, .inputDate,  .textCategory,
     .categoryFrame74, .comment, .textSubtasks, 
     .textAddSubtasks, .description{    
         font-size: 16px;
@@ -16,7 +16,7 @@
 
    .textContainer_addTask{
         font-size: 47px; 
-        margin-left: 5px;   
+        margin-left: 20px;   
     }
 
     .group66_addTask{  
@@ -91,7 +91,10 @@
     }
 
     .circle{
-        margin-top: 5px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        margin-top: 2px;
         font-size: 16px; 
         width: 34px;
         height: 34px;
@@ -180,7 +183,7 @@
 
     .textContainer_addTask{
         font-size: 47px; 
-        margin-left: 5px;      
+        margin-left: 25px;      
     }
 
     .group66_addTask{       
@@ -233,6 +236,10 @@
         width: 300x;       
         font-size: 20px;
     }
+    .circle{
+        height: 36px;
+        width: 36px;
+    }
 
     .custom-checkbox{
         margin-top: 5px;
@@ -248,12 +255,12 @@
     }
 
     input[type="date"]::-webkit-calendar-picker-indicator {
-       width:20px;
+       width:24px;
        margin-left: 280px;
     }
       
     .inputDate{
-        font-size: 16px;  
+        font-size: 20px;  
         width: 480px;  
     }  
     
@@ -319,7 +326,7 @@
 
     .textContainer_addTask{
         font-size: 47px; 
-        margin-left: 5px;      
+        margin-left: 25px;      
     }
 
     .group66_addTask{
@@ -375,15 +382,23 @@
         width: 300x;       
     }
 
-    .custom-checkbox{
-        margin-top: 5px;
-        width: 210px;
+    .custom-checkbox{   
+        width: 100%;
+        gap: 150px;        
+    }
+
+    .nameContact{
+        margin-left: 5px;
+    }
+
+    .circle{
+        height: 36px;
+        width: 36px;
     }
 
     .custom-checkbox label:before{
-        margin-left: 85px;
-    }
-   
+        margin-left: 250px;
+    }   
 
     input[type="date"]::-webkit-calendar-picker-indicator {
        width:20px;
@@ -420,7 +435,7 @@
     }   
 
      .options, .subtaskItem{
-        width: 525px;
+        width: 680px;
     }
 
     .subtasksFrame14{
@@ -467,6 +482,20 @@
     margin-bottom: 50px;
     margin-left: 40px;
    }
+
+   .nameContact{
+    margin-left: 5px;
+}
+
+.underListContact{
+    width: 440px;
+}
+
+.circle{
+    height: 36px;
+    width: 36px;
+}
+
 
 }
 
