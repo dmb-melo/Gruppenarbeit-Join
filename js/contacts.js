@@ -213,12 +213,6 @@ function closeEditContact(){
     document.getElementById('editContactBackground').classList.add('d-none');
 }
 
-function render_contactsHtml(){
-    document.getElementById('contentJoin').innerHTML = ``;
-    document.getElementById('contentJoin').innerHTML = generate_contactsHtml();
-    renderContacts();
-}
-
 /*
 document.getElementById('cancel-hover').onmouseover = function (){mouseOver()};
 document.getElementById('cancel-hover').onmouseout = function (){mouseOut()};

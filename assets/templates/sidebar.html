@@ -8,25 +8,25 @@
             <!-- Menu -->
             <div class="sidebarLinkContainer">
             <div class="sidebarLinks">
-                <div class="sidebarCategory"onclick="renderSummaryContent()">
+                <div id="sidebarCategorySummary" class="sidebarCategory"onclick="renderSummaryContent()">
                         <div class="sidebarLink">
                             <img class="sidebarIMG" src="./assets/img/Icons_summary.png">
                             <div class="sidebarMenuText">Summary</div>
                         </div>
                 </div>
-                <div class="sidebarCategory" onclick="render_addTask()">
+                <div id="sidebarCategoryAddTask" class="sidebarCategory" onclick="render_addTask()">
                         <div class="sidebarLink">
                             <img class="sidebarIMG" src="./assets/img/Icons_add_task.png">
                             <div class="sidebarMenuText">Add Task</div>
                         </div>
                 </div>
-                <div class="sidebarCategory"onclick="renderBoardHTML()">
+                <div id="sidebarCategoryBorard" class="sidebarCategory"onclick="renderBoardHTML()">
                         <div class="sidebarLink">
                             <img class="sidebarIMG" src="./assets/img/Icons_board.png">
                             <div class="sidebarMenuText">Borard</div>
                         </div>
                 </div>
-                <div class="sidebarCategory"onclick="render_contactsHtml()">
+                <div id="sidebarCategoryContacts" class="sidebarCategory"onclick="render_contactsHtml()">
                         <div class="sidebarLink">
                             <img class="sidebarIMG" src="./assets/img/Icons_contacts.png">
                             <div class="sidebarMenuText">Contacts</div>
@@ -36,8 +36,12 @@
             </div>
             <!-- Datenschutz -->
             <div class="privacy">
-                <span onclick="renderPrivacyPolicyContent()" class="dataProtection">Privacy Policy</span>
-                <span onclick="renderLegalNoticeContent()" class="dataProtection">Legal Notice</span>
+                <div class="dataProtectionContainer" id="sidebarCategoryPrivacyPolicy">
+                  <span  onclick="renderPrivacyPolicyContent()" class="dataProtection">Privacy Policy</span>
+                </div>
+                <div class="dataProtectionContainer" id="sidebarCategoryLegalNotice">
+                   <span onclick="renderLegalNoticeContent()" class="dataProtection">Legal Notice</span>
+                </div>
             </div>
         </div>
     </div>
