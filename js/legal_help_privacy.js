@@ -24,11 +24,3 @@ function closelegalInformationLoginPage() {
   document.getElementById("signUpButtonHeadline").classList.remove("d-none");
   document.getElementById("loginpageDataProtectionContainer").classList.remove("d-none");
 }
-
-function renderPrivacyPolicyContent() {
-  document.getElementById("contentJoin").innerHTML = generatePrivacyPolicyContent();
-}
-
-function renderLegalNoticeContent() {
-  document.getElementById("contentJoin").innerHTML = generateLegalNoticeContent();
-}

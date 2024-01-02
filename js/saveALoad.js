@@ -1,4 +1,4 @@
-let tasks = []; //title, dis, prio,e etc.
+
 
 async function saveTasksUser() {
     await setItem('tasks', JSON.stringify(tasks));
