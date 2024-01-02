@@ -29,37 +29,7 @@ function generateBoardHTML() {
                     </a>
                 </div>
                 <!-- tskBoard -->
-                <div class="todo-id1 cardA " id="todo">
-                    <div>
-                        <div>
-                            <div>Technical Task</div>
-                        </div>
-                        <span id="" class="d-None">
-                            <a href="#">Inprogress</a>
-                            <a href="#">Feedback</a>
-                            <a href="#">Done</a>
-                        </span>
-                        <div>
-                            <h1>title</h1>
-                            <p>text</p>
-                        </div>
-                        <div class="progress-section" id="">
-                            <div id="progress">
-                                <div id="" class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                    aria-valuemax="100" style="width: 0%;"></div>
-                            </div>
-                            <div>0/2 Subtasks</div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="w-100 d-flex justify-content-space-btw align-items-center">
-                                <div class="profileBadges" id=""></div>
-                                <div class="prioIcon" id="">
-                                    <img src="./assets/img/prio-baja.png">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="todo"></div>
             </section>
             <!-- in Progress -->
             <section class="taskBoardTtle">
