@@ -68,7 +68,7 @@
 }
 
 .sidebarCategoryLinkActive {
-  color: var(--linkActive) !important;
+  background-color: var(--linkActive) !important;
 }
 
 .sidebarLinkContainer {
@@ -95,9 +95,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 20px;
   margin-bottom: 48px;
+}
+
+.dataProtectionContainer {
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .dataProtection {
@@ -106,7 +112,7 @@
   font-weight: 400;
   font-size: 16px;
   color: var(--textColor);
-  padding-bottom: 8px;
+ margin-left: 60px;
 }
 
 .dataProtection:hover {

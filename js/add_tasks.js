@@ -12,12 +12,6 @@ let tasks = [];
 let priorityContentArray = []; 
 
 
-function render_addTask() {
-    document.getElementById('contentJoin').innerHTML = ``;
-    document.getElementById('contentJoin').innerHTML = generate_addTask();
-    addTaskInit();
-}
-
 let selectedPriorityContent = '';
 
 function addTaskInit(){

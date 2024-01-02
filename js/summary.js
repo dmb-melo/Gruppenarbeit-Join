@@ -1,5 +1,4 @@
 
-
 async function summraryInit(){
     await includeHTML();
     loadUserData();
@@ -7,7 +6,3 @@ async function summraryInit(){
     renderSummaryContent();
 }
 
-function renderSummaryContent() {
-    document.getElementById('contentJoin').innerHTML = ``;
-    document.getElementById('contentJoin').innerHTML = generateSummaryContent();
-}
