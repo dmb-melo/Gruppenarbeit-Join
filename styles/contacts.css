@@ -57,6 +57,32 @@ hr{
     margin-bottom: 24px;
     height: 42px;
 }
+.addContactBackground{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.editContactBackground{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+}
 .add-contact:hover{
     background-color: #2AAAE2;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -70,6 +96,11 @@ hr{
     border: solid 1px white;
     margin-left: 55px;
     margin-right: 55px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;;
+}
+.addCircle-image{
+    margin: 29px;
+    width: 30px;
 }
 .add-contact-main{
     display: flex;
@@ -448,13 +479,19 @@ hr{
     width: 18px;
     margin-left: 4px;
 }
-.cancel-img{
+.cancel-img-black{
+    width: 18px;
+}
+.cancel-img-blue{
     width: 18px;
 }
 .create-img{
     width: 18px;
 }
 .create-text{
+    font-size: 15px;
+}
+.cancel-text{
     font-size: 15px;
 }
 .success{

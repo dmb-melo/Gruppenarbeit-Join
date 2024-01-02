@@ -63,6 +63,7 @@ function resetSelectedContact() {
 
 function selectContact(i, firstname, surname, event){
     document.getElementById('editContact').classList.add('d-none');
+    document.getElementById('editContactBackground').classList.add('d-none');
     resetSelectedContact();
     document.getElementById(`contact-info-${i}`).style = "background-color: #293647; color: white";
     selectedContactIndex = i;
@@ -71,6 +72,7 @@ function selectContact(i, firstname, surname, event){
 
 function showCard(i, firstname, surname){
     document.getElementById('addContact').classList.add('d-none');
+    document.getElementById('addContactBackground').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
     let name = document.getElementById('nameCard').innerHTML = `${contacts[i][0]}`;
     let email = document.getElementById('emailCard').innerHTML = `<div class="head-info"> Email </div><div class="main-info-mail">${contacts[i][1]}</div>`;
@@ -101,6 +103,7 @@ function showCard(i, firstname, surname){
 
 function closeAddContact(){
     document.getElementById('addContact').classList.add('d-none');
+    document.getElementById('addContactBackground').classList.add('d-none');
 }
 
 function createContact(event) {
@@ -137,12 +140,14 @@ function createContact(event) {
 function addNewContact(){
     document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('addContact').classList.remove('d-none');
+    document.getElementById('addContactBackground').classList.remove('d-none');
     resetSelectedContact();
 }
 
 function editContact(i){
     document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('editContact').classList.remove('d-none');
+    document.getElementById('editContactBackground').classList.remove('d-none');
     document.getElementById('editInput').innerHTML = `
         <div class="inputFieldName">
             <input class="inputField" type="text" id="userNameEdit"> 
@@ -176,6 +181,7 @@ function deleteContact(event, i){
     document.getElementById('contactCard').classList.add('d-none');
     selectedContactIndex = null;
     document.getElementById('editContact').classList.add('d-none');
+    document.getElementById('editContactBackground').classList.add('d-none');
     event.preventDefault();
 }
 
@@ -204,6 +210,7 @@ function saveContact(event, i) {
 function closeEditContact(){
     document.getElementById('editContact').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
+    document.getElementById('editContactBackground').classList.add('d-none');
 }
 
 function render_contactsHtml(){
@@ -212,8 +219,20 @@ function render_contactsHtml(){
     renderContacts();
 }
 
+/*
+document.getElementById('cancel-hover').onmouseover = function (){mouseOver()};
+document.getElementById('cancel-hover').onmouseout = function (){mouseOut()};
+
+function mouseOver(){
+    document.getElementById('cancel-hover').innerHTML = `<img class="cancel-img-blue" src="./assets/img/iconoir_cancel-2.png">`;
+}
+function mouseOut(){
+    document.getElementById('cancel-hover').innerHTML = `<img class="cancel-img-black" src="./assets/img/cancel.png">`;
+}
+*/
 function generate_contactsHtml(){
     return `
+    <div class="addContactBackground d-none" id="addContactBackground">
     <div class="addContactPopup d-none" id="addContact">
         <div class="addContactMain">
             <div class="addContactLeft">
@@ -224,7 +243,7 @@ function generate_contactsHtml(){
             </div>
             <div class="addContactMiddle">
                 <div class="addCircle" id="addCircle">
-                    <img src="./assets/img/person_add_contact.png">
+                    <img class="addCircle-image" src="./assets/img/person.png">
                 </div>
             </div>
             <div class="addContactRight">
@@ -248,8 +267,11 @@ function generate_contactsHtml(){
                             <div class="editButtons">
                                 <button class="closeButton" onclick="closeAddContact()">
                                     <div class="cancel-button-div">
-                                    <div class="cancel-text">Cancel</div>
-                                    <div><img class="cancel-img" src="./assets/img/cancel.png"></div>
+                                        <div class="cancel-text">Cancel</div>
+                                        <div class="cancel-hover" id="cancel-hover">
+                                            <img class="cancel-img-black" src="./assets/img/cancel.png">
+                                        </div>
+                                    </div>
                                 </button>
                                 <button type="submit" class="createButton" onclick="createContact(event)">
                                     <div class="create-button-div">
@@ -262,8 +284,10 @@ function generate_contactsHtml(){
             </div>
         </div>
     </div>
+    </div>
 
     <!--edit contact popup-->
+    <div class="editContactBackground d-none" id="editContactBackground">
     <div class="editContactPopup d-none" id="editContact">
         <div class="editContactMain">
             <div class="editContactLeft">
@@ -283,6 +307,7 @@ function generate_contactsHtml(){
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <div class="contacts-content">
