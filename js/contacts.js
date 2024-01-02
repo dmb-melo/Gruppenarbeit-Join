@@ -74,6 +74,8 @@ function showCard(i, firstname, surname){
     document.getElementById('addContact').classList.add('d-none');
     document.getElementById('addContactBackground').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
+    document.getElementById('contactCard').classList.add('slide-left');
+
     let name = document.getElementById('nameCard').innerHTML = `${contacts[i][0]}`;
     let email = document.getElementById('emailCard').innerHTML = `<div class="head-info"> Email </div><div class="main-info-mail">${contacts[i][1]}</div>`;
     let phone = document.getElementById('phoneCard').innerHTML = `<div class="head-info"> Phone </div><div class="main-info"> ${contacts[i][2]}</div>`;
@@ -100,11 +102,33 @@ function showCard(i, firstname, surname){
     </div>`;
 }
 
-
 function closeAddContact(){
+    document.getElementById('addContact').classList.remove('slide-left');
+    //document.getElementById('addContact').classList.add('slide-right');
     document.getElementById('addContact').classList.add('d-none');
     document.getElementById('addContactBackground').classList.add('d-none');
-}
+}/*
+function closeAddContact() {
+    let addContactElement = document.getElementById('addContact');
+
+    // Füge die slide-right-Klasse hinzu
+    addContactElement.classList.add('slide-right');
+
+    // Entferne die slide-left-Klasse
+    addContactElement.classList.remove('slide-left');
+
+    // Warte auf das Ende der Animation
+    addContactElement.addEventListener('animationend', function () {
+        // Füge d-none und entferne slide-right, sobald die Animation abgeschlossen ist
+        addContactElement.classList.add('d-none');
+        addContactElement.classList.remove('slide-right');
+    });
+
+    // Verstecke das Hintergrundelement
+    document.getElementById('addContactBackground').classList.add('d-none');
+}*/
+
+
 
 function createContact(event) {
     event.preventDefault();
@@ -158,11 +182,11 @@ function hideSuccessMessage() {
     successDiv.classList.remove('show');
 }
 
-
 function addNewContact(){
     document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('addContact').classList.remove('d-none');
     document.getElementById('addContactBackground').classList.remove('d-none');
+    document.getElementById('addContact').classList.add('slide-left');
     resetSelectedContact();
 }
 
@@ -170,6 +194,7 @@ function editContact(i){
     document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('editContact').classList.remove('d-none');
     document.getElementById('editContactBackground').classList.remove('d-none');
+    document.getElementById('editContact').classList.add('slide-left');
     document.getElementById('editInput').innerHTML = `
         <div class="inputFieldName">
             <input class="inputField" type="text" id="userNameEdit"> 
@@ -264,11 +289,11 @@ function generate_contactsHtml(){
             </div>
             <div class="addContactRight">
                     <div class="formDiv">
-                        <form id="addContactForm">
+                        <form id="addContactForm" name="myForm">
                             <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()"></div>
                             <div class="input">
                                 <div class="inputFieldName">
-                                    <input class="inputField" minlength="5" pattern="^[A-Za-z]+\s[A-Za-z]+$" required id="1" type="text" placeholder="Name"> 
+                                    <input class="inputField" minlength="5" required id="1" type="text" placeholder="Name"> 
                                     <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
                                 </div>
                                 <div class="inputFieldName">
@@ -316,7 +341,7 @@ function generate_contactsHtml(){
             </div>
             <div class="editContactRight">
                 <div class="formDiv">
-                    <form id="editContactForm">
+                    <form id="editContactForm" name="myFormEdit">
                         <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeEditContact()"></div>
                         <div class="input" id="editInput"></div>
                     </form>

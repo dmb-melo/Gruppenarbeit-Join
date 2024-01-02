@@ -505,3 +505,38 @@ hr{
 .success.show {
     right: 500px;
 }
+
+.slide-left {
+    animation: slide-left 0.5s linear both;
+ }
+ 
+ @keyframes slide-left {
+    0% {
+       transform: translateX(400px);
+       -webkit-transform: translateX(400px); /* Für Webkit-basierte Browser */
+       -moz-transform: translateX(400px); /* Für Firefox */
+    }
+    100% {
+       transform: translateX(0px);
+       -webkit-transform: translateX(0px); /* Für Webkit-basierte Browser */
+       -moz-transform: translateX(0px); /* Für Firefox */
+    }
+ }
+ 
+
+ .slide-right {
+    animation: slide-right 0.5s ease-in-out both;
+ }
+ 
+ @keyframes slide-right {
+    0% {
+       transform: translateX(0px);
+       -webkit-transform: translateX(0px); /* Für Webkit-basierte Browser */
+       -moz-transform: translateX(0px); /* Für Firefox */
+    }
+    100% {
+       transform: translateX(400px);
+       -webkit-transform: translateX(400px); /* Für Webkit-basierte Browser */
+       -moz-transform: translateX(400px); /* Für Firefox */
+    }
+ }
