@@ -8,7 +8,7 @@ body{
 }
 
 .box-sizingResponsiv {
-   visibility: hidden;
+   /* visibility: hidden; */
     display: flex;
     align-items: center;
     width: 100%;
