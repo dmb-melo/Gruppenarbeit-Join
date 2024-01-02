@@ -14,6 +14,11 @@
         width: 357px;         
     }
 
+    .contentTask{
+        overflow: scroll !important;
+        max-height: 100vh !important;
+    }
+
    .textContainer_addTask{
         font-size: 47px; 
         margin-left: 20px;   
@@ -150,6 +155,7 @@
         margin-left: 0;
         padding: 15px;
         width: 360px;
+        margin-bottom: 8px;
    } 
 
    .secondary{
@@ -179,6 +185,11 @@
     .priority, .inputLeft_addTask,.contactAvatar, .priority,
     .dueDate{
         width: 518px;
+    }
+
+    .contentTask{
+        overflow: scroll !important;
+        max-height: 100vh !important;
     }
 
     .textContainer_addTask{
@@ -301,7 +312,8 @@
         padding: 10px 21px;       
     }   
    
-   .addTasksFooter{       
+   .addTasksFooter{ 
+    margin-bottom: 25px;      
         margin-left: 20px;
         width: 520px;
    }
@@ -322,6 +334,10 @@
     .frame17,.asignedTo_v1, .underListContact, .frame211, 
     .priority.inputLeft_addTask,.contactAvatar, .dueDate{
         width: 710px;
+    }
+    .contentTask{
+        overflow: scroll !important;
+        max-height: 990px !important;
     }
 
     .textContainer_addTask{
@@ -443,7 +459,8 @@
         padding: 10px 21px;       
     }   
    
-   .addTasksFooter{       
+   .addTasksFooter{  
+    margin-bottom: 5px;    
         margin-left: 25px;
         width: 710px;
    }
@@ -451,8 +468,16 @@
 
 @media(min-width: 781px) and (max-width: 900px){
 
+    .contentTask{
+        overflow: scroll !important;
+        max-height: 990px !important;
+        margin-top: 63px;
+    }
+
+
     .textContainer_addTask{
-        margin-left: 280px;  
+        margin-left: 280px; 
+        margin-top: 80px; 
     }
 
     .group66_addTask{
@@ -471,6 +496,7 @@
     }
 
     .addTasksFooter{ 
+        margin-bottom: 40px;
         margin-left: 250px;
         width: 480px;
    }
@@ -495,8 +521,6 @@
     height: 36px;
     width: 36px;
 }
-
-
 }
 
 
