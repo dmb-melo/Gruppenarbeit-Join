@@ -30,6 +30,8 @@ hr{
     justify-content: center;
 }
 .contact-list{
+    margin-left: 280px;
+    margin-top: 100px;
     width: 30%;
     height: 100vh;
     -webkit-box-shadow: 3px 0px 4px -4px rgba(77,77,77,0.53);
@@ -37,6 +39,7 @@ hr{
     box-shadow: 3px 0px 4px -4px rgba(77,77,77,0.53);
 }
 .contact-details{
+    margin-top: 120px;
     width: 60%;
     height: 100vh;
     background-color: #F6F7F8;
