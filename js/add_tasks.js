@@ -207,7 +207,7 @@ function addTask() {
     clearPrioActiveClass();
     taskSuccess();      
     updateSubtasksDisplay();
-    saveTasksUser();
+    // saveTasksUser();
 }
 
 function clearTask() {

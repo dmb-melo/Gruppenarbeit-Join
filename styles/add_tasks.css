@@ -281,8 +281,8 @@ display: block; /* Show the hover image when the container is being hovered */
 
 .circle{
     border-radius: 45px;
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;    
