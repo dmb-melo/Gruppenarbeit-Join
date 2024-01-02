@@ -11,6 +11,7 @@ h2{
 }
 h3{
     font-size: 24px;
+    font-weight: 300;
 }
 hr{
     margin-right: 32px;
@@ -451,6 +452,7 @@ hr{
 .editButtons{
     display: flex;
     flex-direction: row;
+    font-size: 15px;
 }
 .save-button-div{
     display: flex;
@@ -486,25 +488,20 @@ hr{
 .cancel-text{
     font-size: 15px;
 }
-.success{
-    background-color: #293647;
-    padding: 23px;
+.success {
+    display: block !important;
     position: fixed;
-    left: 570px;
-    bottom: 150px;
-    color: white;
+    bottom: 50px;
     border-radius: 12px;
-    animation-duration: 3s;
-    animation-name: slideSuccess;
-    animation-direction: alternate-reverse;
-    animation-iteration-count: 2;
+    width: 250px;
+    right: -200%;
+
+    background-color: #293647;
+    color: white;
+    text-align: center;
+    padding: 23px;
+    transition: right 0.5s ease-in-out;
 }
-@keyframes slideSuccess {
-    0% {
-        margin-left: 0%;
-    }
-    100% {
-        margin-left: 100%;
-        display: none;
-    }
+.success.show {
+    right: 500px;
 }

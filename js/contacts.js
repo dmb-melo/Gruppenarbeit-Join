@@ -117,6 +117,13 @@ function createContact(event) {
         alert("Please fill out all fields before creating a contact.");
         return;
     }
+    // Überprüfen Sie die Validität des Musters für den Namen
+    let namePattern = /^[A-Za-z]+\s[A-Za-z]+$/;
+    if (!namePattern.test(userName)) {
+        alert("Please enter a valid name (first name and last name).");
+        userNameInput.focus();
+        return;
+    }
 
     let newContact = [userName, userEmail, userPhone];
     contacts.push(newContact);
@@ -134,8 +141,23 @@ function createContact(event) {
 
     // Wähle den neu hinzugefügten Kontakt aus
     selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
-    document.getElementById('success').classList.remove('d-none');
+    //document.getElementById('success').classList.remove('d-none');
+    showSuccessMessage();
 }
+function showSuccessMessage() {
+    let successDiv = document.getElementById('success');
+    successDiv.classList.add('show');
+
+    setTimeout(() => {
+        hideSuccessMessage();
+    }, 3000);
+}
+
+function hideSuccessMessage() {
+    let successDiv = document.getElementById('success');
+    successDiv.classList.remove('show');
+}
+
 
 function addNewContact(){
     document.getElementById('contactCard').classList.add('d-none');
@@ -246,7 +268,7 @@ function generate_contactsHtml(){
                             <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()"></div>
                             <div class="input">
                                 <div class="inputFieldName">
-                                    <input class="inputField" minlength="5" required id="1" type="text" placeholder="Name"> 
+                                    <input class="inputField" minlength="5" pattern="^[A-Za-z]+\s[A-Za-z]+$" required id="1" type="text" placeholder="Name"> 
                                     <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
                                 </div>
                                 <div class="inputFieldName">
