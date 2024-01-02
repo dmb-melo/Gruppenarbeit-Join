@@ -49,11 +49,10 @@ function renderTask() {
         let contactElement = document.createElement('li');
         contactElement.classList.add('contactList');
         contactElement.innerHTML = `
-            <div class="circleAvatar">
-                <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}">
-                    <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-                </div>
-            </div>
+        
+        <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
+            <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+        </div>                
             <div class="custom-checkbox">            
                 <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}"></input>                       
                 <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
@@ -131,8 +130,8 @@ function displayAvatar(selectedContacts, contacts, colors) {
 
         // Create the avatar element for the selected contact
         let currentContactContent = `
-            <div class="circleAvatar">
-                <div class="circle" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+            <div>
+                <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                     <p class="nameIdList" id="name-id">${firstname}${surname}</p>
                 </div>
             </div>
