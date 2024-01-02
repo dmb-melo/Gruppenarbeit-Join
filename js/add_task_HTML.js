@@ -76,9 +76,7 @@ function generate_addTask(){
                 <div class="frame211" onclick="required(this)">
                 
                         <div class="dueDate_frame14">
-                            <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" > 
-                            <!-- https://codepen.io/raindahl/pen/vzBXgV -->
-                            
+                            <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" >  
                         </div>
                         <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
                 
@@ -89,7 +87,6 @@ function generate_addTask(){
                 <div class="titlePrio">Prio</div>
                 <div class="priority">
                     <div class="priorityUrgent"  onclick="changeColour('priorityUrgent')" id ="priorityUrgent">
-
                 
                         <div class="textUrgent" id="textUrgent">Urgent</div>
                     

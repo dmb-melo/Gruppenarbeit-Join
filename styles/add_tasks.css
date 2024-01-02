@@ -275,22 +275,27 @@ display: block; /* Show the hover image when the container is being hovered */
     display: none; /* Hide the normal image when the container is being hovered */
 }
 
-.circle{
+.circleAvatar{
     border-radius: 45px;
-    width: 36px;
-    height: 36px;
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
+    width: 42px;
+    height: 42px;
     color: white;
+    font-size: 24px;
     border: solid;  
+    font-family: "Inter", sans-serif; 
+
+}
+
+.nameIdList{
+    margin-top: 0;
+    color: white;
+    font-size: 20px;
     font-family: "Inter", sans-serif; 
 }
 
-.circleAvatar{
-    width: 42px;
-    height: 42px;
-}
 
 .contactAvatar{
     display: flex;
@@ -989,7 +994,7 @@ line-height: 120%; /* 24px */
     border-radius: 10px;
     background: var(--white, #FFF); 
     z-index: 1;
-    max-height: 112px;   
+    max-height: 130px;   
     width: 435px;
     overflow: auto;
 }
@@ -1092,10 +1097,10 @@ line-height: 120%; /* 24px */
 
 .contactList{
     display: flex;
-    gap:8px;
+    gap: 8px;
     align-items: center;   
     border-radius: 10px; 
-    height:42px;
+    height: 49px;
     padding: 7px 16px;
 }
 
@@ -1247,3 +1252,4 @@ line-height: 120%; /* 24px */
 .d-none{
     display: none;
 }
+
