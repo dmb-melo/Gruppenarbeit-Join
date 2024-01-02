@@ -1,6 +1,14 @@
 
 @media(max-width: 397px){
 
+    .box-sizing{
+       visibility: hidden;
+    }
+
+    .box-sizingResponsiv {
+        visibility: visible;
+    }
+
     .span, .nameContact,.nameContact, .text_DueDate,
     .inputDate, .titlePrio, .inputDate,  .textCategory,
     .categoryFrame74, .comment, .textSubtasks, 
