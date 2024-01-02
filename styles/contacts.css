@@ -56,6 +56,8 @@ hr{
     width: 90%;
     margin-bottom: 24px;
     height: 42px;
+    font-size: 15px;
+    font-weight: 600;
 }
 .addContactBackground{
     position: fixed;
@@ -105,11 +107,12 @@ hr{
 .add-contact-main{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 .add-contact-image{
     height: 24px;
+    margin-left: 24px;
 }
 .contact-details-headline{
     display: flex;
@@ -145,6 +148,7 @@ hr{
     margin-left: 60px;
 }
 .contact-info{
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,7 +158,7 @@ hr{
     margin-bottom: 12px;
 }
 .contact-info:hover{
-    background-color: #F6F7F8;
+    background-color: rgba(128, 128, 128, 0.097);
 }
 .contact-info-right{
     display: flex;
