@@ -3,15 +3,11 @@ body{
     background-color: rgb(246, 248, 246);   
 }
 
-.task{
-    background-color: #A8A8A8;
-}
-
 
 .textContainer_addTask{
     width: 278px;
     height: 73px;
-    margin-top: 155px;
+    margin-top: 136px;
     margin-left: 328px;
 }
 
