@@ -14,7 +14,10 @@ const colors = ['#9227FE', '#3BDBC7', '#FD81FF', '#FFBB2A', '#6E52FF', '#169857'
 let selectedContactIndex = null;
 
 async function renderContacts() {
-    contacts.sort();
+    contacts.sort(function(a, b) {
+        return a[0].localeCompare(b[0]);
+    });
+    //contacts.sort();  ///////////////////
     showContacts();
 }
 
@@ -91,16 +94,45 @@ function showCard(i, firstname, surname){
     document.getElementById('textCard').classList.remove('d-none');
     document.getElementById('circleCard').classList.remove('d-none');
 
-    document.getElementById('buttonsCard').innerHTML = `                            
+    /*document.getElementById('buttonsCard').innerHTML = `                            
     <div class="editCard" id="editCard" onclick="editContact(${i})">
         <img class="logo-mini" src="./assets/img/edit_contacts.png">
-        Edit
+        <img class="logo-mini-hover" src="./assets/img/edit2.png">
+        <span>Edit</span>
     </div>
     <div class="deleteCard" id="deleteCard" onclick="deleteContact(event, ${i})">
         <img class="logo-mini" src="./assets/img/delete_contacts.png">
         Delete  
+    </div>`;*/
+    document.getElementById('buttonsCard').innerHTML = `
+    <div class="editCard" id="editCard" onclick="editContact(${i})"
+        onmouseover="hoverEdit(this, true)" onmouseout="hoverEdit(this, false)">
+        <img class="logo-mini" src="./assets/img/edit_contacts.png">
+        <img class="logo-mini-hover" src="./assets/img/edit2.png">
+        <span class="textEdit">Edit</span>
+    </div>
+    <div class="deleteCard" id="deleteCard" onclick="deleteContact(event, ${i})"
+        onmouseover="hoverEdit(this, true)" onmouseout="hoverEdit(this, false)">
+        <img class="logo-mini" src="./assets/img/delete_contacts.png">
+        <img class="logo-mini-hover" src="./assets/img/delete.png">
+        <span class="textEdit">Delete</span>
     </div>`;
 }
+function hoverEdit(element, isHover) {
+    const logoMini = element.querySelector('.logo-mini');
+    const logoMiniHover = element.querySelector('.logo-mini-hover');
+
+    if (isHover) {
+        logoMini.style.display = 'none';
+        logoMiniHover.style.display = 'inline';
+    } else {
+        logoMini.style.display = 'inline';
+        logoMiniHover.style.display = 'none';
+    }
+}
+
+
+
 
 function closeAddContact(){
     document.getElementById('addContact').classList.remove('slide-left');
@@ -119,6 +151,7 @@ function createContact(event) {
         alert("Please fill out all fields before creating a contact.");
         return;
     }
+
     // Überprüfen Sie die Validität des Musters für den Namen
     let namePattern = /^[A-Za-z]+\s[A-Za-z]+$/;
     if (!namePattern.test(userName)) {
@@ -128,10 +161,14 @@ function createContact(event) {
     }
 
     let newContact = [userName, userEmail, userPhone];
+
+    // Füge den neuen Kontakt am Ende hinzu
     contacts.push(newContact);
-    contacts.sort(); 
-    
-    let newIndex = contacts.findIndex(contact => contact === newContact);
+
+    // Sortiere die Kontakte nach dem Hinzufügen des neuen Kontakts
+    contacts.sort(function(a, b) {
+        return a[0].localeCompare(b[0]);
+    });
 
     renderContacts();
     closeAddContact();
@@ -142,6 +179,7 @@ function createContact(event) {
     document.getElementById('3').value = '';
 
     // Wähle den neu hinzugefügten Kontakt aus
+    let newIndex = contacts.findIndex(contact => contact === newContact);
     selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
     showSuccessMessage();
 }

@@ -362,15 +362,43 @@ hr{
     margin-left: 40px;
     width: 50px;
 }
-.deleteCard{
-    cursor: pointer;
-    display: flex;
-}
-.editCard{
+.editCard {
+    position: relative;
     cursor: pointer;
     margin-right: 18px;
-    display: flex;
-}
+    align-items: center;
+  }
+  .logo-mini{
+    width: 20px; 
+    height: 20px; 
+    margin-bottom: -4px;
+  }
+  .logo-mini-hover {
+    width: 20px; 
+    height: 20px; 
+    margin-right: 6px;
+    margin-bottom: -4px;
+  }
+  .logo-mini-hover {
+    display: none; 
+  }
+  .editCard:hover{
+    color: #2AAAE2;
+    font-weight: 500;
+  }
+  .textEdit{
+    margin-bottom: 6px;
+  }
+  .deleteCard {
+    position: relative;
+    cursor: pointer;
+    margin-right: 18px;
+    align-items: center;
+  }
+  .deleteCard:hover{
+    color: #2AAAE2;
+    font-weight: 500;
+  }
 .group-header{
     margin-left: 36px;
 }
