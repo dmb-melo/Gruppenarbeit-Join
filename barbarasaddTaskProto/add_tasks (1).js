@@ -87,7 +87,7 @@ for (let i = 0; i < title.length; i++){
         let currentCategory = category[i];
         let currentSubTasks = subT[i];
     // Convert currentCategory to a class name without spaces
-    let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
+    let  = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
             noteElement.classList.add('cardA');
             noteElement.innerHTML = `
                 <div class="categoryCard">
