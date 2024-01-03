@@ -108,7 +108,7 @@ header {
   }
 }
 
-@media (max-width: 397px) {
+@media (max-width: 1000px) {
   header {
     height: 80px;
   }
@@ -127,7 +127,7 @@ header {
   }
 }
 
-@media (min-width: 397px) {
+@media (min-width: 1000px) {
   .join-logo-header {
     display: none;
   }
