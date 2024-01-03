@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
 }
@@ -57,11 +56,11 @@ body {
 }
 
 .second-headline-legal-help-privacy {
-    color: rgba(0, 0, 0, 1);
-    font-family: "Inter", sans-serif;
-    font-size: 27px;
-    font-weight: 700;
-    padding-bottom: 24px;
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inter", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  padding-bottom: 24px;
 }
 
 .text {
@@ -103,4 +102,49 @@ body {
   margin-bottom: 24px;
 }
 
+.h3-font-weight {
+  font-weight: 700;
+}
 
+@media (max-width: 1000px) {
+  .close-arrow-container {
+    right: 48px;
+  }
+}
+
+@media (max-width: 397px) {
+  .content-container {
+    margin-top: 128px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .close-arrow-container {
+    top: 128px;
+    right: 16px;
+  }
+
+  .headline-legal-help-privacy {
+    font-size: 34px !important;
+  }
+
+  h1 {
+    font-size: 24px !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}

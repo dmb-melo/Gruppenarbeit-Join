@@ -2,7 +2,6 @@
   margin: 0;
 }
 
-
 header {
   height: 96px;
   width: 100%;
@@ -11,9 +10,16 @@ header {
   top: 0;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.join-logo-header {
+  position: absolute;
+  left: 20px;
+  height: 39px;
+  width: 32px;
 }
 
 .headline-header {
@@ -41,7 +47,7 @@ header {
 }
 
 .user-profil-initials:hover {
-  background-color: #0C2E621F;
+  background-color: #0c2e621f;
   border-radius: 100%;
 }
 
@@ -55,7 +61,7 @@ header {
   align-items: center;
   border-radius: 20px 0px 20px 20px;
   background-color: #2a3647;
-  color: #A8A8A8;
+  color: #a8a8a8;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
   width: 150px;
   height: 158px;
@@ -71,7 +77,7 @@ header {
 .submenu-text {
   display: flex;
   text-decoration: none;
-  color: #A8A8A8;
+  color: #a8a8a8;
   width: 130px;
   padding-left: 16px;
   padding-right: 8px;
@@ -88,4 +94,41 @@ header {
 
 .d-none {
   display: none;
+}
+
+@media (max-width: 800px) {
+  .headline-header {
+    display: none;
+  }
+
+  .user-profil-initials-container {
+    position: absolute;
+    right: 20px;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 397px) {
+  header {
+    height: 80px;
+  }
+
+  .user-profil-question-mark {
+    display: none;
+  }
+
+  .submenu-container {
+    top: 80px;
+  }
+
+  .user-profil-initials {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media (min-width: 397px) {
+  .join-logo-header {
+    display: none;
+  }
 }
