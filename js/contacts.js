@@ -94,16 +94,6 @@ function showCard(i, firstname, surname){
     document.getElementById('textCard').classList.remove('d-none');
     document.getElementById('circleCard').classList.remove('d-none');
 
-    /*document.getElementById('buttonsCard').innerHTML = `                            
-    <div class="editCard" id="editCard" onclick="editContact(${i})">
-        <img class="logo-mini" src="./assets/img/edit_contacts.png">
-        <img class="logo-mini-hover" src="./assets/img/edit2.png">
-        <span>Edit</span>
-    </div>
-    <div class="deleteCard" id="deleteCard" onclick="deleteContact(event, ${i})">
-        <img class="logo-mini" src="./assets/img/delete_contacts.png">
-        Delete  
-    </div>`;*/
     document.getElementById('buttonsCard').innerHTML = `
     <div class="editCard" id="editCard" onclick="editContact(${i})"
         onmouseover="hoverEdit(this, true)" onmouseout="hoverEdit(this, false)">
@@ -118,6 +108,7 @@ function showCard(i, firstname, surname){
         <span class="textEdit">Delete</span>
     </div>`;
 }
+
 function hoverEdit(element, isHover) {
     const logoMini = element.querySelector('.logo-mini');
     const logoMiniHover = element.querySelector('.logo-mini-hover');
@@ -131,13 +122,17 @@ function hoverEdit(element, isHover) {
     }
 }
 
+function hoverCancel(element, isHover) {
+    const cancelImgBlack = element.querySelector('.cancel-img-black');
+    const cancelImgBlue = element.querySelector('.cancel-img-blue');
 
-
-
-function closeAddContact(){
-    document.getElementById('addContact').classList.remove('slide-left');
-    document.getElementById('addContact').classList.add('d-none');
-    document.getElementById('addContactBackground').classList.add('d-none');
+    if (isHover) {
+        cancelImgBlack.style.display = 'none';
+        cancelImgBlue.style.display = 'inline';
+    } else {
+        cancelImgBlack.style.display = 'inline';
+        cancelImgBlue.style.display = 'none';
+    }
 }
 
 function createContact(event) {
@@ -276,17 +271,13 @@ function closeEditContact(){
     document.getElementById('editContactBackground').classList.add('d-none');
 }
 
-/*
-document.getElementById('cancel-hover').onmouseover = function (){mouseOver()};
-document.getElementById('cancel-hover').onmouseout = function (){mouseOut()};
+function closeAddContact(){
+    //document.getElementById('addContact').classList.remove('slide-left');
+    document.getElementById('addContact').classList.add('d-none');
+    document.getElementById('contactCard').classList.remove('d-none');
+    document.getElementById('addContactBackground').classList.add('d-none');
+}
 
-function mouseOver(){
-    document.getElementById('cancel-hover').innerHTML = `<img class="cancel-img-blue" src="./assets/img/iconoir_cancel-2.png">`;
-}
-function mouseOut(){
-    document.getElementById('cancel-hover').innerHTML = `<img class="cancel-img-black" src="./assets/img/cancel.png">`;
-}
-*/
 function generate_contactsHtml(){
     return `
     <div class="addContactBackground d-none" id="addContactBackground">
@@ -306,7 +297,9 @@ function generate_contactsHtml(){
             <div class="addContactRight">
                     <div class="formDiv">
                         <form id="addContactForm" name="myForm">
-                            <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()"></div>
+                            <div class="close-img-div">
+                                <img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()">
+                            </div>
                             <div class="input">
                                 <div class="inputFieldName">
                                     <input class="inputField" id="1" type="text" placeholder="Name"> 
@@ -321,13 +314,12 @@ function generate_contactsHtml(){
                                     <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
                                 </div>
                             </div>
-                            <div class="editButtons">
+                            <div class="editButtons" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
                                 <button class="closeButton" onclick="closeAddContact()">
                                     <div class="cancel-button-div">
-                                        <div class="cancel-text">Cancel</div>
-                                        <div class="cancel-hover" id="cancel-hover">
-                                            <img class="cancel-img-black" src="./assets/img/cancel.png">
-                                        </div>
+                                        <span class="cancel-text">Cancel</span>
+                                        <img class="cancel-img-black" src="./assets/img/cancel.png">
+                                        <img class="cancel-img-blue" src="./assets/img/iconoir_cancel-2.png">
                                     </div>
                                 </button>
                                 <button type="submit" class="createButton" onclick="createContact(event)">
