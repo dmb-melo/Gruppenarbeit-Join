@@ -10,6 +10,7 @@ let subtasks = [];
 let subT = [];
 let tasks = [];
 let priorityContentArray = []; 
+let currentId = 0;  
 
 
 let selectedPriorityContent = '';
@@ -196,14 +197,24 @@ function addTask() {
     
     
     priorityContentArray.unshift(priorityContent); // Store the priorityContent in the array
+    currentId++;
+    
+    // Erstelle einen neuen Task mit einer leeren subtasks-Liste
     let newTask = {
-          subtasks: subtasks.slice() // Store a copy of subtasks in newTask
+        'id': currentId,
+        'title': titleValue,
+        'description': descriptionValue,
+        'dueDate': dueDateValue,
+        'assigned': assigned,
+        'priorityContent': priorityContent,
+        'priorityID': selectedPriorityID,
+        'subtasks': subtasks.slice()
     };
     
     subT.unshift(subtasks.slice()); // Store a copy of subtasks in subT
     tasks.unshift(newTask); // Store the task object in the tasks array
     
-   
+    
     localStorage.setItem('selectedPriorityContent', priorityContent);
     document.getElementById('categorySelect').textContent = 'Select a task category';
     subtasks = []; // Reset subtasks array to empty
@@ -245,6 +256,7 @@ function clearTask() {
 }
 
 function save() {
+    localStorage.setItem('currentId', JSON.stringify(currentId));
     localStorage.setItem('title', JSON.stringify(title));
     localStorage.setItem('description', JSON.stringify(description));
     localStorage.setItem('assigned', JSON.stringify(assigned));
@@ -257,6 +269,7 @@ function save() {
 }                                
   
 function load() {
+    let idAsText = localStorage.getItem('currentId');
     let titleAsText = localStorage.getItem('title');
     let descriptionAsText = localStorage.getItem('description');
     let assignedAsText = localStorage.getItem('assigned');
@@ -267,7 +280,8 @@ function load() {
     let categoryAsText = localStorage.getItem('category');
     let subTAsText = localStorage.getItem('subT');
     
-    if (titleAsText && descriptionAsText &&assignedAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
+    if (idAsText&&titleAsText && descriptionAsText &&assignedAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
+        currentId = JSON.parse(idAsText);
         title = JSON.parse(titleAsText);
         description = JSON.parse(descriptionAsText);
         assigned =JSON.parse(assignedAsText);
@@ -564,18 +578,25 @@ function hideVectorAndImgCheck(){
 
 //task_success
 
-function handleTaskClick(event) {
+async function handleTaskClick(event) {
     // Prevent the default behavior of the anchor tag
     event.preventDefault();
 
     // Call addTask function which triggers taskSuccess
-    addTask();
+    await addTask(); // Hier await hinzugefügt
 
     // Redirect to the board page after a delay (e.g., 1500 milliseconds)
-    setTimeout(function () {
-        window.location.href = "./board.html";
+    setTimeout(async function () {
+        await renderBoardHTML(); // Hier await hinzugefügt
     }, 1500);
 }
+
+async function renderBoardHTML() {
+    document.getElementById('contentJoin').innerHTML = await generateBoardHTML();
+    await boardInit();
+    window.location.href = "./board.html";
+}
+
 
 function taskSuccess(){
     const success = document. getElementById('task_succes');
