@@ -20,7 +20,7 @@
   .comment,
   .textSubtasks,
   .textAddSubtasks,
-  .description {
+  .description, .asignedTo {
     font-size: 16px;
   }
 
@@ -45,14 +45,15 @@
 
   .textContainer_addTask {
     font-size: 47px;
-    margin-left: 20px;
+    margin-left: 8px;
+    width: 357px;
+   
   }
 
   .group66_addTask {
     max-width: 367px;
     gap: 8px;
-    margin-left: 0px;
-    padding: 15px;
+    margin-left: 8px;
     align-items: center;
     flex-direction: column;
   }
@@ -62,7 +63,7 @@
   }
 
   .inputRight_addTask {
-    margin-top: 44px;
+    margin-top: 80px;
     width: 357px;
   }
 
@@ -95,13 +96,13 @@
     display: none;
   }
 
-  .asignedTo {
-    font-size: 16px;
-  }
-
   .categoryFrame74 {
     width: 313px;
-    padding: 10px 21px;
+    padding: 10px 21px;    
+  }
+
+  .list{
+    height: 0px;
   }
 
   .searchContacts {
@@ -110,7 +111,12 @@
   }
 
   .underListContact {
-    margin-top: 0;
+    position: relative;
+    height: 76px;
+  }
+
+  .contactList{
+    height: 40px; 
   }
 
   .custom-checkbox {
@@ -119,15 +125,6 @@
     width: 210px;
   }
 
-  .circle {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    margin-top: 2px;
-    font-size: 16px;
-    width: 34px;
-    height: 34px;
-  }
 
   input[type="date"]::-webkit-calendar-picker-indicator {
     width: 20px;
@@ -156,8 +153,13 @@
   }
 
   .category {
-    width: 306px;
+    width: 100%;
+    position: relative;
     font-size: 16px;
+  }
+
+  .underlist{
+    position: relative;
   }
 
   .options {
@@ -176,12 +178,10 @@
     width: 325px;
   }
 
-  .addTasksFooter {
-    padding: 8px;
-    margin-left: 0;
-    padding: 15px;
+  .addTasksFooter {   
+    margin-left: 12px;
     width: 360px;
-    margin-bottom: 8px;
+    margin-bottom: 90px;
   }
 
   .secondary {
