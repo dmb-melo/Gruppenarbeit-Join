@@ -104,31 +104,9 @@ function showCard(i, firstname, surname){
 
 function closeAddContact(){
     document.getElementById('addContact').classList.remove('slide-left');
-    //document.getElementById('addContact').classList.add('slide-right');
     document.getElementById('addContact').classList.add('d-none');
     document.getElementById('addContactBackground').classList.add('d-none');
-}/*
-function closeAddContact() {
-    let addContactElement = document.getElementById('addContact');
-
-    // Füge die slide-right-Klasse hinzu
-    addContactElement.classList.add('slide-right');
-
-    // Entferne die slide-left-Klasse
-    addContactElement.classList.remove('slide-left');
-
-    // Warte auf das Ende der Animation
-    addContactElement.addEventListener('animationend', function () {
-        // Füge d-none und entferne slide-right, sobald die Animation abgeschlossen ist
-        addContactElement.classList.add('d-none');
-        addContactElement.classList.remove('slide-right');
-    });
-
-    // Verstecke das Hintergrundelement
-    document.getElementById('addContactBackground').classList.add('d-none');
-}*/
-
-
+}
 
 function createContact(event) {
     event.preventDefault();
@@ -165,9 +143,9 @@ function createContact(event) {
 
     // Wähle den neu hinzugefügten Kontakt aus
     selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
-    //document.getElementById('success').classList.remove('d-none');
     showSuccessMessage();
 }
+
 function showSuccessMessage() {
     let successDiv = document.getElementById('success');
     successDiv.classList.add('show');
@@ -293,15 +271,15 @@ function generate_contactsHtml(){
                             <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()"></div>
                             <div class="input">
                                 <div class="inputFieldName">
-                                    <input class="inputField" minlength="5" required id="1" type="text" placeholder="Name"> 
+                                    <input class="inputField" id="1" type="text" placeholder="Name"> 
                                     <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
                                 </div>
                                 <div class="inputFieldName">
-                                    <input class="inputField" minlength="5" required id="2" type="email"placeholder="Email"> 
+                                    <input class="inputField" id="2" type="email"placeholder="Email"> 
                                     <img class="logo-edit-input" src="./assets/img/mail_add_contact.png">
                                 </div>
                                 <div class="inputFieldName">
-                                    <input class="inputField" minlength="5" required id="3" type="tel" placeholder="Phone"> 
+                                    <input class="inputField" id="3" type="tel" placeholder="Phone"> 
                                     <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
                                 </div>
                             </div>
@@ -387,7 +365,5 @@ function generate_contactsHtml(){
         <div class="success d-none" id="success">Contact successfully created</div>
         </div>
     </div>
-
     `;
-
 }
