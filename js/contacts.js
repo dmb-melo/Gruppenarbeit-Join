@@ -40,7 +40,7 @@ async function setItemContacts(key, value) {
  
   async function loadContactsFromServer() {
     try {
-        contacts = JSON.parse(await getItemContacts("newContacts"));
+        contacts = JSON.parse(await getItemContacts("contacts"));
     } catch (e) {
       console.error("Loading error:", e);
     }
@@ -48,7 +48,7 @@ async function setItemContacts(key, value) {
   
   async function saveContactsToServer(newContact) {
     contacts.push(newContact);
-    await setItemContacts("newContacts", JSON.stringify(contacts));
+    await setItemContacts("contacts", JSON.stringify(contacts));
 }
 
 function getRandomIndex() {
@@ -275,7 +275,7 @@ function editContact(i){
 
 async function deleteContact(event, i){
     contacts.splice(i, 1);
-    await setItemContacts("newContacts", JSON.stringify(contacts));
+    await setItemContacts("contacts", JSON.stringify(contacts));
     renderContacts();
     document.getElementById('contactCard').classList.add('d-none');
     selectedContactIndex = null;
@@ -290,7 +290,7 @@ async function saveContact(event, i) {
         document.getElementById('userEmailEdit').value,
         document.getElementById('userPhoneEdit').value
     ];
-    console.log("????????", editedContact);
+ 
     //contacts[i] = editedContact;
     //let editContac = [contacts[i][0], contacts[i][1], contacts[i][2]];
     
