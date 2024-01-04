@@ -17,8 +17,19 @@ async function renderContacts() {
     contacts.sort(function(a, b) {
         return a[0].localeCompare(b[0]);
     });
-    //contacts.sort();  ///////////////////
+    setContactList();
+    //getContactList();
     showContacts();
+}
+
+function setContactList(){
+    let contactsAsString = JSON.stringify(contacts);
+    localStorage.setItem('allContacts', contactsAsString);
+}
+
+function getContactList(){
+    let contactsAsString = localStorage.getItem('allContacts');
+    contacts = JSON.parse(contactsAsString);
 }
 
 function showContacts() {
@@ -284,7 +295,8 @@ function generate_contactsHtml(){
     <div class="addContactPopup d-none" id="addContact">
         <div class="addContactMain">
             <div class="addContactLeft">
-                <img class="addContactLogo" src="./assets/img/logo-white.svg">
+                <img class="closeAddContact-mobile" src="./assets/img/cancel.png" onclick="closeAddContact()">
+                <img class="addContactLogo hide-mobile-600px" src="./assets/img/logo-white.svg">
                 <div class="addContactHeadline">Add contact</div>
                 <div class="addContactHeadline2">Tasks are better with a team!</div>
                 <div class="line3"></div>
@@ -314,9 +326,9 @@ function generate_contactsHtml(){
                                     <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
                                 </div>
                             </div>
-                            <div class="editButtons" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
-                                <button class="closeButton" onclick="closeAddContact()">
-                                    <div class="cancel-button-div">
+                            <div class="editButtons">
+                                <button class="closeButton" onclick="closeAddContact()" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
+                                    <div class="cancel-button-div hide-mobile-600px">
                                         <span class="cancel-text">Cancel</span>
                                         <img class="cancel-img-black" src="./assets/img/cancel.png">
                                         <img class="cancel-img-blue" src="./assets/img/iconoir_cancel-2.png">
@@ -362,7 +374,7 @@ function generate_contactsHtml(){
     <div class="contacts-content">
         <!--contact list-->
         <div class="contact-list">
-            <button class="add-contact" onclick="addNewContact()">
+            <button class="add-contact hide-mobile-600px" onclick="addNewContact()">
                 <div class="add-contact-main">
                     <div>Add new contact</div>
                     <div><img class="add-contact-image" src="./assets/img/person_add.png"></div>
@@ -372,7 +384,7 @@ function generate_contactsHtml(){
         </div>
 
         <!--contact details-->
-        <div class="contact-details">
+        <div class="contact-details hide-mobile-600px">
             <div class="contact-details-headline">
                 <h1>Contacts</h1>
                 <div class="line"></div>
@@ -393,6 +405,9 @@ function generate_contactsHtml(){
             </div>
         </div>
         <div class="success d-none" id="success">Contact successfully created</div>
+        
+        <div class="button-add-contact-mobile" onclick="addNewContact()">
+            <img class="image-add-contact-mobile" src="./assets/img/person_add.png">
         </div>
     </div>
     `;

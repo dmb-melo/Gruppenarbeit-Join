@@ -142,6 +142,9 @@ hr{
     text-align: center;
     color: white;
     border: solid 1px white;
+    display: flex;
+align-items: center;
+justify-content: center;
     
 }
 .editCircle{
@@ -562,6 +565,12 @@ hr{
 .success.show {
     right: 500px;
 }
+.button-add-contact-mobile{
+    display: none;
+}
+.closeAddContact-mobile{
+    display: none;
+}
 
 .slide-left {
     animation: slide-left 0.5s linear both;
@@ -579,21 +588,76 @@ hr{
        -moz-transform: translateX(0px); /* Für Firefox */
     }
  }
- 
 
- .slide-right {
-    animation: slide-right 0.5s ease-in-out both;
- }
- 
- @keyframes slide-right {
-    0% {
-       transform: translateX(0px);
-       -webkit-transform: translateX(0px); /* Für Webkit-basierte Browser */
-       -moz-transform: translateX(0px); /* Für Firefox */
+
+ @media(max-width: 600px){
+    .hide-mobile-600px{
+        display: none;
     }
-    100% {
-       transform: translateX(400px);
-       -webkit-transform: translateX(400px); /* Für Webkit-basierte Browser */
-       -moz-transform: translateX(400px); /* Für Firefox */
+    .contact-list{
+        width: 100%;
     }
- }
+    .button-add-contact-mobile{
+        border: 1px solid var(--Version-2-main-color, #2A3647);
+        background: var(--Version-2-main-color, #2A3647);
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        border-radius: 46px;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 12px;
+        gap: 10px;
+    }
+    .image-add-contact-mobile{
+        width: 32px;
+        height: 32px;
+    }
+    .addContactMain{
+        flex-direction: column;
+        height: 400px;
+        width: 200px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .addContactLeft{
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 0px;
+        width: 396px;
+        height: 200px;
+/*        height: 351px;*/
+        padding: 66px 24px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 12px;
+        flex-shrink: 0;
+    }
+    .closeAddContact-mobile{
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+    .addContactMiddle{
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        width: 396px;
+        height: 1px;
+    }
+    .input{
+        margin-right: 12px;
+        margin-left: 12px;
+    }
+    .addCircle{
+        position: fixed;
+        left: 60px;
+        top: 110px;
+    }
+}
