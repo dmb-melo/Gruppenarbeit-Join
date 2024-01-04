@@ -49,7 +49,13 @@ async function setItemContacts(key, value) {
   async function saveContactsToServer(newContact) {
     contacts.push(newContact);
     await setItemContacts("newContacts", JSON.stringify(contacts));
-  }
+}
+
+function getRandomIndex() {
+    let randomIndex = Math.floor(Math.random() * colors.length);
+    newColors = colors
+    return randomIndex;
+}
 
 function showContacts() {
     let contactsdiv = document.getElementById('contacts');
@@ -115,6 +121,7 @@ function showCard(i, firstname, surname){
 
     let circle = document.getElementById('circleCard'); 
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
+    
     circle.style = `background-color: ${colors[i]};`;
 
     let editCircle = document.getElementById('editCircle');
@@ -262,10 +269,13 @@ function editContact(i){
     document.getElementById('userNameEdit').value = `${contacts[i][0]}`;
     document.getElementById('userEmailEdit').value = `${contacts[i][1]}`;
     document.getElementById('userPhoneEdit').value = `${contacts[i][2]}`;
+    
+   
 }
 
-function deleteContact(event, i){
+async function deleteContact(event, i){
     contacts.splice(i, 1);
+    await setItemContacts("newContacts", JSON.stringify(contacts));
     renderContacts();
     document.getElementById('contactCard').classList.add('d-none');
     selectedContactIndex = null;
@@ -274,14 +284,18 @@ function deleteContact(event, i){
     event.preventDefault();
 }
 
-function saveContact(event, i) {
+async function saveContact(event, i) {
     let editedContact = [
         document.getElementById('userNameEdit').value,
         document.getElementById('userEmailEdit').value,
         document.getElementById('userPhoneEdit').value
     ];
-    contacts[i] = editedContact;
-    renderContacts();
+    console.log("????????", editedContact);
+    //contacts[i] = editedContact;
+    //let editContac = [contacts[i][0], contacts[i][1], contacts[i][2]];
+    
+    contacts.splice(i, 1);
+   
     closeEditContact();
     selectContact(i);
 
@@ -294,6 +308,8 @@ function saveContact(event, i) {
     let editCircle = document.getElementById('editCircle'); //undefined
     editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     event.preventDefault();
+    await saveContactsToServer(editedContact);
+    renderContacts();
 }
 
 function closeEditContact(){
