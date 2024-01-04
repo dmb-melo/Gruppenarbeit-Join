@@ -142,6 +142,9 @@ hr{
     text-align: center;
     color: white;
     border: solid 1px white;
+    display: flex;
+align-items: center;
+justify-content: center;
     
 }
 .editCircle{

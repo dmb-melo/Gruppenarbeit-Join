@@ -17,8 +17,19 @@ async function renderContacts() {
     contacts.sort(function(a, b) {
         return a[0].localeCompare(b[0]);
     });
-    //contacts.sort();  ///////////////////
+    setContactList();
+    //getContactList();
     showContacts();
+}
+
+function setContactList(){
+    let contactsAsString = JSON.stringify(contacts);
+    localStorage.setItem('allContacts', contactsAsString);
+}
+
+function getContactList(){
+    let contactsAsString = localStorage.getItem('allContacts');
+    contacts = JSON.parse(contactsAsString);
 }
 
 function showContacts() {
@@ -314,8 +325,8 @@ function generate_contactsHtml(){
                                     <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
                                 </div>
                             </div>
-                            <div class="editButtons" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
-                                <button class="closeButton" onclick="closeAddContact()">
+                            <div class="editButtons">
+                                <button class="closeButton" onclick="closeAddContact()" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
                                     <div class="cancel-button-div">
                                         <span class="cancel-text">Cancel</span>
                                         <img class="cancel-img-black" src="./assets/img/cancel.png">
