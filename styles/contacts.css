@@ -596,6 +596,7 @@ justify-content: center;
     }
     .contact-list{
         width: 100%;
+        margin-left: 30px;
     }
     .button-add-contact-mobile{
         border: 1px solid var(--Version-2-main-color, #2A3647);
@@ -629,7 +630,7 @@ justify-content: center;
         border-top-right-radius: 25px;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 0px;
-        width: 396px;
+        width: 290px;
         height: 200px;
 /*        height: 351px;*/
         padding: 66px 24px;
@@ -654,10 +655,14 @@ justify-content: center;
     .input{
         margin-right: 12px;
         margin-left: 12px;
+        margin-top: 6px;
     }
     .addCircle{
         position: fixed;
         left: 60px;
         top: 110px;
+    }
+    .addContactPopup{
+        left: 0;
     }
 }
