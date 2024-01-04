@@ -295,7 +295,8 @@ function generate_contactsHtml(){
     <div class="addContactPopup d-none" id="addContact">
         <div class="addContactMain">
             <div class="addContactLeft">
-                <img class="addContactLogo" src="./assets/img/logo-white.svg">
+                <img class="closeAddContact-mobile" src="./assets/img/cancel.png" onclick="closeAddContact()">
+                <img class="addContactLogo hide-mobile-600px" src="./assets/img/logo-white.svg">
                 <div class="addContactHeadline">Add contact</div>
                 <div class="addContactHeadline2">Tasks are better with a team!</div>
                 <div class="line3"></div>
@@ -373,7 +374,7 @@ function generate_contactsHtml(){
     <div class="contacts-content">
         <!--contact list-->
         <div class="contact-list">
-            <button class="add-contact" onclick="addNewContact()">
+            <button class="add-contact hide-mobile-600px" onclick="addNewContact()">
                 <div class="add-contact-main">
                     <div>Add new contact</div>
                     <div><img class="add-contact-image" src="./assets/img/person_add.png"></div>
@@ -383,7 +384,7 @@ function generate_contactsHtml(){
         </div>
 
         <!--contact details-->
-        <div class="contact-details">
+        <div class="contact-details hide-mobile-600px">
             <div class="contact-details-headline">
                 <h1>Contacts</h1>
                 <div class="line"></div>
@@ -404,6 +405,9 @@ function generate_contactsHtml(){
             </div>
         </div>
         <div class="success d-none" id="success">Contact successfully created</div>
+        
+        <div class="button-add-contact-mobile" onclick="addNewContact()">
+            <img class="image-add-contact-mobile" src="./assets/img/person_add.png">
         </div>
     </div>
     `;
