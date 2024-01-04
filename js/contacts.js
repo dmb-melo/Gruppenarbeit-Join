@@ -14,23 +14,42 @@ const colors = ['#9227FE', '#3BDBC7', '#FD81FF', '#FFBB2A', '#6E52FF', '#169857'
 let selectedContactIndex = null;
 
 async function renderContacts() {
+    await loadContactsFromServer();
     contacts.sort(function(a, b) {
         return a[0].localeCompare(b[0]);
     });
-    setContactList();
-    //getContactList();
     showContacts();
 }
 
-function setContactList(){
-    let contactsAsString = JSON.stringify(contacts);
-    localStorage.setItem('allContacts', contactsAsString);
-}
-
-function getContactList(){
-    let contactsAsString = localStorage.getItem('allContacts');
-    contacts = JSON.parse(contactsAsString);
-}
+async function setItemContacts(key, value) {
+    const payload = { key, value, token: STORAGE_TOKEN };
+    return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
+  }
+  
+  async function getItemContacts(key) {
+    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+    return fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.data) {
+          return res.data.value;
+        }
+        throw `Could not find data with key "${key}".`;
+      });
+  }
+ 
+  async function loadContactsFromServer() {
+    try {
+        contacts = JSON.parse(await getItemContacts("newContacts"));
+    } catch (e) {
+      console.error("Loading error:", e);
+    }
+  }
+  
+  async function saveContactsToServer(newContact) {
+    contacts.push(newContact);
+    await setItemContacts("newContacts", JSON.stringify(contacts));
+  }
 
 function showContacts() {
     let contactsdiv = document.getElementById('contacts');
@@ -146,7 +165,7 @@ function hoverCancel(element, isHover) {
     }
 }
 
-function createContact(event) {
+async function createContact(event) {
     event.preventDefault();
 
     let userName = document.getElementById('1').value;
@@ -169,7 +188,8 @@ function createContact(event) {
     let newContact = [userName, userEmail, userPhone];
 
     // Füge den neuen Kontakt am Ende hinzu
-    contacts.push(newContact);
+    //contacts.push(newContact);
+    await saveContactsToServer(newContact);
 
     // Sortiere die Kontakte nach dem Hinzufügen des neuen Kontakts
     contacts.sort(function(a, b) {
