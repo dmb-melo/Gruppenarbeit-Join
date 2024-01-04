@@ -14,22 +14,47 @@ const colors = ['#9227FE', '#3BDBC7', '#FD81FF', '#FFBB2A', '#6E52FF', '#169857'
 let selectedContactIndex = null;
 
 async function renderContacts() {
+    await loadContactsFromServer();
     contacts.sort(function(a, b) {
         return a[0].localeCompare(b[0]);
     });
-    setContactList();
-    //getContactList();
     showContacts();
 }
 
-function setContactList(){
-    let contactsAsString = JSON.stringify(contacts);
-    localStorage.setItem('allContacts', contactsAsString);
+async function setItemContacts(key, value) {
+    const payload = { key, value, token: STORAGE_TOKEN };
+    return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
+  }
+  
+  async function getItemContacts(key) {
+    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+    return fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.data) {
+          return res.data.value;
+        }
+        throw `Could not find data with key "${key}".`;
+      });
+  }
+ 
+  async function loadContactsFromServer() {
+    try {
+        contacts = JSON.parse(await getItemContacts("contacts"));
+    } catch (e) {
+      console.error("Loading error:", e);
+    }
+  }
+  
+  async function saveContactsToServer(newContact) {
+    contacts.push(newContact);
+    await setItemContacts("contacts", JSON.stringify(contacts));
 }
 
-function getContactList(){
-    let contactsAsString = localStorage.getItem('allContacts');
-    contacts = JSON.parse(contactsAsString);
+function getRandomIndex() {
+    let randomIndex = Math.floor(Math.random() * colors.length);
+    newColors = colors
+    return randomIndex;
 }
 
 function showContacts() {
@@ -96,6 +121,7 @@ function showCard(i, firstname, surname){
 
     let circle = document.getElementById('circleCard'); 
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
+    
     circle.style = `background-color: ${colors[i]};`;
 
     let editCircle = document.getElementById('editCircle');
@@ -146,7 +172,7 @@ function hoverCancel(element, isHover) {
     }
 }
 
-function createContact(event) {
+async function createContact(event) {
     event.preventDefault();
 
     let userName = document.getElementById('1').value;
@@ -169,7 +195,8 @@ function createContact(event) {
     let newContact = [userName, userEmail, userPhone];
 
     // Füge den neuen Kontakt am Ende hinzu
-    contacts.push(newContact);
+    //contacts.push(newContact);
+    await saveContactsToServer(newContact);
 
     // Sortiere die Kontakte nach dem Hinzufügen des neuen Kontakts
     contacts.sort(function(a, b) {
@@ -242,10 +269,13 @@ function editContact(i){
     document.getElementById('userNameEdit').value = `${contacts[i][0]}`;
     document.getElementById('userEmailEdit').value = `${contacts[i][1]}`;
     document.getElementById('userPhoneEdit').value = `${contacts[i][2]}`;
+    
+   
 }
 
-function deleteContact(event, i){
+async function deleteContact(event, i){
     contacts.splice(i, 1);
+    await setItemContacts("contacts", JSON.stringify(contacts));
     renderContacts();
     document.getElementById('contactCard').classList.add('d-none');
     selectedContactIndex = null;
@@ -254,14 +284,18 @@ function deleteContact(event, i){
     event.preventDefault();
 }
 
-function saveContact(event, i) {
+async function saveContact(event, i) {
     let editedContact = [
         document.getElementById('userNameEdit').value,
         document.getElementById('userEmailEdit').value,
         document.getElementById('userPhoneEdit').value
     ];
-    contacts[i] = editedContact;
-    renderContacts();
+ 
+    //contacts[i] = editedContact;
+    //let editContac = [contacts[i][0], contacts[i][1], contacts[i][2]];
+    
+    contacts.splice(i, 1);
+   
     closeEditContact();
     selectContact(i);
 
@@ -274,6 +308,8 @@ function saveContact(event, i) {
     let editCircle = document.getElementById('editCircle'); //undefined
     editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     event.preventDefault();
+    await saveContactsToServer(editedContact);
+    renderContacts();
 }
 
 function closeEditContact(){

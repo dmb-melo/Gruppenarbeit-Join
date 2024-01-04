@@ -521,35 +521,82 @@
   }
 }
 
-@media (min-width: 781px) and (max-width: 900px) {
+
+@media (min-width: 1000px) and (max-width: 1149px) {
   .contentTask {
     overflow: scroll !important;
-    max-height: 990px !important;
-    margin-top: 63px;
+    max-height: 100vh !important;
+    margin-top: 68px;
+  
+  }
+
+  .header { 
+    position: relative;
+  }
+
+  .recursor {
+    display: none;
   }
 
   .textContainer_addTask {
-    margin-left: 280px;
     margin-top: 80px;
+    margin-left: 560px;
+    background-color: antiquewhite;
   }
 
-  .group66_addTask {
-    margin-left: 0;
-    padding: 15px;
-    flex-direction: column;
+  .group66_addTask {    
+    display: flex;
     align-items: center;
+    justify-content: center;    
+    gap: 0px;
+    margin-left: 200px;  
+    flex-direction: column;
+    background-color: aqua; 
   }
+
+  .frame17{
+    position: inherit;
+  }
+
+.categoryFrame74{
+    width: 405px;
+    z-index: auto;
+    position: inherit;
+}
+
+.inputLeft_addTask{
+  display: flex;
+  /* align-items: center; */
+  height: 422px;
+  width: 80%;
+  background-color: rgb(224, 135, 18);
+}
+
+.inputLeft_addTask{
+  display: flex;
+  /* align-items: center; */
+  height: 422px;
+  width: 80%;
+  background-color: rgb(224, 135, 18);
+}
+
+.inputRight_addTask{
+  background-color: bisque;
+}
 
   .vector4 {
     display: none;
   }
 
-  .inputRight_addTask {
-    margin-top: 54px;
+
+  .list{
+    position:relative
   }
 
+
+
   .addTasksFooter {
-    margin-bottom: 40px;
+    margin-bottom: 1200px;
     margin-left: 250px;
     width: 480px;
   }
@@ -559,6 +606,172 @@
     text-wrap: wrap;
     width: 150px;
     margin-bottom: 50px;
+    margin-left: 40px;
+  }
+
+  .nameContact {
+    margin-left: 5px;
+  }
+
+  .underListContact {
+    width: 440px;
+  }
+
+  .circle {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+/* @media (min-width: 900px) and (max-width: 1149px) {
+  .contentTask {
+    overflow: scroll !important;
+    max-height: 100vh !important;
+    margin-top: 68px;
+  
+  }
+
+  .header { 
+    position: relative;
+  }
+
+  .recursor {
+    display: none;
+  }
+
+  .textContainer_addTask {
+    margin-top: 80px;
+    margin-left: 260px;
+  }
+
+  .group66_addTask {    
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-left: 235px;  
+  }
+
+  .frame17{
+    position: inherit;
+  }
+
+.categoryFrame74{
+  width: 405px;
+    z-index: auto;
+    position: inherit;
+}
+
+.inputLeft_addTask{
+  display: flex;
+  align-items: center;
+  height: 422px;
+}
+
+.list{
+    position: relative;
+  }
+
+  .addTasksFooter {
+    margin-bottom: 1200px;
+    margin-left: 250px;
+    width: 77%;
+  }
+
+  .comment {
+    display: flex;
+    width: 250px;  
+    margin-left: 40px;
+  }
+
+  .nameContact {
+    margin-left: 5px;
+  }
+
+  .underListContact {
+    width: 440px;
+  }
+
+  .circle {
+    height: 36px;
+    width: 36px;
+  }
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1150px) and (max-width: 1300px) {
+  .contentTask {
+    overflow: scroll !important;
+    max-height: 100vh !important;
+    margin-top: 68px;
+  
+  }
+
+  .header { 
+    position: relative;
+  }
+
+  .recursor {
+    display: none;
+  }
+
+  .textContainer_addTask {
+    margin-top: 80px;
+    margin-left: 260px;
+  }
+
+  .group66_addTask {    
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-left: 235px;  
+  }
+
+  .frame17{
+    position: inherit;
+  }
+
+.categoryFrame74{
+  width: 405px;
+    z-index: auto;
+    position: inherit;
+}
+
+.inputLeft_addTask{
+  display: flex;
+  align-items: center;
+  height: 422px;
+}
+
+.list{
+    position: relative;
+  }
+
+  .addTasksFooter {
+    margin-bottom: 1200px;
+    margin-left: 250px;
+    width: 77%;
+  }
+
+  .comment {
+    display: flex;
+    width: 250px;  
     margin-left: 40px;
   }
 
