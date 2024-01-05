@@ -572,6 +572,7 @@ justify-content: center;
     display: none;
 }
 
+
 .slide-left {
     animation: slide-left 0.5s linear both;
  }
@@ -676,9 +677,13 @@ justify-content: center;
         width: 368px;
     }
     .closeAddContact-mobile{
+        display: block;
         width: 24px;
         height: 24px;
         flex-shrink: 0;
+        margin-top: -50px;
+        margin-left: 300px;
+        margin-bottom: 80px;
     }
     .close-img-div {
         display: none;
@@ -744,5 +749,10 @@ justify-content: center;
     .editButtons{
         justify-content: center;
         margin-left: 24px;
+    }
+    .contact-details{
+        margin-top: 80px;
+        width: 100%;
+        padding-left: 0;
     }
 }

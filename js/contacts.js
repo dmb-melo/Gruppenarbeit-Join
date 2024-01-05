@@ -107,6 +107,9 @@ function selectContact(i, firstname, surname, event){
     document.getElementById(`contact-info-${i}`).style = "background-color: #293647; color: white";
     selectedContactIndex = i;
     showCard(i, firstname, surname);
+    //responsive
+    document.getElementById('contact-details').classList.remove('hide-mobile-600px');
+    document.getElementById('contact-list').classList.add('hide-mobile-600px');
 }
 
 function showCard(i, firstname, surname){
@@ -331,7 +334,7 @@ function generate_contactsHtml(){
     <div class="addContactPopup d-none" id="addContact">
         <div class="addContactMain">
             <div class="addContactLeft">
-                <img class="closeAddContact-mobile" src="./assets/img/cancel.png" onclick="closeAddContact()">
+                <img class="closeAddContact-mobile" src="./assets/img/close_white.png" onclick="closeAddContact()">
                 <img class="addContactLogo hide-mobile-600px" src="./assets/img/logo-white.svg">
                 <div class="addContactHeadline">Add contact</div>
                 <div class="addContactHeadline2">Tasks are better with a team!</div>
@@ -409,7 +412,7 @@ function generate_contactsHtml(){
 
     <div class="contacts-content">
         <!--contact list-->
-        <div class="contact-list">
+        <div class="contact-list" id="contact-list">
             <button class="add-contact hide-mobile-600px" onclick="addNewContact()">
                 <div class="add-contact-main">
                     <div>Add new contact</div>
@@ -420,7 +423,7 @@ function generate_contactsHtml(){
         </div>
 
         <!--contact details-->
-        <div class="contact-details hide-mobile-600px">
+        <div class="contact-details hide-mobile-600px" id="contact-details">
             <div class="contact-details-headline">
                 <h1>Contacts</h1>
                 <div class="line"></div>
