@@ -4,10 +4,6 @@
     display: none;
   }
 
-  .header{
-    position: relative;
-  }
-
   .span,
   .nameContact,
   .nameContact,
@@ -91,6 +87,10 @@
     height: 88px;
     padding: 18px 21px;
     font-size: 16px;
+  }
+
+  .text_enterDescription{
+    position: relative;
   }
 
   .recursor {
@@ -205,7 +205,7 @@
     display: none;
   }
 
-  
+
   .span,
   .description,
   .asignedTo,
