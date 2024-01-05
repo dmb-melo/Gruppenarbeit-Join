@@ -108,8 +108,16 @@ function selectContact(i, firstname, surname, event){
     selectedContactIndex = i;
     showCard(i, firstname, surname);
     //responsive
-    document.getElementById('contact-details').classList.remove('hide-mobile-600px');
-    document.getElementById('contact-list').classList.add('hide-mobile-600px');
+    document.getElementById('contact-details').classList.remove('hide-mobile-397px');
+    document.getElementById('contact-list').classList.add('hide-mobile-397px');
+    document.getElementById('button-add-contact-mobile').style = 'display: none';
+    document.getElementById('button-edit-contact-mobile').style = 'display: inline-flex';
+    fillOnclickDiv(i);
+}
+
+function fillOnclickDiv(i){
+    document.getElementById('onclickDiv').innerHTML = `
+    <img class="image-edit-contact-mobile" src="./assets/img/more_vert.png" onclick="openMiniPopup(${i})">`;
 }
 
 function showCard(i, firstname, surname){
@@ -328,6 +336,23 @@ function closeAddContact(){
     document.getElementById('addContactBackground').classList.add('d-none');
 }
 
+function openMiniPopup(i){
+    document.getElementById('mini-popup').style = 'display: block';
+    document.getElementById('mini-popup-display').innerHTML =`
+    <div class="editCard-mini" id="editCard-mini" onclick="editContact(${i})"
+        onmouseover="hoverEdit(this, true)" onmouseout="hoverEdit(this, false)">
+        <img class="logo-mini" src="./assets/img/edit_contacts.png">
+        <img class="logo-mini-hover" src="./assets/img/edit2.png">
+        <span class="textEdit">Edit</span>
+    </div>
+    <div class="deleteCard-mini" id="deleteCard-mini" onclick="deleteContact(event, ${i})"
+        onmouseover="hoverEdit(this, true)" onmouseout="hoverEdit(this, false)">
+        <img class="logo-mini" src="./assets/img/delete_contacts.png">
+        <img class="logo-mini-hover" src="./assets/img/delete.png">
+        <span class="textEdit">Delete</span>
+    </div>`;
+}
+
 function generate_contactsHtml(){
     return `
     <div class="addContactBackground d-none" id="addContactBackground">
@@ -335,7 +360,7 @@ function generate_contactsHtml(){
         <div class="addContactMain">
             <div class="addContactLeft">
                 <img class="closeAddContact-mobile" src="./assets/img/close_white.png" onclick="closeAddContact()">
-                <img class="addContactLogo hide-mobile-600px" src="./assets/img/logo-white.svg">
+                <img class="addContactLogo hide-mobile-397px" src="./assets/img/logo-white.svg">
                 <div class="addContactHeadline">Add contact</div>
                 <div class="addContactHeadline2">Tasks are better with a team!</div>
                 <div class="line3"></div>
@@ -366,7 +391,7 @@ function generate_contactsHtml(){
                                 </div>
                             </div>
                             <div class="editButtons">
-                                <button class="closeButton  hide-mobile-600px" onclick="closeAddContact()" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
+                                <button class="closeButton  hide-mobile-397px" onclick="closeAddContact()" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
                                     <div class="cancel-button-div">
                                         <span class="cancel-text">Cancel</span>
                                         <img class="cancel-img-black" src="./assets/img/cancel.png">
@@ -413,7 +438,7 @@ function generate_contactsHtml(){
     <div class="contacts-content">
         <!--contact list-->
         <div class="contact-list" id="contact-list">
-            <button class="add-contact hide-mobile-600px" onclick="addNewContact()">
+            <button class="add-contact hide-mobile-397px" onclick="addNewContact()">
                 <div class="add-contact-main">
                     <div>Add new contact</div>
                     <div><img class="add-contact-image" src="./assets/img/person_add.png"></div>
@@ -423,19 +448,19 @@ function generate_contactsHtml(){
         </div>
 
         <!--contact details-->
-        <div class="contact-details hide-mobile-600px" id="contact-details">
+        <div class="contact-details hide-mobile-397px" id="contact-details">
             <div class="contact-details-headline">
-                <h1>Contacts</h1>
+                <div class="contacts-headline-h1">Contacts</div>
                 <div class="line"></div>
                 <h3>Better with a team</h3>
+                <div class="line4"></div>
             </div>
             <div class="contactCard" id="contactCard">
                 <div class="contactTitle">
                     <div class="circleCard d-none" id="circleCard"></div>
                     <div class="contactNameButtons">
-                        <h2 class="nameCard" id="nameCard"></h2>  
-                        <div class="buttonsCard" id="buttonsCard">        
-                        </div>
+                        <div class="nameCard" id="nameCard"></div>  
+                        <div class="buttonsCard" id="buttonsCard"></div>
                     </div>
                 </div>
                 <div class="textCard d-none" id="textCard">Contact Information</div>
@@ -445,8 +470,17 @@ function generate_contactsHtml(){
         </div>
         <div class="success d-none" id="success">Contact successfully created</div>
         
-        <div class="button-add-contact-mobile" onclick="addNewContact()">
+        <div class="button-add-contact-mobile" id="button-add-contact-mobile" onclick="addNewContact()">
             <img class="image-add-contact-mobile" src="./assets/img/person_add.png">
+        </div>
+
+        <div class="button-edit-contact-mobile" id="button-edit-contact-mobile">
+            <div class="onclickDiv" id="onclickDiv">
+            </div>
+        </div>
+        <div class="mini-popup" id="mini-popup">
+        <div class="mini-popup-display" id="mini-popup-display">
+        </div>
         </div>
     </div>
     `;

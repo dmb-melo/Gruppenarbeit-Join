@@ -2,10 +2,10 @@ body{
     font-family: "Inter", sans-serif;
 
 }
-h1{
+.contacts-headline-h1{
     font-size: 42px;
 }
-h2{
+.nameCard{
     font-size: 40px;
     margin-bottom: 6px;
 }
@@ -571,6 +571,12 @@ justify-content: center;
 .closeAddContact-mobile{
     display: none;
 }
+.line4{
+    display: none;
+}
+.button-edit-contact-mobile{
+    display: none;
+}
 
 
 .slide-left {
@@ -582,6 +588,26 @@ justify-content: center;
 	        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.mini-popup{
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 12px;
+    border: solid 1px white;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 90px;
+    width: 100px;
+}
+.mini-popup-display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
 
  @keyframes slide-left {
     0% {
@@ -618,13 +644,19 @@ justify-content: center;
   }
   
 
- @media(max-width: 600px){
-    .hide-mobile-600px{
+ @media(max-width: 397px){
+    .hide-mobile-397px{
         display: none;
     }
     .contact-list{
         width: 100%;
         margin-left: 30px;
+    }
+    .slide-left{
+        animation: none;
+    }
+    .contactCard{
+        margin-top: 100px;
     }
     .button-add-contact-mobile{
         border: 1px solid var(--Version-2-main-color, #2A3647);
@@ -634,7 +666,7 @@ justify-content: center;
         justify-content: center;
         align-items: center;
         position: fixed;
-        bottom: 24px;
+        bottom: 110px;
         right: 24px;
         border-radius: 46px;
         width: 40px;
@@ -646,6 +678,36 @@ justify-content: center;
     .image-add-contact-mobile{
         width: 32px;
         height: 32px;
+    }
+    .button-add-contact-mobile:hover{
+        background-color: #2AAAE2;
+        border-color: #2AAAE2;
+    }
+    .button-edit-contact-mobile{
+        display: none;
+        border: 1px solid var(--Version-2-main-color, #2A3647);
+        background: var(--Version-2-main-color, #2A3647);
+        cursor: pointer;
+        /*display: inline-flex;
+        justify-content: center;
+        align-items: center;*/
+        position: fixed;
+        bottom: 110px;
+        right: 24px;
+        border-radius: 46px;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 12px;
+        gap: 10px;
+    }
+    .image-edit-contact-mobile{
+        width: 36px;
+        margin: 2px;
+    }
+    .button-edit-contact-mobile:hover{
+        background-color: #2AAAE2;
+        border-color: #2AAAE2;
     }
     .addContactMain{
         flex-direction: column;
@@ -754,5 +816,52 @@ justify-content: center;
         margin-top: 80px;
         width: 100%;
         padding-left: 0;
+    }
+    .contact-details-headline{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .line{
+        display: none;
+    }
+    .contacts-headline-h1{
+        font-size: 50px;
+        font-weight: 700;
+    }
+    .line4{
+        display: block;
+        width: 90px;
+        height: 3px;
+        background-color: #2AAAE2;
+        margin-top: 14px;
+        margin-bottom: 30px;
+    }
+    h3{
+        margin-top: 8px;
+    }
+    .circleCard{
+        width: 80px;
+        height: 80px;
+        margin: 0px;
+        margin-right: 20px;
+    }
+    .nameId{
+        font-size: 33px;
+    margin: 16px;
+    }
+    .buttonsCard{
+        display: none;
+    }
+    .nameCard{
+        font-size: 36px;
+        font-weight: 700;
+    }
+    .textCard{
+        margin-bottom: 24px;
+    }
+    .logo-mini{
+        width: 25px;
+        height: 25px;
+        margin-bottom: -4px;
     }
 }
