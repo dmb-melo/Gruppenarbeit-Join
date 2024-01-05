@@ -363,8 +363,8 @@ function generate_contactsHtml(){
                                 </div>
                             </div>
                             <div class="editButtons">
-                                <button class="closeButton" onclick="closeAddContact()" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
-                                    <div class="cancel-button-div hide-mobile-600px">
+                                <button class="closeButton  hide-mobile-600px" onclick="closeAddContact()" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
+                                    <div class="cancel-button-div">
                                         <span class="cancel-text">Cancel</span>
                                         <img class="cancel-img-black" src="./assets/img/cancel.png">
                                         <img class="cancel-img-blue" src="./assets/img/iconoir_cancel-2.png">
