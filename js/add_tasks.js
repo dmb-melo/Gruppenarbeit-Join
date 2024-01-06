@@ -104,7 +104,6 @@ function formatedDate(){
      let newDate = day+'/'+month+'/'+year;
 
     return newDate
-
 }
 
 function handleContactSearch() {
