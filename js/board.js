@@ -1,3 +1,6 @@
+let draggedElementId;
+
+
 document.addEventListener('DOMContentLoaded', function () {
     renderBoardHTML();
 });
@@ -6,87 +9,111 @@ function renderBoardHTML() {
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generateBoardHTML();
     boardInit();
+    updateHtml();
     load();
+    save();
 }
 
 
 async function boardInit() {
-    renderTasks(); // Korrigiere den Funktionsnamen
+    updateHtml();
 }
 
-
-
-
-function renderTasks() {
-    let tasksContainer = document.getElementById('todo');
-
-    // Clear previous content
-    tasksContainer.innerHTML = '';
-
-    // Iterate through tasks array and create HTML elements for each task
-    for (let i = 0; i < tasks.length; i++) {
-        let task = tasks[i];
-
-        // Create a div element for each task
-        let taskElement = document.createElement('div');
-        taskElement.classList.add('task');
-
-        // Add task details to the HTML element
-        taskElement.innerHTML = /*html*/`
-            <div class="smallCard">
-                <div class="cardCategory">
-                    <h4>${task.category}</h4>
-                </div>
-                <div>
-                    <div class="cardTitle">
-                        <p><b>${task.title}</b></p>
-                    </div>
-                    <div class="cardText"><p>${task.description}</p></div>
-                </div>
-                <div class="progressSection"></div>
-                <div class="cardFooter">
-                    <div class="boardContact">${task.assigned}</div>
-                </div>
-            </div>
-        `;
-
-        // Append the task element to the container
-        tasksContainer.appendChild(taskElement);
-    }
+function filterTasksByStatus(taskStatus) {
+    return tasks.filter(t => t['taskStatus'] === taskStatus);
+    
 }
-{/* <h2>${task.title}</h2>
-<p>${task.description}</p>
-<p>Due Date: ${task.dueDate}</p>
-<p>Assigned: ${task.assigned.join(', ')}</p>
-<p>Priority: ${task.priorityContent}</p>
-<p>Category: ${task.category}</p>
-<p>${renderSubtasks(task.subtasks)}</p> */}
-function renderSubtasks(subtasks) {
-    // Check if there are any subtasks
-    if (subtasks && subtasks.length > 0) {
-        // Create an HTML element for subtasks
-        let subtasksElement = document.createElement('ul');
-        subtasksElement.classList.add('subtasks');
 
-        // Iterate through subtasks and create list items
-        for (let i = 0; i < subtasks.length; i++) {
-            let subtask = subtasks[i];
+function updateHtmlForStatus(taskStatus, elementId) {
+    const tasksByStatus = filterTasksByStatus(taskStatus);
+    const element = document.getElementById(elementId);
 
-            // Create a list item for each subtask
-            let subtaskItem = document.createElement('li');
-            subtaskItem.textContent = subtask;
+    // Leere die bestehenden Inhalte im HTML-Element
+    element.innerHTML = '';
 
-            // Append the subtask item to the subtasks element
-            subtasksElement.appendChild(subtaskItem);
+    if (tasksByStatus.length === 0) {
+        // Wenn keine Aufgaben vorhanden sind, zeige eine Nachricht an
+        element.innerHTML = '<p class="noTask">Keine Aufgaben vorhanden</p>';
+    } else {
+        // Füge die Aufgabenkarten hinzu
+        for (let i = 0; i < tasksByStatus.length; i++) {
+            const task = tasksByStatus[i];
+            element.innerHTML += generateSmallCard(task);
         }
-
-        // Return the HTML element containing subtasks
-        return subtasksElement.outerHTML;
     }
-
-    // Return an empty string if no subtasks are available
-    return '';
 }
 
-// Rufe die Render-Funktion auf
-renderTasks();
+function updateHtml() {
+    updateHtmlForStatus('todo', 'todo');
+    updateHtmlForStatus('inProgress', 'inProgress');
+    updateHtmlForStatus('awaitFeedback', 'awaitFeedback');
+    updateHtmlForStatus('done', 'done');
+}
+
+
+
+
+function generateSmallCard(task) {
+    let currentCategory = task.category;  // Nutze die Kategorie aus dem task-Objekt
+    let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
+
+    return /*html*/`
+      <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})"> 
+        <div class="category"><p class="${className}">${currentCategory}</p></div>
+        <div class="taskText">
+            <div class="taskTitle">${task.title}</div>
+            <div class="taskDescription">${task.description}</div>
+        </div>
+        <div class="smallProgress">${task.subtasks.length}</div>
+        <div class="smallCardFooter">
+            <div class="assigend">${task.assigned}</div>
+            <div class="priority">${task.priorityID}</div>
+            <div class="delete_task" onclick="deleteTask(event)">
+                        <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
+                        <p class = "delete-task-title">Delete</p>
+                    </div>
+        </div>
+      </div>  
+    `;
+
+}
+
+function deleteTask(event) {// wird nicht mehr gebraucht
+    let noteElement = event.target.closest('.cardA');
+
+    if (noteElement) {
+        let parentElement = noteElement.parentElement;
+        let index = Array.from(parentElement.children).indexOf(noteElement);
+
+        noteElement.remove();
+        title.splice(index, 1);
+        description.splice(index, 1);
+        assigned.splice(index, 1);
+        dueDate.splice(index, 1);
+        prio.splice(index, 1);
+        category.splice(index, 1);
+        subtasks.splice(index, 1);
+        subT.splice(index, 1);
+        priorityContentArray.splice(index, 1);
+        tasks.splice(0, 1);
+        save();
+        updateHtml();
+    }
+}
+
+
+// drag and drop 
+
+function startDragged(id){
+    draggedElementId = id;
+}
+
+function moveIt(taskStatus) {
+    tasks[draggedElementId][taskStatus] = taskStatus;
+    updateHtml();
+}
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
