@@ -91,20 +91,14 @@ function renderTask() {
     document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch);
 }
 
-function formatedDate(){
-
-     let dateInput = document.getElementById("dueDate").value;
-
+function formatedDate() {
+    let dateInput = document.getElementById("dueDate").value;
     let date = new Date(dateInput);
-
-    let day = date.getDate();
-    let month = date.getMonth();
+    let day = String(date.getDate()).padStart(2, '0');
+    let month = String(date.getMonth() + 1).padStart(2, '0');
     let year = date.getFullYear();
-
-     let newDate = day+'/'+month+'/'+year;
-
+    let newDate = day+'/'+month+'/'+year;
     return newDate
-
 }
 
 function handleContactSearch() {
@@ -188,7 +182,10 @@ function addTask() {
     document.getElementById('description').value = '';
     description.unshift(descriptionValue);
     
-    let dueDateValue = document.getElementById('dueDate').value;
+
+
+    let dueDateValue = formatedDate();
+    //let dueDateValue = document.getElementById('dueDate').value;
     document.getElementById('dueDate').value = '';
     dueDate.unshift(dueDateValue);
 
