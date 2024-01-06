@@ -46,7 +46,7 @@ function generateBoardHTML() {
 
 
                 <!-- tskBoard -->
-                <div class="inProgress" id="inProgress" ondrop="moveIt('git pullinProgress')"  ondragover="allowDrop(event)"> </div>
+                <div class="inProgress" id="inProgress" ondrop="moveIt('inProgress')"  ondragover="allowDrop(event)"> </div>
 
 
             </section>
