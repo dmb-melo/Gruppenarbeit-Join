@@ -10,7 +10,7 @@ let subT = [];
 let tasks = [];
 let priorityContentArray = [];
 let currentId = 0;
-let newStatus = [];
+let taskStatus = [];
 let selectedPriorityContent = "";
 
 function addTaskInit() {
@@ -192,6 +192,7 @@ function addTask() {
     priorityContent: priorityContent,
     priorityID: selectedPriorityID,
     subtasks: subtasks.slice(),
+    taskStatus:'todo',
   };
 
   subT.unshift(subtasks.slice()); // Store a copy of subtasks in subT
@@ -236,6 +237,7 @@ function clearTask() {
 }
 
 function save() {
+  localStorage.setItem("taskStatus", JSON.stringify(taskStatus));
   localStorage.setItem("currentId", JSON.stringify(currentId));
   localStorage.setItem("title", JSON.stringify(title));
   localStorage.setItem("description", JSON.stringify(description));
@@ -249,6 +251,7 @@ function save() {
 }
 
 function load() {
+  let taskStautsAsText = localStorage.getItem("taskStatus");
   let idAsText = localStorage.getItem("currentId");
   let titleAsText = localStorage.getItem("title");
   let descriptionAsText = localStorage.getItem("description");
@@ -260,7 +263,8 @@ function load() {
   let categoryAsText = localStorage.getItem("category");
   let subTAsText = localStorage.getItem("subT");
 
-  if (idAsText && titleAsText && descriptionAsText && assignedAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
+  if (taskStautsAsText && idAsText && titleAsText && descriptionAsText && assignedAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
+    taskStatus = JSON.parse(taskStautsAsText);
     currentId = JSON.parse(idAsText);
     title = JSON.parse(titleAsText);
     description = JSON.parse(descriptionAsText);

@@ -19,13 +19,13 @@ async function boardInit() {
     updateHtml();
 }
 
-function filterTasksByStatus(status) {
-    return tasks.filter(t => t['status'] === status);
+function filterTasksByStatus(taskStatus) {
+    return tasks.filter(t => t['taskStatus'] === taskStatus);
     
 }
 
-function updateHtmlForStatus(status, elementId) {
-    const tasksByStatus = filterTasksByStatus(status);
+function updateHtmlForStatus(taskStatus, elementId) {
+    const tasksByStatus = filterTasksByStatus(taskStatus);
     const element = document.getElementById(elementId);
 
     // Leere die bestehenden Inhalte im HTML-Element
@@ -67,7 +67,7 @@ function generateSmallCard(task) {
         <div class="smallProgress">${task.subtasks.length}</div>
         <div class="smallCardFooter">
             <div class="assigend">${task.assigned}</div>
-            <div class="priority">${task.prio}</div>
+            <div class="priority">${task.priorityID}</div>
             <div class="delete_task" onclick="deleteTask(event)">
                         <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
                         <p class = "delete-task-title">Delete</p>
@@ -108,8 +108,8 @@ function startDragged(id){
     draggedElementId = id;
 }
 
-function moveIt(status) {
-    tasks[draggedElementId][status] = status;
+function moveIt(taskStatus) {
+    tasks[draggedElementId][taskStatus] = stataskStatustus;
     updateHtml();
 }
 
