@@ -109,7 +109,7 @@ function startDragged(id){
 }
 
 function moveIt(taskStatus) {
-    tasks[draggedElementId][taskStatus] = stataskStatustus;
+    tasks[draggedElementId][taskStatus] = taskStatus;
     updateHtml();
 }
 
