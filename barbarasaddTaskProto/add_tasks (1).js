@@ -9,6 +9,7 @@ let subtasks = [];
 let subT = [];
 let tasks = [];
 let priorityContentArray = []; 
+let svgArray =[];
 load();
 addTask();
 
@@ -31,25 +32,45 @@ window.onload = function() {
         }
     });
 };
+function extractPrioritySVGs() {
+    let svgElements = document.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
+    let svgArray = [];
 
+    svgElements.forEach(svgElement => {
+        // Hier kannst du die SVG-Elemente kopieren und in das svgArray einfügen
+        let clonedSVG = svgElement.cloneNode(true);
+        svgArray.push(clonedSVG);
+    });
+
+    return svgArray;
+}
+
+// Verwende die Funktion in deinem Code
+let prioritySVGs = extractPrioritySVGs();
+console.log(prioritySVGs);
 
 function render() {
 
-    let contacts = document.getElementById('contactList');
-    contacts.innerHTML = '';
-for (let i = 0; i < title.length; i++){
-    let currentAssigned = assigned[i];
-    let ContacElement =  document.createElement('li');
-    ContacElement.innerHTML='';
-    ContacElement.innerHTML +=`
-    <p onclick="hideAssigned(event)">${currentAssigned}</p>
-    `
-}
+//     let contacts = document.getElementById('contactList');
+//     contacts.innerHTML = '';
+// for (let i = 0; i < title.length; i++){
+//     let currentAssigned = assigned[i];
+//     let ContacElement =  document.createElement('li');
+//     ContacElement.innerHTML='';
+//     ContacElement.innerHTML +=`
+//     <p onclick="hideAssigned(event)">${currentAssigned}</p>
+//     `
+// }
 
-    let content = document.getElementById('todo');
+    let content = document.getElementById('inhalt');
     content.innerHTML = '';
     for (let i = 0; i < title.length; i++) {
-  
+        let currentTitle = title[i];
+        let currentDescription = description[i];
+   
+        let currentDueDate = dueDate[i];
+        let currentCategory = category[i];
+        let currentSubTasks = subT[i];
       
         let currentPriorityContent = priorityContentArray[i] || '';
         let tempDiv = document.createElement('div');
@@ -80,14 +101,9 @@ for (let i = 0; i < title.length; i++){
         
         let noteElement = document.createElement('div');
 
-        let currentTitle = title[i];
-        let currentDescription = description[i];
-   
-        let currentDueDate = dueDate[i];
-        let currentCategory = category[i];
-        let currentSubTasks = subT[i];
+
     // Convert currentCategory to a class name without spaces
-    let  = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
+    let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
             noteElement.classList.add('cardA');
             noteElement.innerHTML = `
                 <div class="categoryCard">
@@ -173,6 +189,7 @@ function deleteTask(event) {// wird nicht mehr gebraucht
         let index = Array.from(parentElement.children).indexOf(noteElement);
 
         noteElement.remove();
+        currentId.splice(index,1)
         title.splice(index, 1);
         description.splice(index, 1);
         assigned.splice(index, 1);
@@ -182,6 +199,7 @@ function deleteTask(event) {// wird nicht mehr gebraucht
         subtasks.splice(index, 1);
         subT.splice(index, 1);
         priorityContentArray.splice(index, 1);    
+    
         save();
         render();
     }
