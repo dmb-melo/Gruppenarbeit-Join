@@ -10,7 +10,7 @@ let subT = [];
 let tasks = [];
 let priorityContentArray = [];
 let currentId = 0;
-
+let taskStatus = [];
 let selectedPriorityContent = "";
 
 function addTaskInit() {
@@ -51,17 +51,17 @@ function renderContactsAddTask(i, contactsList) {
   const liElement = contactsList.getElementsByTagName("li")[i];
   const nameElement = contactsList.getElementsByTagName("label")[i];
   document.getElementById(`myCheckbox_${i}`).addEventListener("change", function (event) {
-  const labelElement = document.querySelectorAll(".nameContact")[i];
-  validationContactsChecked(i, liElement, nameElement, labelElement, event);
+    const labelElement = document.querySelectorAll(".nameContact")[i];
+    validationContactsChecked(i, liElement, nameElement, labelElement, event);
   });
 }
 
 function validationContactsChecked(i, liElement, nameElement, labelElement, event) {
-    if (event.target.checked) {
-        contactChecked(i, liElement, nameElement, labelElement);
-      } else {
-        contactNotChecked(i, liElement, nameElement, labelElement);
-      }
+  if (event.target.checked) {
+    contactChecked(i, liElement, nameElement, labelElement);
+  } else {
+    contactNotChecked(i, liElement, nameElement, labelElement);
+  }
 }
 
 function contactChecked(i, liElement, nameElement, labelElement) {
@@ -123,7 +123,7 @@ function clearAllSelections() {
   const checkboxes = document.querySelectorAll(".inputCheckBox");
   const labels = document.querySelectorAll(".nameContact");
   checkboxes.forEach((checkbox, index) => {
-    checkbox.checked = false; 
+    checkbox.checked = false;
     const liElement = checkbox.closest("li");
     if (liElement) {
       liElement.classList.remove("contactListSelected");
@@ -208,6 +208,7 @@ function clearTask() {
 }
 
 function save() {
+  localStorage.setItem("taskStatus", JSON.stringify(taskStatus));
   localStorage.setItem("currentId", JSON.stringify(currentId));
   localStorage.setItem("title", JSON.stringify(title));
   localStorage.setItem("description", JSON.stringify(description));
@@ -221,6 +222,7 @@ function save() {
 }
 
 function load() {
+  let taskStautsAsText = localStorage.getItem("taskStatus");
   let idAsText = localStorage.getItem("currentId");
   let titleAsText = localStorage.getItem("title");
   let descriptionAsText = localStorage.getItem("description");
@@ -232,7 +234,8 @@ function load() {
   let categoryAsText = localStorage.getItem("category");
   let subTAsText = localStorage.getItem("subT");
 
-  if (idAsText && titleAsText && descriptionAsText && assignedAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
+  if (taskStautsAsText && idAsText && titleAsText && descriptionAsText && assignedAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
+    taskStatus = JSON.parse(taskStautsAsText);
     currentId = JSON.parse(idAsText);
     title = JSON.parse(titleAsText);
     description = JSON.parse(descriptionAsText);
