@@ -53,17 +53,17 @@ function renderContactsAddTask(i, contactsList) {
   const liElement = contactsList.getElementsByTagName("li")[i];
   const nameElement = contactsList.getElementsByTagName("label")[i];
   document.getElementById(`myCheckbox_${i}`).addEventListener("change", function (event) {
-  const labelElement = document.querySelectorAll(".nameContact")[i];
-  validationContactsChecked(i, liElement, nameElement, labelElement, event);
+    const labelElement = document.querySelectorAll(".nameContact")[i];
+    validationContactsChecked(i, liElement, nameElement, labelElement, event);
   });
 }
 
 function validationContactsChecked(i, liElement, nameElement, labelElement, event) {
-    if (event.target.checked) {
-        contactChecked(i, liElement, nameElement, labelElement);
-      } else {
-        contactNotChecked(i, liElement, nameElement, labelElement);
-      }
+  if (event.target.checked) {
+    contactChecked(i, liElement, nameElement, labelElement);
+  } else {
+    contactNotChecked(i, liElement, nameElement, labelElement);
+  }
 }
 
 function contactChecked(i, liElement, nameElement, labelElement) {
@@ -133,16 +133,13 @@ function clearAllSelections() {
   // Iterate through all checkboxes and labels
   const checkboxes = document.querySelectorAll(".inputCheckBox");
   const labels = document.querySelectorAll(".nameContact");
-
   checkboxes.forEach((checkbox, index) => {
     checkbox.checked = false; // Deselect the checkbox
-
     // Remove 'contactListSelected' class from the corresponding li element
     const liElement = checkbox.closest("li");
     if (liElement) {
       liElement.classList.remove("contactListSelected");
     }
-
     // Remove any additional classes or styles related to selection
     labels[index].classList.remove("nameContactWhite");
     // Clear any additional styles set for the background image
