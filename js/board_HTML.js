@@ -25,7 +25,7 @@ function generateBoardHTML() {
                 <div class="todoHeadline headLineCss" id="TodoHeadline">
                     <h2>To-Do</h2>
                     <a href="#">
-                        <img src="./assets/img/capa-1.png" alt="">
+                        <img src="./assets/img/" alt="">
                     </a>
                 </div>
 
@@ -40,7 +40,7 @@ function generateBoardHTML() {
                 <div class="inProgressHeadline headLineCss" id="inProgressHeadline">
                     <h2>In Progress</h2>
                     <a href="#">
-                        <img src="./assets/img/capa-1.png" alt="">
+                        <img src="./assets/img/" alt="">
                     </a>
                 </div>
 
@@ -56,7 +56,7 @@ function generateBoardHTML() {
                 <div class="awaitFeedbackHeadline headLineCss" id="awaitFeedbackHeadline">
                     <h2>Await FeedBack</h2>
                     <a href="#">
-                        <img src="./assets/img/capa-1.png" alt="">
+                        <img src="./assets/img/" alt="">
                     </a>
                 </div>
 
@@ -71,7 +71,7 @@ function generateBoardHTML() {
                 <div class="doneHeadline headLineCss" id="doneHeadline">
                     <h2>Done</h2>
                     <a href="#">
-                        <img src="./assets/img/capa-1.png" alt="">
+                        <img src="./assets/img/" alt="">
                     </a>
                 </div>
 
