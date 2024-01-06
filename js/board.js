@@ -106,13 +106,14 @@ function deleteTask(event) {// wird nicht mehr gebraucht
 
 // drag and drop 
 
-
-
 function moveIt(taskStatus) {
-    tasks[draggedElementId][taskStatus] = taskStatus;
-    updateHtml();
-}
+    const taskIndex = tasks.findIndex(task => task.id === draggedElementId);
 
+    if (taskIndex !== -1) {
+        tasks[taskIndex].taskStatus = taskStatus;
+        updateHtml();
+    } 
+}
 
 function allowDrop(ev) {
     ev.preventDefault();
