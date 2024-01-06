@@ -51,7 +51,9 @@ function updateHtml() {
 }
 
 
-
+function startDragged(id){
+    draggedElementId = id;
+}
 
 function generateSmallCard(task) {
     let currentCategory = task.category;  // Nutze die Kategorie aus dem task-Objekt
@@ -104,9 +106,7 @@ function deleteTask(event) {// wird nicht mehr gebraucht
 
 // drag and drop 
 
-function startDragged(id){
-    draggedElementId = id;
-}
+
 
 function moveIt(taskStatus) {
     tasks[draggedElementId][taskStatus] = taskStatus;

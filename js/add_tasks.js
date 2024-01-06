@@ -162,6 +162,7 @@ function addTask() {
         priorityContent: priorityContent,
         priorityID: selectedPriorityID,
         subtasks: subtasks.slice(),
+        taskStatus :'todo',
     };   
     subT.unshift(subtasks.slice()); 
     tasks.unshift(newTask); 
