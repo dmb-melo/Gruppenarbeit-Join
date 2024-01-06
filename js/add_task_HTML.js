@@ -1,3 +1,23 @@
+function generateContactsAddTask(name, firstname, surname, i) {
+    return /*html*/ `
+    <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
+      <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+    </div>                
+    <div class="custom-checkbox">            
+      <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}">                    
+      <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
+    </div>`;}
+
+function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
+    return /*html*/`
+           <div>
+            <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+                <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+            </div>
+        </div>
+    `;
+}
+
 function generate_addTask(){
     return /*html*/`  
      <div class = "contentTask">  
@@ -7,18 +27,14 @@ function generate_addTask(){
             </div>
         </div>   
         <div class ="group66_addTask">
-
             <div class="task_succes d-none" id="task_succes">
                 <div class="task_succes_container">
                     <span  class="task_succes_message">Task added to board</span>
                     <img class="task_success_icon_board" src="./assets/img/Icons_board_white.png">
                 </div>
             </div>
-
             <div class ="inputLeft_addTask">
-
-                <div class="title_v1">
-                
+                <div class="title_v1">               
                     <div class="title">Title<span class="spanClass">*</span>
                         <div class="frame203" onclick="required(this)">
                             <div class="title_frame14">
@@ -76,7 +92,8 @@ function generate_addTask(){
                     <div class="frame211" onclick="required(this)">
                     
                             <div class="dueDate_frame14">
-                                <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" >  
+                                <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" >   
+                                <!-- <input  type="text" class="inputDate" max="2030-12-31" placeholder="DD/MM/YYYY" onfocus="this.type='date'" onblur="this.type='text'" id="dueDate"> -->
                             </div>
                             <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
                     

@@ -100,6 +100,7 @@ function renderLogInContent() {
   passwordIsVisible = false;
   document.getElementById("contentUserValidation").innerHTML = generateLogInContent();
   document.getElementById("signUpButtonHeadline").classList.remove("d-none");
+  document.getElementById("signUpButtonResponsive").classList.remove("d-none");
   automaticCompletionLoginData();
 }
 
@@ -120,6 +121,7 @@ function renderSignUpContent() {
   passwordIsVisible = false;
   document.getElementById("contentUserValidation").innerHTML = generateSignUpContent();
   document.getElementById("signUpButtonHeadline").classList.add("d-none");
+  document.getElementById("signUpButtonResponsive").classList.add("d-none");
 }
 
 function renderLogInPrivacyPolicyContent() {
