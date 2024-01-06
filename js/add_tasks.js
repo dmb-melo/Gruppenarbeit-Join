@@ -10,7 +10,7 @@ let subT = [];
 let tasks = [];
 let priorityContentArray = [];
 let currentId = 0;
-let newStatus = 'todo'
+let newStatus = [];
 let selectedPriorityContent = "";
 
 function addTaskInit() {

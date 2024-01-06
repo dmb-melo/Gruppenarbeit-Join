@@ -108,8 +108,8 @@ function startDragged(id){
     draggedElementId = id;
 }
 
-function moveTask(targetStatus) {
-    tasks[draggedElementId].status = targetStatus;
+function moveIt(status) {
+    tasks[draggedElementId][status] = status;
     updateHtml();
 }
 
