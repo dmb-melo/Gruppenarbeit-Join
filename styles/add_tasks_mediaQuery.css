@@ -1,7 +1,11 @@
 
-@media (max-width: 397px) {
+@media (max-width: 397px){
   .box-sizing {
     display: none;
+  }
+
+  .header{
+    position: relative;
   }
 
   .span,
@@ -31,28 +35,25 @@
   .priority,
   .inputLeft_addTask,
   .frame203 {
-    width: 357px;
+    width: 300px;
   }
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 100vh !important;
+    max-height: 780px !important;
   }
 
   .textContainer_addTask {
+    margin-top: 10px;
     font-size: 47px;
     margin-left: 8px;
-    width: 357px;
-   
+    width: 320px;   
   }
 
   .group66_addTask {
-    max-width: 367px;
-    gap: 8px;
-    margin-left: 8px;
-    align-items: center;
+    margin-left: 10px;
     flex-direction: column;
-    
+    justify-content: center;
   }
 
   .vector4 {
@@ -60,37 +61,35 @@
   }
 
   .inputRight_addTask {
-    margin-top: 80px;
-    width: 357px;
+    margin-top: 50px;
+    width: 300px;
   }
 
   .title_v1 {
-    width: 347px;
+    width: 10px;
   }
 
   .title {
     font-size: 16px;
-    width: 347px;
+    width: 300px;
   }
 
   .title_frame14 {
     padding: 10px 21px;
     gap: 10px;
+    width: 255px;
   }
 
   .text_enterTitle {
     font-size: 16px;
-    width: 310px;
+    width: 255px;
   }
 
   .text_enterDescription {
     height: 88px;
     padding: 18px 21px;
     font-size: 16px;
-  }
-
-  .text_enterDescription{
-    position: relative;
+    width: 255px;
   }
 
   .recursor {
@@ -98,8 +97,9 @@
   }
 
   .categoryFrame74 {
-    width: 313px;
+    width: 300px;
     padding: 10px 21px;    
+    width:255px;
   }
 
   .list{
@@ -107,7 +107,7 @@
   }
 
   .searchContacts {
-    width: 300x;
+    width: 250px;
     font-size: 16px;
   }
 
@@ -130,26 +130,32 @@
     width: 20px;
   }
 
+  .frame28{
+    width: 300px;
+  }
+
+  .priority{
+    width: 100%;
+  }
+
   .priorityUrgent,
   .priorityMedium,
   .priorityLow {
+    width: 80px;
     padding: 13px 8px;
     gap: 8px;
   }
 
   .textUrgent {
     font-size: 16px;
-    width: 55px;
   }
 
   .textMedium {
-    font-size: 16px;
-    width: 62px;
+    font-size: 15px;
   }
 
   .textLow {
     font-size: 16px;
-    width: 34px;
   }
 
   .category {
@@ -160,14 +166,18 @@
 
   .underlist{
     position: relative;
+    
   }
 
   .options {
-    width: 325px;
+ 
+
+    width: 265px;
   }
 
   .subtasks {
-    width: 357px;
+    width: 300px;
+
   }
 
   .subtasksFrame14 {
@@ -175,13 +185,20 @@
   }
 
   .subtaskItem {
-    width: 325px;
+    width: 265px;
   }
 
-  .addTasksFooter {   
+  .addTasksFooter {  
+    margin-top: 20px;
+    margin-bottom: 25px;
     margin-left: 12px;
-    width: 360px;
-    margin-bottom: 90px;
+    width: 300px;   
+  }
+
+  .comment{
+    display: flex;
+    margin-top: 0px;
+    text-wrap: wrap;
   }
 
   .secondary {
@@ -189,13 +206,22 @@
   }
 
   .primary {
-    padding: 16px;
+    /* padding: 16px; */
     gap: 4px;
   }
 
   .textCreateTask {
     font-size: 21px;
     gap: 4px;
+  }
+
+  .task_succes{
+    margin-left: 0%;
+    margin-bottom: 400px;
+  }
+
+  .task_succes_container{
+    width: 256px;
   }
 }
 
@@ -205,6 +231,9 @@
     display: none;
   }
 
+  .header{
+    position: relative;
+  }
 
   .span,
   .description,
@@ -238,11 +267,12 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 100vh !important;
+    max-height: 750px !important;
   }
 
   .textContainer_addTask {
     font-size: 47px;
+    margin-top: 50px;
     margin-left: 25px;
   }
 
@@ -347,8 +377,11 @@
   }
 
   .category {
-    width: 306px;
-    font-size: 20px;
+    width: 100%;  
+  }
+
+  .underList{
+    position: relative;
   }
 
   .options,
@@ -365,7 +398,7 @@
   }
 
   .addTasksFooter {
-    margin-bottom: 25px;
+    margin-top: 50px;
     margin-left: 20px;
     width: 520px;
   }
@@ -375,8 +408,12 @@
   }
 
   .textCreateTask {
-    font-size: 21px;
+    font-size: 18px;
     gap: 4px;
+  }
+
+  .task_succes{
+    margin-left: 0%;
   }
 }
 
@@ -406,13 +443,14 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 990px !important;
+    max-height: 750px !important;
   }
 
   .textContainer_addTask {
     font-size: 47px;
-    margin-left: 25px;
+    margin-left: 120px;
     display: flex;
+    margin-top: 60px;
     align-items: center;
     justify-content: center;
   }
@@ -420,6 +458,7 @@
   .group66_addTask {
     margin-left: 100px;
     max-width: 760px;
+    margin-top: 15px;
     gap: 8px;
     align-items: center;
     flex-direction: column;
@@ -535,23 +574,26 @@
   }
 
   .addTasksFooter {
-    margin-bottom: 5px;
+    margin-top: 50px;
     margin-left: 125px;
     width: 710px;
+  }
+
+  .task-succes{
+    margin-right: 50px;
   }
 }
 
 
 @media (min-width: 1000px) and (max-width: 1149px) {
+
+  .box-sizingResponsiv{
+    display: none;
+  }
   .contentTask {
     overflow: scroll !important;
-    max-height: 100vh !important;
-    margin-top: 68px;
-  
-  }
-
-  .header { 
-    position: relative;
+    max-height: 860px !important;
+    margin-top: 68px; 
   }
 
   .recursor {
@@ -675,7 +717,6 @@
   }
 
   .addTasksFooter {
-    margin-bottom: 1200px;
     margin-left: 300px;
     width: 780px;
   }
@@ -684,16 +725,17 @@
     display: flex;
     width: 250px;
   } 
+  .task_succes{
+    margin-bottom: 700px;
+  }
 }
 
 
 
 @media (min-width: 1150px) and (max-width: 1300px) {
-  .contentTask {
-    overflow: scroll !important;
-    max-height: 100vh !important;
-    margin-top: 68px;
-  
+
+  .box-sizingResponsiv{
+    display: none;
   }
 
   .header { 
@@ -738,7 +780,6 @@
   }
 
   .addTasksFooter {
-    margin-bottom: 1200px;
     margin-left: 250px;
     width: 77%;
   }
@@ -760,5 +801,11 @@
   .circle {
     height: 36px;
     width: 36px;
+  }
+}
+
+@media (min-width: 1301px){
+  .box-sizingResponsiv{
+    display: none;
   }
 }
