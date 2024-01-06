@@ -91,6 +91,22 @@ function renderTask() {
     document.getElementById('searchContacts').addEventListener('keyup', handleContactSearch);
 }
 
+function formatedDate(){
+
+     let dateInput = document.getElementById("dueDate").value;
+
+    let date = new Date(dateInput);
+
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+
+     let newDate = day+'/'+month+'/'+year;
+
+    return newDate
+
+}
+
 function handleContactSearch() {
     let input = document.getElementById('searchContacts');
     let filter = input.value.toUpperCase();
