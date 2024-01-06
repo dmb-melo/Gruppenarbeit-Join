@@ -28,8 +28,12 @@ function generateBoardHTML() {
                         <img src="./assets/img/capa-1.png" alt="">
                     </a>
                 </div>
+
+
                 <!-- tskBoard -->
-                <div id="todo"></div>
+                <div id="todo" ondrop="moveIt('todo')"  ondragover="allowDrop(event)"> </div>
+
+
             </section>
             <!-- in Progress -->
             <section class="taskBoardTtle">
@@ -39,10 +43,12 @@ function generateBoardHTML() {
                         <img src="./assets/img/capa-1.png" alt="">
                     </a>
                 </div>
+
+
                 <!-- tskBoard -->
-                <div class="inProgress" id="inProgress">
-                  
-                </div>
+                <div class="inProgress" id="inProgress" ondrop="moveIt('inProgress')"  ondragover="allowDrop(event)"> </div>
+
+
             </section>
             <!-- Await Feedback -->
             <section class="taskBoardTtle">
@@ -53,10 +59,12 @@ function generateBoardHTML() {
                         <img src="./assets/img/capa-1.png" alt="">
                     </a>
                 </div>
+
+
                 <!-- tskBoard -->
-                <div class="awaitFreedback" id="awaitFreedback">
-                   
-                </div>
+                <div class="awaitFeedback" id="awaitFeedback" ondrop="moveIt('awaitFeedback')" ondragover="allowDrop(event)"> </div>
+
+
             </section>
             <!-- done -->
             <section class="taskBoardTtle">
@@ -66,8 +74,10 @@ function generateBoardHTML() {
                         <img src="./assets/img/capa-1.png" alt="">
                     </a>
                 </div>
+
+
                 <!-- tskBoard -->
-                <div class="done" id="done">
+                <div class="done" id="done" ondrop="moveIt('done')" ondragover="allowDrop(event)" >
                    
                 </div>
             </section>

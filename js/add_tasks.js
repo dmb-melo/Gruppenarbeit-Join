@@ -11,6 +11,7 @@ let subT = [];
 let tasks = [];
 let priorityContentArray = []; 
 let currentId = 0;  
+let newStatus = 'todo'
 
 
 let selectedPriorityContent = '';
@@ -208,7 +209,8 @@ function addTask() {
         'assigned': assigned,
         'priorityContent': priorityContent,
         'priorityID': selectedPriorityID,
-        'subtasks': subtasks.slice()
+        'subtasks': subtasks.slice(),
+        'status': newStatus // Füge den vorher festgelegten Status hinzu
     };
     
     subT.unshift(subtasks.slice()); // Store a copy of subtasks in subT
