@@ -107,7 +107,6 @@ function deleteTask(event) {// wird nicht mehr gebraucht
 // drag and drop 
 
 
-
 function moveIt(taskStatus) {
     tasks[draggedElementId][taskStatus] = taskStatus;
     updateHtml();
