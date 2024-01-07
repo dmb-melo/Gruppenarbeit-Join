@@ -137,10 +137,11 @@
 
 .imgPlusTask:hover .plusImg{
     display: none;
-} 
+}
 
-
-
+.plus_add_task_mobile{
+    display: none;
+}
 
 /* tasBoard */
 .taskAria {
@@ -220,7 +221,6 @@
     border-radius: 24px;
     background: var(--white, #FFF);
     box-sizing: border-box;
-    /* shadoe backlog box */
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     transition: transform 0.3s ease; 
@@ -252,19 +252,38 @@
 
 @media (max-width: 320px){
 
-    .headlineBoard{
-        margin-left: 10px;
-       
+    .titleBoard{
+        font-size: 47px !important;
     }
 
-    /* .searchBar{
-        background-color: pink;
-    } */
+    .headlineBoard{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 10px;   
+        width: 302px;    
+    }
+
+    .plusImgMobile:hover .plus_add_task_mobile{
+        display: none;
+    }
+
+    .plus_add_task_mobileHover{
+        display: none;
+    }
+
+    .plusImgMobile:hover .plus_add_task_mobileHover{
+        display: block;
+    }
+
+    .tasksToDo{
+        margin-top: 0;
+    }
 
     .searchbarIn{
         margin-left: 0px;
         flex-direction: column;
         width: 396px;
+        margin-top: 40px;
         display: flex;
         align-items: flex-start;  
         height: 73px;  
@@ -274,6 +293,12 @@
     .primaryBoard{
         display: none;
     }
+
+    .plus_add_task_mobile{
+        display: block;
+    }
+
+    
 
     .searchBox{
         margin-left: 8px;
@@ -286,15 +311,15 @@
     }
 
     .taskAria{
-        /* width: 396px; */
         display: flex;
         flex-direction: column;     
         padding: 0;
         margin-left: 0px;
-        /* background-color: antiquewhite; */
     }
 
     .tasksToDo{   
+        overflow: scroll !important;
+        max-height: 750px !important;
         flex-direction: column;
         width: 428px;        
         margin-left: 0;
@@ -304,9 +329,15 @@
         width: 300px;
         margin-left: 10px;
         margin-right: 71px; 
+        font-size: 27px;
     }
 
     .headLineCss{
-        max-width: 396px;
+        max-width: 396px;        
     }
+
+    .progressTitles{
+        font-size: 27px !important;
+    }
+
 }
