@@ -8,12 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
 function renderBoardHTML() {
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generateBoardHTML();
-    removeStyleSidebar();
-    addTextColor();
     boardInit();
     load();
     save();
-    document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive");
 }
 
 
@@ -41,29 +38,9 @@ function updateHtmlForStatus(taskStatus, elementId) {
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task);
-            
-            let categoryBoard = document.getElementById('category');
-            for (let j = 0; j < tasks.length; j++) {
-                let currentCategory = category[j];
-                let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
-                categoryBoard.innerHTML +=` <p class="${className}">${currentCategory}</p>`;
-                
-            //     let contactAvatar = document.getElementById("contactsAvatars");
-            //     contactAvatar.innerHTML = ""; 
-            //     for (let k = 0; k < selectedContacts.length; k++) {
-            //       let selectedIndex = selectedContacts[k];
-            //       let contact = contacts[selectedIndex];
-            //       let name = contact[0];
-            //       let firstname = name.split(" ")[0][0].toUpperCase();
-            //       let surname = name.split(" ")[1][0].toUpperCase();
-            //         contactAvatar.innerHTML +=`<div>
-            //       <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
-            //           <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-            //       </div>
-            //   </div>`;
-            //     }
-            }
+        
         }
+
     }
 }
 function sortContacts() {
@@ -96,6 +73,7 @@ function removeActiveClassFromSvgElements(container) {
 
 
 function generateSmallCard(task) {
+    let currenCategory = task.category[0]
     let currentPriorityContent = task.priorityContent || ''; 
 
     let tempDiv = document.createElement('div');
@@ -108,17 +86,17 @@ function generateSmallCard(task) {
     clonedContentDiv.appendChild(tempDiv.cloneNode(true));
     
     removeActiveClassFromSvgElements(clonedContentDiv);
-
+    let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})"> 
-        <div class="category"><p id="category"></p></div>
+        <div class="category"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
             <div class="taskDescription">${task.description}</div>
         </div>
         <div class="smallProgress">${task.subtasks.length}</div>
         <div class="smallCardFooter">
-            <div class="assigend"><p id="contactsAvatars"></p></div>
+            <div class="assigend"><p>${assigned}</p></div>
             <div class="priority">${clonedContentDiv.innerHTML}</div>
             <div class="delete_task" onclick="deleteTask(event)">
                 <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
