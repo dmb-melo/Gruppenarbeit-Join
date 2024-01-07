@@ -4,10 +4,12 @@ body{
 }
 .contacts-headline-h1{
     font-size: 42px;
+    font-weight: 700;
 }
 .nameCard{
     font-size: 40px;
     margin-bottom: 6px;
+    font-weight: 500;
 }
 .headline-h3{
     font-size: 24px;
@@ -244,7 +246,7 @@ justify-content: center;
 }
 .addContactPopup{
     position: fixed;
-    left: 250px;
+    left: 160px;
 }
 .addContactRight{
     background-color: white;
@@ -323,7 +325,7 @@ justify-content: center;
 }
 .editContactPopup{
     position: fixed;
-    left: 250px;
+    left: 160px;
     font-weight: 700;
 }
 .editContactRight{
@@ -652,8 +654,45 @@ justify-content: center;
     }
   }
   
+  @media(max-width: 1000px){
+    .contact-list{
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .contact-details{
+        margin-top: 0;
+    }
+    .addContactPopup{
+        width: 99vw;
+        left: 3px;
+    }
+    .addContactMain{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .editContactPopup{
+        left: 3px;
+        width: 99vw;
+    }
+    .editContactMain{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .editContactLeft{
+        width: 40vw;
+    }
+    .editCircle{
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .editContactMiddle{
+        justify-content: center;
+        align-items: center;
+    }
+  }
 
- @media(max-width: 397px){
+
+ @media(max-width: 700px){
     .hide-mobile-397px{
         display: none;
     }
