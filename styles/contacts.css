@@ -9,7 +9,7 @@ body{
     font-size: 40px;
     margin-bottom: 6px;
 }
-h3{
+.headline-h3{
     font-size: 24px;
     font-weight: 300;
 }
@@ -192,6 +192,9 @@ justify-content: center;
     border: solid white 3px;
     margin-right: 36px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .nameId{
     font-size: 36px;
@@ -579,6 +582,7 @@ justify-content: center;
 }
 .closeEditContact-mobile{
     display: none;
+    cursor: pointer;
 }
 
 .slide-left {
@@ -609,6 +613,9 @@ justify-content: center;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
+.contacts-headline-arrow{
+    display: none;
 }
 
  @keyframes slide-left {
@@ -653,6 +660,8 @@ justify-content: center;
     .contact-list{
         width: 100%;
         margin-left: 30px;
+        margin-top: 30px;
+        height: 74vh;
     }
     .slide-left{
         animation: none;
@@ -713,24 +722,18 @@ justify-content: center;
     }
     .addContactMain{
         flex-direction: column;
-        height: 400px;
-        width: 200px;
-        margin-left: 10px;
+        height: 650px;
+        width: 100vw;
+        margin-left: 5px;
         margin-right: 10px;
-        margin-top: -75px;
+        margin-top: 200px;
     }
     .addContactLeft{
         border-top-right-radius: 25px;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 0px;
-        width: 321px;
-        height: 200px;
-/*        height: 351px;*/
-        padding: 66px 24px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 12px;
+        width: 97vw;
+        height: 291px;
         flex-shrink: 0;
     }
     .addContactRight{
@@ -738,16 +741,13 @@ justify-content: center;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
         border-top-right-radius: 0;
-        width: 368px;
+        width: 97vw;
     }
     .closeAddContact-mobile{
         display: block;
-        width: 24px;
-        height: 24px;
-        flex-shrink: 0;
-        margin-top: -50px;
-        margin-left: 300px;
-        margin-bottom: 80px;
+        position: fixed;
+        right: 30px;
+        top: 225px;
     }
     .close-img-div {
         display: none;
@@ -755,8 +755,10 @@ justify-content: center;
     .addContactMiddle{
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         background-color: white;
-        width: 321px;
+        width: 97vw;
         height: 1px;
     }
     .input{
@@ -766,10 +768,11 @@ justify-content: center;
     }
     .addCircle{
         position: fixed;
-        left: 90px;
-        top: 40px;
         width: 100px;
         height: 100px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
     }
     .addCircle-image{
         margin: 31px;
@@ -795,16 +798,16 @@ justify-content: center;
     }
     .addContactHeadline{
         font-size: 36px;
-        margin-top: 42px;
-        margin-left: 0;
+        margin-top: 100px;
+        margin-left: 20px;
         font-weight: 600;
     }
     .addContactHeadline2{
-        margin-left: 0;
+        margin-left: 20px;
         font-weight: 300;
     }
     .line3{
-        margin-left: 0;
+        margin-left: 20px;
         margin-top: 18px;
     }
     .createButton{
@@ -815,47 +818,50 @@ justify-content: center;
         margin-left: 24px;
     }
     .contact-details{
-        margin-top: 80px;
+        margin-top: 0;
         width: 100%;
         padding-left: 0;
     }
     .contact-details-headline{
         flex-direction: column;
         align-items: flex-start;
+        margin-top: 45px;
     }
     .line{
         display: none;
     }
     .contacts-headline-h1{
-        font-size: 50px;
+        font-size: 42px;
         font-weight: 700;
     }
     .line4{
         display: block;
-        width: 90px;
+        width: 77px;
         height: 3px;
         background-color: #2AAAE2;
         margin-top: 14px;
         margin-bottom: 30px;
     }
-    h3{
+    .headline-h3{
         margin-top: 8px;
+        font-size: 18px;
     }
     .circleCard{
-        width: 80px;
-        height: 80px;
+        width: 72px;
+        height: 72px;
         margin: 0px;
         margin-right: 20px;
     }
     .nameId{
-        font-size: 33px;
-    margin: 16px;
+        font-size: 28px;
+        margin: 16px;
+        font-weight: 300;
     }
     .buttonsCard{
         display: none;
     }
     .nameCard{
-        font-size: 36px;
+        font-size: 30px;
         font-weight: 700;
     }
     .textCard{
@@ -879,6 +885,8 @@ justify-content: center;
     .editContactMiddle{
         height: 0;
         width: 97vw;
+        justify-content: center;
+        align-items: center;
     }
     .editContactLeft{
         margin-top: 0px;
@@ -889,7 +897,6 @@ justify-content: center;
         height: 291px;
     }
     .editContactRight{
-        width: 380px;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 25px;
         border-bottom-left-radius: 25px;
@@ -904,6 +911,7 @@ justify-content: center;
         font-size: 36px;
         margin-top: 100px;
         margin-bottom: 9px;
+        margin-left: 20px;
     }
     .closeEditContact-mobile{
         display: block;
@@ -913,10 +921,32 @@ justify-content: center;
     }
     .line2{
         margin-bottom: 100px;
+        margin-left: 20px;
     }
     .editCircle{
         position: fixed;
-        top: 273px;
-        left: 60px;
+        margin-top: 0px;
+        margin-left: 0px;
+
+    }
+    .contacts-headline-arrow{
+        display: block;
+        position: fixed;
+        right: 14px;
+        width: 35px;
+        cursor: pointer;
+    }
+    .formDiv{
+        margin-right: 0;
+    }
+    .inputFieldName {
+        margin-bottom: 20px;
+        width: 90vw;
+    }
+    .inputField {
+        width: 86vw;
+    }
+    .nameIdEdit {
+        font-size: 40px;
     }
 }

@@ -451,9 +451,10 @@ function generate_contactsHtml(){
         <!--contact details-->
         <div class="contact-details hide-mobile-397px" id="contact-details">
             <div class="contact-details-headline">
+                <img class="contacts-headline-arrow" src="./assets/img/arrow-left-line.png" onclick="render_contactsHtml()">
                 <div class="contacts-headline-h1">Contacts</div>
                 <div class="line"></div>
-                <h3>Better with a team</h3>
+                <div class="headline-h3">Better with a team</div>
                 <div class="line4"></div>
             </div>
             <div class="contactCard" id="contactCard">
