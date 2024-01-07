@@ -227,6 +227,10 @@
     line-height: 120%;
 }
 
+.user-name {
+    white-space: nowrap;
+}
+
 /* Rightend */
 
 /* text Inside Dialog */
