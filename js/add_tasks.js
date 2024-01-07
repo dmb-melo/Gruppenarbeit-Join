@@ -144,7 +144,6 @@ function addTask() {
     document.getElementById("dueDate").value = "";
     dueDate.unshift(dueDateValue);
     checkboxAddTask();
-  
     let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
     let priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
     let selectedPriorityID = "";
@@ -153,6 +152,7 @@ function addTask() {
         }
     priorityContentArray.unshift(priorityContent);
     currentId++;
+    console.log("category", category) 
    let newTask = {
         id: currentId,
         title: titleValue,
@@ -164,7 +164,8 @@ function addTask() {
         subtasks: subtasks.slice(),
         taskStatus :'todo',
         category: category
-    };   
+    };  
+    console.log("newTask", newTask) 
     subT.unshift(subtasks.slice()); 
     tasks.unshift(newTask); 
     localStorage.setItem("selectedPriorityContent", priorityContent);
@@ -178,6 +179,7 @@ function addTask() {
     taskSuccess();
     updateSubtasksDisplay();
     clearAllSelections();
+    category = [];
 }
 
 function checkboxAddTask(){
@@ -318,6 +320,7 @@ function selectCategory(clickedElement) {
   let selectText = clickedElement.querySelector("p").getAttribute("value");
   let taskCategory = document.getElementById("taskCategory");
   if (selectText !== "Select a task category") {
+    category = [];
     category.unshift(selectText);
     category.push(categorySelect);
     save(); 

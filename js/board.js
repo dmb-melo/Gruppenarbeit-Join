@@ -11,7 +11,6 @@ function renderBoardHTML() {
     removeStyleSidebar();
     addTextColor();
     boardInit();
-    updateHtml();
     load();
     save();
     document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive");
@@ -42,10 +41,10 @@ function updateHtmlForStatus(taskStatus, elementId) {
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task);
-        
+            
             let categoryBoard = document.getElementById('category');
             for (let j = 0; j < tasks.length; j++) {
-                let currentCategory= category[j];
+                let currentCategory = category[j];
                 let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
                 categoryBoard.innerHTML +=` <p class="${className}">${currentCategory}</p>`;
                 
