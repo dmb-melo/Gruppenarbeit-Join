@@ -10,6 +10,7 @@ body {
   font-family: "Inter", sans-serif;
   display: flex;
   overflow: hidden;
+  background-color: rgba(246, 247, 248, 1);
 }
 
 .animationJoinLogo {
@@ -451,6 +452,48 @@ body {
   animation: moveUpToCenter 1s ease forwards;
 }
 
+.join-logo-header-login {
+  position: absolute;
+  left: 20px;
+  top: 28.5px;
+  height: 39px;
+  width: 32px;
+  z-index: 1000;
+}
+
+.headline-log-in-mobile {
+  height: 96px;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  padding-left: 328px;
+}
+
+.box-sizing-login {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 232px;
+  background: var(--sidebarBgColor);
+  z-index: 1000;
+  font-family: "Inter", sans-serif;
+}
+
+.sidebar-login {
+  width: 232px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @keyframes moveUpToCenter {
   from {
     transform: translateY(100vh);
@@ -472,6 +515,19 @@ body {
 @media (max-width: 1100px) {
   .animationJoinLogo {
     background-color: rgba(42, 54, 71, 1);
+  }
+
+  .content-container {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .header-headline-login {
+    display: none;
+  }
+
+  .box-sizing-login {
+    display: none;
   }
 
   .join-logo {
@@ -564,13 +620,28 @@ body {
 
   .headline-log-in {
     font-size: 37px !important;
-}
+  }
 }
 
 @media (max-height: 700px) {
+  .headline-log-in-mobile {
+    margin-top: 0 !important;
+  }
+
+  .log-in-container {
+    height: 390px;
+  }
+
+  .remember-me-container {
+    padding-top: 0;
+  }
+
+  .input-field-container {
+    margin-top: 0;
+  }
   .headline-log-in {
     margin-top: 22px;
-}
+  }
   .sign-up-container {
     margin-top: 58px;
     height: 460px;
@@ -579,22 +650,21 @@ body {
   .arrow-back-sign-up-container {
     top: 22px;
     left: 32px;
-}
+  }
 
   .input-log-in {
-    gap: 8px; 
-}
+    gap: 8px;
+  }
 
-.input-field-container {
-  height: 40px;
-}
+  .input-field-container {
+    height: 40px;
+  }
 
-.accept-privacy-policy-container {
-  padding-top: 8px;
-}
+  .accept-privacy-policy-container {
+    padding-top: 8px;
+  }
 
-.submit-sign-up-container {
-  padding-top: 0;
+  .submit-sign-up-container {
+    padding-top: 0;
+  }
 }
-}
-

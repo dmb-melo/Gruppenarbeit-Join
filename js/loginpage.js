@@ -156,6 +156,9 @@ function legalNoticeContent() {
 function removeContentLogin() {
   document.getElementById("signUpButtonHeadline").classList.add("d-none");
   document.getElementById("loginpageDataProtectionContainer").classList.add("d-none");
+  document.getElementById("signUpButtonResponsive").classList.add("d-none");
+  document.getElementById("animationJoinLogoContainer").classList.add("d-none");
+  document.getElementById("joinLogoContainer").classList.add("d-none");
 }
 
 function renderLogInHeaderAndSidebar() {
@@ -231,12 +234,13 @@ function generateSignUpContent() {
 function generateLogInHeaderAndSidebar() {
   return /*html*/ `
   <header>
-  <div class="headline-header">
-    <b>Kanban Project Management Tool</b>
+  <img class="join-logo-header-login" src="./assets/img/join-logo.svg" alt="join-logo">
+  <div class="headline-log-in-mobile">
+    <b class="header-headline-login">Kanban Project Management Tool</b>
   </div>
 </header>
-<div class="box-sizing">
-  <div class="sidebar">
+<div class="box-sizing-login">
+  <div class="sidebar-login">
     <div class="sidbarLogo">
       <img src="./assets/img/logo-white.svg" alt="logo" />
     </div>
