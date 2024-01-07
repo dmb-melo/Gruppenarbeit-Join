@@ -322,9 +322,7 @@ function selectCategory(clickedElement) {
   if (selectText !== "Select a task category") {
     category = [];
     category.unshift(selectText);
-    console.log(selectText);
-    // category.push(categorySelect);
-    console.log(categorySelect);
+    category.push(categorySelect);
     save(); 
     taskCategory.querySelector("p").textContent = selectText;
   }
