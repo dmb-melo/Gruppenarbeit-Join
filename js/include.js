@@ -13,10 +13,12 @@ async function includeHTML() {
 }
 
 function renderSummaryContent() {
-  document.getElementById("contentJoin").innerHTML = ``;
-  document.getElementById("contentJoin").innerHTML = generateSummaryContent();
+  generateGreetingText();
+  determineNumberTasks();
   removeStyleSidebar();
   addTextColor();
+  document.getElementById("contentJoin").innerHTML = ``;
+  document.getElementById("contentJoin").innerHTML = generateSummaryContent();
   document.getElementById("sidebarCategorySummary").classList.add("sidebarCategoryLinkActive");
 }
 

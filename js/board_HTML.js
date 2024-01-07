@@ -4,7 +4,11 @@ function generateBoardHTML() {
         <div class="searchBar">
             <div class="searchbarIn">
                 <div class="headlineBoard">
-                    <h1>Board</h1>
+                    <h1 class="titleBoard">Board</h1>
+                    <div class= plusImgMobile>
+                        <img class="plus_add_task_mobile" src="./assets/img/plus_add_task_mobile.svg" alt="">
+                        <img class="plus_add_task_mobileHover" src="./assets/img/plus_add_task_mobileHover.svg" alt="">
+                    </div>
                 </div>
                 <div class="searchBoxLeft">
                     <div class="searchBox">                   
