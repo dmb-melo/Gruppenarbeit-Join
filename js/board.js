@@ -92,7 +92,7 @@ function generateSmallCard(task) {
     removeActiveClassFromSvgElements(clonedContentDiv);
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
-      <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})"> 
+      <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
         <div class="category"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
@@ -112,7 +112,6 @@ function generateSmallCard(task) {
       </div>  
     `;
 }
-
 
 function deleteTask(event) {// wird nicht mehr gebraucht
     let noteElement = event.target.closest('.cardA');
