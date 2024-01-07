@@ -39,9 +39,41 @@ function updateHtmlForStatus(taskStatus, elementId) {
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task);
+        
+            let categoryBoard = document.getElementById('category');
+            for (let j = 0; j < title.length; j++) {
+                let currentCategory= category[j];
+                let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
+                categoryBoard.innerHTML +=` <p class="${className}">${currentCategory}</p>`;
+                
+                let contactAvatar = document.getElementById("contactsAvatars");
+                contactAvatar.innerHTML = ""; 
+                for (let k = 0; k < selectedContacts.length; k++) {
+                  let selectedIndex = selectedContacts[k];
+                  let contact = contacts[selectedIndex];
+                  let name = contact[0];
+                  let firstname = name.split(" ")[0][0].toUpperCase();
+                  let surname = name.split(" ")[1][0].toUpperCase();
+                    contactAvatar.innerHTML +=`<div>
+                  <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+                      <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+                  </div>
+              </div>`;
+                }
+            }
         }
+
     }
 }
+function sortContacts() {
+    contacts.sort((a, b) => {
+      let nameA = a[0].toUpperCase();
+      let nameB = b[0].toUpperCase();
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    });
+  }
 
 function updateHtml() {
     updateHtmlForStatus('todo', 'todo');
@@ -51,25 +83,52 @@ function updateHtml() {
 }
 
 
-function startDragged(id){
-    draggedElementId = id;
-}
+
 
 function generateSmallCard(task) {
-    let currentCategory = task.category;  // Nutze die Kategorie aus dem task-Objekt
-    let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
+    let currentPriorityContent = task.priorityContent || ''; // Replace with actual property
+
+
+    let tempDiv = document.createElement('div');
+    tempDiv.innerHTML = currentPriorityContent;
+    tempDiv.classList.add('selectedPriorityContentDiv');
+
+    let svgElements = tempDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
+    svgElements.forEach(svgElement => {
+        svgElement.classList.remove('imgPrio-active');
+    });
+
+    // Create a cloned content div and process its contents
+    let clonedContentDiv = document.createElement('div');
+    clonedContentDiv.appendChild(tempDiv.cloneNode(true));
+    // Remove imgPrio-active class from SVG elements in the cloned content
+    let clonedSvgElements = clonedContentDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
+    clonedSvgElements.forEach(svgElement => {
+        svgElement.classList.remove('imgPrio-active');
+    });
+    // let allSubtasksDiv = document.getElementById('allSubtasks');
+    // allSubtasksDiv.innerHTML = ''; // Clear existing content
+    // let subtasksContainer = document.createElement('div');
+    // subtasksContainer.classList.add('subtasksContainer');
+
+    // if (subtasks.length === 0) {
+    //     allSubtasksDiv.innerHTML = '';
+    // }
+   
+ 
+
 
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})"> 
-        <div class="category"><p class="${className}">${currentCategory}</p></div>
+        <div class="category"><p id="category"></p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
             <div class="taskDescription">${task.description}</div>
         </div>
         <div class="smallProgress">${task.subtasks.length}</div>
         <div class="smallCardFooter">
-            <div class="assigend">${task.assigned}</div>
-            <div class="priority">${task.priorityID}</div>
+            <div class="assigend"><p id="contactsAvatars"></p></div>
+            <div class="priority">${clonedContentDiv.innerHTML}</div>
             <div class="delete_task" onclick="deleteTask(event)">
                         <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
                         <p class = "delete-task-title">Delete</p>
@@ -115,6 +174,15 @@ function moveIt(taskStatus) {
     } 
 }
 
+function moveIt(taskStatus) {
+    const taskIndex = tasks.findIndex(task => task.id === draggedElementId);
+
+    if (taskIndex !== -1) {
+        tasks[taskIndex].taskStatus = taskStatus;
+        updateHtml();
+        save();
+    } 
+}
 function allowDrop(ev) {
     ev.preventDefault();
   }
