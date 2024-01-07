@@ -44,28 +44,27 @@ function updateHtmlForStatus(taskStatus, elementId) {
             element.innerHTML += generateSmallCard(task);
         
             let categoryBoard = document.getElementById('category');
-            for (let j = 0; j < title.length; j++) {
+            for (let j = 0; j < tasks.length; j++) {
                 let currentCategory= category[j];
                 let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
                 categoryBoard.innerHTML +=` <p class="${className}">${currentCategory}</p>`;
                 
-                let contactAvatar = document.getElementById("contactsAvatars");
-                contactAvatar.innerHTML = ""; 
-                for (let k = 0; k < selectedContacts.length; k++) {
-                  let selectedIndex = selectedContacts[k];
-                  let contact = contacts[selectedIndex];
-                  let name = contact[0];
-                  let firstname = name.split(" ")[0][0].toUpperCase();
-                  let surname = name.split(" ")[1][0].toUpperCase();
-                    contactAvatar.innerHTML +=`<div>
-                  <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
-                      <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-                  </div>
-              </div>`;
-                }
+            //     let contactAvatar = document.getElementById("contactsAvatars");
+            //     contactAvatar.innerHTML = ""; 
+            //     for (let k = 0; k < selectedContacts.length; k++) {
+            //       let selectedIndex = selectedContacts[k];
+            //       let contact = contacts[selectedIndex];
+            //       let name = contact[0];
+            //       let firstname = name.split(" ")[0][0].toUpperCase();
+            //       let surname = name.split(" ")[1][0].toUpperCase();
+            //         contactAvatar.innerHTML +=`<div>
+            //       <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+            //           <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+            //       </div>
+            //   </div>`;
+            //     }
             }
         }
-
     }
 }
 function sortContacts() {
@@ -88,38 +87,28 @@ function updateHtml() {
 
 
 
-function generateSmallCard(task) {
-    let currentPriorityContent = task.priorityContent || ''; // Replace with actual property
 
+function removeActiveClassFromSvgElements(container) {
+    let svgElements = container.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
+    svgElements.forEach(svgElement => {
+        svgElement.classList.remove('imgPrio-active');
+    });
+}
+
+
+function generateSmallCard(task) {
+    let currentPriorityContent = task.priorityContent || ''; 
 
     let tempDiv = document.createElement('div');
     tempDiv.innerHTML = currentPriorityContent;
     tempDiv.classList.add('selectedPriorityContentDiv');
 
-    let svgElements = tempDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
-    svgElements.forEach(svgElement => {
-        svgElement.classList.remove('imgPrio-active');
-    });
+    removeActiveClassFromSvgElements(tempDiv);
 
-    // Create a cloned content div and process its contents
     let clonedContentDiv = document.createElement('div');
     clonedContentDiv.appendChild(tempDiv.cloneNode(true));
-    // Remove imgPrio-active class from SVG elements in the cloned content
-    let clonedSvgElements = clonedContentDiv.querySelectorAll('.img-priorityUrgent, .img-priorityMedium, .img-priorityLow');
-    clonedSvgElements.forEach(svgElement => {
-        svgElement.classList.remove('imgPrio-active');
-    });
-    // let allSubtasksDiv = document.getElementById('allSubtasks');
-    // allSubtasksDiv.innerHTML = ''; // Clear existing content
-    // let subtasksContainer = document.createElement('div');
-    // subtasksContainer.classList.add('subtasksContainer');
-
-    // if (subtasks.length === 0) {
-    //     allSubtasksDiv.innerHTML = '';
-    // }
-   
- 
-
+    
+    removeActiveClassFromSvgElements(clonedContentDiv);
 
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})"> 
@@ -133,14 +122,14 @@ function generateSmallCard(task) {
             <div class="assigend"><p id="contactsAvatars"></p></div>
             <div class="priority">${clonedContentDiv.innerHTML}</div>
             <div class="delete_task" onclick="deleteTask(event)">
-                        <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
-                        <p class = "delete-task-title">Delete</p>
-                    </div>
+                <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
+                <p class="delete-task-title">Delete</p>
+            </div>
         </div>
       </div>  
     `;
-
 }
+
 
 function deleteTask(event) {// wird nicht mehr gebraucht
     let noteElement = event.target.closest('.cardA');
