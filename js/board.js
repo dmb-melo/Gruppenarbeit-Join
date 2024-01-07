@@ -6,10 +6,13 @@ let draggedElementId;
 function renderBoardHTML() {
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generateBoardHTML();
+    removeStyleSidebar();
+    addTextColor();
     boardInit();
     updateHtml();
     load();
     save();
+    document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive");
 }
 
 
