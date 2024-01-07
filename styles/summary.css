@@ -84,7 +84,7 @@ body {
 .summaryTodoDone {
   display: flex;
   width: 560px;
-  height: 168px;
+  height: 148px;
   justify-content: center;
   align-items: flex-start;
   gap: 32px;
