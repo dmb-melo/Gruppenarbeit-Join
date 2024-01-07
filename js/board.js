@@ -73,6 +73,7 @@ function removeActiveClassFromSvgElements(container) {
 
 
 function generateSmallCard(task) {
+    let currenCategory = task.category[0]
     let currentPriorityContent = task.priorityContent || ''; 
 
     let tempDiv = document.createElement('div');
@@ -85,17 +86,17 @@ function generateSmallCard(task) {
     clonedContentDiv.appendChild(tempDiv.cloneNode(true));
     
     removeActiveClassFromSvgElements(clonedContentDiv);
-   
+    let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})"> 
-        <div class="category"><p id="category" class="">${task.category}</p></div>
+        <div class="category"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
             <div class="taskDescription">${task.description}</div>
         </div>
         <div class="smallProgress">${task.subtasks.length}</div>
         <div class="smallCardFooter">
-            <div class="assigend"><p id="contactsAvatars"></p></div>
+            <div class="assigend"><p>${assigned}</p></div>
             <div class="priority">${clonedContentDiv.innerHTML}</div>
             <div class="delete_task" onclick="deleteTask(event)">
                 <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
