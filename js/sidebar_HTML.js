@@ -24,7 +24,7 @@ function generate_sidebar(){
         <div id="sidebarCategoryBorard" class="sidebarCategory" onclick="renderBoardHTML()">
           <div class="sidebarLink">
             <img class="sidebarIMG" src="./assets/img/Icons_board.png" />
-            <div class="sidebarMenuText">Borard</div>
+            <div class="sidebarMenuText">Board</div>
           </div>
         </div>
         <div id="sidebarCategoryContacts" class="sidebarCategory" onclick="render_contactsHtml()">
