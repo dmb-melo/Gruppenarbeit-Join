@@ -17,7 +17,7 @@ function generateBoardHTML() {
                             </div>                                                  
                         </div>                       
                     </div>
-                    <div class="primaryBoard">
+                    <div class="primaryBoard" onclick="render_addTask()">
                         <div class="textCreateTask">Add task</div>
                         <img class="imgCheckBlack" src="./assets/img/add.svg" alt="">              
                     </div>

@@ -38,8 +38,9 @@ function updateHtmlForStatus(taskStatus, elementId) {
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task);
-        
+
         }
+        
 
     }
 }
@@ -96,7 +97,9 @@ function generateSmallCard(task) {
         </div>
         <div class="smallProgress">${task.subtasks.length}</div>
         <div class="smallCardFooter">
-            <div class="assigend"><p>${assigned}</p></div>
+        
+        <div class="assigend"><p>${assigned}</p>
+        </div>
             <div class="priority">${clonedContentDiv.innerHTML}</div>
             <div class="delete_task" onclick="deleteTask(event)">
                 <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
