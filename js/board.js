@@ -40,28 +40,8 @@ function updateHtmlForStatus(taskStatus, elementId) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task);
         
-            let categoryBoard = document.getElementById('category');
-            for (let j = 0; j < tasks.length; j++) {
-                let currentCategory= category[j];
-                let className = typeof currentCategory === 'string' ? currentCategory.replace(/\s+/g, '') : '';
-                categoryBoard.innerHTML +=` <p class="${className}">${currentCategory}</p>`;
-                
-            //     let contactAvatar = document.getElementById("contactsAvatars");
-            //     contactAvatar.innerHTML = ""; 
-            //     for (let k = 0; k < selectedContacts.length; k++) {
-            //       let selectedIndex = selectedContacts[k];
-            //       let contact = contacts[selectedIndex];
-            //       let name = contact[0];
-            //       let firstname = name.split(" ")[0][0].toUpperCase();
-            //       let surname = name.split(" ")[1][0].toUpperCase();
-            //         contactAvatar.innerHTML +=`<div>
-            //       <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
-            //           <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-            //       </div>
-            //   </div>`;
-            //     }
-            }
         }
+
     }
 }
 function sortContacts() {
@@ -106,10 +86,10 @@ function generateSmallCard(task) {
     clonedContentDiv.appendChild(tempDiv.cloneNode(true));
     
     removeActiveClassFromSvgElements(clonedContentDiv);
-
+   
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})"> 
-        <div class="category"><p id="category"></p></div>
+        <div class="category"><p id="category">${task.category}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
             <div class="taskDescription">${task.description}</div>
