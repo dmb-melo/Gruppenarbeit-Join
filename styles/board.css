@@ -143,6 +143,10 @@
     display: none;
 }
 
+.plus_add_task_mobileHover{
+    display: none;
+}
+
 /* tasBoard */
 .taskAria {
     display: flex;
@@ -296,9 +300,7 @@
 
     .plus_add_task_mobile{
         display: block;
-    }
-
-    
+    }    
 
     .searchBox{
         margin-left: 8px;
