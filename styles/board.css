@@ -62,6 +62,17 @@
     background: #FFF; 
 }
 
+.primaryBoard{
+    transition: all 100ms ease-in-out;
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 10px;
+    background: #2A3647;    
+}
+
 .searchBoxLeft{
     display: flex;
     width: 504px;
@@ -240,5 +251,62 @@
 }
 
 @media (max-width: 320px){
-    
+
+    .headlineBoard{
+        margin-left: 10px;
+       
+    }
+
+    /* .searchBar{
+        background-color: pink;
+    } */
+
+    .searchbarIn{
+        margin-left: 0px;
+        flex-direction: column;
+        width: 396px;
+        display: flex;
+        align-items: flex-start;  
+        height: 73px;  
+        gap:40px;  
+    }
+
+    .primaryBoard{
+        display: none;
+    }
+
+    .searchBox{
+        margin-left: 8px;
+        width: 270px;
+        height: 30px;
+    }
+
+    .src{
+        font-size: 20px;
+    }
+
+    .taskAria{
+        /* width: 396px; */
+        display: flex;
+        flex-direction: column;     
+        padding: 0;
+        margin-left: 0px;
+        /* background-color: antiquewhite; */
+    }
+
+    .tasksToDo{   
+        flex-direction: column;
+        width: 428px;        
+        margin-left: 0;
+    }
+
+    .taskBoardTtle{         
+        width: 300px;
+        margin-left: 10px;
+        margin-right: 71px; 
+    }
+
+    .headLineCss{
+        max-width: 396px;
+    }
 }
