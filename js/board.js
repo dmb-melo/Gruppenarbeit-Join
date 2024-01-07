@@ -164,6 +164,10 @@ function deleteTask(event) {// wird nicht mehr gebraucht
 
 
 // drag and drop 
+function startDragged(id){
+draggedElementId = id;
+
+}
 
 function moveIt(taskStatus) {
     const taskIndex = tasks.findIndex(task => task.id === draggedElementId);
