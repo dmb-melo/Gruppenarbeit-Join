@@ -23,6 +23,12 @@
     margin-top: 96px;
 }
 
+.tasksCardsDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .searchBar {    
     width: 1215px;
     height: 232px;
