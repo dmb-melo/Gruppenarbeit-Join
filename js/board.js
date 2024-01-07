@@ -9,7 +9,6 @@ function renderBoardHTML() {
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generateBoardHTML();
     boardInit();
-    updateHtml();
     load();
     save();
 }
@@ -89,7 +88,7 @@ function generateSmallCard(task) {
    
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})"> 
-        <div class="category"><p id="category">${task.category}</p></div>
+        <div class="category"><p id="category" class="">${task.category}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
             <div class="taskDescription">${task.description}</div>
