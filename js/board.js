@@ -1,9 +1,7 @@
 let draggedElementId;
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    renderBoardHTML();
-});
+
 
 function renderBoardHTML() {
     document.getElementById('contentJoin').innerHTML = ``;
