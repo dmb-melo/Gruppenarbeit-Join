@@ -11,6 +11,9 @@ function renderBoardHTML() {
     boardInit();
     load();
     save();
+    removeStyleSidebar();
+    addTextColor();
+    document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive")
 }
 
 

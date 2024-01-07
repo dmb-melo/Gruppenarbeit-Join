@@ -64,9 +64,8 @@ function validationOfTheMostRecentDate() {
   } else {
     expirationDateOfTask.sort((a, b) => b - a);
     let dateOfTask = expirationDateOfTask[0];
-    formatDateOfTask(dateOfTask) 
+    formatDateOfTask(dateOfTask);
   }
-
 }
 
 function formatDateOfTask(dateOfTask) {
