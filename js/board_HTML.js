@@ -34,7 +34,7 @@ function generateBoardHTML() {
                         <img class="plusImgHover" src="./assets/img/imgPlusHover.svg" alt="">
                     </a>
                 </div>
-                <!-- tskBoard -->
+            <!-- tskBoard -->
                 <div id="todo" ondrop="moveIt('todo')"  ondragover="allowDrop(event)"> </div>
             </section>
             <!-- in Progress -->
@@ -46,7 +46,7 @@ function generateBoardHTML() {
                         <img class="plusImgHover" src="./assets/img/imgPlusHover.svg" alt="">
                     </a>
                 </div>
-            </section>
+                
             <!-- tskBoard -->
                 <div class="inProgress" id="inProgress" ondrop="moveIt('inProgress')"  ondragover="allowDrop(event)"> </div>            </section>
             <!-- Await Feedback -->
