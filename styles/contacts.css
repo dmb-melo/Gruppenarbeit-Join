@@ -123,7 +123,7 @@ hr{
     display: flex;
     align-items: center;
     margin-left: 24px;
-    margin-top: 48px;
+    margin-top: 100px;
 }
 .nameIdList{
     font-size: 16px !important;
@@ -577,7 +577,9 @@ justify-content: center;
 .button-edit-contact-mobile{
     display: none;
 }
-
+.closeEditContact-mobile{
+    display: none;
+}
 
 .slide-left {
     animation: slide-left 0.5s linear both;
@@ -863,5 +865,58 @@ justify-content: center;
         width: 25px;
         height: 25px;
         margin-bottom: -4px;
+    }
+    .editContactMain{
+        flex-direction: column;
+        height: 650px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 200px;
+    }
+    .editContactPopup{
+        left: 6px;
+    }
+    .editContactMiddle{
+        height: 0;
+        width: 97vw;
+    }
+    .editContactLeft{
+        margin-top: 0px;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        width: 97vw;
+        height: 291px;
+    }
+    .editContactRight{
+        width: 380px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        height: 350px;
+        width: 97vw;
+    }
+    .editContactLogo{
+        display: none;
+    }
+    .editContactHeadline{
+        font-weight: 600;
+        font-size: 36px;
+        margin-top: 100px;
+        margin-bottom: 9px;
+    }
+    .closeEditContact-mobile{
+        display: block;
+        position: fixed;
+    right: 20px;
+    top: 225px;
+    }
+    .line2{
+        margin-bottom: 100px;
+    }
+    .editCircle{
+        position: fixed;
+        top: 273px;
+        left: 60px;
     }
 }

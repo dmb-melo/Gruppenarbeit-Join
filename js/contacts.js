@@ -416,6 +416,7 @@ function generate_contactsHtml(){
     <div class="editContactPopup d-none" id="editContact">
         <div class="editContactMain">
             <div class="editContactLeft">
+                <img class="closeEditContact-mobile" src="./assets/img/close_white.png" onclick="closeEditContact()">
                 <img class="editContactLogo" src="./assets/img/logo-white.svg">
                 <div class="editContactHeadline">Edit contact</div>
                 <div class="line2"></div>
