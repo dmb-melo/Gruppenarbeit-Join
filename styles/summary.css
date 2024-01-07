@@ -22,6 +22,7 @@ body {
 .summaryLeft {
   margin-top: 48px;
   max-width: 560px;
+  height: calc(100vh - 96px);
 }
 
 /* Der Header */
@@ -203,7 +204,7 @@ body {
 /* RightSide */
 .summaryRight {
   width: 50%;
-  height: calc(100vh - 350px);
+  height: calc(100vh - 96px);
   display: flex;
   align-items: center;
   gap: 3px;
@@ -218,7 +219,6 @@ body {
 }
 .greetin h2 {
   color: #2a3647;
-  /* font-family: Inter; */
   font-size: 47px;
   font-style: normal;
   font-weight: 500;
@@ -315,6 +315,12 @@ body {
 }
 .partingLine:hover {
   background-color: white;
+}
+
+@media (min-height: 1100px) {
+  .summaryLeft {
+    margin-top: 160px;
+  }
 }
 
 @media (max-width: 1500px) {
