@@ -245,7 +245,7 @@ justify-content: center;
     width: 380px;
 }
 .addContactPopup{
-    position: fixed;
+    width: 80vw;
     left: 160px;
 }
 .addContactRight{
@@ -324,7 +324,7 @@ justify-content: center;
     border-top-left-radius: 25px;
 }
 .editContactPopup{
-    position: fixed;
+    width: 80vw;
     left: 160px;
     font-weight: 700;
 }
@@ -654,10 +654,61 @@ justify-content: center;
     }
   }
   
+  @media(max-width: 1300px){
+    .contact-list{
+        margin-top: 10px;
+        width: 43%;
+    }
+    .contact-details{
+        margin-top: 0;
+    }
+    .editContactPopup{
+        margin-left: 12px;
+        left: 0;
+    }
+    .editContactMain{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .editContactLeft{
+        width: 40vw;
+    }
+    .editContactMiddle{
+        width: 20vw;
+    }
+    .editContactRight{
+        width: 38vw;
+    }
+    .inputField{
+        width: 288px;
+    }
+    .inputFieldName{
+        width: 317px;
+    }
+    .addContactPopup{
+        margin-left: 12px;
+        left: 0;
+    }
+    .addContactMain{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .addContactLeft{
+        width: 40vw;
+    }
+    .addContactMiddle{
+        width: 20vw;
+    }
+    .addContactRight{
+        width: 38vw;
+    }
+  }
+
   @media(max-width: 1000px){
     .contact-list{
-        margin-left: 0;
+        margin-left: 10px;
         margin-top: 10px;
+        width: 40%;
     }
     .contact-details{
         margin-top: 0;
@@ -689,10 +740,22 @@ justify-content: center;
         justify-content: center;
         align-items: center;
     }
+    .addContactLeft{
+        width: 40vw;
+    }
+    .addCircle{
+        margin-left: 0;
+        margin-top: 0;
+        margin-right: 0;
+    }
+    .addContactMiddle{
+        justify-content: center;
+        align-items: center;
+    }
   }
 
 
- @media(max-width: 700px){
+ @media(max-width: 850px){
     .hide-mobile-397px{
         display: none;
     }
@@ -712,7 +775,7 @@ justify-content: center;
         border: 1px solid var(--Version-2-main-color, #2A3647);
         background: var(--Version-2-main-color, #2A3647);
         cursor: pointer;
-        display: inline-flex;
+        display: block;
         justify-content: center;
         align-items: center;
         position: fixed;
@@ -771,7 +834,7 @@ justify-content: center;
         border-top-right-radius: 25px;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 0px;
-        width: 97vw;
+        width: 95vw;
         height: 291px;
         flex-shrink: 0;
     }
@@ -780,7 +843,7 @@ justify-content: center;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
         border-top-right-radius: 0;
-        width: 97vw;
+        width: 95vw;
     }
     .closeAddContact-mobile{
         display: block;
@@ -797,7 +860,7 @@ justify-content: center;
         justify-content: center;
         align-items: center;
         background-color: white;
-        width: 97vw;
+        width: 95vw;
         height: 1px;
     }
     .input{
@@ -923,7 +986,7 @@ justify-content: center;
     }
     .editContactMiddle{
         height: 0;
-        width: 97vw;
+        width: 95vw;
         justify-content: center;
         align-items: center;
     }
@@ -932,7 +995,7 @@ justify-content: center;
         border-bottom-left-radius: 0px;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
-        width: 97vw;
+        width: 95vw;
         height: 291px;
     }
     .editContactRight{
@@ -940,7 +1003,7 @@ justify-content: center;
         border-bottom-right-radius: 25px;
         border-bottom-left-radius: 25px;
         height: 350px;
-        width: 97vw;
+        width: 95vw;
     }
     .editContactLogo{
         display: none;

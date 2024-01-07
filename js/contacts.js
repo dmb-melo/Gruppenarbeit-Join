@@ -111,7 +111,7 @@ function selectContact(i, firstname, surname, event){
     document.getElementById('contact-details').classList.remove('hide-mobile-397px');
     document.getElementById('contact-list').classList.add('hide-mobile-397px');
     document.getElementById('button-add-contact-mobile').style = 'display: none';
-    document.getElementById('button-edit-contact-mobile').style = 'display: inline-flex';
+    document.getElementById('button-edit-contact-mobile').style = 'display: block';
     fillOnclickDiv(i);
 }
 
