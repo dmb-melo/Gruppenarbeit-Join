@@ -5,12 +5,13 @@ function generateSummaryContent() {
             <div class="summaryLeft">
                 <div class="summaryHeader">
                     <span>
-                        <h1><b>Summary</b></h1>
+                        <h1 class="summary-headline">Summary</h1>
                     </span>
                     <div class="blueLineText">
                         <div class="blueLine"></div>
-                        <div class="summaryKey"><span>key Metrics at Glance</span></div>
-                    </div>
+                        <div class="summaryKey"><span>Key Metrics at Glance</span></div>
+                        <div class="blueLineResponsive"></div>
+                    </div> 
                 </div>
                 <div class="summaryTaskContainer">
                     <div class="summaryTodoDone">
@@ -37,7 +38,7 @@ function generateSummaryContent() {
                     </div>
                     <a onclick="renderBoardHTML()" class="summaryUrgendDeadLine toDoPanelBig">
                         <div class="urgend">
-                            <img src="./assets/img/pfeilerrauf.png" alt="">
+                            <img class="urgend-svg" src="./assets/img/pfeilerrauf.png" alt="">
                             <div id="urgendCrowd" class="taskNumber">${numberOfUrgentTasks}</div>
                             <div class="taskText">Urgend</div>
                         </div>

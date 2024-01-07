@@ -15,10 +15,10 @@ async function includeHTML() {
 function renderSummaryContent() {
   generateGreetingText();
   determineNumberTasks();
-  removeStyleSidebar();
-  addTextColor();
   document.getElementById("contentJoin").innerHTML = ``;
   document.getElementById("contentJoin").innerHTML = generateSummaryContent();
+  removeStyleSidebar();
+  addTextColor();
   document.getElementById("sidebarCategorySummary").classList.add("sidebarCategoryLinkActive");
 }
 
