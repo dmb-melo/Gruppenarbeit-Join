@@ -29,14 +29,6 @@ function render_addTask() {
   addTaskInit();
 }
 
-function renderBoardHTML() {
-  document.getElementById("contentJoin").innerHTML = ``;
-  document.getElementById("contentJoin").innerHTML = generateBoardHTML();
-  removeStyleSidebar();
-  addTextColor();
-  document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive");
-}
-
 function render_contactsHtml() {
   document.getElementById("contentJoin").innerHTML = ``;
   document.getElementById("contentJoin").innerHTML = generate_contactsHtml();
