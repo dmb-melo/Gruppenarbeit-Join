@@ -195,7 +195,6 @@ function handleHover(element, isHover) {
     }
 }
 
-
 async function createContact(event) {
     event.preventDefault();
 
@@ -241,8 +240,6 @@ async function createContact(event) {
     //document.getElementById('success').classList.add('slide-top');
     //showSuccessMessage();
     showSuccessMessageBasedOnScreen();
-
-
 }
 
 // Überprüfen, ob die Seite im responsiven Modus ist (Beispiel: Breite < 768px)
