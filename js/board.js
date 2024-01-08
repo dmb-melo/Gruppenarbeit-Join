@@ -231,15 +231,7 @@ function generateLargeCard(task) {
         <div class="subtasks">
             <p>Subtasks</p>
             <!-- Subtask checkboxes -->
-            ${currentSubTasks.map(subtask => `
-                <div class="subtasksContents">
-                    <label class="checkbox-label">
-                        <input type="checkbox" class="checkbox-input">
-                        <span class="checkbox-custom"></span>
-                        ${subtask}
-                    </label>
-                </div>
-            `).join('')}
+            
         </div>
     </div>
 </div>
