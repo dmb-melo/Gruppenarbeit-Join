@@ -1,10 +1,6 @@
 let draggedElementId;
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    renderBoardHTML();
-});
-
 function renderBoardHTML() {
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generateBoardHTML();
@@ -19,6 +15,8 @@ function renderBoardHTML() {
 
 async function boardInit() {
     updateHtml();
+    renderSmallContats();
+    renderLargeContats();
 }
 
 function filterTasksByStatus(taskStatus) {
@@ -44,19 +42,9 @@ function updateHtmlForStatus(taskStatus, elementId) {
             element.innerHTML += generateSmallCard(task);
 
         }
-
-
     }
 }
-function sortContacts() {
-    contacts.sort((a, b) => {
-        let nameA = a[0].toUpperCase();
-        let nameB = b[0].toUpperCase();
-        if (nameA < nameB) return -1;
-        if (nameA > nameB) return 1;
-        return 0;
-    });
-}
+
 
 function updateHtml() {
     updateHtmlForStatus('todo', 'todo');
@@ -103,13 +91,7 @@ function generateSmallCard(task) {
         <div class="smallCardFooter">
         
         <div class="assigend"><p>${assigned}</p>
-        </div>
-            <div class="priority">${clonedContentDiv.innerHTML}</div>
-            <div class="delete_task" onclick="deleteTask(event)">
-                <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
-                <p class="delete-task-title">Delete</p>
-            </div>
-        </div>
+        <div  id="boardAssigend"></div>
       </div>  
     `;
 }
@@ -118,7 +100,7 @@ function generateSmallCard(task) {
 // Delet of Tasks 
 
 function deleteTask(event) {// wird nicht mehr gebraucht
-    let noteElement = event.target.closest('.cardA');
+    let noteElement = event.target.closest('.largeCardA');
 
     if (noteElement) {
         let parentElement = noteElement.parentElement;
@@ -137,6 +119,7 @@ function deleteTask(event) {// wird nicht mehr gebraucht
         tasks.splice(0, 1);
         save();
         updateHtml();
+        closeCard();
     }
 }
 
@@ -168,8 +151,6 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-
-
 function openCard(taskId) {
     const largeCardElement = document.getElementById('popUpWindow');
     const task = tasks.find(t => t.id === taskId);
@@ -181,9 +162,12 @@ function openCard(taskId) {
     }
 }
 
+  
+
+
 function generateLargeCard(task) {
     let currentPriorityContent = task.priorityContent || '';
-    let currentSubTasks = subT[task];
+    let currentSubTasks = subtasks[task];
     let tempDiv = document.createElement('div');
     tempDiv.innerHTML = currentPriorityContent;
     tempDiv.classList.add('selectedPriorityContentDiv');
@@ -227,29 +211,76 @@ function generateLargeCard(task) {
         <div class="assigned">
             <p>Assigned To:</p>
             <p>${assigned}</p>
+            <div  id="boardAssigendLargCard"></div>
+           
         </div>
         <div class="subtasks">
             <p>Subtasks</p>
-            <!-- Subtask checkboxes -->
-            ${currentSubTasks.map(subtask => `
-                <div class="subtasksContents">
-                    <label class="checkbox-label">
-                        <input type="checkbox" class="checkbox-input">
-                        <span class="checkbox-custom"></span>
-                        ${subtask}
-                    </label>
-                </div>
-            `).join('')}
+  
+        </div>
+        <div class="largCardFooter">
+        <div class="deleteAndEdit">
+             
+             <div class="delete_task" onclick="deleteTask(event)">
+                 <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
+                 <p class = "delete-task-title">Delete</p>
+             </div>
+             
+             <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
+             
+             <div class ="edit_task">
+             
+                 <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
+                 <p class = "edit-task-title">Edit</p>
+             </div>
+           
+         </div>            
         </div>
     </div>
-</div>
+    </div>
 
     `;
-}
 
+}
 function closeCard() {
     // Your close logic goes here
     console.log("Card closed");
     const largeCardElement = document.getElementById('popUpWindow');
     largeCardElement.style.transform = 'translateX(500%)';
+}
+
+function renderSmallContats(){
+    const contactsSmallCard = document.getElementById('boardAssigend');
+    contacts.innerHTML = '';
+    for (let a = 0; a < assigned.length; a++) {
+        const assigendAvatar = assigned[a];
+        let name = assigned[a];
+        let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
+
+        let names = assigned[a].split(" ");
+        let surname = names[1].toUpperCase().charAt(0);
+        contactsSmallCard.innerHTML += /*html*/`
+             <div class="contact-info-left">
+                    <div class="circle" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
+                </div>
+        `;
+    }
+}
+function renderLargeContats(){
+    const contactsLargeCard = document.getElementById('boardAssigendLargCard');
+    contacts.innerHTML = '';
+    console.log(contactsLargeCard);
+    for (let d = 0; d < assigned.length; d++) {
+        const assigendAvatar = assigned[d];
+        let name = assigned[d];
+        let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
+
+        let names = assigned[d].split(" ");
+        let surname = names[1].toUpperCase().charAt(0);
+        contactsLargeCard.innerHTML += /*html*/`
+             <div class="contact-info-left">
+                    <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
+                </div>
+        `;
+    }
 }
