@@ -29,6 +29,7 @@ function filterTasksByStatus(taskStatus) {
 function updateHtmlForStatus(taskStatus, elementId) {
     const tasksByStatus = filterTasksByStatus(taskStatus);
     const element = document.getElementById(elementId);
+    const largTast = document
 
     // Leere die bestehenden Inhalte im HTML-Element
     element.innerHTML = '';
@@ -113,6 +114,9 @@ function generateSmallCard(task) {
     `;
 }
 
+
+// Delet of Tasks 
+
 function deleteTask(event) {// wird nicht mehr gebraucht
     let noteElement = event.target.closest('.cardA');
 
@@ -135,7 +139,6 @@ function deleteTask(event) {// wird nicht mehr gebraucht
         updateHtml();
     }
 }
-
 
 // drag and drop 
 function startDragged(id){
@@ -164,3 +167,67 @@ function moveIt(taskStatus) {
 function allowDrop(ev) {
     ev.preventDefault();
   }
+
+
+
+  function openCard(taskId) {
+    const largeCardElement = document.getElementById('popUpWindow');
+    const task = tasks.find(t => t.id === taskId);
+    console.log('find task', task)
+    if (task) {
+       
+        largeCardElement.innerHTML = generateLargeCard(task);
+        largeCardElement.style.transform = 'translateX(0%)';
+    }
+}
+
+function generateLargeCard(task) {
+    let currentPriorityContent = task.priorityContent || ''; 
+
+let tempDiv = document.createElement('div');
+tempDiv.innerHTML = currentPriorityContent;
+tempDiv.classList.add('selectedPriorityContentDiv');
+
+removeActiveClassFromSvgElements(tempDiv);
+
+let clonedContentDiv = document.createElement('div');
+clonedContentDiv.appendChild(tempDiv.cloneNode(true));
+
+removeActiveClassFromSvgElements(clonedContentDiv);
+    let currenCategory = task.category[0];
+    let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
+    return /*html*/`
+        <div class="largeCardA">
+        <div class="largCardHeader">
+            <div class="lardCardCategory">
+                <p id="largeCategory" class="${className}">${currenCategory}</p>
+            </div>
+            <div class="closeLargeCardButton">
+            <button onclick="closeCard()">X</button>
+            </div>
+        </div>
+        <div class="largCardText">
+            <div class="largCardTitle">
+                <h1>${task.title}</h1>
+            </div>
+            <div class="largCardTextArea">
+                <p>${task.description}</p>
+            </div>
+        </div>
+        <div class="largeTaskDetails">
+            <div class="largTaskDueDat">
+                <div><span>Due Date:</span><span>${task.dueDate}</span></div>
+            </div>
+            <div class="largPrioDetail">
+                <p>Priority:</p><p>${clonedContentDiv.innerHTML}</p>
+            </div>
+      
+    `;
+}
+
+function closeCard() {
+    // Your close logic goes here
+    console.log("Card closed");
+    const largeCardElement = document.getElementById('popUpWindow');
+    largeCardElement.style.transform = 'translateX(500%)';
+}

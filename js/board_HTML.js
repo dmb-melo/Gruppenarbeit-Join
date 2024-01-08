@@ -1,5 +1,6 @@
 function generateBoardHTML() {
     return /*html*/ `
+    <div class="popUpWindow" id="popUpWindow"></div>
      <div class="tasksToDo" id="tasks">
         <div class="searchBar">
             <div class="searchbarIn">
@@ -76,5 +77,7 @@ function generateBoardHTML() {
             </section>
         </div>
     </div>
+
+    
     `;
 }
