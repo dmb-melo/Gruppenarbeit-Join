@@ -24,9 +24,9 @@ async function renderContacts() {
 async function setItemContacts(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
-  }
+}
   
-  async function getItemContacts(key) {
+async function getItemContacts(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
     return fetch(url)
       .then((res) => res.json())
@@ -36,17 +36,17 @@ async function setItemContacts(key, value) {
         }
         throw `Could not find data with key "${key}".`;
       });
-  }
+}
  
-  async function loadContactsFromServer() {
+async function loadContactsFromServer() {
     try {
         contacts = JSON.parse(await getItemContacts("contacts"));
     } catch (e) {
       console.error("Loading error:", e);
     }
-  }
+}
   
-  async function saveContactsToServer(newContact) {
+async function saveContactsToServer(newContact) {
     contacts.push(newContact);
     await setItemContacts("contacts", JSON.stringify(contacts));
 }
@@ -68,7 +68,6 @@ function showContacts() {
 
         let names = contacts[i][0].split(" ");
         let surname = names[1].toUpperCase().charAt(0);
-
 
         // Wenn der Anfangsbuchstabe sich ändert, neue Gruppe anzeigen
         if (firstname !== currentLetter) {
@@ -239,7 +238,25 @@ async function createContact(event) {
     // Wähle den neu hinzugefügten Kontakt aus
     let newIndex = contacts.findIndex(contact => contact === newContact);
     selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
-    showSuccessMessage();
+    //document.getElementById('success').classList.add('slide-top');
+    //showSuccessMessage();
+    showSuccessMessageBasedOnScreen();
+
+
+}
+
+// Überprüfen, ob die Seite im responsiven Modus ist (Beispiel: Breite < 768px)
+function isResponsiveMode() {
+    return window.innerWidth < 850;
+}
+
+// Funktion zum Anzeigen der Erfolgsmeldung basierend auf der Bildschirmbreite
+function showSuccessMessageBasedOnScreen() {
+    if (isResponsiveMode()) {
+        showSuccessMessageResponsive();
+    } else {
+        showSuccessMessage();
+    }
 }
 
 function showSuccessMessage() {
@@ -254,6 +271,20 @@ function showSuccessMessage() {
 function hideSuccessMessage() {
     let successDiv = document.getElementById('success');
     successDiv.classList.remove('show');
+}
+
+function showSuccessMessageResponsive() {
+    const successMessage = document.getElementById('success-2');
+    successMessage.style.display = 'block';
+
+    setTimeout(() => {
+        successMessage.classList.add('slide-top');
+    }, 0);
+
+    setTimeout(() => {
+        successMessage.classList.remove('slide-top');
+        successMessage.style.display = 'none';
+    }, 1500);
 }
 
 function addNewContact(){
@@ -294,8 +325,6 @@ function editContact(i){
     document.getElementById('userNameEdit').value = `${contacts[i][0]}`;
     document.getElementById('userEmailEdit').value = `${contacts[i][1]}`;
     document.getElementById('userPhoneEdit').value = `${contacts[i][2]}`;
-    
-   
 }
 
 async function deleteContact(event, i){
@@ -315,12 +344,7 @@ async function saveContact(event, i) {
         document.getElementById('userEmailEdit').value,
         document.getElementById('userPhoneEdit').value
     ];
- 
-    //contacts[i] = editedContact;
-    //let editContac = [contacts[i][0], contacts[i][1], contacts[i][2]];
-    
-    contacts.splice(i, 1);
-   
+    contacts.splice(i, 1);   
     closeEditContact();
     selectContact(i);
 
@@ -328,9 +352,9 @@ async function saveContact(event, i) {
     let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
     let names = contacts[i][0].split(" ");
     let surname = names[1].toUpperCase().charAt(0);
-    let circle = document.getElementById('circleCard'); //undefined
+    let circle = document.getElementById('circleCard'); 
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
-    let editCircle = document.getElementById('editCircle'); //undefined
+    let editCircle = document.getElementById('editCircle'); 
     editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     event.preventDefault();
     await saveContactsToServer(editedContact);
@@ -344,7 +368,6 @@ function closeEditContact(){
 }
 
 function closeAddContact(){
-    //document.getElementById('addContact').classList.remove('slide-left');
     document.getElementById('addContact').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
     document.getElementById('addContactBackground').classList.add('d-none');
@@ -366,7 +389,6 @@ function openMiniPopup(i){
         <span class="textEdit textEdit-2">Delete</span>
     </div>`;
 }
-
 
 function generate_contactsHtml(){
     return `
@@ -486,7 +508,8 @@ function generate_contactsHtml(){
             </div>
         </div>
         <div class="success d-none" id="success">Contact successfully created</div>
-        
+        <div class="success-2" id="success-2">Contact successfully created</div>
+
         <div class="button-add-contact-mobile" id="button-add-contact-mobile" onclick="addNewContact()">
             <img class="image-add-contact-mobile" src="./assets/img/person_add.png">
         </div>
@@ -495,7 +518,7 @@ function generate_contactsHtml(){
             <div class="onclickDiv" id="onclickDiv">
             </div>
         </div>
-        <div class="mini-popup slideInRight" id="mini-popup">
+        <div class="mini-popup" id="mini-popup">
             <div class="mini-popup-display" id="mini-popup-display">
             </div>
         </div>

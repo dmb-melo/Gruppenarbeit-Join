@@ -1,6 +1,5 @@
 body{
     font-family: "Inter", sans-serif;
-
 }
 .contacts-headline-h1{
     font-size: 42px;
@@ -145,9 +144,8 @@ hr{
     color: white;
     border: solid 1px white;
     display: flex;
-align-items: center;
-justify-content: center;
-    
+    align-items: center;
+    justify-content: center;
 }
 .editCircle{
     border-radius: 100px;
@@ -221,7 +219,6 @@ justify-content: center;
 .textCard{
     font-size: 18px;
     margin-bottom: 36px;
-
 }
 .head-info{
     margin-bottom: 12px;
@@ -271,7 +268,6 @@ justify-content: center;
     margin-left: 30px;
     margin-top: 12px;
 }
-
 .line2{
     background-color: #2AAAE2;
     width: 70px;
@@ -379,6 +375,7 @@ justify-content: center;
     margin-left: 12px;
     margin-top: 12px;
     margin-bottom: 6px;
+    cursor: pointer;
 }
 .mini-popup-editCard{
     margin-bottom: -6px;
@@ -390,8 +387,8 @@ justify-content: center;
     justify-content: flex-start;
     margin-top: 6px;
     margin-bottom: 12px;
+    cursor: pointer;
 }
-
 .logo-mini{
     width: 20px; 
     height: 20px; 
@@ -414,6 +411,7 @@ justify-content: center;
 }
 .textEdit-2:hover{
     font-weight: 700;
+    cursor: pointer;
 }
 .logo-mini-hover{
     display: none; 
@@ -424,11 +422,11 @@ justify-content: center;
 }
 .textEdit{
     margin-bottom: 6px;
+    cursor: pointer;
 }
 .textEdit:hover{
     color: #2AAAE2;
 }
-
 .deleteCard {
     position: relative;
     cursor: pointer;
@@ -562,13 +560,11 @@ justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border: 1px solid #2AAAE2;
 }
-
 .save-button-div{
     display: flex;
     align-items: center;
     margin-left: 3px;
 }
-
 .create-button-div{
     display: flex;
     align-items: center;
@@ -616,17 +612,6 @@ justify-content: center;
     display: none;
     cursor: pointer;
 }
-
-.slide-left {
-    animation: slide-left 0.5s linear both;
- }
- 
- .slide-top {
-	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-
 .mini-popup{
     display: none;
     position: fixed;
@@ -646,48 +631,37 @@ justify-content: center;
     display: flex;
     flex-direction: column;
     align-items:flex-start;
-
+    cursor: pointer;
 }
 .contacts-headline-arrow{
     display: none;
 }
-.slideInRight {
-    -webkit-animation-name: slideInRight;
-    animation-name: slideInRight;
-    -webkit-animation-duration: 1s;
-    animation-duration: 0.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    }
-
-@-webkit-keyframes slideInRight {
-    0% {
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-    visibility: visible;
-    }
-    100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    }
-    }
-@keyframes slideInRight {
-    0% {
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-    visibility: visible;
-    }
-    100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    }
-    } 
-
-
-
-
-
- @keyframes slide-left {
+.success-2 {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    left: 10%;
+    transform: translateX(-50%);
+    width: 250px;
+    text-align: center;
+    background-color: #2B3646;
+    color: #fff;
+    padding: 23px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+}
+.success-2.slide-top {
+    transform: translateY(-100%);
+}
+.slide-left {
+    animation: slide-left 0.5s linear both;
+}
+.slide-top {
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes slide-left {
     0% {
        transform: translateX(400px);
        -webkit-transform: translateX(400px); /* Für Webkit-basierte Browser */
@@ -698,8 +672,7 @@ justify-content: center;
        -webkit-transform: translateX(0px); /* Für Webkit-basierte Browser */
        -moz-transform: translateX(0px); /* Für Firefox */
     }
- }
-
+}
 @-webkit-keyframes slide-top {
     0% {
       -webkit-transform: translateY(0);
@@ -709,11 +682,8 @@ justify-content: center;
       -webkit-transform: translateY(-100px);
               transform: translateY(-100px);
     }
-  }
-
-  
-
-  @keyframes slide-top {
+}
+@keyframes slide-top {
     0% {
       -webkit-transform: translateY(0);
               transform: translateY(0);
@@ -724,7 +694,7 @@ justify-content: center;
     }
   }
   
-  @media(max-width: 1300px){
+@media(max-width: 1300px){
     .contact-list{
         margin-top: 10px;
         width: 43%;
@@ -772,9 +742,9 @@ justify-content: center;
     .addContactRight{
         width: 38vw;
     }
-  }
+}
 
-  @media(max-width: 1000px){
+@media(max-width: 1000px){
     .contact-list{
         margin-left: 10px;
         margin-top: 10px;
@@ -823,10 +793,9 @@ justify-content: center;
         justify-content: center;
         align-items: center;
     }
-  }
+}
 
-
- @media(max-width: 850px){
+@media(max-width: 850px){
     .hide-mobile-397px{
         display: none;
     }
@@ -872,9 +841,6 @@ justify-content: center;
         border: 1px solid var(--Version-2-main-color, #2A3647);
         background: var(--Version-2-main-color, #2A3647);
         cursor: pointer;
-        /*display: inline-flex;
-        justify-content: center;
-        align-items: center;*/
         position: fixed;
         bottom: 110px;
         right: 24px;
@@ -1121,8 +1087,5 @@ justify-content: center;
     .nameIdEdit {
         font-size: 40px;
     }
-    .success {
-        -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    }
+
 }
