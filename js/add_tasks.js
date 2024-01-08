@@ -195,7 +195,6 @@ function checkboxAddTask(){
 
 function clearTask() {
   subtasks = [];
-  selectedContacts = [];
   document.getElementById("title").value = "";
   document.getElementById("description").value = "";
   document.getElementById("dueDate").value = "";

@@ -10,7 +10,7 @@ function generateContactsAddTask(name, firstname, surname, i) {
 
 function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
     return /*html*/`
-           <div>
+        <div>
             <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
             </div>
