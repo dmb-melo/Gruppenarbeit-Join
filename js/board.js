@@ -1,10 +1,5 @@
 let draggedElementId;
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    renderBoardHTML();
-});
-
 function renderBoardHTML() {
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generateBoardHTML();
@@ -17,7 +12,7 @@ function renderBoardHTML() {
 }
 
 
-async function boardInit() {
+function boardInit() {
     updateHtml();
 }
 

@@ -12,7 +12,8 @@ async function includeHTML() {
   }
 }
 
-function renderSummaryContent() {
+async function renderSummaryContent() {
+  load();
   generateGreetingText();
   determineNumberTasks();
   document.getElementById("contentJoin").innerHTML = ``;
