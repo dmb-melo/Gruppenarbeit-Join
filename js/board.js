@@ -13,7 +13,7 @@ function renderBoardHTML() {
 }
 
 
-async function boardInit() {
+function boardInit() {
     updateHtml();
     renderSmallContats();
     renderLargeContats();
@@ -216,7 +216,6 @@ function generateLargeCard(task) {
         </div>
         <div class="subtasks">
             <p>Subtasks</p>
-<<<<<<< HEAD
   
         </div>
         <div class="largCardFooter">
@@ -236,10 +235,9 @@ function generateLargeCard(task) {
              </div>
            
          </div>            
-=======
-            <!-- Subtask checkboxes -->
+
             
->>>>>>> 66c09457ee2983129affffd921ccb6ec4c8eac8e
+
         </div>
     </div>
     </div>
