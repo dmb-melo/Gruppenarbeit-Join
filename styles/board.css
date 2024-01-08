@@ -20,7 +20,6 @@
     width: calc(100% - 232px);
     height: calc(100vh - 96px);
     margin-left: 232px;
-    margin-top: 96px;
 }
 
 .tasksCardsDiv{
@@ -71,6 +70,12 @@
     gap: 4px;
     border-radius: 10px;
     background: #2A3647;    
+}
+
+.primaryBoard:hover{   
+    cursor: pointer;
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .searchBoxLeft{
@@ -141,10 +146,12 @@
 
 .plus_add_task_mobile{
     display: none;
+    cursor: pointer;
 }
 
 .plus_add_task_mobileHover{
     display: none;
+    cursor: pointer;
 }
 
 /* tasBoard */
@@ -161,7 +168,6 @@
 
 .taskBoardTtle {
     width: 252px;
-    /* height: 648px; */
     gap: 16px;
     display: flex;
     flex-direction: column;
@@ -356,7 +362,7 @@
 
     .tasksToDo{   
         overflow: scroll !important;
-        max-height: 750px !important;
+        max-height: 650px !important;
         flex-direction: column;
         width: 428px;        
         margin-left: 0;
@@ -378,3 +384,269 @@
     }
 
 }
+
+@media (min-width: 321px) and (max-width: 648px){
+
+    .titleBoard{
+        width: 600px;  
+        font-size: 47px !important;
+    }
+
+    .headlineBoard{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 10px;   
+        width: 620px;    
+    }
+
+    .plusImgMobile:hover .plus_add_task_mobile{
+        display: none;
+    }
+
+    .plus_add_task_mobileHover{
+        display: none;
+    }
+
+    .plusImgMobile:hover .plus_add_task_mobileHover{
+        display: block;
+    }   
+
+    .searchbarIn{
+        margin-left: 0px;
+        flex-direction: column;
+        width: 648px;    
+        margin-top: 40px;
+        display: flex;
+        align-items: flex-start;  
+        height: 73px;  
+        gap:40px;  
+    }
+
+    .primaryBoard{
+        display: none;
+    }
+
+    .plus_add_task_mobile{
+        display: block;
+    } 
+    
+    .searchBoxLeft{
+        width: 630px;     
+    }
+
+    .searchBox{
+        margin-left: 8px;
+        width: 600px;
+        height: 30px;       
+    }
+
+    .searchinput{
+        width: 100%;
+    }
+
+    .src{
+        font-size: 20px;
+    }
+
+    .taskAria{
+        /* display: flex; */
+        flex-direction: column;     
+        flex-wrap: wrap ;
+        padding: 0;
+        margin-left: 0px;
+        width: 630px;
+        height: 900px;
+    }
+    .tasksToDo{  
+        margin-top: 0; 
+        overflow: scroll !important;
+        max-height: 650px !important;
+        flex-direction: column;
+        width: 648px;        
+        margin-left: 0;
+    }
+
+    .taskBoardTtle{      
+        
+        flex: 25%;
+        width: 257px;
+        margin-left: 10px;
+        margin-right: 71px;
+        font-size: 27px;
+    }
+
+    .headLineCss{
+        max-width: 396px;        
+    }
+
+    .progressTitles{
+        font-size: 27px !important;
+    }
+
+}
+
+
+@media (min-width: 649px) and (max-width: 900px){
+
+    .titleBoard{
+        width: 600px;  
+        font-size: 47px !important;
+    }
+
+    .headlineBoard{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 10px;   
+        width: 860px;    
+    }
+
+    .plusImgMobile:hover .plus_add_task_mobile{
+        display: none;
+    }
+
+    .plus_add_task_mobileHover{
+        display: none;
+    }
+
+    .plusImgMobile:hover .plus_add_task_mobileHover{
+        display: block;
+    }   
+
+    .searchbarIn{
+        margin-left: 0px;
+        flex-direction: column;
+        width: 870px;    
+        margin-top: 40px;
+        display: flex;
+        align-items: flex-start;  
+        height: 73px;  
+        gap:40px;  
+    }
+
+    .primaryBoard{
+        display: none;
+    }
+
+    .plus_add_task_mobile{
+        display: block;
+    } 
+    
+    .searchBoxLeft{
+        width: 870px;     
+    }
+    .searchBox{
+        margin-left: 5px;
+        width: 900px;
+        height: 30px;            
+    }
+
+    .searchinput{
+        width: 100%;        
+    }
+
+    .src{
+        font-size: 20px;
+    }
+
+    .taskAria{
+        display: flex;
+        flex-wrap: wrap ;
+        padding: 0;
+        margin-left: 0px;
+        width: 100%;
+        height: 650px;
+    
+    }
+
+    .tasksToDo{  
+        margin-top: 0; 
+        overflow: scroll !important;
+        max-height: 650px !important;
+        flex-direction: column;
+        width: 890px;        
+        margin-left: 0;
+    }
+
+    .taskBoardTtle{  
+        flex: 25%;
+        width: 257px;
+        min-height: 150px;
+        margin-left: 8px;
+        margin-right: 10px;
+        font-size: 27px;
+    }
+
+    .headLineCss{
+        max-width: 396px;        
+    }
+
+    .progressTitles{
+        font-size: 27px !important;
+    }
+
+}
+
+@media (min-width: 901px) and (max-width: 1200px){
+
+    .headlineBoard{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 250px;  
+    }
+
+    .plusImgMobile{
+        display: none;
+    }
+
+    .plus_add_task_mobileHover{
+        display: none;
+    } 
+
+    .searchbarIn{
+        margin-left: 0px;
+        margin-top: 40px;
+        display: flex; 
+        height: 73px;         
+    }
+
+    .plus_add_task_mobile{
+        display: block;
+    } 
+    
+    .searchBoxLeft{
+        width: 870px; 
+        margin-left: 180px;    
+    }
+   
+    .taskAria{
+        display: flex;
+        flex-wrap: wrap ;
+        padding: 0;
+        margin-left: 250px;
+        width: 930px;     
+    }
+
+    .tasksToDo{  
+        margin-top: 0; 
+        overflow: scroll !important;
+        max-height: 850px !important;
+        flex-direction: column;
+        width: 1200px;        
+        margin-left: 0;
+    }
+
+    .taskBoardTtle{  
+        flex: 25%;
+        width: 257px;
+        min-height: 150px;
+        margin-left: 8px;
+        margin-right: 10px;
+        font-size: 27px;
+    }
+
+    .headLineCss{
+        max-width: 396px;        
+    }
+
+}
+
