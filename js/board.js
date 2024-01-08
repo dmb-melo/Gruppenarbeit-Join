@@ -23,7 +23,7 @@ async function boardInit() {
 
 function filterTasksByStatus(taskStatus) {
     return tasks.filter(t => t['taskStatus'] === taskStatus);
-    
+
 }
 
 function updateHtmlForStatus(taskStatus, elementId) {
@@ -44,19 +44,19 @@ function updateHtmlForStatus(taskStatus, elementId) {
             element.innerHTML += generateSmallCard(task);
 
         }
-        
+
 
     }
 }
 function sortContacts() {
     contacts.sort((a, b) => {
-      let nameA = a[0].toUpperCase();
-      let nameB = b[0].toUpperCase();
-      if (nameA < nameB) return -1;
-      if (nameA > nameB) return 1;
-      return 0;
+        let nameA = a[0].toUpperCase();
+        let nameB = b[0].toUpperCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
     });
-  }
+}
 
 function updateHtml() {
     updateHtmlForStatus('todo', 'todo');
@@ -79,7 +79,7 @@ function removeActiveClassFromSvgElements(container) {
 
 function generateSmallCard(task) {
     let currenCategory = task.category[0]
-    let currentPriorityContent = task.priorityContent || ''; 
+    let currentPriorityContent = task.priorityContent || '';
 
     let tempDiv = document.createElement('div');
     tempDiv.innerHTML = currentPriorityContent;
@@ -89,7 +89,7 @@ function generateSmallCard(task) {
 
     let clonedContentDiv = document.createElement('div');
     clonedContentDiv.appendChild(tempDiv.cloneNode(true));
-    
+
     removeActiveClassFromSvgElements(clonedContentDiv);
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
@@ -141,8 +141,8 @@ function deleteTask(event) {// wird nicht mehr gebraucht
 }
 
 // drag and drop 
-function startDragged(id){
-draggedElementId = id;
+function startDragged(id) {
+    draggedElementId = id;
 
 }
 
@@ -152,7 +152,7 @@ function moveIt(taskStatus) {
     if (taskIndex !== -1) {
         tasks[taskIndex].taskStatus = taskStatus;
         updateHtml();
-    } 
+    }
 }
 
 function moveIt(taskStatus) {
@@ -162,66 +162,80 @@ function moveIt(taskStatus) {
         tasks[taskIndex].taskStatus = taskStatus;
         updateHtml();
         save();
-    } 
+    }
 }
 function allowDrop(ev) {
     ev.preventDefault();
-  }
+}
 
 
 
-  function openCard(taskId) {
+function openCard(taskId) {
     const largeCardElement = document.getElementById('popUpWindow');
     const task = tasks.find(t => t.id === taskId);
     console.log('find task', task)
     if (task) {
-       
+
         largeCardElement.innerHTML = generateLargeCard(task);
         largeCardElement.style.transform = 'translateX(0%)';
     }
 }
 
 function generateLargeCard(task) {
-    let currentPriorityContent = task.priorityContent || ''; 
+    let currentPriorityContent = task.priorityContent || '';
+    let currentSubTasks = subT[task];
+    let tempDiv = document.createElement('div');
+    tempDiv.innerHTML = currentPriorityContent;
+    tempDiv.classList.add('selectedPriorityContentDiv');
 
-let tempDiv = document.createElement('div');
-tempDiv.innerHTML = currentPriorityContent;
-tempDiv.classList.add('selectedPriorityContentDiv');
+    removeActiveClassFromSvgElements(tempDiv);
 
-removeActiveClassFromSvgElements(tempDiv);
+    let clonedContentDiv = document.createElement('div');
+    clonedContentDiv.appendChild(tempDiv.cloneNode(true));
 
-let clonedContentDiv = document.createElement('div');
-clonedContentDiv.appendChild(tempDiv.cloneNode(true));
-
-removeActiveClassFromSvgElements(clonedContentDiv);
+    removeActiveClassFromSvgElements(clonedContentDiv);
     let currenCategory = task.category[0];
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
         <div class="largeCardA">
-        <div class="largCardHeader">
-            <div class="lardCardCategory">
-                <p id="largeCategory" class="${className}">${currenCategory}</p>
-            </div>
-            <div class="closeLargeCardButton">
+    <div class="largCardHeader">
+        <!-- Category and close button -->
+        <div class="lardCardCategory">
+            <p id="largeCategory" class="${className}">${currenCategory}</p>
+        </div>
+        <div class="closeLargeCardButton">
             <button onclick="closeCard()">X</button>
-            </div>
         </div>
-        <div class="largCardText">
-            <div class="largCardTitle">
-                <h1>${task.title}</h1>
-            </div>
-            <div class="largCardTextArea">
-                <p>${task.description}</p>
-            </div>
+    </div>
+    <div class="largCardText">
+        <!-- Title and description -->
+        <div class="largCardTitle">
+            <h1>${task.title}</h1>
         </div>
-        <div class="largeTaskDetails">
-            <div class="largTaskDueDat">
-                <div><span>Due Date:</span><span>${task.dueDate}</span></div>
-            </div>
-            <div class="largPrioDetail">
-                <p>Priority:</p><p>${clonedContentDiv.innerHTML}</p>
-            </div>
-      
+        <div class="largCardTextArea">
+            <p>${task.description}</p>
+        </div>
+    </div>
+    <div class="largeTaskDetails">
+        <!-- Due date, priority, assigned person, and subtasks -->
+        <div class="largTaskDueDat">
+            <div><span>Due Date:</span><span>${task.dueDate}</span></div>
+        </div>
+        <div class="largPrioDetail">
+            <p>Priority:</p><p>${clonedContentDiv.innerHTML}</p>
+        </div>
+        <div class="assigned">
+            <p>Assigned To:</p>
+            <p>${assigned}</p>
+        </div>
+        <div class="subtasks">
+            <p>Subtasks</p>
+            <!-- Subtask checkboxes -->
+            
+        </div>
+    </div>
+</div>
+
     `;
 }
 

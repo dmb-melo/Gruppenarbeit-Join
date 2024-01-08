@@ -8,7 +8,7 @@ function closelegalHelpPrivacyContent() {
   if (legalInformationLogin === true || legalInformationSignup === true) {
     closelegalInformationLoginPage();
   } else {
-    window.location.href = "./summary.html";
+    window.location.href = "./join.html";
     document.getElementById("helpIcon").classList.remove("d-none");
   }
 }
