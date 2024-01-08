@@ -90,7 +90,6 @@ function generateSmallCard(task) {
         <div class="smallProgress">${task.subtasks.length}</div>
         <div class="smallCardFooter">
         
-        <div class="assigend"><p>${assigned}</p>
         <div  id="boardAssigend"></div>
       </div>  
     `;
@@ -210,9 +209,7 @@ function generateLargeCard(task) {
         </div>
         <div class="assigned">
             <p>Assigned To:</p>
-            <p>${assigned}</p>
             <div  id="boardAssigendLargCard"></div>
-           
         </div>
         <div class="subtasks">
             <p>Subtasks</p>
