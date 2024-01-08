@@ -10,6 +10,7 @@ let = submenuIsOpen = false;
 function showSubmenu() {
     if (!submenuIsOpen) {
       document.getElementById("submenu").classList.add("show-submenu");
+      document.getElementById("arrowBackLegalHelpPrivacy").classList.add("d-none");
       submenuIsOpen = true;
     } else {
       closeSubmenu();
@@ -19,6 +20,7 @@ function showSubmenu() {
   function closeSubmenu() {
     if (submenuIsOpen === true) {
       document.getElementById("submenu").classList.remove("show-submenu");
+      document.getElementById("arrowBackLegalHelpPrivacy").classList.remove("d-none");
       submenuIsOpen = false;
     }
   }
