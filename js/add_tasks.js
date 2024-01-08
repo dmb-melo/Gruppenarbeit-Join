@@ -209,6 +209,7 @@ function clearTask() {
   clearAllSelections();
   clearPrioActiveClass();
   clearTaskCategory();
+
 }
 
 function save() {
