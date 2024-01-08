@@ -480,9 +480,9 @@ function generate_contactsHtml(){
             <div class="onclickDiv" id="onclickDiv">
             </div>
         </div>
-        <div class="mini-popup" id="mini-popup">
-        <div class="mini-popup-display" id="mini-popup-display">
-        </div>
+        <div class="mini-popup slideInRight" id="mini-popup">
+            <div class="mini-popup-display" id="mini-popup-display">
+            </div>
         </div>
     </div>
     `;
