@@ -802,7 +802,7 @@
   }
 }
 
-@media (min-width: 101px){
+@media (min-width: 1201px){
   .box-sizingResponsiv{
     display: none;
   }
