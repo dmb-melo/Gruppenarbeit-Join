@@ -209,10 +209,6 @@ justify-content: center;
 .buttonsCard{
     display: flex;
 }
-.logo-mini{
-    height: 18px;
-    margin-right: 6px;
-}
 .contactNameButtons{
     display: flex;
     flex-direction: column;
@@ -377,46 +373,73 @@ justify-content: center;
     align-items: center;
   }
 .editCard-mini{
-    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     margin-left: 12px;
-    margin-bottom: 12px;
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+.mini-popup-editCard{
+    margin-bottom: -6px;
 }
 .deleteCard-mini{
     margin-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 6px;
+    margin-bottom: 12px;
 }
-  .logo-mini{
+
+.logo-mini{
     width: 20px; 
     height: 20px; 
     margin-bottom: -4px;
-  }
-  .logo-mini-hover {
+    height: 18px;
+    margin-right: 6px;
+}
+.logo-mini-hover{
     width: 20px; 
     height: 20px; 
     margin-right: 6px;
     margin-bottom: -4px;
-  }
-  .logo-mini-hover {
+}
+.logo-mini-hover-2{
+    width: 25px !important;
+    height: 25px !important;
+}
+.textEdit-2{
+    margin-bottom: -6px !important;
+}
+.textEdit-2:hover{
+    font-weight: 700;
+}
+.logo-mini-hover{
     display: none; 
-  }
-  .editCard:hover{
+}
+.editCard:hover{
     color: #2AAAE2;
     font-weight: 500;
-  }
-  .textEdit{
+}
+.textEdit{
     margin-bottom: 6px;
-  }
-  .deleteCard {
+}
+.textEdit:hover{
+    color: #2AAAE2;
+}
+
+.deleteCard {
     position: relative;
     cursor: pointer;
     margin-right: 18px;
     align-items: center;
-  }
-  .deleteCard:hover{
+}
+.deleteCard:hover{
     color: #2AAAE2;
     font-weight: 500;
-  }
-
-  .cancel-button-div {
+}
+.cancel-button-div {
     display: flex;
     align-items: center;
     position: relative;

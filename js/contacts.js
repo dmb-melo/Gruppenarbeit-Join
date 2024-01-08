@@ -183,6 +183,20 @@ function hoverCancel(element, isHover) {
     }
 }
 
+function handleHover(element, isHover) {
+    const logoMini = element.querySelector('.custom-logo-mini');
+    const logoMiniHover = element.querySelector('.custom-logo-mini-hover');
+
+    if (isHover) {
+        logoMini.classList.add('custom-hidden-logo');
+        logoMiniHover.classList.remove('custom-hidden-logo');
+    } else {
+        logoMini.classList.remove('custom-hidden-logo');
+        logoMiniHover.classList.add('custom-hidden-logo');
+    }
+}
+
+
 async function createContact(event) {
     event.preventDefault();
 
@@ -341,17 +355,18 @@ function openMiniPopup(i){
     document.getElementById('mini-popup-display').innerHTML =`
     <div class="editCard-mini" id="editCard-mini" onclick="editContact(${i})"
         onmouseover="hoverEdit(this, true)" onmouseout="hoverEdit(this, false)">
-        <img class="logo-mini" src="./assets/img/edit_contacts.png">
-        <img class="logo-mini-hover" src="./assets/img/edit2.png">
-        <span class="textEdit">Edit</span>
+        <img class="logo-mini logo-mini-2" src="./assets/img/edit_contacts.png">
+        <img class="logo-mini-hover logo-mini-hover-2" src="./assets/img/edit2.png">
+        <span class="textEdit textEdit-2">Edit</span>
     </div>
     <div class="deleteCard-mini" id="deleteCard-mini" onclick="deleteContact(event, ${i})"
         onmouseover="hoverEdit(this, true)" onmouseout="hoverEdit(this, false)">
         <img class="logo-mini" src="./assets/img/delete_contacts.png">
-        <img class="logo-mini-hover" src="./assets/img/delete.png">
-        <span class="textEdit">Delete</span>
+        <img class="logo-mini-hover logo-mini-hover-2" src="./assets/img/delete.png">
+        <span class="textEdit textEdit-2">Delete</span>
     </div>`;
 }
+
 
 function generate_contactsHtml(){
     return `
