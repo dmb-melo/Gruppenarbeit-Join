@@ -24,9 +24,9 @@ async function renderContacts() {
 async function setItemContacts(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
-  }
+}
   
-  async function getItemContacts(key) {
+async function getItemContacts(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
     return fetch(url)
       .then((res) => res.json())
@@ -36,17 +36,17 @@ async function setItemContacts(key, value) {
         }
         throw `Could not find data with key "${key}".`;
       });
-  }
+}
  
-  async function loadContactsFromServer() {
+async function loadContactsFromServer() {
     try {
         contacts = JSON.parse(await getItemContacts("contacts"));
     } catch (e) {
       console.error("Loading error:", e);
     }
-  }
+}
   
-  async function saveContactsToServer(newContact) {
+async function saveContactsToServer(newContact) {
     contacts.push(newContact);
     await setItemContacts("contacts", JSON.stringify(contacts));
 }
@@ -68,7 +68,6 @@ function showContacts() {
 
         let names = contacts[i][0].split(" ");
         let surname = names[1].toUpperCase().charAt(0);
-
 
         // Wenn der Anfangsbuchstabe sich ändert, neue Gruppe anzeigen
         if (firstname !== currentLetter) {
@@ -196,7 +195,6 @@ function handleHover(element, isHover) {
     }
 }
 
-
 async function createContact(event) {
     event.preventDefault();
 
@@ -239,7 +237,23 @@ async function createContact(event) {
     // Wähle den neu hinzugefügten Kontakt aus
     let newIndex = contacts.findIndex(contact => contact === newContact);
     selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
-    showSuccessMessage();
+    //document.getElementById('success').classList.add('slide-top');
+    //showSuccessMessage();
+    showSuccessMessageBasedOnScreen();
+}
+
+// Überprüfen, ob die Seite im responsiven Modus ist (Beispiel: Breite < 768px)
+function isResponsiveMode() {
+    return window.innerWidth < 850;
+}
+
+// Funktion zum Anzeigen der Erfolgsmeldung basierend auf der Bildschirmbreite
+function showSuccessMessageBasedOnScreen() {
+    if (isResponsiveMode()) {
+        showSuccessMessageResponsive();
+    } else {
+        showSuccessMessage();
+    }
 }
 
 function showSuccessMessage() {
@@ -254,6 +268,20 @@ function showSuccessMessage() {
 function hideSuccessMessage() {
     let successDiv = document.getElementById('success');
     successDiv.classList.remove('show');
+}
+
+function showSuccessMessageResponsive() {
+    const successMessage = document.getElementById('success-2');
+    successMessage.style.display = 'block';
+
+    setTimeout(() => {
+        successMessage.classList.add('slide-top');
+    }, 0);
+
+    setTimeout(() => {
+        successMessage.classList.remove('slide-top');
+        successMessage.style.display = 'none';
+    }, 1500);
 }
 
 function addNewContact(){
@@ -294,8 +322,6 @@ function editContact(i){
     document.getElementById('userNameEdit').value = `${contacts[i][0]}`;
     document.getElementById('userEmailEdit').value = `${contacts[i][1]}`;
     document.getElementById('userPhoneEdit').value = `${contacts[i][2]}`;
-    
-   
 }
 
 async function deleteContact(event, i){
@@ -315,12 +341,7 @@ async function saveContact(event, i) {
         document.getElementById('userEmailEdit').value,
         document.getElementById('userPhoneEdit').value
     ];
- 
-    //contacts[i] = editedContact;
-    //let editContac = [contacts[i][0], contacts[i][1], contacts[i][2]];
-    
-    contacts.splice(i, 1);
-   
+    contacts.splice(i, 1);   
     closeEditContact();
     selectContact(i);
 
@@ -328,9 +349,9 @@ async function saveContact(event, i) {
     let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
     let names = contacts[i][0].split(" ");
     let surname = names[1].toUpperCase().charAt(0);
-    let circle = document.getElementById('circleCard'); //undefined
+    let circle = document.getElementById('circleCard'); 
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
-    let editCircle = document.getElementById('editCircle'); //undefined
+    let editCircle = document.getElementById('editCircle'); 
     editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     event.preventDefault();
     await saveContactsToServer(editedContact);
@@ -344,7 +365,6 @@ function closeEditContact(){
 }
 
 function closeAddContact(){
-    //document.getElementById('addContact').classList.remove('slide-left');
     document.getElementById('addContact').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
     document.getElementById('addContactBackground').classList.add('d-none');
@@ -365,140 +385,4 @@ function openMiniPopup(i){
         <img class="logo-mini-hover logo-mini-hover-2" src="./assets/img/delete.png">
         <span class="textEdit textEdit-2">Delete</span>
     </div>`;
-}
-
-
-function generate_contactsHtml(){
-    return `
-    <div class="addContactBackground d-none" id="addContactBackground">
-    <div class="addContactPopup d-none" id="addContact">
-        <div class="addContactMain">
-            <div class="addContactLeft">
-                <img class="closeAddContact-mobile" src="./assets/img/close_white.png" onclick="closeAddContact()">
-                <img class="addContactLogo hide-mobile-397px" src="./assets/img/logo-white.svg">
-                <div class="addContactHeadline">Add contact</div>
-                <div class="addContactHeadline2">Tasks are better with a team!</div>
-                <div class="line3"></div>
-            </div>
-            <div class="addContactMiddle">
-                <div class="addCircle" id="addCircle">
-                    <img class="addCircle-image" src="./assets/img/person.png">
-                </div>
-            </div>
-            <div class="addContactRight">
-                    <div class="formDiv">
-                        <form id="addContactForm" name="myForm">
-                            <div class="close-img-div">
-                                <img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()">
-                            </div>
-                            <div class="input">
-                                <div class="inputFieldName">
-                                    <input class="inputField" id="1" type="text" placeholder="Name"> 
-                                    <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
-                                </div>
-                                <div class="inputFieldName">
-                                    <input class="inputField" id="2" type="email"placeholder="Email"> 
-                                    <img class="logo-edit-input" src="./assets/img/mail_add_contact.png">
-                                </div>
-                                <div class="inputFieldName">
-                                    <input class="inputField" id="3" type="tel" placeholder="Phone"> 
-                                    <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
-                                </div>
-                            </div>
-                            <div class="editButtons">
-                                <button class="closeButton  hide-mobile-397px" onclick="closeAddContact()" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
-                                    <div class="cancel-button-div">
-                                        <span class="cancel-text">Cancel</span>
-                                        <img class="cancel-img-black" src="./assets/img/cancel.png">
-                                        <img class="cancel-img-blue" src="./assets/img/iconoir_cancel-2.png">
-                                    </div>
-                                </button>
-                                <button type="submit" class="createButton" onclick="createContact(event)">
-                                    <div class="create-button-div">
-                                    <div class="create-text">Create Contact</div>
-                                    <div><img class="create-img" src="./assets/img/check.png"></div>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <!--edit contact popup-->
-    <div class="editContactBackground d-none" id="editContactBackground">
-    <div class="editContactPopup d-none" id="editContact">
-        <div class="editContactMain">
-            <div class="editContactLeft">
-                <img class="closeEditContact-mobile" src="./assets/img/close_white.png" onclick="closeEditContact()">
-                <img class="editContactLogo" src="./assets/img/logo-white.svg">
-                <div class="editContactHeadline">Edit contact</div>
-                <div class="line2"></div>
-            </div>
-            <div class="editContactMiddle">
-                <div class="editCircle" id="editCircle"></div>
-            </div>
-            <div class="editContactRight">
-                <div class="formDiv">
-                    <form id="editContactForm" name="myFormEdit">
-                        <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeEditContact()"></div>
-                        <div class="input" id="editInput"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="contacts-content">
-        <!--contact list-->
-        <div class="contact-list" id="contact-list">
-            <button class="add-contact hide-mobile-397px" onclick="addNewContact()">
-                <div class="add-contact-main">
-                    <div>Add new contact</div>
-                    <div><img class="add-contact-image" src="./assets/img/person_add.png"></div>
-                </div>
-            </button>
-            <div class="contacts" id="contacts"></div>
-        </div>
-
-        <!--contact details-->
-        <div class="contact-details hide-mobile-397px" id="contact-details">
-            <div class="contact-details-headline">
-                <img class="contacts-headline-arrow" src="./assets/img/arrow-left-line.png" onclick="render_contactsHtml()">
-                <div class="contacts-headline-h1">Contacts</div>
-                <div class="line"></div>
-                <div class="headline-h3">Better with a team</div>
-                <div class="line4"></div>
-            </div>
-            <div class="contactCard" id="contactCard">
-                <div class="contactTitle">
-                    <div class="circleCard d-none" id="circleCard"></div>
-                    <div class="contactNameButtons">
-                        <div class="nameCard" id="nameCard"></div>  
-                        <div class="buttonsCard" id="buttonsCard"></div>
-                    </div>
-                </div>
-                <div class="textCard d-none" id="textCard">Contact Information</div>
-                <div class="emailCard" id="emailCard"></div>
-                <div class="phoneCard" id="phoneCard"></div>
-            </div>
-        </div>
-        <div class="success d-none" id="success">Contact successfully created</div>
-        
-        <div class="button-add-contact-mobile" id="button-add-contact-mobile" onclick="addNewContact()">
-            <img class="image-add-contact-mobile" src="./assets/img/person_add.png">
-        </div>
-
-        <div class="button-edit-contact-mobile" id="button-edit-contact-mobile">
-            <div class="onclickDiv" id="onclickDiv">
-            </div>
-        </div>
-        <div class="mini-popup slideInRight" id="mini-popup">
-            <div class="mini-popup-display" id="mini-popup-display">
-            </div>
-        </div>
-    </div>
-    `;
 }

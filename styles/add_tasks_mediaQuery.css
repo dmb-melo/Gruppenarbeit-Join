@@ -322,6 +322,10 @@
     padding: 10px 21px;
   }
 
+  .underList, .list, .underListContact, .listContact, .contactList{
+    position: relative;
+  }
+
   .searchContacts {
     width: 300x;
     font-size: 20px;
@@ -509,6 +513,11 @@
     width: 300x;
   }
 
+
+  .underList, .list, .underListContact, .listContact, .contactList{
+    position: relative;
+  }
+
   .custom-checkbox {
     width: 100%;
     gap: 150px;
@@ -667,7 +676,9 @@
 
   .underListContact {
     width: 780px;
+   
   }
+ 
   
 
   .categoryFrame74{
@@ -731,10 +742,7 @@
   }
 }
 
-
-
-@media (min-width: 1150px) and (max-width: 1300px) {
-
+@media (min-width: 1150px) and (max-width: 1200px) {
 
   .box-sizingResponsiv{
     display: none;
@@ -743,7 +751,6 @@
   .header { 
     position: relative;
   }
-
  
   .recursor {
     display: none;
@@ -806,7 +813,7 @@
   }
 }
 
-@media (min-width: 1301px){
+@media (min-width: 1201px){
   .box-sizingResponsiv{
     display: none;
   }
