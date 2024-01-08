@@ -68,6 +68,7 @@
   padding: 10px;
   transform: translateX(500px);
   transition: all 225ms ease-in-out;
+  z-index: 1000;
 }
 
 .show-submenu {
