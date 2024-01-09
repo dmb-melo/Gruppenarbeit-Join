@@ -11,6 +11,7 @@ async function summraryInit() {
   loadUserData();
   setInitialsInTheHeader();
   renderSummaryContent();
+  loadContentGreeting();
 }
 
 function generateGreetingText() {
@@ -86,4 +87,9 @@ function resetNumbersTasks() {
   numberOfUrgentTasks = 0;
   expirationDateOfTask = [];
   dateOfTheNextUpcomingTask = [];
+}
+
+function loadContentGreeting() {
+  document.getElementById("greetingTextResponsive").innerHTML = greetingText;
+  document.getElementById("userNameResponsive").innerHTML = userName;
 }
