@@ -15,7 +15,6 @@ function renderBoardHTML() {
 function boardInit() {
     updateHtml();
     renderSmallContats();
-    renderLargeContats();
 }
 
 function filterTasksByStatus(taskStatus) {
@@ -78,18 +77,33 @@ function generateSmallCard(task, i) {
 
     removeActiveClassFromSvgElements(clonedContentDiv);
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
+    let textMediumElement = clonedContentDiv.querySelector('.textMedium');
+    if (textMediumElement) {
+        textMediumElement.parentNode.removeChild(textMediumElement);
+    }
+
+    // Conditionally include the smallProgress div
+    let smallProgressDiv = '';
+    if (task.subtasks.length > 0) {
+        smallProgressDiv = /*html*/`
+            <div><div class="progress">
+        <div class="progress-value"></div>
+      </div><div class="smallProgress">${task.subtasks.length}</div></div>
+        `;
+    }
+
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
-        <div class="category"><p id="category" class="${className}">${currenCategory}</p></div>
+        <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
             <div class="taskDescription">${task.description}</div>
         </div>
-        <div class="smallProgress">${task.subtasks.length}</div>
+        ${smallProgressDiv}
         <div class="smallCardFooter">
-        <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
-        <div  id="boardAssigend${i}"></div>
-      </div>  
+            <div id="boardAssigend${i}"></div>
+            <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
+        </div>  
     `;
 }
 
@@ -126,14 +140,6 @@ function startDragged(id) {
 
 }
 
-function moveIt(taskStatus) {
-    const taskIndex = tasks.findIndex(task => task.id === draggedElementId);
-
-    if (taskIndex !== -1) {
-        tasks[taskIndex].taskStatus = taskStatus;
-        updateHtml();
-    }
-}
 
 function moveIt(taskStatus) {
     const taskIndex = tasks.findIndex(task => task.id === draggedElementId);
@@ -142,6 +148,7 @@ function moveIt(taskStatus) {
         tasks[taskIndex].taskStatus = taskStatus;
         updateHtml();
         save();
+        renderLargeContats();
     }
 }
 function allowDrop(ev) {
@@ -157,6 +164,7 @@ function openCard(taskId) {
         largeCardElement.innerHTML = generateLargeCard(task);
         largeCardElement.style.transform = 'translateX(0%)';
     }
+    renderLargeContats();
 }
 
 
@@ -185,6 +193,7 @@ function generateLargeCard(task) {
 
     removeActiveClassFromSvgElements(clonedContentDiv);
     let currenCategory = task.category[0];
+    
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
     
@@ -224,6 +233,7 @@ function generateLargeCard(task) {
         </div>
         <div class="subtasks">
             <p>Subtasks</p>
+            <p>${subsHtml}</p>
   
         </div>
         <div class="largCardFooter">
