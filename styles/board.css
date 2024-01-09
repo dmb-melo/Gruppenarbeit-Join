@@ -32,6 +32,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  height: 100vh;
 }
 
 .searchBar {
@@ -247,26 +248,53 @@
   transform: rotate(10deg);
 }
 
-.smallCardTaskText {
+.taskText {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
-
-.smallCardTaskText {
-  display: flex;
+.taskTitle {
+  color:#2A3647;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
 }
-.smallTaskDescription {
-  color: #4f4a4a;
+.taskDescription {
+  color: #A8A8A8;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .smallCardFooter {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  width: 100%;
+  justify-content: space-between;
 
+}
+#boardAssigend {
+  display: flex;
+}
+.smallCardVersionCircel{
+   border-radius: 100px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    color: white;
+    border: solid 1px white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -8px;
+}
+.smallPrio {
+  width: 124px;
+}
 .popUpWindow {
   position: fixed;
   inset: 0;
@@ -288,18 +316,91 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 24px;
-
   border-radius: 30px;
   background: #fff;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+  justify-content: space-between;
 }
+.largeCardInside {
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .largCardHeader {
   width: 100%;
   /* width: 100%; */
   display: flex;
   justify-content: space-between;
 }
+.largCardText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 
+.largCardTitle{
+  color: var(--black, #000);
+    font-family: Inter;
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+.largeTaskDetails {
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.largPrioDetail {
+  display: flex;
+  align-items: center;
+}
+#boardAssigendLargCard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.largCardContactContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.largeCardVersionCircel{
+  border-radius: 100px;
+   width: 36px;
+   height: 36px;
+   text-align: center;
+   color: white;
+   border: solid 1px white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.largCartSubtasks {
+  color: var(--Version-2-main-color, #2A3647);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin-top: 24px;
+}
+
+
+/* drag and drop css */
+.drag-area-highlight {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: dashed 1px;
+  border-radius: 10px;
+}
 @media (max-width: 320px) {
   .titleBoard {
     font-size: 47px !important;

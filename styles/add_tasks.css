@@ -119,12 +119,13 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
 
 .selectedPriorityContentDiv{
     display: flex;
-    padding: 4px 18px;
+    /* padding: 4px 18px; */
     align-items: center;
     margin-left: 10px;
     gap: 10px;
-    width: 139px;
+    width: 100px;
     height: 32px;
+    justify-content: end;
 }
 
 .frame207{      
