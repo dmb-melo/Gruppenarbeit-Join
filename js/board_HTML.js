@@ -40,7 +40,7 @@ function generateBoardHTML() {
                     </a>
                 </div>
             <!-- tskBoard -->
-                <div class="tasksCardsDiv" id="todo" ondrop="moveIt('todo')"  ondragover="allowDrop(event)"> </div>
+                <div class="tasksCardsDiv" id="todo" ondrop="moveIt('todo')"  ondragover="allowDrop(event); highlight('todo')" ondragleave="removeHighlight('todo')"> </div>
             </section>
             <!-- in Progress -->
             <section class="taskBoardTtle">
@@ -53,7 +53,7 @@ function generateBoardHTML() {
                 </div>
                 
             <!-- tskBoard -->
-                <div class="inProgress tasksCardsDiv" id="inProgress" ondrop="moveIt('inProgress')"  ondragover="allowDrop(event)"> </div>            </section>
+                <div class="inProgress tasksCardsDiv" id="inProgress" ondrop="moveIt('inProgress')"  ondragover="allowDrop(event); highlight('inProgress')" ondragleave="removeHighlight('inProgress')"> </div>            </section>
             <!-- Await Feedback -->
             <section class="taskBoardTtle">
                 <div class="awaitFeedbackHeadline headLineCss" id="awaitFeedbackHeadline">
@@ -64,7 +64,7 @@ function generateBoardHTML() {
                     </a>
                 </div>
                 <!-- tskBoard -->
-                <div class="awaitFeedback tasksCardsDiv" id="awaitFeedback" ondrop="moveIt('awaitFeedback')" ondragover="allowDrop(event)"> </div>
+                <div class="awaitFeedback tasksCardsDiv" id="awaitFeedback" ondrop="moveIt('awaitFeedback')" ondragover="allowDrop(event); highlight('awaitFeedback')" ondragleave="removeHighlight('awaitFeedback')"> </div>
             </section>
             <!-- done -->
             <section class="taskBoardTtle">
@@ -72,7 +72,7 @@ function generateBoardHTML() {
                     <h2 class="progressTitles">Done</h2>
                 </div>
                 <!-- tskBoard -->
-                <div class="done tasksCardsDiv" id="done" ondrop="moveIt('done')" ondragover="allowDrop(event)" >
+                <div class="done tasksCardsDiv" id="done" ondrop="moveIt('done')" ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')" >
                 </div>
             </section>
         </div>

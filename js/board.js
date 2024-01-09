@@ -80,15 +80,15 @@ function generateSmallCard(task) {
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
-        <div class="category"><p id="category" class="${className}">${currenCategory}</p></div>
+        <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
             <div class="taskDescription">${task.description}</div>
         </div>
         <div class="smallProgress">${task.subtasks.length}</div>
         <div class="smallCardFooter">
-        
         <div  id="boardAssigend"></div>
+        <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
       </div>  
     `;
 }
@@ -142,10 +142,19 @@ function moveIt(taskStatus) {
         tasks[taskIndex].taskStatus = taskStatus;
         updateHtml();
         save();
+        renderSmallContats();
     }
 }
 function allowDrop(ev) {
     ev.preventDefault();
+}
+
+function highlight(id) {
+    document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+function removeHighlight(id) {
+    document.getElementById(id).classList.remove('drag-area-highlight');
 }
 
 function openCard(taskId) {
@@ -180,6 +189,7 @@ function generateLargeCard(task) {
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
         <div class="largeCardA">
+    <div class="largeCardInside">
     <div class="largCardHeader">
         <!-- Category and close button -->
         <div class="lardCardCategory">
@@ -210,21 +220,24 @@ function generateLargeCard(task) {
             <p>Assigned To:</p>
             <div  id="boardAssigendLargCard"></div>
         </div>
-        <div class="subtasks">
+        <div class="largCartSubtasks">
             <p>Subtasks</p>
   
         </div>
-        <div class="largCardFooter">
+        
+    </div>
+    </div>
+    <div class="largCardFooter">
         <div class="deleteAndEdit">
              
-             <div class="delete_task" onclick="deleteTask(event)">
+             <div class="delete_task" style="    display: flex; align-items: center; gap: 4px; cursor:pointer;" onclick="deleteTask(event)">
                  <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
                  <p class = "delete-task-title">Delete</p>
              </div>
              
              <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
              
-             <div class ="edit_task">
+             <div class ="edit_task"  style="    display: flex; align-items: center; gap: 4px; cursor:pointer;">
              
                  <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
                  <p class = "edit-task-title">Edit</p>
@@ -235,7 +248,6 @@ function generateLargeCard(task) {
             
 
         </div>
-    </div>
     </div>
 
     `;
@@ -259,8 +271,8 @@ function renderSmallContats(){
         let names = assigned[a].split(" ");
         let surname = names[1].toUpperCase().charAt(0);
         contactsSmallCard.innerHTML += /*html*/`
-             <div class="contact-info-left">
-                    <div class="circle" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
+             <div class="">
+                    <div class=" smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
                 </div>
         `;
     }
@@ -277,8 +289,9 @@ function renderLargeContats(){
         let names = assigned[d].split(" ");
         let surname = names[1].toUpperCase().charAt(0);
         contactsLargeCard.innerHTML += /*html*/`
-             <div class="contact-info-left">
-                    <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
+             <div class="largCardContactContainer">
+                    <div class="largeCardVersionCircel" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
+                    <div><p>${assigendAvatar}</p></div>
                 </div>
         `;
     }
