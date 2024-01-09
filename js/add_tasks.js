@@ -180,6 +180,7 @@ function addTask() {
     updateSubtasksDisplay();
     clearAllSelections();
     category = [];
+    selectedContacts = [];
 }
 
 function checkboxAddTask(){
