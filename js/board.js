@@ -89,14 +89,9 @@ function generateSmallCard(task) {
     // Conditionally include the smallProgress div
     let smallProgressDiv = '';
     if (task.subtasks.length > 0) {
-        smallProgressDiv = `<div class="smallProgress" style="color: #000;
-
-        /* Version 2/t7 */
-        font-family: Inter;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 120%;">0/${task.subtasks.length}</div>`;
+        smallProgressDiv = `
+       <div style="display: flex;width: 100%;"
+    }><div class="progress"><div class="progress-value"></div> </div><div class="smallProgress">0/${task.subtasks.length}</div></div>`;
     }
 
     return /*html*/`
@@ -188,7 +183,16 @@ function openCard(taskId) {
 
 function generateLargeCard(task) {
     let currentPriorityContent = task.priorityContent || '';
-    let currentSubTasks = subtasks[task];
+    const subsHtml = task.subtasks.map(subtask =>  `
+    <div class="subtasksContents">
+        <label class="checkbox-label">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-custom"></span>
+            ${subtask}
+        </label>
+    </div>
+`).join('');
+    let currentSubTasks = subT[task];
     let tempDiv = document.createElement('div');
     tempDiv.innerHTML = currentPriorityContent;
     tempDiv.classList.add('selectedPriorityContentDiv');
@@ -236,7 +240,7 @@ function generateLargeCard(task) {
         </div>
         <div class="largCartSubtasks">
             <p>Subtasks</p>
-  
+            <p>${subsHtml}</p>
         </div>
         
     </div>
