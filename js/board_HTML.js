@@ -86,12 +86,7 @@ function generateBoardHTML() {
 function generateAddEditeTask(){
     return /*html*/`  
      <div class = "contentTask">  
-        <div class="content_addTask">
-                <div class = "textContainer_addTask">
-                    <div class ="text_addTask">Add Task</div>
-                </div>
-            </div>   
-            <div class ="group66_addTask">
+            <div>
                 <div class="task_succes d-none" id="task_succes">
                     <div class="task_succes_container">
                         <span  class="task_succes_message">Task added to board</span>
