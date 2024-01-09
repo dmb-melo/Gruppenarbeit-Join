@@ -15,7 +15,6 @@ function renderBoardHTML() {
 function boardInit() {
     updateHtml();
     renderSmallContats();
-    renderLargeContats();
 }
 
 function filterTasksByStatus(taskStatus) {
@@ -26,7 +25,7 @@ function filterTasksByStatus(taskStatus) {
 function updateHtmlForStatus(taskStatus, elementId) {
     const tasksByStatus = filterTasksByStatus(taskStatus);
     const element = document.getElementById(elementId);
-    const largTast = document
+  
 
     // Leere die bestehenden Inhalte im HTML-Element
     element.innerHTML = '';
@@ -158,6 +157,7 @@ function openCard(taskId) {
         largeCardElement.innerHTML = generateLargeCard(task);
         largeCardElement.style.transform = 'translateX(0%)';
     }
+    renderLargeContats();
 }
 
   
