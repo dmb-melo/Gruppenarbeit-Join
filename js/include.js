@@ -12,7 +12,10 @@ async function includeHTML() {
   }
 }
 
-function renderSummaryContent() {
+async function renderSummaryContent() {
+  load();
+  generateGreetingText();
+  determineNumberTasks();
   document.getElementById("contentJoin").innerHTML = ``;
   document.getElementById("contentJoin").innerHTML = generateSummaryContent();
   removeStyleSidebar();
@@ -27,14 +30,6 @@ function render_addTask() {
   addTextColor();
   document.getElementById("sidebarCategoryAddTask").classList.add("sidebarCategoryLinkActive");
   addTaskInit();
-}
-
-function renderBoardHTML() {
-  document.getElementById("contentJoin").innerHTML = ``;
-  document.getElementById("contentJoin").innerHTML = generateBoardHTML();
-  removeStyleSidebar();
-  addTextColor();
-  document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive");
 }
 
 function render_contactsHtml() {

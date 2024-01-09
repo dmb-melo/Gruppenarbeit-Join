@@ -1,15 +1,16 @@
 body{
     font-family: "Inter", sans-serif;
-
 }
-h1{
+.contacts-headline-h1{
     font-size: 42px;
+    font-weight: 700;
 }
-h2{
+.nameCard{
     font-size: 40px;
     margin-bottom: 6px;
+    font-weight: 500;
 }
-h3{
+.headline-h3{
     font-size: 24px;
     font-weight: 300;
 }
@@ -35,7 +36,7 @@ hr{
 .contact-list{
     background-color: white;
     margin-left: 280px;
-    margin-top: 110px;
+    margin-top: 10px;
     width: 30%;
     height: 88vh;
     -webkit-box-shadow: 3px 0px 4px -4px rgba(77,77,77,0.53);
@@ -44,7 +45,7 @@ hr{
     overflow: scroll;
 }
 .contact-details{
-    margin-top: 100px;
+    margin-top: 0px;
     width: 60%;
     height: 100vh;
     background-color: #F6F7F8;
@@ -123,7 +124,7 @@ hr{
     display: flex;
     align-items: center;
     margin-left: 24px;
-    margin-top: 48px;
+    margin-top: 100px;
 }
 .nameIdList{
     font-size: 16px !important;
@@ -143,9 +144,8 @@ hr{
     color: white;
     border: solid 1px white;
     display: flex;
-align-items: center;
-justify-content: center;
-    
+    align-items: center;
+    justify-content: center;
 }
 .editCircle{
     border-radius: 100px;
@@ -157,6 +157,9 @@ justify-content: center;
     border: solid;
     margin-left: 60px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .contact-info{
     cursor: pointer;
@@ -192,6 +195,9 @@ justify-content: center;
     border: solid white 3px;
     margin-right: 36px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .nameId{
     font-size: 36px;
@@ -203,10 +209,6 @@ justify-content: center;
 }
 .buttonsCard{
     display: flex;
-}
-.logo-mini{
-    height: 18px;
-    margin-right: 6px;
 }
 .contactNameButtons{
     display: flex;
@@ -220,7 +222,6 @@ justify-content: center;
 .textCard{
     font-size: 18px;
     margin-bottom: 36px;
-
 }
 .head-info{
     margin-bottom: 12px;
@@ -240,8 +241,8 @@ justify-content: center;
     width: 380px;
 }
 .addContactPopup{
-    position: fixed;
-    left: 250px;
+    width: 80vw;
+    left: 160px;
 }
 .addContactRight{
     background-color: white;
@@ -270,7 +271,6 @@ justify-content: center;
     margin-left: 30px;
     margin-top: 12px;
 }
-
 .line2{
     background-color: #2AAAE2;
     width: 70px;
@@ -319,8 +319,8 @@ justify-content: center;
     border-top-left-radius: 25px;
 }
 .editContactPopup{
-    position: fixed;
-    left: 250px;
+    width: 80vw;
+    left: 160px;
     font-weight: 700;
 }
 .editContactRight{
@@ -371,39 +371,76 @@ justify-content: center;
     margin-right: 18px;
     align-items: center;
   }
-  .logo-mini{
+.editCard-mini{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 12px;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+.mini-popup-editCard{
+    margin-bottom: -6px;
+}
+.deleteCard-mini{
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+.logo-mini{
     width: 20px; 
     height: 20px; 
     margin-bottom: -4px;
-  }
-  .logo-mini-hover {
+    height: 18px;
+    margin-right: 6px;
+}
+.logo-mini-hover{
     width: 20px; 
     height: 20px; 
     margin-right: 6px;
     margin-bottom: -4px;
-  }
-  .logo-mini-hover {
+}
+.logo-mini-hover-2{
+    width: 25px !important;
+    height: 25px !important;
+}
+.textEdit-2{
+    margin-bottom: -6px !important;
+}
+.textEdit-2:hover{
+    font-weight: 700;
+    cursor: pointer;
+}
+.logo-mini-hover{
     display: none; 
-  }
-  .editCard:hover{
+}
+.editCard:hover{
     color: #2AAAE2;
     font-weight: 500;
-  }
-  .textEdit{
+}
+.textEdit{
     margin-bottom: 6px;
-  }
-  .deleteCard {
+    cursor: pointer;
+}
+.textEdit:hover{
+    color: #2AAAE2;
+}
+.deleteCard {
     position: relative;
     cursor: pointer;
     margin-right: 18px;
     align-items: center;
-  }
-  .deleteCard:hover{
+}
+.deleteCard:hover{
     color: #2AAAE2;
     font-weight: 500;
-  }
-
-  .cancel-button-div {
+}
+.cancel-button-div {
     display: flex;
     align-items: center;
     position: relative;
@@ -526,13 +563,11 @@ justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border: 1px solid #2AAAE2;
 }
-
 .save-button-div{
     display: flex;
     align-items: center;
     margin-left: 3px;
 }
-
 .create-button-div{
     display: flex;
     align-items: center;
@@ -555,7 +590,6 @@ justify-content: center;
     border-radius: 12px;
     width: 250px;
     right: -200%;
-
     background-color: #293647;
     color: white;
     text-align: center;
@@ -571,19 +605,66 @@ justify-content: center;
 .closeAddContact-mobile{
     display: none;
 }
-
-
+.line4{
+    display: none;
+}
+.button-edit-contact-mobile{
+    display: none;
+}
+.closeEditContact-mobile{
+    display: none;
+    cursor: pointer;
+}
+.mini-popup{
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 12px;
+    border: solid 1px white;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 90px;
+    width: 100px;
+    transition: right 1s ease-in-out;
+}
+.mini-popup-display{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    cursor: pointer;
+}
+.contacts-headline-arrow{
+    display: none;
+}
+.success-2 {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    left: 10%;
+    transform: translateX(-50%);
+    width: 250px;
+    text-align: center;
+    background-color: #2B3646;
+    color: #fff;
+    padding: 23px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+}
+.success-2.slide-top {
+    transform: translateY(-100%);
+}
 .slide-left {
     animation: slide-left 0.5s linear both;
- }
- 
- .slide-top {
+}
+.slide-top {
 	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-
-
- @keyframes slide-left {
+@keyframes slide-left {
     0% {
        transform: translateX(400px);
        -webkit-transform: translateX(400px); /* Für Webkit-basierte Browser */
@@ -594,8 +675,7 @@ justify-content: center;
        -webkit-transform: translateX(0px); /* Für Webkit-basierte Browser */
        -moz-transform: translateX(0px); /* Für Firefox */
     }
- }
-
+}
 @-webkit-keyframes slide-top {
     0% {
       -webkit-transform: translateY(0);
@@ -605,8 +685,8 @@ justify-content: center;
       -webkit-transform: translateY(-100px);
               transform: translateY(-100px);
     }
-  }
-  @keyframes slide-top {
+}
+@keyframes slide-top {
     0% {
       -webkit-transform: translateY(0);
               transform: translateY(0);
@@ -617,24 +697,132 @@ justify-content: center;
     }
   }
   
+@media(max-width: 1300px){
+    .contact-list{
+        margin-top: 10px;
+        width: 43%;
+    }
+    .contact-details{
+        margin-top: 0;
+    }
+    .editContactPopup{
+        margin-left: 12px;
+        left: 0;
+    }
+    .editContactMain{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .editContactLeft{
+        width: 40vw;
+    }
+    .editContactMiddle{
+        width: 20vw;
+    }
+    .editContactRight{
+        width: 38vw;
+    }
+    .inputField{
+        width: 288px;
+    }
+    .inputFieldName{
+        width: 317px;
+    }
+    .addContactPopup{
+        margin-left: 12px;
+        left: 0;
+    }
+    .addContactMain{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .addContactLeft{
+        width: 40vw;
+    }
+    .addContactMiddle{
+        width: 20vw;
+    }
+    .addContactRight{
+        width: 38vw;
+    }
+}
 
- @media(max-width: 600px){
-    .hide-mobile-600px{
+@media(max-width: 1000px){
+    .contact-list{
+        margin-left: 10px;
+        margin-top: 10px;
+        width: 40%;
+        height: 78vh;
+    }
+    .contact-details{
+        margin-top: 0;
+    }
+    .addContactPopup{
+        width: 99vw;
+        left: 3px;
+    }
+    .addContactMain{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .editContactPopup{
+        left: 3px;
+        width: 99vw;
+    }
+    .editContactMain{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .editContactLeft{
+        width: 40vw;
+    }
+    .editCircle{
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .editContactMiddle{
+        justify-content: center;
+        align-items: center;
+    }
+    .addContactLeft{
+        width: 40vw;
+    }
+    .addCircle{
+        margin-left: 0;
+        margin-top: 0;
+        margin-right: 0;
+    }
+    .addContactMiddle{
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media(max-width: 850px){
+    .hide-mobile-397px{
         display: none;
     }
     .contact-list{
         width: 100%;
         margin-left: 30px;
+        margin-top: 30px;
+        height: 78vh;
+    }
+    .slide-left{
+        animation: none;
+    }
+    .contactCard{
+        margin-top: 100px;
     }
     .button-add-contact-mobile{
         border: 1px solid var(--Version-2-main-color, #2A3647);
         background: var(--Version-2-main-color, #2A3647);
         cursor: pointer;
-        display: inline-flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         position: fixed;
-        bottom: 24px;
+        bottom: 110px;
         right: 24px;
         border-radius: 46px;
         width: 40px;
@@ -647,26 +835,47 @@ justify-content: center;
         width: 32px;
         height: 32px;
     }
+    .button-add-contact-mobile:hover{
+        background-color: #2AAAE2;
+        border-color: #2AAAE2;
+    }
+    .button-edit-contact-mobile{
+        display: none;
+        border: 1px solid var(--Version-2-main-color, #2A3647);
+        background: var(--Version-2-main-color, #2A3647);
+        cursor: pointer;
+        position: fixed;
+        bottom: 110px;
+        right: 24px;
+        border-radius: 46px;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 12px;
+        gap: 10px;
+    }
+    .image-edit-contact-mobile{
+        width: 36px;
+        margin: 2px;
+    }
+    .button-edit-contact-mobile:hover{
+        background-color: #2AAAE2;
+        border-color: #2AAAE2;
+    }
     .addContactMain{
         flex-direction: column;
-        height: 400px;
-        width: 200px;
-        margin-left: 10px;
+        height: 650px;
+        width: 100vw;
+        margin-left: 5px;
         margin-right: 10px;
-        margin-top: -75px;
+        margin-top: 200px;
     }
     .addContactLeft{
         border-top-right-radius: 25px;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 0px;
-        width: 321px;
-        height: 200px;
-/*        height: 351px;*/
-        padding: 66px 24px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 12px;
+        width: 95vw;
+        height: 291px;
         flex-shrink: 0;
     }
     .addContactRight{
@@ -674,16 +883,13 @@ justify-content: center;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
         border-top-right-radius: 0;
-        width: 368px;
+        width: 95vw;
     }
     .closeAddContact-mobile{
         display: block;
-        width: 24px;
-        height: 24px;
-        flex-shrink: 0;
-        margin-top: -50px;
-        margin-left: 300px;
-        margin-bottom: 80px;
+        position: fixed;
+        right: 30px;
+        top: 225px;
     }
     .close-img-div {
         display: none;
@@ -691,8 +897,10 @@ justify-content: center;
     .addContactMiddle{
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         background-color: white;
-        width: 321px;
+        width: 95vw;
         height: 1px;
     }
     .input{
@@ -702,10 +910,11 @@ justify-content: center;
     }
     .addCircle{
         position: fixed;
-        left: 90px;
-        top: 40px;
         width: 100px;
         height: 100px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
     }
     .addCircle-image{
         margin: 31px;
@@ -731,16 +940,16 @@ justify-content: center;
     }
     .addContactHeadline{
         font-size: 36px;
-        margin-top: 42px;
-        margin-left: 0;
+        margin-top: 100px;
+        margin-left: 20px;
         font-weight: 600;
     }
     .addContactHeadline2{
-        margin-left: 0;
+        margin-left: 20px;
         font-weight: 300;
     }
     .line3{
-        margin-left: 0;
+        margin-left: 20px;
         margin-top: 18px;
     }
     .createButton{
@@ -751,8 +960,135 @@ justify-content: center;
         margin-left: 24px;
     }
     .contact-details{
-        margin-top: 80px;
+        margin-top: 0;
         width: 100%;
         padding-left: 0;
     }
+    .contact-details-headline{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 45px;
+    }
+    .line{
+        display: none;
+    }
+    .contacts-headline-h1{
+        font-size: 42px;
+        font-weight: 700;
+    }
+    .line4{
+        display: block;
+        width: 77px;
+        height: 3px;
+        background-color: #2AAAE2;
+        margin-top: 14px;
+        margin-bottom: 30px;
+    }
+    .headline-h3{
+        margin-top: 8px;
+        font-size: 18px;
+    }
+    .circleCard{
+        width: 72px;
+        height: 72px;
+        margin: 0px;
+        margin-right: 20px;
+    }
+    .nameId{
+        font-size: 28px;
+        margin: 16px;
+        font-weight: 300;
+    }
+    .buttonsCard{
+        display: none;
+    }
+    .nameCard{
+        font-size: 30px;
+        font-weight: 700;
+    }
+    .textCard{
+        margin-bottom: 24px;
+    }
+    .logo-mini{
+        width: 25px;
+        height: 25px;
+        margin-bottom: -4px;
+    }
+    .editContactMain{
+        flex-direction: column;
+        height: 650px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 200px;
+    }
+    .editContactPopup{
+        left: 6px;
+    }
+    .editContactMiddle{
+        height: 0;
+        width: 95vw;
+        justify-content: center;
+        align-items: center;
+    }
+    .editContactLeft{
+        margin-top: 0px;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        width: 95vw;
+        height: 291px;
+    }
+    .editContactRight{
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        height: 350px;
+        width: 95vw;
+    }
+    .editContactLogo{
+        display: none;
+    }
+    .editContactHeadline{
+        font-weight: 600;
+        font-size: 36px;
+        margin-top: 100px;
+        margin-bottom: 9px;
+        margin-left: 20px;
+    }
+    .closeEditContact-mobile{
+        display: block;
+        position: fixed;
+        right: 20px;
+        top: 225px;
+    }
+    .line2{
+        margin-bottom: 100px;
+        margin-left: 20px;
+    }
+    .editCircle{
+        position: fixed;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    .contacts-headline-arrow{
+        display: block;
+        position: fixed;
+        right: 14px;
+        width: 35px;
+        cursor: pointer;
+    }
+    .formDiv{
+        margin-right: 0;
+    }
+    .inputFieldName {
+        margin-bottom: 20px;
+        width: 90vw;
+    }
+    .inputField {
+        width: 86vw;
+    }
+    .nameIdEdit {
+        font-size: 40px;
+    }
+
 }

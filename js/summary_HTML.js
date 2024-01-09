@@ -5,59 +5,60 @@ function generateSummaryContent() {
             <div class="summaryLeft">
                 <div class="summaryHeader">
                     <span>
-                        <h1><b>Summary</b></h1>
+                        <h1 class="summary-headline">Summary</h1>
                     </span>
                     <div class="blueLineText">
                         <div class="blueLine"></div>
-                        <div class="summaryKey"><span>key Metrics at Glance</span></div>
-                    </div>
+                        <div class="summaryKey"><span>Key Metrics at Glance</span></div>
+                        <div class="blueLineResponsive"></div>
+                    </div> 
                 </div>
                 <div class="summaryTaskContainer">
                     <div class="summaryTodoDone">
                         <!-- Links -->
-                        <a href="board.html" class="toDoPanel">
+                        <a onclick="renderBoardHTML()" class="toDoPanel">
                             <div class="toDoIcon editHover">
                                 <img src="./assets/img/edit.png" alt="">
                             </div>
                             <div class="toDoAmount">
-                                <div id="todosCrowd" class="taskNumber">2</div>
+                                <div id="todosCrowd" class="taskNumber">${numberToDo}</div>
                                 <div class="taskText">To-do</div>
                             </div>
                         </a>
                         <!--Rechts -->
-                        <a href="board.html" class="toDoPanel">
+                        <a onclick="renderBoardHTML()" class="toDoPanel">
                             <div class="toDoIcon checkhover">
                                 <img src="./assets/img/Frame 59.png" alt="">
                             </div>
                             <div class="toDoAmount">
-                                <div id="doneCrowd" class="taskNumber">2</div>
+                                <div id="doneCrowd" class="taskNumber">${numberDone}</div>
                                 <div class="taskText">Done</div>
                             </div>
                         </a>
                     </div>
-                    <a href="board.html" class="summaryUrgendDeadLine toDoPanelBig">
+                    <a onclick="renderBoardHTML()" class="summaryUrgendDeadLine toDoPanelBig">
                         <div class="urgend">
-                            <img src="./assets/img/pfeilerrauf.png" alt="">
-                            <div id="urgendCrowd" class="taskNumber">2</div>
+                            <img class="urgend-svg" src="./assets/img/pfeilerrauf.png" alt="">
+                            <div id="urgendCrowd" class="taskNumber">${numberOfUrgentTasks}</div>
                             <div class="taskText">Urgend</div>
                         </div>
                         <div class="partingLine"></div>
                         <div class="deadline">
-                            <p id="date"><b>October 16, 2022</b></p>
+                            <p id="date"><b>${dateOfTheNextUpcomingTask}</b></p>
                             <p class="deadLineText">Upcoming Deadline</p>
                         </div>
                     </a>
                     <div class="summaryTasks">
-                        <a class="taskspanels" id="" href="board.html">
-                            <div class="tasksNumber">5</div>
+                        <a onclick="renderBoardHTML()" class="taskspanels">
+                            <div class="tasksNumber">${numberOfTasks}</div>
                             <div class="tasksText">Task in Borad</div>
                         </a>
-                        <a class="taskspanels" id="" href="board.html">
-                            <div class="tasksNumber">5</div>
+                        <a onclick="renderBoardHTML()" class="taskspanels">
+                            <div class="tasksNumber">${numberProgress}</div>
                             <div class="tasksText">Task in Progress</div>
                         </a>
-                        <a class="taskspanels" id="" href="board.html">
-                            <div class="tasksNumber">5</div>
+                        <a onclick="renderBoardHTML()" class="taskspanels">
+                            <div class="tasksNumber">${numberFeedback}</div>
                             <div class="tasksText">Task in Feedack</div>
                         </a>
                     </div>
@@ -65,8 +66,8 @@ function generateSummaryContent() {
             </div>
             <div class="summaryRight">
                 <div class="greetin">
-                    <h2>Guten Abend</h2>
-                    <p><b>Bekir Labjani</b></p>
+                    <h2>${greetingText}</h2>
+                    <p class="user-name"><b>${userName}</b></p>
                 </div>
             </div>
         </div>

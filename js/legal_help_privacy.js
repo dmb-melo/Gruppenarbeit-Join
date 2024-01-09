@@ -8,7 +8,7 @@ function closelegalHelpPrivacyContent() {
   if (legalInformationLogin === true || legalInformationSignup === true) {
     closelegalInformationLoginPage();
   } else {
-    window.location.href = "./summary.html";
+    window.location.href = "./join.html";
     document.getElementById("helpIcon").classList.remove("d-none");
   }
 }
@@ -23,4 +23,6 @@ function closelegalInformationLoginPage() {
   }
   document.getElementById("signUpButtonHeadline").classList.remove("d-none");
   document.getElementById("loginpageDataProtectionContainer").classList.remove("d-none");
+  document.getElementById("animationJoinLogoContainer").classList.remove("d-none");
+  document.getElementById("joinLogoContainer").classList.remove("d-none");
 }

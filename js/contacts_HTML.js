@@ -1,59 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts</title>
-    <link rel="stylesheet" href="./styles/contacts.css">
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/sidebar.css">
-    <link rel="stylesheet" href="./styles/fonts.css" />
-    <script src="./js/include.js"></script>
-    <script src="./js/header.js"></script>
-    <script src="./js/contacts.js"></script>
-    <script src="./js/register.js"></script>
-</head>
-<body onload="renderContacts()">
-   <div w3-include-html="assets/templates/sidebar.html"></div>
-    <div w3-include-html="assets/templates/header.html"></div>
 
-    <!--add contact popup-->
+function generate_contactsHtml(){
+    return `
+    <div class="addContactBackground d-none" id="addContactBackground">
     <div class="addContactPopup d-none" id="addContact">
         <div class="addContactMain">
             <div class="addContactLeft">
-                <img class="addContactLogo" src="./assets/img/logo-white.svg">
+                <img class="closeAddContact-mobile" src="./assets/img/close_white.png" onclick="closeAddContact()">
+                <img class="addContactLogo hide-mobile-397px" src="./assets/img/logo-white.svg">
                 <div class="addContactHeadline">Add contact</div>
                 <div class="addContactHeadline2">Tasks are better with a team!</div>
                 <div class="line3"></div>
             </div>
             <div class="addContactMiddle">
                 <div class="addCircle" id="addCircle">
-                    <img src="./assets/img/person_add_contact.png">
+                    <img class="addCircle-image" src="./assets/img/person.png">
                 </div>
             </div>
             <div class="addContactRight">
                     <div class="formDiv">
-                        <form id="addContactForm">
-                            <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()"></div>
+                        <form id="addContactForm" name="myForm">
+                            <div class="close-img-div">
+                                <img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()">
+                            </div>
                             <div class="input">
                                 <div class="inputFieldName">
-                                    <input class="inputField" minlength="5" required id="1" type="text" placeholder="Name"> 
+                                    <input class="inputField" id="1" type="text" placeholder="Name"> 
                                     <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
                                 </div>
                                 <div class="inputFieldName">
-                                    <input class="inputField" minlength="5" required id="2" type="email"placeholder="Email"> 
+                                    <input class="inputField" id="2" type="email"placeholder="Email"> 
                                     <img class="logo-edit-input" src="./assets/img/mail_add_contact.png">
                                 </div>
                                 <div class="inputFieldName">
-                                    <input class="inputField" minlength="5" required id="3" type="tel" placeholder="Phone"> 
+                                    <input class="inputField" id="3" type="tel" placeholder="Phone"> 
                                     <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
                                 </div>
                             </div>
                             <div class="editButtons">
-                                <button class="closeButton" onclick="closeAddContact()">
+                                <button class="closeButton  hide-mobile-397px" onclick="closeAddContact()" onmouseover="hoverCancel(this, true)" onmouseout="hoverCancel(this, false)">
                                     <div class="cancel-button-div">
-                                    <div class="cancel-text">Cancel</div>
-                                    <div><img class="cancel-img" src="./assets/img/cancel.png"></div>
+                                        <span class="cancel-text">Cancel</span>
+                                        <img class="cancel-img-black" src="./assets/img/cancel.png">
+                                        <img class="cancel-img-blue" src="./assets/img/iconoir_cancel-2.png">
+                                    </div>
                                 </button>
                                 <button type="submit" class="createButton" onclick="createContact(event)">
                                     <div class="create-button-div">
@@ -66,11 +55,14 @@
             </div>
         </div>
     </div>
+    </div>
 
     <!--edit contact popup-->
+    <div class="editContactBackground d-none" id="editContactBackground">
     <div class="editContactPopup d-none" id="editContact">
         <div class="editContactMain">
             <div class="editContactLeft">
+                <img class="closeEditContact-mobile" src="./assets/img/close_white.png" onclick="closeEditContact()">
                 <img class="editContactLogo" src="./assets/img/logo-white.svg">
                 <div class="editContactHeadline">Edit contact</div>
                 <div class="line2"></div>
@@ -80,7 +72,7 @@
             </div>
             <div class="editContactRight">
                 <div class="formDiv">
-                    <form id="editContactForm">
+                    <form id="editContactForm" name="myFormEdit">
                         <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeEditContact()"></div>
                         <div class="input" id="editInput"></div>
                     </form>
@@ -88,11 +80,12 @@
             </div>
         </div>
     </div>
+    </div>
 
     <div class="contacts-content">
         <!--contact list-->
-        <div class="contact-list">
-            <button class="add-contact" onclick="addNewContact()">
+        <div class="contact-list" id="contact-list">
+            <button class="add-contact hide-mobile-397px" onclick="addNewContact()">
                 <div class="add-contact-main">
                     <div>Add new contact</div>
                     <div><img class="add-contact-image" src="./assets/img/person_add.png"></div>
@@ -102,19 +95,20 @@
         </div>
 
         <!--contact details-->
-        <div class="contact-details">
+        <div class="contact-details hide-mobile-397px" id="contact-details">
             <div class="contact-details-headline">
-                <h1>Contacts</h1>
+                <img class="contacts-headline-arrow" src="./assets/img/arrow-left-line.png" onclick="render_contactsHtml()">
+                <div class="contacts-headline-h1">Contacts</div>
                 <div class="line"></div>
-                <h3>Better with a team</h3>
+                <div class="headline-h3">Better with a team</div>
+                <div class="line4"></div>
             </div>
             <div class="contactCard" id="contactCard">
                 <div class="contactTitle">
                     <div class="circleCard d-none" id="circleCard"></div>
                     <div class="contactNameButtons">
-                        <h2 class="nameCard" id="nameCard"></h2>  
-                        <div class="buttonsCard" id="buttonsCard">        
-                        </div>
+                        <div class="nameCard" id="nameCard"></div>  
+                        <div class="buttonsCard" id="buttonsCard"></div>
                     </div>
                 </div>
                 <div class="textCard d-none" id="textCard">Contact Information</div>
@@ -123,8 +117,20 @@
             </div>
         </div>
         <div class="success d-none" id="success">Contact successfully created</div>
+        <div class="success-2" id="success-2">Contact successfully created</div>
+
+        <div class="button-add-contact-mobile" id="button-add-contact-mobile" onclick="addNewContact()">
+            <img class="image-add-contact-mobile" src="./assets/img/person_add.png">
+        </div>
+
+        <div class="button-edit-contact-mobile" id="button-edit-contact-mobile">
+            <div class="onclickDiv" id="onclickDiv">
+            </div>
+        </div>
+        <div class="mini-popup" id="mini-popup">
+            <div class="mini-popup-display" id="mini-popup-display">
+            </div>
         </div>
     </div>
-
-</body>
-</html>
+    `;
+}

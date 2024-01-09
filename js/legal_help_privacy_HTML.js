@@ -1,7 +1,7 @@
 function generatePrivacyPolicyContent() {
     return /*html*/ `
     <div id="conten">
-          <div class="close-arrow-container">
+          <div class="close-arrow-container" id="arrowBackLegalHelpPrivacy">
             <img onclick="closelegalHelpPrivacyContent()" class="arrow-back" src="./assets/img/arrow-left-line.svg" alt="arrowback" />
           </div>
           <div class="content-container">

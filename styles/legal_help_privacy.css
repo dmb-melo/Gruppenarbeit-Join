@@ -21,9 +21,8 @@ body {
 
 .close-arrow-container {
   position: absolute;
-  top: 235px;
+  top: 300px;
   right: 133px;
-  z-index: 999;
 }
 
 .arrow-back {
@@ -38,7 +37,7 @@ body {
 }
 
 .content-container {
-  margin-top: 200px;
+  margin-top: 180px;
   margin-left: 328px;
   margin-right: 133px;
 }

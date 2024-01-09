@@ -24,7 +24,7 @@ function generate_sidebar(){
         <div id="sidebarCategoryBorard" class="sidebarCategory" onclick="renderBoardHTML()">
           <div class="sidebarLink">
             <img class="sidebarIMG" src="./assets/img/Icons_board.png" />
-            <div class="sidebarMenuText">Borard</div>
+            <div class="sidebarMenuText">Board</div>
           </div>
         </div>
         <div id="sidebarCategoryContacts" class="sidebarCategory" onclick="render_contactsHtml()">
@@ -52,29 +52,29 @@ function generate_sidebar(){
   <div class="responsivElements">
       <div class="sidebarCategoryResponsiv" onclick="renderSummaryContent()">
         <div class="sidebarLinkResponsiv">
-          <img class="summaryBt" src="/assets/img/summaryBt.svg" alt="">
-          <img class="summaryBtHover" src="/assets/img/summaryBtHover.svg" alt="">
+          <img class="summaryBt" src="./assets/img/summaryBt.svg" alt="">
+          <img class="summaryBtHover" src="./assets/img/summaryBtHover.svg" alt="">
         </div> 
       </div>
 
       <div class="sidebarCategoryResponsiv" onclick="render_addTask()">
         <div class="sidebarLinkResponsiv">
-          <img class ="addTaskBt" src="/assets/img/addTaskBt.svg" alt="">
-          <img class="addTaskBtHover" src="/assets/img/addTaskBtHover.svg" alt="">
+          <img class ="addTaskBt" src="./assets/img/addTaskBt.svg" alt="">
+          <img class="addTaskBtHover" src="./assets/img/addTaskBtHover.svg" alt="">
         </div>
       </div>
 
       <div class="sidebarCategoryResponsiv" onclick="renderBoardHTML()">
         <div class="sidebarLinkResponsiv">
-          <img class="boardBt" src="/assets/img/boardBt.svg" alt="">
-          <img class="boardBtHover" src="/assets/img/boardBtHover.svg" alt="">
+          <img class="boardBt" src="./assets/img/boardBt.svg" alt="">
+          <img class="boardBtHover" src="./assets/img/boardBtHover.svg" alt="">
         </div>
       </div>
 
       <div class="sidebarCategoryResponsiv" onclick="render_contactsHtml()">
         <div class="sidebarLinkResponsiv">
-          <img class="contactsBt" src="/assets/img/contactsBt.svg">
-          <img class="contactsBtHover" src="/assets/img/contactsBtHover.svg">
+          <img class="contactsBt" src="./assets/img/contactsBt.svg">
+          <img class="contactsBtHover" src="./assets/img/contactsBtHover.svg">
         </div>
       </div>
   </div>          

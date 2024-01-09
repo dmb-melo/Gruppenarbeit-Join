@@ -125,13 +125,14 @@
 /*side bar responsive*/
 
 .responsivElements{
+ 
   width:100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.box-sizingResponsiv {
+.box-sizingResponsiv { 
   align-items: center;
   display:flex;
   bottom:0;
@@ -145,6 +146,7 @@
 }
 
 .sidebarLinkResponsiv {
+  cursor: pointer;
   width: 76px;
   height: 76px;
 }

@@ -6,7 +6,7 @@ body{
 .textContainer_addTask{
     width: 278px;
     height: 73px;
-    margin-top: 136px;
+    margin-top: 40px;
     margin-left: 328px;
 }
 
@@ -119,12 +119,13 @@ input::placeholder{/*changes the colour of the placeholder text in the input fie
 
 .selectedPriorityContentDiv{
     display: flex;
-    padding: 4px 18px;
+    /* padding: 4px 18px; */
     align-items: center;
     margin-left: 10px;
     gap: 10px;
-    width: 139px;
+    width: 100px;
     height: 32px;
+    justify-content: end;
 }
 
 .frame207{      
@@ -428,6 +429,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .priorityUrgent{
+    cursor: pointer;
     display: flex;
     padding: 16px 10px;
     justify-content: center;
@@ -463,6 +465,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .priorityMedium{
+    cursor: pointer;
     display: flex;
     padding: 16px 10px;
     justify-content: center;
@@ -494,6 +497,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .priorityLow{
+    cursor: pointer;
     display: flex;
     padding: 16px 10px;
     justify-content: center;
@@ -780,7 +784,7 @@ line-height: 120%; /* 24px */
     display: flex;
     justify-content: space-between;
     width: 976.25px;
-    margin-top: 120px;
+    margin-top: 70px;
     margin-left: 328px;
 }
 
