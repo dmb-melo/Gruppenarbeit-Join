@@ -13,6 +13,7 @@ const colors = ['#9227FE', '#3BDBC7', '#FD81FF', '#FFBB2A', '#6E52FF', '#169857'
                 '#FF7915'];
 let selectedContactIndex = null;
 
+//Funktion zum Rendern der Kontakte
 async function renderContacts() {
     await loadContactsFromServer();
     contacts.sort(function(a, b) {
@@ -21,11 +22,13 @@ async function renderContacts() {
     showContacts();
 }
 
+//Funktion zum Speichern eines Elementes auf dem Server
 async function setItemContacts(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
 }
   
+//Funktion zum Abrufen eines Elements vom Server
 async function getItemContacts(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
     return fetch(url)
@@ -37,7 +40,8 @@ async function getItemContacts(key) {
         throw `Could not find data with key "${key}".`;
       });
 }
- 
+
+//Funktion zum Laden der Kontakte vom Server
 async function loadContactsFromServer() {
     try {
         contacts = JSON.parse(await getItemContacts("contacts"));
@@ -46,17 +50,40 @@ async function loadContactsFromServer() {
     }
 }
   
+//Funktion zum Speichern von Kontakten auf dem Server
 async function saveContactsToServer(newContact) {
     contacts.push(newContact);
     await setItemContacts("contacts", JSON.stringify(contacts));
 }
 
+//Funktion zur Generierung eines zufälligen Index für Farben
 function getRandomIndex() {
     let randomIndex = Math.floor(Math.random() * colors.length);
     newColors = colors
     return randomIndex;
 }
 
+// Funktion zur Anzeige der Kontakte
+function displayContacts(contact, index, firstname, surname) {
+    return `
+        <div class="contact-info" id="contact-info-${index}" onclick="selectContact(${index},'${firstname}','${surname}')">
+            <div class="contact-info-left">
+                <div class="circle" id="circle-${index}" style="background-color: ${colors[index]}">
+                    <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+                </div>
+            </div>
+            <div class="contact-info-right">
+                <div class="contact-info-name" id="contact-info-name-${index}">
+                    ${contact[0]}
+                </div>
+                <div class="contact-info-mail" id="contact-info-mail-${index}">
+                    ${contact[1]}
+                </div>
+            </div>
+        </div>`;
+}
+
+// Funktion zur Anzeige der Kontakte gruppiert nach Anfangsbuchstaben
 function showContacts() {
     let contactsdiv = document.getElementById('contacts');
     contactsdiv.innerHTML = '';
@@ -64,34 +91,19 @@ function showContacts() {
 
     for (let i = 0; i < contacts.length; i++) {
         let name = contacts[i][0];
-        let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
-
-        let names = contacts[i][0].split(" ");
+        let firstname = name[0].toUpperCase();
+        let names = name.split(" ");
         let surname = names[1].toUpperCase().charAt(0);
 
-        // Wenn der Anfangsbuchstabe sich ändert, neue Gruppe anzeigen
         if (firstname !== currentLetter) {
             contactsdiv.innerHTML += `<div class="group-header">${firstname}</div><hr>`;
             currentLetter = firstname;
         }
-
-        contactsdiv.innerHTML += `
-            <div class="contact-info" id="contact-info-${i}" onclick="selectContact(${i},'${firstname}','${surname}')">
-                <div class="contact-info-left">
-                    <div class="circle" id="circle-${i}" style="background-color: ${colors[i]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
-                </div>
-                <div class="contact-info-right">
-                    <div class="contact-info-name" id="contact-info-name-${i}">
-                        ${name}
-                    </div>
-                    <div class="contact-info-mail" id="contact-info-mail-${i}">
-                        ${contacts[i][1]}
-                    </div>
-                </div>
-            </div>`;
+        contactsdiv.innerHTML += displayContacts(contacts[i], i, firstname, surname);
     }
 }
 
+//Funktion zum Zurücksetzen des ausgewählten Kontakts
 function resetSelectedContact() {
     if (selectedContactIndex !== null) {
         document.getElementById(`contact-info-${selectedContactIndex}`).style = "";
@@ -99,6 +111,7 @@ function resetSelectedContact() {
     }
 }
 
+//Funktion zum Auswählen eines Kontakts
 function selectContact(i, firstname, surname, event){
     document.getElementById('editContact').classList.add('d-none');
     document.getElementById('editContactBackground').classList.add('d-none');
@@ -114,24 +127,20 @@ function selectContact(i, firstname, surname, event){
     fillOnclickDiv(i);
 }
 
+//Funktion zum Befüllen des Klick-Divs
 function fillOnclickDiv(i){
     document.getElementById('onclickDiv').innerHTML = `
     <img class="image-edit-contact-mobile" src="./assets/img/more_vert.png" onclick="openMiniPopup(${i})">`;
 }
 
-function showCard(i, firstname, surname){
-    document.getElementById('addContact').classList.add('d-none');
-    document.getElementById('addContactBackground').classList.add('d-none');
-    document.getElementById('contactCard').classList.remove('d-none');
-    document.getElementById('contactCard').classList.add('slide-left');
-
+//Funktion zur Anzeige der Kontaktinformationen in der Karte
+function displayContactInfo(i, firstname, surname) {
     let name = document.getElementById('nameCard').innerHTML = `${contacts[i][0]}`;
     let email = document.getElementById('emailCard').innerHTML = `<div class="head-info"> Email </div><div class="main-info-mail">${contacts[i][1]}</div>`;
     let phone = document.getElementById('phoneCard').innerHTML = `<div class="head-info"> Phone </div><div class="main-info"> ${contacts[i][2]}</div>`;
 
-    let circle = document.getElementById('circleCard'); 
+    let circle = document.getElementById('circleCard');
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
-    
     circle.style = `background-color: ${colors[i]};`;
 
     let editCircle = document.getElementById('editCircle');
@@ -140,6 +149,15 @@ function showCard(i, firstname, surname){
 
     document.getElementById('textCard').classList.remove('d-none');
     document.getElementById('circleCard').classList.remove('d-none');
+}
+
+
+// Funktion zur Aktualisierung der Kontaktbearbeitungsansicht
+function updateContactView(i) {
+    document.getElementById('addContact').classList.add('d-none');
+    document.getElementById('addContactBackground').classList.add('d-none');
+    document.getElementById('contactCard').classList.remove('d-none');
+    document.getElementById('contactCard').classList.add('slide-left');
 
     document.getElementById('buttonsCard').innerHTML = `
     <div class="editCard" id="editCard" onclick="editContact(${i})"
@@ -156,6 +174,13 @@ function showCard(i, firstname, surname){
     </div>`;
 }
 
+// Kombinierte Funktion zur Anzeige der Kontaktinformationen und Aktualisierung der Bearbeitungsansicht
+function showCard(i, firstname, surname) {
+    displayContactInfo(i, firstname, surname);
+    updateContactView(i);
+}
+
+// Funktion, um das Edit-Element zu hovern
 function hoverEdit(element, isHover) {
     const logoMini = element.querySelector('.logo-mini');
     const logoMiniHover = element.querySelector('.logo-mini-hover');
@@ -169,6 +194,7 @@ function hoverEdit(element, isHover) {
     }
 }
 
+//Funktion, um das Cancel-Element zu hovern
 function hoverCancel(element, isHover) {
     const cancelImgBlack = element.querySelector('.cancel-img-black');
     const cancelImgBlue = element.querySelector('.cancel-img-blue');
@@ -182,6 +208,7 @@ function hoverCancel(element, isHover) {
     }
 }
 
+//Funktion, um ein Element zu hovern
 function handleHover(element, isHover) {
     const logoMini = element.querySelector('.custom-logo-mini');
     const logoMiniHover = element.querySelector('.custom-logo-mini-hover');
@@ -195,54 +222,62 @@ function handleHover(element, isHover) {
     }
 }
 
+//Funktion zum Erstellen eines neuen Kontaktes
 async function createContact(event) {
     event.preventDefault();
-
     let userName = document.getElementById('1').value;
     let userEmail = document.getElementById('2').value;
     let userPhone = document.getElementById('3').value;
 
-    if (!userName || !userEmail || !userPhone) {
-        alert("Please fill out all fields before creating a contact.");
-        return;
-    }
-
-    // Überprüfen Sie die Validität des Musters für den Namen
-    let namePattern = /^[A-Za-z]+\s[A-Za-z]+$/;
-    if (!namePattern.test(userName)) {
-        alert("Please enter a valid name (first name and last name).");
-        userNameInput.focus();
+    if (!validateInput(userName, userEmail, userPhone)) {
         return;
     }
 
     let newContact = [userName, userEmail, userPhone];
-
-    // Füge den neuen Kontakt am Ende hinzu
-    //contacts.push(newContact);
     await saveContactsToServer(newContact);
 
-    // Sortiere die Kontakte nach dem Hinzufügen des neuen Kontakts
-    contacts.sort(function(a, b) {
-        return a[0].localeCompare(b[0]);
-    });
-
+    sortContacts();
     renderContacts();
     closeAddContact();
+    clearInputFields();
 
-    // Leere die Input-Felder
-    document.getElementById('1').value = '';
-    document.getElementById('2').value = '';
-    document.getElementById('3').value = '';
-
-    // Wähle den neu hinzugefügten Kontakt aus
     let newIndex = contacts.findIndex(contact => contact === newContact);
     selectContact(newIndex, userName[0].toUpperCase(), userName.split(" ")[1].toUpperCase().charAt(0));
-    //document.getElementById('success').classList.add('slide-top');
-    //showSuccessMessage();
     showSuccessMessageBasedOnScreen();
 }
 
-// Überprüfen, ob die Seite im responsiven Modus ist (Beispiel: Breite < 768px)
+//Funktion zur Validierung der Eingabe
+function validateInput(userName, userEmail, userPhone) {
+    if (!userName || !userEmail || !userPhone) {
+        alert("Please fill out all fields before creating a contact.");
+        return false;
+    }
+
+    let namePattern = /^[A-Za-z]+\s[A-Za-z]+$/;
+    if (!namePattern.test(userName)) {
+        alert("Please enter a valid name (first name and last name).");
+        userNameInput.focus();
+        return false;
+    }
+
+    return true;
+}
+
+//Funktion zum Sortieren der Kontakte
+function sortContacts() {
+    contacts.sort(function(a, b) {
+        return a[0].localeCompare(b[0]);
+    });
+}
+
+//Funktion zum Leeren der Eingabefelder
+function clearInputFields() {
+    document.getElementById('1').value = '';
+    document.getElementById('2').value = '';
+    document.getElementById('3').value = '';
+}
+
+// Funktion zur Überprüfung, ob die Seite im responsiven Modus ist (Beispiel: Breite < 768px)
 function isResponsiveMode() {
     return window.innerWidth < 850;
 }
@@ -256,6 +291,7 @@ function showSuccessMessageBasedOnScreen() {
     }
 }
 
+//Funktion zur Anzeige einer Erfolgsmeldung
 function showSuccessMessage() {
     let successDiv = document.getElementById('success');
     successDiv.classList.add('show');
@@ -265,11 +301,13 @@ function showSuccessMessage() {
     }, 3000);
 }
 
+//Funktion zum Ausblenden der Erfolgsmeldung
 function hideSuccessMessage() {
     let successDiv = document.getElementById('success');
     successDiv.classList.remove('show');
 }
 
+//Funktion zur Anzeige einer responsive Erfolgsmeldung
 function showSuccessMessageResponsive() {
     const successMessage = document.getElementById('success-2');
     successMessage.style.display = 'block';
@@ -284,6 +322,7 @@ function showSuccessMessageResponsive() {
     }, 1500);
 }
 
+//Funktion zum Hinzufügen eines neuen Kontaktes
 function addNewContact(){
     document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('addContact').classList.remove('d-none');
@@ -292,6 +331,7 @@ function addNewContact(){
     resetSelectedContact();
 }
 
+//Funktion zum Bearbeiten eines Kontaktes
 function editContact(i){
     document.getElementById('contactCard').classList.add('d-none');
     document.getElementById('editContact').classList.remove('d-none');
@@ -324,6 +364,7 @@ function editContact(i){
     document.getElementById('userPhoneEdit').value = `${contacts[i][2]}`;
 }
 
+//Funktion zum Löschen eines Kontaktes
 async function deleteContact(event, i){
     contacts.splice(i, 1);
     await setItemContacts("contacts", JSON.stringify(contacts));
@@ -335,6 +376,7 @@ async function deleteContact(event, i){
     event.preventDefault();
 }
 
+//Funktion zum Speichern eines bearbeiteten Kontaktes
 async function saveContact(event, i) {
     let editedContact = [
         document.getElementById('userNameEdit').value,
@@ -358,18 +400,21 @@ async function saveContact(event, i) {
     renderContacts();
 }
 
+//FUnktion zum Schließen der Kontaktbearbeitungsansicht
 function closeEditContact(){
     document.getElementById('editContact').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
     document.getElementById('editContactBackground').classList.add('d-none');
 }
 
+//Funktion zum Schließen der Kontakt-Hinzufügen-Ansicht
 function closeAddContact(){
     document.getElementById('addContact').classList.add('d-none');
     document.getElementById('contactCard').classList.remove('d-none');
     document.getElementById('addContactBackground').classList.add('d-none');
 }
 
+//Funktion zum Öffnen eines Mini-Popups mit Edit- und Delete-Button
 function openMiniPopup(i){
     document.getElementById('mini-popup').style = 'display: block';
     document.getElementById('mini-popup-display').innerHTML =`
