@@ -25,7 +25,7 @@ function filterTasksByStatus(taskStatus) {
 function updateHtmlForStatus(taskStatus, elementId) {
     const tasksByStatus = filterTasksByStatus(taskStatus);
     const element = document.getElementById(elementId);
-  
+
 
     // Leere die bestehenden Inhalte im HTML-Element
     element.innerHTML = '';
@@ -38,7 +38,7 @@ function updateHtmlForStatus(taskStatus, elementId) {
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task);
-           
+
         }
     }
 }
@@ -107,7 +107,7 @@ function generateSmallCard(task) {
             <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
         </div>  
     `;
-      
+
 }
 
 // Delet of Tasks 
@@ -178,12 +178,12 @@ function openCard(taskId) {
     renderLargeContats();
 }
 
-  
+
 
 
 function generateLargeCard(task) {
     let currentPriorityContent = task.priorityContent || '';
-    const subsHtml = task.subtasks.map(subtask =>  `
+    const subsHtml = task.subtasks.map(subtask => `
     <div class="subtasksContents">
         <label class="checkbox-label">
             <input type="checkbox" class="checkbox-input">
@@ -206,7 +206,10 @@ function generateLargeCard(task) {
     let currenCategory = task.category[0];
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
-        <div class="largeCardA">
+    
+ <div class="largeCardA" id="largeCardA">
+ <div id="addTaskLargeCard"></div>
+ <div class="largesCard" id="largesCard">
     <div class="largeCardInside">
     <div class="largCardHeader">
         <!-- Category and close button -->
@@ -255,18 +258,16 @@ function generateLargeCard(task) {
              
              <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
              
-             <div class ="edit_task"  style="    display: flex; align-items: center; gap: 4px; cursor:pointer;">
+             <div class ="edit_task" onclick="editLargCard(${task.id})"  style="    display: flex; align-items: center; gap: 4px; cursor:pointer;">
              
                  <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
                  <p class = "edit-task-title">Edit</p>
              </div>
            
          </div>            
-
-            
-
         </div>
     </div>
+ </div>
 
     `;
 
@@ -278,7 +279,7 @@ function closeCard() {
     largeCardElement.style.transform = 'translateX(500%)';
 }
 
-function renderSmallContats(){
+function renderSmallContats() {
     const contactsSmallCard = document.getElementById('boardAssigend');
     contacts.innerHTML = '';
     for (let a = 0; a < assigned.length; a++) {
@@ -295,7 +296,7 @@ function renderSmallContats(){
         `;
     }
 }
-function renderLargeContats(){
+function renderLargeContats() {
     const contactsLargeCard = document.getElementById('boardAssigendLargCard');
     contacts.innerHTML = '';
     console.log(contactsLargeCard);
@@ -313,4 +314,15 @@ function renderLargeContats(){
                 </div>
         `;
     }
+}
+
+function editLargCard(taskId) {
+    console.log(taskId);
+    document.getElementById('largesCard').classList.add('d-None');
+   document.getElementById('addTaskLargeCard').innerHTML = '';
+   document.getElementById('addTaskLargeCard').innerHTML = generateAddEditeTask(taskId);
+   
+
+
+   
 }
