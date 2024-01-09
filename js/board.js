@@ -158,12 +158,21 @@ function openCard(taskId) {
     }
 }
 
-  
+
 
 
 function generateLargeCard(task) {
     let currentPriorityContent = task.priorityContent || '';
-    let currentSubTasks = subtasks[task];
+    const subsHtml = task.subtasks.map(subtask => `
+    <div class="subtasksContents">
+        <label class="checkbox-label">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-custom"></span>
+            ${subtask}
+        </label>
+    </div>
+`).join('');
+    let currentSubTasks = subT[task];
     let tempDiv = document.createElement('div');
     tempDiv.innerHTML = currentPriorityContent;
     tempDiv.classList.add('selectedPriorityContentDiv');
@@ -177,7 +186,11 @@ function generateLargeCard(task) {
     let currenCategory = task.category[0];
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
-        <div class="largeCardA">
+    
+ <div class="largeCardA" id="largeCardA">
+ <div id="addTaskLargeCard"></div>
+ <div class="largesCard" id="largesCard">
+    <div class="largeCardInside">
     <div class="largCardHeader">
         <!-- Category and close button -->
         <div class="lardCardCategory">
@@ -222,16 +235,13 @@ function generateLargeCard(task) {
              
              <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
              
-             <div class ="edit_task">
+             <div class ="edit_task" onclick="editLargCard(${task.id})"  style="    display: flex; align-items: center; gap: 4px; cursor:pointer;">
              
                  <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
                  <p class = "edit-task-title">Edit</p>
              </div>
            
          </div>            
-
-            
-
         </div>
     </div>
     </div>
@@ -246,8 +256,8 @@ function closeCard() {
     largeCardElement.style.transform = 'translateX(500%)';
 }
 
-function renderSmallContats(){
-    
+function renderSmallContats() {
+    const contactsSmallCard = document.getElementById('boardAssigend');
     contacts.innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
         const contactsSmallCard = document.getElementById(`boardAssigend${i}`);
@@ -266,7 +276,7 @@ function renderSmallContats(){
         `;
     }}
 }
-function renderLargeContats(){
+function renderLargeContats() {
     const contactsLargeCard = document.getElementById('boardAssigendLargCard');
     contacts.innerHTML = '';
     console.log(contactsLargeCard);
@@ -283,4 +293,15 @@ function renderLargeContats(){
                 </div>
         `;
     }
+}
+
+function editLargCard(taskId) {
+    console.log(taskId);
+    document.getElementById('largesCard').classList.add('d-None');
+   document.getElementById('addTaskLargeCard').innerHTML = '';
+   document.getElementById('addTaskLargeCard').innerHTML = generateAddEditeTask(taskId);
+   
+
+
+   
 }
