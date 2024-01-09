@@ -38,7 +38,7 @@ function updateHtmlForStatus(taskStatus, elementId) {
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task);
-
+           
         }
     }
 }
@@ -77,7 +77,28 @@ function generateSmallCard(task) {
     clonedContentDiv.appendChild(tempDiv.cloneNode(true));
 
     removeActiveClassFromSvgElements(clonedContentDiv);
+
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
+
+    // Remove the "textMedium" container from clonedContentDiv
+    let textMediumElement = clonedContentDiv.querySelector('.textMedium');
+    if (textMediumElement) {
+        textMediumElement.parentNode.removeChild(textMediumElement);
+    }
+
+    // Conditionally include the smallProgress div
+    let smallProgressDiv = '';
+    if (task.subtasks.length > 0) {
+        smallProgressDiv = `<div class="smallProgress" style="color: #000;
+
+        /* Version 2/t7 */
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;">0/${task.subtasks.length}</div>`;
+    }
+
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
         <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
@@ -85,14 +106,14 @@ function generateSmallCard(task) {
             <div class="taskTitle">${task.title}</div>
             <div class="taskDescription">${task.description}</div>
         </div>
-        <div class="smallProgress">${task.subtasks.length}</div>
+        ${smallProgressDiv}
         <div class="smallCardFooter">
-        <div  id="boardAssigend"></div>
-        <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
-      </div>  
+            <div id="boardAssigend"></div>
+            <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
+        </div>  
     `;
+      
 }
-
 
 // Delet of Tasks 
 
@@ -126,14 +147,7 @@ function startDragged(id) {
 
 }
 
-function moveIt(taskStatus) {
-    const taskIndex = tasks.findIndex(task => task.id === draggedElementId);
 
-    if (taskIndex !== -1) {
-        tasks[taskIndex].taskStatus = taskStatus;
-        updateHtml();
-    }
-}
 
 function moveIt(taskStatus) {
     const taskIndex = tasks.findIndex(task => task.id === draggedElementId);
