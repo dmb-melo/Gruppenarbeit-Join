@@ -454,6 +454,22 @@
   border: dashed 1px;
   border-radius: 10px;
 }
+
+
+
+
+/* editAddBoard */
+.boardUnserList {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  padding-inline-start: 0px;
+  height: 10px;
+  flex-direction: column;
+  border-radius: 10px;
+  background: var(--white, #FFF);
+  z-index: 1;
+}
 @media (max-width: 320px) {
   .titleBoard {
     font-size: 47px !important;
