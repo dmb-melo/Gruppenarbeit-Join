@@ -15,6 +15,7 @@ function renderBoardHTML() {
 function boardInit() {
     updateHtml();
     renderSmallContats();
+    renderLargeContats();
 }
 
 function filterTasksByStatus(taskStatus) {
@@ -25,7 +26,6 @@ function filterTasksByStatus(taskStatus) {
 function updateHtmlForStatus(taskStatus, elementId) {
     const tasksByStatus = filterTasksByStatus(taskStatus);
     const element = document.getElementById(elementId);
-  
 
     // Leere die bestehenden Inhalte im HTML-Element
     element.innerHTML = '';
@@ -38,10 +38,11 @@ function updateHtmlForStatus(taskStatus, elementId) {
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task);
-           
+
         }
     }
 }
+
 
 function updateHtml() {
     updateHtmlForStatus('todo', 'todo');
@@ -76,38 +77,22 @@ function generateSmallCard(task) {
     clonedContentDiv.appendChild(tempDiv.cloneNode(true));
 
     removeActiveClassFromSvgElements(clonedContentDiv);
-
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
-
-    // Remove the "textMedium" container from clonedContentDiv
-    let textMediumElement = clonedContentDiv.querySelector('.textMedium');
-    if (textMediumElement) {
-        textMediumElement.parentNode.removeChild(textMediumElement);
-    }
-
-    // Conditionally include the smallProgress div
-    let smallProgressDiv = '';
-    if (task.subtasks.length > 0) {
-        smallProgressDiv = `
-       <div style="display: flex;width: 100%;"
-    }><div class="progress"><div class="progress-value"></div> </div><div class="smallProgress">0/${task.subtasks.length}</div></div>`;
-    }
-
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
-        <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
+        <div class="category"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
             <div class="taskDescription">${task.description}</div>
         </div>
-        ${smallProgressDiv}
+        <div class="smallProgress">${task.subtasks.length}</div>
         <div class="smallCardFooter">
-            <div id="boardAssigend"></div>
-            <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
-        </div>  
+        
+        <div  id="boardAssigend"></div>
+      </div>  
     `;
-      
 }
+
 
 // Delet of Tasks 
 
@@ -141,7 +126,14 @@ function startDragged(id) {
 
 }
 
+function moveIt(taskStatus) {
+    const taskIndex = tasks.findIndex(task => task.id === draggedElementId);
 
+    if (taskIndex !== -1) {
+        tasks[taskIndex].taskStatus = taskStatus;
+        updateHtml();
+    }
+}
 
 function moveIt(taskStatus) {
     const taskIndex = tasks.findIndex(task => task.id === draggedElementId);
@@ -150,19 +142,10 @@ function moveIt(taskStatus) {
         tasks[taskIndex].taskStatus = taskStatus;
         updateHtml();
         save();
-        renderSmallContats();
     }
 }
 function allowDrop(ev) {
     ev.preventDefault();
-}
-
-function highlight(id) {
-    document.getElementById(id).classList.add('drag-area-highlight');
-}
-
-function removeHighlight(id) {
-    document.getElementById(id).classList.remove('drag-area-highlight');
 }
 
 function openCard(taskId) {
@@ -174,7 +157,6 @@ function openCard(taskId) {
         largeCardElement.innerHTML = generateLargeCard(task);
         largeCardElement.style.transform = 'translateX(0%)';
     }
-    renderLargeContats();
 }
 
   
@@ -182,16 +164,7 @@ function openCard(taskId) {
 
 function generateLargeCard(task) {
     let currentPriorityContent = task.priorityContent || '';
-    const subsHtml = task.subtasks.map(subtask =>  `
-    <div class="subtasksContents">
-        <label class="checkbox-label">
-            <input type="checkbox" class="checkbox-input">
-            <span class="checkbox-custom"></span>
-            ${subtask}
-        </label>
-    </div>
-`).join('');
-    let currentSubTasks = subT[task];
+    let currentSubTasks = subtasks[task];
     let tempDiv = document.createElement('div');
     tempDiv.innerHTML = currentPriorityContent;
     tempDiv.classList.add('selectedPriorityContentDiv');
@@ -206,7 +179,6 @@ function generateLargeCard(task) {
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
         <div class="largeCardA">
-    <div class="largeCardInside">
     <div class="largCardHeader">
         <!-- Category and close button -->
         <div class="lardCardCategory">
@@ -237,24 +209,21 @@ function generateLargeCard(task) {
             <p>Assigned To:</p>
             <div  id="boardAssigendLargCard"></div>
         </div>
-        <div class="largCartSubtasks">
+        <div class="subtasks">
             <p>Subtasks</p>
-            <p>${subsHtml}</p>
+  
         </div>
-        
-    </div>
-    </div>
-    <div class="largCardFooter">
+        <div class="largCardFooter">
         <div class="deleteAndEdit">
              
-             <div class="delete_task" style="    display: flex; align-items: center; gap: 4px; cursor:pointer;" onclick="deleteTask(event)">
+             <div class="delete_task" onclick="deleteTask(event)">
                  <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
                  <p class = "delete-task-title">Delete</p>
              </div>
              
              <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
              
-             <div class ="edit_task"  style="    display: flex; align-items: center; gap: 4px; cursor:pointer;">
+             <div class ="edit_task">
              
                  <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
                  <p class = "edit-task-title">Edit</p>
@@ -265,6 +234,7 @@ function generateLargeCard(task) {
             
 
         </div>
+    </div>
     </div>
 
     `;
@@ -288,8 +258,8 @@ function renderSmallContats(){
         let names = assigned[a].split(" ");
         let surname = names[1].toUpperCase().charAt(0);
         contactsSmallCard.innerHTML += /*html*/`
-             <div class="">
-                    <div class=" smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
+             <div class="contact-info-left">
+                    <div class="circle" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
                 </div>
         `;
     }
@@ -306,9 +276,8 @@ function renderLargeContats(){
         let names = assigned[d].split(" ");
         let surname = names[1].toUpperCase().charAt(0);
         contactsLargeCard.innerHTML += /*html*/`
-             <div class="largCardContactContainer">
-                    <div class="largeCardVersionCircel" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
-                    <div><p>${assigendAvatar}</p></div>
+             <div class="contact-info-left">
+                    <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
                 </div>
         `;
     }
