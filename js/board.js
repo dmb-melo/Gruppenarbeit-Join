@@ -153,7 +153,6 @@ function openCard(taskId) {
     const task = tasks.find(t => t.id === taskId);
     console.log('find task', task)
     if (task) {
-
         largeCardElement.innerHTML = generateLargeCard(task);
         largeCardElement.style.transform = 'translateX(0%)';
     }
