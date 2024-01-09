@@ -43,7 +43,6 @@ function updateHtmlForStatus(taskStatus, elementId) {
     }
 }
 
-
 function updateHtml() {
     updateHtmlForStatus('todo', 'todo');
     updateHtmlForStatus('inProgress', 'inProgress');
