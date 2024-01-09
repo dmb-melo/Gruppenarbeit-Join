@@ -372,7 +372,7 @@ function createSubtaskItem(subtaskText) {
   return subtaskItemDiv;
 }
 
-function createIconsContainer(subtaskItemDiv, subtaskText, index) {
+function createIconsContainer(subtaskItemDiv, subtaskText, index){
   const iconsContainer = document.createElement("div");
   iconsContainer.classList.add("iconsContainer");
   const editImg = createImage("./assets/img/edit_task.png", "edit");
