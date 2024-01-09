@@ -136,7 +136,6 @@ function displayAvatar(selectedContacts, contacts, colors) {
     }
 }
 
-
 function clearContactAvatar() {
     let contactAvatar = document.getElementById('contactAvatar');
     contactAvatar.innerHTML = ''; // Clear avatars
