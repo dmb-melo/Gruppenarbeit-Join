@@ -56,8 +56,7 @@ body {
   height: 3px;
   width: 90px;
   background-color: #29abe2;
-  position: absolute;
-  top: 290px;
+  margin-top: 12px;
 }
 
 .summaryKey {
@@ -327,7 +326,7 @@ body {
   align-items: center;
   flex-direction: column;
   background-color: #e5e5e6;
-  z-index: 10000;
+  z-index: 1000;
 }
 
 .summary-responsive-greeting-text {
@@ -354,6 +353,32 @@ body {
 .summary-responsive-greeting.animated {
   animation: containerAnimationSummary 625ms forwards;
   animation-delay: 1.8s;
+}
+
+@keyframes containerAnimationSummary {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 0.2;
+  }
+
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    display: none;
+  }
 }
 
 @media (min-height: 1100px) {
@@ -399,32 +424,6 @@ body {
   }
 }
 
-@keyframes containerAnimationSummary {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  20% {
-    opacity: 0.8;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  60% {
-    opacity: 0.4;
-  }
-  80% {
-    opacity: 0.2;
-  }
-
-  90% {
-    opacity: 0.2;
-  }
-  100% {
-    display: none;
-  }
-}
-
 @media (min-width: 650px) {
   .blueLineResponsive {
     display: none;
@@ -442,6 +441,10 @@ body {
   .blueLine {
     display: none;
   }
+
+  .blueLineText {
+    display: block;
+}
 
   .summaryTodoDone {
     height: 114px;
