@@ -37,7 +37,7 @@ function updateHtmlForStatus(taskStatus, elementId) {
         // Füge die Aufgabenkarten hinzu
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
-            element.innerHTML += generateSmallCard(task);
+            element.innerHTML += generateSmallCard(task, i);
 
         }
     }
@@ -63,7 +63,7 @@ function removeActiveClassFromSvgElements(container) {
 }
 
 
-function generateSmallCard(task) {
+function generateSmallCard(task, i) {
     let currenCategory = task.category[0]
     let currentPriorityContent = task.priorityContent || '';
 
@@ -87,8 +87,8 @@ function generateSmallCard(task) {
         </div>
         <div class="smallProgress">${task.subtasks.length}</div>
         <div class="smallCardFooter">
-        
-        <div  id="boardAssigend"></div>
+        <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
+        <div  id="boardAssigend${i}"></div>
       </div>  
     `;
 }
@@ -248,8 +248,11 @@ function closeCard() {
 }
 
 function renderSmallContats(){
-    const contactsSmallCard = document.getElementById('boardAssigend');
+    
     contacts.innerHTML = '';
+    for (let i = 0; i < tasks.length; i++) {
+        const contactsSmallCard = document.getElementById(`boardAssigend${i}`);
+        const assigned = tasks[i]["assigned"];
     for (let a = 0; a < assigned.length; a++) {
         const assigendAvatar = assigned[a];
         let name = assigned[a];
@@ -262,7 +265,7 @@ function renderSmallContats(){
                     <div class="circle" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
                 </div>
         `;
-    }
+    }}
 }
 function renderLargeContats(){
     const contactsLargeCard = document.getElementById('boardAssigendLargCard');
