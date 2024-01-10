@@ -15,10 +15,17 @@ function editLargCard(taskId) {
 
 edittaskArea(taskId);
 }
+function findTaskById(taskId) {
+    const foundTask = tasks.find(task => task.id === taskId);
+    return foundTask;
+}
+
+function edittaskArea(taskId) {
+    const foundTask = findTaskById(taskId);
+
+    document.getElementById('editTitle').value = foundTask.title;
+    document.getElementById('editDescription').value = foundTask.description;
+    document.getElementById('editDueDate').value = foundTask.dueDate;
 
 
-function edittaskArea() {
-        document.getElementById('editTitle').value = tasks.title;
-        document.getElementById('editDescription').value = tasks.description;
-        document.getElementById('editDueDate').value = tasks.dueDate;
 }
