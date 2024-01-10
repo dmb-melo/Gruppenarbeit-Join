@@ -151,6 +151,7 @@ function moveIt(taskStatus) {
         updateHtml();
         save();
         renderSmallContats();
+     
     }
 }
 function allowDrop(ev) {
