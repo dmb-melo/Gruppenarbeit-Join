@@ -296,8 +296,9 @@ function renderLargeContats() {
         let names = assigned[d].split(" ");
         let surname = names[1].toUpperCase().charAt(0);
         contactsLargeCard.innerHTML += /*html*/`
-             <div class="">
+             <div class="boardLargContactsAvatar">
                     <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
+                    <p>${assigendAvatar}</p>
                 </div>
         `;
     }
