@@ -66,10 +66,6 @@ body {
   line-height: 120%;
 }
 
-/* header ende */
-
-/* Übersicht der Aufgaben */
-
 .summaryTaskContainer {
   display: flex;
   width: 560px;
