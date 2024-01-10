@@ -1,4 +1,5 @@
 let draggedElementId;
+let stateOfTask = [];
 
 function renderBoardHTML() {
     document.getElementById('contentJoin').innerHTML = ``;
@@ -8,6 +9,7 @@ function renderBoardHTML() {
     save();
     removeStyleSidebar();
     addTextColor();
+    loadStateOfSubTask();
     document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive")
 }
 
@@ -173,7 +175,55 @@ function openCard(taskId) {
         largeCardElement.style.transform = 'translateX(0%)';
     }
     renderLargeContats();
+    renderSubtaskState(task);
 }
+
+function renderSubtaskState(task) {
+    let taskId = task["id"];
+    let subTask = task["subtasks"];  
+    for (let i = 0; i < subTask.length; i++) {
+        let renderTaskId = `checkbox-${taskId}-${i}`;
+        let indexTaskId = getTaskId(renderTaskId);
+        validateSubtask(indexTaskId, renderTaskId); 
+    }
+    }
+    
+    
+    function validateSubtask(indexTaskId, renderTaskId) {
+      console.log("renderTaskId", renderTaskId);
+      let checkboxRenderTaskId = document.getElementById(renderTaskId);
+      if (indexTaskId === -1) {
+        checkboxRenderTaskId.checked = false;
+      } else {
+        checkboxRenderTaskId.checked = true;
+      }
+    }
+    
+    
+    function saveStateOfSubTask(taskId, index) {
+      const id = `checkbox-${taskId}-${index}`;
+      let indexTaskId = getTaskId(id);
+      if (indexTaskId === -1) {
+        stateOfTask.push(id);
+      } else {
+        stateOfTask.splice(indexTaskId, 1);
+      }
+      let idAtText = JSON.stringify(stateOfTask);
+      localStorage.setItem("id", idAtText);
+    }
+    
+    function getTaskId(id) {
+      console.log("id", id)
+      let index = stateOfTask.indexOf(id);
+      return index;
+    }
+    
+    function loadStateOfSubTask() {
+      let idAtText = localStorage.getItem("id");
+      if (idAtText) {
+        stateOfTask = JSON.parse(idAtText);
+      }
+    }
 
 
 
@@ -282,6 +332,8 @@ function updateProgress(taskId, index) {
     const progressBar = document.getElementById(`progress-${taskId}`);
     const percentageCompleted = (checkedCheckboxes.length / checkboxes.length) * 100;
     progressBar.style.width = `${percentageCompleted}%`;
+    saveStateOfSubTask(taskId, index);
+    loadStateOfSubTask();
 }
 
 function editLargCard(taskId) {
