@@ -2,6 +2,7 @@ let draggedElementId;
 let stateOfTask = [];
 
 function renderBoardHTML() {
+    loadStateOfSubTask();
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generateBoardHTML();
     boardInit();
@@ -9,8 +10,8 @@ function renderBoardHTML() {
     save();
     removeStyleSidebar();
     addTextColor();
-    loadStateOfSubTask();
     document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive")
+    renderProgressbar();
 }
 
 
@@ -39,10 +40,35 @@ function updateHtmlForStatus(taskStatus, elementId) {
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task, i);
-
+            
         }
     }
 }
+
+function renderProgressbar() {
+  for (let i = 0; i < tasks.length; i++) {
+        let valueSubtask = tasks[i]["subtasks"].length;
+        let keyOfProgressBarSubtask = `progress-${i + 1}`;
+        let keyValueOfTheSubtaskBreak = `valueOfTheSubtaskBreak-${i + 1}`;
+        let progressBarSubtaskAtText = localStorage.getItem(keyOfProgressBarSubtask);
+        let valueOfTheSubtaskBreakAtText = localStorage.getItem(keyValueOfTheSubtaskBreak);
+        let levelOfProgressBarSubtask;
+        let valueOfTheSubtaskBreak;
+        if (progressBarSubtaskAtText && valueOfTheSubtaskBreakAtText) {
+            levelOfProgressBarSubtask = JSON.parse(progressBarSubtaskAtText);
+            valueOfTheSubtaskBreak = valueOfTheSubtaskBreakAtText;
+        } else {
+            levelOfProgressBarSubtask = 0;
+            valueOfTheSubtaskBreak = `0/${valueSubtask}`;
+        }
+        const smallProgressDiv = document.getElementById(`smallProgress-${i + 1}`);
+        smallProgressDiv.textContent = `${valueOfTheSubtaskBreak}`;
+        let progressBar = document.getElementById(`progress-${i + 1}`);
+        progressBar.style.width = `${levelOfProgressBarSubtask}%`;
+      }
+    
+  }
+
 
 
 function updateHtml() {
@@ -188,18 +214,18 @@ function renderSubtaskState(task) {
     for (let i = 0; i < subTask.length; i++) {
         let renderTaskId = `checkbox-${taskId}-${i}`;
         let indexTaskId = getTaskId(renderTaskId);
-        validateSubtask(indexTaskId, renderTaskId); 
+        validateSubtask(indexTaskId, renderTaskId, taskId, subTask);
     }
     }
     
     
-    function validateSubtask(indexTaskId, renderTaskId) {
-      console.log("renderTaskId", renderTaskId);
+    function validateSubtask(indexTaskId, renderTaskId, taskId, subTask) {
       let checkboxRenderTaskId = document.getElementById(renderTaskId);
       if (indexTaskId === -1) {
         checkboxRenderTaskId.checked = false;
       } else {
         checkboxRenderTaskId.checked = true;
+        updateProgress(taskId, subTask); 
       }
     }
     
@@ -219,7 +245,6 @@ function renderSubtaskState(task) {
     }
     
     function getTaskId(id) {
-      console.log("id", id)
       let index = stateOfTask.indexOf(id);
       return index;
     }
@@ -333,14 +358,14 @@ function updateProgress(taskId, index) {
 
     const smallProgressDiv = document.getElementById(`smallProgress-${taskId}`);
     smallProgressDiv.textContent = `${checkedCheckboxes.length}/${checkboxes.length}`;
-
+    `${checkedCheckboxes.length}/${checkboxes.length}`
+    let valueOfTheSubtaskBreak = `${checkedCheckboxes.length}/${checkboxes.length}`;
+    localStorage.setItem(`valueOfTheSubtaskBreak-${taskId}`, valueOfTheSubtaskBreak.toString());
     // Adjust the width of the progress bar based on the percentage completed
     const progressBar = document.getElementById(`progress-${taskId}`);
     const percentageCompleted = (checkedCheckboxes.length / checkboxes.length) * 100;
     progressBar.style.width = `${percentageCompleted}%`;
     localStorage.setItem(`progress-${taskId}`, percentageCompleted.toString());
-    console.log(percentageCompleted);
-    console.log()
     saveStateOfSubTask(taskId, index);
     loadStateOfSubTask();
 }
@@ -357,7 +382,6 @@ function editLargCard(taskId) {
 
 function closeCard() {
     // Your close logic goes here
-    console.log("Card closed");
     const largeCardElement = document.getElementById('popUpWindow');
     largeCardElement.style.transform = 'translateX(500%)';
 }
@@ -386,7 +410,6 @@ function renderSmallContats() {
 function renderLargeContats() {
     const contactsLargeCard = document.getElementById('boardAssigendLargCard');
     contacts.innerHTML = '';
-    console.log(contactsLargeCard);
     for (let d = 0; d < assigned.length; d++) {
         const assigendAvatar = assigned[d];
         let name = assigned[d];
