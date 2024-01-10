@@ -86,7 +86,7 @@ function generateBoardHTML() {
 function generateAddEditeTask(){
     return /*html*/`  
      <div class = "contentTask">  
-     <div class="closeLargeCardButton">
+     <div class="closeLargeEditCardButton">
             <button onclick="closeCard()">X</button>
         </div>
             <div>
