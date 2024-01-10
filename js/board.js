@@ -11,7 +11,7 @@ function renderBoardHTML() {
     removeStyleSidebar();
     addTextColor();
     document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive")
-    renderProgressbar()
+    renderProgressbar();
 }
 
 
@@ -46,8 +46,29 @@ function updateHtmlForStatus(taskStatus, elementId) {
 }
 
 function renderProgressbar() {
-  
-}
+  for (let i = 0; i < tasks.length; i++) {
+        let valueSubtask = tasks[i]["subtasks"].length;
+        let keyOfProgressBarSubtask = `progress-${i + 1}`;
+        let keyValueOfTheSubtaskBreak = `valueOfTheSubtaskBreak-${i + 1}`;
+        let progressBarSubtaskAtText = localStorage.getItem(keyOfProgressBarSubtask);
+        let valueOfTheSubtaskBreakAtText = localStorage.getItem(keyValueOfTheSubtaskBreak);
+        let levelOfProgressBarSubtask;
+        let valueOfTheSubtaskBreak;
+        if (progressBarSubtaskAtText && valueOfTheSubtaskBreakAtText) {
+            levelOfProgressBarSubtask = JSON.parse(progressBarSubtaskAtText);
+            valueOfTheSubtaskBreak = valueOfTheSubtaskBreakAtText;
+        } else {
+            levelOfProgressBarSubtask = 0;
+            valueOfTheSubtaskBreak = `0/${valueSubtask}`;
+        }
+        const smallProgressDiv = document.getElementById(`smallProgress-${i + 1}`);
+        smallProgressDiv.textContent = `${valueOfTheSubtaskBreak}`;
+        let progressBar = document.getElementById(`progress-${i + 1}`);
+        progressBar.style.width = `${levelOfProgressBarSubtask}%`;
+      }
+    
+  }
+
 
 
 function updateHtml() {
@@ -175,7 +196,6 @@ function removeHighlight(id) {
 function openCard(taskId) {
     const largeCardElement = document.getElementById('popUpWindow');
     const task = tasks.find(t => t.id === taskId);
-    console.log('find task', task)
     if (task) {
         largeCardElement.innerHTML = generateLargeCard(task);
         largeCardElement.style.transform = 'translateX(0%)';
@@ -196,7 +216,6 @@ function renderSubtaskState(task) {
     
     
     function validateSubtask(indexTaskId, renderTaskId, taskId, subTask) {
-      console.log("renderTaskId", renderTaskId);
       let checkboxRenderTaskId = document.getElementById(renderTaskId);
       if (indexTaskId === -1) {
         checkboxRenderTaskId.checked = false;
@@ -222,7 +241,6 @@ function renderSubtaskState(task) {
     }
     
     function getTaskId(id) {
-      console.log("id", id)
       let index = stateOfTask.indexOf(id);
       return index;
     }
@@ -336,14 +354,14 @@ function updateProgress(taskId, index) {
 
     const smallProgressDiv = document.getElementById(`smallProgress-${taskId}`);
     smallProgressDiv.textContent = `${checkedCheckboxes.length}/${checkboxes.length}`;
-
+    `${checkedCheckboxes.length}/${checkboxes.length}`
+    let valueOfTheSubtaskBreak = `${checkedCheckboxes.length}/${checkboxes.length}`;
+    localStorage.setItem(`valueOfTheSubtaskBreak-${taskId}`, valueOfTheSubtaskBreak.toString());
     // Adjust the width of the progress bar based on the percentage completed
     const progressBar = document.getElementById(`progress-${taskId}`);
     const percentageCompleted = (checkedCheckboxes.length / checkboxes.length) * 100;
     progressBar.style.width = `${percentageCompleted}%`;
     localStorage.setItem(`progress-${taskId}`, percentageCompleted.toString());
-    console.log(percentageCompleted);
-    console.log()
     saveStateOfSubTask(taskId, index);
     loadStateOfSubTask();
 }
@@ -360,7 +378,6 @@ function editLargCard(taskId) {
 
 function closeCard() {
     // Your close logic goes here
-    console.log("Card closed");
     const largeCardElement = document.getElementById('popUpWindow');
     largeCardElement.style.transform = 'translateX(500%)';
 }
@@ -388,7 +405,6 @@ function renderSmallContats() {
 function renderLargeContats() {
     const contactsLargeCard = document.getElementById('boardAssigendLargCard');
     contacts.innerHTML = '';
-    console.log(contactsLargeCard);
     for (let d = 0; d < assigned.length; d++) {
         const assigendAvatar = assigned[d];
         let name = assigned[d];
