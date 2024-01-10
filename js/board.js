@@ -168,9 +168,11 @@ function removeHighlight(id) {
 }
 
 function openCard(taskId) {
+
+
+    // ... restlicher Code der openCard-Funktion ...
     const largeCardElement = document.getElementById('popUpWindow');
     const task = tasks.find(t => t.id === taskId);
-    console.log('find task', task)
     if (task) {
         largeCardElement.innerHTML = generateLargeCard(task);
         largeCardElement.style.transform = 'translateX(0%)';
@@ -178,6 +180,7 @@ function openCard(taskId) {
     renderLargeContats();
     renderSubtaskState(task);
 }
+
 
 function renderSubtaskState(task) {
     let taskId = task["id"];
@@ -378,6 +381,7 @@ function renderSmallContats() {
         `;
         }
     }
+    
 }
 function renderLargeContats() {
     const contactsLargeCard = document.getElementById('boardAssigendLargCard');
@@ -398,3 +402,4 @@ function renderLargeContats() {
         `;
     }
 }
+

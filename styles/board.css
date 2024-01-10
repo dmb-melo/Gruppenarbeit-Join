@@ -594,6 +594,30 @@ align-items: center;
   display: flex;
   justify-content: end;
 }
+.underListContactBoard {
+  cursor: pointer;
+    position: absolute;
+    padding-inline-start: 0px;
+    flex-direction: column;
+    border-radius: 10px;
+    background: var(--white, #FFF);
+    z-index: 1;
+    max-height: 130px;
+    width: 435px;
+    overflow: auto;
+    margin-top: 20px;
+}
+.inputRight_addTaskEdit{
+  display: flex;
+  width: 440px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+
 @media (max-width: 320px) {
   .titleBoard {
     font-size: 47px !important;

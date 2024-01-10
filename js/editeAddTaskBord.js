@@ -16,6 +16,7 @@ function editLargCard(taskId) {
 
 edittaskArea(taskId);
 renderEditTask();
+
 }
 function findTaskById(taskId) {
     const foundTask = tasks.find(task => task.id === taskId);
@@ -29,6 +30,16 @@ function edittaskArea(taskId) {
     document.getElementById('editDescription').value = foundTask.description;
     document.getElementById('editDueDate').value = foundTask.dueDate;
 }
+
+function saveEditTaskBoard(event) {
+  event.preventDefault();
+  let titleValueEdit = document.getElementById("editTitle").value;
+  let dueDateValueEdit = document.getElementById("editDueDate").value;
+  let descriptionValueEdit = document.getElementById("editDescription").value;
+  console.log(dueDateValueEdit, descriptionValueEdit);
+
+}
+
 
 function hideAssignedBoardEdit(event){
     if (event.target.id !== "assignedBoard") {
@@ -49,9 +60,9 @@ function displayAvatarEditBoart(selecetContactsEdit, contacts, colors) {
       let selectedIndexBoar = selecetContactsEdit[i];
       let contact = contacts[selectedIndexBoar];
       let name = contact[0];
-      let firstname = name.split(" ")[0][0].toUpperCase();
-      let surname = name.split(" ")[1][0].toUpperCase();
-      let currentContactContentBoard = generateAvatarAddTaskBoard(selectedIndexBoar, contact, firstname, surname);
+      let firstnameBoard = name.split(" ")[0][0].toUpperCase();
+      let surnameBoard = name.split(" ")[1][0].toUpperCase();
+      let currentContactContentBoard = generateAvatarAddTaskBoard(selectedIndexBoar, contact, firstnameBoard, surnameBoard);
       contactAvatarEdit.innerHTML += currentContactContentBoard;
     }
   }
@@ -87,12 +98,12 @@ function contactNotCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEd
 
   function renderContactsAddTask(i, contactsList) {
     let contact = contacts[i];
-    let name = contact[0];
-    let firstname = name.split(" ")[0][0].toUpperCase();
-    let surname = name.split(" ")[1][0].toUpperCase(); 
+    let nameEdit = contact[0];
+    let firstnameBoard = nameEdit.split(" ")[0][0].toUpperCase();
+    let surnameBoard = nameEdit.split(" ")[1][0].toUpperCase(); 
     let contactElement = document.createElement("li");
     contactElement.classList.add("contactList");
-    contactElement.innerHTML = generateContactsAddTaskBoard(name, firstname, surname, i);
+    contactElement.innerHTML = generateContactsAddTaskBoard(nameEdit, firstnameBoard, surnameBoard, i);
     contactsList.appendChild(contactElement);
     const liElementEdit = contactsList.getElementsByTagName("li")[i];
     const nameElementEdit = contactsList.getElementsByTagName("label")[i];
@@ -128,23 +139,5 @@ function contactNotCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEd
     }
   }
 
-function saveEditTaskBoard(event) {
-    event.preventDefault();
-    let titleValue = document.getElementById("editTitle").value;
-    console.log(titleValue);
-    
-}
 
-// function handleContactSelection(contactIndex) {
-//     const contactToReplace = "Neuer Kontakt"; 
-  
-//     const indexOfContactToReplace = selectedContacts.indexOf(contactIndex);
-  
-//     if (indexOfContactToReplace !== -1) {
-//       replaceSelectedContact(index, newContact);
-//   }
-  
-//   function replaceSelectedContact(index, newContact) {
-//     selectedContacts[index] = newContact;
-//   }
-// }
+

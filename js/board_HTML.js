@@ -126,7 +126,7 @@ function generateAddEditeTask(){
                                 <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssignedEdit" onclick="hideAssignedBoardEdit(event)">                            
                             </div>
                             <div class="listBoard" class="hide">
-                            <ul id="listContactEdit" class="hide underListContact"> 
+                            <ul id="listContactEdit" class="hide underListContactBoard"> 
                                 <li id ="contactListBoard"></li>                       
                             </ul>
                         </div>  
@@ -136,7 +136,7 @@ function generateAddEditeTask(){
                         </div>
                     </div>
                 </div>
-                <div class ="inputRight_addTask">
+                <div class ="inputRight_addTaskEdit">
                     <div class="dueDate">
                         <div class="text_DueDate">Due date<span class="spanClass">*</span></div>
                         <div class="frame211" onclick="required(this)">                    
