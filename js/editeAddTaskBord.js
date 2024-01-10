@@ -10,6 +10,7 @@ function editLargCard(taskId) {
     document.getElementById('addTaskLargeCard').innerHTML = generateAddEditeTask(taskId);
 
 
+    document.getElementById('addTaskLargeCard').style.display = 'block';
     document.getElementById('addTaskLargeCard').style.width = '525px';
     document.getElementById('addTaskLargeCard').style.overflow = 'scroll';
 
@@ -18,7 +19,7 @@ edittaskArea(taskId);
 function findTaskById(taskId) {
     const foundTask = tasks.find(task => task.id === taskId);
     return foundTask;
-}
+}   
 
 function edittaskArea(taskId) {
     const foundTask = findTaskById(taskId);

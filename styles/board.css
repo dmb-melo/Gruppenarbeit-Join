@@ -502,6 +502,11 @@ align-items: center;
   align-items: center;
 
 }
+.closeLargeCardButton{
+  width: 85%;
+  display: flex;
+  justify-content: end;
+}
 @media (max-width: 320px) {
   .titleBoard {
     font-size: 47px !important;

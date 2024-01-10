@@ -207,7 +207,7 @@ function generateLargeCard(task) {
     
 <div class="desingLagrCard" id="desingLagrCard">
  <div class="largeCardA" id="largeCardA">
- <div id="addTaskLargeCard"></div>
+ <div id="addTaskLargeCard" class="d-None"></div>
  
     <div class="largesCard" id="largesCard">
     <div class="largeCardInside">
