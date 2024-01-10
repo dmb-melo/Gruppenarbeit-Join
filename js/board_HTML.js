@@ -1,4 +1,4 @@
-function generateBoardHTML() {
+function generateBoardHTML(task) {
     return /*html*/ `
     <div class="popUpWindow" id="popUpWindow"></div>
      <div class="tasksToDo" id="tasks">
@@ -85,7 +85,7 @@ function generateBoardHTML() {
 
 function generateAddEditeTask(){
     return /*html*/`  
-     <div class = "contentTask">  
+     <div class = "BoardcontentTask">  
      <div class="closeLargeEditCardButton">
             <button onclick="closeCard()">X</button>
         </div>
@@ -99,8 +99,8 @@ function generateAddEditeTask(){
                 <div class ="inputLeft_addTask">
                     <div class="title_v1">               
                         <div class="title">Title<span class="spanClass">*</span>
-                            <div class="frame203" onclick="required(this)">
-                                <div class="title_frame14">
+                            <div class="frame203Board" onclick="required(this)">
+                                <div class="title_frame14Board">
                                     <input  type="text"  class="text_enterTitle" placeholder="Enter a Title" id="editTitle" required oninput="handleInput(this)">
                                 </div> 
                                 <div class="titleFieldRequired" id="titleFieldRequired" onclick="required(this)">This field is required</div> 
@@ -110,7 +110,7 @@ function generateAddEditeTask(){
                     <div class="description_v1">
                         <div class="description">Description<span class="spanClass">*</span></div>             
                         <div class="frame207" onclick="required(this)">
-                        <div class="frame17">
+                        <div class="frame17Borad">
                             <textarea  class="text_enterDescription" type="text"  id="editDescription" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
                             <img class ="recursor" src="./assets/img/Recurso 1 1.png">
                         </div>                       
@@ -119,20 +119,21 @@ function generateAddEditeTask(){
                     </div>
                     <div class="asignedTo_v1">
                         <div class="asignedTo">Assigned to</div>                     
-                        <div class="categoryFrame74" id="assigned" onclick="hideAssigned(event)">                    
-                            <input class="searchContacts" type="text" id="searchContacts" placeholder="Select contacts to assign">
-                            <div class ="imgArrows" id="imgArrows" onclick="hideAssigned(event)">
-                                <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssigned" onclick="hideAssigned(event)" > 
-                                <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssigned" onclick="hideAssigned(event)">                            
+                        <div class="categoryFrame74Board" id="assignedBoard" onclick="hideAssignedBoardEdit(event)">                    
+                            <input class="searchContacts" type="text" id="searchContactsBoard" placeholder="Select contacts to assign">
+                            <div class ="imgArrows" id="imgArrows" onclick="hideAssignedBoardEdit(event)">
+                                <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssignedEdit" onclick="hideAssignedBoardEdit(event)" > 
+                                <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssignedEdit" onclick="hideAssignedBoardEdit(event)">                            
                             </div>
-                            <div class="list" class="hide">
-                            <ul id="listContact" class="hide underListContact"> 
-                                <li id ="contactList"></li>                       
+                            <div class="listBoard" class="hide">
+                            <ul id="listContactEdit" class="hide underListContact"> 
+                                <li id ="contactListBoard"></li>                       
                             </ul>
                         </div>  
                         </div>                    
                                            
-                        <div class="contactAvatar" id="contactAvatar"></div>
+                        <div class="contactAvatar" id="contactAvatarEditBoard">
+                        </div>
                     </div>
                 </div>
                 <div class ="inputRight_addTask">
@@ -147,7 +148,7 @@ function generateAddEditeTask(){
                     </div>
                     <div class="frame28">
                         <div class="titlePrio">Prio</div>
-                        <div class="priority">
+                        <div class="Boardpriority">
                             <div class="priorityUrgent"  onclick="changeColour('priorityUrgent')" id ="priorityUrgent">                    
                                 <div class="textUrgent" id="textUrgent">Urgent</div>                       
                                 <svg class="img-priorityUrgentSize" xmlns="http://www.w3.org/2000/svg" width="21" height="16" viewBox="0 0 21 16">
@@ -187,7 +188,7 @@ function generateAddEditeTask(){
                     </div>
                     <div class="subtasks">
                         <div class="textSubtasks">Subtasks</div>
-                            <div class="subtasksFrame14" >
+                            <div class="subtasksFrame14Board" >
                                 <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasks" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()">
                                 <div class="imgSubtasks" >
                                     <div class="imgPlusContainer" id ="imgPlusContainer" onclick="hideVectorAndImgCheck()">
@@ -273,8 +274,8 @@ function generateContactsAddTaskBoard(name, firstname, surname, i) {
       <p class="nameIdList" id="name-id">${firstname}${surname}</p>
     </div>                
     <div class="custom-checkbox">            
-      <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}">                    
-      <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
+      <input class="inputCheckBox" type="checkbox" id="myCheckbox_Edit${i}">                    
+      <label class="nameContact" for="myCheckbox_Edit${i}">${name}</label>                              
     </div>`;}
 
 function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) {

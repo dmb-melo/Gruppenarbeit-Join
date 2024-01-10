@@ -132,8 +132,8 @@ function clearAllSelections() {
     labels[index].style.setProperty("background-image", "none");
   });
 }
-
-function addTask() {
+ 
+function addTask(){
     let titleValue = document.getElementById("title").value;
     document.getElementById("title").value = "";
     title.unshift("titleValue");
