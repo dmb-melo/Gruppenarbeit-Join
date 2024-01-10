@@ -449,7 +449,16 @@ align-items: center;
     line-height: 120%;
     margin-top: 24px;
 }
-
+.assigendLarge {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--Version-2-main-color, #2A3647);
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
 
 /* drag and drop css */
 .drag-area-highlight {

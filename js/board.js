@@ -198,6 +198,7 @@ function generateLargeCard(task) {
     
  <div class="largeCardA" id="largeCardA">
  <div id="addTaskLargeCard"></div>
+ 
  <div class="largesCard" id="largesCard">
     <div class="largeCardInside">
     <div class="largCardHeader">
@@ -205,7 +206,9 @@ function generateLargeCard(task) {
         <div class="lardCardCategory">
             <p id="largeCategory" class="${className}">${currenCategory}</p>
         </div>
-      
+        <div class="closeLargeCardButton">
+            <button onclick="closeCard()">X</button>
+        </div>
     </div>
     <div class="largCardText">
         <!-- Title and description -->
@@ -224,7 +227,7 @@ function generateLargeCard(task) {
         <div class="largPrioDetail">
             <p>Priority:</p><p>${clonedContentDiv.innerHTML}</p>
         </div>
-        <div class="assigned">
+        <div class="assigendLarge">
             <p>Assigned To:</p>
             <div  id="boardAssigendLargCard"></div>
         </div>
