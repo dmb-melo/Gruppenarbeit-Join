@@ -2,6 +2,7 @@ let draggedElementId;
 let stateOfTask = [];
 
 function renderBoardHTML() {
+    loadStateOfSubTask();
     document.getElementById('contentJoin').innerHTML = ``;
     document.getElementById('contentJoin').innerHTML = generateBoardHTML();
     boardInit();
@@ -9,8 +10,8 @@ function renderBoardHTML() {
     save();
     removeStyleSidebar();
     addTextColor();
-    loadStateOfSubTask();
     document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive")
+    renderProgressbar()
 }
 
 
@@ -39,9 +40,13 @@ function updateHtmlForStatus(taskStatus, elementId) {
         for (let i = 0; i < tasksByStatus.length; i++) {
             const task = tasksByStatus[i];
             element.innerHTML += generateSmallCard(task, i);
-
+            
         }
     }
+}
+
+function renderProgressbar() {
+  
 }
 
 
@@ -184,18 +189,19 @@ function renderSubtaskState(task) {
     for (let i = 0; i < subTask.length; i++) {
         let renderTaskId = `checkbox-${taskId}-${i}`;
         let indexTaskId = getTaskId(renderTaskId);
-        validateSubtask(indexTaskId, renderTaskId); 
+        validateSubtask(indexTaskId, renderTaskId, taskId, subTask);
     }
     }
     
     
-    function validateSubtask(indexTaskId, renderTaskId) {
+    function validateSubtask(indexTaskId, renderTaskId, taskId, subTask) {
       console.log("renderTaskId", renderTaskId);
       let checkboxRenderTaskId = document.getElementById(renderTaskId);
       if (indexTaskId === -1) {
         checkboxRenderTaskId.checked = false;
       } else {
         checkboxRenderTaskId.checked = true;
+        updateProgress(taskId, subTask); 
       }
     }
     
