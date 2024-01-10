@@ -209,8 +209,10 @@ function renderSubtaskState(task) {
       } else {
         stateOfTask.splice(indexTaskId, 1);
       }
+      
       let idAtText = JSON.stringify(stateOfTask);
       localStorage.setItem("id", idAtText);
+      
     }
     
     function getTaskId(id) {
@@ -333,9 +335,14 @@ function updateProgress(taskId, index) {
     const progressBar = document.getElementById(`progress-${taskId}`);
     const percentageCompleted = (checkedCheckboxes.length / checkboxes.length) * 100;
     progressBar.style.width = `${percentageCompleted}%`;
+    localStorage.setItem(`progress-${taskId}`, percentageCompleted.toString());
+    console.log(percentageCompleted);
+    console.log()
     saveStateOfSubTask(taskId, index);
     loadStateOfSubTask();
 }
+
+
 
 function editLargCard(taskId) {
     const task = tasks.find(task => task.id === taskId);
@@ -391,4 +398,3 @@ function renderLargeContats() {
         `;
     }
 }
-
