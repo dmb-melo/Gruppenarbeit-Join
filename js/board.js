@@ -86,12 +86,14 @@ function generateSmallCard(task, i) {
     let smallProgressDiv = '';
     if (task.subtasks.length > 0) {
         smallProgressDiv = /*html*/`
-            <div class="progressContainer"><div class="progress">
-        <div class="progress-value"></div>
-      </div><div class="smallProgress">0/${task.subtasks.length}</div></div>
+            <div class="progressContainer">
+                <div class="progress">
+                    <div class="progress-value" id="progress-${task.id}"></div>
+                </div>
+                <div class="smallProgress" id="smallProgress-${task.id}">0/${task.subtasks.length}</div>
+            </div>
         `;
     }
-
     return /*html*/`
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
         <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
@@ -148,11 +150,18 @@ function moveIt(taskStatus) {
         tasks[taskIndex].taskStatus = taskStatus;
         updateHtml();
         save();
-        renderLargeContats();
+        renderSmallContats();
     }
 }
 function allowDrop(ev) {
     ev.preventDefault();
+}
+function highlight(id) {
+    document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+function removeHighlight(id) {
+    document.getElementById(id).classList.remove('drag-area-highlight');
 }
 
 function openCard(taskId) {
@@ -171,15 +180,15 @@ function openCard(taskId) {
 
 function generateLargeCard(task) {
     let currentPriorityContent = task.priorityContent || '';
-    const subsHtml = task.subtasks.map(subtask => `
-    <div class="subtasksContents">
-        <label class="checkbox-label">
-            <input type="checkbox" class="checkbox-input">
-            <span class="checkbox-custom"></span>
-            ${subtask}
-        </label>
-    </div>
-`).join('');
+    const subsHtml = task.subtasks.map((subs, index) => `
+        <div class="subtasksContents">
+            <label class="checkbox-label">
+                <input type="checkbox" id="checkbox-${task.id}-${index}" class="checkbox-input-${task.id}" onchange="updateProgress(${task.id}, ${index})">
+                <span class="checkbox-custom"></span>
+                ${subs}
+            </label>
+        </div>
+    `).join('');
     let currentSubTasks = subT[task];
     let tempDiv = document.createElement('div');
     tempDiv.innerHTML = currentPriorityContent;
@@ -192,14 +201,15 @@ function generateLargeCard(task) {
 
     removeActiveClassFromSvgElements(clonedContentDiv);
     let currenCategory = task.category[0];
-    
+
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
     return /*html*/`
     
+<div class="desingLagrCard" id="desingLagrCard">
  <div class="largeCardA" id="largeCardA">
  <div id="addTaskLargeCard"></div>
  
- <div class="largesCard" id="largesCard">
+    <div class="largesCard" id="largesCard">
     <div class="largeCardInside">
     <div class="largCardHeader">
         <!-- Category and close button -->
@@ -255,37 +265,59 @@ function generateLargeCard(task) {
          </div>            
         </div>
     </div>
-    </div>
+ </div>
 
+</div>
     `;
 
 }
+function updateProgress(taskId, index) {
+    const checkboxes = document.querySelectorAll(`.checkbox-input-${taskId}`);
+    const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+
+    const smallProgressDiv = document.getElementById(`smallProgress-${taskId}`);
+    smallProgressDiv.textContent = `${checkedCheckboxes.length}/${checkboxes.length}`;
+
+    // Adjust the width of the progress bar based on the percentage completed
+    const progressBar = document.getElementById(`progress-${taskId}`);
+    const percentageCompleted = (checkedCheckboxes.length / checkboxes.length) * 100;
+    progressBar.style.width = `${percentageCompleted}%`;
+}
+
+function editLargCard(taskId) {
+    const task = tasks.find(task => task.id === taskId);
+
+
+    
+}
+
+
 function closeCard() {
     // Your close logic goes here
     console.log("Card closed");
     const largeCardElement = document.getElementById('popUpWindow');
     largeCardElement.style.transform = 'translateX(500%)';
 }
-
 function renderSmallContats() {
     const contactsSmallCard = document.getElementById('boardAssigend');
     contacts.innerHTML = '';
     for (let i = 0; i < tasks.length; i++) {
         const contactsSmallCard = document.getElementById(`boardAssigend${i}`);
         const assigned = tasks[i]["assigned"];
-    for (let a = 0; a < assigned.length; a++) {
-        const assigendAvatar = assigned[a];
-        let name = assigned[a];
-        let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
+        for (let a = 0; a < assigned.length; a++) {
+            const assigendAvatar = assigned[a];
+            let name = assigned[a];
+            let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
 
-        let names = assigned[a].split(" ");
-        let surname = names[1].toUpperCase().charAt(0);
-        contactsSmallCard.innerHTML += /*html*/`
+            let names = assigned[a].split(" ");
+            let surname = names[1].toUpperCase().charAt(0);
+            contactsSmallCard.innerHTML += /*html*/`
              <div class="">
                     <div class="smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
                 </div>
         `;
-    }}
+        }
+    }
 }
 function renderLargeContats() {
     const contactsLargeCard = document.getElementById('boardAssigendLargCard');

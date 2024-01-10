@@ -340,7 +340,7 @@ align-items: center;
   transition: 550ms ease-in-out;
 }
 .largeCardA {
-  height: 80%;
+  max-height: 75%;
   width: 400px;
   border: solid;
   display: flex;
@@ -352,7 +352,6 @@ align-items: center;
   border-radius: 30px;
   background: #fff;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
-  justify-content: space-between;
 }
 
 .largesCard{
@@ -459,6 +458,16 @@ align-items: center;
   font-weight: 400;
   line-height: 24px;
 }
+.largCardFooter{
+  height: 98px;
+    display: flex;
+    align-items: end;
+}
+.delete_task{
+  display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
 /* drag and drop css */
 .drag-area-highlight {
@@ -485,6 +494,13 @@ align-items: center;
   border-radius: 10px;
   background: var(--white, #FFF);
   z-index: 1;
+}
+
+.desingLagrCardEdit{
+  height: 100%;
+  display: flex;
+  align-items: center;
+
 }
 @media (max-width: 320px) {
   .titleBoard {
