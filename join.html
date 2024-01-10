@@ -31,6 +31,7 @@
     <script src="./js/summary_HTML.js"></script>
     <script src="./js/board.js"></script>
     <script src="./js/board_HTML.js"></script>
+    
 
 
 </head>
@@ -38,8 +39,15 @@
 <body onload="summraryInit()" onclick="closeSubmenu()">
     <div w3-include-html="./assets/templates/sidebar.html"></div>
     <div w3-include-html="./assets/templates/header.html"></div>
+    <div class="summary-responsive-greeting animated">
+        <div class="summary-responsive-greeting-headline">
+            <div class="summary-responsive-greeting-text" id="greetingTextResponsive"></div> 
+            <div class="summary-responsive-greeting-name" id="userNameResponsive"></div>
+        </div>
+    </div>
     <div id="contentJoin">
     </div>
+    <script src="./js/editeAddTaskBord.js"></script>
 </body>
 
 </html>

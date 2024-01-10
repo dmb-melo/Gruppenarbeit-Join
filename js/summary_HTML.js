@@ -71,10 +71,6 @@ function generateSummaryContent() {
                 </div>
             </div>
         </div>
-        <div class="summaryResponsiveGreeting">
-                <h2>${greetingText}</h2>
-                <p class="user-name"><b>${userName}</b></p>
-        </div>
     </div>
     `;
 }

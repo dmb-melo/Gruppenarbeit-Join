@@ -56,8 +56,7 @@ body {
   height: 3px;
   width: 90px;
   background-color: #29abe2;
-  position: absolute;
-  top: 290px;
+  margin-top: 12px;
 }
 
 .summaryKey {
@@ -317,11 +316,83 @@ body {
   background-color: white;
 }
 
+.summary-responsive-greeting {
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 176px);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #e5e5e6;
+  z-index: 1000;
+}
+
+.summary-responsive-greeting-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  width: 100vw;
+}
+
+.summary-responsive-greeting-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--Ligth-blue, #29abe2);
+  font-family: "Inter", sans-serif;
+  font-size: 47px;
+  font-weight: 700;
+  width: 100vw;
+}
+
+.summary-responsive-greeting.animated {
+  animation: containerAnimationSummary 625ms forwards;
+  animation-delay: 1.8s;
+}
+
+@keyframes containerAnimationSummary {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 0.2;
+  }
+
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    display: none;
+  }
+}
+
 @media (min-height: 1100px) {
   .summaryLeft {
     margin-top: 160px;
   }
 }
+
+@media (min-width: 1000px) {
+ .summary-responsive-greeting {
+  display: none;
+ }
+}
+
 
 @media (max-width: 1500px) {
   .greetin {
@@ -338,7 +409,7 @@ body {
 
   .summaryHeader {
     margin-bottom: 24px;
-}
+  }
 
   .summaryContainer {
     margin-left: 0;
@@ -346,11 +417,11 @@ body {
 
   .summaryTaskContainer {
     gap: 12px;
-}
+  }
 
-.summaryTodoDone {
-  height: 144px;
-}
+  .summaryTodoDone {
+    height: 144px;
+  }
 }
 
 @media (min-width: 650px) {
@@ -370,6 +441,10 @@ body {
   .blueLine {
     display: none;
   }
+
+  .blueLineText {
+    display: block;
+}
 
   .summaryTodoDone {
     height: 114px;
@@ -458,7 +533,6 @@ body {
   .summaryTodoDone {
     gap: 20px;
     height: 100px;
-  
   }
 
   .toDoIcon {
@@ -486,7 +560,6 @@ body {
     gap: 8px;
     width: 84px !important;
   }
-
 
   #date {
     font-size: 10px;

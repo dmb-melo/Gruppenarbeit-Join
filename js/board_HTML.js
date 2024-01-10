@@ -86,12 +86,10 @@ function generateBoardHTML() {
 function generateAddEditeTask(){
     return /*html*/`  
      <div class = "contentTask">  
-        <div class="content_addTask">
-                <div class = "textContainer_addTask">
-                    <div class ="text_addTask">Add Task</div>
-                </div>
-            </div>   
-            <div class ="group66_addTask">
+     <div class="closeLargeEditCardButton">
+            <button onclick="closeCard()">X</button>
+        </div>
+            <div>
                 <div class="task_succes d-none" id="task_succes">
                     <div class="task_succes_container">
                         <span  class="task_succes_message">Task added to board</span>
@@ -103,7 +101,7 @@ function generateAddEditeTask(){
                         <div class="title">Title<span class="spanClass">*</span>
                             <div class="frame203" onclick="required(this)">
                                 <div class="title_frame14">
-                                    <input  type="text"  class="text_enterTitle" placeholder="Enter a Title" id="title" required oninput="handleInput(this)">
+                                    <input  type="text"  class="text_enterTitle" placeholder="Enter a Title" id="editTitle" required oninput="handleInput(this)">
                                 </div> 
                                 <div class="titleFieldRequired" id="titleFieldRequired" onclick="required(this)">This field is required</div> 
                             </div>                  
@@ -113,7 +111,7 @@ function generateAddEditeTask(){
                         <div class="description">Description<span class="spanClass">*</span></div>             
                         <div class="frame207" onclick="required(this)">
                         <div class="frame17">
-                            <textarea  class="text_enterDescription" type="text"  id="description" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
+                            <textarea  class="text_enterDescription" type="text"  id="editDescription" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
                             <img class ="recursor" src="./assets/img/Recurso 1 1.png">
                         </div>                       
                         <div class="descriptionFieldRequired" id="descriptionFieldRequired" onclick="required(this)">This field is required</div> 
@@ -127,22 +125,22 @@ function generateAddEditeTask(){
                                 <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssigned" onclick="hideAssigned(event)" > 
                                 <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssigned" onclick="hideAssigned(event)">                            
                             </div>
-                        </div>                    
-                        <div class="list" class="hide">
+                            <div class="list" class="hide">
                             <ul id="listContact" class="hide underListContact"> 
                                 <li id ="contactList"></li>                       
                             </ul>
-                        </div>                     
+                        </div>  
+                        </div>                    
+                                           
                         <div class="contactAvatar" id="contactAvatar"></div>
                     </div>
                 </div>
-                <div class="vector4"></div>
                 <div class ="inputRight_addTask">
                     <div class="dueDate">
                         <div class="text_DueDate">Due date<span class="spanClass">*</span></div>
                         <div class="frame211" onclick="required(this)">                    
                                 <div class="dueDate_frame14">
-                                    <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" >   
+                                    <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="editDueDate" required oninput="handleInput(this)" >   
                                 </div>
                                 <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
                         </div>
@@ -186,26 +184,6 @@ function generateAddEditeTask(){
                                 </svg>
                             </div>
                         </div>
-                    </div>
-                    <div class="category">
-                        <div class="textCategory">Category<span class="spanClass">*</span></div>       
-                        <div class="categoryFrame74" id="taskCategory" onclick="hide(event)">
-                            <p id ="categorySelect" Value="Select a task category">Select a task category</p>
-                            <div class ="imgArrows" id="imgArrows" onclick="hide(event)">
-                                <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrow" onclick="hide(event)" > 
-                                <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHover" onclick="hide(event)">                            
-                            </div>
-                        </div>
-                        <div class="list"  class="hide">
-                            <ul id="list" class="hide underList"> 
-                                <li class="options"  onclick="selectCategory(this)" >
-                                    <p class="category" value="Technical Task" onclick="hide(event)">Technical Task</p>
-                                </li>
-                                <li class="options"  onclick="selectCategory(this)" >
-                                    <p class="category"  value="User Story" onclick="hide(event)">User Story</p>
-                                </li>                                               
-                            </ul>                                                  
-                        </div>                   
                     </div>
                     <div class="subtasks">
                         <div class="textSubtasks">Subtasks</div>
@@ -262,7 +240,7 @@ function generateAddEditeTask(){
                         </div>                    
                     </div>
                 </div>
-                <div class="addTasksFooter">
+                <div class="">
                 <div class="comment"><span class="spanClass">*</span>This field is required</div>
                 <div class="frame27">
                     <div class="secondary" onclick="clearTask()">
@@ -276,9 +254,9 @@ function generateAddEditeTask(){
                             </svg>
                         </div>
                     </div>
-                    <a class="leadsToBoard" href="./board.html" id="leadsToBoard" onclick="handleTaskClick(event)">
+                    <a class="leadsToBoard" href="#" id="leadsToBoard" onclick="saveEditTaskBoard(event)">
                         <div class="primary">
-                            <div class="textCreateTask">Create task</div>
+                            <div class="textCreateTask">Save</div>
                             <img class="imgCheckBlack" src="./assets/img/check.png" alt="">              
                         </div>
                     </a>
@@ -288,3 +266,23 @@ function generateAddEditeTask(){
     </div>
     `
 ;}
+
+function generateContactsAddTaskBoard(name, firstname, surname, i) {
+    return /*html*/ `
+    <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
+      <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+    </div>                
+    <div class="custom-checkbox">            
+      <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}">                    
+      <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
+    </div>`;}
+
+function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) {
+    return /*html*/`
+        <div>
+            <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+                <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+            </div>
+        </div>
+    `;
+}
