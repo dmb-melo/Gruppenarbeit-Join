@@ -86,6 +86,9 @@ function generateBoardHTML() {
 function generateAddEditeTask(){
     return /*html*/`  
      <div class = "contentTask">  
+     <div class="closeLargeCardButton">
+            <button onclick="closeCard()">X</button>
+        </div>
             <div>
                 <div class="task_succes d-none" id="task_succes">
                     <div class="task_succes_container">
@@ -137,7 +140,7 @@ function generateAddEditeTask(){
                         <div class="text_DueDate">Due date<span class="spanClass">*</span></div>
                         <div class="frame211" onclick="required(this)">                    
                                 <div class="dueDate_frame14">
-                                    <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" >   
+                                    <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="editDueDate" required oninput="handleInput(this)" >   
                                 </div>
                                 <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
                         </div>
@@ -237,7 +240,7 @@ function generateAddEditeTask(){
                         </div>                    
                     </div>
                 </div>
-                <div class="addTasksFooter">
+                <div class="">
                 <div class="comment"><span class="spanClass">*</span>This field is required</div>
                 <div class="frame27">
                     <div class="secondary" onclick="clearTask()">
@@ -251,9 +254,9 @@ function generateAddEditeTask(){
                             </svg>
                         </div>
                     </div>
-                    <a class="leadsToBoard" href="./board.html" id="leadsToBoard" onclick="handleTaskClick(event)">
+                    <a class="leadsToBoard" href="#" id="leadsToBoard" onclick="saveEditTaskBoard(event)">
                         <div class="primary">
-                            <div class="textCreateTask">Create task</div>
+                            <div class="textCreateTask">Save</div>
                             <img class="imgCheckBlack" src="./assets/img/check.png" alt="">              
                         </div>
                     </a>

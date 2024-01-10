@@ -152,7 +152,7 @@ function addTask() {
         }
     priorityContentArray.unshift(priorityContent);
     currentId++;
-    console.log("category", category) 
+    console.log("category", priorityContent);
    let newTask = {
         id: currentId,
         title: titleValue,

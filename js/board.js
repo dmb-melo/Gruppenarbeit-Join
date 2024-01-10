@@ -86,9 +86,9 @@ function generateSmallCard(task, i) {
     let smallProgressDiv = '';
     if (task.subtasks.length > 0) {
         smallProgressDiv = /*html*/`
-            <div><div class="progress">
+            <div class="progressContainer"><div class="progress">
         <div class="progress-value"></div>
-      </div><div class="smallProgress">${task.subtasks.length}</div></div>
+      </div><div class="smallProgress">0/${task.subtasks.length}</div></div>
         `;
     }
 
@@ -101,7 +101,7 @@ function generateSmallCard(task, i) {
         </div>
         ${smallProgressDiv}
         <div class="smallCardFooter">
-            <div id="boardAssigend${i}"></div>
+            <div id="boardAssigend${i}" class="boardAssigend"></div>
             <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
         </div>  
     `;
@@ -205,9 +205,7 @@ function generateLargeCard(task) {
         <div class="lardCardCategory">
             <p id="largeCategory" class="${className}">${currenCategory}</p>
         </div>
-        <div class="closeLargeCardButton">
-            <button onclick="closeCard()">X</button>
-        </div>
+      
     </div>
     <div class="largCardText">
         <!-- Title and description -->
@@ -280,8 +278,8 @@ function renderSmallContats() {
         let names = assigned[a].split(" ");
         let surname = names[1].toUpperCase().charAt(0);
         contactsSmallCard.innerHTML += /*html*/`
-             <div class="contact-info-left">
-                    <div class="circle" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
+             <div class="">
+                    <div class="smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
                 </div>
         `;
     }}
@@ -298,7 +296,7 @@ function renderLargeContats() {
         let names = assigned[d].split(" ");
         let surname = names[1].toUpperCase().charAt(0);
         contactsLargeCard.innerHTML += /*html*/`
-             <div class="contact-info-left">
+             <div class="">
                     <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
                 </div>
         `;

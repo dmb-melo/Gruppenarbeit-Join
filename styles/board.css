@@ -275,9 +275,9 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-
+align-items: center;
 }
-#boardAssigend {
+.boardAssigend {
   display: flex;
 }
 .smallCardVersionCircel{
@@ -295,14 +295,14 @@
 .smallPrio {
   width: 124px;
 }
-/* .smallProgress {
+.smallProgress {
  color: #000;
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-} */
+}
 
 /* progress bar */
 .progress {
@@ -417,7 +417,6 @@
 #boardAssigendLargCard {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 .largCardContactContainer {
   display: flex;
@@ -455,8 +454,12 @@
   border-radius: 10px;
 }
 
-
-
+.progressContainer {
+  display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+}
 
 /* editAddBoard */
 .boardUnserList {
