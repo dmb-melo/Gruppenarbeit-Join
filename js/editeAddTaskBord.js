@@ -32,7 +32,7 @@ function edittaskArea(taskId) {
 
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
-  console.log('dhhdhd', foundTask);
+
 
   if (foundTask) {
       const editedTask = {
@@ -41,15 +41,16 @@ function saveEditTaskBoard(taskId) {
           'description': document.getElementById('editDescription').value,
           'dueDate': document.getElementById('editDueDate').value,
           'status': foundTask.status // Use the status from the found task
+          
       };
-
+      console.log('',editedTask );
       // Update the tasks array with the edited task
       tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
     save();
   } else {
       console.error('Task with ID ' + taskId + ' not found.');
   }
-
+  closeCard();
 }
 
 
@@ -153,3 +154,15 @@ function contactNotCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEd
 
 
 
+//   function saveTasksToLocalStorage() {
+//     localStorage.setItem('tasks', JSON.stringify(tasks));
+// }
+
+// function loadTasksFromLocalStorage() {
+//     const storedTasks = localStorage.getItem('tasks');
+//     if (storedTasks) {
+//         tasks = JSON.parse(storedTasks);
+//         // Aktualisiere die HTML-Ansicht, um die geladenen Aufgaben anzuzeigen
+//         updateHtml();
+//     }
+// }

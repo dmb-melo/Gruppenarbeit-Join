@@ -52,6 +52,12 @@ function renderProgressbar() {
     }
     
     for (let i = 0; i < tasks.length; i++) {
+      // Check if subtasks are defined
+      if (!tasks[i]["subtasks"]) {
+        console.log(`No subtasks defined for task at index ${i}`);
+        continue;
+      }
+
       let valueSubtask = tasks[i]["subtasks"].length;
       let keyOfProgressBarSubtask = `progress-${i + 1}`;
       let keyValueOfTheSubtaskBreak = `valueOfTheSubtaskBreak-${i + 1}`;
@@ -79,7 +85,7 @@ function renderProgressbar() {
       }
     }
 }
-  
+
 
 
 function updateHtml() {
@@ -399,24 +405,37 @@ function closeCard() {
 function renderSmallContats() {
     const contactsSmallCard = document.getElementById('boardAssigend');
     contacts.innerHTML = '';
-    for (let i = 0; i < tasks.length; i++) {
-        const contactsSmallCard = document.getElementById(`boardAssigend${i}`);
-        const assigned = tasks[i]["assigned"];
-        for (let a = 0; a < assigned.length; a++) {
-            const assigendAvatar = assigned[a];
-            let name = assigned[a];
-            let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
 
-            let names = assigned[a].split(" ");
-            let surname = names[1].toUpperCase().charAt(0);
-            contactsSmallCard.innerHTML += /*html*/`
-             <div class="">
-                    <div class="smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
-                </div>
-        `;
+    if (tasks.length === 0) {
+   
+        console.log("Keine Aufgaben vorhanden");
+        return;
+    }
+
+    for (let i = 0; i < tasks.length; i++) {
+        const assigned = tasks[i]["assigned"];
+
+        // Überprüfen, ob "assigned" vorhanden und nicht leer ist
+        if (assigned && assigned.length > 0) {
+            const contactsSmallCard = document.getElementById(`boardAssigend${i}`);
+            
+            for (let a = 0; a < assigned.length; a++) {
+                const assigendAvatar = assigned[a];
+                let name = assigned[a];
+                let firstname = name[0].toUpperCase();
+
+                let names = assigned[a].split(" ");
+                let surname = names[1].toUpperCase().charAt(0);
+                contactsSmallCard.innerHTML += /*html*/`
+                    <div class="">
+                        <div class="smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}">
+                            <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+                        </div>
+                    </div>
+                `;
+            }
         }
     }
-    
 }
 function renderLargeContats() {
     const contactsLargeCard = document.getElementById('boardAssigendLargCard');
