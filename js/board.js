@@ -123,12 +123,13 @@ function generateSmallCard(task, i) {
     removeActiveClassFromSvgElements(clonedContentDiv);
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
 
-    // Clear the text content inside the elements with class 'selectedPriorityContentDiv'
-    let selectedPriorityContentDivs = clonedContentDiv.querySelectorAll('.selectedPriorityContentDiv');
-    selectedPriorityContentDivs.forEach(element => {
-        let textUrgentElement = element.querySelector('.textUrgent');
-        if (textUrgentElement) {
-            textUrgentElement.textContent = ''; // Clear text content
+    // Clear the text content inside the elements with specified classes
+    let selectedPriorityContentDiv = clonedContentDiv.querySelector('.selectedPriorityContentDiv');
+
+    ['textUrgent', 'textMedium', 'textLow'].forEach(className => {
+        let textElement = selectedPriorityContentDiv.querySelector('.' + className);
+        if (textElement) {
+            textElement.textContent = ''; // Clear text content
         }
     });
 
@@ -158,6 +159,7 @@ function generateSmallCard(task, i) {
         </div>  
     `;
 }
+
 
 
 
@@ -399,6 +401,7 @@ function editLargCard(taskId) {
 
     
 }
+
 
 
 function closeCard() {
