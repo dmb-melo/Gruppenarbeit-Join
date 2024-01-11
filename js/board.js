@@ -158,12 +158,13 @@ function startDragged(id) {
 
 function moveIt(taskStatus) {
   const taskIndex = tasks.findIndex((task) => task.id === draggedElementId);
-
+  
   if (taskIndex !== -1) {
     tasks[taskIndex].taskStatus = taskStatus;
     updateHtml();
     save();
     renderSmallContats();
+    renderProgressbar();
   }
 }
 function allowDrop(ev) {

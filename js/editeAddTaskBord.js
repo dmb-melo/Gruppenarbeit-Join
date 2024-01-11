@@ -49,14 +49,14 @@ function edittaskArea(taskId) {
 }
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
-
+  let status = getStatusTaskId(taskId);
   if (foundTask) {
       const editedTask = {
           id: taskId,
           title: document.getElementById('editTitle').value,
           description: document.getElementById('editDescription').value,
           dueDate: document.getElementById('editDueDate').value,
-          status: foundTask.status,
+          status: status,
           priorityID: foundTask.priorityID // Include the priority information
       };
 
@@ -68,6 +68,15 @@ function saveEditTaskBoard(taskId) {
       console.error('Task with ID ' + taskId + ' not found.');
   }
   closeCard();
+}
+
+function getStatusTaskId(taskId) {
+  for (let i = 0; i < tasks.length; i++) {
+    let idOfTaskStatus = tasks[i]["id"];
+    if (idOfTaskStatus  === taskId) {
+      return tasks[i]["taskStatus"];
+    }
+  }
 }
 
 
