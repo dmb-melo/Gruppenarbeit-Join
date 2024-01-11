@@ -143,7 +143,6 @@ function addTask(){
     let dueDateValue = document.getElementById("dueDate").value;
     document.getElementById("dueDate").value = "";
     dueDate.unshift(dueDateValue);
-
     checkboxAddTask();
     let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
     let priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
@@ -269,7 +268,6 @@ function hideAssigned(event) {
   displayAvatar(selectedContacts, contacts, colors);
 }
 
-
 function clearPrioActiveClass() {
   removePrioActiveClass("priorityUrgent"); 
   removePrioActiveClass("priorityMedium"); 
@@ -375,9 +373,6 @@ function createSubtaskItem(subtaskText) {
   const subtaskItemText = document.createElement("li");
   subtaskItemText.innerText = subtaskText;
   subtaskItemDiv.appendChild(subtaskItemText);
-  subtaskItemDiv.addEventListener("dblclick", function () {
-    handleEditClick(subtaskItemDiv, subtaskText);
-  });
   return subtaskItemDiv; 
 }
 
@@ -494,14 +489,6 @@ function hideVectorAndImgCheck() {
 
 async function handleTaskClick(event) {
   event.preventDefault();
-  let titleValue = document.getElementById("title").value;
-  let descriptionValue = document.getElementById("description").value;
-  let dueDateValue = document.getElementById("dueDate").value;
-
-  if (!checkRequiredFields(titleValue, descriptionValue, dueDateValue)) {
-    return; // Stop execution if any required field is empty
-  }
-
   await addTask();
   setTimeout(async function () {
     await renderBoardHTML(); 
@@ -531,28 +518,6 @@ function handleInput(inputElement) {
   } else if (elementId === "dueDate") {
     removeBorderColorAndHideIndicator("dueDateFieldRequired");
   }
-}
-
-function checkRequiredFields(titleValue, descriptionValue, dueDateValue) {
-  if (titleValue.trim() === "") {
-      changeBorderColorAndDisplayField(".title_frame14", "#titleFieldRequired");
-      hideFieldIndicatorsExcept("#titleFieldRequired");
-      return false; 
-  }
-
-  if (descriptionValue.trim() === "") {
-      changeBorderColorAndDisplayField(".frame17", "#descriptionFieldRequired");
-      hideFieldIndicatorsExcept("#descriptionFieldRequired");
-      return false; 
-  }
-
-  if (dueDateValue.trim() === "") {
-      changeBorderColorAndDisplayField(".dueDate_frame14", "#dueDateFieldRequired");
-      hideFieldIndicatorsExcept("#dueDateFieldRequired");
-      return false; 
-  }
-
-  return true; 
 }
 
 function removeBorderColorAndHideIndicator(fieldId) {

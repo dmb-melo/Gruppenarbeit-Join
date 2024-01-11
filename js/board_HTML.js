@@ -1,4 +1,4 @@
-function generateBoardHTML(task) {
+function generateBoardHTML(taskId) {
     return /*html*/ `
     <div class="popUpWindow" id="popUpWindow"></div>
      <div class="tasksToDo" id="tasks">
