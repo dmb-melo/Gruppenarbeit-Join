@@ -24,6 +24,19 @@ function findTaskById(taskId) {
     return foundTask;
 }   
 
+function activatePriority(priorityID) {
+  const priorityElement = document.getElementById(priorityID);
+  if (priorityElement) {
+      priorityElement.classList.add(`${priorityID}-active`);
+      
+      // Optional: Füge die aktive Klasse für die zugehörigen Bilder hinzu
+      let imgPaths = document.querySelectorAll(`.img-${priorityID}`);
+      imgPaths.forEach((path) => {
+          path.classList.add("imgPrio-active");
+      });
+  }
+}
+
 function edittaskArea(taskId) {
   const foundTask = findTaskById(taskId);
 
@@ -34,19 +47,6 @@ function edittaskArea(taskId) {
   // Aktiviere die Priorität basierend auf der im Task gespeicherten Priorität
   activatePriority(foundTask.priorityID);
 }
-function activatePriority(priorityID) {
-    const priorityElement = document.getElementById(priorityID);
-    if (priorityElement) {
-        priorityElement.classList.add(`${priorityID}-active`);
-        
-        // Optional: Füge die aktive Klasse für die zugehörigen Bilder hinzu
-        let imgPaths = document.querySelectorAll(`.img-${priorityID}`);
-        imgPaths.forEach((path) => {
-            path.classList.add("imgPrio-active");
-        });
-    }
-}
-
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
 
