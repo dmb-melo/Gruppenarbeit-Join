@@ -166,12 +166,13 @@ function addTask(){
         taskStatus :'todo',
         category: category
     };  
-    console.log("newTask", newTask) 
+   
     subT.unshift(subtasks.slice()); 
     tasks.unshift(newTask); 
     localStorage.setItem("selectedPriorityContent", priorityContent);
     document.getElementById("categorySelect").textContent = "Select a task category";
     subtasks = []; 
+    
     save();
     renderTask();
     clearContactAvatar();
@@ -347,6 +348,7 @@ function addSubtasks() {
   const subtaskInput = document.getElementById("inputSubtasks").value;
   document.getElementById("inputSubtasks").value = "";
   subtasks.unshift(subtaskInput);
+  console.log()
   updateSubtasksDisplay();
   save();
   hideVectorAndImgCheck();

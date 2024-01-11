@@ -108,7 +108,7 @@ function removeActiveClassFromSvgElements(container) {
 
 
 function generateSmallCard(task, i) {
-    let currenCategory = task.category[0]
+    let currenCategory = task.category[0];
     let currentPriorityContent = task.priorityContent || '';
 
     let tempDiv = document.createElement('div');
@@ -122,15 +122,21 @@ function generateSmallCard(task, i) {
 
     removeActiveClassFromSvgElements(clonedContentDiv);
     let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
-    let textMediumElement = clonedContentDiv.querySelector('.textMedium');
-    if (textMediumElement) {
-        textMediumElement.parentNode.removeChild(textMediumElement);
-    }
+
+    // Clear the text content inside the elements with specified classes
+    let selectedPriorityContentDiv = clonedContentDiv.querySelector('.selectedPriorityContentDiv');
+
+    ['textUrgent', 'textMedium', 'textLow'].forEach(className => {
+        let textElement = selectedPriorityContentDiv.querySelector('.' + className);
+        if (textElement) {
+            textElement.textContent = ''; // Clear text content
+        }
+    });
 
     // Conditionally include the smallProgress div
     let smallProgressDiv = '';
     if (task.subtasks.length > 0) {
-        smallProgressDiv = /*html*/`
+        smallProgressDiv = /*html*/ `
             <div class="progressContainer">
                 <div class="progress">
                     <div class="progress-value" id="progress-${task.id}"></div>
@@ -139,7 +145,7 @@ function generateSmallCard(task, i) {
             </div>
         `;
     }
-    return /*html*/`
+    return /*html*/ `
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
         <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
@@ -153,6 +159,8 @@ function generateSmallCard(task, i) {
         </div>  
     `;
 }
+
+
 
 
 // Delet of Tasks 
@@ -224,7 +232,6 @@ function openCard(taskId) {
     renderSubtaskState(task);
 }
 
-
 function renderSubtaskState(task) {
     let taskId = task["id"];
     let subTask = task["subtasks"];  
@@ -234,8 +241,7 @@ function renderSubtaskState(task) {
         validateSubtask(indexTaskId, renderTaskId, taskId, subTask);
     }
     }
-    
-    
+
     function validateSubtask(indexTaskId, renderTaskId, taskId, subTask) {
       let checkboxRenderTaskId = document.getElementById(renderTaskId);
       if (indexTaskId === -1) {
@@ -395,6 +401,7 @@ function editLargCard(taskId) {
 
     
 }
+
 
 
 function closeCard() {
