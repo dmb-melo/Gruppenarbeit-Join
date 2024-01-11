@@ -373,6 +373,9 @@ function createSubtaskItem(subtaskText) {
   const subtaskItemText = document.createElement("li");
   subtaskItemText.innerText = subtaskText;
   subtaskItemDiv.appendChild(subtaskItemText);
+  subtaskItemDiv.addEventListener("dblclick", function () {
+    handleEditClick(subtaskItemDiv, subtaskText);
+  });
   return subtaskItemDiv; 
 }
 
