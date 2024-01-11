@@ -152,7 +152,7 @@ function addTask(){
         }
     priorityContentArray.unshift(priorityContent);
     currentId++;
-    console.log("category", priorityContent);
+    console.log("category", selectedPriority);
    let newTask = {
         id: currentId,
         title: titleValue,
@@ -371,7 +371,7 @@ function createSubtaskItem(subtaskText) {
   const subtaskItemText = document.createElement("li");
   subtaskItemText.innerText = subtaskText;
   subtaskItemDiv.appendChild(subtaskItemText);
-  return subtaskItemDiv;
+  return subtaskItemDiv; 
 }
 
 function createIconsContainer(subtaskItemDiv, subtaskText, index){

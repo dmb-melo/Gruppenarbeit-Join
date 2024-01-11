@@ -24,29 +24,46 @@ function findTaskById(taskId) {
 }   
 
 function edittaskArea(taskId) {
-    const foundTask = findTaskById(taskId);
-    document.getElementById('editTitle').value = foundTask.title;
-    document.getElementById('editDescription').value = foundTask.description;
-    document.getElementById('editDueDate').value = foundTask.dueDate;
+  const foundTask = findTaskById(taskId);
+
+  document.getElementById('editTitle').value = foundTask.title;
+  document.getElementById('editDescription').value = foundTask.description;
+  document.getElementById('editDueDate').value = foundTask.dueDate;
+
+  // Aktiviere die Priorität basierend auf der im Task gespeicherten Priorität
+  activatePriority(foundTask.priorityID);
+}
+
+function activatePriority(priorityID) {
+  const priorityElement = document.getElementById(priorityID);
+  if (priorityElement) {
+      priorityElement.classList.add(`${priorityID}-active`);
+      
+      // Optional: Füge die aktive Klasse für die zugehörigen Bilder hinzu
+      let imgPaths = document.querySelectorAll(`.img-${priorityID}`);
+      imgPaths.forEach((path) => {
+          path.classList.add("imgPrio-active");
+      });
+  }
 }
 
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
 
-
   if (foundTask) {
       const editedTask = {
-          'id': taskId,
-          'title': document.getElementById('editTitle').value,
-          'description': document.getElementById('editDescription').value,
-          'dueDate': document.getElementById('editDueDate').value,
-          'status': foundTask.status // Use the status from the found task
-          
+          id: taskId,
+          title: document.getElementById('editTitle').value,
+          description: document.getElementById('editDescription').value,
+          dueDate: document.getElementById('editDueDate').value,
+          status: foundTask.status,
+          priorityID: foundTask.priorityID // Include the priority information
       };
-      console.log('',editedTask );
+
       // Update the tasks array with the edited task
       tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
-    save();
+
+      save();
   } else {
       console.error('Task with ID ' + taskId + ' not found.');
   }
