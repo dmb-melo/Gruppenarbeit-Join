@@ -25,18 +25,30 @@ function findTaskById(taskId) {
 
 function edittaskArea(taskId) {
     const foundTask = findTaskById(taskId);
-
     document.getElementById('editTitle').value = foundTask.title;
     document.getElementById('editDescription').value = foundTask.description;
     document.getElementById('editDueDate').value = foundTask.dueDate;
 }
 
-function saveEditTaskBoard(event) {
-  event.preventDefault();
-  let titleValueEdit = document.getElementById("editTitle").value;
-  let dueDateValueEdit = document.getElementById("editDueDate").value;
-  let descriptionValueEdit = document.getElementById("editDescription").value;
-  console.log(dueDateValueEdit, descriptionValueEdit);
+function saveEditTaskBoard(taskId) {
+  const foundTask = findTaskById(taskId);
+  console.log('dhhdhd', foundTask);
+
+  if (foundTask) {
+      const editedTask = {
+          'id': taskId,
+          'title': document.getElementById('editTitle').value,
+          'description': document.getElementById('editDescription').value,
+          'dueDate': document.getElementById('editDueDate').value,
+          'status': foundTask.status // Use the status from the found task
+      };
+
+      // Update the tasks array with the edited task
+      tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
+    save();
+  } else {
+      console.error('Task with ID ' + taskId + ' not found.');
+  }
 
 }
 

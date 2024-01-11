@@ -44,31 +44,42 @@ function updateHtmlForStatus(taskStatus, elementId) {
         }
     }
 }
-
 function renderProgressbar() {
-  for (let i = 0; i < tasks.length; i++) {
-        let valueSubtask = tasks[i]["subtasks"].length;
-        let keyOfProgressBarSubtask = `progress-${i + 1}`;
-        let keyValueOfTheSubtaskBreak = `valueOfTheSubtaskBreak-${i + 1}`;
-        let progressBarSubtaskAtText = localStorage.getItem(keyOfProgressBarSubtask);
-        let valueOfTheSubtaskBreakAtText = localStorage.getItem(keyValueOfTheSubtaskBreak);
-        let levelOfProgressBarSubtask;
-        let valueOfTheSubtaskBreak;
-        if (progressBarSubtaskAtText && valueOfTheSubtaskBreakAtText) {
-            levelOfProgressBarSubtask = JSON.parse(progressBarSubtaskAtText);
-            valueOfTheSubtaskBreak = valueOfTheSubtaskBreakAtText;
-        } else {
-            levelOfProgressBarSubtask = 0;
-            valueOfTheSubtaskBreak = `0/${valueSubtask}`;
-        }
-        const smallProgressDiv = document.getElementById(`smallProgress-${i + 1}`);
+    // Check if tasks exist
+    if (!tasks || tasks.length === 0) {
+      console.log("No tasks available");
+      return;
+    }
+    
+    for (let i = 0; i < tasks.length; i++) {
+      let valueSubtask = tasks[i]["subtasks"].length;
+      let keyOfProgressBarSubtask = `progress-${i + 1}`;
+      let keyValueOfTheSubtaskBreak = `valueOfTheSubtaskBreak-${i + 1}`;
+      let progressBarSubtaskAtText = localStorage.getItem(keyOfProgressBarSubtask);
+      let valueOfTheSubtaskBreakAtText = localStorage.getItem(keyValueOfTheSubtaskBreak);
+      let levelOfProgressBarSubtask;
+      let valueOfTheSubtaskBreak;
+  
+      if (progressBarSubtaskAtText && valueOfTheSubtaskBreakAtText) {
+        levelOfProgressBarSubtask = JSON.parse(progressBarSubtaskAtText);
+        valueOfTheSubtaskBreak = valueOfTheSubtaskBreakAtText;
+      } else {
+        levelOfProgressBarSubtask = 0;
+        valueOfTheSubtaskBreak = `0/${valueSubtask}`;
+      }
+  
+      const smallProgressDiv = document.getElementById(`smallProgress-${i + 1}`);
+      if (smallProgressDiv) {
         smallProgressDiv.textContent = `${valueOfTheSubtaskBreak}`;
-        let progressBar = document.getElementById(`progress-${i + 1}`);
+      }
+  
+      let progressBar = document.getElementById(`progress-${i + 1}`);
+      if (progressBar) {
         progressBar.style.width = `${levelOfProgressBarSubtask}%`;
       }
-    
-  }
-
+    }
+}
+  
 
 
 function updateHtml() {

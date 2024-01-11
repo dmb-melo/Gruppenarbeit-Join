@@ -83,7 +83,7 @@ function generateBoardHTML(task) {
 }
 
 
-function generateAddEditeTask(){
+function generateAddEditeTask(taskId){
     return /*html*/`  
      <div class = "BoardcontentTask">  
      <div class="closeLargeEditCardButton">
@@ -255,7 +255,7 @@ function generateAddEditeTask(){
                             </svg>
                         </div>
                     </div>
-                    <a class="leadsToBoard" href="#" id="leadsToBoard" onclick="saveEditTaskBoard(event)">
+                    <a class="leadsToBoard" href="#" id="leadsToBoard" onclick="saveEditTaskBoard(${taskId})">
                         <div class="primary">
                             <div class="textCreateTask">Save</div>
                             <img class="imgCheckBlack" src="./assets/img/check.png" alt="">              
