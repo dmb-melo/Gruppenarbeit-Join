@@ -165,7 +165,7 @@ function generateSmallCard(task, i) {
 
 // Delet of Tasks 
 
-function deleteTask(event) {// wird nicht mehr gebraucht
+function deleteTask() {// wird nicht mehr gebraucht
     let noteElement = event.target.closest('.largeCardA');
 
     if (noteElement) {
