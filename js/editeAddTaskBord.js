@@ -52,7 +52,6 @@ function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
   let status = getStatusTaskId(taskId);
   if (foundTask) {
-<<<<<<< HEAD
       const editedTask = {
           id: taskId,
           title: document.getElementById('editTitle').value,
@@ -61,16 +60,6 @@ function saveEditTaskBoard(taskId) {
           status: status,
           priorityID: foundTask.priorityID // Include the priority information
       };
-=======
-    const editedTask = {
-      id: taskId,
-      title: document.getElementById('editTitle').value,
-      description: document.getElementById('editDescription').value,
-      dueDate: document.getElementById('editDueDate').value,
-      taskStatus: 'todo',
-      priorityID: foundTask.priorityID // Include the priority information
-    };
->>>>>>> fc1f295655da270d9d98e8bf4329872049170b28
 
     // Update the tasks array with the edited task
     tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
