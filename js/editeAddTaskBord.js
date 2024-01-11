@@ -33,15 +33,6 @@ function edittaskArea(taskId) {
 
   // Aktiviere die Priorität basierend auf der im Task gespeicherten Priorität
   activatePriority(foundTask.priorityID);
-
-  // Speichere den aktuellen Task in einer Variable (kann auch ein globales Array oder Objekt sein)
-  let editedTask = { ...foundTask };
-
-  // Beispiel: Ändere die Priorität auf eine neue Priorität
-  editedTask.priorityID = 'newPriorityID';
-
-  // Speichere den aktualisierten Task
-  saveEditTaskBoard(editedTask);
 }
 function activatePriority(priorityID) {
     const priorityElement = document.getElementById(priorityID);
@@ -56,22 +47,27 @@ function activatePriority(priorityID) {
     }
 }
 
-function saveEditTaskBoard(editedTask) {
-  const taskId = editedTask.id;
+function saveEditTaskBoard(taskId) {
+  const foundTask = findTaskById(taskId);
 
-  // Überprüfe, ob der Task in deinem Task-Array gefunden wird
-  const foundTaskIndex = tasks.findIndex(task => task.id === taskId);
+  if (foundTask) {
+      const editedTask = {
+          id: taskId,
+          title: document.getElementById('editTitle').value,
+          description: document.getElementById('editDescription').value,
+          dueDate: document.getElementById('editDueDate').value,
+          status: foundTask.status,
+          priorityID: foundTask.priorityID // Include the priority information
+      };
 
-  if (foundTaskIndex !== -1) {
-      // Aktualisiere den Task im Array
-      tasks[foundTaskIndex] = editedTask;
+      // Update the tasks array with the edited task
+      tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
 
-      // Speichere die Änderungen
       save();
   } else {
       console.error('Task with ID ' + taskId + ' not found.');
   }
-
+  closeCard();
 }
 
 
