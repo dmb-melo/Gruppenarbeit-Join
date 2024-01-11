@@ -72,7 +72,7 @@ function removeActiveClassFromSvgElements(container) {
 }
 
 function generateSmallCard(task, i) {
-    let currenCategory = task.category[0]
+    let currenCategory = task.category[0];
     let currentPriorityContent = task.priorityContent || '';
 
   let tempDiv = document.createElement("div");
@@ -84,17 +84,23 @@ function generateSmallCard(task, i) {
   let clonedContentDiv = document.createElement("div");
   clonedContentDiv.appendChild(tempDiv.cloneNode(true));
 
-  removeActiveClassFromSvgElements(clonedContentDiv);
-  let className = typeof currenCategory === "string" ? currenCategory.replace(/\s+/g, "") : "";
-  let textMediumElement = clonedContentDiv.querySelector(".textMedium");
-  if (textMediumElement) {
-    textMediumElement.parentNode.removeChild(textMediumElement);
-  }
+    removeActiveClassFromSvgElements(clonedContentDiv);
+    let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
 
-  // Conditionally include the smallProgress div
-  let smallProgressDiv = "";
-  if (task.subtasks.length > 0) {
-    smallProgressDiv = /*html*/ `
+    // Clear the text content inside the elements with specified classes
+    let selectedPriorityContentDiv = clonedContentDiv.querySelector('.selectedPriorityContentDiv');
+
+    ['textUrgent', 'textMedium', 'textLow'].forEach(className => {
+        let textElement = selectedPriorityContentDiv.querySelector('.' + className);
+        if (textElement) {
+            textElement.textContent = ''; // Clear text content
+        }
+    });
+
+    // Conditionally include the smallProgress div
+    let smallProgressDiv = '';
+    if (task.subtasks.length > 0) {
+        smallProgressDiv = /*html*/ `
             <div class="progressContainer">
                 <div class="progress">
                     <div class="progress-value" id="progress-${task.id}"></div>
@@ -102,9 +108,9 @@ function generateSmallCard(task, i) {
                 <div class="smallProgress" id="smallProgress-${task.id}">0/${task.subtasks.length}</div>
             </div>
         `;
-  }
-  return /*html*/ `
-      <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task["id"]})" onclick="openCard(${task["id"]})"> 
+    }
+    return /*html*/ `
+      <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
         <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
@@ -391,6 +397,8 @@ function updateProgress(taskId, index) {
 function editLargCard(taskId) {
   const task = tasks.find((task) => task.id === taskId);
 }
+
+
 
 function closeCard() {
   // Your close logic goes here

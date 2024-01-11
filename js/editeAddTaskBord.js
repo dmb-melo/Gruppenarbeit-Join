@@ -1,5 +1,6 @@
 let selecetContactsEdit = [];
 function editLargCard(taskId) {
+
     let editCard = document.getElementById('desingLagrCard');
     editCard.style.display = 'flex';
     editCard.style.alignItems = 'center';
@@ -23,17 +24,6 @@ function findTaskById(taskId) {
     return foundTask;
 }   
 
-function edittaskArea(taskId) {
-  const foundTask = findTaskById(taskId);
-
-  document.getElementById('editTitle').value = foundTask.title;
-  document.getElementById('editDescription').value = foundTask.description;
-  document.getElementById('editDueDate').value = foundTask.dueDate;
-
-  // Aktiviere die Priorität basierend auf der im Task gespeicherten Priorität
-  activatePriority(foundTask.priorityID);
-}
-
 function activatePriority(priorityID) {
   const priorityElement = document.getElementById(priorityID);
   if (priorityElement) {
@@ -47,6 +37,16 @@ function activatePriority(priorityID) {
   }
 }
 
+function edittaskArea(taskId) {
+  const foundTask = findTaskById(taskId);
+
+  document.getElementById('editTitle').value = foundTask.title;
+  document.getElementById('editDescription').value = foundTask.description;
+  document.getElementById('editDueDate').value = foundTask.dueDate;
+
+  // Aktiviere die Priorität basierend auf der im Task gespeicherten Priorität
+  activatePriority(foundTask.priorityID);
+}
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
 
