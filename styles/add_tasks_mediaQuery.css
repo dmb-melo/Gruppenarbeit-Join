@@ -44,7 +44,6 @@
   }
 
   .textContainer_addTask {    
-    /* margin-top: 10px; */
     font-size: 47px;
     margin-left: 8px;
     width: 320px;   
@@ -54,7 +53,6 @@
     margin-left: 10px;
     flex-direction: column;
     justify-content: center;
-
   }
 
   .vector4 {
@@ -67,8 +65,7 @@
   }
 
   .title_v1 {
-    width: 10px;
-   
+    width: 10px;   
   }
 
   .title {
@@ -167,8 +164,7 @@
   }
 
   .underlist{
-    position: relative;
-    
+    position: relative;    
   }
 
   .options {
@@ -177,7 +173,6 @@
 
   .subtasks {
     width: 300px;
-
   }
 
   .subtasksFrame14 {
@@ -188,8 +183,7 @@
     width: 265px;
   }
 
-  .addTasksFooter {  
-
+  .addTasksFooter{  
     margin-bottom: 25px;
     margin-left: 12px;
     width: 300px;   
@@ -206,7 +200,6 @@
   }
 
   .primary {
-    /* padding: 16px; */
     gap: 4px;
   }
 
@@ -427,9 +420,9 @@
     display: none;
   }
 
-.header{
-  position: relative;
-}
+  .header{
+    position: relative;
+  }
 
   .title_v1,
   .frame203,
@@ -513,14 +506,9 @@
     width: 300x;
   }
 
-
   .underList, .list, .listContact, .contactList{
     position: relative;
   }
-
-  /* .contactAvatar{
-    margin-top: -130px;
-  } */
 
   .custom-checkbox {
     width: 100%;
@@ -597,7 +585,6 @@
   }
 }
 
-
 @media (min-width: 1000px) and (max-width: 1149px) {
   .box-sizingResponsiv{
     display: none;
@@ -605,10 +592,10 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 660px !important;
-    margin-top: 68px; 
+    max-height: 690px !important;
+    padding-top: 52px;
   }
-
+  
   .recursor {
     display: none;
   }
@@ -679,8 +666,7 @@
   }
 
   .underListContact {
-    width: 780px;
-   
+    width: 780px;   
   }  
 
   .categoryFrame74{
@@ -714,11 +700,10 @@
   }
 
   .list{
-      position:relative
+    position:relative
   }
 
   .options{
-
     width: 750px;
   }
 
@@ -774,19 +759,19 @@
     position: inherit;
   }
 
-.categoryFrame74{
-  width: 405px;
+  .categoryFrame74{
+    width: 405px;
     z-index: auto;
     position: inherit;
-}
+  }
 
-.inputLeft_addTask{
-  display: flex;
-  align-items: center;
-  height: 422px;
-}
+  .inputLeft_addTask{
+    display: flex;
+    align-items: center;
+    height: 422px;
+  }
 
-.list{
+  .list{
     position: relative;
   }
 
@@ -831,6 +816,6 @@
       overflow: scroll !important;
    
   }
-  }
+}
 
   
