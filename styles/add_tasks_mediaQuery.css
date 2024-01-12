@@ -322,7 +322,7 @@
     padding: 10px 21px;
   }
 
-  .underList, .list, .underListContact, .listContact, .contactList{
+  .underList, .list,  .listContact, .contactList{
     position: relative;
   }
 
@@ -514,9 +514,13 @@
   }
 
 
-  .underList, .list, .underListContact, .listContact, .contactList{
+  .underList, .list, .listContact, .contactList{
     position: relative;
   }
+
+  /* .contactAvatar{
+    margin-top: -130px;
+  } */
 
   .custom-checkbox {
     width: 100%;
