@@ -55,7 +55,7 @@ function validatePassword() {
   let confirmInputValuePassword = document.getElementById("confirmPasswordInput").value;
   if (inputValuePassword != confirmInputValuePassword) {
     document.getElementById("inputFieldConfirmPassword").style = `border: 1px solid rgb(255,128,143) !important;`;
-    document.getElementById("textThePasswordNotMatchSignUp").innerHTML = `Ups! your password don't match`;
+    document.getElementById("textThePasswordNotMatchSignUp").innerHTML = `Ups! your password doesn't match`;
     signUpButton.disabled = true;
   } else {
     document.getElementById("inputFieldConfirmPassword").style = "";
