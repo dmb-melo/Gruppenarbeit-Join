@@ -40,7 +40,7 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height:680px!important;
+    height: calc(100vh - 176px);
   }
 
   .textContainer_addTask {    
@@ -260,7 +260,7 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 650px !important;
+    height: calc(100vh - 176px);
   }
 
   .textContainer_addTask {
@@ -440,7 +440,7 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 650px !important;
+    height: calc(100vh - 176px);
   }
 
   .textContainer_addTask {
@@ -592,7 +592,7 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 690px !important;
+    height: calc(100vh - 176px);
     padding-top: 52px;
   }
   
@@ -805,16 +805,15 @@
     display: none;
   }
 
-
   .textContainer_addTask {
     margin-top: 0px;
     margin-left: 290px;
   }
+
   .contentTask {
     padding-top: 40px; 
-      max-height: 700px !important;
-      overflow: scroll !important;
-   
+    height: calc(100vh - 176px);
+    overflow: scroll !important;   
   }
 }
 
