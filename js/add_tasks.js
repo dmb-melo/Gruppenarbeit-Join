@@ -145,12 +145,13 @@ function addTask(){
     dueDate.unshift(dueDateValue);
 
     checkboxAddTask();
-    let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
-    let priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
-    let selectedPriorityID = "";
-        if (selectedPriority) {
-            selectedPriorityID = selectedPriority.id;
-        }
+    let categoryElement = document.getElementById("taskCategory");
+    let categoryValue = categoryElement ? categoryElement.textContent : "Select a task category";
+  
+    if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
+      return; 
+    }
+
     priorityContentArray.unshift(priorityContent);
     currentId++;
    let newTask = {
