@@ -13,6 +13,8 @@ let currentId = 0;
 let taskStatus = [];
 let selectedPriorityContent = "";
 
+
+
 function addTaskInit() {
   load();
   selectedPriorityContent = localStorage.getItem("selectedPriorityContent");
@@ -134,6 +136,8 @@ function clearAllSelections() {
 }
  
 function addTask(){
+  switchColorpriorityContent();
+ 
     let titleValue = document.getElementById("title").value;
     document.getElementById("title").value = "";
     title.unshift(titleValue);
@@ -151,7 +155,9 @@ function addTask(){
     let selectedPriorityID = "";
         if (selectedPriority) {
             selectedPriorityID = selectedPriority.id;
+            
         }
+
     let categoryElement = document.getElementById("taskCategory");
     let categoryValue = categoryElement ? categoryElement.textContent : "Select a task category";
   
@@ -160,6 +166,7 @@ function addTask(){
     }
 
     priorityContentArray.unshift(priorityContent);
+
     currentId++;
    let newTask = {
         id: currentId,
@@ -189,10 +196,30 @@ function addTask(){
     updateSubtasksDisplay();
     clearAllSelections();
     resetPriorityTextColors();
+    
     category = [];
     selectedContacts = [];
    
 }
+
+function switchColorpriorityContent() {
+  let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
+ 
+  if (selectedPriority) {
+    priorityID = selectedPriority.id;
+  }
+  if (priorityID === "priorityUrgent") {
+  document.getElementById('textUrgent').style.color = "black";
+  }
+  if (priorityID === "priorityMedium") {
+    document.getElementById('textMedium').style.color = "black";
+  }
+  if (priorityID === "priorityLow") {
+  document.getElementById('textLow').style.color = "black";
+  }
+}
+
+
 
 function checkboxAddTask(){
     let checkboxes = document.querySelectorAll(".inputCheckBox");
