@@ -14,7 +14,6 @@ let taskStatus = [];
 let selectedPriorityContent = "";
 
 
-
 function addTaskInit() {
   load();
   selectedPriorityContent = localStorage.getItem("selectedPriorityContent");
@@ -149,6 +148,7 @@ function addTask(){
     dueDate.unshift(dueDateValue);
 
     checkboxAddTask();
+
     let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
     let priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
     let selectedPriorityID = "";
@@ -182,9 +182,9 @@ function addTask(){
    
     subT.unshift(subtasks.slice()); 
     tasks.unshift(newTask); 
-  if (categorySelectElement) {
-    categorySelectElement.textContent = "Select a task category";
-  }
+    localStorage.setItem("selectedPriorityContent", priorityContent);
+
+  document.getElementById("categorySelect").textContent = "Select a task category";
     subtasks = []; 
     
     save();
@@ -217,7 +217,6 @@ function switchColorpriorityContent() {
   document.getElementById('textLow').style.color = "black";
   }
 }
-
 
 
 function checkboxAddTask(){
@@ -306,7 +305,6 @@ function hideAssigned(event) {
   displayAvatar(selectedContacts, contacts, colors);
 }
 
-
 function clearPrioActiveClass() {
   removePrioActiveClass("priorityUrgent"); 
   removePrioActiveClass("priorityMedium"); 
@@ -315,7 +313,6 @@ function clearPrioActiveClass() {
   removeImgPrioActive("priorityMedium");
   removeImgPrioActive("priorityLow");
 }
-
 
 function changeColour(divID) {
   const selected = document.getElementById(divID);
@@ -343,7 +340,6 @@ function changeColour(divID) {
     }
   }
 
-
   // Toggle active class for the selected priority
   selected.classList.toggle(`${divID}-active`);
   let selectedImgPaths = document.querySelectorAll(`.img-${divID}`);
@@ -367,8 +363,6 @@ function changeColour(divID) {
     selectedTextElement.style.color = isCurrentlyActive ? "white" : "";
   }
 }
-
-
 
 function removePriorityStyles(prio) {
   prio.classList.remove(`${prio.id}-active`);
@@ -659,7 +653,6 @@ function checkRequiredFields(titleValue, dueDateValue, categoryValue) {
   return true;
 }
 
-
 function removeBorderColorAndHideIndicator(fieldId) {
   const fieldIndicator = document.getElementById(fieldId);
   const frameSelector = getFrameSelector(fieldId);
@@ -673,7 +666,6 @@ function removeBorderColorAndHideIndicator(fieldId) {
     fieldIndicator.style.display = "none"; 
   }
 }
-
 
 function getFrameSelector(fieldId) {
   switch (fieldId) {
@@ -725,3 +717,5 @@ function hideFieldIndicatorsExcept(exceptSelector) {
     }
   });
 }
+
+
