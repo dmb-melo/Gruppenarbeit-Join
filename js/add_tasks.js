@@ -149,7 +149,6 @@ function addTask(){
     dueDate.unshift(dueDateValue);
 
     checkboxAddTask();
-
     let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
     let priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
     let selectedPriorityID = "";
@@ -183,9 +182,9 @@ function addTask(){
    
     subT.unshift(subtasks.slice()); 
     tasks.unshift(newTask); 
-    localStorage.setItem("selectedPriorityContent", priorityContent);
-
-  document.getElementById("categorySelect").textContent = "Select a task category";
+  if (categorySelectElement) {
+    categorySelectElement.textContent = "Select a task category";
+  }
     subtasks = []; 
     
     save();
@@ -344,6 +343,7 @@ function changeColour(divID) {
     }
   }
 
+
   // Toggle active class for the selected priority
   selected.classList.toggle(`${divID}-active`);
   let selectedImgPaths = document.querySelectorAll(`.img-${divID}`);
@@ -367,6 +367,8 @@ function changeColour(divID) {
     selectedTextElement.style.color = isCurrentlyActive ? "white" : "";
   }
 }
+
+
 
 function removePriorityStyles(prio) {
   prio.classList.remove(`${prio.id}-active`);
