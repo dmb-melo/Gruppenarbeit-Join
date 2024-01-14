@@ -136,7 +136,7 @@ function clearAllSelections() {
 function addTask(){
     let titleValue = document.getElementById("title").value;
     document.getElementById("title").value = "";
-    title.unshift("titleValue");
+    title.unshift(titleValue);
     let descriptionValue = document.getElementById("description").value;
     document.getElementById("description").value = "";
     description.unshift(descriptionValue);
@@ -183,8 +183,6 @@ function addTask(){
     taskSuccess();
     updateSubtasksDisplay();
     clearAllSelections();
-    handleTaskClick(); 
-    checkRequiredFields();
     category = [];
     selectedContacts = [];
 }
@@ -506,7 +504,7 @@ async function handleTaskClick(event) {
   let categoryValue = document.getElementById("categorySelect").textContent;
   let dueDateValue = document.getElementById("dueDate").value;
   if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
-    return; 
+    return 
   }
   await addTask();
   setTimeout(async function () {
