@@ -168,8 +168,6 @@ function addTask(){
    
     subT.unshift(subtasks.slice()); 
     tasks.unshift(newTask); 
-    localStorage.setItem("selectedPriorityContent", priorityContent);
-    let categorySelectElement = document.getElementById("categorySelect");
   if (categorySelectElement) {
     categorySelectElement.textContent = "Select a task category";
   }
@@ -178,13 +176,14 @@ function addTask(){
     save();
     renderTask();
     clearContactAvatar();
-    changeColour(selectedPriorityID);
     clearPrioActiveClass();
     taskSuccess();
     updateSubtasksDisplay();
     clearAllSelections();
+    resetPriorityTextColors();
     category = [];
     selectedContacts = [];
+   
 }
 
 function checkboxAddTask(){
@@ -216,6 +215,7 @@ function clearTask() {
   clearAllSelections();
   clearPrioActiveClass();
   clearTaskCategory();
+  resetPriorityTextColors();  
 }
 
 function save() {
@@ -282,13 +282,16 @@ function clearPrioActiveClass() {
   removeImgPrioActive("priorityLow");
 }
 
+
 function changeColour(divID) {
   const selected = document.getElementById(divID);
-  if (!selected) return; 
+  if (!selected) return;
+
   const urgent = document.getElementById("priorityUrgent");
   const medium = document.getElementById("priorityMedium");
   const low = document.getElementById("priorityLow");
   let priorities = [urgent, medium, low];
+
   for (let i = 0; i < priorities.length; i++) {
     let prio = priorities[i];
     if (prio && prio !== selected) {
@@ -297,13 +300,80 @@ function changeColour(divID) {
       imgPaths.forEach((path) => {
         path.classList.remove("imgPrio-active");
       });
+
+      // Reset text color to default (black) only if it exists
+      let textElement = prio.querySelector(`.text${prio.id.slice(8)}`);
+      if (textElement) {
+        textElement.style.color = "";
+      }
     }
   }
+
+
+  // Toggle active class for the selected priority
   selected.classList.toggle(`${divID}-active`);
   let selectedImgPaths = document.querySelectorAll(`.img-${divID}`);
   selectedImgPaths.forEach((path) => {
     path.classList.toggle("imgPrio-active");
   });
+
+  // Set text color to white for the selected priority
+  let selectedTextElement = selected.querySelector(`.text${divID.slice(8)}`);
+  if (selectedTextElement) {
+    const isCurrentlyActive = selected.classList.contains(`${divID}-active`);
+    const previousActivePriority = priorities.find((prio) => prio.classList.contains(`${prio.id}-active`));
+
+    // Check if the previous active priority is different from the current one
+    if (previousActivePriority && previousActivePriority !== selected) {
+      let previousTextElement = previousActivePriority.querySelector(`.text${previousActivePriority.id.slice(8)}`);
+      if (previousTextElement) {
+        previousTextElement.style.color = ""; // Reset text color to default (black)
+      }
+    }
+    selectedTextElement.style.color = isCurrentlyActive ? "white" : "";
+  }
+}
+
+
+
+function removePriorityStyles(prio) {
+  prio.classList.remove(`${prio.id}-active`);
+  toggleImgPrioActive(prio.id);
+
+  const textElement = prio.querySelector(`.text${prio.id.slice(8)}`);
+  if (textElement) {
+    textElement.removeAttribute('style');
+  }
+}
+
+function toggleImgPrioActive(divID) {
+  const imgPaths = document.querySelectorAll(`.img-${divID}`);
+  imgPaths.forEach(path => {
+    path.classList.toggle("imgPrio-active");
+  });
+}
+
+function updateTextElementColor(textElement, isCurrentlyActive) {
+  textElement.style.color = isCurrentlyActive ? "white" : "";
+}
+
+function resetPriorityTextColors() {
+  const urgent = document.getElementById("priorityUrgent");
+  const medium = document.getElementById("priorityMedium");
+  const low = document.getElementById("priorityLow");
+
+  resetTextColor(urgent);
+  resetTextColor(medium);
+  resetTextColor(low);
+}
+
+function resetTextColor(prio) {
+  if (prio) {
+    let textElement = prio.querySelector(`.text${prio.id.slice(8)}`);
+    if (textElement) {
+      textElement.style.color = "";
+    }
+  }
 }
 
 function removePrioActiveClass(divID) {
