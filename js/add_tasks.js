@@ -153,7 +153,6 @@ function addTask(){
         }
     priorityContentArray.unshift(priorityContent);
     currentId++;
-    console.log("category", selectedPriority);
    let newTask = {
         id: currentId,
         title: titleValue,
@@ -170,7 +169,10 @@ function addTask(){
     subT.unshift(subtasks.slice()); 
     tasks.unshift(newTask); 
     localStorage.setItem("selectedPriorityContent", priorityContent);
-    document.getElementById("categorySelect").textContent = "Select a task category";
+    let categorySelectElement = document.getElementById("categorySelect");
+  if (categorySelectElement) {
+    categorySelectElement.textContent = "Select a task category";
+  }
     subtasks = []; 
     
     save();
@@ -181,6 +183,8 @@ function addTask(){
     taskSuccess();
     updateSubtasksDisplay();
     clearAllSelections();
+    handleTaskClick(); 
+    checkRequiredFields();
     category = [];
     selectedContacts = [];
 }
@@ -204,8 +208,9 @@ function clearTask() {
   document.getElementById("dueDate").value = "";
   document.getElementById("inputSubtasks").value = "";
   removeBorderColorAndHideIndicator("titleFieldRequired");
-  removeBorderColorAndHideIndicator("descriptionFieldRequired");
   removeBorderColorAndHideIndicator("dueDateFieldRequired");
+  let categoryFrame74 = document.getElementById("categoryFrame_74");
+  categoryFrame74.style.border = ""; 
   let allSubtasksDiv = document.getElementById("allSubtasks");
   allSubtasksDiv.innerHTML = "";
   document.getElementById("taskCategory").value = "";
@@ -324,6 +329,8 @@ function clearTaskCategory() {
 function selectCategory(clickedElement) {
   let selectText = clickedElement.querySelector("p").getAttribute("value");
   let taskCategory = document.getElementById("taskCategory");
+  let categoryFrame74 = document.getElementById("categoryFrame_74");
+  categoryFrame74.style.border = ""; 
   if (selectText !== "Select a task category") {
     category = [];
     category.unshift(selectText);
@@ -352,7 +359,6 @@ function addSubtasks() {
   updateSubtasksDisplay();
   save();
   hideVectorAndImgCheck();
-  handleCheckClick();
 }
 
 function updateSubtasksDisplay() {
@@ -493,15 +499,15 @@ function hideVectorAndImgCheck() {
 }
 
 async function handleTaskClick(event) {
-  event.preventDefault();
-  let titleValue = document.getElementById("title").value;
-  let descriptionValue = document.getElementById("description").value;
-  let dueDateValue = document.getElementById("dueDate").value;
-
-  if (!checkRequiredFields(titleValue, descriptionValue, dueDateValue)) {
-    return; // Stop execution if any required field is empty
+  if (event) {
+    event.preventDefault();
   }
-
+  let titleValue = document.getElementById("title").value;
+  let categoryValue = document.getElementById("categorySelect").textContent;
+  let dueDateValue = document.getElementById("dueDate").value;
+  if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
+    return; 
+  }
   await addTask();
   setTimeout(async function () {
     await renderBoardHTML(); 
@@ -526,53 +532,51 @@ function handleInput(inputElement) {
   const elementId = inputElement.id;
   if (elementId === "title") {
     removeBorderColorAndHideIndicator("titleFieldRequired");
-  } else if (elementId === "description") {
-    removeBorderColorAndHideIndicator("descriptionFieldRequired");
+  } else if (elementId === "taskCategory") {
+    removeBorderColorAndHideIndicator("taskCategory");
   } else if (elementId === "dueDate") {
     removeBorderColorAndHideIndicator("dueDateFieldRequired");
   }
 }
 
-function checkRequiredFields(titleValue, descriptionValue, dueDateValue) {
-  if (titleValue.trim() === "") {
-      changeBorderColorAndDisplayField(".title_frame14", "#titleFieldRequired");
-      hideFieldIndicatorsExcept("#titleFieldRequired");
-      return false; 
+function checkRequiredFields(titleValue, dueDateValue, categoryValue) {
+  if (!titleValue || !titleValue.trim()) {
+    changeBorderColorAndDisplayField(".title_frame14", "#titleFieldRequired");
+    hideFieldIndicatorsExcept("#titleFieldRequired");
+    return false;
   }
-
-  if (descriptionValue.trim() === "") {
-      changeBorderColorAndDisplayField(".frame17", "#descriptionFieldRequired");
-      hideFieldIndicatorsExcept("#descriptionFieldRequired");
-      return false; 
+  if (!dueDateValue || !dueDateValue.trim()) {
+    changeBorderColorAndDisplayField(".dueDate_frame14", "#dueDateFieldRequired");
+    hideFieldIndicatorsExcept("#dueDateFieldRequired");
+    return false;
   }
-
-  if (dueDateValue.trim() === "") {
-      changeBorderColorAndDisplayField(".dueDate_frame14", "#dueDateFieldRequired");
-      hideFieldIndicatorsExcept("#dueDateFieldRequired");
-      return false; 
+  if (!categoryValue || !categoryValue.trim() || categoryValue === "Select a task category") {
+    changeBorderColorAndDisplayField(".categoryFrame_74");
+    return false;
   }
-
-  return true; 
+  return true;
 }
+
 
 function removeBorderColorAndHideIndicator(fieldId) {
   const fieldIndicator = document.getElementById(fieldId);
   const frameSelector = getFrameSelector(fieldId);
-  const frame = document.querySelector(frameSelector);
-  if (frame) {
-    frame.style.border = ""; 
+  if (frameSelector) {
+    const frame = document.querySelector(frameSelector);
+    if (frame) {
+      frame.style.border = ""; 
+    }
   }
   if (fieldIndicator) {
     fieldIndicator.style.display = "none"; 
   }
 }
 
+
 function getFrameSelector(fieldId) {
   switch (fieldId) {
     case "titleFieldRequired":
       return ".title_frame14";
-    case "descriptionFieldRequired":
-      return ".frame17";
     case "dueDateFieldRequired":
       return ".dueDate_frame14";
     default:
@@ -594,9 +598,9 @@ function required(element) {
   } else if (element.classList.contains("frame203")) {
     changeBorderColorAndDisplayField(".title_frame14", "#titleFieldRequired");
     hideFieldIndicatorsExcept("#titleFieldRequired");
-  } else if (element.classList.contains("frame207")) {
-    changeBorderColorAndDisplayField(".frame17", "#descriptionFieldRequired");
-    hideFieldIndicatorsExcept("#descriptionFieldRequired");
+  }
+  else if (element.classList.contains("categoryFrame_74")) {
+    changeBorderColorAndDisplayField(".categoryFrame_74");
   }
 }
 
@@ -612,7 +616,7 @@ function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector)
 }
 
 function hideFieldIndicatorsExcept(exceptSelector) {
-  const allIndicators = document.querySelectorAll("#titleFieldRequired, #descriptionFieldRequired, #dueDateFieldRequired");
+  const allIndicators = document.querySelectorAll("#titleFieldRequired, #dueDateFieldRequired");
   allIndicators.forEach((indicator) => {
     if (indicator !== document.querySelector(exceptSelector)) {
       indicator.style.display = "none";

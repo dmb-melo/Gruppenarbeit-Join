@@ -812,7 +812,7 @@
 
   .contentTask {
     padding-top: 40px; 
-    height: calc(100vh - 176px);
+    height: calc(100vh - 119px);
     overflow: scroll !important;   
   }
 }
