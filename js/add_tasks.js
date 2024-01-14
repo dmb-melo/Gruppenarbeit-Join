@@ -28,6 +28,7 @@ function renderTask() {
     renderContactsAddTask(i, contactsList);
   }
   document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);
+  changeColour('priorityMedium');
 }
 
 function sortContacts() {
