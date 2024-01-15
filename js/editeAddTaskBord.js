@@ -95,11 +95,11 @@ function saveEditTaskBoard(taskId) {
   let selectedPriorityBoard = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
   let priorityContentBoard = selectedPriorityBoard ? selectedPriorityBoard.innerHTML : "";
   let selectedPriorityIDBoard = "";
-  checkboxAddTaskEdit();
+ 
   if (selectedPriorityBoard) {
     selectedPriorityIDBoard = selectedPriorityBoard.id;
   }
-  
+  checkboxAddTaskEdit();
   priorityContentArray.unshift(priorityContentBoard);
 
   if (foundTask) {
@@ -109,33 +109,39 @@ function saveEditTaskBoard(taskId) {
       description: document.getElementById('editDescription').value,
       dueDate: document.getElementById('editDueDate').value,
       taskStatus: status,
-      priorityID: prio, 
+      priorityContent: priorityContentBoard,
+      priorityID: selectedPriorityIDBoard, 
       assigned: assigned, 
+      category: category,
+      subtasks: subtasks.slice(),
     };
    tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
 
     save();
-
+    
   } else {
     console.error('Task with ID ' + taskId + ' not found.');
   }
+  localStorage.setItem("selectedPriorityContent", priorityContentBoard);
   load();
   updateHtml();
   closeCard();
-  updateSubtasksDisplayEdit();
+
   selecetContactsEdit =[];
 }
 
-function checkboxAddTaskEdit(){
+function checkboxAddTaskEdit() {
   let checkboxes = document.querySelectorAll(".inputCheckBox");
   assigned = []; 
   checkboxes.forEach((checkbox, index) => {
-  let label = document.querySelector(`.nameContact[for=myCheckbox_${index}]`);
-  if (checkbox.checked && label) {
-    assigned.push(label.textContent);
-  }
-});
+    let label = document.querySelector(`.nameContact[for=myCheckbox_Edit${index}]`);
+    if (checkbox.checked && label) {
+      assigned.push(label.textContent);
+    }
+  });
+  console.log("Assigned Contacts:", assigned); 
 }
+
 
 function getStatusTaskId(taskId) {
   for (let i = 0; i < tasks.length; i++) {
@@ -205,7 +211,7 @@ function validationContactsCheckedEdit(i, liElementEdit, nameElementEdit, labelE
   if (event.target.checked) {
     contactCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit);
   } else {
-    contactNotCheckedEdit(i, liElementEdit, nameElement, labelElementEdit);
+    contactNotCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit);
   }
 }
 

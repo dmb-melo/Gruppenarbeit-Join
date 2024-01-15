@@ -229,6 +229,7 @@ function checkboxAddTask(){
       assigned.push(label.textContent);
     }
   });
+  console.log("Assigned Contacts:", assigned); 
 }
 
 function clearTask() {

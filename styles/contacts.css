@@ -1,6 +1,13 @@
 body{
     font-family: "Inter", sans-serif;
 }
+.inputField::-webkit-outer-spin-button,
+.inputField::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
 .contacts-headline-h1{
     font-size: 42px;
     font-weight: 700;
@@ -724,7 +731,7 @@ hr{
         width: 38vw;
     }
     .inputField{
-        width: 288px;
+        width: 303px;
     }
     .inputFieldName{
         width: 317px;

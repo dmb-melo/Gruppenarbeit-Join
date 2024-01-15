@@ -383,6 +383,7 @@ async function deleteContact(event, i){
 
 //Funktion zum Speichern eines bearbeiteten Kontaktes
 async function saveContact(event, i) {
+    let newName = document.getElementById('userNameEdit').value;
     let editedContact = [
         document.getElementById('userNameEdit').value,
         document.getElementById('userEmailEdit').value,
@@ -391,10 +392,10 @@ async function saveContact(event, i) {
     contacts.splice(i, 1);   
     closeEditContact();
     selectContact(i);
-
-    let name = contacts[i][0];
+    //let name = contacts[i][0];
+    let name = newName;
     let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
-    let names = contacts[i][0].split(" ");
+    let names = newName.split(" ");
     let surname = names[1].toUpperCase().charAt(0);
     let circle = document.getElementById('circleCard'); 
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
