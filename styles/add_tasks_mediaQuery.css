@@ -40,11 +40,10 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height:680px!important;
+    height: calc(100vh - 176px);
   }
 
   .textContainer_addTask {    
-    /* margin-top: 10px; */
     font-size: 47px;
     margin-left: 8px;
     width: 320px;   
@@ -54,7 +53,6 @@
     margin-left: 10px;
     flex-direction: column;
     justify-content: center;
-
   }
 
   .vector4 {
@@ -67,8 +65,7 @@
   }
 
   .title_v1 {
-    width: 10px;
-   
+    width: 10px;   
   }
 
   .title {
@@ -167,8 +164,7 @@
   }
 
   .underlist{
-    position: relative;
-    
+    position: relative;    
   }
 
   .options {
@@ -177,7 +173,6 @@
 
   .subtasks {
     width: 300px;
-
   }
 
   .subtasksFrame14 {
@@ -188,8 +183,7 @@
     width: 265px;
   }
 
-  .addTasksFooter {  
-
+  .addTasksFooter{  
     margin-bottom: 25px;
     margin-left: 12px;
     width: 300px;   
@@ -206,7 +200,6 @@
   }
 
   .primary {
-    /* padding: 16px; */
     gap: 4px;
   }
 
@@ -267,7 +260,7 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 650px !important;
+    height: calc(100vh - 176px);
   }
 
   .textContainer_addTask {
@@ -322,7 +315,7 @@
     padding: 10px 21px;
   }
 
-  .underList, .list, .underListContact, .listContact, .contactList{
+  .underList, .list,  .listContact, .contactList{
     position: relative;
   }
 
@@ -427,9 +420,9 @@
     display: none;
   }
 
-.header{
-  position: relative;
-}
+  .header{
+    position: relative;
+  }
 
   .title_v1,
   .frame203,
@@ -447,7 +440,7 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 650px !important;
+    height: calc(100vh - 176px);
   }
 
   .textContainer_addTask {
@@ -513,8 +506,7 @@
     width: 300x;
   }
 
-
-  .underList, .list, .underListContact, .listContact, .contactList{
+  .underList, .list, .listContact, .contactList{
     position: relative;
   }
 
@@ -593,7 +585,6 @@
   }
 }
 
-
 @media (min-width: 1000px) and (max-width: 1149px) {
   .box-sizingResponsiv{
     display: none;
@@ -601,10 +592,10 @@
 
   .contentTask {
     overflow: scroll !important;
-    max-height: 660px !important;
-    margin-top: 68px; 
+    height: calc(100vh - 176px);
+    padding-top: 52px;
   }
-
+  
   .recursor {
     display: none;
   }
@@ -675,8 +666,7 @@
   }
 
   .underListContact {
-    width: 780px;
-   
+    width: 780px;   
   }  
 
   .categoryFrame74{
@@ -710,11 +700,10 @@
   }
 
   .list{
-      position:relative
+    position:relative
   }
 
   .options{
-
     width: 750px;
   }
 
@@ -770,19 +759,19 @@
     position: inherit;
   }
 
-.categoryFrame74{
-  width: 405px;
+  .categoryFrame74{
+    width: 405px;
     z-index: auto;
     position: inherit;
-}
+  }
 
-.inputLeft_addTask{
-  display: flex;
-  align-items: center;
-  height: 422px;
-}
+  .inputLeft_addTask{
+    display: flex;
+    align-items: center;
+    height: 422px;
+  }
 
-.list{
+  .list{
     position: relative;
   }
 
@@ -816,17 +805,16 @@
     display: none;
   }
 
-
   .textContainer_addTask {
     margin-top: 0px;
     margin-left: 290px;
   }
+
   .contentTask {
     padding-top: 40px; 
-      max-height: 700px !important;
-      overflow: scroll !important;
-   
+    height: calc(100vh - 119px);
+    overflow: scroll !important;   
   }
-  }
+}
 
   

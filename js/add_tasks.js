@@ -13,6 +13,7 @@ let currentId = 0;
 let taskStatus = [];
 let selectedPriorityContent = "";
 
+
 function addTaskInit() {
   load();
   selectedPriorityContent = localStorage.getItem("selectedPriorityContent");
@@ -27,6 +28,7 @@ function renderTask() {
     renderContactsAddTask(i, contactsList);
   }
   document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);
+  changeColour('priorityMedium');
 }
 
 function sortContacts() {
@@ -134,9 +136,11 @@ function clearAllSelections() {
 }
  
 function addTask(){
+  switchColorpriorityContent();
+ 
     let titleValue = document.getElementById("title").value;
     document.getElementById("title").value = "";
-    title.unshift("titleValue");
+    title.unshift(titleValue);
     let descriptionValue = document.getElementById("description").value;
     document.getElementById("description").value = "";
     description.unshift(descriptionValue);
@@ -145,15 +149,25 @@ function addTask(){
     dueDate.unshift(dueDateValue);
 
     checkboxAddTask();
+
     let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
     let priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
     let selectedPriorityID = "";
         if (selectedPriority) {
             selectedPriorityID = selectedPriority.id;
+            
         }
+
+    let categoryElement = document.getElementById("taskCategory");
+    let categoryValue = categoryElement ? categoryElement.textContent : "Select a task category";
+  
+    if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
+      return; 
+    }
+
     priorityContentArray.unshift(priorityContent);
+
     currentId++;
-    console.log("category", selectedPriority);
    let newTask = {
         id: currentId,
         title: titleValue,
@@ -170,20 +184,41 @@ function addTask(){
     subT.unshift(subtasks.slice()); 
     tasks.unshift(newTask); 
     localStorage.setItem("selectedPriorityContent", priorityContent);
-    document.getElementById("categorySelect").textContent = "Select a task category";
+
+  document.getElementById("categorySelect").textContent = "Select a task category";
     subtasks = []; 
     
     save();
     renderTask();
     clearContactAvatar();
-    changeColour(selectedPriorityID);
     clearPrioActiveClass();
     taskSuccess();
     updateSubtasksDisplay();
     clearAllSelections();
+    resetPriorityTextColors();
+    
     category = [];
     selectedContacts = [];
+   
 }
+
+function switchColorpriorityContent() {
+  let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
+ 
+  if (selectedPriority) {
+    priorityID = selectedPriority.id;
+  }
+  if (priorityID === "priorityUrgent") {
+  document.getElementById('textUrgent').style.color = "black";
+  }
+  if (priorityID === "priorityMedium") {
+    document.getElementById('textMedium').style.color = "black";
+  }
+  if (priorityID === "priorityLow") {
+  document.getElementById('textLow').style.color = "black";
+  }
+}
+
 
 function checkboxAddTask(){
     let checkboxes = document.querySelectorAll(".inputCheckBox");
@@ -204,8 +239,9 @@ function clearTask() {
   document.getElementById("dueDate").value = "";
   document.getElementById("inputSubtasks").value = "";
   removeBorderColorAndHideIndicator("titleFieldRequired");
-  removeBorderColorAndHideIndicator("descriptionFieldRequired");
   removeBorderColorAndHideIndicator("dueDateFieldRequired");
+  let categoryFrame74 = document.getElementById("categoryFrame_74");
+  categoryFrame74.style.border = ""; 
   let allSubtasksDiv = document.getElementById("allSubtasks");
   allSubtasksDiv.innerHTML = "";
   document.getElementById("taskCategory").value = "";
@@ -213,6 +249,7 @@ function clearTask() {
   clearAllSelections();
   clearPrioActiveClass();
   clearTaskCategory();
+  resetPriorityTextColors();  
 }
 
 function save() {
@@ -269,7 +306,6 @@ function hideAssigned(event) {
   displayAvatar(selectedContacts, contacts, colors);
 }
 
-
 function clearPrioActiveClass() {
   removePrioActiveClass("priorityUrgent"); 
   removePrioActiveClass("priorityMedium"); 
@@ -281,11 +317,13 @@ function clearPrioActiveClass() {
 
 function changeColour(divID) {
   const selected = document.getElementById(divID);
-  if (!selected) return; 
+  if (!selected) return;
+
   const urgent = document.getElementById("priorityUrgent");
   const medium = document.getElementById("priorityMedium");
   const low = document.getElementById("priorityLow");
   let priorities = [urgent, medium, low];
+
   for (let i = 0; i < priorities.length; i++) {
     let prio = priorities[i];
     if (prio && prio !== selected) {
@@ -294,13 +332,77 @@ function changeColour(divID) {
       imgPaths.forEach((path) => {
         path.classList.remove("imgPrio-active");
       });
+
+      // Reset text color to default (black) only if it exists
+      let textElement = prio.querySelector(`.text${prio.id.slice(8)}`);
+      if (textElement) {
+        textElement.style.color = "";
+      }
     }
   }
+
+  // Toggle active class for the selected priority
   selected.classList.toggle(`${divID}-active`);
   let selectedImgPaths = document.querySelectorAll(`.img-${divID}`);
   selectedImgPaths.forEach((path) => {
     path.classList.toggle("imgPrio-active");
   });
+
+  // Set text color to white for the selected priority
+  let selectedTextElement = selected.querySelector(`.text${divID.slice(8)}`);
+  if (selectedTextElement) {
+    const isCurrentlyActive = selected.classList.contains(`${divID}-active`);
+    const previousActivePriority = priorities.find((prio) => prio.classList.contains(`${prio.id}-active`));
+
+    // Check if the previous active priority is different from the current one
+    if (previousActivePriority && previousActivePriority !== selected) {
+      let previousTextElement = previousActivePriority.querySelector(`.text${previousActivePriority.id.slice(8)}`);
+      if (previousTextElement) {
+        previousTextElement.style.color = ""; // Reset text color to default (black)
+      }
+    }
+    selectedTextElement.style.color = isCurrentlyActive ? "white" : "";
+  }
+}
+
+function removePriorityStyles(prio) {
+  prio.classList.remove(`${prio.id}-active`);
+  toggleImgPrioActive(prio.id);
+
+  const textElement = prio.querySelector(`.text${prio.id.slice(8)}`);
+  if (textElement) {
+    textElement.removeAttribute('style');
+  }
+}
+
+function toggleImgPrioActive(divID) {
+  const imgPaths = document.querySelectorAll(`.img-${divID}`);
+  imgPaths.forEach(path => {
+    path.classList.toggle("imgPrio-active");
+  });
+}
+
+function updateTextElementColor(textElement, isCurrentlyActive) {
+  textElement.style.color = isCurrentlyActive ? "white" : "";
+}
+
+function resetPriorityTextColors() {
+  const urgent = document.getElementById("priorityUrgent");
+  const medium = document.getElementById("priorityMedium");
+  const low = document.getElementById("priorityLow");
+
+  resetTextColor(urgent);
+  resetTextColor(medium);
+  resetTextColor(low);
+}
+
+function resetTextColor(prio) {
+  if (prio) {
+    let textElement = prio.querySelector(`.text${prio.id.slice(8)}`);
+    if (textElement) {
+      textElement.style.color = "";
+    }
+  }
 }
 
 function removePrioActiveClass(divID) {
@@ -324,6 +426,8 @@ function clearTaskCategory() {
 function selectCategory(clickedElement) {
   let selectText = clickedElement.querySelector("p").getAttribute("value");
   let taskCategory = document.getElementById("taskCategory");
+  let categoryFrame74 = document.getElementById("categoryFrame_74");
+  categoryFrame74.style.border = ""; 
   if (selectText !== "Select a task category") {
     category = [];
     category.unshift(selectText);
@@ -352,7 +456,6 @@ function addSubtasks() {
   updateSubtasksDisplay();
   save();
   hideVectorAndImgCheck();
-  handleCheckClick();
 }
 
 function updateSubtasksDisplay() {
@@ -493,15 +596,15 @@ function hideVectorAndImgCheck() {
 }
 
 async function handleTaskClick(event) {
-  event.preventDefault();
-  let titleValue = document.getElementById("title").value;
-  let descriptionValue = document.getElementById("description").value;
-  let dueDateValue = document.getElementById("dueDate").value;
-
-  if (!checkRequiredFields(titleValue, descriptionValue, dueDateValue)) {
-    return; // Stop execution if any required field is empty
+  if (event) {
+    event.preventDefault();
   }
-
+  let titleValue = document.getElementById("title").value;
+  let categoryValue = document.getElementById("categorySelect").textContent;
+  let dueDateValue = document.getElementById("dueDate").value;
+  if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
+    return 
+  }
   await addTask();
   setTimeout(async function () {
     await renderBoardHTML(); 
@@ -526,41 +629,39 @@ function handleInput(inputElement) {
   const elementId = inputElement.id;
   if (elementId === "title") {
     removeBorderColorAndHideIndicator("titleFieldRequired");
-  } else if (elementId === "description") {
-    removeBorderColorAndHideIndicator("descriptionFieldRequired");
+  } else if (elementId === "taskCategory") {
+    removeBorderColorAndHideIndicator("taskCategory");
   } else if (elementId === "dueDate") {
     removeBorderColorAndHideIndicator("dueDateFieldRequired");
   }
 }
 
-function checkRequiredFields(titleValue, descriptionValue, dueDateValue) {
-  if (titleValue.trim() === "") {
-      changeBorderColorAndDisplayField(".title_frame14", "#titleFieldRequired");
-      hideFieldIndicatorsExcept("#titleFieldRequired");
-      return false; 
+function checkRequiredFields(titleValue, dueDateValue, categoryValue) {
+  if (!titleValue || !titleValue.trim()) {
+    changeBorderColorAndDisplayField(".title_frame14", "#titleFieldRequired");
+    hideFieldIndicatorsExcept("#titleFieldRequired");
+    return false;
   }
-
-  if (descriptionValue.trim() === "") {
-      changeBorderColorAndDisplayField(".frame17", "#descriptionFieldRequired");
-      hideFieldIndicatorsExcept("#descriptionFieldRequired");
-      return false; 
+  if (!dueDateValue || !dueDateValue.trim()) {
+    changeBorderColorAndDisplayField(".dueDate_frame14", "#dueDateFieldRequired");
+    hideFieldIndicatorsExcept("#dueDateFieldRequired");
+    return false;
   }
-
-  if (dueDateValue.trim() === "") {
-      changeBorderColorAndDisplayField(".dueDate_frame14", "#dueDateFieldRequired");
-      hideFieldIndicatorsExcept("#dueDateFieldRequired");
-      return false; 
+  if (!categoryValue || !categoryValue.trim() || categoryValue === "Select a task category") {
+    changeBorderColorAndDisplayField(".categoryFrame_74");
+    return false;
   }
-
-  return true; 
+  return true;
 }
 
 function removeBorderColorAndHideIndicator(fieldId) {
   const fieldIndicator = document.getElementById(fieldId);
   const frameSelector = getFrameSelector(fieldId);
-  const frame = document.querySelector(frameSelector);
-  if (frame) {
-    frame.style.border = ""; 
+  if (frameSelector) {
+    const frame = document.querySelector(frameSelector);
+    if (frame) {
+      frame.style.border = ""; 
+    }
   }
   if (fieldIndicator) {
     fieldIndicator.style.display = "none"; 
@@ -571,8 +672,6 @@ function getFrameSelector(fieldId) {
   switch (fieldId) {
     case "titleFieldRequired":
       return ".title_frame14";
-    case "descriptionFieldRequired":
-      return ".frame17";
     case "dueDateFieldRequired":
       return ".dueDate_frame14";
     default:
@@ -594,9 +693,9 @@ function required(element) {
   } else if (element.classList.contains("frame203")) {
     changeBorderColorAndDisplayField(".title_frame14", "#titleFieldRequired");
     hideFieldIndicatorsExcept("#titleFieldRequired");
-  } else if (element.classList.contains("frame207")) {
-    changeBorderColorAndDisplayField(".frame17", "#descriptionFieldRequired");
-    hideFieldIndicatorsExcept("#descriptionFieldRequired");
+  }
+  else if (element.classList.contains("categoryFrame_74")) {
+    changeBorderColorAndDisplayField(".categoryFrame_74");
   }
 }
 
@@ -612,10 +711,12 @@ function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector)
 }
 
 function hideFieldIndicatorsExcept(exceptSelector) {
-  const allIndicators = document.querySelectorAll("#titleFieldRequired, #descriptionFieldRequired, #dueDateFieldRequired");
+  const allIndicators = document.querySelectorAll("#titleFieldRequired, #dueDateFieldRequired");
   allIndicators.forEach((indicator) => {
     if (indicator !== document.querySelector(exceptSelector)) {
       indicator.style.display = "none";
     }
   });
 }
+
+

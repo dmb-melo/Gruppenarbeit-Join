@@ -18,7 +18,7 @@ function login() {
     rememberMe();
   } else {
     document.getElementById("inputFieldPassword").style = `border: 1px solid rgb(255,128,143) !important;`;
-    document.getElementById("textThePasswordNotMatchLogin").innerHTML = `Ups! your password don't match`;
+    document.getElementById("textThePasswordNotMatchLogin").innerHTML = `Ups! your password doesn't match`;
   }
 }
 
