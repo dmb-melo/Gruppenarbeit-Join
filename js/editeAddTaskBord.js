@@ -125,6 +125,7 @@ function saveEditTaskBoard(taskId) {
   localStorage.setItem("selectedPriorityContent", priorityContentBoard);
   load();
   updateHtml();
+  renderSmallContats();
   closeCard();
 
   selecetContactsEdit =[];

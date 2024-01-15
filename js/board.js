@@ -485,7 +485,7 @@ function appendGeneratedAddTask() {
   newDivAddTask.classList.add('addWindowCss');
   newDivAddTask.innerHTML = generate_addTask();
   addWindow.appendChild(newDivAddTask);
-  let contactsList = document.getElementById("contactList");
+    let contactsList = document.getElementById("contactList");
   contactsList.innerHTML = "";
   sortContacts();
   for (let i = 0; i < contacts.length; i++) {
