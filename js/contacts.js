@@ -383,27 +383,41 @@ async function deleteContact(event, i){
 
 //Funktion zum Speichern eines bearbeiteten Kontaktes
 async function saveContact(event, i) {
+    let newName = document.getElementById('userNameEdit').value;
     let editedContact = [
         document.getElementById('userNameEdit').value,
         document.getElementById('userEmailEdit').value,
         document.getElementById('userPhoneEdit').value
     ];
-    contacts.splice(i, 1);   
-    closeEditContact();
-    selectContact(i);
-
-    let name = contacts[i][0];
+    contacts.splice(i, 1);
+    
+    
+    let name = newName;
     let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
-    let names = contacts[i][0].split(" ");
+    let names = newName.split(" ");
     let surname = names[1].toUpperCase().charAt(0);
     let circle = document.getElementById('circleCard'); 
     circle.innerHTML = `<p class="nameId">${firstname}${surname}</p>`;
     let editCircle = document.getElementById('editCircle'); 
     editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     event.preventDefault();
+    
     await saveContactsToServer(editedContact);
-    renderContacts();
+    await renderContacts();
+    let index = validateValueOfContacts(newName);
+    closeEditContact();
+    selectContact(index, firstname, surname, event);
 }
+
+
+function validateValueOfContacts(newName) {
+    for (let i = 0; i < contacts.length; i++) {
+      let nameContacts = contacts[i][0];
+      if (nameContacts === newName) {
+        return i
+      }
+    }
+  }
 
 //FUnktion zum Schließen der Kontaktbearbeitungsansicht
 function closeEditContact(){
