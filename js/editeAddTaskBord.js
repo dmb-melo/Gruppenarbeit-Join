@@ -118,7 +118,7 @@ function saveEditTaskBoard(taskId) {
    tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
 
     save();
-
+    
   } else {
     console.error('Task with ID ' + taskId + ' not found.');
   }
@@ -130,16 +130,18 @@ function saveEditTaskBoard(taskId) {
   selecetContactsEdit =[];
 }
 
-function checkboxAddTaskEdit(){
+function checkboxAddTaskEdit() {
   let checkboxes = document.querySelectorAll(".inputCheckBox");
   assigned = []; 
   checkboxes.forEach((checkbox, index) => {
-  let label = document.querySelector(`.nameContact[for=myCheckbox_${index}]`);
-  if (checkbox.checked && label) {
-    assigned.push(label.textContent);
-  }
-});
+    let label = document.querySelector(`.nameContact[for=myCheckbox_Edit${index}]`);
+    if (checkbox.checked && label) {
+      assigned.push(label.textContent);
+    }
+  });
+  console.log("Assigned Contacts:", assigned); 
 }
+
 
 function getStatusTaskId(taskId) {
   for (let i = 0; i < tasks.length; i++) {
