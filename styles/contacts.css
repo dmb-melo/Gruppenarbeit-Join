@@ -292,7 +292,7 @@ hr{
 
 }
 .inputField{
-    border: none;
+    border: unset;
     width: 348px;
     border-radius: 12px;
     padding: 0;
@@ -493,6 +493,7 @@ hr{
     height: 18px;
     margin-right: 24px;
 }
+
 .inputFieldName{
     display: flex;
     border: 1px solid #D9D9D9;

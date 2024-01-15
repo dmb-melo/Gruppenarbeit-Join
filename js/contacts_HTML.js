@@ -18,21 +18,21 @@ function generate_contactsHtml(){
             </div>
             <div class="addContactRight">
                     <div class="formDiv">
-                        <form id="addContactForm" name="myForm">
+                        <form id="addContactForm" name="myForm" onsubmit="createContact(event)">
                             <div class="close-img-div">
                                 <img class="close-img" src="./assets/img/cancel.png" onclick="closeAddContact()">
                             </div>
                             <div class="input">
                                 <div class="inputFieldName">
-                                    <input class="inputField" id="1" type="text" placeholder="Name"> 
+                                    <input class="inputField" id="1" type="text" placeholder="Name" required> 
                                     <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
                                 </div>
                                 <div class="inputFieldName">
-                                    <input class="inputField" id="2" type="email"placeholder="Email"> 
+                                    <input class="inputField" id="2" type="email"placeholder="Email" required> 
                                     <img class="logo-edit-input" src="./assets/img/mail_add_contact.png">
                                 </div>
                                 <div class="inputFieldName">
-                                    <input class="inputField" id="3" type="tel" placeholder="Phone"> 
+                                    <input class="inputField" id="3" type="number" placeholder="Phone" required> 
                                     <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ function generate_contactsHtml(){
                                         <img class="cancel-img-blue" src="./assets/img/iconoir_cancel-2.png">
                                     </div>
                                 </button>
-                                <button type="submit" class="createButton" onclick="createContact(event)">
+                                <button type="submit" class="createButton" onsubmit="createContact(event)">
                                     <div class="create-button-div">
                                     <div class="create-text">Create Contact</div>
                                     <div><img class="create-img" src="./assets/img/check.png"></div>
