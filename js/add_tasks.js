@@ -452,7 +452,7 @@ function addSubtasks() {
   const subtaskInput = document.getElementById("inputSubtasks").value;
   document.getElementById("inputSubtasks").value = "";
   subtasks.unshift(subtaskInput);
-  console.log()
+  console.log(subtaskInput);
   updateSubtasksDisplay();
   save();
   hideVectorAndImgCheck();

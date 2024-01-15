@@ -458,3 +458,21 @@ function renderLargeContats() {
         `;
   }
 }
+function renderEditContats() {
+  const contactsLargeCard = document.getElementById("boardAssigendLargCard");
+  contacts.innerHTML = "";
+  for (let d = 0; d < assigned.length; d++) {
+    const assigendAvatar = assigned[d];
+    let name = assigned[d];
+    let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
+
+    let names = assigned[d].split(" ");
+    let surname = names[1].toUpperCase().charAt(0);
+    contactsLargeCard.innerHTML += /*html*/ `
+             <div class="boardLargContactsAvatar">
+                    <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
+                    <p>${assigendAvatar}</p>
+                </div>
+        `;
+  }
+}

@@ -47,10 +47,64 @@ function edittaskArea(taskId) {
 
   // Aktiviere die Priorität basierend auf der im Task gespeicherten Priorität
   activatePriority(foundTask.priorityID);
+
+  // Anzeigen der zugewiesenen Kontakte im Editiermodus
+  displayAssignedContacts(foundTask.assigned);
+
+  // Anzeigen der Teilaufgaben im Editiermodus
+  displaySubtasks(foundTask.subtasks);
 }
+
+
+function displayAssignedContacts(assignedContacts) {
+  const contactsLargeCard = document.getElementById('editAssignedContacts');
+
+  // Clear the existing content in the container
+  contactsLargeCard.innerHTML = '';
+
+  assignedContacts.forEach((contact, index) => {
+    const name = contact.split(' ');
+    const firstnameInitial = name[0].charAt(0).toUpperCase();
+    const surnameInitial = name[1] ? name[1].charAt(0).toUpperCase() : '';
+
+    // Create a new HTML element for each assigned contact and append it to the container
+    contactsLargeCard.innerHTML += /*html*/ `
+      <div class="boardLargContactsAvatar">
+        <div class="circle" id="circle-${index}" style="background-color: ${colors[index]}">
+          <p class="nameIdList" id="name-id">${firstnameInitial}${surnameInitial}</p>
+        </div>
+      </div>
+    `;
+  });
+}
+
+
+function displaySubtasks(subtasks) {
+  // Annahme: Du hast ein HTML-Element mit der ID "editSubtasks" für die Anzeige der Teilaufgaben
+  const subtasksElement = document.getElementById('editSubtasks');
+
+  // Leere das Element, um es vor dem Anzeigen der neuen Teilaufgaben zu aktualisieren
+  subtasksElement.innerHTML = '';
+
+  subtasks.forEach(subtask => {
+    // Erstelle ein neues HTML-Element für jede Teilaufgabe und füge es dem Container hinzu
+    const subtaskElement = document.createElement('div');
+    subtaskElement.textContent = subtask;
+    subtasksElement.appendChild(subtaskElement);
+  });
+}
+
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
   let status = getStatusTaskId(taskId);
+  let prio = getPrioTaskId(taskId);
+  let selectedPriorityBoard = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
+    let priorityContentBoard = selectedPriorityBoard ? selectedPriorityBoard.innerHTML : "";
+    let selectedPriorityIDBoard = "";
+        if (selectedPriorityBoard) {
+            selectedPriorityIDBoard = selectedPriorityBoard.id;
+        }
+    priorityContentArray.unshift(priorityContentBoard);
   if (foundTask) {
       const editedTask = {
           id: taskId,
@@ -58,7 +112,7 @@ function saveEditTaskBoard(taskId) {
           description: document.getElementById('editDescription').value,
           dueDate: document.getElementById('editDueDate').value,
           status: status,
-          priorityID: foundTask.priorityID // Include the priority information
+          priorityID: prio // Include the priority information
       };
 
     // Update the tasks array with the edited task
@@ -80,9 +134,17 @@ function getStatusTaskId(taskId) {
     }
   }
 }
+function getPrioTaskId(taskId) {
+  for (let i = 0; i < tasks.length; i++) {
+    let idOfTaskPrio = tasks[i]["id"];
+    if (idOfTaskPrio  === taskId) {
+      return tasks[i]["priorityID"];
+    }
+  }
+}
 
 
-function hideAssignedBoardEdit() {
+function hideAssignedBoardEdit(event) {
   if (event.target.id !== "assignedBoard") {
     let list = document.getElementById("listContactEdit");
     let arrow = document.getElementById("arrowAssignedEdit");
@@ -187,6 +249,8 @@ function handleContactSearchEdit() {
     }
   }
 }
+
+
 
 
 

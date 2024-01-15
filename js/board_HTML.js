@@ -133,6 +133,7 @@ function generateAddEditeTask(taskId){
                         </div>                    
                                            
                         <div class="contactAvatar" id="contactAvatarEditBoard">
+                            <div class="contactAvatarEdit" id="editAssignedContacts"></div>
                         </div>
                     </div>
                 </div>
@@ -237,7 +238,7 @@ function generateAddEditeTask(taskId){
                                     </div>
                                 </div>                        
                             </div>
-                            <div class="allSubtasks" id ="allSubtasks"></div>
+                            <div class="allSubtasks" id ="editSubtasks"></div>
                         </div>                    
                     </div>
                 </div>
