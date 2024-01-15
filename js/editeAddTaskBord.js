@@ -87,43 +87,57 @@ function displaySubtasks(subtasks) {
   subtasksElement.innerHTML = '';
 
   subtasks.forEach(subtask => {
-    // Erstelle ein neues HTML-Element für jede Teilaufgabe und füge es dem Container hinzu
+
     const subtaskElement = document.createElement('div');
     subtaskElement.textContent = subtask;
     subtasksElement.appendChild(subtaskElement);
   });
 }
-
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
   let status = getStatusTaskId(taskId);
   let prio = getPrioTaskId(taskId);
   let selectedPriorityBoard = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
-    let priorityContentBoard = selectedPriorityBoard ? selectedPriorityBoard.innerHTML : "";
-    let selectedPriorityIDBoard = "";
-        if (selectedPriorityBoard) {
-            selectedPriorityIDBoard = selectedPriorityBoard.id;
-        }
-    priorityContentArray.unshift(priorityContentBoard);
-  if (foundTask) {
-      const editedTask = {
-          id: taskId,
-          title: document.getElementById('editTitle').value,
-          description: document.getElementById('editDescription').value,
-          dueDate: document.getElementById('editDueDate').value,
-          status: status,
-          priorityID: prio // Include the priority information
-      };
+  let priorityContentBoard = selectedPriorityBoard ? selectedPriorityBoard.innerHTML : "";
+  let selectedPriorityIDBoard = "";
+  checkboxAddTaskEdit();
+  if (selectedPriorityBoard) {
+    selectedPriorityIDBoard = selectedPriorityBoard.id;
+  }
+  
+  priorityContentArray.unshift(priorityContentBoard);
 
-    // Update the tasks array with the edited task
-    tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
+  if (foundTask) {
+    const editedTask = {
+      id: taskId,
+      title: document.getElementById('editTitle').value,
+      description: document.getElementById('editDescription').value,
+      dueDate: document.getElementById('editDueDate').value,
+      status: status,
+      priorityID: prio, 
+      assigned: assigned, 
+    };
+   tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
 
     save();
     updateHtml();
   } else {
     console.error('Task with ID ' + taskId + ' not found.');
   }
+
   closeCard();
+  selecetContactsEdit =[];
+}
+
+function checkboxAddTaskEdit(){
+  let checkboxes = document.querySelectorAll(".inputCheckBox");
+  assigned = []; 
+  checkboxes.forEach((checkbox, index) => {
+  let label = document.querySelector(`.nameContact[for=myCheckbox_${index}]`);
+  if (checkbox.checked && label) {
+    assigned.push(label.textContent);
+  }
+});
 }
 
 function getStatusTaskId(taskId) {
