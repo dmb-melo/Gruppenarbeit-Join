@@ -1,0 +1,39 @@
+.addWindowCss {
+    width: auto;
+    background: white;
+    height: 80%;
+    border-radius: 20px;
+    padding: 20px;
+    overflow: scroll;
+  }
+  .group66_addTaskPopUp{
+    width: 976.25px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+  }
+  .addTasksFooterPopUp {
+    display: flex;
+    justify-content: space-between;
+    width: 976.25px;
+    margin-top: 70px;
+  }
+  .categoryFrame_74PopUp {
+    z-index: 6;
+    cursor: pointer;
+    display: flex;
+    padding: 12px 16px;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    background: var(--white, #FFF);
+    color: var(--black, #000);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;
+    width: 100%;
+    margin-top: 8px;
+  }

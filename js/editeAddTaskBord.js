@@ -30,7 +30,6 @@ function activatePriority(priorityID) {
   if (priorityElement) {
     priorityElement.classList.add(`${priorityID}-active`);
 
-    // Optional: Füge die aktive Klasse für die zugehörigen Bilder hinzu
     let imgPaths = document.querySelectorAll(`.img-${priorityID}`);
     imgPaths.forEach((path) => {
       path.classList.add("imgPrio-active");
@@ -45,13 +44,10 @@ function edittaskArea(taskId) {
   document.getElementById('editDescription').value = foundTask.description;
   document.getElementById('editDueDate').value = foundTask.dueDate;
 
-  // Aktiviere die Priorität basierend auf der im Task gespeicherten Priorität
   activatePriority(foundTask.priorityID);
 
-  // Anzeigen der zugewiesenen Kontakte im Editiermodus
   displayAssignedContacts(foundTask.assigned);
 
-  // Anzeigen der Teilaufgaben im Editiermodus
   displaySubtasks(foundTask.subtasks);
 }
 
@@ -59,7 +55,6 @@ function edittaskArea(taskId) {
 function displayAssignedContacts(assignedContacts) {
   const contactsLargeCard = document.getElementById('editAssignedContacts');
 
-  // Clear the existing content in the container
   contactsLargeCard.innerHTML = '';
 
   assignedContacts.forEach((contact, index) => {
@@ -67,7 +62,6 @@ function displayAssignedContacts(assignedContacts) {
     const firstnameInitial = name[0].charAt(0).toUpperCase();
     const surnameInitial = name[1] ? name[1].charAt(0).toUpperCase() : '';
 
-    // Create a new HTML element for each assigned contact and append it to the container
     contactsLargeCard.innerHTML += /*html*/ `
       <div class="boardLargContactsAvatar">
         <div class="circle" id="circle-${index}" style="background-color: ${colors[index]}">
@@ -80,10 +74,8 @@ function displayAssignedContacts(assignedContacts) {
 
 
 function displaySubtasks(subtasks) {
-  // Annahme: Du hast ein HTML-Element mit der ID "editSubtasks" für die Anzeige der Teilaufgaben
   const subtasksElement = document.getElementById('editSubtasks');
 
-  // Leere das Element, um es vor dem Anzeigen der neuen Teilaufgaben zu aktualisieren
   subtasksElement.innerHTML = '';
 
   subtasks.forEach(subtask => {
