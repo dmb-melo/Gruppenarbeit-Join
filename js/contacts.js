@@ -389,8 +389,7 @@ async function saveContact(event, i) {
         document.getElementById('userPhoneEdit').value
     ];
     contacts.splice(i, 1);   
-    closeEditContact();
-    selectContact(i);
+    
 
     let name = contacts[i][0];
     let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
@@ -402,7 +401,9 @@ async function saveContact(event, i) {
     editCircle.innerHTML = `<p class="nameIdEdit">${firstname}${surname}</p>`;
     event.preventDefault();
     await saveContactsToServer(editedContact);
-    renderContacts();
+    await renderContacts();
+    closeEditContact();
+    selectContact(i, firstname, surname, event);
 }
 
 //FUnktion zum Schließen der Kontaktbearbeitungsansicht
