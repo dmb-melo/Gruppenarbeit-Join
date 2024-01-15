@@ -95,11 +95,11 @@ function saveEditTaskBoard(taskId) {
   let selectedPriorityBoard = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
   let priorityContentBoard = selectedPriorityBoard ? selectedPriorityBoard.innerHTML : "";
   let selectedPriorityIDBoard = "";
-  checkboxAddTaskEdit();
+ 
   if (selectedPriorityBoard) {
     selectedPriorityIDBoard = selectedPriorityBoard.id;
   }
-  
+  checkboxAddTaskEdit();
   priorityContentArray.unshift(priorityContentBoard);
 
   if (foundTask) {
@@ -109,8 +109,11 @@ function saveEditTaskBoard(taskId) {
       description: document.getElementById('editDescription').value,
       dueDate: document.getElementById('editDueDate').value,
       taskStatus: status,
-      priorityID: prio, 
+      priorityContent: priorityContentBoard,
+      priorityID: selectedPriorityIDBoard, 
       assigned: assigned, 
+      category: category,
+      subtasks: subtasks.slice(),
     };
    tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
 
@@ -119,10 +122,11 @@ function saveEditTaskBoard(taskId) {
   } else {
     console.error('Task with ID ' + taskId + ' not found.');
   }
+  localStorage.setItem("selectedPriorityContent", priorityContentBoard);
   load();
   updateHtml();
   closeCard();
-  updateSubtasksDisplayEdit();
+
   selecetContactsEdit =[];
 }
 
@@ -205,7 +209,7 @@ function validationContactsCheckedEdit(i, liElementEdit, nameElementEdit, labelE
   if (event.target.checked) {
     contactCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit);
   } else {
-    contactNotCheckedEdit(i, liElementEdit, nameElement, labelElementEdit);
+    contactNotCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit);
   }
 }
 
