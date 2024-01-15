@@ -71,11 +71,7 @@ function generate_contactsHtml(){
                 <div class="editCircle" id="editCircle"></div>
             </div>
             <div class="editContactRight">
-                <div class="formDiv">
-                    <form id="editContactForm" name="myFormEdit">
-                        <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeEditContact()"></div>
-                        <div class="input" id="editInput"></div>
-                    </form>
+                <div class="formDiv" id="formDiv">
                 </div>
             </div>
         </div>

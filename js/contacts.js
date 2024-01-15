@@ -337,27 +337,32 @@ function editContact(i){
     document.getElementById('editContact').classList.remove('d-none');
     document.getElementById('editContactBackground').classList.remove('d-none');
     document.getElementById('editContact').classList.add('slide-left');
-    document.getElementById('editInput').innerHTML = `
+    document.getElementById('formDiv').innerHTML = `
+    <form id="editContactForm" name="myFormEdit" onsubmit="saveContact(event, ${i})">
+    <div class="close-img-div"><img class="close-img" src="./assets/img/cancel.png" onclick="closeEditContact()"></div>
+    <div class="input" id="editInput">
         <div class="inputFieldName">
-            <input class="inputField" type="text" id="userNameEdit"> 
+            <input class="inputField" type="text" id="userNameEdit" required> 
             <img class="logo-edit-input" src="./assets/img/person_add_contact.png">
         </div>
         <div class="inputFieldName">
-            <input class="inputField" type="email" id="userEmailEdit"> 
+            <input class="inputField" type="email" id="userEmailEdit" required> 
             <img class="logo-edit-input" src="./assets/img/mail_add_contact.png">
         </div>
         <div class="inputFieldName">
-            <input class="inputField" type="tel" id="userPhoneEdit"> 
+            <input class="inputField" type="number" id="userPhoneEdit" required> 
             <img class="logo-edit-input" src="./assets/img/call_add_contact.png">
         </div>
         <div class="editButtons">
             <button class="deleteButton" onclick="deleteContact(event, ${i})">Delete</button>
-            <button class="saveButton" onclick="saveContact(event, ${i})">
+            <button class="saveButton" onsubmit="saveContact(event, ${i})">
                 <div class="save-button-div">
                 <div class="save-text">Save</div>
                 <div><img class="save-check-img" src="./assets/img/check.png"></div>
             </button>
         </div>
+    </div>
+    </form>
     `;
     document.getElementById('userNameEdit').value = `${contacts[i][0]}`;
     document.getElementById('userEmailEdit').value = `${contacts[i][1]}`;
