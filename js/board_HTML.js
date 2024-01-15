@@ -191,10 +191,10 @@ function generateAddEditeTask(taskId){
                     <div class="subtasks">
                         <div class="textSubtasks">Subtasks</div>
                             <div class="subtasksFrame14Board" >
-                                <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasks" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()">
+                                <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasksEdit" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()">
                                 <div class="imgSubtasks" >
-                                    <div class="imgPlusContainer" id ="imgPlusContainer" onclick="hideVectorAndImgCheck()">
-                                        <img  class="imgPlus" class src="./assets/img/Subtasks.png" alt="" id="addSubtasksPlus">                               
+                                    <div class="imgPlusContainer" id ="imgPlusContainerEdit" onclick="hideVectorAndImgCheck()">
+                                        <img  class="imgPlus" class src="./assets/img/Subtasks.png" alt="" id="addSubtasksPlusEdit">                               
                                         <svg  class="imgPlusHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                                             <g id="Property 1=add hover">
                                                 <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
@@ -207,7 +207,7 @@ function generateAddEditeTask(taskId){
                                             </g>
                                         </svg>
                                     </div>
-                                    <div id="vectorAndImgCheck"  class="vectorAndImgCheck d-none">
+                                    <div id="vectorAndImgCheckEdit"  class="vectorAndImgCheck d-none">
                                         <div class="imgCancelContainer" id="imgCancelContainer" onclick="hideVectorAndImgCheck()">
                                             <img class="imgCancel"  src="./assets/img/cancel.png">
                                             <img class="imgCancelHover" src="./assets/img/close hover.png">
@@ -421,7 +421,7 @@ function generatePopUpWindowAdd(){
                                 <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasks" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()">
                                 <div class="imgSubtasks" >
                                     <div class="imgPlusContainer" id ="imgPlusContainer" onclick="hideVectorAndImgCheck()">
-                                        <img  class="imgPlus" class src="./assets/img/Subtasks.png" alt="" id="addSubtasksPlus">                               
+                                        <img  class="imgPlus" class src="./assets/img/Subtasks.png" alt="" id="addSubtasksPlusEdit">                               
                                         <svg  class="imgPlusHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                                             <g id="Property 1=add hover">
                                                 <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
@@ -434,7 +434,7 @@ function generatePopUpWindowAdd(){
                                             </g>
                                         </svg>
                                     </div>
-                                    <div id="vectorAndImgCheck"  class="vectorAndImgCheck d-none">
+                                    <div id="vectorAndImgCheckEdit"  class="vectorAndImgCheck d-none">
                                         <div class="imgCancelContainer" id="imgCancelContainer" onclick="hideVectorAndImgCheck()">
                                             <img class="imgCancel"  src="./assets/img/cancel.png">
                                             <img class="imgCancelHover" src="./assets/img/close hover.png">

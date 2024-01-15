@@ -18,6 +18,7 @@ function editLargCard(taskId) {
 
   edittaskArea(taskId);
   renderEditTask();
+ 
 
 }
 function findTaskById(taskId) {
@@ -75,16 +76,18 @@ function displayAssignedContacts(assignedContacts) {
 
 function displaySubtasks(subtasks) {
   const subtasksElement = document.getElementById('editSubtasks');
-
+  
   subtasksElement.innerHTML = '';
 
   subtasks.forEach(subtask => {
 
     const subtaskElement = document.createElement('div');
+    subtaskElement.classList.add('subtaskItem')
     subtaskElement.textContent = subtask;
     subtasksElement.appendChild(subtaskElement);
   });
 }
+
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
   let status = getStatusTaskId(taskId);
@@ -105,19 +108,21 @@ function saveEditTaskBoard(taskId) {
       title: document.getElementById('editTitle').value,
       description: document.getElementById('editDescription').value,
       dueDate: document.getElementById('editDueDate').value,
-      status: status,
+      taskStatus: status,
       priorityID: prio, 
       assigned: assigned, 
     };
    tasks = tasks.map(task => (task.id === taskId ? editedTask : task));
 
     save();
-    updateHtml();
+
   } else {
     console.error('Task with ID ' + taskId + ' not found.');
   }
-
+  load();
+  updateHtml();
   closeCard();
+  updateSubtasksDisplayEdit();
   selecetContactsEdit =[];
 }
 
@@ -256,20 +261,25 @@ function handleContactSearchEdit() {
   }
 }
 
+function hideVectorAndImgCheckEdit() {
+  let vectorAndImgCheck = document.getElementById("vectorAndImgCheckEdit");
+  let imgPlus = document.getElementById("addSubtasksPlusEdit");
+  let imgPlusContainer = document.getElementById("imgPlusContainerEdit");
+  if (vectorAndImgCheck && imgPlus) {
+    vectorAndImgCheck.classList.toggle("d-none");
+    imgPlus.classList.toggle("d-none");
+    imgPlusContainer.classList.toggle("d-none");
+  }
+}
 
 
-
-
-//   function saveTasksToLocalStorage() {
-//     localStorage.setItem('tasks', JSON.stringify(tasks));
-// }
-
-// function loadTasksFromLocalStorage() {
-//     const storedTasks = localStorage.getItem('tasks');
-//     if (storedTasks) {
-//         tasks = JSON.parse(storedTasks);
-//         // Aktualisiere die HTML-Ansicht, um die geladenen Aufgaben anzuzeigen
-//         updateHtml();
-//     }
-// }
+function addSubtasksEdit() {
+  const subtaskInput = document.getElementById("inputSubtasksEdit").value;
+  document.getElementById("inputSubtasksEdit").value = "";
+  subtasks.unshift(subtaskInput);
+  console.log(subtaskInput);
+  updateSubtasksDisplayEdit();
+  save();
+  hideVectorAndImgCheckEdit();
+}
 
