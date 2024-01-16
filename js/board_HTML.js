@@ -15,7 +15,7 @@ function generateBoardHTML(taskId) {
                 <div class="searchBoxLeft">
                     <div class="searchBox">                   
                         <div class="searchinput">        
-                            <input class="src" type="text" placeholder="Find Task" name="" id="">
+                            <input class="src" type="text" placeholder="Find Task" name=""  id="searchInput" onkeyup="searchTask()">
                             <div class="searchImg">
                                 <img src="./assets/img/vector.png" alt="">
                                 <img class="board-search" src="./assets/img/board-search.png" alt="">
