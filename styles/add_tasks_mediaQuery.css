@@ -98,8 +98,13 @@
   .categoryFrame74 {
     width: 300px;
     padding: 10px 21px;    
-    width:255px;
+    width:255px; 
   }
+  .categoryFrame_74 {
+    width: 300px;
+    padding: 10px 21px;    
+    width:255px;
+  }  
 
   .list{
     height: 0px;
@@ -315,6 +320,15 @@
     padding: 10px 21px;
   }
 
+  .categoryFrame_74 {
+    width: 475px;
+    padding: 10px 21px;
+  }
+
+  .taskCategory{
+    width: 475px;
+  }
+
   .underList, .list,  .listContact, .contactList{
     position: relative;
   }
@@ -502,6 +516,14 @@
     padding: 10px 21px;
   }
 
+  .categoryFrame_74 {
+    width: 668px;
+    padding: 10px 21px;
+  }
+  .taskCategory{
+    width: 668px;
+  }
+
   .searchContacts {
     width: 300x;
   }
@@ -673,6 +695,16 @@
     width: 748px;
     z-index: auto;
     position: inherit;
+  }
+
+  .categoryFrame_74{
+    width: 748px;
+    z-index: auto;
+    position: inherit;
+  }
+
+  .taskCategory{
+    width: 748px;
   }
 
   .vector4 {
