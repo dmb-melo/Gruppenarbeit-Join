@@ -3,13 +3,12 @@ let stateOfTask = [];
 let subtaskLevel = [];
 
 function renderBoardHTML() {
+  load();
   loadStateOfSubTask();
   loadLevelOfSubtask();
   document.getElementById("contentJoin").innerHTML = ``;
   document.getElementById("contentJoin").innerHTML = generateBoardHTML();
   boardInit();
-  load();
-  save();
   removeStyleSidebar();
   addTextColor();
   document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive");
@@ -118,7 +117,7 @@ function generateSmallCard(task, i) {
         </div>
         ${smallProgressDiv}
         <div class="smallCardFooter">
-            <div id="boardAssigend${i}" class="boardAssigend"></div>
+            <div id="boardAssigend-${tasks[i]['id']}" class="boardAssigend"></div>
             <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
         </div>  
     `;
@@ -158,13 +157,12 @@ function startDragged(id) {
 
 function moveIt(taskStatus) {
   const taskIndex = tasks.findIndex((task) => task.id === draggedElementId);
-  
   if (taskIndex !== -1) {
     tasks[taskIndex].taskStatus = taskStatus;
     updateHtml();
     save();
-    renderSmallContats();
     renderProgressbar();
+    renderSmallContats();
   }
 }
 function allowDrop(ev) {
@@ -419,8 +417,8 @@ function renderSmallContats() {
     const assigned = tasks[i]["assigned"];
 
     // Überprüfen, ob "assigned" vorhanden und nicht leer ist
-    if (assigned && assigned.length > 0) {
-      const contactsSmallCard = document.getElementById(`boardAssigend${i}`);
+
+      const contactsSmallCard = document.getElementById(`boardAssigend-${tasks[i]['id']}`);
 
       for (let a = 0; a < assigned.length; a++) {
         const assigendAvatar = assigned[a];
@@ -437,7 +435,7 @@ function renderSmallContats() {
                     </div>
                 `;
       }
-    }
+    
   }
 }
 function renderLargeContats() {
