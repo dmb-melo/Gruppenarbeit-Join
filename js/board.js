@@ -71,8 +71,8 @@ function removeActiveClassFromSvgElements(container) {
 }
 
 function generateSmallCard(task, i) {
-    let currenCategory = task.category[0];
-    let currentPriorityContent = task.priorityContent || '';
+  let currenCategory = task.category[0];
+  let currentPriorityContent = task.priorityContent || '';
 
   let tempDiv = document.createElement("div");
   tempDiv.innerHTML = currentPriorityContent;
@@ -83,23 +83,23 @@ function generateSmallCard(task, i) {
   let clonedContentDiv = document.createElement("div");
   clonedContentDiv.appendChild(tempDiv.cloneNode(true));
 
-    removeActiveClassFromSvgElements(clonedContentDiv);
-    let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
+  removeActiveClassFromSvgElements(clonedContentDiv);
+  let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
 
-    // Clear the text content inside the elements with specified classes
-    let selectedPriorityContentDiv = clonedContentDiv.querySelector('.selectedPriorityContentDiv');
+  // Clear the text content inside the elements with specified classes
+  let selectedPriorityContentDiv = clonedContentDiv.querySelector('.selectedPriorityContentDiv');
 
-    ['textUrgent', 'textMedium', 'textLow'].forEach(className => {
-        let textElement = selectedPriorityContentDiv.querySelector('.' + className);
-        if (textElement) {
-            textElement.textContent = ''; // Clear text content
-        }
-    });
+  ['textUrgent', 'textMedium', 'textLow'].forEach(className => {
+    let textElement = selectedPriorityContentDiv.querySelector('.' + className);
+    if (textElement) {
+      textElement.textContent = ''; // Clear text content
+    }
+  });
 
-    // Conditionally include the smallProgress div
-    let smallProgressDiv = '';
-    if (task.subtasks.length > 0) {
-        smallProgressDiv = /*html*/ `
+  // Conditionally include the smallProgress div
+  let smallProgressDiv = '';
+  if (task.subtasks.length > 0) {
+    smallProgressDiv = /*html*/ `
             <div class="progressContainer">
                 <div class="progress">
                     <div class="progress-value" id="progress-${task.id}"></div>
@@ -107,8 +107,8 @@ function generateSmallCard(task, i) {
                 <div class="smallProgress" id="smallProgress-${task.id}">0/${task.subtasks.length}</div>
             </div>
         `;
-    }
-    return /*html*/ `
+  }
+  return /*html*/ `
       <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
         <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
@@ -177,16 +177,17 @@ function removeHighlight(id) {
 }
 
 function openCard(taskId) {
-  // ... restlicher Code der openCard-Funktion ...
   const largeCardElement = document.getElementById("popUpWindow");
   const task = tasks.find((t) => t.id === taskId);
+
   if (task) {
     largeCardElement.innerHTML = generateLargeCard(task);
     largeCardElement.style.transform = "translateX(0%)";
+    renderLargeContats(task); // Pass the task to the renderLargeContats function
   }
-  renderLargeContats();
-  renderSubtaskState(task);
+  renderLargeContats(); // Call renderLargeContats without a task to clear previous contacts if task is undefined
 }
+
 
 function renderSubtaskState(task) {
   let taskId = task["id"];
@@ -231,8 +232,8 @@ async function saveLevelOfSubtask(taskId, percentageCompleted, valueOfTheSubtask
 }
 
 function saveLevelOfSubtaskLocalStorage() {
-    let subtaskLevelAtText = JSON.stringify(subtaskLevel);
-    localStorage.setItem("subtaskLevel", subtaskLevelAtText);
+  let subtaskLevelAtText = JSON.stringify(subtaskLevel);
+  localStorage.setItem("subtaskLevel", subtaskLevelAtText);
 }
 
 function getLevelTaskId(taskId) {
@@ -254,15 +255,15 @@ function pushLevelOfSubtask(taskId, percentageCompleted, valueOfTheSubtaskBreak)
 }
 
 function deleteLevelOfSubtask(indexOfTask) {
-    let idOfTask = tasks[indexOfTask]["id"];
-    for (let i = 0; i < subtaskLevel.length; i++) {
-        let idOfTasklevel = subtaskLevel[i]["taskId"];
-        if (idOfTasklevel === idOfTask) {
-          subtaskLevel.splice(i, 1);
-        }
-      }
-      saveLevelOfSubtaskLocalStorage();
-      loadLevelOfSubtask();
+  let idOfTask = tasks[indexOfTask]["id"];
+  for (let i = 0; i < subtaskLevel.length; i++) {
+    let idOfTasklevel = subtaskLevel[i]["taskId"];
+    if (idOfTasklevel === idOfTask) {
+      subtaskLevel.splice(i, 1);
+    }
+  }
+  saveLevelOfSubtaskLocalStorage();
+  loadLevelOfSubtask();
 }
 
 function loadStateOfSubTask() {
@@ -418,42 +419,46 @@ function renderSmallContats() {
 
     // Überprüfen, ob "assigned" vorhanden und nicht leer ist
 
-      const contactsSmallCard = document.getElementById(`boardAssigend-${tasks[i]['id']}`);
+    const contactsSmallCard = document.getElementById(`boardAssigend-${tasks[i]['id']}`);
 
-      for (let a = 0; a < assigned.length; a++) {
-        const assigendAvatar = assigned[a];
-        let name = assigned[a];
-        let firstname = name[0].toUpperCase();
+    for (let a = 0; a < assigned.length; a++) {
+      const assigendAvatar = assigned[a];
+      let name = assigned[a];
+      let firstname = name[0].toUpperCase();
 
-        let names = assigned[a].split(" ");
-        let surname = names[1].toUpperCase().charAt(0);
-        contactsSmallCard.innerHTML += /*html*/ `
+      let names = assigned[a].split(" ");
+      let surname = names[1].toUpperCase().charAt(0);
+      contactsSmallCard.innerHTML += /*html*/ `
                     <div class="">
                         <div class="smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}">
                             <p class="nameIdList" id="name-id">${firstname}${surname}</p>
                         </div>
                     </div>
                 `;
-      }
-    
+    }
+
   }
 }
-function renderLargeContats() {
+function renderLargeContats(task) {
   const contactsLargeCard = document.getElementById("boardAssigendLargCard");
   contacts.innerHTML = "";
-  for (let d = 0; d < assigned.length; d++) {
-    const assigendAvatar = assigned[d];
-    let name = assigned[d];
-    let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
 
-    let names = assigned[d].split(" ");
-    let surname = names[1].toUpperCase().charAt(0);
-    contactsLargeCard.innerHTML += /*html*/ `
+  if (task && task['assigned']) {
+    const assigned = task['assigned'];
+    for (let d = 0; d < assigned.length; d++) {
+      const assigendAvatar = assigned[d];
+      let name = assigned[d];
+      let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
+
+      let names = assigned[d].split(" ");
+      let surname = names[1].toUpperCase().charAt(0);
+      contactsLargeCard.innerHTML += /*html*/ `
              <div class="boardLargContactsAvatar">
                     <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
                     <p>${assigendAvatar}</p>
                 </div>
         `;
+    }
   }
 }
 function renderEditContats() {
@@ -479,7 +484,7 @@ function renderEditContats() {
 function appendGeneratedAddTask() {
   let addWindow = document.getElementById('popUpAddWindow');
   addWindow.classList.add('openAddWindow');
-  
+
   let newDivAddTask = document.createElement('div');
   newDivAddTask.classList.add('addWindowCss');
   newDivAddTask.innerHTML = generate_addTask();
@@ -493,3 +498,4 @@ function appendGeneratedAddTask() {
   document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);
   changeColour('priorityMedium');
 }
+
