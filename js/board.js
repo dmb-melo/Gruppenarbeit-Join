@@ -117,7 +117,7 @@ function generateSmallCard(task, i) {
         </div>
         ${smallProgressDiv}
         <div class="smallCardFooter">
-            <div id="boardAssigend-${tasks[i]['id']}" class="boardAssigend"></div>
+            <div id="boardAssigend-${task.id}" class="boardAssigend"></div>
             <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
         </div>  
     `;
