@@ -476,3 +476,20 @@ function renderEditContats() {
 }
 
 
+function appendGeneratedAddTask() {
+  let addWindow = document.getElementById('popUpAddWindow');
+  addWindow.classList.add('openAddWindow');
+  
+  let newDivAddTask = document.createElement('div');
+  newDivAddTask.classList.add('addWindowCss');
+  newDivAddTask.innerHTML = generate_addTask();
+  addWindow.appendChild(newDivAddTask);
+  let contactsList = document.getElementById("contactList");
+  contactsList.innerHTML = "";
+  sortContacts();
+  for (let i = 0; i < contacts.length; i++) {
+    renderContactsAddTask(i, contactsList);
+  }
+  document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);
+  changeColour('priorityMedium');
+}
