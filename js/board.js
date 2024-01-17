@@ -109,7 +109,7 @@ function generateSmallCard(task, i) {
         `;
   }
   return /*html*/ `
-      <div class="smallCard cardA" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
+      <div class="smallCard cardA" id="smallCardId-${task.id}" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
         <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
         <div class="taskText">
             <div class="taskTitle">${task.title}</div>
@@ -498,4 +498,40 @@ function appendGeneratedAddTask() {
   document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);
   changeColour('priorityMedium');
 }
+function searchTask() {
+  let terminal = document.getElementById('searchInput').value.toLowerCase();
+  let foundTaskIds = [];
+
+  // Durchsuche Aufgaben nach dem eingegebenen Titel
+  for (let i in tasks) {
+    let taskTitle = tasks[i].title.toLowerCase();
+    if (taskTitle.includes(terminal)) {
+      foundTaskIds.push(tasks[i].id);
+    }
+  }
+
+  // Rufe die Funktion auf, um den Status der gefundenen Aufgaben zu aktualisieren
+  notSearchTasks(foundTaskIds);
+}
+
+function notSearchTasks(foundTaskIds) {
+  // Iteriere durch alle Aufgaben
+  for (let task of tasks) {
+    // Holen Sie das HTML-Element mit der entsprechenden ID
+    let taskElement = document.getElementById('smallCardId-' + task.id);
+
+
+    // Überprüfe, ob die Aufgabe gefunden wurde
+    if (foundTaskIds.includes(task.id)) {
+      console.log('Task with ID ' + task.id + ': flex');
+      taskElement.style.display = 'flex';
+    } else {
+      console.log('Task with ID ' + task.id + ': not');
+      // Verstecke das HTML-Element, wenn die Aufgabe nicht gefunden wurde
+      taskElement.style.display = 'none';
+    }
+  }
+}
+
+
 
