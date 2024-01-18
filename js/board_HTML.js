@@ -516,3 +516,101 @@ function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
         </div>
     `;
 }
+
+
+function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv, i) {
+    return /*html*/ `
+      <div class="smallCard cardA" id="smallCardId-${task.id}" draggable="true" ondragstart="startDragged(${task.id})" onclick="openCard(${task.id})"> 
+        <div class="smallCardcategory"><p id="category" class="${className}">${task.category[0]}</p></div>
+        <div class="taskText">
+          <div class="taskTitle">${task.title}</div>
+          <div class="taskDescription">${task.description}</div>
+        </div>
+        ${smallProgressDiv}
+        <div class="smallCardFooter">
+          <div id="boardAssigend-${task.id}" class="boardAssigend"></div>
+          <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
+        </div>  
+      </div>
+    `;
+  }
+
+  function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
+    return /*html*/ `
+      <div class="desingLagrCard" id="desingLagrCard">
+        <div class="largeCardA" id="largeCardA">
+          <div id="addTaskLargeCard" class="d-None"></div>
+    
+          <div class="largesCard" id="largesCard">
+            <div class="largeCardInside">
+              <div class="largCardHeader">
+                <!-- Category and close button -->
+                <div class="lardCardCategory">
+                  <p id="largeCategory" class="${className}">${task.category[0]}</p>
+                </div>
+                <div class="closeLargeCardButton">
+                  <button onclick="closeCard()">X</button>
+                </div>
+              </div>
+              <div class="largCardText">
+                <!-- Title and description -->
+                <div class="largCardTitle">
+                  <h1>${task.title}</h1>
+                </div>
+                <div class="largCardTextArea">
+                  <p>${task.description}</p>
+                </div>
+              </div>
+              <div class="largeTaskDetails">
+                <!-- Due date, priority, assigned person, and subtasks -->
+                <div class="largTaskDueDat">
+                  <div><span>Due Date:</span><span>${task.dueDate}</span></div>
+                </div>
+                <div class="largPrioDetail">
+                  <p>Priority:</p><p>${clonedContentDiv.innerHTML}</p>
+                </div>
+                <div class="assigendLarge">
+                  <p>Assigned To:</p>
+                  <div  id="boardAssigendLargCard"></div>
+                </div>
+                <div class="subtasks">
+                  <p>Subtasks</p>
+                  <p>${subsHtml}</p>
+                </div>
+                <div class="largCardFooter">
+                  <div class="deleteAndEdit">
+                    <div class="delete_task" onclick="deleteTask(event)">
+                      <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
+                      <p class="delete-task-title">Delete</p>
+                    </div>
+                    <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
+                    <div class="edit_task" onclick="editLargCard(${task.id})" style="display: flex; align-items: center; gap: 4px; cursor:pointer;">
+                      <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
+                      <p class="edit-task-title">Edit</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function generateSubtasksHTML(task) {
+    return task.subtasks
+      .map(
+        (subs, index) => /*html*/ `
+          <div class="subtasksContents">
+            <label class="checkbox-label">
+              <input type="checkbox" id="checkbox-${task.id}-${index}" class="checkbox-input-${task.id}" onchange="updateProgress(${task.id}, ${index})">
+              <span class="checkbox-custom"></span>
+              ${subs}
+            </label>
+          </div>
+        `
+      )
+      .join("");
+  }
+  

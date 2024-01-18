@@ -108,27 +108,14 @@ function generateSmallCard(task, i) {
             </div>
         `;
   }
-  return /*html*/ `
-      <div class="smallCard cardA" id="smallCardId-${task.id}" draggable="true" ondragstart="startDragged(${task['id']})" onclick="openCard(${task['id']})"> 
-        <div class="smallCardcategory"><p id="category" class="${className}">${currenCategory}</p></div>
-        <div class="taskText">
-            <div class="taskTitle">${task.title}</div>
-            <div class="taskDescription">${task.description}</div>
-        </div>
-        ${smallProgressDiv}
-        <div class="smallCardFooter">
-            <div id="boardAssigend-${task.id}" class="boardAssigend"></div>
-            <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
-        </div>  
-    `;
+
+  return generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv,i);
 }
 
 // Delet of Tasks
 
 function deleteTask(event) {
-  // wird nicht mehr gebraucht
   let noteElement = event.target.closest(".largeCardA");
-
   if (noteElement) {
     let parentElement = noteElement.parentElement;
     let index = Array.from(parentElement.children).indexOf(noteElement);
@@ -150,7 +137,6 @@ function deleteTask(event) {
   }
 }
 
-// drag and drop
 function startDragged(id) {
   draggedElementId = id;
 }
@@ -183,9 +169,9 @@ function openCard(taskId) {
   if (task) {
     largeCardElement.innerHTML = generateLargeCard(task);
     largeCardElement.style.transform = "translateX(0%)";
-    renderLargeContats(task); // Pass the task to the renderLargeContats function
+    renderLargeContats(task); 
   }
-  renderLargeContats(); // Call renderLargeContats without a task to clear previous contacts if task is undefined
+  renderLargeContats(); 
 }
 
 
@@ -282,19 +268,7 @@ function loadLevelOfSubtask() {
 
 function generateLargeCard(task) {
   let currentPriorityContent = task.priorityContent || "";
-  const subsHtml = task.subtasks
-    .map(
-      (subs, index) => `
-        <div class="subtasksContents">
-            <label class="checkbox-label">
-                <input type="checkbox" id="checkbox-${task.id}-${index}" class="checkbox-input-${task.id}" onchange="updateProgress(${task.id}, ${index})">
-                <span class="checkbox-custom"></span>
-                ${subs}
-            </label>
-        </div>
-    `
-    )
-    .join("");
+  
   let currentSubTasks = subT[task];
   let tempDiv = document.createElement("div");
   tempDiv.innerHTML = currentPriorityContent;
@@ -309,72 +283,8 @@ function generateLargeCard(task) {
   let currenCategory = task.category[0];
 
   let className = typeof currenCategory === "string" ? currenCategory.replace(/\s+/g, "") : "";
-  return /*html*/ `
-    
-<div class="desingLagrCard" id="desingLagrCard">
- <div class="largeCardA" id="largeCardA">
- <div id="addTaskLargeCard" class="d-None"></div>
- 
-    <div class="largesCard" id="largesCard">
-    <div class="largeCardInside">
-    <div class="largCardHeader">
-        <!-- Category and close button -->
-        <div class="lardCardCategory">
-            <p id="largeCategory" class="${className}">${currenCategory}</p>
-        </div>
-        <div class="closeLargeCardButton">
-            <button onclick="closeCard()">X</button>
-        </div>
-    </div>
-    <div class="largCardText">
-        <!-- Title and description -->
-        <div class="largCardTitle">
-            <h1>${task.title}</h1>
-        </div>
-        <div class="largCardTextArea">
-            <p>${task.description}</p>
-        </div>
-    </div>
-    <div class="largeTaskDetails">
-        <!-- Due date, priority, assigned person, and subtasks -->
-        <div class="largTaskDueDat">
-            <div><span>Due Date:</span><span>${task.dueDate}</span></div>
-        </div>
-        <div class="largPrioDetail">
-            <p>Priority:</p><p>${clonedContentDiv.innerHTML}</p>
-        </div>
-        <div class="assigendLarge">
-            <p>Assigned To:</p>
-            <div  id="boardAssigendLargCard"></div>
-        </div>
-        <div class="subtasks">
-            <p>Subtasks</p>
-            <p>${subsHtml}</p>
-  
-        </div>
-        <div class="largCardFooter">
-        <div class="deleteAndEdit">
-             
-             <div class="delete_task" onclick="deleteTask(event)">
-                 <img class="delete-task-bt"  src="./assets/img/delete_task.png" alt="">
-                 <p class = "delete-task-title">Delete</p>
-             </div>
-             
-             <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
-             
-             <div class ="edit_task" onclick="editLargCard(${task.id})"  style="    display: flex; align-items: center; gap: 4px; cursor:pointer;">
-             
-                 <img class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
-                 <p class = "edit-task-title">Edit</p>
-             </div>
-           
-         </div>            
-        </div>
-    </div>
- </div>
-
-</div>
-    `;
+  const subsHtml = generateSubtasksHTML(task);
+  return generateLargeCardHTML(task, className, clonedContentDiv, subsHtml);
 }
 
 function updateProgress(taskId, index) {
@@ -408,20 +318,18 @@ function closeCard() {
 function renderSmallContats() {
   const contactsSmallCard = document.getElementById("boardAssigend");
   contacts.innerHTML = "";
-
   if (tasks.length === 0) {
     console.log("Keine Aufgaben vorhanden");
     return;
   }
-
   for (let i = 0; i < tasks.length; i++) {
     const assigned = tasks[i]["assigned"];
 
-    // Überprüfen, ob "assigned" vorhanden und nicht leer ist
-
     const contactsSmallCard = document.getElementById(`boardAssigend-${tasks[i]['id']}`);
+    const maxContactsToShow = 3;
+    const totalAssigned = assigned.length;
 
-    for (let a = 0; a < assigned.length; a++) {
+    for (let a = 0; a <  Math.min(maxContactsToShow, totalAssigned); a++) {
       const assigendAvatar = assigned[a];
       let name = assigned[a];
       let firstname = name[0].toUpperCase();
@@ -436,9 +344,19 @@ function renderSmallContats() {
                     </div>
                 `;
     }
+    if (totalAssigned > maxContactsToShow) {
+      contactsSmallCard.innerHTML += /*html*/`
+          <div class="">
+              <div class="smallCardVersionCircel lastSmallCircel " style="background-color: #ccc;">
+                  <p class="nameIdList lastCircel" id="name-id">${totalAssigned - maxContactsToShow}+</p>
+              </div>
+          </div>
+      `;
+  }
 
   }
 }
+
 function renderLargeContats(task) {
   const contactsLargeCard = document.getElementById("boardAssigendLargCard");
   contacts.innerHTML = "";
@@ -461,6 +379,7 @@ function renderLargeContats(task) {
     }
   }
 }
+
 function renderEditContats() {
   const contactsLargeCard = document.getElementById("boardAssigendLargCard");
   contacts.innerHTML = "";
@@ -498,36 +417,30 @@ function appendGeneratedAddTask() {
   document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);
   changeColour('priorityMedium');
 }
+
 function searchTask() {
   let terminal = document.getElementById('searchInput').value.toLowerCase();
   let foundTaskIds = [];
 
-  // Durchsuche Aufgaben nach dem eingegebenen Titel
   for (let i in tasks) {
     let taskTitle = tasks[i].title.toLowerCase();
     if (taskTitle.includes(terminal)) {
       foundTaskIds.push(tasks[i].id);
     }
   }
-
-  // Rufe die Funktion auf, um den Status der gefundenen Aufgaben zu aktualisieren
   notSearchTasks(foundTaskIds);
 }
 
 function notSearchTasks(foundTaskIds) {
   // Iteriere durch alle Aufgaben
   for (let task of tasks) {
-    // Holen Sie das HTML-Element mit der entsprechenden ID
     let taskElement = document.getElementById('smallCardId-' + task.id);
 
-
-    // Überprüfe, ob die Aufgabe gefunden wurde
     if (foundTaskIds.includes(task.id)) {
       console.log('Task with ID ' + task.id + ': flex');
       taskElement.style.display = 'flex';
     } else {
       console.log('Task with ID ' + task.id + ': not');
-      // Verstecke das HTML-Element, wenn die Aufgabe nicht gefunden wurde
       taskElement.style.display = 'none';
     }
   }
