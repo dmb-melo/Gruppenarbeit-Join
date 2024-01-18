@@ -9,7 +9,9 @@
   font-weight: 700;
   line-height: 120%;
 }
-
+.wd100{
+  width: 100% !important;
+}
 .d-None {
   display: none;
 }
@@ -244,15 +246,16 @@
   background: var(--white, #fff);
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
 }
-/* .cardA:hover {
+.cardA:hover {
   transform: rotate(10deg);
-} */
+}
 
 .taskText {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  word-break: break-all;
 }
 .taskTitle {
   color:#2A3647;
@@ -358,7 +361,7 @@ align-items: center;
   transition: 550ms ease-in-out;
 }
 .largeCardA {
-  max-height: 94%;
+  max-height: 97%;
   border: solid;
   display: flex;
   padding: 48px 40px;
@@ -368,6 +371,8 @@ align-items: center;
   border-radius: 30px;
   background: #fff;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+  width: 525px;
+
 }
 
 .largesCard{
@@ -415,6 +420,7 @@ align-items: center;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  word-break: break-all;
 }
 .largCardTextArea {
   color: black;
@@ -426,11 +432,14 @@ align-items: center;
 }
 .largCardTitle{
   color: var(--black, #000);
-    font-family: Inter;
-    font-size: 61px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%;
+  /* font-family: Inter; */
+  /* font-size: 61px; */
+  /* font-style: normal; */
+  /* font-weight: 700; */
+  /* line-height: 120%; */
+  font-size: 3.8125rem;
+  height: 298px;
+  overflow: scroll;
 }
 .largTaskDueDat {
   color: black;
@@ -665,6 +674,7 @@ gap: 13px;
   display: flex;
   justify-content: end;
 }
+
 .underListContactBoard {
   cursor: pointer;
     position: absolute;
@@ -692,7 +702,13 @@ gap: 13px;
   display: flex;
 }
 
-
+.subtasksEdit{
+  display: flex;
+width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px; 
+}
 @media (max-width: 320px) {
   .titleBoard {
     font-size: 47px !important;

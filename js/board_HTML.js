@@ -90,7 +90,7 @@ function generateAddEditeTask(taskId){
      <div class="closeLargeEditCardButton">
             <button onclick="closeCard()">X</button>
         </div>
-            <div>
+            <div style="width:100%;">
                 <div class="task_succes d-none" id="task_succes">
                     <div class="task_succes_container">
                         <span  class="task_succes_message">Task added to board</span>
@@ -98,7 +98,7 @@ function generateAddEditeTask(taskId){
                     </div>
                 </div>
                 <div class ="inputLeft_addTask">
-                    <div class="title_v1">               
+                    <div class="title_v1 wd100">               
                         <div class="title">Title<span class="spanClass">*</span>
                             <div class="frame203Board" onclick="required(this)">
                                 <div class="title_frame14Board">
@@ -108,9 +108,9 @@ function generateAddEditeTask(taskId){
                             </div>                  
                         </div>                         
                     </div>
-                    <div class="description_v1">
+                    <div class="description_v1 wd100">
                         <div class="description">Description<span class="spanClass">*</span></div>             
-                        <div class="frame207" onclick="required(this)">
+                        <div class="frame207 wd100" onclick="required(this)">
                         <div class="frame17Borad">
                             <textarea  class="text_enterDescription" type="text"  id="editDescription" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
                             <img class ="recursor" src="./assets/img/Recurso 1 1.png">
@@ -118,7 +118,7 @@ function generateAddEditeTask(taskId){
                         <div class="descriptionFieldRequired" id="descriptionFieldRequired" onclick="required(this)">This field is required</div> 
                         </div>
                     </div>
-                    <div class="asignedTo_v1">
+                    <div class="asignedTo_v1 wd100">
                         <div class="asignedTo">Assigned to</div>                     
                         <div class="categoryFrame74Board" id="assignedBoard" onclick="hideAssignedBoardEdit(event)">                    
                             <input class="searchContacts" type="text" id="searchContactsBoard" placeholder="Select contacts to assign">
@@ -139,16 +139,16 @@ function generateAddEditeTask(taskId){
                     </div>
                 </div>
                 <div class ="inputRight_addTaskEdit">
-                    <div class="dueDate">
+                    <div class="dueDate wd100">
                         <div class="text_DueDate">Due date<span class="spanClass">*</span></div>
-                        <div class="frame211" onclick="required(this)">                    
+                        <div class="frame211 wd100" onclick="required(this)">                    
                                 <div class="dueDate_frame14">
                                     <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="editDueDate" required oninput="handleInput(this)" >   
                                 </div>
                                 <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
                         </div>
                     </div>
-                    <div class="frame28">
+                    <div class="frame28 wd100">
                         <div class="titlePrio">Prio</div>
                         <div class="Boardpriority">
                             <div class="priorityUrgent"  onclick="changeColour('priorityUrgent')" id ="priorityUrgent">                    
@@ -188,54 +188,13 @@ function generateAddEditeTask(taskId){
                             </div>
                         </div>
                     </div>
-                    <div class="subtasks">
+                    <div class="subtasksEdit">
                         <div class="textSubtasks">Subtasks</div>
                             <div class="subtasksFrame14Board" >
-                                <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasksEdit" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()">
+                            <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasksEdit" placeholder="Add new subtask">
                                 <div class="imgSubtasks" >
-                                    <div class="imgPlusContainer" id ="imgPlusContainerEdit" onclick="hideVectorAndImgCheck()">
-                                        <img  class="imgPlus" class src="./assets/img/Subtasks.png" alt="" id="addSubtasksPlusEdit">                               
-                                        <svg  class="imgPlusHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                            <g id="Property 1=add hover">
-                                                <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
-                                                <mask id="mask0_75592_9978" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                                                    <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
-                                                </mask>
-                                                <g mask="url(#mask0_75592_9978)">
-                                                    <path id="add" d="M11.1445 13H6.14453C5.8612 13 5.6237 12.9042 5.43203 12.7125C5.24036 12.5208 5.14453 12.2833 5.14453 12C5.14453 11.7167 5.24036 11.4792 5.43203 11.2875C5.6237 11.0958 5.8612 11 6.14453 11H11.1445V6C11.1445 5.71667 11.2404 5.47917 11.432 5.2875C11.6237 5.09583 11.8612 5 12.1445 5C12.4279 5 12.6654 5.09583 12.857 5.2875C13.0487 5.47917 13.1445 5.71667 13.1445 6V11H18.1445C18.4279 11 18.6654 11.0958 18.857 11.2875C19.0487 11.4792 19.1445 11.7167 19.1445 12C19.1445 12.2833 19.0487 12.5208 18.857 12.7125C18.6654 12.9042 18.4279 13 18.1445 13H13.1445V18C13.1445 18.2833 13.0487 18.5208 12.857 18.7125C12.6654 18.9042 12.4279 19 12.1445 19C11.8612 19 11.6237 18.9042 11.432 18.7125C11.2404 18.5208 11.1445 18.2833 11.1445 18V13Z" fill="#2A3647"/>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <div id="vectorAndImgCheckEdit"  class="vectorAndImgCheck d-none">
-                                        <div class="imgCancelContainer" id="imgCancelContainer" onclick="hideVectorAndImgCheck()">
-                                            <img class="imgCancel"  src="./assets/img/cancel.png">
-                                            <img class="imgCancelHover" src="./assets/img/close hover.png">
-                                        </div>                                   
-                                        <img class="imgVector" src="./assets/img/vector.png" alt="">                      
-                                        <div class="subtasksImgCheck" onclick="addSubtasks()">                                        
-                                            <svg class="subtaskCheck" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                                <g id="Subtasks icons11">
-                                                    <mask id="mask0_75601_14762" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                                                    <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
-                                                    </mask>
-                                                    <g mask="url(#mask0_75601_14762)">
-                                                        <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
-                                                    </g>
-                                                </g>
-                                            </svg>  
-                                            <svg class="subtaskCheckHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                                <g id="Property 1=check hover">
-                                                    <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
-                                                    <mask id="mask0_75592_9966" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                                                    <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
-                                                    </mask>
-                                                    <g mask="url(#mask0_75592_9966)">
-                                                        <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
-                                                    </g>
-                                                </g>
-                                            </svg>                                                                    
-                                        </div>
+                                <div class="imgPlusContainer" id="imgPlusContainerEdit" onclick="addSubtasksEdit()">
+                                <img class="imgPlusEdit" src="./assets/img/Subtasks.png" alt="" id="addSubtasksPlusEdit">
                                     </div>
                                 </div>                        
                             </div>
@@ -244,19 +203,7 @@ function generateAddEditeTask(taskId){
                     </div>
                 </div>
                 <div class="">
-                <div class="comment"><span class="spanClass">*</span>This field is required</div>
                 <div class="frame27">
-                    <div class="secondary" onclick="clearTask()">
-                        <div class="textClear">Clear</div>
-                        <div class="clear">
-                            <img class="imgCancel" src="./assets/img/cancel.png" alt="">                    
-                            <svg class="imgCancelHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                <g id="iconoir:cancel">
-                                    <path id="Vector" d="M12.0692 12.0001L17.3122 17.2431M6.82617 17.2431L12.0692 12.0001L6.82617 17.2431ZM17.3122 6.75708L12.0682 12.0001L17.3122 6.75708ZM12.0682 12.0001L6.82617 6.75708L12.0682 12.0001Z" stroke="#29ABE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
                     <a class="leadsToBoard" href="#" id="leadsToBoard" onclick="saveEditTaskBoard(${taskId})">
                         <div class="primary">
                             <div class="textCreateTask">Save</div>
@@ -306,7 +253,7 @@ function generatePopUpWindowAdd(){
                     </div>
                 </div>
                 <div class ="inputLeft_addTask">
-                    <div class="title_v1">               
+                    <div class="title_v1 wd100">               
                         <div class="title">Title<span class="spanClass">*</span>
                             <div class="frame203" onclick="required(this)">
                                 <div class="title_frame14">
@@ -419,51 +366,6 @@ function generatePopUpWindowAdd(){
                         <div class="textSubtasks">Subtasks</div>
                             <div class="subtasksFrame14" >
                                 <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasks" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()">
-                                <div class="imgSubtasks" >
-                                    <div class="imgPlusContainer" id ="imgPlusContainer" onclick="hideVectorAndImgCheck()">
-                                        <img  class="imgPlus" class src="./assets/img/Subtasks.png" alt="" id="addSubtasksPlusEdit">                               
-                                        <svg  class="imgPlusHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                            <g id="Property 1=add hover">
-                                                <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
-                                                <mask id="mask0_75592_9978" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                                                    <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
-                                                </mask>
-                                                <g mask="url(#mask0_75592_9978)">
-                                                    <path id="add" d="M11.1445 13H6.14453C5.8612 13 5.6237 12.9042 5.43203 12.7125C5.24036 12.5208 5.14453 12.2833 5.14453 12C5.14453 11.7167 5.24036 11.4792 5.43203 11.2875C5.6237 11.0958 5.8612 11 6.14453 11H11.1445V6C11.1445 5.71667 11.2404 5.47917 11.432 5.2875C11.6237 5.09583 11.8612 5 12.1445 5C12.4279 5 12.6654 5.09583 12.857 5.2875C13.0487 5.47917 13.1445 5.71667 13.1445 6V11H18.1445C18.4279 11 18.6654 11.0958 18.857 11.2875C19.0487 11.4792 19.1445 11.7167 19.1445 12C19.1445 12.2833 19.0487 12.5208 18.857 12.7125C18.6654 12.9042 18.4279 13 18.1445 13H13.1445V18C13.1445 18.2833 13.0487 18.5208 12.857 18.7125C12.6654 18.9042 12.4279 19 12.1445 19C11.8612 19 11.6237 18.9042 11.432 18.7125C11.2404 18.5208 11.1445 18.2833 11.1445 18V13Z" fill="#2A3647"/>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <div id="vectorAndImgCheckEdit"  class="vectorAndImgCheck d-none">
-                                        <div class="imgCancelContainer" id="imgCancelContainer" onclick="hideVectorAndImgCheck()">
-                                            <img class="imgCancel"  src="./assets/img/cancel.png">
-                                            <img class="imgCancelHover" src="./assets/img/close hover.png">
-                                        </div>                                   
-                                        <img class="imgVector" src="./assets/img/vector.png" alt="">                      
-                                        <div class="subtasksImgCheck" onclick="addSubtasks()">                                        
-                                            <svg class="subtaskCheck" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                                <g id="Subtasks icons11">
-                                                    <mask id="mask0_75601_14762" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                                                    <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
-                                                    </mask>
-                                                    <g mask="url(#mask0_75601_14762)">
-                                                        <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
-                                                    </g>
-                                                </g>
-                                            </svg>  
-                                            <svg class="subtaskCheckHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                                                <g id="Property 1=check hover">
-                                                    <rect x="0.144531" width="24" height="24" rx="12" fill="#EEEEEE"/>
-                                                    <mask id="mask0_75592_9966" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
-                                                    <rect id="Bounding box" x="0.144531" width="24" height="24" fill="#D9D9D9"/>
-                                                    </mask>
-                                                    <g mask="url(#mask0_75592_9966)">
-                                                        <path id="check" d="M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z" fill="#2A3647"/>
-                                                    </g>
-                                                </g>
-                                            </svg>                                                                    
-                                        </div>
-                                    </div>
                                 </div>                        
                             </div>
                             <div class="allSubtasks" id ="allSubtasks"></div>
@@ -578,7 +480,7 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
                   <p  class="boardText">Assigned To:</p>
                   <div  id="boardAssigendLargCard"></div>
                 </div>
-                <div class="subtasks">
+                <div class="subtasks wd100">
                   <p>Subtasks</p>
                   <p>${subsHtml}</p>
                 </div>

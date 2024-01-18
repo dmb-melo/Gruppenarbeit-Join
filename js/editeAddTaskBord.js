@@ -88,6 +88,7 @@ function displaySubtasks(subtasks) {
   });
 }
 
+
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
   let status = getStatusTaskId(taskId);
@@ -127,9 +128,126 @@ function saveEditTaskBoard(taskId) {
   updateHtml();
   renderSmallContats();
   closeCard();
-
   selecetContactsEdit =[];
+  subtasks = [];
 }
+
+function addSubtasksEdit() {
+  const subtaskInput = document.getElementById('inputSubtasksEdit').value;
+  document.getElementById('inputSubtasksEdit').value = '';
+  subtasks.unshift(subtaskInput);
+  console.log(subtasks);
+  updateSubtasksDisplayEdit();
+  save();
+}
+function updateSubtasksDisplayEdit() {
+  const allSubtasksDiv = document.getElementById('editSubtasks');
+
+  allSubtasksDiv.innerHTML = '';
+
+  if (subtasks.length === 0) { //brauche ich das??
+      allSubtasksDiv.innerHTML = 'No subtasks available.';
+  } else {
+      subtasks.forEach((subtask, index) => {
+          const subtaskItemDiv = createSubtaskItemEdit(subtask);
+          const iconsContainer = createIconsContainer(subtaskItemDiv, subtask, index);
+          subtaskItemDiv.appendChild(iconsContainer);
+          allSubtasksDiv.appendChild(subtaskItemDiv);
+      });
+  }
+}
+
+function createSubtaskItemEdit(subtaskText) {
+  const subtaskItemDiv = document.createElement('div');
+  subtaskItemDiv.classList.add('subtaskItem');
+  subtaskItemDiv.classList.add('hoverEditClass');
+
+  const subtaskItemText = document.createElement('li');
+  subtaskItemText.innerText = subtaskText;
+  subtaskItemDiv.appendChild(subtaskItemText);
+
+  return subtaskItemDiv;
+}
+
+function createIconsContainer(subtaskItemDiv, subtaskText, index){
+  const iconsContainer = document.createElement("div");
+  iconsContainer.classList.add("iconsContainer");
+  const editImg = createImage("./assets/img/edit_task.png", "editSubTask");
+  iconsContainer.appendChild(editImg);
+  const vector = createImage("./assets/img/vector.png", "vector");
+  iconsContainer.appendChild(vector);
+  const deleteImg = createImage("./assets/img/delete_contacts.png", "delete");
+  iconsContainer.appendChild(deleteImg);
+  deleteImg.addEventListener("click", () => handleDeleteClick(subtaskItemDiv, index));
+  editImg.addEventListener("click", () => handleEditClick(subtaskItemDiv, subtaskText));
+  return iconsContainer;
+}
+
+function createImage(src, className) {
+  const img = document.createElement("img");
+  img.classList.add(className);
+  img.src = src;
+  return img;
+}
+
+function createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, index) {
+  const iconsContainerWhenEdit = document.createElement("div");
+  iconsContainerWhenEdit.classList.add("iconsContainer");
+  const deleteImg = createImage("./assets/img/delete_contacts.png", "delete");
+  deleteImg.classList.add("delete");
+  iconsContainerWhenEdit.appendChild(deleteImg);
+  deleteImg.addEventListener("click", () => handleDeleteClick(subtaskItemDiv, index));
+  const vector = createImage("./assets/img/vector.png", "vector");
+  iconsContainerWhenEdit.appendChild(vector);
+  const check = createImage("./assets/img/done.png", "subtaskCheck");
+  check.classList.add("subtasksCheck");
+  iconsContainerWhenEdit.appendChild(check);
+  check.addEventListener("click", () => handleCheckClick(subtaskItemDiv, iconsContainerWhenEdit, subtaskText));
+  return iconsContainerWhenEdit;
+}
+
+function handleDeleteClick(subtaskItemDiv, index) {
+  subtasks.splice(index, 1);
+  subtaskItemDiv.remove();
+  save();
+}
+
+function handleEditClick(subtaskItemDiv, subtaskText) {
+  if (!subtaskItemDiv || !subtaskText) {
+    return;
+  }
+  const subtaskItemText = subtaskItemDiv.querySelector("li");
+  if (subtaskItemText) {
+    const currentText = subtaskItemText.innerText;
+    const editInput = document.createElement("input");
+    editInput.type = "text";
+    editInput.value = currentText;
+    editInput.style.outline = "none";
+    editInput.style.border = "none";
+    subtaskItemDiv.replaceChild(editInput, subtaskItemText);
+    subtaskItemDiv.style.backgroundColor = "white";
+    editInput.focus();
+    editInput.addEventListener("blur", function () {
+      let newText = editInput.value.trim();
+      if (newText !== "") {
+        subtaskItemText.innerText = newText;
+        subtasks[subtasks.indexOf(subtaskText)] = newText;
+        save();
+      } else {
+        editInput.value = currentText;
+      }
+});
+
+editInput.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            editInput.blur();
+        }
+    });
+    const iconsContainer = createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, subtasks.indexOf(subtaskText));
+    subtaskItemDiv.replaceChild(iconsContainer, subtaskItemDiv.lastChild);
+  }
+}
+
 
 function checkboxAddTaskEdit() {
   let checkboxes = document.querySelectorAll(".inputCheckBox");
