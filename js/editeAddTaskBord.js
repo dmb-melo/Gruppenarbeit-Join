@@ -56,22 +56,23 @@ function edittaskArea(taskId) {
 function displayAssignedContacts(assignedContacts) {
   const contactsLargeCard = document.getElementById('editAssignedContacts');
 
-  contactsLargeCard.innerHTML = '';
-
   assignedContacts.forEach((contact, index) => {
     const name = contact.split(' ');
     const firstnameInitial = name[0].charAt(0).toUpperCase();
     const surnameInitial = name[1] ? name[1].charAt(0).toUpperCase() : '';
 
-    contactsLargeCard.innerHTML += /*html*/ `
-      <div class="boardLargContactsAvatar">
-        <div class="circle" id="circle-${index}" style="background-color: ${colors[index]}">
-          <p class="nameIdList" id="name-id">${firstnameInitial}${surnameInitial}</p>
-        </div>
+    const newContactElement = document.createElement('div');
+    newContactElement.classList.add('boardLargContactsAvatar');
+    newContactElement.innerHTML = /*html*/ `
+      <div class="circle" id="circle-${index}" style="background-color: ${colors[index]}">
+        <p class="nameIdList" id="name-id">${firstnameInitial}${surnameInitial}</p>
       </div>
     `;
+
+    contactsLargeCard.appendChild(newContactElement);
   });
 }
+
 
 
 function displaySubtasks(subtasks) {
@@ -128,8 +129,6 @@ function saveEditTaskBoard(taskId) {
   updateHtml();
   renderSmallContats();
   closeCard();
-  selecetContactsEdit =[];
-  subtasks = [];
 }
 
 function addSubtasksEdit() {
