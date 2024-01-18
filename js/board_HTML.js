@@ -536,6 +536,11 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
   }
 
   function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
+    // Convert due date to a Date object
+    var dueDate = new Date(task.dueDate);
+    
+    // Format due date as Day/Month/Year
+    var formattedDueDate = `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`;
     return /*html*/ `
       <div class="desingLagrCard" id="desingLagrCard">
         <div class="largeCardA" id="largeCardA">
@@ -564,13 +569,13 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
               <div class="largeTaskDetails">
                 <!-- Due date, priority, assigned person, and subtasks -->
                 <div class="largTaskDueDat">
-                  <div><span>Due Date:</span><span>${task.dueDate}</span></div>
+                  <div class="largDueDate"><span>Due Date:</span><span>${formattedDueDate}</span></div>
                 </div>
                 <div class="largPrioDetail">
-                  <p>Priority:</p><p>${clonedContentDiv.innerHTML}</p>
+                  <p  class="boardText">Priority:</p><p>${clonedContentDiv.innerHTML}</p>
                 </div>
                 <div class="assigendLarge">
-                  <p>Assigned To:</p>
+                  <p  class="boardText">Assigned To:</p>
                   <div  id="boardAssigendLargCard"></div>
                 </div>
                 <div class="subtasks">

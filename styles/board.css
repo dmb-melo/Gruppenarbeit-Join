@@ -358,11 +358,9 @@ align-items: center;
   transition: 550ms ease-in-out;
 }
 .largeCardA {
-  max-height: 75%;
-  width: 400px;
+  max-height: 94%;
   border: solid;
   display: flex;
-  width: 525px;
   padding: 48px 40px;
   flex-direction: column;
   align-items: flex-end;
@@ -374,6 +372,7 @@ align-items: center;
 
 .largesCard{
   width: 100%;
+  overflow: scroll;
 }
 .editBoard{
 
@@ -399,10 +398,17 @@ align-items: center;
 }
 
 .largCardHeader {
-  width: 100%;
-  /* width: 100%; */
+  width: 97%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.largCardHeader button {
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
 }
 .largCardText {
   width: 100%;
@@ -410,7 +416,14 @@ align-items: center;
   flex-direction: column;
   gap: 24px;
 }
-
+.largCardTextArea {
+  color: black;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
 .largCardTitle{
   color: var(--black, #000);
     font-family: Inter;
@@ -418,6 +431,14 @@ align-items: center;
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
+}
+.largTaskDueDat {
+  color: black;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 .largeTaskDetails {
   width: 100%;
@@ -430,6 +451,12 @@ align-items: center;
 .largPrioDetail {
   display: flex;
   align-items: center;
+  color: black;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 #boardAssigendLargCard {
   display: flex;
@@ -487,11 +514,29 @@ align-items: center;
     gap: 8px;
 }
 
+.boardText p {
+  color: black;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.boardText {
+  color: black;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
 /* drag and drop css */
 .drag-area-highlight {
   background-color: rgba(0, 0, 0, 0.1);
   border: dashed 1px;
   border-radius: 10px;
+  overflow: scroll;
 }
 
 .progressContainer {
@@ -513,7 +558,11 @@ align-items: center;
   background: var(--white, #FFF);
   z-index: 1;
 }
-
+.desingLagrCard { 
+  position: absolute;
+  top: 17px;
+  bottom: 100px;
+}
 .desingLagrCardEdit{
   height: 100%;
   display: flex;
@@ -598,6 +647,10 @@ align-items: center;
   border: 1px solid var(--Style, #D1D1D1);
   background: #FFF;
 }
+.largDueDate {
+  display: flex;
+gap: 13px;
+}
 .subtaskItemBoard{
   cursor: pointer;
     display: flex;
@@ -644,7 +697,50 @@ align-items: center;
   .titleBoard {
     font-size: 47px !important;
   }
+.desingLagrCard {
+  position: absolute;
+    top: 17px;
+    bottom: 100px;
+    width: 90%;
+}
+.largeCardA {
+  max-height: 94%;
+  border: solid;
+  display: flex;
+  padding: 14px 12px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+.TechnicalTask {
+  display: flex;
+padding: 4px 16px !important;
+align-items: flex-start;
+gap: 10px;
+font-size: 16px !important;
+font-style: normal;
+}
+.largCardTitle {
+  color: var(--black, #000);
+font-family: Inter;
+font-size: 36px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%; /* 43.2px */
+}
+.largCardTextArea {
+  color: var(--black, #000);
 
+/* Version 2/body */
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; /* 19.2px */
+}
   .headlineBoard {
     display: flex;
     justify-content: space-between;

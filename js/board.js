@@ -306,6 +306,7 @@ function updateProgress(taskId, index) {
 
 function editLargCard(taskId) {
   const task = tasks.find((task) => task.id === taskId);
+
 }
 
 
