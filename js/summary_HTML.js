@@ -39,8 +39,9 @@ function generateSummaryContent() {
                     <a onclick="renderBoardHTML()" class="summaryUrgendDeadLine toDoPanelBig">
                         <div class="urgend">
                             <img class="urgend-svg" src="./assets/img/pfeilerrauf.png" alt="">
-                            <div id="urgendCrowd" class="taskNumber">${numberOfUrgentTasks}</div>
-                            <div class="taskText">Urgend</div>
+                            <div id="urgendCrowd" class="taskNumber">${numberOfUrgentTasks}
+                            <div class="taskText">Urgent</div>
+                        </div>
                         </div>
                         <div class="partingLine"></div>
                         <div class="deadline">
@@ -51,15 +52,15 @@ function generateSummaryContent() {
                     <div class="summaryTasks">
                         <a onclick="renderBoardHTML()" class="taskspanels">
                             <div class="tasksNumber">${numberOfTasks}</div>
-                            <div class="tasksText">Task in Borad</div>
+                            <div class="tasksText">Tasks in Board</div>
                         </a>
                         <a onclick="renderBoardHTML()" class="taskspanels">
                             <div class="tasksNumber">${numberProgress}</div>
-                            <div class="tasksText">Task in Progress</div>
+                            <div class="tasksText">Tasks in Progress</div>
                         </a>
                         <a onclick="renderBoardHTML()" class="taskspanels">
                             <div class="tasksNumber">${numberFeedback}</div>
-                            <div class="tasksText">Task in Feedack</div>
+                            <div class="tasksText">Tasks in Await Feedack</div>
                         </a>
                     </div>
                 </div>
