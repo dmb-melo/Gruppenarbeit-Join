@@ -247,7 +247,6 @@ editInput.addEventListener("keyup", function (event) {
   }
 }
 
-
 function checkboxAddTaskEdit() {
   let checkboxes = document.querySelectorAll(".inputCheckBox");
   assigned = []; 
@@ -260,7 +259,6 @@ function checkboxAddTaskEdit() {
   console.log("Assigned Contacts:", assigned); 
 }
 
-
 function getStatusTaskId(taskId) {
   for (let i = 0; i < tasks.length; i++) {
     let idOfTaskStatus = tasks[i]["id"];
@@ -269,6 +267,7 @@ function getStatusTaskId(taskId) {
     }
   }
 }
+
 function getPrioTaskId(taskId) {
   for (let i = 0; i < tasks.length; i++) {
     let idOfTaskPrio = tasks[i]["id"];
@@ -277,7 +276,6 @@ function getPrioTaskId(taskId) {
     }
   }
 }
-
 
 function hideAssignedBoardEdit(event) {
   if (event.target.id !== "assignedBoard") {
@@ -315,7 +313,6 @@ function contactCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit)
   labelElementEdit.style.setProperty("background-image", "url('')");
 }
 
-
 function contactNotCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit) {
   let index = selecetContactsEdit.indexOf(i);
   if (index > -1) {
@@ -332,7 +329,6 @@ function validationContactsCheckedEdit(i, liElementEdit, nameElementEdit, labelE
     contactNotCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit);
   }
 }
-
 
 function renderContactsAddTaskBoard(i, contactsList) {
   let contact = contacts[i];
@@ -396,7 +392,6 @@ function hideVectorAndImgCheckEdit() {
   }
 }
 
-
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   document.getElementById("inputSubtasksEdit").value = "";
@@ -406,4 +401,3 @@ function addSubtasksEdit() {
   save();
   hideVectorAndImgCheckEdit();
 }
-

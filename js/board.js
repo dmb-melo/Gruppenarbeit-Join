@@ -108,7 +108,6 @@ function generateSmallCard(task, i) {
             </div>
         `;
   }
-
   return generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv,i);
 }
 
@@ -389,7 +388,6 @@ function renderEditContacts() {
     contactsLargeCard.innerHTML += generateEditContacts(assigned[d], colors[d]);
   }
 }
-
 
 function appendGeneratedAddTask(taskStatusFromBoard) {
   statusFromUser = taskStatusFromBoard;
