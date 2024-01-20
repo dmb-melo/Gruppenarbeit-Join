@@ -13,6 +13,7 @@ let currentId = 0;
 let taskStatus = [];
 let selectedPriorityContent = "";
 let preselectedCategory = 'Medium';
+let statusFromUser;
 
 function addTaskInit() {
   load();
@@ -154,6 +155,9 @@ function clearAllSelections() {
 }
  
 function addTask(){
+  if (!statusFromUser) {
+    statusFromUser = 'todo'
+  } 
   switchColorpriorityContent(); 
     let titleValue = document.getElementById("title").value;
     document.getElementById("title").value = "";
@@ -193,7 +197,7 @@ function addTask(){
         priorityContent: priorityContent,
         priorityID: selectedPriorityID,
         subtasks: subtasks.slice(),
-        taskStatus :'todo',
+        taskStatus : statusFromUser,
         category: category
     };  
    
@@ -215,7 +219,7 @@ function addTask(){
     resetPriorityTextColors();    
     category = [];
     selectedContacts = [];
-   
+    statusFromUser = 'todo';
 }
 
 function switchColorpriorityContent() {

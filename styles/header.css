@@ -6,7 +6,7 @@
   height: 96px;
   width: 100%;
   display: flex;
-  position: relative;
+  position: static;
   top: 0;
   justify-content: space-between;
   align-items: center;

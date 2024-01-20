@@ -47,7 +47,7 @@ function generateBoardHTML(taskId) {
             <section class="taskBoardTtle">
                 <div class="inProgressHeadline headLineCss" id="inProgressHeadline">
                     <h2 class="progressTitles">In Progress</h2>
-                    <a class="imgPlusTask"  href="#"  onclick="appendGeneratedAddTask()">
+                    <a class="imgPlusTask"  href="#"  onclick="appendGeneratedAddTask('inProgress')">
                         <img class="plusImg" src="./assets/img/imgPlusTask.svg">
                         <img class="plusImgHover" src="./assets/img/imgPlusHover.svg" alt="">
                     </a>
@@ -59,7 +59,7 @@ function generateBoardHTML(taskId) {
             <section class="taskBoardTtle">
                 <div class="awaitFeedbackHeadline headLineCss" id="awaitFeedbackHeadline">
                     <h2 class="progressTitles">Await FeedBack</h2>
-                    <a class="imgPlusTask"  href="#"  onclick="appendGeneratedAddTask()">
+                    <a class="imgPlusTask"  href="#"  onclick="appendGeneratedAddTask('awaitFeedback')">
                         <img class="plusImg" src="./assets/img/imgPlusTask.svg">
                         <img class="plusImgHover" src="./assets/img/imgPlusHover.svg" alt="">
                     </a>

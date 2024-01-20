@@ -5,7 +5,7 @@
 body {
   background-color: rgb(246, 247, 248);
   font-family: "Inter", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #conten {

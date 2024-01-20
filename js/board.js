@@ -401,7 +401,8 @@ function renderEditContats() {
 }
 
 
-function appendGeneratedAddTask() {
+function appendGeneratedAddTask(taskStatusFromBoard) {
+  statusFromUser = taskStatusFromBoard;
   let addWindow = document.getElementById('popUpAddWindow');
   addWindow.classList.add('openAddWindow');
 
