@@ -1,4 +1,4 @@
-let title = []; 
+let title = [];
 let description = [];
 let assigned = [];
 let selectedContacts = [];
@@ -12,7 +12,7 @@ let priorityContentArray = [];
 let currentId = 0;
 let taskStatus = [];
 let selectedPriorityContent = "";
-let preselectedCategory = 'Medium';
+let preselectedCategory = "Medium";
 let statusFromUser;
 
 function addTaskInit() {
@@ -27,7 +27,7 @@ function renderTask() {
   for (let i = 0; i < contacts.length; i++) {
     renderContactsAddTask(i, contactsList);
   }
-  document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);  
+  document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);
   changeColour(getCategoryPriorityColor(preselectedCategory), preselectedCategory);
 }
 
@@ -45,7 +45,7 @@ function renderContactsAddTask(i, contactsList) {
   let contact = contacts[i];
   let name = contact[0];
   let firstname = name.split(" ")[0][0].toUpperCase();
-  let surname = name.split(" ")[1][0].toUpperCase(); 
+  let surname = name.split(" ")[1][0].toUpperCase();
   let contactElement = document.createElement("li");
   contactElement.classList.add("contactList");
   contactElement.innerHTML = generateContactsAddTask(name, firstname, surname, i);
@@ -112,17 +112,16 @@ function handleContactSearch() {
     let nameElement = contact.getElementsByClassName("nameContact")[0];
     let txtValue = nameElement.textContent || nameElement.innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      contact.style.display = ""; 
+      contact.style.display = "";
     } else {
-      contact.style.display = "none"; 
+      contact.style.display = "none";
     }
-  } 
+  }
 }
 
 function displayAvatar(selectedContacts, contacts, colors) {
   let contactAvatar = document.getElementById("contactAvatar");
   contactAvatar.innerHTML = "";
-
   for (let i = 0; i < selectedContacts.length; i++) {
     let selectedIndex = selectedContacts[i];
     let contact = contacts[selectedIndex];
@@ -134,10 +133,9 @@ function displayAvatar(selectedContacts, contacts, colors) {
   }
 }
 
-
 function clearContactAvatar() {
   let contactAvatar = document.getElementById("contactAvatar");
-  contactAvatar.innerHTML = ""; 
+  contactAvatar.innerHTML = "";
 }
 
 function clearAllSelections() {
@@ -153,96 +151,109 @@ function clearAllSelections() {
     labels[index].style.setProperty("background-image", "none");
   });
 }
- 
-function addTask(){
+
+function addTask() {
   if (!statusFromUser) {
-    statusFromUser = 'todo'
-  } 
-  switchColorpriorityContent(); 
-    let titleValue = document.getElementById("title").value;
-    document.getElementById("title").value = "";
-    title.unshift(titleValue);
-    let descriptionValue = document.getElementById("description").value;
-    document.getElementById("description").value = "";
-    description.unshift(descriptionValue);
-    let dueDateValue = document.getElementById("dueDate").value;
-    document.getElementById("dueDate").value = "";
-    dueDate.unshift(dueDateValue);
-    checkboxAddTask();
-
-    let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
-    let priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
-    let selectedPriorityID = "";
-        if (selectedPriority) {
-            selectedPriorityID = selectedPriority.id;
-            
-        }
-
-    let categoryElement = document.getElementById("taskCategory");
-    let categoryValue = categoryElement ? categoryElement.textContent : "Select a task category";
-  
-    if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
-      return; 
-    }
-
-    priorityContentArray.unshift(priorityContent);
-
-    currentId++;
-   let newTask = {
-        id: currentId,
-        title: titleValue,
-        description: descriptionValue,
-        dueDate: dueDateValue,
-        assigned: assigned,
-        priorityContent: priorityContent,
-        priorityID: selectedPriorityID,
-        subtasks: subtasks.slice(),
-        taskStatus : statusFromUser,
-        category: category
-    };  
-   
-    subT.unshift(subtasks.slice()); 
-    tasks.unshift(newTask); 
-    localStorage.setItem("selectedPriorityContent", priorityContent);
-
+    statusFromUser = "todo";
+  }
+  setContentOfInputFieldFromTask();
+  switchColorpriorityContent();
   document.getElementById("categorySelect").textContent = "Select a task category";
-    subtasks = []; 
-    
-    save();
-    renderTask();
-    clearContactAvatar();
-    clearPrioActiveClass();
-    removePrioActiveClass();
-    taskSuccess();
-    updateSubtasksDisplay();
-    clearAllSelections();
-    resetPriorityTextColors();    
-    category = [];
-    selectedContacts = [];
-    statusFromUser = 'todo';
+  subtasks = [];
+  save();
+  renderTask();
+  clearAddTask();
+}
+
+function clearAddTask() {
+  clearContactAvatar();
+  clearPrioActiveClass();
+  removePrioActiveClass();
+  taskSuccess();
+  updateSubtasksDisplay();
+  clearAllSelections();
+  resetPriorityTextColors();
+  category = [];
+  selectedContacts = [];
+  statusFromUser = "todo";
+}
+
+function setContentOfInputFieldFromTask() {
+  let titleValue = generateTitle();
+  let descriptionValue = generateDescription();
+  let dueDateValue = generateDate();
+  checkboxAddTask();
+  let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
+  let priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
+  let selectedPriorityID = "";
+  if (selectedPriority) {
+    selectedPriorityID = selectedPriority.id;
+  }
+  priorityContentArray.unshift(priorityContent);
+  generateNewTaskContent(currentId, titleValue, titleValue, descriptionValue, dueDateValue, assigned, priorityContent, selectedPriorityID, subtasks, statusFromUser, category);
+  localStorage.setItem("selectedPriorityContent", priorityContent);
+}
+
+function generateTitle() {
+  let titleValue = document.getElementById("title").value;
+  document.getElementById("title").value = "";
+  title.unshift(titleValue);
+  return titleValue;
+}
+
+function generateDescription() {
+  let descriptionValue = document.getElementById("description").value;
+  document.getElementById("description").value = "";
+  description.unshift(descriptionValue);
+  return descriptionValue;
+}
+
+function generateDate() {
+  let dueDateValue = document.getElementById("dueDate").value;
+  document.getElementById("dueDate").value = "";
+  dueDate.unshift(dueDateValue);
+  return dueDateValue;
+}
+
+function generateNewTaskContent(currentId, titleValue, titleValue, descriptionValue, dueDateValue, assigned, priorityContent, selectedPriorityID, subtasks, statusFromUser, category) {
+  currentId++;
+  let newTask = {
+    id: currentId,
+    title: titleValue,
+    description: descriptionValue,
+    dueDate: dueDateValue,
+    assigned: assigned,
+    priorityContent: priorityContent,
+    priorityID: selectedPriorityID,
+    subtasks: subtasks.slice(),
+    taskStatus: statusFromUser,
+    category: category,
+  };
+  subT.unshift(subtasks.slice());
+  tasks.unshift(newTask);
 }
 
 function switchColorpriorityContent() {
   let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
- 
+
   if (selectedPriority) {
     priorityID = selectedPriority.id;
   }
   if (priorityID === "priorityUrgent") {
-  document.getElementById('textUrgent').style.color = "black";
+    document.getElementById("textUrgent").style.color = "black";
   }
   if (priorityID === "priorityMedium") {
-    document.getElementById('textMedium').style.color = "black";
+    document.getElementById("textMedium").style.color = "black";
   }
   if (priorityID === "priorityLow") {
-  document.getElementById('textLow').style.color = "black";
+    document.getElementById("textLow").style.color = "black";
   }
 }
 
-function checkboxAddTask(){
-    let checkboxes = document.querySelectorAll(".inputCheckBox");
-    assigned = []; 
-    checkboxes.forEach((checkbox, index) => {
+function checkboxAddTask() {
+  let checkboxes = document.querySelectorAll(".inputCheckBox");
+  assigned = [];
+  checkboxes.forEach((checkbox, index) => {
     let label = document.querySelector(`.nameContact[for=myCheckbox_${index}]`);
     if (checkbox.checked && label) {
       assigned.push(label.textContent);
@@ -253,42 +264,42 @@ function checkboxAddTask(){
 function clearTask() {
   subtasks = [];
   selectedContacts = [];
-  clearTaskValues();  
+  clearTaskValues();
   removeBorderColorAndHideIndicator("titleFieldRequired");
-  removeBorderColorAndHideIndicator("dueDateFieldRequired");  
+  removeBorderColorAndHideIndicator("dueDateFieldRequired");
   clearContactAvatar();
   clearAllSelections();
   clearPrioActiveClass();
   removePrioActiveClass();
   clearTaskCategory();
-  resetPriorityTextColors();  
+  resetPriorityTextColors();
   hideAssigned();
   changeColour(getCategoryPriorityColor(preselectedCategory), preselectedCategory);
 }
 
-function clearTaskValues(){
+function clearTaskValues() {
   let categoryFrame74 = document.getElementById("categoryFrame_74");
-  categoryFrame74.style.border = ""; 
+  categoryFrame74.style.border = "";
   let allSubtasksDiv = document.getElementById("allSubtasks");
   allSubtasksDiv.innerHTML = "";
   document.getElementById("title").value = "";
   document.getElementById("description").value = "";
   document.getElementById("dueDate").value = "";
-  document.getElementById("inputSubtasks").value = "";  
+  document.getElementById("inputSubtasks").value = "";
   document.getElementById("taskCategory").value = "";
   document.getElementById("searchContacts").value = "";
 }
 
 function getCategoryPriorityColor(category) {
   switch (category) {
-    case 'Urgent':
-      return 'priorityUrgent';
-    case 'Medium':
-      return 'priorityMedium';
-    case 'Low':
-      return 'priorityLow';
+    case "Urgent":
+      return "priorityUrgent";
+    case "Medium":
+      return "priorityMedium";
+    case "Low":
+      return "priorityLow";
     default:
-      return 'priorityMedium'; // Default to Medium if category is not recognized
+      return "priorityMedium"; // Default to Medium if category is not recognized
   }
 }
 
@@ -301,7 +312,7 @@ function save() {
   localStorage.setItem("dueDate", JSON.stringify(dueDate));
   localStorage.setItem("priorityContentArray", JSON.stringify(priorityContentArray));
   localStorage.setItem("subtasks", JSON.stringify(subtasks));
-  localStorage.setItem("tasks", JSON.stringify(tasks)); 
+  localStorage.setItem("tasks", JSON.stringify(tasks));
   localStorage.setItem("category", JSON.stringify(category));
   localStorage.setItem("subT", JSON.stringify(subT));
 }
@@ -341,7 +352,7 @@ function hideAssigned(event) {
   let list = document.getElementById("listContact");
   let arrow = document.getElementById("arrowAssigned");
   let arrowDrop = document.getElementById("arrow_drop_downHoverAssigned");
-  if (event && event.target && event.target.id !== "assigned") {   
+  if (event && event.target && event.target.id !== "assigned") {
     list.classList.toggle("hide");
     arrow.classList.toggle("rotate");
     arrowDrop.classList.toggle("rotate");
@@ -355,7 +366,6 @@ function hideAssigned(event) {
 
 // Function to close the listContact if clicked outside
 document.addEventListener("DOMContentLoaded", function () {
-  
   document.addEventListener("click", function (event) {
     let listContact = document.getElementById("listContact");
     let assignedElement = document.getElementById("assigned");
@@ -396,27 +406,25 @@ function hideListContact() {
   displayAvatar(selectedContacts, contacts, colors);
 }
 
-
 function getCategoryForPriority(priority) {
   switch (priority) {
-    case 'priorityUrgent':
-      return 'Urgent';
-    case 'priorityMedium':
-      return 'Medium';
-    case 'priorityLow':
-      return 'Low';
+    case "priorityUrgent":
+      return "Urgent";
+    case "priorityMedium":
+      return "Medium";
+    case "priorityLow":
+      return "Low";
     default:
-      return ''; 
+      return "";
   }
 }
 
 function clearPrioActiveClass() {
- 
-  const priorityElements = document.querySelectorAll('.priority');
+  const priorityElements = document.querySelectorAll(".priority");
 
-  priorityElements.forEach(priority => {
-    if (!priority.classList.contains('priorityActive')) {
-      priority.classList.remove('active');
+  priorityElements.forEach((priority) => {
+    if (!priority.classList.contains("priorityActive")) {
+      priority.classList.remove("active");
     }
   });
 }
@@ -424,20 +432,19 @@ function clearPrioActiveClass() {
 let selectedPriority = null;
 
 function changeColour(divID) {
- 
   const selected = document.getElementById(divID);
 
   if (selected === selectedPriority) return;
 
-    if (selectedPriority) {
-      selectedPriority.classList.remove('active');
-      selectedPriority.style.color = '';
-    }
+  if (selectedPriority) {
+    selectedPriority.classList.remove("active");
+    selectedPriority.style.color = "";
+  }
 
-    selected.classList.add('active');
-    selected.style.color = 'white';
+  selected.classList.add("active");
+  selected.style.color = "white";
 
-    selectedPriority = selected;  
+  selectedPriority = selected;
 
   const urgent = document.getElementById("priorityUrgent");
   const medium = document.getElementById("priorityMedium");
@@ -466,23 +473,20 @@ function changeColour(divID) {
     path.classList.toggle("imgPrio-active");
   });
 
-
   let selectedTextElement = selected.querySelector(`.text${divID.slice(8)}`);
   if (selectedTextElement) {
     const isCurrentlyActive = selected.classList.contains(`${divID}-active`);
     const previousActivePriority = priorities.find((prio) => prio.classList.contains(`${prio.id}-active`));
 
-
     if (previousActivePriority && previousActivePriority !== selected) {
       let previousTextElement = previousActivePriority.querySelector(`.text${previousActivePriority.id.slice(8)}`);
       if (previousTextElement) {
-        previousTextElement.style.color = ""; 
+        previousTextElement.style.color = "";
       }
     }
     selectedTextElement.style.color = isCurrentlyActive ? "white" : "";
   }
 }
-
 
 function removePriorityStyles(prio) {
   prio.classList.remove(`${prio.id}-active`);
@@ -490,13 +494,13 @@ function removePriorityStyles(prio) {
 
   const textElement = prio.querySelector(`.text${prio.id.slice(8)}`);
   if (textElement) {
-    textElement.removeAttribute('style');
+    textElement.removeAttribute("style");
   }
 }
 
 function toggleImgPrioActive(divID) {
   const imgPaths = document.querySelectorAll(`.img-${divID}`);
-  imgPaths.forEach(path => {
+  imgPaths.forEach((path) => {
     path.classList.toggle("imgPrio-active");
   });
 }
@@ -546,12 +550,12 @@ function selectCategory(clickedElement) {
   let selectText = clickedElement.querySelector("p").getAttribute("value");
   let taskCategory = document.getElementById("taskCategory");
   let categoryFrame74 = document.getElementById("categoryFrame_74");
-  categoryFrame74.style.border = ""; 
+  categoryFrame74.style.border = "";
   if (selectText !== "Select a task category") {
     category = [];
     category.unshift(selectText);
     category.push(categorySelect);
-    save(); 
+    save();
     taskCategory.querySelector("p").textContent = selectText;
   }
 }
@@ -599,10 +603,10 @@ function createSubtaskItem(subtaskText) {
   subtaskItemDiv.addEventListener("dblclick", function () {
     handleEditClick(subtaskItemDiv, subtaskText);
   });
-  return subtaskItemDiv; 
+  return subtaskItemDiv;
 }
 
-function createIconsContainer(subtaskItemDiv, subtaskText, index){
+function createIconsContainer(subtaskItemDiv, subtaskText, index) {
   const iconsContainer = document.createElement("div");
   iconsContainer.classList.add("iconsContainer");
   const editImg = createImage("./assets/img/edit_task.png", "editSubTask");
@@ -669,12 +673,12 @@ function handleEditClick(subtaskItemDiv, subtaskText) {
       } else {
         editInput.value = currentText;
       }
-});
+    });
 
-editInput.addEventListener("keyup", function (event) {
-        if (event.key === "Enter") {
-            editInput.blur();
-        }
+    editInput.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        editInput.blur();
+      }
     });
     const iconsContainer = createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, subtasks.indexOf(subtaskText));
     subtaskItemDiv.replaceChild(iconsContainer, subtaskItemDiv.lastChild);
@@ -687,11 +691,11 @@ function handleCheckClick(subtaskItemDiv, iconsContainer, subtaskText) {
   }
   const editInput = subtaskItemDiv.querySelector("input");
   if (editInput) {
-    const newText = editInput.value.trim(); 
+    const newText = editInput.value.trim();
     if (newText !== "") {
       const updatedSubtaskText = document.createElement("li");
       updatedSubtaskText.innerText = newText;
-      subtasks[subtasks.indexOf(subtaskText)] = newText; 
+      subtasks[subtasks.indexOf(subtaskText)] = newText;
       save();
       const newIconsContainer = createIconsContainer(subtaskItemDiv, newText, subtasks.indexOf(newText));
       subtaskItemDiv.innerHTML = "";
@@ -721,11 +725,11 @@ async function handleTaskClick(event) {
   let categoryValue = document.getElementById("categorySelect").textContent;
   let dueDateValue = document.getElementById("dueDate").value;
   if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
-    return 
+    return;
   }
   await addTask();
   setTimeout(async function () {
-    await renderBoardHTML(); 
+    await renderBoardHTML();
   }, 1500);
 
   let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
@@ -783,11 +787,11 @@ function removeBorderColorAndHideIndicator(fieldId) {
   if (frameSelector) {
     const frame = document.querySelector(frameSelector);
     if (frame) {
-      frame.style.border = ""; 
+      frame.style.border = "";
     }
   }
   if (fieldIndicator) {
-    fieldIndicator.style.display = "none"; 
+    fieldIndicator.style.display = "none";
   }
 }
 
@@ -816,8 +820,7 @@ function required(element) {
   } else if (element.classList.contains("frame203")) {
     changeBorderColorAndDisplayField(".title_frame14", "#titleFieldRequired");
     hideFieldIndicatorsExcept("#titleFieldRequired");
-  }
-  else if (element.classList.contains("categoryFrame_74")) {
+  } else if (element.classList.contains("categoryFrame_74")) {
     changeBorderColorAndDisplayField(".categoryFrame_74");
   }
 }
@@ -826,7 +829,7 @@ function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector)
   const frame = document.querySelector(frameSelector);
   const fieldIndicator = document.querySelector(fieldIndicatorSelector);
   if (frame) {
-    frame.style.border = "1px solid #FF8190"; 
+    frame.style.border = "1px solid #FF8190";
   }
   if (fieldIndicator) {
     fieldIndicator.style.display = "block";
@@ -841,5 +844,3 @@ function hideFieldIndicatorsExcept(exceptSelector) {
     }
   });
 }
-
-
