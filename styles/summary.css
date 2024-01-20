@@ -416,6 +416,9 @@ body {
 
   .summaryTaskContainer {
     gap: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
   }
 
   .summaryTodoDone {
@@ -478,7 +481,7 @@ body {
     display: flex;
     justify-content: center;
     width: 450px !important;
-    margin-left: 56px;
+    margin-left: 0px;
     height: 128px;
   }
 
@@ -509,13 +512,22 @@ body {
   }
 }
 
+
 @media (max-width: 480px) {
+  .summaryLeft {
+    margin-top: 48px;
+    max-width: 479px;
+    height: calc(100vh - 96px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
   .blueLineResponsive {
     margin-bottom: 24px;
   }
 
   .summaryHeader {
-    margin-left: 124px;
+    margin-left: 0px;
   }
 
   .summaryHeader h1 {
@@ -530,13 +542,14 @@ body {
 
   .summaryTodoDone a {
     padding: 10px;
-    width: 22%;
+    width: 40%;
     gap: 12px;
   }
 
   .summaryTodoDone {
     gap: 20px;
     height: 100px;
+    width: 100%;
   }
 
   .toDoIcon {
@@ -549,14 +562,23 @@ body {
   }
 
   .summaryUrgendDeadLine {
-    margin-left: 124px;
+    margin-left: 0px !important;
     width: 310px !important;
   }
 
   .urgend-svg {
     transform: scale(0.6);
   }
-
+  .summaryTasks {
+    display: flex;
+    width: 560px;
+    height: 170px;
+    padding: 1px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+    width: 100%;
+}
   .urgend {
     gap: 8px;
     width: 52px !important;
