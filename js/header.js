@@ -9,6 +9,7 @@ let = submenuIsOpen = false;
  */
 function showSubmenu() {
     if (!submenuIsOpen) {
+      document.getElementById("submenu").style = 'display: block';
       document.getElementById("submenu").classList.add("show-submenu");
       submenuIsOpen = true;
     } else {
@@ -19,6 +20,7 @@ function showSubmenu() {
   function closeSubmenu() {
     if (submenuIsOpen === true) {
       document.getElementById("submenu").classList.remove("show-submenu");
+      document.getElementById("submenu").style = 'display: none';
       submenuIsOpen = false;
     }
   }
