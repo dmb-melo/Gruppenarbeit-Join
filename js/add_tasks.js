@@ -163,6 +163,7 @@ function addTask() {
   save();
   renderTask();
   clearAddTask();
+  saveTasksToServer();
 }
 
 function clearAddTask() {
