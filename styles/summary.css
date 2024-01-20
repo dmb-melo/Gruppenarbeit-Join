@@ -2,7 +2,9 @@
 
 body {
   background-color: #e5e5e6;
+  overflow-x: hidden;
 }
+
 
 .summaryMain {
   overflow: hidden;
