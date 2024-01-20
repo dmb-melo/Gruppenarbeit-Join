@@ -12,11 +12,10 @@ let priorityContentArray = [];
 let currentId = 0;
 let taskStatus = [];
 let selectedPriorityContent = "";
-
+let preselectedCategory = 'Medium';
 
 function addTaskInit() {
   load();
-  selectedPriorityContent = localStorage.getItem("selectedPriorityContent");
   renderTask();
 }
 
@@ -27,8 +26,8 @@ function renderTask() {
   for (let i = 0; i < contacts.length; i++) {
     renderContactsAddTask(i, contactsList);
   }
-  document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);
-  changeColour('priorityMedium');
+  document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);  
+  changeColour(getCategoryPriorityColor(preselectedCategory), preselectedCategory);
 }
 
 function sortContacts() {
@@ -74,6 +73,23 @@ function contactChecked(i, liElement, nameElement, labelElement) {
   liElement.classList.add("contactListSelected");
   nameElement.classList.add("nameContactWhite");
   labelElement.style.setProperty("background-image", "url('')");
+  clearInputAndDisplayContacts();
+}
+
+function clearInputAndDisplayContacts() {
+  let input = document.getElementById("searchContacts");
+  input.value = "";
+  setTimeout(function () {
+    displayAllContacts();
+  }, 100);
+}
+
+function displayAllContacts() {
+  let contacts = document.getElementsByClassName("contactList");
+  for (let i = 0; i < contacts.length; i++) {
+    let contact = contacts[i];
+    contact.style.display = "";
+  }
 }
 
 function contactNotChecked(i, liElement, nameElement, labelElement) {
@@ -99,12 +115,13 @@ function handleContactSearch() {
     } else {
       contact.style.display = "none"; 
     }
-  }
+  } 
 }
 
 function displayAvatar(selectedContacts, contacts, colors) {
   let contactAvatar = document.getElementById("contactAvatar");
-  contactAvatar.innerHTML = ""; 
+  contactAvatar.innerHTML = "";
+
   for (let i = 0; i < selectedContacts.length; i++) {
     let selectedIndex = selectedContacts[i];
     let contact = contacts[selectedIndex];
@@ -115,6 +132,7 @@ function displayAvatar(selectedContacts, contacts, colors) {
     contactAvatar.innerHTML += currentContactContent;
   }
 }
+
 
 function clearContactAvatar() {
   let contactAvatar = document.getElementById("contactAvatar");
@@ -136,8 +154,7 @@ function clearAllSelections() {
 }
  
 function addTask(){
-  switchColorpriorityContent();
- 
+  switchColorpriorityContent(); 
     let titleValue = document.getElementById("title").value;
     document.getElementById("title").value = "";
     title.unshift(titleValue);
@@ -147,7 +164,6 @@ function addTask(){
     let dueDateValue = document.getElementById("dueDate").value;
     document.getElementById("dueDate").value = "";
     dueDate.unshift(dueDateValue);
-
     checkboxAddTask();
 
     let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
@@ -192,11 +208,11 @@ function addTask(){
     renderTask();
     clearContactAvatar();
     clearPrioActiveClass();
+    removePrioActiveClass();
     taskSuccess();
     updateSubtasksDisplay();
     clearAllSelections();
-    resetPriorityTextColors();
-    
+    resetPriorityTextColors();    
     category = [];
     selectedContacts = [];
    
@@ -229,7 +245,6 @@ function checkboxAddTask(){
       assigned.push(label.textContent);
     }
   });
-  console.log("Assigned Contacts:", assigned); 
 }
 
 function clearTask() {
@@ -246,11 +261,28 @@ function clearTask() {
   let allSubtasksDiv = document.getElementById("allSubtasks");
   allSubtasksDiv.innerHTML = "";
   document.getElementById("taskCategory").value = "";
+  document.getElementById("searchContacts").value = "";
   clearContactAvatar();
   clearAllSelections();
   clearPrioActiveClass();
+  removePrioActiveClass();
   clearTaskCategory();
   resetPriorityTextColors();  
+  hideAssigned();
+  changeColour(getCategoryPriorityColor(preselectedCategory), preselectedCategory);
+}
+
+function getCategoryPriorityColor(category) {
+  switch (category) {
+    case 'Urgent':
+      return 'priorityUrgent';
+    case 'Medium':
+      return 'priorityMedium';
+    case 'Low':
+      return 'priorityLow';
+    default:
+      return 'priorityMedium'; // Default to Medium if category is not recognized
+  }
 }
 
 function save() {
@@ -296,14 +328,62 @@ function load() {
 }
 
 function hideAssigned(event) {
-  if (event.target.id !== "assigned") {
-    let list = document.getElementById("listContact");
-    let arrow = document.getElementById("arrowAssigned");
-    let arrowDrop = document.getElementById("arrow_drop_downHoverAssigned");
+  let list = document.getElementById("listContact");
+  let arrow = document.getElementById("arrowAssigned");
+  let arrowDrop = document.getElementById("arrow_drop_downHoverAssigned");
+  if (event && event.target && event.target.id !== "assigned") {   
     list.classList.toggle("hide");
     arrow.classList.toggle("rotate");
     arrowDrop.classList.toggle("rotate");
+  } else {
+    list.classList.add("hide");
+    arrow.classList.remove("rotate");
+    arrowDrop.classList.remove("rotate");
   }
+  displayAvatar(selectedContacts, contacts, colors);
+}
+
+// Function to close the listContact if clicked outside
+document.addEventListener("DOMContentLoaded", function () {
+  
+  document.addEventListener("click", function (event) {
+    let listContact = document.getElementById("listContact");
+    let assignedElement = document.getElementById("assigned");
+    let isClickInsideList = listContact && listContact.contains(event.target);
+    let isClickOnAssigned = assignedElement && assignedElement.contains(event.target);
+    let arrow = document.getElementById("arrowAssigned");
+    let arrowDrop = document.getElementById("arrow_drop_downHoverAssigned");
+
+    if (!isClickInsideList && listContact && listContact.offsetParent !== null && !isClickOnAssigned) {
+      listContact.classList.add("hide");
+      arrow.classList.remove("rotate");
+      arrowDrop.classList.remove("rotate");
+    }
+  });
+});
+
+function toggleListContact() {
+  let listContact = document.getElementById("listContact");
+  let arrow = document.getElementById("arrowAssigned");
+  let arrowDrop = document.getElementById("arrow_drop_downHoverAssigned");
+
+  listContact.classList.toggle("hide");
+  arrow.classList.toggle("rotate");
+  arrowDrop.classList.toggle("rotate");
+
+  displayAvatar(selectedContacts, contacts, colors);
+}
+
+// Function to hide the listContact
+function hideListContact() {
+  let listContact = document.getElementById("listContact");
+  let arrow = document.getElementById("arrowAssigned");
+  let arrowDrop = document.getElementById("arrow_drop_downHoverAssigned");
+
+  listContact.classList.add("hide");
+  arrow.classList.remove("rotate");
+  arrowDrop.classList.remove("rotate");
+
   displayAvatar(selectedContacts, contacts, colors);
 }
 
@@ -334,7 +414,6 @@ function changeColour(divID) {
         path.classList.remove("imgPrio-active");
       });
 
-      // Reset text color to default (black) only if it exists
       let textElement = prio.querySelector(`.text${prio.id.slice(8)}`);
       if (textElement) {
         textElement.style.color = "";
@@ -342,24 +421,23 @@ function changeColour(divID) {
     }
   }
 
-  // Toggle active class for the selected priority
   selected.classList.toggle(`${divID}-active`);
   let selectedImgPaths = document.querySelectorAll(`.img-${divID}`);
   selectedImgPaths.forEach((path) => {
     path.classList.toggle("imgPrio-active");
   });
 
-  // Set text color to white for the selected priority
+
   let selectedTextElement = selected.querySelector(`.text${divID.slice(8)}`);
   if (selectedTextElement) {
     const isCurrentlyActive = selected.classList.contains(`${divID}-active`);
     const previousActivePriority = priorities.find((prio) => prio.classList.contains(`${prio.id}-active`));
 
-    // Check if the previous active priority is different from the current one
+
     if (previousActivePriority && previousActivePriority !== selected) {
       let previousTextElement = previousActivePriority.querySelector(`.text${previousActivePriority.id.slice(8)}`);
       if (previousTextElement) {
-        previousTextElement.style.color = ""; // Reset text color to default (black)
+        previousTextElement.style.color = ""; 
       }
     }
     selectedTextElement.style.color = isCurrentlyActive ? "white" : "";
@@ -453,7 +531,6 @@ function addSubtasks() {
   const subtaskInput = document.getElementById("inputSubtasks").value;
   document.getElementById("inputSubtasks").value = "";
   subtasks.unshift(subtaskInput);
-  console.log(subtaskInput);
   updateSubtasksDisplay();
   save();
   hideVectorAndImgCheck();
@@ -610,6 +687,11 @@ async function handleTaskClick(event) {
   setTimeout(async function () {
     await renderBoardHTML(); 
   }, 1500);
+
+  let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
+  if (selectedPriority) {
+    preselectedCategory = getCategoryForPriority(selectedPriority.id);
+  }
 }
 
 async function renderBoardHTML() {
