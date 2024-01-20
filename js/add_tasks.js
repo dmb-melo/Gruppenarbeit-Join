@@ -253,18 +253,9 @@ function checkboxAddTask(){
 function clearTask() {
   subtasks = [];
   selectedContacts = [];
-  document.getElementById("title").value = "";
-  document.getElementById("description").value = "";
-  document.getElementById("dueDate").value = "";
-  document.getElementById("inputSubtasks").value = "";
+  clearTaskValues();  
   removeBorderColorAndHideIndicator("titleFieldRequired");
-  removeBorderColorAndHideIndicator("dueDateFieldRequired");
-  let categoryFrame74 = document.getElementById("categoryFrame_74");
-  categoryFrame74.style.border = ""; 
-  let allSubtasksDiv = document.getElementById("allSubtasks");
-  allSubtasksDiv.innerHTML = "";
-  document.getElementById("taskCategory").value = "";
-  document.getElementById("searchContacts").value = "";
+  removeBorderColorAndHideIndicator("dueDateFieldRequired");  
   clearContactAvatar();
   clearAllSelections();
   clearPrioActiveClass();
@@ -273,7 +264,19 @@ function clearTask() {
   resetPriorityTextColors();  
   hideAssigned();
   changeColour(getCategoryPriorityColor(preselectedCategory), preselectedCategory);
+}
 
+function clearTaskValues(){
+  let categoryFrame74 = document.getElementById("categoryFrame_74");
+  categoryFrame74.style.border = ""; 
+  let allSubtasksDiv = document.getElementById("allSubtasks");
+  allSubtasksDiv.innerHTML = "";
+  document.getElementById("title").value = "";
+  document.getElementById("description").value = "";
+  document.getElementById("dueDate").value = "";
+  document.getElementById("inputSubtasks").value = "";  
+  document.getElementById("taskCategory").value = "";
+  document.getElementById("searchContacts").value = "";
 }
 
 function getCategoryPriorityColor(category) {
