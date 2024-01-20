@@ -1,10 +1,19 @@
 let draggedElementId;
-let stateOfTask = [];
-let subtaskLevel = [];
+let stateOfTask = [
+  {
+    0: "checkbox-1-0",
+    1: "checkbox-1-1",
+  },
+];
+let subtaskLevel = [
+  {
+    taskId: 1,
+    percentageCompleted: 100,
+    valueOfTheSubtaskBreak: "2/2",
+  },
+];
 
-async function renderBoardHTML() {
-  await loadTasksFromServer();
-  load();
+function renderBoardHTML() {
   loadStateOfSubTask();
   loadLevelOfSubtask();
   document.getElementById("contentJoin").innerHTML = ``;
@@ -16,7 +25,7 @@ async function renderBoardHTML() {
   renderProgressbar();
 }
 
-function boardInit() {
+async function boardInit() {
   updateHtml();
   renderSmallContats();
 }
@@ -73,7 +82,7 @@ function removeActiveClassFromSvgElements(container) {
 
 function generateSmallCard(task, i) {
   let currenCategory = task.category[0];
-  let currentPriorityContent = task.priorityContent || '';
+  let currentPriorityContent = task.priorityContent || "";
 
   let tempDiv = document.createElement("div");
   tempDiv.innerHTML = currentPriorityContent;
@@ -85,20 +94,20 @@ function generateSmallCard(task, i) {
   clonedContentDiv.appendChild(tempDiv.cloneNode(true));
 
   removeActiveClassFromSvgElements(clonedContentDiv);
-  let className = typeof currenCategory === 'string' ? currenCategory.replace(/\s+/g, '') : '';
+  let className = typeof currenCategory === "string" ? currenCategory.replace(/\s+/g, "") : "";
 
   // Clear the text content inside the elements with specified classes
-  let selectedPriorityContentDiv = clonedContentDiv.querySelector('.selectedPriorityContentDiv');
+  let selectedPriorityContentDiv = clonedContentDiv.querySelector(".selectedPriorityContentDiv");
 
-  ['textUrgent', 'textMedium', 'textLow'].forEach(className => {
-    let textElement = selectedPriorityContentDiv.querySelector('.' + className);
+  ["textUrgent", "textMedium", "textLow"].forEach((className) => {
+    let textElement = selectedPriorityContentDiv.querySelector("." + className);
     if (textElement) {
-      textElement.textContent = ''; // Clear text content
+      textElement.textContent = ""; // Clear text content
     }
   });
 
   // Conditionally include the smallProgress div
-  let smallProgressDiv = '';
+  let smallProgressDiv = "";
   if (task.subtasks.length > 0) {
     smallProgressDiv = /*html*/ `
             <div class="progressContainer">
@@ -109,7 +118,7 @@ function generateSmallCard(task, i) {
             </div>
         `;
   }
-  return generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv,i);
+  return generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv, i);
 }
 
 // Delet of Tasks
@@ -134,7 +143,6 @@ function deleteTask(event) {
     save();
     updateHtml();
     closeCard();
-    saveTasksToServer();
   }
 }
 
@@ -150,7 +158,6 @@ function moveIt(taskStatus) {
     save();
     renderProgressbar();
     renderSmallContats();
-    saveTasksToServer();
   }
 }
 function allowDrop(ev) {
@@ -171,11 +178,10 @@ function openCard(taskId) {
   if (task) {
     largeCardElement.innerHTML = generateLargeCard(task);
     largeCardElement.style.transform = "translateX(0%)";
-    renderLargeContats(task); 
+    renderLargeContats(task);
   }
-  renderLargeContats(); 
+  renderLargeContats();
 }
-
 
 function renderSubtaskState(task) {
   let taskId = task["id"];
@@ -270,7 +276,7 @@ function loadLevelOfSubtask() {
 
 function generateLargeCard(task) {
   let currentPriorityContent = task.priorityContent || "";
-  
+
   let currentSubTasks = subT[task];
   let tempDiv = document.createElement("div");
   tempDiv.innerHTML = currentPriorityContent;
@@ -308,10 +314,7 @@ function updateProgress(taskId, index) {
 
 function editLargCard(taskId) {
   const task = tasks.find((task) => task.id === taskId);
-
 }
-
-
 
 function closeCard() {
   // Your close logic goes here
@@ -328,11 +331,11 @@ function renderSmallContats() {
   for (let i = 0; i < tasks.length; i++) {
     const assigned = tasks[i]["assigned"];
 
-    const contactsSmallCard = document.getElementById(`boardAssigend-${tasks[i]['id']}`);
+    const contactsSmallCard = document.getElementById(`boardAssigend-${tasks[i]["id"]}`);
     const maxContactsToShow = 3;
     const totalAssigned = assigned.length;
 
-    for (let a = 0; a <  Math.min(maxContactsToShow, totalAssigned); a++) {
+    for (let a = 0; a < Math.min(maxContactsToShow, totalAssigned); a++) {
       const assigendAvatar = assigned[a];
       let name = assigned[a];
       let firstname = name[0].toUpperCase();
@@ -348,15 +351,14 @@ function renderSmallContats() {
                 `;
     }
     if (totalAssigned > maxContactsToShow) {
-      contactsSmallCard.innerHTML += /*html*/`
+      contactsSmallCard.innerHTML += /*html*/ `
           <div class="">
               <div class="smallCardVersionCircel lastSmallCircel " style="background-color: #ccc;">
                   <p class="nameIdList lastCircel" id="name-id">${totalAssigned - maxContactsToShow}+</p>
               </div>
           </div>
       `;
-  }
-
+    }
   }
 }
 
@@ -364,8 +366,8 @@ function renderLargeContats(task) {
   const contactsLargeCard = document.getElementById("boardAssigendLargCard");
   contacts.innerHTML = "";
 
-  if (task && task['assigned']) {
-    const assigned = task['assigned'];
+  if (task && task["assigned"]) {
+    const assigned = task["assigned"];
     for (let d = 0; d < assigned.length; d++) {
       const assigendAvatar = assigned[d];
       let name = assigned[d];
@@ -394,12 +396,12 @@ function renderEditContacts() {
 
 function appendGeneratedAddTask(taskStatusFromBoard) {
   statusFromUser = taskStatusFromBoard;
-  let addWindow = document.getElementById('popUpAddWindow');
-  addWindow.classList.add('openAddWindow');
-   let addBoard = document.getElementById('addBoard');
+  let addWindow = document.getElementById("popUpAddWindow");
+  addWindow.classList.add("openAddWindow");
+  let addBoard = document.getElementById("addBoard");
 
-  let newDivAddTask = document.createElement('div');
-  newDivAddTask.classList.add('addWindowCss');
+  let newDivAddTask = document.createElement("div");
+  newDivAddTask.classList.add("addWindowCss");
   newDivAddTask.innerHTML = generate_addTask();
   addBoard.appendChild(newDivAddTask);
   let contactsList = document.getElementById("contactList");
@@ -409,11 +411,11 @@ function appendGeneratedAddTask(taskStatusFromBoard) {
     renderContactsAddTask(i, contactsList);
   }
   document.getElementById("searchContacts").addEventListener("keyup", handleContactSearch);
-  changeColour('priorityMedium');
+  changeColour("priorityMedium");
 }
 
 function searchTask() {
-  let terminal = document.getElementById('searchInput').value.toLowerCase();
+  let terminal = document.getElementById("searchInput").value.toLowerCase();
   let foundTaskIds = [];
 
   for (let i in tasks) {
@@ -428,58 +430,25 @@ function searchTask() {
 function notSearchTasks(foundTaskIds) {
   // Iteriere durch alle Aufgaben
   for (let task of tasks) {
-    let taskElement = document.getElementById('smallCardId-' + task.id);
+    let taskElement = document.getElementById("smallCardId-" + task.id);
 
     if (foundTaskIds.includes(task.id)) {
-      console.log('Task with ID ' + task.id + ': flex');
-      taskElement.style.display = 'flex';
+      console.log("Task with ID " + task.id + ": flex");
+      taskElement.style.display = "flex";
     } else {
-      console.log('Task with ID ' + task.id + ': not');
-      taskElement.style.display = 'none';
+      console.log("Task with ID " + task.id + ": not");
+      taskElement.style.display = "none";
     }
   }
 }
 
 function closeAddBoard() {
+  let addWindow = document.getElementById("popUpAddWindow");
+  addWindow.classList.remove("openAddWindow");
 
-  let addWindow = document.getElementById('popUpAddWindow');
-  addWindow.classList.remove('openAddWindow');
-
-
-  let addBoard = document.getElementById('addBoard');
-  let newDivAddTask = document.querySelector('.addWindowCss');
+  let addBoard = document.getElementById("addBoard");
+  let newDivAddTask = document.querySelector(".addWindowCss");
   if (newDivAddTask) {
     addBoard.removeChild(newDivAddTask);
   }
 }
-
-async function loadTasksFromServer() {
-  try {
-    tasks = JSON.parse(await getItemFromTasks("tasks"));
-  } catch (e) {
-    console.error("Loading error:", e);
-  }
-}
-
-async function saveTasksToServer() {
-  await setItemFromTasks("tasks", JSON.stringify(tasks));
-}
-
-async function setItemFromTasks(key, value) {
-  const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, { method: "POST", body: JSON.stringify(payload) }).then((res) => res.json());
-}
-
-async function getItemFromTasks(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  return fetch(url)
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.data) {
-        return res.data.value;
-      }
-      throw `Could not find data with key "${key}".`;
-    });
-}
-
-
