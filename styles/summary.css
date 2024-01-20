@@ -5,7 +5,8 @@ body {
 }
 
 .summaryMain {
-  width: 100vw;
+  overflow: hidden;
+  max-width: 100vw;
   height: 100vh;
   background: #e5e5e6;
   margin-left: 232px;
@@ -128,6 +129,7 @@ body {
   color: black;
   height: 80%;
   background-color: #a8a8a8;
+  z-index: 100;
 }
 
 .deadline {
@@ -384,11 +386,10 @@ body {
 }
 
 @media (min-width: 1000px) {
- .summary-responsive-greeting {
-  display: none;
- }
+  .summary-responsive-greeting {
+    display: none;
+  }
 }
-
 
 @media (max-width: 1500px) {
   .greetin {
@@ -426,7 +427,7 @@ body {
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 680px) {
   .summaryHeader {
     flex-direction: column;
     margin-left: 56px;
@@ -440,7 +441,7 @@ body {
 
   .blueLineText {
     display: block;
-}
+  }
 
   .summaryTodoDone {
     height: 114px;
@@ -455,11 +456,12 @@ body {
   }
 
   .taskNumber {
-    font-size: 47px;
+    font-size: 40px !important;
   }
 
   .tasksNumber {
-    font-size: 47px;
+    font-size: 32px !important;
+    line-height: 80%;
   }
 
   .taskText {
@@ -514,6 +516,10 @@ body {
     margin-left: 124px;
   }
 
+  .summaryHeader h1 {
+    font-size: 40px;
+  }
+
   .summaryHeader {
     flex-direction: column;
     gap: 16px;
@@ -535,17 +541,14 @@ body {
     transform: scale(0.6);
   }
 
-  .taskNumber {
-    font-size: 32px;
-  }
-
   .taskText {
     font-size: 12px;
+    word-break: normal !important;
   }
 
   .summaryUrgendDeadLine {
     margin-left: 124px;
-    width: 308px !important;
+    width: 310px !important;
   }
 
   .urgend-svg {
@@ -554,7 +557,8 @@ body {
 
   .urgend {
     gap: 8px;
-    width: 84px !important;
+    width: 52px !important;
+    padding-right: 12px;
   }
 
   #date {
@@ -570,5 +574,51 @@ body {
   .taskspanels {
     width: 84px;
     height: 84px;
+  }
+}
+
+@media (max-height: 700px) {
+  .summaryLeft {
+    margin-top: 8px;
+  }
+
+  .summaryHeader {
+    margin-bottom: 0px;
+    justify-content: flex-start;
+  }
+
+  .summaryKey {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  .summaryUrgendDeadLine {
+    height: 100px;
+    padding: 10px 12px;
+    gap: 70px;
+  }
+
+  .summaryTodoDone {
+    height: 92px;
+  }
+
+  .taskspanels {
+    width: 90px;
+    height: 49px;
+  }
+
+  .tasksText {
+    font-size: 12px;
+    line-height: 100%;
+  }
+
+  .summaryTasks {
+    gap: 20px;
+  }
+
+  .blueLineText {
+    width: 100%;
   }
 }
