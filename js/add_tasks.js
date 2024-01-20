@@ -270,7 +270,6 @@ function clearTask() {
   hideAssigned();
   changeColour(getCategoryPriorityColor(preselectedCategory), preselectedCategory);
 
-
 }
 
 function getCategoryPriorityColor(category) {

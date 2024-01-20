@@ -373,7 +373,16 @@
   transform: translateX(0px);
   transition: 550ms ease-in-out;
 }
-
+.closeAddBoard {
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  border: 0;
+  background: transparent;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
 .largeCardA {
   max-height: 97%;
   border: solid;
@@ -696,7 +705,10 @@
   display: flex;
   gap: 13px;
 }
+.addBoard{
+  width: 92%;
 
+}
 .subtaskItemBoard {
   cursor: pointer;
   display: flex;
@@ -891,7 +903,7 @@
 
 @media (min-width: 376px) and (max-width: 648px) {
   .titleBoard {
-    width: 600px;
+    width: 100% !important;
     font-size: 47px !important;
   }
 
@@ -1183,7 +1195,7 @@
     margin-left: 0 !important;
   }
   .searchBar {
-    width: 80%;
+    width: 93%;
     height: 232px;
     flex-shrink: 0;
     justify-content: center;

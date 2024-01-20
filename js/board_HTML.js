@@ -1,13 +1,17 @@
 function generateBoardHTML(taskId) {
     return /*html*/ `
     <div class="popUpWindow" id="popUpWindow"></div>
-    <div  class="popUpWindow" id ="popUpAddWindow"></div>
+    <div  class="popUpWindow" id ="popUpAddWindow">
+        <div class="addBoard" id="addBoard">
+            <button class="closeAddBoard" onclick="closeAddBoard()">X</button>
+        </div>
+    </div>
      <div class="tasksToDo" id="tasks">
         <div class="searchBar">
             <div class="searchbarIn">
                 <div class="headlineBoard">
                     <h1 class="titleBoard">Board</h1>
-                    <div class= plusImgMobile>
+                    <div class= 'plusImgMobile' onclick="appendGeneratedAddTask()">
                         <img class="plus_add_task_mobile" src="./assets/img/plus_add_task_mobile.svg" alt="">
                         <img class="plus_add_task_mobileHover" src="./assets/img/plus_add_task_mobileHover.svg" alt="">
                     </div>

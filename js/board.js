@@ -402,13 +402,15 @@ function renderEditContats() {
 
 
 function appendGeneratedAddTask() {
+
   let addWindow = document.getElementById('popUpAddWindow');
   addWindow.classList.add('openAddWindow');
+   let addBoard = document.getElementById('addBoard');
 
   let newDivAddTask = document.createElement('div');
   newDivAddTask.classList.add('addWindowCss');
   newDivAddTask.innerHTML = generate_addTask();
-  addWindow.appendChild(newDivAddTask);
+  addBoard.appendChild(newDivAddTask);
   let contactsList = document.getElementById("contactList");
   contactsList.innerHTML = "";
   sortContacts();
@@ -449,3 +451,18 @@ function notSearchTasks(foundTaskIds) {
 
 
 
+function closeAddBoard() {
+
+  let addWindow = document.getElementById('popUpAddWindow');
+  addWindow.classList.remove('openAddWindow');
+
+
+  let addBoard = document.getElementById('addBoard');
+  let newDivAddTask = document.querySelector('.addWindowCss');
+  if (newDivAddTask) {
+    addBoard.removeChild(newDivAddTask);
+  }
+}
+
+
+document.getElementById('closeAddButton').addEventListener('click', closeAddBoard);
