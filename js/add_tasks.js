@@ -235,7 +235,6 @@ function switchColorpriorityContent() {
   }
 }
 
-
 function checkboxAddTask(){
     let checkboxes = document.querySelectorAll(".inputCheckBox");
     assigned = []; 
@@ -270,6 +269,8 @@ function clearTask() {
   resetPriorityTextColors();  
   hideAssigned();
   changeColour(getCategoryPriorityColor(preselectedCategory), preselectedCategory);
+
+
 }
 
 function getCategoryPriorityColor(category) {
@@ -374,7 +375,6 @@ function toggleListContact() {
   displayAvatar(selectedContacts, contacts, colors);
 }
 
-// Function to hide the listContact
 function hideListContact() {
   let listContact = document.getElementById("listContact");
   let arrow = document.getElementById("arrowAssigned");
@@ -387,18 +387,48 @@ function hideListContact() {
   displayAvatar(selectedContacts, contacts, colors);
 }
 
-function clearPrioActiveClass() {
-  removePrioActiveClass("priorityUrgent"); 
-  removePrioActiveClass("priorityMedium"); 
-  removePrioActiveClass("priorityLow"); 
-  removeImgPrioActive("priorityUrgent");
-  removeImgPrioActive("priorityMedium");
-  removeImgPrioActive("priorityLow");
+
+function getCategoryForPriority(priority) {
+  switch (priority) {
+    case 'priorityUrgent':
+      return 'Urgent';
+    case 'priorityMedium':
+      return 'Medium';
+    case 'priorityLow':
+      return 'Low';
+    default:
+      return ''; 
+  }
 }
 
+function clearPrioActiveClass() {
+ 
+  const priorityElements = document.querySelectorAll('.priority');
+
+  priorityElements.forEach(priority => {
+    if (!priority.classList.contains('priorityActive')) {
+      priority.classList.remove('active');
+    }
+  });
+}
+
+let selectedPriority = null;
+
 function changeColour(divID) {
+ 
   const selected = document.getElementById(divID);
-  if (!selected) return;
+
+  if (selected === selectedPriority) return;
+
+    if (selectedPriority) {
+      selectedPriority.classList.remove('active');
+      selectedPriority.style.color = '';
+    }
+
+    selected.classList.add('active');
+    selected.style.color = 'white';
+
+    selectedPriority = selected;  
 
   const urgent = document.getElementById("priorityUrgent");
   const medium = document.getElementById("priorityMedium");
@@ -443,6 +473,7 @@ function changeColour(divID) {
     selectedTextElement.style.color = isCurrentlyActive ? "white" : "";
   }
 }
+
 
 function removePriorityStyles(prio) {
   prio.classList.remove(`${prio.id}-active`);
