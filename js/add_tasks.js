@@ -134,7 +134,6 @@ function displayAvatar(selectedContacts, contacts, colors) {
   }
 }
 
-
 function clearContactAvatar() {
   let contactAvatar = document.getElementById("contactAvatar");
   contactAvatar.innerHTML = ""; 
@@ -204,10 +203,8 @@ function addTask(){
     subT.unshift(subtasks.slice()); 
     tasks.unshift(newTask); 
     localStorage.setItem("selectedPriorityContent", priorityContent);
-
-  document.getElementById("categorySelect").textContent = "Select a task category";
-    subtasks = []; 
-    
+    document.getElementById("categorySelect").textContent = "Select a task category";
+    subtasks = [];     
     save();
     renderTask();
     clearContactAvatar();
@@ -223,8 +220,7 @@ function addTask(){
 }
 
 function switchColorpriorityContent() {
-  let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
- 
+  let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active"); 
   if (selectedPriority) {
     priorityID = selectedPriority.id;
   }
@@ -351,8 +347,7 @@ function hideAssigned(event) {
 }
 
 // Function to close the listContact if clicked outside
-document.addEventListener("DOMContentLoaded", function () {
-  
+document.addEventListener("DOMContentLoaded", function () {  
   document.addEventListener("click", function (event) {
     let listContact = document.getElementById("listContact");
     let assignedElement = document.getElementById("assigned");
@@ -360,7 +355,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let isClickOnAssigned = assignedElement && assignedElement.contains(event.target);
     let arrow = document.getElementById("arrowAssigned");
     let arrowDrop = document.getElementById("arrow_drop_downHoverAssigned");
-
     if (!isClickInsideList && listContact && listContact.offsetParent !== null && !isClickOnAssigned) {
       listContact.classList.add("hide");
       arrow.classList.remove("rotate");
@@ -373,11 +367,9 @@ function toggleListContact() {
   let listContact = document.getElementById("listContact");
   let arrow = document.getElementById("arrowAssigned");
   let arrowDrop = document.getElementById("arrow_drop_downHoverAssigned");
-
   listContact.classList.toggle("hide");
   arrow.classList.toggle("rotate");
   arrowDrop.classList.toggle("rotate");
-
   displayAvatar(selectedContacts, contacts, colors);
 }
 
@@ -385,14 +377,11 @@ function hideListContact() {
   let listContact = document.getElementById("listContact");
   let arrow = document.getElementById("arrowAssigned");
   let arrowDrop = document.getElementById("arrow_drop_downHoverAssigned");
-
   listContact.classList.add("hide");
   arrow.classList.remove("rotate");
   arrowDrop.classList.remove("rotate");
-
   displayAvatar(selectedContacts, contacts, colors);
 }
-
 
 function getCategoryForPriority(priority) {
   switch (priority) {
@@ -407,10 +396,8 @@ function getCategoryForPriority(priority) {
   }
 }
 
-function clearPrioActiveClass() {
- 
+function clearPrioActiveClass() { 
   const priorityElements = document.querySelectorAll('.priority');
-
   priorityElements.forEach(priority => {
     if (!priority.classList.contains('priorityActive')) {
       priority.classList.remove('active');
@@ -421,57 +408,62 @@ function clearPrioActiveClass() {
 let selectedPriority = null;
 
 function changeColour(divID) {
- 
   const selected = document.getElementById(divID);
-
   if (selected === selectedPriority) return;
+  resetPreviousPriority(selected);
+  activateSelectedPriority(selected);
+  updatePriorityElements(divID);
+}
 
-    if (selectedPriority) {
-      selectedPriority.classList.remove('active');
-      selectedPriority.style.color = '';
-    }
+function resetPreviousPriority(selected) {
+  if (selectedPriority) {
+    selectedPriority.classList.remove('active');
+    selectedPriority.style.color = '';
+  }
+}
 
-    selected.classList.add('active');
-    selected.style.color = 'white';
+function activateSelectedPriority(selected) {
+  selected.classList.add('active');
+  selected.style.color = 'white';
+  selectedPriority = selected;
+}
 
-    selectedPriority = selected;  
-
-  const urgent = document.getElementById("priorityUrgent");
-  const medium = document.getElementById("priorityMedium");
-  const low = document.getElementById("priorityLow");
-  let priorities = [urgent, medium, low];
-
-  for (let i = 0; i < priorities.length; i++) {
-    let prio = priorities[i];
-    if (prio && prio !== selected) {
-      prio.classList.remove(`${prio.id}-active`);
-      let imgPaths = document.querySelectorAll(`.img-${prio.id}`);
-      imgPaths.forEach((path) => {
-        path.classList.remove("imgPrio-active");
-      });
-
-      let textElement = prio.querySelector(`.text${prio.id.slice(8)}`);
-      if (textElement) {
-        textElement.style.color = "";
-      }
+function updatePriorityElements(divID) {
+  const priorities = ["priorityUrgent", "priorityMedium", "priorityLow"];
+  for (const priorityID of priorities) {
+    const priorityElement = document.getElementById(priorityID);
+    if (priorityElement && priorityElement !== selectedPriority) {
+      resetPriorityStyles(priorityElement);
     }
   }
+  toggleSelectedPriorityStyles(divID);
+}
 
+function resetPriorityStyles(priorityElement) {
+  priorityElement.classList.remove(`${priorityElement.id}-active`);
+  const imgPaths = document.querySelectorAll(`.img-${priorityElement.id}`);
+  imgPaths.forEach((path) => {
+    path.classList.remove("imgPrio-active");
+  });
+  const textElement = priorityElement.querySelector(`.text${priorityElement.id.slice(8)}`);
+  if (textElement) {
+    textElement.style.color = "";
+  }
+}
+
+function toggleSelectedPriorityStyles(divID) {
+  const selected = document.getElementById(divID);
   selected.classList.toggle(`${divID}-active`);
-  let selectedImgPaths = document.querySelectorAll(`.img-${divID}`);
+  const selectedImgPaths = document.querySelectorAll(`.img-${divID}`);
   selectedImgPaths.forEach((path) => {
     path.classList.toggle("imgPrio-active");
   });
-
-
-  let selectedTextElement = selected.querySelector(`.text${divID.slice(8)}`);
+  const selectedTextElement = selected.querySelector(`.text${divID.slice(8)}`);
   if (selectedTextElement) {
     const isCurrentlyActive = selected.classList.contains(`${divID}-active`);
-    const previousActivePriority = priorities.find((prio) => prio.classList.contains(`${prio.id}-active`));
-
-
+    const previousActivePriority = document.querySelector(`.${selectedPriority.id}-active`);
     if (previousActivePriority && previousActivePriority !== selected) {
-      let previousTextElement = previousActivePriority.querySelector(`.text${previousActivePriority.id.slice(8)}`);
+      const previousTextElement = previousActivePriority.querySelector(`.text${previousActivePriority.id.slice(8)}`);
       if (previousTextElement) {
         previousTextElement.style.color = ""; 
       }
@@ -479,7 +471,6 @@ function changeColour(divID) {
     selectedTextElement.style.color = isCurrentlyActive ? "white" : "";
   }
 }
-
 
 function removePriorityStyles(prio) {
   prio.classList.remove(`${prio.id}-active`);
