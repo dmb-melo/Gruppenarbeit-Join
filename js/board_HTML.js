@@ -524,4 +524,20 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
       )
       .join("");
   }
+  function generateEditContacts(assignedItem, color) {
+    let name = assignedItem;
+    let firstname = name[0].toUpperCase();
+  
+    let names = assignedItem.split(" ");
+    let surname = names[1].toUpperCase().charAt(0);
+  
+    return /*html*/ `
+      <div class="boardLargContactsAvatar">
+        <div class="circle" style="background-color: ${color}">
+          <p class="nameIdList">${firstname}${surname}</p>
+        </div>
+        <p>${assignedItem}</p>
+      </div>
+    `;
+  }
   

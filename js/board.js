@@ -108,7 +108,6 @@ function generateSmallCard(task, i) {
             </div>
         `;
   }
-
   return generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv,i);
 }
 
@@ -381,25 +380,14 @@ function renderLargeContats(task) {
   }
 }
 
-function renderEditContats() {
+function renderEditContacts() {
   const contactsLargeCard = document.getElementById("boardAssigendLargCard");
-  contacts.innerHTML = "";
-  for (let d = 0; d < assigned.length; d++) {
-    const assigendAvatar = assigned[d];
-    let name = assigned[d];
-    let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
+  contactsLargeCard.innerHTML = "";
 
-    let names = assigned[d].split(" ");
-    let surname = names[1].toUpperCase().charAt(0);
-    contactsLargeCard.innerHTML += /*html*/ `
-             <div class="boardLargContactsAvatar">
-                    <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
-                    <p>${assigendAvatar}</p>
-                </div>
-        `;
+  for (let d = 0; d < assigned.length; d++) {
+    contactsLargeCard.innerHTML += generateEditContacts(assigned[d], colors[d]);
   }
 }
-
 
 function appendGeneratedAddTask(taskStatusFromBoard) {
   statusFromUser = taskStatusFromBoard;
@@ -449,8 +437,6 @@ function notSearchTasks(foundTaskIds) {
   }
 }
 
-
-
 function closeAddBoard() {
 
   let addWindow = document.getElementById('popUpAddWindow');
@@ -463,6 +449,5 @@ function closeAddBoard() {
     addBoard.removeChild(newDivAddTask);
   }
 }
-
 
 document.getElementById('closeAddButton').addEventListener('click', closeAddBoard);
