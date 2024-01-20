@@ -314,7 +314,10 @@ function load() {
   let tasksAsText = localStorage.getItem("tasks");
   let categoryAsText = localStorage.getItem("category");
   let subTAsText = localStorage.getItem("subT");
+  setToVariable(taskStautsAsText, idAsText, titleAsText, descriptionAsText, assignedAsText, dueDateAsText, priorityContentArrayText, subtaskAsText, tasksAsText, categoryAsText, subTAsText);
+}
 
+function setToVariable(taskStautsAsText, idAsText, titleAsText, descriptionAsText, assignedAsText, dueDateAsText, priorityContentArrayText, subtaskAsText, tasksAsText, categoryAsText, subTAsText) {
   if (taskStautsAsText && idAsText && titleAsText && descriptionAsText && assignedAsText && dueDateAsText && priorityContentArrayText && subtaskAsText && subTAsText && categoryAsText) {
     taskStatus = JSON.parse(taskStautsAsText);
     currentId = JSON.parse(idAsText);
