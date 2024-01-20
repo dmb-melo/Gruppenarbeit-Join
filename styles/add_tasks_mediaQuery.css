@@ -837,13 +837,9 @@
   .textContainer_addTask {
     margin-top: 0px;
     margin-left: 290px;
+    margin-top: 40px;
   }
 
-  .contentTask {
-    padding-top: 40px; 
-    height: calc(100vh - 119px);
-    overflow: scroll !important;   
-  }
 }
 
   
