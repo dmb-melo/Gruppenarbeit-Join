@@ -284,7 +284,7 @@ function getCategoryPriorityColor(category) {
     case 'Low':
       return 'priorityLow';
     default:
-      return 'priorityMedium'; // Default to Medium if category is not recognized
+      return 'priorityMedium'; 
   }
 }
 
@@ -642,33 +642,41 @@ function handleEditClick(subtaskItemDiv, subtaskText) {
   }
   const subtaskItemText = subtaskItemDiv.querySelector("li");
   if (subtaskItemText) {
-    const currentText = subtaskItemText.innerText;
-    const editInput = document.createElement("input");
-    editInput.type = "text";
-    editInput.value = currentText;
-    editInput.style.outline = "none";
-    editInput.style.border = "none";
-    subtaskItemDiv.replaceChild(editInput, subtaskItemText);
-    subtaskItemDiv.style.backgroundColor = "white";
-    editInput.focus();
-    editInput.addEventListener("blur", function () {
-      let newText = editInput.value.trim();
-      if (newText !== "") {
-        subtaskItemText.innerText = newText;
-        subtasks[subtasks.indexOf(subtaskText)] = newText;
-        save();
-      } else {
-        editInput.value = currentText;
-      }
-});
+    startEditing(subtaskItemDiv, subtaskItemText, subtaskText);
+  }
+}
 
-editInput.addEventListener("keyup", function (event) {
-        if (event.key === "Enter") {
-            editInput.blur();
-        }
-    });
-    const iconsContainer = createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, subtasks.indexOf(subtaskText));
-    subtaskItemDiv.replaceChild(iconsContainer, subtaskItemDiv.lastChild);
+function startEditing(subtaskItemDiv, subtaskItemText, subtaskText) {
+  const currentText = subtaskItemText.innerText;
+  const editInput = document.createElement("input");
+  editInput.type = "text";
+  editInput.value = currentText;
+  editInput.style.outline = "none";
+  editInput.style.border = "none";
+  subtaskItemDiv.replaceChild(editInput, subtaskItemText);
+  subtaskItemDiv.style.backgroundColor = "white";
+  editInput.focus();
+  editInput.addEventListener("blur", function () {
+    finishEditing(editInput, subtaskItemText, subtaskText);
+  });
+  editInput.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      editInput.blur();
+    }
+  });
+  const iconsContainer = createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, subtasks.indexOf(subtaskText));
+  subtaskItemDiv.replaceChild(iconsContainer, subtaskItemDiv.lastChild);
+}
+
+function finishEditing(editInput, subtaskItemText, subtaskText) {
+  let newText = editInput.value.trim();
+
+  if (newText !== "") {
+    subtaskItemText.innerText = newText;
+    subtasks[subtasks.indexOf(subtaskText)] = newText;
+    save();
+  } else {
+    editInput.value = subtaskItemText.innerText;
   }
 }
 
