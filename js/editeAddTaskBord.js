@@ -5,7 +5,7 @@ function editLargCard(taskId) {
   let editCard = document.getElementById("desingLagrCard");
   editCard.style.display = "flex";
   editCard.style.alignItems = "center";
-  editCard.style.height = "100%";
+  editCard.style.height = "80%";
   document.getElementById("largesCard").classList.add("d-None");
   document.getElementById("addTaskLargeCard").innerHTML = "";
   document.getElementById("addTaskLargeCard").innerHTML = generateAddEditeTask(taskId);

@@ -94,7 +94,7 @@ function generateAddEditeTask(taskId){
      <div class="closeLargeEditCardButton">
             <button onclick="closeCard()">X</button>
         </div>
-            <div style="width:100%;">
+            <div style="width:80%;">
                 <div class="task_succes d-none" id="task_succes">
                     <div class="task_succes_container">
                         <span  class="task_succes_message">Task added to board</span>
