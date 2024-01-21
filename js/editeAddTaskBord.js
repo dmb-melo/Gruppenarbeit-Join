@@ -282,6 +282,7 @@ function hideAssignedBoardEdit(event, taskId) {
     arrow.classList.toggle("rotate");
     arrowDrop.classList.toggle("rotate");
   }
+
   displayAvatarEditBoart(selecetContactsEdit, contacts, colors);
   validateAssignedContacts(taskId);
 }
@@ -319,6 +320,7 @@ function contactNotCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEd
   nameElementEdit.classList.remove("nameContactWhite");
   labelElementEdit.style.setProperty("background-image", "url('')");
 }
+
 function validationContactsCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit, event) {
   if (event.target.checked) {
     contactCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit);
@@ -336,13 +338,21 @@ function renderContactsAddTaskBoard(i, contactsList) {
   contactElement.classList.add("contactList");
   contactElement.innerHTML = generateContactsAddTaskBoard(nameEdit, firstnameBoard, surnameBoard, i);
   contactsList.appendChild(contactElement);
+  addCheckboxChangeListener(i, contactsList);
+}
+
+function addCheckboxChangeListener(i, contactsList) {
   const liElementEdit = contactsList.getElementsByTagName("li")[i];
   const nameElementEdit = contactsList.getElementsByTagName("label")[i];
-  document.getElementById(`myCheckbox_Edit${i}`).addEventListener("change", function (event) {
+  const checkboxEdit = document.getElementById(`myCheckbox_Edit${i}`);
+
+  checkboxEdit.addEventListener("change", function (event) {
     const labelElementEdit = document.querySelectorAll(".nameContact")[i];
     validationContactsCheckedEdit(i, liElementEdit, nameElementEdit, labelElementEdit, event);
   });
 }
+
+
 function sortContactsBoard() {
   contacts.sort((a, b) => {
     let nameA = a[0].toUpperCase();

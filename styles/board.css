@@ -576,13 +576,7 @@
   line-height: 120%;
 }
 
-/* drag and drop css */
-.drag-area-highlight {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: dashed 1px;
-  border-radius: 10px;
-  overflow: scroll;
-}
+
 
 .progressContainer {
   display: flex;
