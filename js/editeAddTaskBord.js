@@ -406,6 +406,7 @@ function addSubtasksEdit() {
 }
 
 function validateAssignedContacts(taskId) {
+  selecetContactsEdit = [];
   let index = validateIndexFromTask(taskId);
   let task = tasks[index];
   let assignedCardEdited = task["assigned"];
