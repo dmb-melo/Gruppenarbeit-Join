@@ -183,6 +183,7 @@ function addTask() {
   if (!statusFromUser) {
     statusFromUser = "todo";
   }
+  currentId++;
   setContentOfInputFieldFromTask();
   switchColorpriorityContent();
   document.getElementById("categorySelect").textContent = "Select a task category";
@@ -243,7 +244,6 @@ function generateDate() {
 }
 
 function generateNewTaskContent(currentId, titleValue, titleValue, descriptionValue, dueDateValue, assigned, priorityContent, selectedPriorityID, subtasks, statusFromUser, category) {
-  currentId++;
   let newTask = {
     id: currentId,
     title: titleValue,
