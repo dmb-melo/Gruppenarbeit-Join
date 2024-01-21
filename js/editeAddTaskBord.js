@@ -8,19 +8,15 @@ function editLargCard(taskId) {
   editCard.style.alignItems = 'center';
   editCard.style.height = '100%';
   document.getElementById('largesCard').classList.add('d-None');
-
   document.getElementById('addTaskLargeCard').innerHTML = '';
   document.getElementById('addTaskLargeCard').innerHTML = generateAddEditeTask(taskId);
-
   document.getElementById('addTaskLargeCard').style.display = 'block';
   document.getElementById('addTaskLargeCard').style.width = '525px';
   document.getElementById('addTaskLargeCard').style.overflow = 'scroll';
-
   edittaskArea(taskId);
   renderEditTask();
- 
-
 }
+
 function findTaskById(taskId) {
   const foundTask = tasks.find(task => task.id === taskId);
   return foundTask;
@@ -277,7 +273,7 @@ function getPrioTaskId(taskId) {
   }
 }
 
-function hideAssignedBoardEdit(event) {
+function hideAssignedBoardEdit(event, taskId) { 
   if (event.target.id !== "assignedBoard") {
     let list = document.getElementById("listContactEdit");
     let arrow = document.getElementById("arrowAssignedEdit");
@@ -287,6 +283,7 @@ function hideAssignedBoardEdit(event) {
     arrowDrop.classList.toggle("rotate");
   }
   displayAvatarEditBoart(selecetContactsEdit, contacts, colors);
+  validateAssignedContacts(taskId);
 }
 
 function displayAvatarEditBoart(selecetContactsEdit, contacts, colors) {
@@ -400,4 +397,29 @@ function addSubtasksEdit() {
   updateSubtasksDisplayEdit();
   save();
   hideVectorAndImgCheckEdit();
+}
+
+function validateAssignedContacts(taskId) {
+  let index = validateIndexFromTask(taskId);
+  let task = tasks[index];
+  let assignedCardEdited = task["assigned"];
+  for (let i = 0; i < assignedCardEdited.length; i++) {
+    let contactCardEdited = assignedCardEdited[i];
+    for (let c = 0; c < contacts.length; c++) {
+      const contactFromArray = contacts[c][0];
+      if (contactFromArray === contactCardEdited) {
+        addCheckboxChangeListener(c)
+      }
+    }
+  }
+}
+
+function validateIndexFromTask(taskId) {
+ for (let i = 0; i < tasks.length; i++) {
+  let task = tasks[i];
+  let id = task["id"];
+  if (id === taskId) {
+    return i;
+  }
+ }
 }
