@@ -1,5 +1,6 @@
 let selecetContactsEdit = [];
 let assignedMenuOpen = false;
+let oldAssigned = [];
 
 function editLargCard(taskId) {
   let editCard = document.getElementById("desingLagrCard");
@@ -14,6 +15,7 @@ function editLargCard(taskId) {
   document.getElementById("addTaskLargeCard").style.overflow = "scroll";
   edittaskArea(taskId);
   renderEditTask();
+  saveUneditedAssigned(taskId);
 }
 
 function findTaskById(taskId) {
@@ -87,13 +89,15 @@ function saveEditTaskBoard(taskId) {
   let selectedPriorityBoard = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
   let priorityContentBoard = selectedPriorityBoard ? selectedPriorityBoard.innerHTML : "";
   let selectedPriorityIDBoard = "";
-
+  let category = defineCategory(taskId);
   if (selectedPriorityBoard) {
     selectedPriorityIDBoard = selectedPriorityBoard.id;
   }
   checkboxAddTaskEdit();
   priorityContentArray.unshift(priorityContentBoard);
-
+  if (!assigned.length) {
+    assigned.unshift(oldAssigned);
+  }
   if (foundTask) {
     const editedTask = {
       id: taskId,
@@ -119,6 +123,18 @@ function saveEditTaskBoard(taskId) {
   renderSmallContats();
   closeCard();
   assignedMenuOpen = false;
+}
+
+function defineAssigned(taskId) {
+  let index = validateIndexFromTask(taskId);
+  let assigned = tasks[index]["assigned"];
+  return assigned;
+}
+
+function defineCategory(taskId) {
+  let index = validateIndexFromTask(taskId);
+  let category = tasks[index]["category"];
+  return category;
 }
 
 function addSubtasksEdit() {
@@ -438,4 +454,17 @@ function validateIndexFromTask(taskId) {
       return i;
     }
   }
+}
+
+function saveUneditedAssigned(taskId) {
+  oldAssigned = [];
+  let index = validateIndexFromTask(taskId);
+  let task = tasks[index];
+  let assignedArray = task["assigned"];
+  debugger;
+  for (let i = 0; i < assignedArray.lengt; i++) {
+    let assigned = assignedArray[i];
+    oldAssigned.push(assigned);
+  }
+  
 }
