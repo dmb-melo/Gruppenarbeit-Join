@@ -320,6 +320,7 @@ function closeCard() {
   // Your close logic goes here
   const largeCardElement = document.getElementById("popUpWindow");
   largeCardElement.style.transform = "translateX(500%)";
+  assignedMenuOpen = false;
 }
 function renderSmallContats() {
   const contactsSmallCard = document.getElementById("boardAssigend");
