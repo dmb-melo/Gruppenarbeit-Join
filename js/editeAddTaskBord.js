@@ -96,7 +96,7 @@ function saveEditTaskBoard(taskId) {
   checkboxAddTaskEdit();
   priorityContentArray.unshift(priorityContentBoard);
   if (!assigned.length) {
-    assigned.unshift(oldAssigned);
+    assigned = oldAssigned.slice();
   }
   if (foundTask) {
     const editedTask = {
@@ -464,5 +464,6 @@ function saveUneditedAssigned(taskId) {
   for (let i = 0; i < assignedArray.length; i++) {
     let assignedFromTask = assignedArray[i];
     oldAssigned.push(assignedFromTask);
+    console.log("oldAssigned",oldAssigned)
   }
 }
