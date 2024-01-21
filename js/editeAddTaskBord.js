@@ -426,6 +426,7 @@ function setCheckedToAssigned(c) {
   const nameElement = contactsList.getElementsByTagName("label")[c];
   const labelElement = document.querySelectorAll(".nameContact")[c];
   contactCheckedEdit(c, liElement, nameElement, labelElement);
+  document.getElementById(`myCheckbox_Edit${c}`).checked = true;
 }
 
 function validateIndexFromTask(taskId) {
