@@ -461,10 +461,8 @@ function saveUneditedAssigned(taskId) {
   let index = validateIndexFromTask(taskId);
   let task = tasks[index];
   let assignedArray = task["assigned"];
-  debugger;
-  for (let i = 0; i < assignedArray.lengt; i++) {
-    let assigned = assignedArray[i];
-    oldAssigned.push(assigned);
+  for (let i = 0; i < assignedArray.length; i++) {
+    let assignedFromTask = assignedArray[i];
+    oldAssigned.push(assignedFromTask);
   }
-  
 }
