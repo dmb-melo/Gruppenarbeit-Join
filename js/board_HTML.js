@@ -124,11 +124,11 @@ function generateAddEditeTask(taskId){
                     </div>
                     <div class="asignedTo_v1 wd100">
                         <div class="asignedTo">Assigned to</div>                     
-                        <div class="categoryFrame74Board" id="assignedBoard" onclick="hideAssignedBoardEdit(event)">                    
+                        <div class="categoryFrame74Board" id="assignedBoard" onclick="hideAssignedBoardEdit(event, ${taskId})">                    
                             <input class="searchContacts" type="text" id="searchContactsBoard" placeholder="Select contacts to assign">
-                            <div class ="imgArrows" id="imgArrows" onclick="hideAssignedBoardEdit(event)">
-                                <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssignedEdit" onclick="hideAssignedBoardEdit(event)" > 
-                                <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssignedEdit" onclick="hideAssignedBoardEdit(event)">                            
+                            <div class ="imgArrows" id="imgArrows" onclick="hideAssignedBoardEdit(event, ${taskId})">
+                                <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssignedEdit" onclick="hideAssignedBoardEdit(event, ${taskId})" > 
+                                <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssignedEdit" onclick="hideAssignedBoardEdit(event, ${taskId})">                            
                             </div>
                             <div class="listBoard" class="hide">
                             <ul id="listContactEdit" class="hide underListContactBoard"> 
