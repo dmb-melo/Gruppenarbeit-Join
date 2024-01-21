@@ -418,7 +418,8 @@ function validateAssignedContacts(taskId) {
     for (let c = 0; c < contacts.length; c++) {
       const contactFromArray = contacts[c][0];
       if (contactFromArray === contactCardEdited) {
-        addCheckboxChangeListener(c)
+        let contaListcts = document.getElementById("contactListBoard");
+        addCheckboxChangeListener(c, contaListcts)
       }
     }
   }
