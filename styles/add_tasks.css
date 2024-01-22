@@ -1120,7 +1120,7 @@ line-height: 120%; /* 24px */
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    left: 320px; /* Adjust this as needed */
+    left: 320px;
 }
 
 .contactList{
