@@ -69,17 +69,17 @@ function displayAssignedContacts(assignedContacts) {
   });
 }
 
-function displaySubtasks(subtasks) {
+
+
+function displaySubtasks(subtasks, taskId) {
+  const foundTask = findTaskById(taskId);
   const subtasksElement = document.getElementById("editSubtasks");
 
-  subtasksElement.innerHTML = "";
+  subtasksElement.innerHTML = subtasks.map((subtask, index) =>  `<div class="subtaskItem" onclick="editSub(${index})">${subtask}</div>`).join("");
+}
+function editSub(taskId) {
+  console.log('welcher', taskId);
 
-  subtasks.forEach((subtask) => {
-    const subtaskElement = document.createElement("div");
-    subtaskElement.classList.add("subtaskItem");
-    subtaskElement.textContent = subtask;
-    subtasksElement.appendChild(subtaskElement);
-  });
 }
 
 function saveEditTaskBoard(taskId) {
