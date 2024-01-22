@@ -384,7 +384,7 @@
   cursor: pointer;
 }
 .largeCardA {
-  max-height: 97%;
+  max-height: 86%;
   border: solid;
   display: flex;
   padding: 48px 40px;
@@ -465,7 +465,7 @@
   /* font-style: normal; */
   /* font-weight: 700; */
   /* line-height: 120%; */
-  font-size: 3.8125rem;
+  font-size: 1.8125rem;
 }
 
 .largTaskDueDat {
@@ -709,7 +709,12 @@
   align-items: center;
   border-radius: 8px;
 }
-
+.desingLagrCard{
+    height: 90%;
+    position: fixed;
+    bottom: 114px;
+    top: 4px;
+  }
 .listBoard {
   display: flex;
   justify-content: end;
@@ -773,6 +778,7 @@
   .titleBoard {
     font-size: 47px !important;
   }
+
 
   .desingLagrCard {
     position: absolute;

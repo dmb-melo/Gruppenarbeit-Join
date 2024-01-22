@@ -181,6 +181,7 @@ function openCard(taskId) {
     renderLargeContats(task);
   }
   renderLargeContats();
+  loadLevelOfSubtask();
 }
 
 function renderSubtaskState(task) {
