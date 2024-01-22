@@ -275,6 +275,7 @@ function loadLevelOfSubtask() {
 }
 
 function generateLargeCard(task) {
+  
   let currentPriorityContent = task.priorityContent || "";
 
   let currentSubTasks = subT[task];
