@@ -289,14 +289,16 @@ function hideAssignedBoardEdit(event, taskId) {
     let list = document.getElementById("listContactEdit");
     let arrow = document.getElementById("arrowAssignedEdit");
     let arrowDrop = document.getElementById("arrow_drop_downHoverAssignedEdit");
+    let dateAddTaskEdit =  document.getElementById("dateAddTaskEdit");
     list.classList.toggle("hide");
     arrow.classList.toggle("rotate");
     arrowDrop.classList.toggle("rotate");
+    dateAddTaskEdit.classList.toggle("inputRight_addTaskEditOpen");
   }
   displayAvatarEditBoart(selecetContactsEdit, contacts, colors);
   if (!assignedMenuOpen) {
     validateAssignedContacts(taskId);
-  }
+  } 
   assignedMenuOpen = true;
 }
 

@@ -1,5 +1,5 @@
 function generateBoardHTML(taskId) {
-    return /*html*/ `
+  return /*html*/ `
     <div class="popUpWindow" id="popUpWindow"></div>
     <div  class="popUpWindow" id ="popUpAddWindow">
         <div class="addBoard" id="addBoard">
@@ -87,12 +87,11 @@ function generateBoardHTML(taskId) {
     `;
 }
 
-
-function generateAddEditeTask(taskId){
-    return /*html*/`  
+function generateAddEditeTask(taskId) {
+  return /*html*/ `  
      <div class = "BoardcontentTask">  
      <div class="closeLargeEditCardButton">
-            <button onclick="closeCard()">X</button>
+           <button onclick="closeCard()" class="close-button-edite"><img class="close-img" src="./assets/img/cancel.png"></button>
         </div>
             <div style="width:80%;">
                 <div class="task_succes d-none" id="task_succes">
@@ -129,11 +128,12 @@ function generateAddEditeTask(taskId){
                             <div class ="imgArrows" id="imgArrows" onclick="hideAssignedBoardEdit(event, ${taskId})">
                                 <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssignedEdit" onclick="hideAssignedBoardEdit(event, ${taskId})" > 
                                 <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssignedEdit" onclick="hideAssignedBoardEdit(event, ${taskId})">                            
-                            </div>
+                            
                             <div class="listBoard" class="hide">
                             <ul id="listContactEdit" class="hide underListContactBoard"> 
                                 <li id ="contactListBoard"></li>                       
                             </ul>
+                            </div>
                         </div>  
                         </div>                    
                                            
@@ -142,7 +142,7 @@ function generateAddEditeTask(taskId){
                         </div>
                     </div>
                 </div>
-                <div class ="inputRight_addTaskEdit">
+                <div class="inputRight_addTaskEdit" id="dateAddTaskEdit">
                     <div class="dueDate wd100">
                         <div class="text_DueDate">Due date<span class="spanClass">*</span></div>
                         <div class="frame211 wd100" onclick="required(this)">                    
@@ -153,8 +153,8 @@ function generateAddEditeTask(taskId){
                         </div>
                     </div>
                     <div class="frame28 wd100">
-                        <div class="titlePrio">Prio</div>
-                        <div class="Boardpriority">
+                        <div class="titlePrio">Priority</div>
+                        <div class="boardpriority">
                             <div class="priorityUrgent"  onclick="changeColour('priorityUrgent')" id ="priorityUrgent">                    
                                 <div class="textUrgent" id="textUrgent">Urgent</div>                       
                                 <svg class="img-priorityUrgentSize" xmlns="http://www.w3.org/2000/svg" width="21" height="16" viewBox="0 0 21 16">
@@ -207,7 +207,7 @@ function generateAddEditeTask(taskId){
                     </div>
                 </div>
                 <div class="">
-                <div class="frame27">
+                <div class="save-button">
                     <a class="leadsToBoard" href="#" id="leadsToBoard" onclick="saveEditTaskBoard(${taskId})">
                         <div class="primary">
                             <div class="textCreateTask">Save</div>
@@ -218,21 +218,22 @@ function generateAddEditeTask(taskId){
             </div>
         </div>        
     </div>
-    `
-;}
+    `;
+}
 
 function generateContactsAddTaskBoard(name, firstname, surname, i) {
-    return /*html*/ `
+  return /*html*/ `
     <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
       <p class="nameIdList" id="name-id">${firstname}${surname}</p>
     </div>                
-    <div class="custom-checkbox">            
+    <div class="custom-checkbox-board">            
       <input class="inputCheckBox" type="checkbox" id="myCheckbox_Edit${i}">                    
       <label class="nameContact" for="myCheckbox_Edit${i}">${name}</label>                              
-    </div>`;}
+    </div>`;
+}
 
 function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) {
-    return /*html*/`
+  return /*html*/ `
         <div>
             <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
@@ -241,8 +242,8 @@ function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) 
     `;
 }
 
-function generatePopUpWindowAdd(){
-    return /*html*/`  
+function generatePopUpWindowAdd() {
+  return /*html*/ `  
       <div class = "contentTask">  
         <div class="content_addTask">
                 <div class = "textContainer_addTask">
@@ -400,21 +401,22 @@ function generatePopUpWindowAdd(){
             </div>
         </div>        
     </div>
-    `
-;}
+    `;
+}
 
 function generateContactsAddTask(name, firstname, surname, i) {
-    return /*html*/ `
+  return /*html*/ `
     <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
       <p class="nameIdList" id="name-id">${firstname}${surname}</p>
     </div>                
-    <div class="custom-checkbox">            
+    <div class="custom-checkbox-board">            
       <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}">                    
       <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
-    </div>`;}
+    </div>`;
+}
 
 function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
-    return /*html*/`
+  return /*html*/ `
         <div>
             <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
@@ -423,9 +425,8 @@ function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
     `;
 }
 
-
 function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv, i) {
-    return /*html*/ `
+  return /*html*/ `
       <div class="smallCard cardA" id="smallCardId-${task.id}" draggable="true" ondragstart="startDragged(${task.id})" onclick="openCard(${task.id})"> 
         <div class="smallCardcategory"><p id="category" class="${className}">${task.category[0]}</p></div>
         <div class="taskText">
@@ -439,15 +440,15 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
         </div>  
       </div>
     `;
-  }
+}
 
-  function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
-    // Convert due date to a Date object
-    var dueDate = new Date(task.dueDate);
-    
-    // Format due date as Day/Month/Year
-    var formattedDueDate = `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`;
-    return /*html*/ `
+function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
+  // Convert due date to a Date object
+  var dueDate = new Date(task.dueDate);
+
+  // Format due date as Day/Month/Year
+  var formattedDueDate = `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`;
+  return /*html*/ `
       <div class="desingLagrCard" id="desingLagrCard">
         <div class="largeCardA" id="largeCardA">
           <div id="addTaskLargeCard" class="d-None"></div>
@@ -460,7 +461,7 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
                   <p id="largeCategory" class="${className}">${task.category[0]}</p>
                 </div>
                 <div class="closeLargeCardButton">
-                  <button onclick="closeCard()">X</button>
+                  <button onclick="closeCard()" class="close-button-edite"><img class="close-img" src="./assets/img/cancel.png"></button>
                 </div>
               </div>
               <div class="largCardText">
@@ -509,12 +510,12 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
         </div>
       </div>
     `;
-  }
+}
 
-  function generateSubtasksHTML(task) {
-    return task.subtasks
-      .map(
-        (subs, index) => /*html*/ `
+function generateSubtasksHTML(task) {
+  return task.subtasks
+    .map(
+      (subs, index) => /*html*/ `
           <div class="subtasksContents">
             <label class="checkbox-label">
               <input type="checkbox" id="checkbox-${task.id}-${index}" class="checkbox-input-${task.id}" onchange="updateProgress(${task.id}, ${index})">
@@ -523,17 +524,17 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
             </label>
           </div>
         `
-      )
-      .join("");
-  }
-  function generateEditContacts(assignedItem, color) {
-    let name = assignedItem;
-    let firstname = name[0].toUpperCase();
-  
-    let names = assignedItem.split(" ");
-    let surname = names[1].toUpperCase().charAt(0);
-  
-    return /*html*/ `
+    )
+    .join("");
+}
+function generateEditContacts(assignedItem, color) {
+  let name = assignedItem;
+  let firstname = name[0].toUpperCase();
+
+  let names = assignedItem.split(" ");
+  let surname = names[1].toUpperCase().charAt(0);
+
+  return /*html*/ `
       <div class="boardLargContactsAvatar">
         <div class="circle" style="background-color: ${color}">
           <p class="nameIdList">${firstname}${surname}</p>
@@ -541,5 +542,4 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
         <p>${assignedItem}</p>
       </div>
     `;
-  }
-  
+}
