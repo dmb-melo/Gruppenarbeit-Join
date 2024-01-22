@@ -191,11 +191,11 @@ function renderSubtaskState(task) {
   for (let i = 0; i < subTask.length; i++) {
     let renderTaskId = `checkbox-${taskId}-${i}`;
     let indexTaskId = getTaskId(renderTaskId);
-    validateSubtask(indexTaskId, renderTaskId, taskId, subTask);
+    validateSubtask(indexTaskId, renderTaskId);
   }
 }
 
-function validateSubtask(indexTaskId, renderTaskId, taskId, subTask) {
+function validateSubtask(indexTaskId, renderTaskId) {
   let checkboxRenderTaskId = document.getElementById(renderTaskId);
   if (indexTaskId === -1) {
     checkboxRenderTaskId.checked = true; 
@@ -277,32 +277,24 @@ function loadLevelOfSubtask() {
 }
 
 function generateLargeCard(task) {
-  
   let currentPriorityContent = task.priorityContent || "";
-
   let currentSubTasks = subT[task];
   let tempDiv = document.createElement("div");
   tempDiv.innerHTML = currentPriorityContent;
   tempDiv.classList.add("selectedPriorityContentDiv");
-
   removeActiveClassFromSvgElements(tempDiv);
-
   let clonedContentDiv = document.createElement("div");
   clonedContentDiv.appendChild(tempDiv.cloneNode(true));
-
   removeActiveClassFromSvgElements(clonedContentDiv);
   let currenCategory = task.category[0];
-
   let className = typeof currenCategory === "string" ? currenCategory.replace(/\s+/g, "") : "";
   const subsHtml = generateSubtasksHTML(task);
-  return generateLargeCardHTML(task, className, clonedContentDiv, subsHtml);
-  
+  return generateLargeCardHTML(task, className, clonedContentDiv, subsHtml); 
 }
 
 function updateProgress(taskId, index) {
   const checkboxes = document.querySelectorAll(`.checkbox-input-${taskId}`);
   const checkedCheckboxes = Array.from(checkboxes).filter((checkbox) => checkbox.checked);
-
   const smallProgressDiv = document.getElementById(`smallProgress-${taskId}`);
   smallProgressDiv.textContent = `${checkedCheckboxes.length}/${checkboxes.length}`;
   `${checkedCheckboxes.length}/${checkboxes.length}`;
@@ -335,11 +327,9 @@ function renderSmallContats() {
   }
   for (let i = 0; i < tasks.length; i++) {
     const assigned = tasks[i]["assigned"];
-
     const contactsSmallCard = document.getElementById(`boardAssigend-${tasks[i]["id"]}`);
     const maxContactsToShow = 3;
     const totalAssigned = assigned.length;
-
     for (let a = 0; a < Math.min(maxContactsToShow, totalAssigned); a++) {
       const assigendAvatar = assigned[a];
       let name = assigned[a];
@@ -370,14 +360,12 @@ function renderSmallContats() {
 function renderLargeContats(task) {
   const contactsLargeCard = document.getElementById("boardAssigendLargCard");
   contacts.innerHTML = "";
-
   if (task && task["assigned"]) {
     const assigned = task["assigned"];
     for (let d = 0; d < assigned.length; d++) {
       const assigendAvatar = assigned[d];
       let name = assigned[d];
       let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
-
       let names = assigned[d].split(" ");
       let surname = names[1].toUpperCase().charAt(0);
       contactsLargeCard.innerHTML += /*html*/ `
@@ -393,7 +381,6 @@ function renderLargeContats(task) {
 function renderEditContacts() {
   const contactsLargeCard = document.getElementById("boardAssigendLargCard");
   contactsLargeCard.innerHTML = "";
-
   for (let d = 0; d < assigned.length; d++) {
     contactsLargeCard.innerHTML += generateEditContacts(assigned[d], colors[d]);
   }
@@ -404,7 +391,6 @@ function appendGeneratedAddTask(taskStatusFromBoard) {
   let addWindow = document.getElementById("popUpAddWindow");
   addWindow.classList.add("openAddWindow");
   let addBoard = document.getElementById("addBoard");
-
   let newDivAddTask = document.createElement("div");
   newDivAddTask.classList.add("addWindowCss");
   newDivAddTask.innerHTML = generate_addTask();
@@ -422,7 +408,6 @@ function appendGeneratedAddTask(taskStatusFromBoard) {
 function searchTask() {
   let terminal = document.getElementById("searchInput").value.toLowerCase();
   let foundTaskIds = [];
-
   for (let i in tasks) {
     let taskTitle = tasks[i].title.toLowerCase();
     if (taskTitle.includes(terminal)) {
@@ -436,7 +421,6 @@ function notSearchTasks(foundTaskIds) {
   // Iteriere durch alle Aufgaben
   for (let task of tasks) {
     let taskElement = document.getElementById("smallCardId-" + task.id);
-
     if (foundTaskIds.includes(task.id)) {
       console.log("Task with ID " + task.id + ": flex");
       taskElement.style.display = "flex";
@@ -450,7 +434,6 @@ function notSearchTasks(foundTaskIds) {
 function closeAddBoard() {
   let addWindow = document.getElementById("popUpAddWindow");
   addWindow.classList.remove("openAddWindow");
-
   let addBoard = document.getElementById("addBoard");
   let newDivAddTask = document.querySelector(".addWindowCss");
   if (newDivAddTask) {
