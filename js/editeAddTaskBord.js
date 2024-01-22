@@ -72,15 +72,42 @@ function displayAssignedContacts(assignedContacts) {
 
 
 function displaySubtasks(subtasks, taskId) {
-  const foundTask = findTaskById(taskId);
   const subtasksElement = document.getElementById("editSubtasks");
 
-  subtasksElement.innerHTML = subtasks.map((subtask, index) =>  `<div class="subtaskItem" onclick="editSub(${index})">${subtask}</div>`).join("");
+  subtasksElement.innerHTML = subtasks.map((subtask, index) =>  
+    `<div class="subtaskItem" onclick="editSub(${index})" contenteditable="true">${subtask}</div>`
+  ).join("");
 }
-function editSub(taskId) {
-  console.log('welcher', taskId);
 
+function editSub(index) {
+  const subtaskElement = document.querySelector(`.subtaskItem:nth-child(${index + 1})`);
+
+  subtaskElement.addEventListener("dblclick", function() {
+    // Hier können Sie weitere Anpassungen vornehmen, z. B. ein Input-Feld hinzufügen
+    // Erstellen Sie ein Input-Feld
+    const inputField = document.createElement("input");
+    inputField.type = "text";
+    inputField.value = subtaskElement.textContent;
+
+    // Ersetzen Sie das div-Element durch das Input-Feld
+    subtaskElement.replaceWith(inputField);
+
+    // Fokussieren Sie das Input-Feld
+    inputField.focus();
+
+    // Fügen Sie einen Event-Listener hinzu, um die Änderungen zu speichern
+    inputField.addEventListener("blur", function() {
+      // Speichern Sie die Änderungen und aktualisieren Sie das Anzeigeelement
+      subtasks[index] = inputField.value;
+      displaySubtasks(subtasks, taskId);
+    });
+  });
 }
+
+// Beispielaufruf
+const tasks = ["Task 1", "Task 2", "Task 3"];
+const taskId = 1;
+displaySubtasks(tasks, taskId);
 
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
@@ -401,7 +428,6 @@ function handleContactSearchEdit() {
     }
   }
 }
-
 function hideVectorAndImgCheckEdit() {
   let vectorAndImgCheck = document.getElementById("vectorAndImgCheckEdit");
   let imgPlus = document.getElementById("addSubtasksPlusEdit");
