@@ -510,29 +510,25 @@ function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
     `;
 }
 
-function generateSubtasksHTML(task) {
-  return task.subtasks
-    .map(
-      (subs, index) => /*html*/ `
-          <div class="subtasksContents">
-            <label class="checkbox-label">
-              <input type="checkbox" id="checkbox-${task.id}-${index}" class="checkbox-input-${task.id}" onchange="updateProgress(${task.id}, ${index})">
-              <span class="checkbox-custom"></span>
-              ${subs}
-            </label>
-          </div>
-        `
-    )
-    .join("");
-}
-function generateEditContacts(assignedItem, color) {
-  let name = assignedItem;
-  let firstname = name[0].toUpperCase();
-
-  let names = assignedItem.split(" ");
-  let surname = names[1].toUpperCase().charAt(0);
-
-  return /*html*/ `
+  function generateSubtasksHTML(task) {
+    return task.subtasks
+      .map((subs, index) => `<div class="subtasksContents">
+   
+        <input type="checkbox" id="checkbox-${task.id}-${index}" class="checkbox-input-${task.id}" onchange="updateProgress(${task.id}, ${index})">
+        <label class="checkbox-label" for="checkbox-${task.id}-${index}">  <span class="checkbox-custom"> ${subs}</span></label>
+    </div>`
+        
+      )
+      .join("");
+  }
+  function generateEditContacts(assignedItem, color) {
+    let name = assignedItem;
+    let firstname = name[0].toUpperCase();
+  
+    let names = assignedItem.split(" ");
+    let surname = names[1].toUpperCase().charAt(0);
+  
+    return /*html*/ `
       <div class="boardLargContactsAvatar">
         <div class="circle" style="background-color: ${color}">
           <p class="nameIdList">${firstname}${surname}</p>
