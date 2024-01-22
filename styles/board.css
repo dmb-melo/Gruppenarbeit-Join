@@ -263,7 +263,7 @@
 }
 
 .taskTitle {
-  color: #2A3647;
+  color: #2a3647;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -272,7 +272,7 @@
 }
 
 .taskDescription {
-  color: #A8A8A8;
+  color: #a8a8a8;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -348,8 +348,6 @@
   width: 0;
 }
 
-
-
 .popUpWindow {
   position: fixed;
   inset: 0;
@@ -395,7 +393,6 @@
   background: #fff;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
   width: 525px;
-
 }
 
 .largesCard {
@@ -404,7 +401,6 @@
 }
 
 .editBoard {
-
   height: 80%;
   width: 400px;
   border: solid;
@@ -484,7 +480,6 @@
   gap: 24px;
 }
 
-
 .largPrioDetail {
   display: flex;
   align-items: center;
@@ -526,7 +521,7 @@
 }
 
 .largCartSubtasks {
-  color: var(--Version-2-main-color, #2A3647);
+  color: var(--Version-2-main-color, #2a3647);
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -539,7 +534,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: var(--Version-2-main-color, #2A3647);
+  color: var(--Version-2-main-color, #2a3647);
   font-family: "Inter", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -556,6 +551,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
 
 .boardText p {
@@ -576,8 +572,6 @@
   line-height: 120%;
 }
 
-
-
 .progressContainer {
   display: flex;
   width: 100%;
@@ -594,17 +588,14 @@
   height: 10px;
   flex-direction: column;
   border-radius: 10px;
-  background: var(--white, #FFF);
+  background: var(--white, #fff);
   z-index: 1;
 }
-
-
 
 .desingLagrCardEdit {
   height: 80%;
   display: flex;
   align-items: center;
-
 }
 
 .closeLargeEditCardButton {
@@ -613,8 +604,21 @@
   justify-content: end;
 }
 
+.close-button-edite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;           
+  cursor: pointer;        
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+}
 
-
+.close-button-edite:hover {
+ background-color: rgba(0, 0, 0, 0.1);
+}
 
 /* addTaskEdit */
 .frame17Borad {
@@ -636,8 +640,8 @@
   justify-content: space-between;
   position: relative;
   border-radius: 10px;
-  border: 1px solid var(--Style, #D1D1D1);
-  background: var(--white, #FFF);
+  border: 1px solid var(--Style, #d1d1d1);
+  background: var(--white, #fff);
   color: var(--black, #000);
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -665,8 +669,8 @@
   gap: 10px;
   align-self: stretch;
   border-radius: 10px;
-  border: 1px solid var(--Style, #D1D1D1);
-  background: #FFF;
+  border: 1px solid var(--Style, #d1d1d1);
+  background: #fff;
   margin-top: 8px;
 }
 
@@ -678,8 +682,8 @@
   align-items: center;
   align-self: stretch;
   border-radius: 10px;
-  border: 1px solid var(--Style, #D1D1D1);
-  background: #FFF;
+  border: 1px solid var(--Style, #d1d1d1);
+  background: #fff;
   cursor: pointer;
   display: flex;
   padding: 12px 16px;
@@ -687,17 +691,16 @@
   align-items: center;
   align-self: stretch;
   border-radius: 10px;
-  border: 1px solid var(--Style, #D1D1D1);
-  background: #FFF;
+  border: 1px solid var(--Style, #d1d1d1);
+  background: #fff;
 }
 
 .largDueDate {
   display: flex;
   gap: 13px;
 }
-.addBoard{
+.addBoard {
   width: 92%;
-
 }
 .subtaskItemBoard {
   cursor: pointer;
@@ -709,12 +712,12 @@
   align-items: center;
   border-radius: 8px;
 }
-.desingLagrCard{
-    height: 90%;
-    position: fixed;
-    bottom: 114px;
-    top: 4px;
-  }
+.desingLagrCard {
+  height: 90%;
+  position: fixed;
+  bottom: 114px;
+  top: 4px;
+}
 .listBoard {
   display: flex;
   justify-content: end;
@@ -727,7 +730,7 @@
   padding-inline-start: 0px;
   flex-direction: column;
   border-radius: 10px;
-  background: var(--white, #FFF);
+  background: var(--white, #fff);
   z-index: 1;
   max-height: 340px;
   width: 425px;
@@ -775,7 +778,7 @@
   line-height: 120%;
 }
 
-.custom-checkbox-board {     
+.custom-checkbox-board {
   font-size: 20px;
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -790,22 +793,22 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  position: relative; 
+  position: relative;
 }
 
 .custom-checkbox-board label:before {
-  content: '';
+  content: "";
   width: 24px;
   height: 24px;
   background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 25 25" fill="none"%3E%3Crect x="4.68213" y="4.39673" width="16" height="16" rx="3" stroke="%232A3647" stroke-width="2"%3E%3C/rect%3E%3C/svg%3E');
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  left: 300px; 
+  left: 300px;
 }
 
-.contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before{
-  content: '';
+.contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+  content: "";
   width: 24px;
   height: 24px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 18 19' fill='none'%3E%3Cpath d='M17 8.96582V14.9658C17 16.6227 15.6569 17.9658 14 17.9658H4C2.34315 17.9658 1 16.6227 1 14.9658V4.96582C1 3.30897 2.34315 1.96582 4 1.96582H12' stroke='%232A3647' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5 9.96582L9 13.9658L17 2.46582' stroke='%232A3647' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -816,7 +819,7 @@
 }
 
 .custom-checkbox-board input[type="checkbox"]:checked + label:before {
-  content: '';
+  content: "";
   width: 24px;
   height: 24px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M17 8V14C17 15.6569 15.6569 17 14 17H4C2.34315 17 1 15.6569 1 14V4C1 2.34315 2.34315 1 4 1H12' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5 9L9 13L17 1.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -837,26 +840,22 @@
 @media (max-width: 620px) {
   .largeCardA {
     width: 411px;
-}
-
+  }
 }
 @media (max-width: 513px) {
   .largeCardA {
     width: 350px;
-}
-
+  }
 }
 @media (max-width: 444px) {
   .largeCardA {
     width: 300px;
-}
-
+  }
 }
 @media (max-width: 375px) {
   .titleBoard {
     font-size: 47px !important;
   }
-
 
   .desingLagrCard {
     position: absolute;
@@ -1004,7 +1003,7 @@
     justify-content: space-between;
     margin-left: 10px;
     width: 100%;
-}
+  }
 
   .plusImgMobile:hover .plus_add_task_mobile {
     display: none;
@@ -1093,9 +1092,6 @@
 }
 
 @media (min-width: 649px) and (max-width: 900px) {
-
-
-
   .titleBoard {
     width: 600px;
     font-size: 47px !important;
@@ -1105,7 +1101,7 @@
     display: flex;
     justify-content: space-between;
     margin-left: 10px;
-    width:96%;
+    width: 96%;
   }
 
   .plusImgMobile:hover .plus_add_task_mobile {
@@ -1151,7 +1147,7 @@
     padding: 8px 16px;
     align-items: center;
     width: 100%;
-}
+  }
 
   .searchinput {
     width: 100%;
@@ -1169,7 +1165,7 @@
     margin-left: 0px;
     width: 583px !important;
     height: 900px;
-}
+  }
 
   .tasksToDo {
     margin-top: 0;
@@ -1205,13 +1201,13 @@
   .searchBoxLeft {
     width: 400px;
     margin-right: 0 !important;
-}
+  }
   .headlineBoard {
     display: flex;
     justify-content: space-between;
     margin-left: 10px;
     width: 405px;
-}
+  }
 }
 @media (max-width: 500px) {
   .searchBar {
@@ -1220,17 +1216,17 @@
   .searchBoxLeft {
     width: 100% !important;
     margin-right: 0 !important;
-}
+  }
   .headlineBoard {
     display: flex;
     justify-content: space-between;
     margin-left: 10px;
     width: 100% !important;
-}
+  }
 }
 @media (max-width: 646px) {
   .searchBar {
-    width: 98% ;
+    width: 98%;
   }
 }
 @media (max-width: 1000px) {
@@ -1262,15 +1258,14 @@
     overflow-x: scroll;
     display: flex;
     align-items: center;
-}
-.taskBoardTtle {
-  width: 252px;
-  gap: 16px;
-  display: flex;
-  flex-direction: column;
-  width: 96%;
-}
-
+  }
+  .taskBoardTtle {
+    width: 252px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -1292,7 +1287,7 @@
     flex-shrink: 0;
     justify-content: center;
     align-items: center;
-    padding: 1px  1px 0px;
+    padding: 1px 1px 0px;
     margin-left: 232px;
   }
 
