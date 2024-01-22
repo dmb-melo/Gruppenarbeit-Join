@@ -129,11 +129,12 @@ function generateAddEditeTask(taskId){
                             <div class ="imgArrows" id="imgArrows" onclick="hideAssignedBoardEdit(event, ${taskId})">
                                 <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssignedEdit" onclick="hideAssignedBoardEdit(event, ${taskId})" > 
                                 <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssignedEdit" onclick="hideAssignedBoardEdit(event, ${taskId})">                            
-                            </div>
+                            
                             <div class="listBoard" class="hide">
                             <ul id="listContactEdit" class="hide underListContactBoard"> 
                                 <li id ="contactListBoard"></li>                       
                             </ul>
+                            </div>
                         </div>  
                         </div>                    
                                            
@@ -142,7 +143,7 @@ function generateAddEditeTask(taskId){
                         </div>
                     </div>
                 </div>
-                <div class ="inputRight_addTaskEdit">
+                <div class="inputRight_addTaskEdit" id="dateAddTaskEdit">
                     <div class="dueDate wd100">
                         <div class="text_DueDate">Due date<span class="spanClass">*</span></div>
                         <div class="frame211 wd100" onclick="required(this)">                    
@@ -153,8 +154,8 @@ function generateAddEditeTask(taskId){
                         </div>
                     </div>
                     <div class="frame28 wd100">
-                        <div class="titlePrio">Prio</div>
-                        <div class="Boardpriority">
+                        <div class="titlePrio">Priority</div>
+                        <div class="boardpriority">
                             <div class="priorityUrgent"  onclick="changeColour('priorityUrgent')" id ="priorityUrgent">                    
                                 <div class="textUrgent" id="textUrgent">Urgent</div>                       
                                 <svg class="img-priorityUrgentSize" xmlns="http://www.w3.org/2000/svg" width="21" height="16" viewBox="0 0 21 16">
@@ -207,7 +208,7 @@ function generateAddEditeTask(taskId){
                     </div>
                 </div>
                 <div class="">
-                <div class="frame27">
+                <div class="save-button">
                     <a class="leadsToBoard" href="#" id="leadsToBoard" onclick="saveEditTaskBoard(${taskId})">
                         <div class="primary">
                             <div class="textCreateTask">Save</div>
@@ -226,7 +227,7 @@ function generateContactsAddTaskBoard(name, firstname, surname, i) {
     <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
       <p class="nameIdList" id="name-id">${firstname}${surname}</p>
     </div>                
-    <div class="custom-checkbox">            
+    <div class="custom-checkbox-board">            
       <input class="inputCheckBox" type="checkbox" id="myCheckbox_Edit${i}">                    
       <label class="nameContact" for="myCheckbox_Edit${i}">${name}</label>                              
     </div>`;}
@@ -408,7 +409,7 @@ function generateContactsAddTask(name, firstname, surname, i) {
     <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
       <p class="nameIdList" id="name-id">${firstname}${surname}</p>
     </div>                
-    <div class="custom-checkbox">            
+    <div class="custom-checkbox-board">            
       <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}">                    
       <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
     </div>`;}
