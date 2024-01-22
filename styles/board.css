@@ -371,6 +371,7 @@
   transform: translateX(0px);
   transition: 550ms ease-in-out;
 }
+
 .closeAddBoard {
   position: fixed;
   top: 10%;
@@ -381,6 +382,7 @@
   font-size: 20px;
   cursor: pointer;
 }
+
 .largeCardA {
   max-height: 86%;
   border: solid;
@@ -442,7 +444,6 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  word-break: break-all;
 }
 
 .largCardTextArea {
@@ -702,6 +703,7 @@
 .addBoard {
   width: 92%;
 }
+
 .subtaskItemBoard {
   cursor: pointer;
   display: flex;
@@ -826,7 +828,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  left: 300px; /* Adjust this as needed */
+  left: 300px;
+  /* Adjust this as needed */
 }
 
 .save-button {
@@ -842,16 +845,19 @@
     width: 411px;
   }
 }
+
 @media (max-width: 513px) {
   .largeCardA {
     width: 350px;
   }
 }
+
 @media (max-width: 444px) {
   .largeCardA {
     width: 300px;
   }
 }
+
 @media (max-width: 375px) {
   .titleBoard {
     font-size: 47px !important;
@@ -1198,6 +1204,7 @@
   .searchBar {
     width: 90% !important;
   }
+
   .searchBoxLeft {
     width: 400px;
     margin-right: 0 !important;
@@ -1213,6 +1220,7 @@
   .searchBar {
     width: 90% !important;
   }
+
   .searchBoxLeft {
     width: 100% !important;
     margin-right: 0 !important;
@@ -1229,6 +1237,13 @@
     width: 98%;
   }
 }
+
+@media (max-width: 646px) {
+  .searchBar {
+    width: 98%;
+  }
+}
+
 @media (max-width: 1000px) {
   .searchBar {
     width: 1215px;
@@ -1239,9 +1254,11 @@
     padding: 1px 88px 1px 0px;
     margin-left: 20px !important;
   }
+
   .searchbarIn {
     width: 100% !important;
   }
+
   .taskAria {
     display: flow-root !important;
     flex-wrap: wrap;
@@ -1250,6 +1267,7 @@
     width: 930px;
     flex-direction: column;
   }
+
   .tasksCardsDiv {
     display: flex;
     flex-direction: row;
@@ -1281,6 +1299,7 @@
     width: 100% !important;
     margin-left: 0 !important;
   }
+
   .searchBar {
     width: 93%;
     height: 232px;
@@ -1385,3 +1404,48 @@
     max-width: 396px;
   }
 } */
+.subtasksContents {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  width: 92%;
+  border-radius: 20px;
+  cursor: pointer;
+
+}
+.subtasksContents:hover {
+
+  background: #eeee;
+}
+.subtasksContents input[type="checkbox"] {
+  display: none;
+}
+
+.subtasksContents label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
+  gap: 20px;
+}
+
+.subtasksContents label:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 25 25" fill="none"%3E%3Crect x="4.68213" y="4.39673" width="16" height="16" rx="3" stroke="%232A3647" stroke-width="2"%3E%3C/rect%3E%3C/svg%3E');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.subtasksContents input[type="checkbox"]:checked+label:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 18 19' fill='none'%3E%3Cpath d='M17 8.96582V14.9658C17 16.6227 15.6569 17.9658 14 17.9658H4C2.34315 17.9658 1 16.6227 1 14.9658V4.96582C1 3.30897 2.34315 1.96582 4 1.96582H12' stroke='%232A3647' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5 9.96582L9 13.9658L17 2.46582' stroke='%232A3647' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
