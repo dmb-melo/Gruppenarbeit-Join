@@ -182,6 +182,7 @@ function openCard(taskId) {
   }
   renderLargeContats();
   loadLevelOfSubtask();
+  renderSubtaskState(task);
 }
 
 function renderSubtaskState(task) {
@@ -197,9 +198,9 @@ function renderSubtaskState(task) {
 function validateSubtask(indexTaskId, renderTaskId, taskId, subTask) {
   let checkboxRenderTaskId = document.getElementById(renderTaskId);
   if (indexTaskId === -1) {
-    checkboxRenderTaskId.checked = false;
+    checkboxRenderTaskId.checked = true; 
   } else {
-    checkboxRenderTaskId.checked = true;
+    checkboxRenderTaskId.checked = false;
   }
 }
 
@@ -295,6 +296,7 @@ function generateLargeCard(task) {
   let className = typeof currenCategory === "string" ? currenCategory.replace(/\s+/g, "") : "";
   const subsHtml = generateSubtasksHTML(task);
   return generateLargeCardHTML(task, className, clonedContentDiv, subsHtml);
+  
 }
 
 function updateProgress(taskId, index) {
