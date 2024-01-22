@@ -60,7 +60,7 @@ function generateSummaryContent() {
                         </a>
                         <a onclick="renderBoardHTML()" class="taskspanels">
                             <div class="tasksNumber">${numberFeedback}</div>
-                            <div class="tasksText">Tasks in Await Feedack</div>
+                            <div class="tasksTextFeedback">Tasks in Await Feedack</div>
                         </a>
                     </div>
                 </div>
