@@ -199,7 +199,7 @@ let subtaskIndex = 0;
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   document.getElementById("inputSubtasksEdit").value = "";
-  subtasks.unshift(subtaskInput);
+  subtasks.push(subtaskInput);
   console.log(subtasks);
   updateSubtasksDisplayEdit();
   save();
