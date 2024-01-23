@@ -34,6 +34,11 @@
     width: 300px;
   }
 
+  #contentJoin {
+    display: flex;
+    justify-content: center;
+  }
+
   .contentTask {
     overflow: scroll !important;
     height: calc(100vh - 176px);
