@@ -246,7 +246,9 @@
   .box-sizing {
     display: none;
   }
-
+.content_addTask {
+  margin-top: 356px;
+}
   .header {
     position: relative;
   }
