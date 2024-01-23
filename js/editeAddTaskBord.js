@@ -98,16 +98,37 @@ function hideButtons(element) {
 }
 
 
-function editSub(taskId) {
-  console.log('welcher', taskId);
+function editSub(index) {
+  const subtasksElement = document.getElementById("editSubtasks");
+  const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
+  const subtaskItem = subtaskItems[index];
+  const spanElement = subtaskItem.querySelector("span");
+  const currentText = spanElement.innerText;
+  const inputField = document.createElement("input");
+  inputField.type = "text";
+  inputField.value = currentText;
 
+  subtaskItem.replaceChild(inputField, spanElement);
+  inputField.focus();
+
+  inputField.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+
+      const newText = inputField.value;
+
+      const newSpanElement = document.createElement("span");
+      newSpanElement.innerText = newText;
+      subtaskItem.replaceChild(newSpanElement, inputField);
+    }
+  });
 }
+
 function deleteSub(index) {
   subtasks.splice(index, 1);
   const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
   subtaskItem.remove();
   save();
-  
 }
 
 function saveEditTaskBoard(taskId) {
