@@ -237,7 +237,7 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
-  border: 2px solid var(--Version-2-main-color, #2a3647);
+  /* border: 2px solid var(--Version-2-main-color, #2a3647); */
   border-radius: 24px;
   background: var(--white, #fff);
   box-sizing: border-box;
@@ -944,4 +944,8 @@
 }
 .subtaskItem {
   width: 100% !important;
+}
+
+.popUp {
+  ;
 }
