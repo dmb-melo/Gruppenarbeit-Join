@@ -52,6 +52,18 @@
     width: 300px;
   }
 
+  @media (min-height: 1100px) {
+    .textContainer_addTask {
+      font-size: 47px;
+      margin-top: -300px;
+      margin-left: -235px;
+    }
+
+    .inputLeft_addTask {
+      margin-top: -200px;
+    }  
+  }
+
   .contentTask {
     display: flex;
     justify-content: center;
@@ -248,6 +260,18 @@
 }
 
 @media (min-width: 600px) and (max-width: 799px) {
+  @media (min-height: 1100px) {
+    .textContainer_addTask {
+      font-size: 47px;
+      margin-top: -200px !important;
+      margin-left: -235px;
+    }
+
+    .inputLeft_addTask {
+      margin-top: -100px;
+    }  
+  }
+
   .box-sizing {
     display: none;
   }
@@ -297,7 +321,7 @@
 
   .textContainer_addTask {
     font-size: 47px;
-    margin-top: 50px;
+    margin-top: 120px;
     margin-left: -235px;
   }
 
@@ -643,7 +667,7 @@
   }
 }
 
-@media (min-width: 1000px) and (max-width: 1149px) {
+@media (min-width: 1000px) and (max-width: 1249px) {
   .box-sizingResponsiv {
     display: none;
   }
@@ -799,7 +823,7 @@
   }
 }
 
-@media (min-width: 1150px) and (max-width: 1399px) {
+@media (min-width: 1250px) and (max-width: 1399px) {
   .box-sizingResponsiv {
     display: none;
   }
