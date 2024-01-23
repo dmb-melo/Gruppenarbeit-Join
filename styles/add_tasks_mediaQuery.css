@@ -250,8 +250,15 @@
   .box-sizing {
     display: none;
   }
+<<<<<<< HEAD
 
   .header{
+=======
+.content_addTask {
+  margin-top: 356px;
+}
+  .header {
+>>>>>>> 44f2b70f010ad3d7030b5b3d2864a939605a9e0d
     position: relative;
   }
 

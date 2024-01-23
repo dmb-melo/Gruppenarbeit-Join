@@ -108,7 +108,6 @@ function saveEditTaskBoard(taskId) {
       subtasks: subtasks.slice(),
     };
     tasks = tasks.map((task) => (task.id === taskId ? editedTask : task));
-
     save();
   } else {
     console.error("Task with ID " + taskId + " not found.");
@@ -183,10 +182,8 @@ function editSub(index) {
       subtaskItem.replaceChild(newSpanElement, inputField);
     }
   });
-  subtasks.push(subtaskItem);
-  console.log(subtasks);
-}
 
+}
 function deleteSub(index) {
   subtasks.splice(index, 1);
   const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
@@ -194,6 +191,10 @@ function deleteSub(index) {
   save();
   console.log(index);
 }
+
+// Define a global variable to keep track of the current index
+// Define a global variable to keep track of the current index
+let subtaskIndex = 0;
 
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
@@ -203,36 +204,43 @@ function addSubtasksEdit() {
   updateSubtasksDisplayEdit();
   save();
   subtasks = [];
+
+  // Increment the subtaskIndex for the next subtask
+  subtaskIndex++;
 }
+
+function displaySubtasks(subtasks, taskId) {
+  const foundTask = findTaskById(taskId);
+  const subtasksElement = document.getElementById("editSubtasks");
+
+  // Ensure subtasks is an array
+  const subtasksArray = Array.isArray(subtasks) ? subtasks : [subtasks];
+
+  subtasksElement.innerHTML += subtasksArray.map((subtask, index) =>  /*html*/`
+    <div class="subtaskItem" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+      <span>${subtask}</span>
+      <div class="subtaskButtons">
+        <button onclick="editSub(${subtaskIndex - 1})"><img src="../assets/img/edit_task.png"></button>
+        <button onclick="deleteSub(${subtaskIndex - 1})"><img src="./assets/img/delete_contacts.png"></button>
+      </div>
+    </div>`).join("");
+}
+
 function updateSubtasksDisplayEdit() {
   const allSubtasksDiv = document.getElementById("editSubtasksadd");
 
   allSubtasksDiv.innerHTML = "";
 
   if (subtasks.length === 0) {
-    //brauche ich das??
     allSubtasksDiv.innerHTML = "No subtasks available.";
   } else {
     subtasks.forEach((subtask, index) => {
-      const subtaskItemDiv = createSubtaskItemEdit(subtask);
-      const iconsContainer = createIconsContainer(subtaskItemDiv, subtask, index);
-      subtaskItemDiv.appendChild(iconsContainer);
-      allSubtasksDiv.appendChild(subtaskItemDiv);
+      const subtaskItemDiv = displaySubtasks(subtask);
+      // Do something with subtaskItemDiv if needed
     });
   }
 }
 
-function createSubtaskItemEdit(subtaskText) {
-  const subtaskItemDiv = document.createElement("div");
-  subtaskItemDiv.classList.add("subtaskItem");
-  subtaskItemDiv.classList.add("hoverEditClass");
-
-  const subtaskItemText = document.createElement("li");
-  subtaskItemText.innerText = subtaskText;
-  subtaskItemDiv.appendChild(subtaskItemText);
-
-  return subtaskItemDiv;
-}
 
 function createIconsContainer(subtaskItemDiv, subtaskText, index) {
   const iconsContainer = document.createElement("div");
