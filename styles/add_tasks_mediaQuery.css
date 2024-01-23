@@ -741,7 +741,7 @@
   }
 
   .subtaskItem{
-    width: 750px;
+    width: 97% !important;
   }
 
   .addTasksFooter {

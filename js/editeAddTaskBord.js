@@ -80,7 +80,7 @@ function displaySubtasks(subtasks, taskId) {
     <div class="subtaskItem" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
   <span>${subtask}</span>
   <div class="subtaskButtons">
-    <button onclick="handleEditClick(${index})"><img src="../assets/img/edit_task.png"></button>
+    <button onclick="editSub(${index})"><img src="../assets/img/edit_task.png"></button>
     <button onclick="deleteSub(${index})"><img src="./assets/img/delete_contacts.png"></button>
   </div>
 </div>`).join("");
@@ -101,6 +101,13 @@ function hideButtons(element) {
 function editSub(taskId) {
   console.log('welcher', taskId);
 
+}
+function deleteSub(index) {
+  subtasks.splice(index, 1);
+  const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
+  subtaskItem.remove();
+  save();
+  
 }
 
 function saveEditTaskBoard(taskId) {
