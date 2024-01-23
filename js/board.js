@@ -445,6 +445,7 @@ function closeAddBoard() {
 
 
   function changeImage(isHovered) {
+    var textElemet = document.getElementById('delete-task-title');
     var imageElement = document.getElementById("delete-task-image");
     if (isHovered) {
       imageElement.src = "../assets/img/delete.png";

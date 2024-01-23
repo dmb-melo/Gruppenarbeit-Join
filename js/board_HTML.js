@@ -494,7 +494,7 @@ function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
                   <div class="deleteAndEdit">
                   <div class="delete_task" onmouseover="changeImage(true)" onmouseout="changeImage(false)" onclick="deleteTask(event)">
                     <img id="delete-task-image" class="delete-task-bt" src="../assets/img/delete_contacts.png">
-                         <p class="delete-task-title">Delete</p>
+                         <p class="delete-task-title" id="delete-task-title">Delete</p>
                     </div>
                     <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
                     <div class="edit_task" onmouseover="changeEditImage(true)" onmouseout="changeEditImage(false)" onclick="editLargCard(${task.id})" style="display: flex; align-items: center; gap: 4px; cursor:pointer;">
