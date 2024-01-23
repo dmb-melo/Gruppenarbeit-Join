@@ -17,6 +17,7 @@ function editLargCard(taskId) {
   renderEditTask();
   saveUneditedAssigned(taskId);
   saveOldSubs(taskId);
+  load();
 }
 
 function findTaskById(taskId) {
@@ -72,62 +73,7 @@ function displayAssignedContacts(assignedContacts) {
 
 
 
-function displaySubtasks(subtasks, taskId) {
-  const foundTask = findTaskById(taskId);
-  const subtasksElement = document.getElementById("editSubtasks");
 
-  subtasksElement.innerHTML = subtasks.map((subtask, index) =>  /*html*/`
-    <div class="subtaskItem" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
-  <span>${subtask}</span>
-  <div class="subtaskButtons">
-    <button onclick="editSub(${index})"><img src="../assets/img/edit_task.png"></button>
-    <button onclick="deleteSub(${index})"><img src="./assets/img/delete_contacts.png"></button>
-  </div>
-</div>`).join("");
- 
-}
-
-function showButtons(element) {
-  const buttons = element.querySelector('.subtaskButtons');
-  buttons.style.display = 'inline-block';
-}
-
-function hideButtons(element) {
-  const buttons = element.querySelector('.subtaskButtons');
-  buttons.style.display = 'none';
-}
-
-
-function editSub(index) {
-  const subtasksElement = document.getElementById("editSubtasks");
-  const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
-  const subtaskItem = subtaskItems[index];
-  const spanElement = subtaskItem.querySelector("span");
-  const currentText = spanElement.innerText;
-  const inputField = document.createElement("input");
-  inputField.type = "text";
-  inputField.value = currentText;
-
-  subtaskItem.replaceChild(inputField, spanElement);
-  inputField.focus();
-
-  inputField.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      const newText = inputField.value;
-      const newSpanElement = document.createElement("span");
-      newSpanElement.innerText = newText;
-      subtaskItem.replaceChild(newSpanElement, inputField);
-    }
-  });
-}
-
-function deleteSub(index) {
-  subtasks.splice(index, 1);
-  const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
-  subtaskItem.remove();
-  save();
-}
 
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
@@ -186,6 +132,67 @@ function defineCategory(taskId) {
   let index = validateIndexFromTask(taskId);
   let category = tasks[index]["category"];
   return category;
+}
+
+function displaySubtasks(subtasks, taskId) {
+  const foundTask = findTaskById(taskId);
+  const subtasksElement = document.getElementById("editSubtasks");
+
+  subtasksElement.innerHTML = subtasks.map((subtask, index) =>  /*html*/`
+    <div class="subtaskItem" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+  <span>${subtask}</span>
+  <div class="subtaskButtons">
+    <button onclick="editSub(${index})"><img src="../assets/img/edit_task.png"></button>
+    <button onclick="deleteSub(${index})"><img src="./assets/img/delete_contacts.png"></button>
+  </div>
+</div>`).join("");
+ 
+}
+
+function showButtons(element) {
+  const buttons = element.querySelector('.subtaskButtons');
+  buttons.style.display = 'inline-block';
+}
+
+function hideButtons(element) {
+  const buttons = element.querySelector('.subtaskButtons');
+  buttons.style.display = 'none';
+}
+
+
+function editSub(index) {
+  const subtasksElement = document.getElementById("editSubtasks");
+  const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
+  const subtaskItem = subtaskItems[index];
+  const spanElement = subtaskItem.querySelector("span");
+  const currentText = spanElement.innerText;
+  const inputField = document.createElement("input");
+  inputField.type = "text";
+  inputField.value = currentText;
+
+  subtaskItem.replaceChild(inputField, spanElement);
+  inputField.focus();
+
+  inputField.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const newText = inputField.value;
+      const newSpanElement = document.createElement("span");
+      newSpanElement.innerText = newText;
+      console.log(newText);
+      subtaskItem.replaceChild(newSpanElement, inputField);
+    }
+  });
+  subtasks.push(subtaskItem);
+  console.log(subtasks);
+}
+
+function deleteSub(index) {
+  subtasks.splice(index, 1);
+  const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
+  subtaskItem.remove();
+  save();
+  console.log(index);
 }
 
 function addSubtasksEdit() {
@@ -305,7 +312,7 @@ function handleEditClick(subtaskItemDiv, subtaskText) {
     subtaskItemDiv.replaceChild(iconsContainer, subtaskItemDiv.lastChild);
   }
 }
-
+// assigned
 function checkboxAddTaskEdit() {
   let checkboxes = document.querySelectorAll(".inputCheckBox");
   assigned = [];
@@ -465,15 +472,6 @@ function hideVectorAndImgCheckEdit() {
   }
 }
 
-function addSubtasksEdit() {
-  const subtaskInput = document.getElementById("inputSubtasksEdit").value;
-  document.getElementById("inputSubtasksEdit").value = "";
-  subtasks.unshift(subtaskInput);
-  console.log(newSubs);
-  updateSubtasksDisplayEdit();
-  save();
-  hideVectorAndImgCheckEdit();
-}
 
 function validateAssignedContacts(taskId) {
   selecetContactsEdit = [];
