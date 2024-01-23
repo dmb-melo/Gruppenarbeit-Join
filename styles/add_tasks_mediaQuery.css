@@ -737,7 +737,7 @@
   }
 
   .subtasks, .allSubtasks{
-    width: 780px;
+    width:100%;
   }
 
   .subtaskItem{

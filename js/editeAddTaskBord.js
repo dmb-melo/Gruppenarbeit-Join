@@ -1,7 +1,7 @@
 let selecetContactsEdit = [];
 let assignedMenuOpen = false;
 let oldAssigned = [];
-
+let newSubs = [];
 function editLargCard(taskId) {
   let editCard = document.getElementById("desingLagrCard");
   editCard.style.display = "flex";
@@ -16,6 +16,7 @@ function editLargCard(taskId) {
   edittaskArea(taskId);
   renderEditTask();
   saveUneditedAssigned(taskId);
+  saveOldSubs(taskId);
 }
 
 function findTaskById(taskId) {
@@ -75,8 +76,28 @@ function displaySubtasks(subtasks, taskId) {
   const foundTask = findTaskById(taskId);
   const subtasksElement = document.getElementById("editSubtasks");
 
-  subtasksElement.innerHTML = subtasks.map((subtask, index) =>  `<div class="subtaskItem" onclick="editSub(${index})">${subtask}</div>`).join("");
+  subtasksElement.innerHTML = subtasks.map((subtask, index) =>  /*html*/`
+    <div class="subtaskItem" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+  <span>${subtask}</span>
+  <div class="subtaskButtons">
+    <button onclick="handleEditClick(${index})"><img src="../assets/img/edit_task.png"></button>
+    <button onclick="deleteSub(${index})"><img src="./assets/img/delete_contacts.png"></button>
+  </div>
+</div>`).join("");
+ 
 }
+
+function showButtons(element) {
+  const buttons = element.querySelector('.subtaskButtons');
+  buttons.style.display = 'inline-block';
+}
+
+function hideButtons(element) {
+  const buttons = element.querySelector('.subtaskButtons');
+  buttons.style.display = 'none';
+}
+
+
 function editSub(taskId) {
   console.log('welcher', taskId);
 
@@ -97,6 +118,9 @@ function saveEditTaskBoard(taskId) {
   priorityContentArray.unshift(priorityContentBoard);
   if (!assigned.length) {
     assigned = oldAssigned.slice();
+  }
+  if (!subtasks.length) {
+    subtasks = oldSusb.slice();
   }
   if (foundTask) {
     const editedTask = {
@@ -123,6 +147,7 @@ function saveEditTaskBoard(taskId) {
   renderSmallContats();
   closeCard();
   assignedMenuOpen = false;
+  subtask = [];
 }
 
 function defineAssigned(taskId) {
@@ -140,13 +165,14 @@ function defineCategory(taskId) {
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   document.getElementById("inputSubtasksEdit").value = "";
-  subtasks.unshift(subtaskInput);
+  oldSusb.unshift(subtaskInput);
   console.log(subtasks);
   updateSubtasksDisplayEdit();
   save();
+  subtasks = [];
 }
 function updateSubtasksDisplayEdit() {
-  const allSubtasksDiv = document.getElementById("editSubtasks");
+  const allSubtasksDiv = document.getElementById("editSubtasksadd");
 
   allSubtasksDiv.innerHTML = "";
 
@@ -416,8 +442,8 @@ function hideVectorAndImgCheckEdit() {
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   document.getElementById("inputSubtasksEdit").value = "";
-  subtasks.unshift(subtaskInput);
-  console.log(subtaskInput);
+  newSubs.unshift(subtaskInput);
+  console.log(newSubs);
   updateSubtasksDisplayEdit();
   save();
   hideVectorAndImgCheckEdit();
@@ -467,5 +493,17 @@ function saveUneditedAssigned(taskId) {
     let assignedFromTask = assignedArray[i];
     oldAssigned.push(assignedFromTask);
     console.log("oldAssigned",oldAssigned)
+  }
+}
+
+function saveOldSubs(taskId) {
+  oldSusb = [];
+  let index = validateIndexFromTask(taskId);
+  let task = tasks[index];
+  let subsArray = task['subtasks'];
+  for (let s = 0; s < subsArray.length; s++) {
+    const subsFromTask = subsArray[s];
+    oldSusb.push(subsFromTask);
+    console.log("oldSusb",oldSusb);
   }
 }

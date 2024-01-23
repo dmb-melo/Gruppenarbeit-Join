@@ -203,6 +203,7 @@ function generateAddEditeTask(taskId) {
                                 </div>                        
                             </div>
                             <div class="allSubtasks" id ="editSubtasks"></div>
+                            <div class="allSubtasks" id ="editSubtasksadd"></div>
                         </div>                    
                     </div>
                 </div>

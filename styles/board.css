@@ -914,11 +914,29 @@
   background-repeat: no-repeat;
 
 }
-
+.subtaskButtons {
+  display: none;
+}
+.subtaskButtons button{
+  border: none;
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.subtaskItem:hover .subtaskButtons {
+  display: inline-block;
+}
 .inputLeft_addTaskEdit{
   display: flex;
     width: 440px;
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+}
+.allSubtasks {
+  width: 100%;
+}
+.subtaskItem {
+  width: 100% !important;
 }
