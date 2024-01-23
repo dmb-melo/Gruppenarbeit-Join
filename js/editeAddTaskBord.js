@@ -114,9 +114,7 @@ function editSub(index) {
   inputField.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
-
       const newText = inputField.value;
-
       const newSpanElement = document.createElement("span");
       newSpanElement.innerText = newText;
       subtaskItem.replaceChild(newSpanElement, inputField);
@@ -193,7 +191,7 @@ function defineCategory(taskId) {
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   document.getElementById("inputSubtasksEdit").value = "";
-  oldSusb.unshift(subtaskInput);
+  subtasks.unshift(subtaskInput);
   console.log(subtasks);
   updateSubtasksDisplayEdit();
   save();
@@ -470,7 +468,7 @@ function hideVectorAndImgCheckEdit() {
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   document.getElementById("inputSubtasksEdit").value = "";
-  newSubs.unshift(subtaskInput);
+  subtasks.unshift(subtaskInput);
   console.log(newSubs);
   updateSubtasksDisplayEdit();
   save();
