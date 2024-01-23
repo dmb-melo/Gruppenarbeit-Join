@@ -440,3 +440,26 @@ function closeAddBoard() {
     addBoard.removeChild(newDivAddTask);
   }
 }
+
+
+
+
+  function changeImage(isHovered) {
+    var imageElement = document.getElementById("delete-task-image");
+    if (isHovered) {
+      imageElement.src = "../assets/img/delete.png";
+    } else {
+      imageElement.src = "../assets/img/delete_contacts.png";
+    }
+  }
+
+
+  function changeEditImage(isHovered) {
+    var imageElement = document.getElementById("edit-task-image");
+    if (isHovered) {
+      imageElement.src = "../assets/img/edit2.png";
+    } else {
+      imageElement.src = "./assets/img/edit_task.png";
+    }
+  }
+
