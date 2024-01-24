@@ -538,3 +538,6 @@ function generateEditContacts(assignedItem, color) {
       </div>
     `;
 }
+
+
+

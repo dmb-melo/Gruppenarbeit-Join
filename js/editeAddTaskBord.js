@@ -192,20 +192,6 @@ function displaySubtasks(subtasks, taskId) {
   }
 }
 
-function updateSubtasksDisplayEdit() {
-  const allSubtasksDiv = document.getElementById("editSubtasksadd");
-
-  allSubtasksDiv.innerHTML = "";
-
-  if (subtasks.length === 0) {
-    allSubtasksDiv.innerHTML = "No subtasks available.";
-  } else {
-    subtasks.forEach((subtask, index) => {
-      const subtaskItemDiv = displaySubtasks();
-      // Do something with subtaskItemDiv if needed
-    });
-  }
-}
 function editSub(index, subtasks, taskId) {
   const subtasksElement = document.getElementById("editSubtasks");
   const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
