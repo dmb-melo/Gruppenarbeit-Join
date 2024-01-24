@@ -61,7 +61,7 @@
 
     .inputLeft_addTask {
       margin-top: -200px;
-    }  
+    }
   }
 
   .contentTask {
@@ -257,6 +257,13 @@
   .task_succes_container {
     width: 256px;
   }
+  .custom-checkbox-board label:before {
+    left: 180px;
+  }
+
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 180px;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 799px) {
@@ -269,7 +276,7 @@
 
     .inputLeft_addTask {
       margin-top: -100px;
-    }  
+    }
   }
 
   .box-sizing {
@@ -484,6 +491,14 @@
   .task_succes {
     margin-left: 0%;
   }
+
+  .custom-checkbox-board label:before {
+    left: 410px;
+  }
+
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 410px;
+  }
 }
 
 @media (min-width: 800px) and (max-width: 999px) {
@@ -594,7 +609,7 @@
 
   .custom-checkbox {
     width: 100%;
-    gap: 150px;
+    gap: 550px;
   }
 
   .nameContact {
@@ -607,7 +622,7 @@
   }
 
   .custom-checkbox label:before {
-    margin-left: 250px;
+    margin-left: 50px;
   }
 
   input[type="date"]::-webkit-calendar-picker-indicator {
@@ -664,6 +679,13 @@
 
   .task-succes {
     margin-right: 50px;
+  }
+  .custom-checkbox-board label:before {
+    left: 595px;
+  }
+
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 595px;
   }
 }
 
@@ -731,7 +753,7 @@
   }
 
   .custom-checkbox label:before {
-    margin-left: 320px;
+    margin-right: 320px;
   }
 
   .contactAvatar {
@@ -748,7 +770,7 @@
   }
 
   .underListContact {
-    width: 780px;
+    width: 640px;
   }
 
   .categoryFrame74 {
@@ -820,6 +842,14 @@
   }
   .task_succes {
     margin-bottom: 700px;
+  }
+
+  .custom-checkbox-board label:before {
+    left: 520px;
+  }
+
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 520px;
   }
 }
 
