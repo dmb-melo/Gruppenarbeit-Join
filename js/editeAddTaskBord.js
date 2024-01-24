@@ -149,17 +149,30 @@ function hideButtons(element) {
   const buttons = element.querySelector('.subtaskButtons');
   buttons.style.display = 'none';
 }
-
-
-
 function deleteSub(index) {
   subtasks.splice(index, 1);
   oldSusb.splice(index, 1);
   const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
   subtaskItem.remove();
   save();
-  displaySubtasks(taskId)
 }
+
+function deleteSubTaskByIndex(index) {
+  if (index >= 0 && index < stateOfTask.length) {
+    const removedId = stateOfTask.splice(index, 1)[0];
+    if (typeof removedId === "string") {
+      const [taskId, subtaskIndex] = removedId.split('-').slice(1);
+      console.log("Removing subtask:", taskId, subtaskIndex);
+      deleteSub(subtaskIndex, taskId,index );
+    } else {
+      console.error("Invalid removedId:", removedId);
+    }
+    let idAtText = JSON.stringify(stateOfTask);
+    localStorage.setItem("id", idAtText);
+  }
+}
+
+
 
 let subtaskIndex = 0;
 
@@ -238,7 +251,7 @@ function editSub(index, subtasks, taskId) {
       subtaskItem.replaceChild(newSpanElement, inputField);
 
       subtasks[index] = newText;
-      oldSusb.push(subtasks[index]);
+      oldSusb.push(newText);
       save();
     }
   });
