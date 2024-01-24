@@ -198,9 +198,9 @@ function renderSubtaskState(task) {
 function validateSubtask(indexTaskId, renderTaskId) {
   let checkboxRenderTaskId = document.getElementById(renderTaskId);
   if (indexTaskId === -1) {
-    checkboxRenderTaskId.checked = false;
-  } else {
     checkboxRenderTaskId.checked = true; 
+  } else {
+    checkboxRenderTaskId.checked = false;
   }
 }
 
