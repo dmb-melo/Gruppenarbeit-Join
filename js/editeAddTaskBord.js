@@ -49,7 +49,7 @@ function edittaskArea(taskId) {
   activatePriority(foundTask.priorityID);
 
   displayAssignedContacts(foundTask.assigned);
-  subtaskRendering = foundTask.subtasks;
+  displaySubtasks (foundTask.subtasks);
   displaySubtasks(taskId);
 }
 
