@@ -83,7 +83,7 @@ function saveEditTaskBoard(taskId) {
   let priorityContentBoard = selectedPriorityBoard ? selectedPriorityBoard.innerHTML : "";
   let selectedPriorityIDBoard = "";
   let category = defineCategory(taskId);
-
+  oldSusb.push(subtasks);
   if (selectedPriorityBoard) {
     selectedPriorityIDBoard = selectedPriorityBoard.id;
   }
@@ -106,7 +106,7 @@ function saveEditTaskBoard(taskId) {
       priorityID: selectedPriorityIDBoard,
       assigned: assigned,
       category: category,
-      subtasks: subtasks.slice(), // Behalten Sie die alten Subtasks bei
+      subtasks: oldSusb.slice(), // Behalten Sie die alten Subtasks bei
     };
     subtasks = []; // Leeren Sie die Liste, damit die alten Subtasks nicht im globalen Bereich verbleiben
     tasks = tasks.map((task) => (task.id === taskId ? editedTask : task));
@@ -162,9 +162,7 @@ function hideButtons(element) {
 }
 
 
-function editSub() {
-  
-}
+
 function deleteSub(index) {
   subtasks.splice(index, 1);
   const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
@@ -178,13 +176,12 @@ let subtaskIndex = 0;
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   document.getElementById("inputSubtasksEdit").value = "";
-  subtasks.unshift(subtaskInput);
+  subtasks.push(subtaskInput);
   console.log(subtasks);
   updateSubtasksDisplayEdit();
   save();
-  subtaskIndex++;
-}
 
+}
 function displaySubtasks(subtasks, taskId) {
   const foundTask = findTaskById(taskId);
   const subtasksElement = document.getElementById("editSubtasks");
@@ -193,11 +190,11 @@ function displaySubtasks(subtasks, taskId) {
   const subtasksArray = Array.isArray(subtasks) ? subtasks : [subtasks];
 
   subtasksElement.innerHTML += subtasksArray.map((subtask, index) =>  /*html*/`
-    <div class="subtaskItem" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+    <div class="subtaskItem" id="${taskId}" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
       <span>${subtask}</span>
       <div class="subtaskButtons">
-        <button onclick="editSub(${subtaskIndex - 1})"><img src="../assets/img/edit_task.png"></button>
-        <button onclick="deleteSub(${subtaskIndex - 1})"><img src="./assets/img/delete_contacts.png"></button>
+        <button onclick="editSub()"><img src="../assets/img/edit_task.png"></button>
+        <button onclick="deleteSub(${taskId})"><img src="./assets/img/delete_contacts.png"></button>
       </div>
     </div>`).join("");
 }
@@ -215,6 +212,33 @@ function updateSubtasksDisplayEdit() {
       // Do something with subtaskItemDiv if needed
     });
   }
+}
+function editSub(index, taskId) {
+  const subtasksElement = document.getElementById("editSubtasks");
+  const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
+  const subtaskItem = subtaskItems[index];
+  const spanElement = subtaskItem.querySelector("span");
+  const currentText = spanElement.innerText;
+  const inputField = document.createElement("input");
+  inputField.type = "text";
+  inputField.value = currentText;
+
+  subtaskItem.replaceChild(inputField, spanElement);
+  inputField.focus();
+
+  inputField.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const newText = inputField.value;
+      const newSpanElement = document.createElement("span");
+      newSpanElement.innerText = newText;
+      console.log(newText);
+      subtaskItem.replaceChild(newSpanElement, inputField);
+
+    }
+  });
+  subtasks = []; 
+  save(); 
 }
 
 
@@ -490,6 +514,7 @@ function validateIndexFromTask(taskId) {
       return i;
     }
   }
+  
 }
 
 function saveUneditedAssigned(taskId) {
