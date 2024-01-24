@@ -172,6 +172,30 @@ function addSubtasksEdit() {
 
 }
 
+function addSubtasksEdit() {
+  const subtaskInput = document.getElementById("inputSubtasksEdit").value;
+  document.getElementById("inputSubtasksEdit").value = "";
+  subtasks.push(subtaskInput);
+  console.log(subtasks);
+  updateSubtasksDisplayEdit();
+  save();
+
+}
+function updateSubtasksDisplayEdit() { 
+  const allSubtasksDiv = document.getElementById("editSubtasksadd");
+
+  allSubtasksDiv.innerHTML = "";
+
+  if (subtasks.length === 0) {
+    allSubtasksDiv.innerHTML = "No subtasks available.";
+  } else {
+    subtasks.forEach((subtask, index) => {
+      const subtaskItemDiv = displaySubtasks(subtask);
+      // Do something with subtaskItemDiv if needed
+    });
+  }
+}
+
 function displaySubtasks(subtasks, taskId) {
   const foundTask = findTaskById(taskId);
   const subtasksElement = document.getElementById("editSubtasks");
@@ -192,20 +216,6 @@ function displaySubtasks(subtasks, taskId) {
   }
 }
 
-function updateSubtasksDisplayEdit() {
-  const allSubtasksDiv = document.getElementById("editSubtasksadd");
-
-  allSubtasksDiv.innerHTML = "";
-
-  if (subtasks.length === 0) {
-    allSubtasksDiv.innerHTML = "No subtasks available.";
-  } else {
-    subtasks.forEach((subtask, index) => {
-      const subtaskItemDiv = displaySubtasks();
-      // Do something with subtaskItemDiv if needed
-    });
-  }
-}
 function editSub(index, subtasks, taskId) {
   const subtasksElement = document.getElementById("editSubtasks");
   const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
@@ -228,7 +238,7 @@ function editSub(index, subtasks, taskId) {
       subtaskItem.replaceChild(newSpanElement, inputField);
 
       subtasks[index] = newText;
-
+      oldSusb.push(subtasks[index]);
       save();
     }
   });
