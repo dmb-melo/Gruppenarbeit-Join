@@ -226,6 +226,7 @@ body {
   justify-content: center;
   gap: 10px;
   margin-right: 48px !important;
+  margin-left: 80px;
 }
 .greetin h2 {
   color: #2a3647;

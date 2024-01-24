@@ -2,6 +2,8 @@ let selecetContactsEdit = [];
 let assignedMenuOpen = false;
 let oldAssigned = [];
 let newSubs = [];
+let subtaskRendering = []
+
 function editLargCard(taskId) {
   let editCard = document.getElementById("desingLagrCard");
   editCard.style.display = "flex";
@@ -47,8 +49,8 @@ function edittaskArea(taskId) {
   activatePriority(foundTask.priorityID);
 
   displayAssignedContacts(foundTask.assigned);
-
-  displaySubtasks(foundTask.subtasks);
+  subtaskRendering = foundTask.subtasks;
+  displaySubtasks(taskId);
 }
 
 function displayAssignedContacts(assignedContacts) {
@@ -138,7 +140,6 @@ function defineCategory(taskId) {
 }
 
 
-
 function showButtons(element) {
   const buttons = element.querySelector('.subtaskButtons');
   buttons.style.display = 'inline-block';
@@ -157,7 +158,7 @@ function deleteSub(index) {
   const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
   subtaskItem.remove();
   save();
-  console.log(index);
+  displaySubtasks(taskId)
 }
 
 let subtaskIndex = 0;
@@ -167,7 +168,6 @@ function addSubtasksEdit() {
   document.getElementById("inputSubtasksEdit").value = "";
   subtasks.unshift(subtaskInput);
   console.log(subtasks);
-  updateSubtasksDisplayEdit();
   save();
 
 }
@@ -201,12 +201,12 @@ function updateSubtasksDisplayEdit() {
     allSubtasksDiv.innerHTML = "No subtasks available.";
   } else {
     subtasks.forEach((subtask, index) => {
-      const subtaskItemDiv = displaySubtasks(subtask);
+      const subtaskItemDiv = displaySubtasks();
       // Do something with subtaskItemDiv if needed
     });
   }
 }
-function editSub(index, taskId) {
+function editSub(index, subtasks, taskId) {
   const subtasksElement = document.getElementById("editSubtasks");
   const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
   const subtaskItem = subtaskItems[index];
