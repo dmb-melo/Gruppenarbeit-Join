@@ -91,11 +91,15 @@ function saveEditTaskBoard(taskId) {
   }
   checkboxAddTaskEdit();
   priorityContentArray.unshift(priorityContentBoard);
-
-  // Statt die Subtasks zu leeren, behalten Sie die alten Subtasks bei
   if (!subtasks.length) {
-    subtasks = oldSusb.slice();
+    console.log("Das Subtask-Array ist leer. Speichern wird übersprungen.");
+    return;
   }
+
+  if (!assigned.length) {
+    assigned = oldAssigned.slice();
+  }
+ 
 
   if (foundTask) {
     const editedTask = {
@@ -108,9 +112,9 @@ function saveEditTaskBoard(taskId) {
       priorityID: selectedPriorityIDBoard,
       assigned: assigned,
       category: category,
-      subtasks: oldSusb.slice(), // Behalten Sie die alten Subtasks bei
+      subtasks: oldSusb.slice(), 
     };
-    subtasks = []; // Leeren Sie die Liste, damit die alten Subtasks nicht im globalen Bereich verbleiben
+    subtasks = []; 
     tasks = tasks.map((task) => (task.id === taskId ? editedTask : task));
     save();
   } else {
@@ -138,24 +142,6 @@ function defineCategory(taskId) {
   return category;
 }
 
-function displaySubtasks(taskId) {
-  const subtasksElement = document.getElementById("editSubtasks");
-  subtasksElement.innerHTML = ``;
-  
-  for (let index = 0; index < subtaskRendering.length; index++) {
-    const subtask = subtaskRendering[index];
-    subtasksElement.innerHTML += /*html*/`
-    <div class="subtaskItem" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
-      <span>${subtask}</span>
-      <div class="subtaskButtons">
-        <button onclick="editSub(${index}, ${subtasks}, ${taskId})"><img src="../assets/img/edit_task.png"></button>
-        <button onclick="deleteSub(${index}, ${taskId})"><img src="./assets/img/delete_contacts.png"></button>
-      </div>
-    </div>`;
-    
-  }
-    
-}
 
 function showButtons(element) {
   const buttons = element.querySelector('.subtaskButtons');
@@ -169,9 +155,10 @@ function hideButtons(element) {
 
 
 
-function deleteSub(i, taskId) {
-  subtaskRendering.splice(i, 1);
-  const subtaskItem = document.querySelectorAll('.subtaskItem')[i];
+function deleteSub(index) {
+  subtasks.splice(index, 1);
+  oldSusb.splice(index, 1);
+  const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
   subtaskItem.remove();
   save();
   displaySubtasks(taskId)
@@ -182,9 +169,30 @@ let subtaskIndex = 0;
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   document.getElementById("inputSubtasksEdit").value = "";
-  subtasks.push(subtaskInput);
+  subtasks.unshift(subtaskInput);
   console.log(subtasks);
   save();
+
+}
+
+function displaySubtasks(subtasks, taskId) {
+  const foundTask = findTaskById(taskId);
+  const subtasksElement = document.getElementById("editSubtasks");
+  const subtasksArray = Array.isArray(subtasks) ? subtasks : [subtasks];
+
+  for (let i = 0; i < subtasksArray.length; i++) {
+    const subtask = subtasksArray[i];
+  
+
+    subtasksElement.innerHTML += /*html*/`
+      <div class="subtaskItem" id="${i}" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+        <span>${subtask}</span>
+        <div class="subtaskButtons">
+          <button id="editButton_${i}" onclick="editSub('${i}')"><img src="../assets/img/edit_task.png"></button>
+          <button id="deleteButton_${i}" onclick="deleteSub('${i}')"><img src="./assets/img/delete_contacts.png"></button>
+        </div>
+      </div>`;
+  }
 }
 
 function updateSubtasksDisplayEdit() {
@@ -220,15 +228,15 @@ function editSub(index, subtasks, taskId) {
       const newText = inputField.value;
       const newSpanElement = document.createElement("span");
       newSpanElement.innerText = newText;
-      console.log(newText);
       subtaskItem.replaceChild(newSpanElement, inputField);
 
+      subtasks[index] = newText;
+
+      save();
     }
   });
-  subtasks = []; 
-  save(); 
-  edittaskArea(taskId);
 }
+
 
 
 function createIconsContainer(subtaskItemDiv, subtaskText, index) {
