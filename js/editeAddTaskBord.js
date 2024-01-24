@@ -50,7 +50,7 @@ function edittaskArea(taskId) {
 
   displayAssignedContacts(foundTask.assigned);
   displaySubtasks (foundTask.subtasks);
-  displaySubtasks(taskId);
+
 }
 
 function displayAssignedContacts(assignedContacts) {
@@ -91,7 +91,7 @@ function saveEditTaskBoard(taskId) {
   }
   checkboxAddTaskEdit();
   priorityContentArray.unshift(priorityContentBoard);
-  subtasks = subtasks.filter(subtask => subtask.trim() !== '');
+
 
   if (!assigned.length) {
     assigned = oldAssigned.slice();
