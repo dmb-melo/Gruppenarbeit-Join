@@ -89,10 +89,7 @@ function saveEditTaskBoard(taskId) {
   }
   checkboxAddTaskEdit();
   priorityContentArray.unshift(priorityContentBoard);
-  if (!subtasks.length) {
-    console.log("Das Subtask-Array ist leer. Speichern wird übersprungen.");
-    return;
-  }
+  subtasks = subtasks.filter(subtask => subtask.trim() !== '');
 
   if (!assigned.length) {
     assigned = oldAssigned.slice();
@@ -522,7 +519,7 @@ function saveUneditedAssigned(taskId) {
   for (let i = 0; i < assignedArray.length; i++) {
     let assignedFromTask = assignedArray[i];
     oldAssigned.push(assignedFromTask);
-    console.log("oldAssigned",oldAssigned)
+   
   }
 }
 
@@ -534,6 +531,6 @@ function saveOldSubs(taskId) {
   for (let s = 0; s < subsArray.length; s++) {
     const subsFromTask = subsArray[s];
     oldSusb.push(subsFromTask);
-    console.log("oldSusb",oldSusb);
+
   }
 }
