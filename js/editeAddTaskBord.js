@@ -2,6 +2,8 @@ let selecetContactsEdit = [];
 let assignedMenuOpen = false;
 let oldAssigned = [];
 let newSubs = [];
+let subtaskRendering = []
+
 function editLargCard(taskId) {
   let editCard = document.getElementById("desingLagrCard");
   editCard.style.display = "flex";
@@ -47,8 +49,8 @@ function edittaskArea(taskId) {
   activatePriority(foundTask.priorityID);
 
   displayAssignedContacts(foundTask.assigned);
-
-  displaySubtasks(foundTask.subtasks);
+  subtaskRendering = foundTask.subtasks;
+  displaySubtasks(taskId);
 }
 
 function displayAssignedContacts(assignedContacts) {
@@ -136,19 +138,23 @@ function defineCategory(taskId) {
   return category;
 }
 
-function displaySubtasks(subtasks, taskId) {
-  const foundTask = findTaskById(taskId);
+function displaySubtasks(taskId) {
   const subtasksElement = document.getElementById("editSubtasks");
-
-  subtasksElement.innerHTML = subtasks.map((subtask, index) =>  /*html*/`
+  subtasksElement.innerHTML = ``;
+  
+  for (let index = 0; index < subtaskRendering.length; index++) {
+    const subtask = subtaskRendering[index];
+    subtasksElement.innerHTML += /*html*/`
     <div class="subtaskItem" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
-  <span id="subTaskItem">${subtask}</span>
-  <div class="subtaskButtons">
-    <button onclick="editSub(${foundTask.id})"><img src="../assets/img/edit_task.png"></button>
-    <button onclick="deleteSub(${index})"><img src="./assets/img/delete_contacts.png"></button>
-  </div>
-</div>`).join("");
- 
+      <span>${subtask}</span>
+      <div class="subtaskButtons">
+        <button onclick="editSub(${index}, ${subtasks}, ${taskId})"><img src="../assets/img/edit_task.png"></button>
+        <button onclick="deleteSub(${index}, ${taskId})"><img src="./assets/img/delete_contacts.png"></button>
+      </div>
+    </div>`;
+    
+  }
+    
 }
 
 function showButtons(element) {
@@ -163,12 +169,12 @@ function hideButtons(element) {
 
 
 
-function deleteSub(index) {
-  subtasks.splice(index, 1);
-  const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
+function deleteSub(i, taskId) {
+  subtaskRendering.splice(i, 1);
+  const subtaskItem = document.querySelectorAll('.subtaskItem')[i];
   subtaskItem.remove();
   save();
-  console.log(index);
+  displaySubtasks(taskId)
 }
 
 let subtaskIndex = 0;
@@ -178,25 +184,7 @@ function addSubtasksEdit() {
   document.getElementById("inputSubtasksEdit").value = "";
   subtasks.push(subtaskInput);
   console.log(subtasks);
-  updateSubtasksDisplayEdit();
   save();
-
-}
-function displaySubtasks(subtasks, taskId) {
-  const foundTask = findTaskById(taskId);
-  const subtasksElement = document.getElementById("editSubtasks");
-
-  // Ensure subtasks is an array
-  const subtasksArray = Array.isArray(subtasks) ? subtasks : [subtasks];
-
-  subtasksElement.innerHTML += subtasksArray.map((subtask, index) =>  /*html*/`
-    <div class="subtaskItem" id="${taskId}" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
-      <span>${subtask}</span>
-      <div class="subtaskButtons">
-        <button onclick="editSub()"><img src="../assets/img/edit_task.png"></button>
-        <button onclick="deleteSub(${taskId})"><img src="./assets/img/delete_contacts.png"></button>
-      </div>
-    </div>`).join("");
 }
 
 function updateSubtasksDisplayEdit() {
@@ -208,12 +196,12 @@ function updateSubtasksDisplayEdit() {
     allSubtasksDiv.innerHTML = "No subtasks available.";
   } else {
     subtasks.forEach((subtask, index) => {
-      const subtaskItemDiv = displaySubtasks(subtask);
+      const subtaskItemDiv = displaySubtasks();
       // Do something with subtaskItemDiv if needed
     });
   }
 }
-function editSub(index, taskId) {
+function editSub(index, subtasks, taskId) {
   const subtasksElement = document.getElementById("editSubtasks");
   const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
   const subtaskItem = subtaskItems[index];
@@ -239,6 +227,7 @@ function editSub(index, taskId) {
   });
   subtasks = []; 
   save(); 
+  edittaskArea(taskId);
 }
 
 
