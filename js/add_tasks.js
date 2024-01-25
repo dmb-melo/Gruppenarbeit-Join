@@ -179,21 +179,81 @@ function clearAllSelections() {
   });
 }
 
+
 function addTask() {
-  if (!statusFromUser) {
-    statusFromUser = "todo";
-  }
-  currentId++;
-  setContentOfInputFieldFromTask();
   switchColorpriorityContent();
-  document.getElementById("categorySelect").textContent = "Select a task category";
-  subtasks = [];
-  save();
-  renderTask();
-  clearAddTask();
+  const titleValue = getValueAndClearInput("title");
+  const descriptionValue = getValueAndClearInput("description");
+  const dueDateValue = getValueAndClearInput("dueDate");
+  
+  checkboxAddTask();
+  
+  const { priorityContent, selectedPriorityID } = getPriorityInfo();
+  const categoryValue = getTaskCategoryValue();
+  
+  if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
+    return;
+  }
+  
+  priorityContentArray.unshift(priorityContent);
+  
+  currentId++;
+  
+  const newTask = createNewTask(titleValue, descriptionValue, dueDateValue, priorityContent, selectedPriorityID);
+  
+  updateArrays(newTask);
+  
+  clearUIElements();
+  saveRenderAndReset();
 }
 
-function clearAddTask() {
+function getValueAndClearInput(inputId) {
+  const inputValue = document.getElementById(inputId).value;
+  document.getElementById(inputId).value = "";
+  return inputValue;
+}
+
+function getPriorityInfo() {
+  const selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
+  const priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
+  const selectedPriorityID = selectedPriority ? selectedPriority.id : "";
+  return { priorityContent, selectedPriorityID };
+}
+
+function getTaskCategoryValue() {
+  const categoryElement = document.getElementById("taskCategory");
+  return categoryElement ? categoryElement.textContent : "Select a task category";
+}
+
+function createNewTask(title, description, dueDate, priorityContent, selectedPriorityID) {
+  return {
+    id: currentId,
+    title,
+    description,
+    dueDate,
+    assigned: assigned,
+    priorityContent,
+    priorityID: selectedPriorityID,
+    subtasks: subtasks.slice(),
+    taskStatus: 'todo',
+    category: category
+  };
+}
+
+function updateArrays(newTask) {
+  subT.unshift(subtasks.slice());
+  tasks.unshift(newTask);
+  localStorage.setItem("selectedPriorityContent", newTask.priorityContent);
+}
+
+function clearUIElements() {
+  document.getElementById("categorySelect").textContent = "Select a task category";
+  subtasks = [];
+}
+
+function saveRenderAndReset() {
+  save();
+  renderTask();
   clearContactAvatar();
   clearPrioActiveClass();
   removePrioActiveClass();
@@ -203,61 +263,6 @@ function clearAddTask() {
   resetPriorityTextColors();
   category = [];
   selectedContacts = [];
-  statusFromUser = "todo";
-}
-
-function setContentOfInputFieldFromTask() {
-  let titleValue = generateTitle();
-  let descriptionValue = generateDescription();
-  let dueDateValue = generateDate();
-  checkboxAddTask();
-  let selectedPriority = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
-  let priorityContent = selectedPriority ? selectedPriority.innerHTML : "";
-  let selectedPriorityID = "";
-  if (selectedPriority) {
-    selectedPriorityID = selectedPriority.id;
-  }
-  priorityContentArray.unshift(priorityContent);
-  generateNewTaskContent(currentId, titleValue, titleValue, descriptionValue, dueDateValue, assigned, priorityContent, selectedPriorityID, subtasks, statusFromUser, category);
-  localStorage.setItem("selectedPriorityContent", priorityContent);
-}
-
-function generateTitle() {
-  let titleValue = document.getElementById("title").value;
-  document.getElementById("title").value = "";
-  title.unshift(titleValue);
-  return titleValue;
-}
-
-function generateDescription() {
-  let descriptionValue = document.getElementById("description").value;
-  document.getElementById("description").value = "";
-  description.unshift(descriptionValue);
-  return descriptionValue;
-}
-
-function generateDate() {
-  let dueDateValue = document.getElementById("dueDate").value;
-  document.getElementById("dueDate").value = "";
-  dueDate.unshift(dueDateValue);
-  return dueDateValue;
-}
-
-function generateNewTaskContent(currentId, titleValue, titleValue, descriptionValue, dueDateValue, assigned, priorityContent, selectedPriorityID, subtasks, statusFromUser, category) {
-  let newTask = {
-    id: currentId,
-    title: titleValue,
-    description: descriptionValue,
-    dueDate: dueDateValue,
-    assigned: assigned,
-    priorityContent: priorityContent,
-    priorityID: selectedPriorityID,
-    subtasks: subtasks.slice(),
-    taskStatus: statusFromUser,
-    category: category,
-  };
-  subT.unshift(subtasks.slice());
-  tasks.unshift(newTask);
 }
 
 function switchColorpriorityContent() {
