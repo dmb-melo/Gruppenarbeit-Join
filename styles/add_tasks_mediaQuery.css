@@ -7,7 +7,7 @@
     padding-bottom: 64px !important;
   }
 }
-@media only screen and (max-height: 900px), (max-width: 599px){
+@media only screen and (max-height: 700px), (max-width: 599px){
   .contentTask {
     overflow: scroll !important;
     height: 160vh !important;
