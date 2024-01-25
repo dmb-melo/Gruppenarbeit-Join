@@ -157,20 +157,23 @@ function deleteSub(index) {
   save();
 }
 
-function deleteSubTaskByIndex(index) {
-  if (index >= 0 && index < stateOfTask.length) {
-    const removedId = stateOfTask.splice(index, 1)[0];
-    if (typeof removedId === "string") {
-      const [taskId, subtaskIndex] = removedId.split('-').slice(1);
-      console.log("Removing subtask:", taskId, subtaskIndex);
-      deleteSub(subtaskIndex, taskId,index );
-    } else {
-      console.error("Invalid removedId:", removedId);
-    }
+function deleteSubTaskById(id) {
+  console.log("stateOfTask:", stateOfTask);
+
+  const index = stateOfTask.findIndex(item => item === id);
+  
+  console.log("Gefundener Index:", index);
+
+  if (index !== 0) {
+    stateOfTask.splice(index, 1);
     let idAtText = JSON.stringify(stateOfTask);
     localStorage.setItem("id", idAtText);
+    console.log(`Checkbox mit ID ${id} wurde erfolgreich gelöscht.`);
+  } else {
+    console.log(`Checkbox mit ID ${id} wurde nicht gefunden.`);
   }
 }
+
 
 
 
@@ -223,7 +226,7 @@ function displaySubtasks(subtasks, taskId) {
         <span>${subtask}</span>
         <div class="subtaskButtons">
           <button id="editButton_${i}" onclick="editSub('${i}')"><img src="../assets/img/edit_task.png"></button>
-          <button id="deleteButton_${i}" onclick="deleteSub('${i}')"><img src="./assets/img/delete_contacts.png"></button>
+          <button id="deleteButton_${i}" onclick="deleteSubTaskById('${i}')"><img src="./assets/img/delete_contacts.png"></button>
         </div>
       </div>`;
   }
