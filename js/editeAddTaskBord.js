@@ -19,7 +19,14 @@ function editLargCard(taskId) {
   renderEditTask();
   saveUneditedAssigned(taskId);
   saveOldSubs(taskId);
-  load();
+  loadEdit();
+}
+
+function loadEdit() {
+  const storedTasks = localStorage.getItem('tasks');
+  if (storedTasks) {
+    tasks = JSON.parse(storedTasks);
+  }
 }
 
 function findTaskById(taskId) {
@@ -72,9 +79,6 @@ function displayAssignedContacts(assignedContacts) {
     contactsLargeCard.appendChild(newContactElement);
   });
 }
-
-
-
 
 
 function saveEditTaskBoard(taskId) {
@@ -149,7 +153,7 @@ function hideButtons(element) {
   const buttons = element.querySelector('.subtaskButtons');
   buttons.style.display = 'none';
 }
-function deleteSub(index) {
+function deleteSubs(index) {
   subtasks.splice(index, 1);
   oldSusb.splice(index, 1);
   const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
@@ -226,13 +230,13 @@ function displaySubtasks(subtasks, taskId) {
         <span>${subtask}</span>
         <div class="subtaskButtons">
           <button id="editButton_${i}" onclick="editSub('${i}')"><img src="../assets/img/edit_task.png"></button>
-          <button id="deleteButton_${i}" onclick="deleteSubTaskById('${i}')"><img src="./assets/img/delete_contacts.png"></button>
+          <button id="deleteButton_${i}" onclick="deleteSubs('${i}')"><img src="./assets/img/delete_contacts.png"></button>
         </div>
       </div>`;
   }
 }
 
-function editSub(index, subtasks, taskId) {
+function editSub(index, taskId) {
   const subtasksElement = document.getElementById("editSubtasks");
   const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
   const subtaskItem = subtaskItems[index];
@@ -252,10 +256,10 @@ function editSub(index, subtasks, taskId) {
       const newSpanElement = document.createElement("span");
       newSpanElement.innerText = newText;
       subtaskItem.replaceChild(newSpanElement, inputField);
+      if (foundTask) {
+        foundTask.subtasks[index] = newText;
+      }
 
-      subtasks[index] = newText;
-      oldSusb.push(newText);
-      save();
     }
   });
 }
