@@ -56,7 +56,7 @@ function edittaskArea(taskId) {
   activatePriority(foundTask.priorityID);
 
   displayAssignedContacts(foundTask.assigned);
-  displaySubtasks (foundTask.subtasks);
+  displaySubtasks(foundTask.subtasks);
 
 }
 
@@ -100,7 +100,7 @@ function saveEditTaskBoard(taskId) {
   if (!assigned.length) {
     assigned = oldAssigned.slice();
   }
- 
+
 
   if (foundTask) {
     const editedTask = {
@@ -113,9 +113,9 @@ function saveEditTaskBoard(taskId) {
       priorityID: selectedPriorityIDBoard,
       assigned: assigned,
       category: category,
-      subtasks: oldSusb.slice(), 
+      subtasks: oldSusb.slice(),
     };
-    subtasks = []; 
+    subtasks = [];
     tasks = tasks.map((task) => (task.id === taskId ? editedTask : task));
     save();
   } else {
@@ -165,7 +165,7 @@ function deleteSubTaskById(id) {
   console.log("stateOfTask:", stateOfTask);
 
   const index = stateOfTask.findIndex(item => item === id);
-  
+
   console.log("Gefundener Index:", index);
 
   if (index !== 0) {
@@ -201,7 +201,7 @@ function addSubtasksEdit() {
   save();
 
 }
-function updateSubtasksDisplayEdit() { 
+function updateSubtasksDisplayEdit() {
   const allSubtasksDiv = document.getElementById("editSubtasksadd");
 
   allSubtasksDiv.innerHTML = "";
@@ -223,10 +223,10 @@ function displaySubtasks(subtasks, taskId) {
 
   for (let i = 0; i < subtasksArray.length; i++) {
     const subtask = subtasksArray[i];
-  
+
 
     subtasksElement.innerHTML += /*html*/`
-      <div class="subtaskItem" id="${i}" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+      <div class="subtaskItem" id="subsTaskEdit${i}" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
         <span>${subtask}</span>
         <div class="subtaskButtons">
           <button id="editButton_${i}" onclick="editSub('${i}')"><img src="../assets/img/edit_task.png"></button>
@@ -235,8 +235,8 @@ function displaySubtasks(subtasks, taskId) {
       </div>`;
   }
 }
-
-function editSub(index, taskId) {
+function editSub(index, subtask) {
+  let editSubs = [];
   const subtasksElement = document.getElementById("editSubtasks");
   const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
   const subtaskItem = subtaskItems[index];
@@ -245,26 +245,25 @@ function editSub(index, taskId) {
   const inputField = document.createElement("input");
   inputField.type = "text";
   inputField.value = currentText;
+  inputField.id = "subsTaskEdit"; 
+  inputField.style.outline = "none";
+  inputField.style.border = "none";
+  inputField.style.height = "100%";
+  inputField.style.background = "transparent";
+  inputField.style.fontWeight = "800";
 
   subtaskItem.replaceChild(inputField, spanElement);
   inputField.focus();
+  editSubs.push(inputField.value);
 
-  inputField.addEventListener("keydown", function (event) {
+  inputField.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
-      event.preventDefault();
-      const newText = inputField.value;
-      const newSpanElement = document.createElement("span");
-      newSpanElement.innerText = newText;
-      subtaskItem.replaceChild(newSpanElement, inputField);
-      if (foundTask) {
-        foundTask.subtasks[index] = newText;
-      }
-
+      inputField.blur();
+      oldSusb.push(editSubs);
+      console.log(oldSusb);
     }
   });
 }
-
-
 
 function createIconsContainer(subtaskItemDiv, subtaskText, index) {
   const iconsContainer = document.createElement("div");
@@ -380,7 +379,7 @@ function hideAssignedBoardEdit(event, taskId) {
     let list = document.getElementById("listContactEdit");
     let arrow = document.getElementById("arrowAssignedEdit");
     let arrowDrop = document.getElementById("arrow_drop_downHoverAssignedEdit");
-    let dateAddTaskEdit =  document.getElementById("dateAddTaskEdit");
+    let dateAddTaskEdit = document.getElementById("dateAddTaskEdit");
     list.classList.toggle("hide");
     arrow.classList.toggle("rotate");
     arrowDrop.classList.toggle("rotate");
@@ -389,7 +388,7 @@ function hideAssignedBoardEdit(event, taskId) {
   displayAvatarEditBoart(selecetContactsEdit, contacts, colors);
   if (!assignedMenuOpen) {
     validateAssignedContacts(taskId);
-  } 
+  }
   assignedMenuOpen = true;
 }
 
@@ -538,7 +537,7 @@ function validateIndexFromTask(taskId) {
       return i;
     }
   }
-  
+
 }
 
 function saveUneditedAssigned(taskId) {
@@ -549,7 +548,7 @@ function saveUneditedAssigned(taskId) {
   for (let i = 0; i < assignedArray.length; i++) {
     let assignedFromTask = assignedArray[i];
     oldAssigned.push(assignedFromTask);
-   
+
   }
 }
 
