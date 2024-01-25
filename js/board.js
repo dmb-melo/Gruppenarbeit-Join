@@ -277,11 +277,13 @@ function loadLevelOfSubtask() {
 }
 
 function generateLargeCard(task) {
+  let blackColor = document.getElementById('')
   let currentPriorityContent = task.priorityContent || "";
   let currentSubTasks = subT[task];
   let tempDiv = document.createElement("div");
   tempDiv.innerHTML = currentPriorityContent;
   tempDiv.classList.add("selectedPriorityContentDiv");
+  tempDiv.classList.add("blackImport");
   removeActiveClassFromSvgElements(tempDiv);
   let clonedContentDiv = document.createElement("div");
   clonedContentDiv.appendChild(tempDiv.cloneNode(true));
@@ -291,6 +293,7 @@ function generateLargeCard(task) {
   const subsHtml = generateSubtasksHTML(task);
   return generateLargeCardHTML(task, className, clonedContentDiv, subsHtml); 
 }
+
 
 function updateProgress(taskId, index) {
   const checkboxes = document.querySelectorAll(`.checkbox-input-${taskId}`);
