@@ -198,9 +198,9 @@ function renderSubtaskState(task) {
 function validateSubtask(indexTaskId, renderTaskId) {
   let checkboxRenderTaskId = document.getElementById(renderTaskId);
   if (indexTaskId === -1) {
-    checkboxRenderTaskId.checked = true; 
-  } else {
     checkboxRenderTaskId.checked = false;
+  } else {
+    checkboxRenderTaskId.checked = true; 
   }
 }
 
@@ -440,3 +440,27 @@ function closeAddBoard() {
     addBoard.removeChild(newDivAddTask);
   }
 }
+
+
+
+
+  function changeImage(isHovered) {
+    var textElemet = document.getElementById('delete-task-title');
+    var imageElement = document.getElementById("delete-task-image");
+    if (isHovered) {
+      imageElement.src = "../assets/img/delete.png";
+    } else {
+      imageElement.src = "../assets/img/delete_contacts.png";
+    }
+  }
+
+
+  function changeEditImage(isHovered) {
+    var imageElement = document.getElementById("edit-task-image");
+    if (isHovered) {
+      imageElement.src = "../assets/img/edit2.png";
+    } else {
+      imageElement.src = "./assets/img/edit_task.png";
+    }
+  }
+

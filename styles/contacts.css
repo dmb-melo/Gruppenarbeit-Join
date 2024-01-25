@@ -8,6 +8,10 @@ body {
   appearance: none;
   margin: 0;
 }
+
+.contacts {
+  width: 100%;
+}
 .contacts-headline-h1 {
   font-size: 42px;
   font-weight: 700;
@@ -38,10 +42,9 @@ hr {
 .contacts-content {
   display: flex;
   justify-content: center;
-  background-color: white;
+  width: 100%;
 }
 .contact-list {
-  background-color: white;
   margin-left: 280px;
   margin-top: 10px;
   width: 30%;

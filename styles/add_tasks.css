@@ -3,6 +3,16 @@ body{
     background-color: rgb(246, 248, 246);   
 }
 
+#contentJoin {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+.contentTask {
+    width: 100%;
+}
+
 .textContainer_addTask{
     width: 278px;
     height: 73px;

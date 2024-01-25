@@ -1,6 +1,8 @@
 let selecetContactsEdit = [];
 let assignedMenuOpen = false;
 let oldAssigned = [];
+let newSubs = [];
+let subtaskRendering = []
 
 function editLargCard(taskId) {
   let editCard = document.getElementById("desingLagrCard");
@@ -16,6 +18,8 @@ function editLargCard(taskId) {
   edittaskArea(taskId);
   renderEditTask();
   saveUneditedAssigned(taskId);
+  saveOldSubs(taskId);
+  load();
 }
 
 function findTaskById(taskId) {
@@ -45,8 +49,8 @@ function edittaskArea(taskId) {
   activatePriority(foundTask.priorityID);
 
   displayAssignedContacts(foundTask.assigned);
+  displaySubtasks (foundTask.subtasks);
 
-  displaySubtasks(foundTask.subtasks);
 }
 
 function displayAssignedContacts(assignedContacts) {
@@ -71,16 +75,7 @@ function displayAssignedContacts(assignedContacts) {
 
 
 
-function displaySubtasks(subtasks, taskId) {
-  const foundTask = findTaskById(taskId);
-  const subtasksElement = document.getElementById("editSubtasks");
 
-  subtasksElement.innerHTML = subtasks.map((subtask, index) =>  `<div class="subtaskItem" onclick="editSub(${index})">${subtask}</div>`).join("");
-}
-function editSub(taskId) {
-  console.log('welcher', taskId);
-
-}
 
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
@@ -90,14 +85,19 @@ function saveEditTaskBoard(taskId) {
   let priorityContentBoard = selectedPriorityBoard ? selectedPriorityBoard.innerHTML : "";
   let selectedPriorityIDBoard = "";
   let category = defineCategory(taskId);
+  oldSusb.push(subtasks);
   if (selectedPriorityBoard) {
     selectedPriorityIDBoard = selectedPriorityBoard.id;
   }
   checkboxAddTaskEdit();
   priorityContentArray.unshift(priorityContentBoard);
+
+
   if (!assigned.length) {
     assigned = oldAssigned.slice();
   }
+ 
+
   if (foundTask) {
     const editedTask = {
       id: taskId,
@@ -109,14 +109,15 @@ function saveEditTaskBoard(taskId) {
       priorityID: selectedPriorityIDBoard,
       assigned: assigned,
       category: category,
-      subtasks: subtasks.slice(),
+      subtasks: oldSusb.slice(), 
     };
+    subtasks = []; 
     tasks = tasks.map((task) => (task.id === taskId ? editedTask : task));
-
     save();
   } else {
     console.error("Task with ID " + taskId + " not found.");
   }
+
   localStorage.setItem("selectedPriorityContent", priorityContentBoard);
   load();
   updateHtml();
@@ -124,6 +125,7 @@ function saveEditTaskBoard(taskId) {
   closeCard();
   assignedMenuOpen = false;
 }
+
 
 function defineAssigned(taskId) {
   let index = validateIndexFromTask(taskId);
@@ -137,43 +139,128 @@ function defineCategory(taskId) {
   return category;
 }
 
+
+function showButtons(element) {
+  const buttons = element.querySelector('.subtaskButtons');
+  buttons.style.display = 'inline-block';
+}
+
+function hideButtons(element) {
+  const buttons = element.querySelector('.subtaskButtons');
+  buttons.style.display = 'none';
+}
+function deleteSub(index) {
+  subtasks.splice(index, 1);
+  oldSusb.splice(index, 1);
+  const subtaskItem = document.querySelectorAll('.subtaskItem')[index];
+  subtaskItem.remove();
+  save();
+}
+
+function deleteSubTaskById(id) {
+  console.log("stateOfTask:", stateOfTask);
+
+  const index = stateOfTask.findIndex(item => item === id);
+  
+  console.log("Gefundener Index:", index);
+
+  if (index !== 0) {
+    stateOfTask.splice(index, 1);
+    let idAtText = JSON.stringify(stateOfTask);
+    localStorage.setItem("id", idAtText);
+    console.log(`Checkbox mit ID ${id} wurde erfolgreich gelöscht.`);
+  } else {
+    console.log(`Checkbox mit ID ${id} wurde nicht gefunden.`);
+  }
+}
+
+
+
+
+let subtaskIndex = 0;
+
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   document.getElementById("inputSubtasksEdit").value = "";
   subtasks.unshift(subtaskInput);
   console.log(subtasks);
+  save();
+
+}
+
+function addSubtasksEdit() {
+  const subtaskInput = document.getElementById("inputSubtasksEdit").value;
+  document.getElementById("inputSubtasksEdit").value = "";
+  subtasks.push(subtaskInput);
+  console.log(subtasks);
   updateSubtasksDisplayEdit();
   save();
+
 }
-function updateSubtasksDisplayEdit() {
-  const allSubtasksDiv = document.getElementById("editSubtasks");
+function updateSubtasksDisplayEdit() { 
+  const allSubtasksDiv = document.getElementById("editSubtasksadd");
 
   allSubtasksDiv.innerHTML = "";
 
   if (subtasks.length === 0) {
-    //brauche ich das??
     allSubtasksDiv.innerHTML = "No subtasks available.";
   } else {
     subtasks.forEach((subtask, index) => {
-      const subtaskItemDiv = createSubtaskItemEdit(subtask);
-      const iconsContainer = createIconsContainer(subtaskItemDiv, subtask, index);
-      subtaskItemDiv.appendChild(iconsContainer);
-      allSubtasksDiv.appendChild(subtaskItemDiv);
+      const subtaskItemDiv = displaySubtasks(subtask);
+      // Do something with subtaskItemDiv if needed
     });
   }
 }
 
-function createSubtaskItemEdit(subtaskText) {
-  const subtaskItemDiv = document.createElement("div");
-  subtaskItemDiv.classList.add("subtaskItem");
-  subtaskItemDiv.classList.add("hoverEditClass");
+function displaySubtasks(subtasks, taskId) {
+  const foundTask = findTaskById(taskId);
+  const subtasksElement = document.getElementById("editSubtasks");
+  const subtasksArray = Array.isArray(subtasks) ? subtasks : [subtasks];
 
-  const subtaskItemText = document.createElement("li");
-  subtaskItemText.innerText = subtaskText;
-  subtaskItemDiv.appendChild(subtaskItemText);
+  for (let i = 0; i < subtasksArray.length; i++) {
+    const subtask = subtasksArray[i];
+  
 
-  return subtaskItemDiv;
+    subtasksElement.innerHTML += /*html*/`
+      <div class="subtaskItem" id="${i}" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+        <span>${subtask}</span>
+        <div class="subtaskButtons">
+          <button id="editButton_${i}" onclick="editSub('${i}')"><img src="../assets/img/edit_task.png"></button>
+          <button id="deleteButton_${i}" onclick="deleteSubTaskById('${i}')"><img src="./assets/img/delete_contacts.png"></button>
+        </div>
+      </div>`;
+  }
 }
+
+function editSub(index, subtasks, taskId) {
+  const subtasksElement = document.getElementById("editSubtasks");
+  const subtaskItems = subtasksElement.getElementsByClassName("subtaskItem");
+  const subtaskItem = subtaskItems[index];
+  const spanElement = subtaskItem.querySelector("span");
+  const currentText = spanElement.innerText;
+  const inputField = document.createElement("input");
+  inputField.type = "text";
+  inputField.value = currentText;
+
+  subtaskItem.replaceChild(inputField, spanElement);
+  inputField.focus();
+
+  inputField.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const newText = inputField.value;
+      const newSpanElement = document.createElement("span");
+      newSpanElement.innerText = newText;
+      subtaskItem.replaceChild(newSpanElement, inputField);
+
+      subtasks[index] = newText;
+      oldSusb.push(newText);
+      save();
+    }
+  });
+}
+
+
 
 function createIconsContainer(subtaskItemDiv, subtaskText, index) {
   const iconsContainer = document.createElement("div");
@@ -253,7 +340,7 @@ function handleEditClick(subtaskItemDiv, subtaskText) {
     subtaskItemDiv.replaceChild(iconsContainer, subtaskItemDiv.lastChild);
   }
 }
-
+// assigned
 function checkboxAddTaskEdit() {
   let checkboxes = document.querySelectorAll(".inputCheckBox");
   assigned = [];
@@ -413,15 +500,6 @@ function hideVectorAndImgCheckEdit() {
   }
 }
 
-function addSubtasksEdit() {
-  const subtaskInput = document.getElementById("inputSubtasksEdit").value;
-  document.getElementById("inputSubtasksEdit").value = "";
-  subtasks.unshift(subtaskInput);
-  console.log(subtaskInput);
-  updateSubtasksDisplayEdit();
-  save();
-  hideVectorAndImgCheckEdit();
-}
 
 function validateAssignedContacts(taskId) {
   selecetContactsEdit = [];
@@ -456,6 +534,7 @@ function validateIndexFromTask(taskId) {
       return i;
     }
   }
+  
 }
 
 function saveUneditedAssigned(taskId) {
@@ -466,6 +545,18 @@ function saveUneditedAssigned(taskId) {
   for (let i = 0; i < assignedArray.length; i++) {
     let assignedFromTask = assignedArray[i];
     oldAssigned.push(assignedFromTask);
-    console.log("oldAssigned",oldAssigned)
+   
+  }
+}
+
+function saveOldSubs(taskId) {
+  oldSusb = [];
+  let index = validateIndexFromTask(taskId);
+  let task = tasks[index];
+  let subsArray = task['subtasks'];
+  for (let s = 0; s < subsArray.length; s++) {
+    const subsFromTask = subsArray[s];
+    oldSusb.push(subsFromTask);
+
   }
 }
