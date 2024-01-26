@@ -820,6 +820,9 @@ hr {
   .hide-mobile-397px {
     display: none;
   }
+  .contacts-content {
+    margin-bottom: 48px;
+  }
   .contact-list {
     width: 100%;
     margin-left: 30px;

@@ -27,8 +27,6 @@
 .tasksToDo {
   width: calc(100% - 232px);
   height: calc(100vh - 96px);
-  width: calc(100% - 232px);
-  height: calc(100vh - 96px);
   margin-left: 232px;
 }
 
@@ -36,7 +34,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: auto;
 }
 
 .searchBar {
@@ -170,11 +167,12 @@
   display: flex;
   justify-content: space-between;
   padding: 0px 64px;
-  height: 688px;
+  max-height: 688px;
   width: 1208px;
   align-items: flex-start;
   gap: 26px;
   flex-shrink: 0;
+  padding-bottom: 64px;
 }
 
 .taskBoardTtle {
