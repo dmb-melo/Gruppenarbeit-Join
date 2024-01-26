@@ -936,10 +936,10 @@
   align-items: flex-start;
   gap: 16px;
 }
-.allSubtasks {
+.allSubtasksBoard {
   width: 100%;
 }
-.subtaskItem {
+.subtaskItemBoard {
   width: 100% !important;
 }
 
