@@ -144,6 +144,7 @@ function deleteSubs(index) {
   const subtaskItem = document.querySelectorAll(".subtaskItem")[index];
   subtaskItem.remove();
   save();
+  displaySubtasks();
 }
 
 function deleteSubTaskById(id) {
