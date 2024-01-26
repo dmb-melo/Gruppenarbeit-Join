@@ -539,5 +539,16 @@ function generateEditContacts(assignedItem, color) {
     `;
 }
 
+function generateInputEditSubtask(index) {
+    return /*html*/ `
+       <div class="subtaskItem" style="background-color: white;">
+        <input type="text" id="subtaskEdite${index}" style="outline: none; border: none;" >
+          <div class="iconsContainer"><img onclick="deleteSubTaskEdite(${index})" class="delete" src="./assets/img/delete_contacts.png">
+            <img class="vector" src="./assets/img/vector.png"><img class="subtaskCheck" onclick="saveEditetSubTask(${index})"  src="./assets/img/done.png">
+          </div>
+       </div>`;
+  }
+
+
 
 
