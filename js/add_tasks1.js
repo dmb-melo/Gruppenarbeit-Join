@@ -160,6 +160,20 @@ function getCategoryForPriority(priority) {
     }
   }
   
+  function hideListCategory() {
+    let list = document.getElementById("list");
+    let arrow = document.getElementById("arrow");
+    let arrow_drop_downHover = document.getElementById("arrow_drop_downHover");  
+    if (list && arrow && arrow_drop_downHover) {
+      let isListVisible = !list.classList.contains("hide");  
+      list.classList.add("hide");  
+      if (isListVisible) {
+        arrow.classList.toggle("rotate");
+        arrow_drop_downHover.classList.toggle("rotate");
+      }
+    }
+  }
+
   function hide(event) {
     if (event.target.id !== "inputSubtasks") {
       let list = document.getElementById("list");

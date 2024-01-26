@@ -679,7 +679,7 @@
     align-items: center;
   }
 
-  .allSubtasks {
+  .allSubtasksBoard {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -690,7 +690,7 @@
     width: 96%;
   }
 
-  .subtaskItem {
+  .subtaskItemBoard {
     cursor: pointer;
     display: flex;
     width: 410px;

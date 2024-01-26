@@ -306,6 +306,7 @@ function clearTask() {
   clearTaskCategory();
   resetPriorityTextColors();
   hideAssigned();
+  hideListCategory();
   changeColour(getCategoryPriorityColor(preselectedCategory), preselectedCategory);
 }
 
