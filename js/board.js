@@ -1,10 +1,5 @@
 let draggedElementId;
-let stateOfTask = [
-  {
-    0: "checkbox-1-0",
-    1: "checkbox-1-1",
-  },
-];
+let stateOfTask = ["checkbox-1-0", "checkbox-1-1"];
 let subtaskLevel = [
   {
     taskId: 1,
@@ -152,6 +147,7 @@ function removeHighlight(id) {
 }
 
 function openCard(taskId) {
+  load();
   const largeCardElement = document.getElementById("popUpWindow");
   const task = tasks.find((t) => t.id === taskId);
   if (task) {
