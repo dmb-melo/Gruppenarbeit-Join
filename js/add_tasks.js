@@ -219,9 +219,9 @@ function getTaskCategoryValue() {
 }
 
 function createNewTask(title, description, dueDate, priorityContent, selectedPriorityID, statusFromUser) {
-  if (statusFromUser.length === 0) {
+  if (statusFromUser.length == 0) {
     statusFromUser = "todo";
-  }
+  } 
   return {
     id: currentId,
     title,
@@ -240,7 +240,6 @@ function updateArrays(newTask) {
   subT.unshift(subtasks.slice());
   tasks.unshift(newTask);
   localStorage.setItem("selectedPriorityContent", newTask.priorityContent);
-  debugger;
   statusFromUser = [];
 }
 
