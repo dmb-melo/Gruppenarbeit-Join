@@ -4,6 +4,7 @@ let oldAssigned = [];
 let newSubs = [];
 let subtaskRendering = [];
 let editSubs = [];
+let subtaskIndex = 0;
 
 function editLargCard(taskId) {
   saveOldSubs(taskId);
@@ -49,25 +50,20 @@ function activatePriority(priorityID) {
 
 function edittaskArea(taskId) {
   const foundTask = findTaskById(taskId);
-
   document.getElementById("editTitle").value = foundTask.title;
   document.getElementById("editDescription").value = foundTask.description;
   document.getElementById("editDueDate").value = foundTask.dueDate;
-
   activatePriority(foundTask.priorityID);
-
   displayAssignedContacts(foundTask.assigned);
   displaySubtasks(foundTask.subtasks);
 }
 
 function displayAssignedContacts(assignedContacts) {
   const contactsLargeCard = document.getElementById("editAssignedContacts");
-
   assignedContacts.forEach((contact, index) => {
     const name = contact.split(" ");
     const firstnameInitial = name[0].charAt(0).toUpperCase();
     const surnameInitial = name[1] ? name[1].charAt(0).toUpperCase() : "";
-
     const newContactElement = document.createElement("div");
     newContactElement.classList.add("boardLargContactsAvatar");
     newContactElement.innerHTML = /*html*/ `
@@ -75,7 +71,6 @@ function displayAssignedContacts(assignedContacts) {
         <p class="nameIdList" id="name-id">${firstnameInitial}${surnameInitial}</p>
       </div>
     `;
-
     contactsLargeCard.appendChild(newContactElement);
   });
 }
@@ -83,22 +78,23 @@ function displayAssignedContacts(assignedContacts) {
 function saveEditTaskBoard(taskId) {
   const foundTask = findTaskById(taskId);
   let status = getStatusTaskId(taskId);
-  let prio = getPrioTaskId(taskId);
   let selectedPriorityBoard = document.querySelector(".priorityUrgent-active, .priorityMedium-active, .priorityLow-active");
   let priorityContentBoard = selectedPriorityBoard ? selectedPriorityBoard.innerHTML : "";
   let selectedPriorityIDBoard = "";
-
   let category = defineCategory(taskId);
   if (selectedPriorityBoard) {
     selectedPriorityIDBoard = selectedPriorityBoard.id;
   }
   checkboxAddTaskEdit();
   priorityContentArray.unshift(priorityContentBoard);
-
   if (!assigned.length) {
     assigned = oldAssigned.slice();
   }
+  generateEditedTask(foundTask, taskId, status, selectedPriorityIDBoard, priorityContentBoard, assigned, category);
+  saveRevisedTaskCompletion(priorityContentBoard);
+}
 
+function generateEditedTask(foundTask, taskId, status, selectedPriorityIDBoard, priorityContentBoard, assigned, category) {
   if (foundTask) {
     const editedTask = {
       id: taskId,
@@ -117,9 +113,11 @@ function saveEditTaskBoard(taskId) {
     tasks = tasks.map((task) => (task.id === taskId ? editedTask : task));
     save();
   } else {
-    console.error("Task with ID " + taskId + " not found.");
+    return;
   }
+}
 
+function saveRevisedTaskCompletion(priorityContentBoard) {
   localStorage.setItem("selectedPriorityContent", priorityContentBoard);
   load();
   updateHtml();
@@ -140,22 +138,19 @@ function defineCategory(taskId) {
   return category;
 }
 
-
 function deleteSubs(index) {
   subtasks.splice(index, 1);
   oldSubs.splice(index, 1);
   const subtaskItem = document.querySelectorAll(".subtaskItem")[index];
   subtaskItem.remove();
   save();
+  displaySubtasks();
 }
 
 function deleteSubTaskById(id) {
   console.log("stateOfTask:", stateOfTask);
-
   const index = stateOfTask.findIndex((item) => item === id);
-
   console.log("Gefundener Index:", index);
-
   if (index !== 0) {
     stateOfTask.splice(index, 1);
     let idAtText = JSON.stringify(stateOfTask);
@@ -166,8 +161,6 @@ function deleteSubTaskById(id) {
   }
 }
 
-let subtaskIndex = 0;
-
 function addSubtasksEdit() {
   const subtaskInput = document.getElementById("inputSubtasksEdit").value;
   if (!subtaskInput) {
@@ -177,7 +170,7 @@ function addSubtasksEdit() {
     document.getElementById("inputSubtasksEdit").value = "";
     oldSubs.push(subtaskInput);
     displaySubtasks();
-    save();  
+    save();
   }
 }
 
@@ -196,11 +189,10 @@ function displaySubtasks() {
       </div>`;
   }
 }
+
 function editSub(index) {
   let oldSub = oldSubs[index];
-  document.getElementById(
-    `subsTaskEdit${index}`
-  ).innerHTML = generateInputEditSubtask(index);
+  document.getElementById(`subsTaskEdit${index}`).innerHTML = generateInputEditSubtask(index);
   document.getElementById(`subtaskEditeBoard${index}`).value = oldSub;
 }
 
@@ -222,7 +214,7 @@ function generateInputEditSubtask(index) {
         <div class="iconsContainer"><img onclick="deleteSubTaskEdite(${index})" class="delete" src="./assets/img/delete_contacts.png">
           <img class="vector" src="./assets/img/vector.png"><img class="subtaskCheck subtasksCheck" onclick="saveEditetSubTask(${index})"  src="./assets/img/done.png">
         </div>
-     </div>`
+     </div>`;
 }
 
 function createIconsContainer(subtaskItemDiv, subtaskText, index) {
@@ -268,7 +260,6 @@ function handleDeleteClick(subtaskItemDiv, index) {
   save();
 }
 
-// assigned
 function checkboxAddTaskEdit() {
   let checkboxes = document.querySelectorAll(".inputCheckBox");
   assigned = [];
@@ -365,7 +356,11 @@ function renderContactsAddTaskBoard(i, contactsList) {
   let firstnameBoard = nameEdit.split(" ")[0][0].toUpperCase();
   let surnameBoard = nameEdit.split(" ")[1][0].toUpperCase();
   let contactElement = document.createElement("li");
+<<<<<<< HEAD
   contactElement.classList.add("contactListBoard");
+=======
+  contactElement.classList.add("contactListBord");
+>>>>>>> 8a5c59b17feaea819f585b611504a93a90f4c695
   contactElement.innerHTML = generateContactsAddTaskBoard(nameEdit, firstnameBoard, surnameBoard, i);
   contactsList.appendChild(contactElement);
   addCheckboxChangeListener(i, contactsList);
@@ -391,6 +386,7 @@ function sortContactsBoard() {
     return 0;
   });
 }
+
 function renderEditTask() {
   let contactsList = document.getElementById("contactListBoard");
   contactsList.innerHTML = "";

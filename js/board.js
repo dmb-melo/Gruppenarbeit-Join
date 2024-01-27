@@ -37,21 +37,17 @@ function filterTasksByStatus(taskStatus) {
 function updateHtmlForStatus(taskStatus, elementId) {
   const tasksByStatus = filterTasksByStatus(taskStatus);
   const element = document.getElementById(elementId);
-
-  // Leere die bestehenden Inhalte im HTML-Element
   element.innerHTML = "";
-
   if (tasksByStatus.length === 0) {
-    // Wenn keine Aufgaben vorhanden sind, zeige eine Nachricht an
     element.innerHTML = '<p class="noTask">Keine Aufgaben vorhanden</p>';
   } else {
-    // Füge die Aufgabenkarten hinzu
     for (let i = 0; i < tasksByStatus.length; i++) {
       const task = tasksByStatus[i];
       element.innerHTML += generateSmallCard(task, i);
     }
   }
 }
+
 function renderProgressbar() {
   for (let i = 0; i < subtaskLevel.length; i++) {
     if (subtaskLevel) {
@@ -83,45 +79,27 @@ function removeActiveClassFromSvgElements(container) {
 function generateSmallCard(task, i) {
   let currenCategory = task.category[0];
   let currentPriorityContent = task.priorityContent || "";
-
   let tempDiv = document.createElement("div");
   tempDiv.innerHTML = currentPriorityContent;
   tempDiv.classList.add("selectedPriorityContentDiv");
-
   removeActiveClassFromSvgElements(tempDiv);
-
   let clonedContentDiv = document.createElement("div");
   clonedContentDiv.appendChild(tempDiv.cloneNode(true));
-
   removeActiveClassFromSvgElements(clonedContentDiv);
   let className = typeof currenCategory === "string" ? currenCategory.replace(/\s+/g, "") : "";
-
-  // Clear the text content inside the elements with specified classes
   let selectedPriorityContentDiv = clonedContentDiv.querySelector(".selectedPriorityContentDiv");
-
   ["textUrgent", "textMedium", "textLow"].forEach((className) => {
     let textElement = selectedPriorityContentDiv.querySelector("." + className);
     if (textElement) {
-      textElement.textContent = ""; // Clear text content
+      textElement.textContent = "";
     }
   });
-
-  // Conditionally include the smallProgress div
   let smallProgressDiv = "";
   if (task.subtasks.length > 0) {
-    smallProgressDiv = /*html*/ `
-            <div class="progressContainer">
-                <div class="progress">
-                    <div class="progress-value" id="progress-${task.id}"></div>
-                </div>
-                <div class="smallProgress" id="smallProgress-${task.id}">0/${task.subtasks.length}</div>
-            </div>
-        `;
+    smallProgressDiv = generateProgressBar(task.id, task.subtasks.length);
   }
   return generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv, i);
 }
-
-// Delet of Tasks
 
 function deleteTask(event) {
   let noteElement = event.target.closest(".largeCardA");
@@ -160,9 +138,11 @@ function moveIt(taskStatus) {
     renderSmallContats();
   }
 }
+
 function allowDrop(ev) {
   ev.preventDefault();
 }
+
 function highlight(id) {
   document.getElementById(id).classList.add("drag-area-highlight");
 }
@@ -174,7 +154,6 @@ function removeHighlight(id) {
 function openCard(taskId) {
   const largeCardElement = document.getElementById("popUpWindow");
   const task = tasks.find((t) => t.id === taskId);
-
   if (task) {
     largeCardElement.innerHTML = generateLargeCard(task);
     largeCardElement.style.transform = "translateX(0%)";
@@ -198,9 +177,9 @@ function renderSubtaskState(task) {
 function validateSubtask(indexTaskId, renderTaskId) {
   let checkboxRenderTaskId = document.getElementById(renderTaskId);
   if (indexTaskId === -1) {
-    checkboxRenderTaskId.checked = false;
+    checkboxRenderTaskId.checked = true;
   } else {
-    checkboxRenderTaskId.checked = true; 
+    checkboxRenderTaskId.checked = false;
   }
 }
 
@@ -277,7 +256,7 @@ function loadLevelOfSubtask() {
 }
 
 function generateLargeCard(task) {
-  let blackColor = document.getElementById('')
+  let blackColor = document.getElementById("");
   let currentPriorityContent = task.priorityContent || "";
   let currentSubTasks = subT[task];
   let tempDiv = document.createElement("div");
@@ -291,9 +270,8 @@ function generateLargeCard(task) {
   let currenCategory = task.category[0];
   let className = typeof currenCategory === "string" ? currenCategory.replace(/\s+/g, "") : "";
   const subsHtml = generateSubtasksHTML(task);
-  return generateLargeCardHTML(task, className, clonedContentDiv, subsHtml); 
+  return generateLargeCardHTML(task, className, clonedContentDiv, subsHtml);
 }
-
 
 function updateProgress(taskId, index) {
   const checkboxes = document.querySelectorAll(`.checkbox-input-${taskId}`);
@@ -302,7 +280,6 @@ function updateProgress(taskId, index) {
   smallProgressDiv.textContent = `${checkedCheckboxes.length}/${checkboxes.length}`;
   `${checkedCheckboxes.length}/${checkboxes.length}`;
   let valueOfTheSubtaskBreak = `${checkedCheckboxes.length}/${checkboxes.length}`;
-  // Adjust the width of the progress bar based on the percentage completed
   const progressBar = document.getElementById(`progress-${taskId}`);
   const percentageCompleted = (checkedCheckboxes.length / checkboxes.length) * 100;
   progressBar.style.width = `${percentageCompleted}%`;
@@ -316,16 +293,15 @@ function editLargCard(taskId) {
 }
 
 function closeCard() {
-  // Your close logic goes here
   const largeCardElement = document.getElementById("popUpWindow");
   largeCardElement.style.transform = "translateX(500%)";
   assignedMenuOpen = false;
 }
+
 function renderSmallContats() {
   const contactsSmallCard = document.getElementById("boardAssigend");
   contacts.innerHTML = "";
   if (tasks.length === 0) {
-    console.log("Keine Aufgaben vorhanden");
     return;
   }
   for (let i = 0; i < tasks.length; i++) {
@@ -337,25 +313,12 @@ function renderSmallContats() {
       const assigendAvatar = assigned[a];
       let name = assigned[a];
       let firstname = name[0].toUpperCase();
-
       let names = assigned[a].split(" ");
       let surname = names[1].toUpperCase().charAt(0);
-      contactsSmallCard.innerHTML += /*html*/ `
-                    <div class="">
-                        <div class="smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}">
-                            <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-                        </div>
-                    </div>
-                `;
+      contactsSmallCard.innerHTML += generateContactsSmalCard(a, firstname, surname);
     }
     if (totalAssigned > maxContactsToShow) {
-      contactsSmallCard.innerHTML += /*html*/ `
-          <div class="">
-              <div class="smallCardVersionCircel lastSmallCircel " style="background-color: #ccc;">
-                  <p class="nameIdList lastCircel" id="name-id">${totalAssigned - maxContactsToShow}+</p>
-              </div>
-          </div>
-      `;
+      contactsSmallCard.innerHTML += generateManyContactsSmalCard(totalAssigned, maxContactsToShow);
     }
   }
 }
@@ -368,15 +331,10 @@ function renderLargeContats(task) {
     for (let d = 0; d < assigned.length; d++) {
       const assigendAvatar = assigned[d];
       let name = assigned[d];
-      let firstname = name[0].toUpperCase(); // Ersten Buchstaben extrahieren und in Großbuchstaben umwandeln
+      let firstname = name[0].toUpperCase();
       let names = assigned[d].split(" ");
       let surname = names[1].toUpperCase().charAt(0);
-      contactsLargeCard.innerHTML += /*html*/ `
-             <div class="boardLargContactsAvatar">
-                    <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}"><p class="nameIdList" id="name-id">${firstname}${surname}</p></div>
-                    <p>${assigendAvatar}</p>
-                </div>
-        `;
+      contactsLargeCard.innerHTML += generatCircleContactsLargeCard(d, firstname, surname, assigendAvatar);
     }
   }
 }
@@ -396,7 +354,7 @@ function appendGeneratedAddTask(taskStatusFromBoard) {
   let addBoard = document.getElementById("addBoard");
   let newDivAddTask = document.createElement("div");
   newDivAddTask.classList.add("addWindowCss");
-  newDivAddTask.innerHTML = generate_addTask();
+  newDivAddTask.innerHTML = generate_addTask(statusFromUser);
   addBoard.appendChild(newDivAddTask);
   let contactsList = document.getElementById("contactList");
   contactsList.innerHTML = "";
@@ -421,7 +379,6 @@ function searchTask() {
 }
 
 function notSearchTasks(foundTaskIds) {
-  // Iteriere durch alle Aufgaben
   for (let task of tasks) {
     let taskElement = document.getElementById("smallCardId-" + task.id);
     if (foundTaskIds.includes(task.id)) {
@@ -444,26 +401,21 @@ function closeAddBoard() {
   }
 }
 
-
-
-
-  function changeImage(isHovered) {
-    var textElemet = document.getElementById('delete-task-title');
-    var imageElement = document.getElementById("delete-task-image");
-    if (isHovered) {
-      imageElement.src = "../assets/img/delete.png";
-    } else {
-      imageElement.src = "../assets/img/delete_contacts.png";
-    }
+function changeImage(isHovered) {
+  var textElemet = document.getElementById("delete-task-title");
+  var imageElement = document.getElementById("delete-task-image");
+  if (isHovered) {
+    imageElement.src = "../assets/img/delete.png";
+  } else {
+    imageElement.src = "../assets/img/delete_contacts.png";
   }
+}
 
-
-  function changeEditImage(isHovered) {
-    var imageElement = document.getElementById("edit-task-image");
-    if (isHovered) {
-      imageElement.src = "../assets/img/edit2.png";
-    } else {
-      imageElement.src = "./assets/img/edit_task.png";
-    }
+function changeEditImage(isHovered) {
+  var imageElement = document.getElementById("edit-task-image");
+  if (isHovered) {
+    imageElement.src = "../assets/img/edit2.png";
+  } else {
+    imageElement.src = "./assets/img/edit_task.png";
   }
-
+}

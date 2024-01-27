@@ -1,5 +1,5 @@
 function generateBoardHTML(taskId) {
-    return /*html*/ `
+  return /*html*/ `
     <div class="popUpWindow" id="popUpWindow"></div>
     <div  class="popUpWindow" id ="popUpAddWindow">
         <div class="addBoard" id="addBoard">
@@ -88,7 +88,7 @@ function generateBoardHTML(taskId) {
 }
 
 function generateAddEditeTask(taskId) {
-    return /*html*/ `  
+  return /*html*/ `  
      <div class = "BoardcontentTask">  
      <div class="closeLargeEditCardButton">
            <button onclick="closeCard()" class="close-button-edite"><img class="close-img" src="./assets/img/cancel.png"></button>
@@ -223,8 +223,8 @@ function generateAddEditeTask(taskId) {
 }
 
 function generateContactsAddTaskBoard(name, firstname, surname, i) {
-    return /*html*/ `
-    <div class="circleAvatarBoard" id="circle-${i}" style="background-color: ${colors[i]}">
+  return /*html*/ `
+    <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
       <p class="nameIdList" id="name-id">${firstname}${surname}</p>
     </div>                
     <div class="custom-checkbox-board">            
@@ -234,7 +234,7 @@ function generateContactsAddTaskBoard(name, firstname, surname, i) {
 }
 
 function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) {
-    return /*html*/ `
+  return /*html*/ `
         <div>
             <div class="circleAvatarBoard" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
@@ -244,7 +244,7 @@ function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) 
 }
 
 function generatePopUpWindowAdd() {
-    return /*html*/ `  
+  return /*html*/ `  
       <div class = "contentTask">  
         <div class="content_addTask">
                 <div class = "textContainer_addTask">
@@ -406,8 +406,8 @@ function generatePopUpWindowAdd() {
 }
 
 function generateContactsAddTask(name, firstname, surname, i) {
-    return /*html*/ `
-    <div class="circleAvatarBoard" id="circle-${i}" style="background-color: ${colors[i]}">
+  return /*html*/ `
+    <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
       <p class="nameIdList" id="name-id">${firstname}${surname}</p>
     </div>                
     <div class="custom-checkbox-board">            
@@ -417,7 +417,7 @@ function generateContactsAddTask(name, firstname, surname, i) {
 }
 
 function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
-    return /*html*/ `
+  return /*html*/ `
         <div>
             <div class="circleAvatarBoard" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
@@ -427,7 +427,7 @@ function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
 }
 
 function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv, i) {
-    return /*html*/ `
+  return /*html*/ `
       <div class="smallCard cardA" id="smallCardId-${task.id}" draggable="true" ondragstart="startDragged(${task.id})" onclick="openCard(${task.id})"> 
         <div class="smallCardcategory"><p id="category" class="${className}">${task.category[0]}</p></div>
         <div class="taskText">
@@ -444,12 +444,12 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
 }
 
 function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
-    // Convert due date to a Date object
-    var dueDate = new Date(task.dueDate);
+  // Convert due date to a Date object
+  var dueDate = new Date(task.dueDate);
 
-    // Format due date as Day/Month/Year
-    var formattedDueDate = `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`;
-    return /*html*/ `
+  // Format due date as Day/Month/Year
+  var formattedDueDate = `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`;
+  return /*html*/ `
       <div class="desingLagrCard" id="desingLagrCard">
         <div class="largeCardA" id="largeCardA">
           <div id="addTaskLargeCard" class="d-None"></div>
@@ -513,23 +513,23 @@ function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
 }
 
 function generateSubtasksHTML(task) {
-    return task.subtasks
-        .map((subs, index) => `<div class="subtasksContents">
+  return task.subtasks
+    .map(
+      (subs, index) => `<div class="subtasksContents">
         <input type="checkbox" id="checkbox-${task.id}-${index}" class="checkbox-input-${task.id}" onchange="updateProgress(${task.id}, ${index})">
         <label class="checkbox-label" for="checkbox-${task.id}-${index}">  <span class="checkbox-custom"> ${subs}</span></label>
     </div>`
-
-        )
-        .join("");
+    )
+    .join("");
 }
 function generateEditContacts(assignedItem, color) {
-    let name = assignedItem;
-    let firstname = name[0].toUpperCase();
+  let name = assignedItem;
+  let firstname = name[0].toUpperCase();
 
-    let names = assignedItem.split(" ");
-    let surname = names[1].toUpperCase().charAt(0);
+  let names = assignedItem.split(" ");
+  let surname = names[1].toUpperCase().charAt(0);
 
-    return /*html*/ `
+  return /*html*/ `
       <div class="boardLargContactsAvatar">
         <div class="circle" style="background-color: ${color}">
           <p class="nameIdList">${firstname}${surname}</p>
@@ -540,15 +540,53 @@ function generateEditContacts(assignedItem, color) {
 }
 
 function generateInputEditSubtask(index) {
-    return /*html*/ `
-       <div class="subtaskItemBoard" style="background-color: white;">
+  return /*html*/ `
+       <div class="subtaskItem" style="background-color: white;">
         <input type="text" id="subtaskEdite${index}" style="outline: none; border: none;" >
           <div class="iconsContainer"><img onclick="deleteSubTaskEdite(${index})" class="delete" src="./assets/img/delete_contacts.png">
             <img class="vector" src="./assets/img/vector.png"><img class="subtaskCheck" onclick="saveEditetSubTask(${index})"  src="./assets/img/done.png">
           </div>
        </div>`;
-  }
+}
 
+function generatCircleContactsLargeCard(d, firstname, surname, assigendAvatar) {
+  return /*html*/ `
+      <div class="boardLargContactsAvatar">
+         <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}">
+            <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+         </div>
+         <p>${assigendAvatar}</p>
+      </div>
+`;
+}
 
+function generateContactsSmalCard(a, firstname, surname) {
+  return /*html*/ `
+          <div class="">
+              <div class="smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}">
+                  <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+              </div>
+          </div>
+       `;
+}
 
+function generateManyContactsSmalCard(totalAssigned, maxContactsToShow) {
+  return /*html*/ `
+      <div class="">
+          <div class="smallCardVersionCircel lastSmallCircel " style="background-color: #ccc;">
+             <p class="nameIdList lastCircel" id="name-id">${totalAssigned - maxContactsToShow}+</p>
+          </div>
+       </div>
+`;
+}
 
+function generateProgressBar(taskId, taskSubtasksLength) {
+  return /*html*/ `
+            <div class="progressContainer">
+                <div class="progress">
+                    <div class="progress-value" id="progress-${taskId}"></div>
+                </div>
+                <div class="smallProgress" id="smallProgress-${taskId}">0/${taskSubtasksLength}</div>
+            </div>
+        `;
+}
