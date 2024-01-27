@@ -124,7 +124,7 @@ function generateAddEditeTask(taskId) {
                     <div class="asignedTo_v1 wd100">
                         <div class="asignedTo">Assigned to</div>                     
                         <div class="categoryFrame74Board categoryEditCard" id="assignedBoard" onclick="hideAssignedBoardEdit(event, ${taskId})">                    
-                            <input class="searchContacts" type="text" id="searchContactsBoard" placeholder="Select contacts to assign">
+                            <input class="searchContactsBoard" type="text" id="searchContactsBoard" placeholder="Select contacts to assign">
                             <div class ="imgArrows" id="imgArrows" onclick="hideAssignedBoardEdit(event, ${taskId})">
                                 <img class="arrow_drop_down" src="./assets/img/arrow_drop_down.png"  id="arrowAssignedEdit" onclick="hideAssignedBoardEdit(event, ${taskId})" > 
                                 <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssignedEdit" onclick="hideAssignedBoardEdit(event, ${taskId})">                            
@@ -137,13 +137,13 @@ function generateAddEditeTask(taskId) {
                         </div>  
                         </div>                    
                                            
-                        <div class="contactAvatar" id="contactAvatarEditBoard">
+                        <div class="contactAvatarBoard" id="contactAvatarEditBoard">
                             <div class="contactAvatarEdit" id="editAssignedContacts"></div>
                         </div>
                     </div>
                 </div>
                 <div class="inputRight_addTaskEdit" id="dateAddTaskEdit">
-                    <div class="dueDate wd100">
+                    <div class="dueDateBoard wd100">
                         <div class="text_DueDate">Due date<span class="spanClass">*</span></div>
                         <div class="frame211 wd100" onclick="required(this)">                    
                                 <div class="dueDate_frame14">
@@ -236,7 +236,7 @@ function generateContactsAddTaskBoard(name, firstname, surname, i) {
 function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) {
   return /*html*/ `
         <div>
-            <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+            <div class="circleAvatarBoard" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
             </div>
         </div>
@@ -292,7 +292,7 @@ function generatePopUpWindowAdd() {
                                 <li id ="contactListPopUp"></li>                       
                             </ul>
                         </div>                     
-                        <div class="contactAvatar" id="contactAvatar"></div>
+                        <div class="contactAvatarBoard" id="contactAvatar"></div>
                     </div>
                 </div>
                 <div class="vector4"></div>
@@ -300,7 +300,7 @@ function generatePopUpWindowAdd() {
                     <div class="dueDate">
                         <div class="text_DueDate">Due date<span class="spanClass">*</span></div>
                         <div class="frame211" onclick="required(this)">                    
-                                <div class="dueDate_frame14">
+                                <div class="dueDate_frame14Board">
                                     <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" >   
                                 </div>
                                 <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
@@ -374,7 +374,7 @@ function generatePopUpWindowAdd() {
                                 <input class="textAddSubtasks" type="text" name="subtasks" id="inputSubtasks" placeholder="Add new subtask" onclick="hideVectorAndImgCheck()">
                                 </div>                        
                             </div>
-                            <div class="allSubtasks" id ="allSubtasks"></div>
+                            <div class="allSubtasksBoard" id ="allSubtasks"></div>
                         </div>                    
                     </div>
                 </div>
@@ -419,7 +419,7 @@ function generateContactsAddTask(name, firstname, surname, i) {
 function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
   return /*html*/ `
         <div>
-            <div class="circleAvatar" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+            <div class="circleAvatarBoard" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
             </div>
         </div>

@@ -237,15 +237,15 @@
     width: 256px;
   }
   .custom-checkbox-board label:before {
-    left: 180px;
+    left: 140px;
   }
 
   .custom-checkbox-board input[type="checkbox"]:checked + label:before {
-    left: 180px;
+    left: 140px;
   }
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
-    left: 180px;
+    left: 140px;
 }
 }
 

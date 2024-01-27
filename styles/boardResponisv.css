@@ -108,6 +108,19 @@
     gap: 40px;
   }
 
+  .searchContactsBoard{
+    width: 190px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+  } 
+
+
+
   .primaryBoard {
     display: none;
   }
@@ -155,6 +168,27 @@
   .progressTitles {
     font-size: 27px !important;
   }
+
+  .custom-checkbox-board{
+    margin-left: 3px;
+  }
+
+  .contactListBoard{
+    width: 194px;
+  }
+
+  .custom-checkbox-board label:before {
+    left: 192px;
+  }
+
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 192px;
+  }
+
+  .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 192px;
+  }
+
 }
 
 @media (min-width: 376px) and (max-width: 648px) {
@@ -529,7 +563,7 @@
     height: 64px;
     border: 1px;
     gap: 4px;
-    width: 394px;
+    width: 241px;
   }
 
   .titleEditCard {
@@ -647,9 +681,10 @@
     background: var(--white, #fff);
     z-index: 1;
     max-height: 340px;
-    width: 375px;
+    width: 229px;
     overflow: auto;
   }
+
 
   .custom-checkbox-board input[type="checkbox"]:checked+label:before {
     content: "";
@@ -705,12 +740,31 @@
 
 @media (max-width: 444px) {
   #addTaskLargeCard {
-    width: 300px !important;
+    width: 256px !important;
   }
 
   .inputLeft_addTaskBoard {
     width: 300px;
   }
+
+  .dueDate_frame14Board{
+    width: 196px;
+  }
+
+  .allSubtasksBoard{
+    display: flex;
+    flex-direction: column; 
+    gap: 8px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.subtasksEdit{
+  width: 240px;
+}
+
 
   .edittitle {
     display: flex;
@@ -718,8 +772,9 @@
     height: 64px;
     border: 1px;
     gap: 4px;
-    width: 278px;
+    width: 240px;
   }
+
 
   .titleEditCard {
     position: relative;
@@ -728,7 +783,7 @@
     display: flex;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
-    width: 278px;
+    width: 241px;
     border-radius: 10px;
   }
 
@@ -748,7 +803,7 @@
     font-weight: 400;
     line-height: 24px;
     outline: none;
-    width: 239px;
+    width: 205px;
     margin-top: 8px;
   }
 
@@ -762,10 +817,21 @@
     background: var(--white, #fff);
     z-index: 1;
     max-height: 340px;
-    width: 314px;
+    width: 0px;
     overflow: auto;
   }
 
+  
+  .underListContactBoard{
+    width: 230px;
+  }
+  
+  .circleAvatarBoard{
+    width: 32px;
+    height: 32px;
+    margin-left: -10px;
+
+  }
   .custom-checkbox-board input[type="checkbox"]:checked+label:before {
     content: "";
     width: 24px;
@@ -773,17 +839,24 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    left: 170px;
+    left: 150px;
   }
 
-  .contactList {
+  .custom-checkbox-board{
+    margin-left: -4px;
+  }
+  .wd100{
+    width: 95%;
+  }
+
+  .contactListBoard {
     display: flex;
     gap: 8px;
     align-items: center;
     border-radius: 10px;
     height: 49px;
     padding: 7px 16px;
-    width: 77%;
+    width: 186px;
   }
 
   .text_enterTitle {
@@ -806,6 +879,15 @@
     align-items: flex-start;
     gap: 24px;
     margin-top: 80px;
+  }
+
+  .contactAvatarBoard{
+    margin-left: 12px;;
+  }
+  
+  .subtaskItemBoard{
+    width: 20px;
+    background-color: aqua;
   }
 }
 
