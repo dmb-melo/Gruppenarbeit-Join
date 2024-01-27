@@ -356,11 +356,7 @@ function renderContactsAddTaskBoard(i, contactsList) {
   let firstnameBoard = nameEdit.split(" ")[0][0].toUpperCase();
   let surnameBoard = nameEdit.split(" ")[1][0].toUpperCase();
   let contactElement = document.createElement("li");
-<<<<<<< HEAD
   contactElement.classList.add("contactListBoard");
-=======
-  contactElement.classList.add("contactListBord");
->>>>>>> 8a5c59b17feaea819f585b611504a93a90f4c695
   contactElement.innerHTML = generateContactsAddTaskBoard(nameEdit, firstnameBoard, surnameBoard, i);
   contactsList.appendChild(contactElement);
   addCheckboxChangeListener(i, contactsList);
