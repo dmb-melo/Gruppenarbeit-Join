@@ -599,6 +599,17 @@
 }
 
 @media (max-width: 1373px) {
+  .searchContactsBoard{
+    width: 180px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+  } 
+
   .searchbarIn {
     display: flex;
     width: 100% !important;
@@ -610,6 +621,88 @@
     margin-top: 79.5px;
     margin-bottom: 48px;
   }
+
+
+  .underListContactBoardEdit {
+    cursor: pointer;
+    position: absolute;
+    top: 55px;
+    padding-inline-start: 0px;
+    flex-direction: column;
+    border-radius: 10px;
+    background: var(--white, #fff);
+    z-index: 1;
+    max-height: 340px;
+    width: 427px;
+    overflow: auto;
+  }
+
+    .contactListBoard {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-radius: 10px;
+    height: 49px;
+    padding: 7px 16px;
+    width: 383px;
+  }
+
+  .custom-checkbox-board input[type="checkbox"]:checked+label:before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-left: -220px;  
+  }
+
+    .custom-checkbox-board label:before{
+      margin-left: -220px;
+  }
+ 
+
+  .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: -220px;
+  }
+
+  .custom-checkbox-board{
+ 
+    left: -220px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 @media (max-width: 1700px) {
@@ -685,9 +778,19 @@
     background: var(--white, #fff);
     z-index: 1;
     max-height: 340px;
-    width: 375px;
+    width: 312px;   
     overflow: auto;
   }
+
+  .underListContactBoard{
+    width: 227px;
+    margin-left: 80px;
+  }
+
+  .listBoard{
+    margin-left: 30px;
+  } 
+  
 
   .custom-checkbox-board input[type="checkbox"]:checked+label:before {
     content: "";
@@ -696,7 +799,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    left: 254px;
+    left: 2700px;
   }
 }
 
@@ -709,6 +812,9 @@
     width: 350px;
   }
 
+  .wd100{
+    width: 95%;
+  }
   .edittitle {
     display: flex;
     flex-direction: column;
@@ -728,6 +834,7 @@
     width: 328px;
     border-radius: 10px;
   }
+  
 
   .categoryEditCard {
     z-index: 6;
@@ -759,8 +866,18 @@
     background: var(--white, #fff);
     z-index: 1;
     max-height: 340px;
-    width: 229px;
+    width: 315px;
     overflow: auto;
+  }
+
+    .contactListBoard {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-radius: 10px;
+    height: 49px;
+    padding: 7px 16px;
+    width: 270px;
   }
 
 
@@ -771,10 +888,23 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    left: 254px;
+    margin-left: 50px;  
   }
 
-  .inputRight_addTaskEdit {
+    .custom-checkbox-board label:before{
+      margin-left: 50px;
+  }
+ 
+
+  .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 50px;
+  }
+
+  .custom-checkbox-board{
+    left: 200px;
+  }
+
+ .inputRight_addTaskEdit {
     display: flex;
     width: 328px;
     flex-direction: column;
@@ -897,11 +1027,15 @@
     width: 0px;
     overflow: auto;
   }
-
   
   .underListContactBoard{
-    width: 230px;
+    width: 227px;
+    margin-left: 80px;
   }
+
+  .listBoard{
+    margin-left: 30px;
+  } 
   
   .circleAvatarBoard{
     width: 32px;
@@ -964,11 +1098,10 @@
   
   .subtaskItemBoard{
     width: 20px;
-    background-color: aqua;
   }
   .searchContactsBoard{
     width: 180px;
-    font-size: 14.5px;
+    font-size: 15px;
     cursor: pointer;
     outline: none;
     border-style: none;
@@ -977,7 +1110,6 @@
     line-height: 24px;
   } 
 }
-
 
 @media (max-width: 1520px) {
 
