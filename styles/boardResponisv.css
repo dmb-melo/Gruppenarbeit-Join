@@ -288,6 +288,18 @@
   .progressTitles {
     font-size: 27px !important;
   }
+
+  
+  .searchContactsBoard{
+    /* width: 190px;
+    font-size: 15px; */
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    /* font-weight: 400;
+    line-height: 24px; */
+  } 
 }
 
 @media (min-width: 649px) and (max-width: 900px) {
@@ -391,6 +403,18 @@
   .progressTitles {
     font-size: 27px !important;
   }
+
+  
+  .searchContactsBoard{
+    /* width: 190px;
+    font-size: 15px; */
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+  } 
 }
 
 @media (max-width: 450px) {
@@ -409,6 +433,18 @@
     margin-left: 10px;
     width: 405px;
   }
+
+  
+  .searchContactsBoard{
+    /* width: 190px;
+    font-size: 15px; */
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+  } 
 }
 
 @media (max-width: 500px) {
@@ -427,18 +463,50 @@
     margin-left: 10px;
     width: 100% !important;
   }
+  
+  .searchContactsBoard{
+    /* width: 190px;
+    font-size: 15px; */
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+  } 
 }
 
 @media (max-width: 646px) {
   .searchBar {
     width: 98%;
   }
+  
+  .searchContactsBoard{
+    width: 240px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+  } 
 }
 
 @media (max-width: 646px) {
   .searchBar {
     width: 98%;
   }
+  .searchContactsBoard{
+    width: 240px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+  } 
 }
 
 @media (max-width: 1000px) {
@@ -481,6 +549,16 @@
     flex-direction: column;
     width: 96%;
   }
+  .searchContactsBoard{
+    width: 240px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+  } 
 }
 
 @media (max-width: 1200px) {
@@ -759,12 +837,11 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 120%;
-}
+  }
 
-.subtasksEdit{
-  width: 240px;
-}
-
+  .subtasksEdit{
+    width: 240px;
+  }
 
   .edittitle {
     display: flex;
@@ -889,6 +966,16 @@
     width: 20px;
     background-color: aqua;
   }
+  .searchContactsBoard{
+    width: 180px;
+    font-size: 14.5px;
+    cursor: pointer;
+    outline: none;
+    border-style: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+  } 
 }
 
 

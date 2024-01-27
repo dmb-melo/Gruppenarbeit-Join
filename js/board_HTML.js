@@ -224,7 +224,7 @@ function generateAddEditeTask(taskId) {
 
 function generateContactsAddTaskBoard(name, firstname, surname, i) {
   return /*html*/ `
-    <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
+    <div class="circleAvatarBoard" id="circle-${i}" style="background-color: ${colors[i]}">
       <p class="nameIdList" id="name-id">${firstname}${surname}</p>
     </div>                
     <div class="custom-checkbox-board">            
