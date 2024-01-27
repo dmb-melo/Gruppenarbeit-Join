@@ -28,7 +28,7 @@ function generateBoardHTML(taskId) {
                         </div>                       
                     </div>
                     <div class="primaryBoard" onclick="appendGeneratedAddTask('todo')">
-                        <div class="textCreateTask">Add task</div>
+                        <div class="textCreateTaskBoard">Add task</div>
                         <img class="imgCheckBlack" src="./assets/img/add.svg" alt="">              
                     </div>
                 </div>
@@ -480,7 +480,7 @@ function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
                   <div class="largDueDate"><span>Due Date:</span><span>${formattedDueDate}</span></div>
                 </div>
                 <div class="largPrioDetail">
-                  <p  class="boardText">Priority:</p><p class="blackImport">${clonedContentDiv.innerHTML}</p>
+                  <p  class="boardText">Priority:</p><p>${clonedContentDiv.innerHTML}</p>
                 </div>
                 <div class="assigendLarge">
                   <p  class="boardText">Assigned To:</p>
@@ -491,12 +491,12 @@ function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
                   <p>${subsHtml}</p>
                 </div>
                 <div class="largCardFooter">
-                  <div class="deleteAndEdit">
+                  <div class="largCardButton">
                   <div class="delete_task" onmouseover="changeImage(true)" onmouseout="changeImage(false)" onclick="deleteTask(event)">
                     <img id="delete-task-image" class="delete-task-bt" src="../assets/img/delete_contacts.png">
                          <p class="delete-task-title" id="delete-task-title">Delete</p>
                     </div>
-                    <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
+                    <img class="largCardButton_vector" src="./assets/img/vector.png" alt="">
                     <div class="edit_task" onmouseover="changeEditImage(true)" onmouseout="changeEditImage(false)" onclick="editLargCard(${task.id})" style="display: flex; align-items: center; gap: 4px; cursor:pointer;">
              <img id="edit-task-image" class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
              <p class="edit-task-title">Edit</p>

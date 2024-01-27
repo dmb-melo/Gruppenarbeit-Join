@@ -155,7 +155,7 @@
   }
 
   .tasksToDo {
-    overflow: scroll !important;
+    overflow-y: scroll !important;
     max-height: 650px !important;
     flex-direction: column;
     width: 428px;
@@ -258,7 +258,7 @@
 
   .tasksToDo {
     margin-top: 0;
-    overflow: scroll !important;
+    overflow-y: scroll !important;
     max-height: 650px !important;
     flex-direction: column;
     width: 648px;
@@ -366,7 +366,7 @@
 
   .tasksToDo {
     margin-top: 0;
-    overflow: scroll !important;
+    overflow-y: scroll !important;
     max-height: 650px !important;
     flex-direction: column;
     width: 890px;
@@ -920,7 +920,15 @@
 @media (max-width: 1156px){
 
 .taskAria {
-    width: 70%;
+    width: 77%;
+    flex-wrap: wrap;
+    padding: 0;
+}
+}
+@media (max-width: 366px){
+
+.taskAria {
+    width: 93% !important;
     flex-wrap: wrap;
     padding: 0;
 }
