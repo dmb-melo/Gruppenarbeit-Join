@@ -40,7 +40,7 @@ let currentId = 3;
 let taskStatus = [];
 let selectedPriorityContent = "";
 let preselectedCategory = "Medium";
-let statusFromUser = [];
+let statusFromUser = ['todo'];
 
 function addTaskInit() {
   load();
@@ -219,9 +219,6 @@ function getTaskCategoryValue() {
 }
 
 function createNewTask(title, description, dueDate, priorityContent, selectedPriorityID, statusFromUser) {
-  if (statusFromUser.length == 0) {
-    statusFromUser = "todo";
-  } 
   return {
     id: currentId,
     title,
@@ -240,7 +237,7 @@ function updateArrays(newTask) {
   subT.unshift(subtasks.slice());
   tasks.unshift(newTask);
   localStorage.setItem("selectedPriorityContent", newTask.priorityContent);
-  statusFromUser = [];
+  statusFromUser = ['todo'];
 }
 
 function clearUIElements() {

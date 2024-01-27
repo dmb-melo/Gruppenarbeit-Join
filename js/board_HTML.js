@@ -27,7 +27,7 @@ function generateBoardHTML(taskId) {
                             </div>                                                  
                         </div>                       
                     </div>
-                    <div class="primaryBoard" onclick="appendGeneratedAddTask()">
+                    <div class="primaryBoard" onclick="appendGeneratedAddTask('todo')">
                         <div class="textCreateTask">Add task</div>
                         <img class="imgCheckBlack" src="./assets/img/add.svg" alt="">              
                     </div>
@@ -39,7 +39,7 @@ function generateBoardHTML(taskId) {
             <section class="taskBoardTtle">
                 <div class="todoHeadline headLineCss" id="TodoHeadline">
                     <h2 class="progressTitles">To Do</h2>
-                    <a class="imgPlusTask"  href="#" onclick="appendGeneratedAddTask()">
+                    <a class="imgPlusTask"  href="#" onclick="appendGeneratedAddTask('todo')">
                         <img class="plusImg" src="./assets/img/imgPlusTask.svg">
                         <img class="plusImgHover" src="./assets/img/imgPlusHover.svg" alt="">
                     </a>
@@ -392,7 +392,7 @@ function generatePopUpWindowAdd() {
                             </svg>
                         </div>
                     </div>
-                    <a class="leadsToBoard" href="./board.html" id="leadsToBoard" onclick="handleTaskClick(event)">
+                    <a class="leadsToBoard" href="./board.html" id="leadsToBoard" onclick="handleTaskClick(event)>
                         <div class="primary">
                             <div class="textCreateTask">Create task</div>
                             <img class="imgCheckBlack" src="./assets/img/check.png" alt="">              
@@ -541,7 +541,7 @@ function generateEditContacts(assignedItem, color) {
 
 function generateInputEditSubtask(index) {
   return /*html*/ `
-       <div class="subtaskItem" style="background-color: white;">
+       <div class="subtaskItem subtaskItemBoard" style="background-color: white;">
         <input type="text" id="subtaskEdite${index}" style="outline: none; border: none;" >
           <div class="iconsContainer"><img onclick="deleteSubTaskEdite(${index})" class="delete" src="./assets/img/delete_contacts.png">
             <img class="vector" src="./assets/img/vector.png"><img class="subtaskCheck" onclick="saveEditetSubTask(${index})"  src="./assets/img/done.png">
