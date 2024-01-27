@@ -339,7 +339,7 @@ function getCategoryForPriority(priority) {
     }
   }
   
-  async function handleTaskClick(event) {
+  async function handleTaskClick(event, statusFromUser) {
     if (event) {
       event.preventDefault();
     }
@@ -349,7 +349,7 @@ function getCategoryForPriority(priority) {
     if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
       return;
     }
-    await addTask();
+    await addTask(statusFromUser);
     setTimeout(async function () {
       await renderBoardHTML();
     }, 1500);

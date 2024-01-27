@@ -354,7 +354,7 @@ function appendGeneratedAddTask(taskStatusFromBoard) {
   let addBoard = document.getElementById("addBoard");
   let newDivAddTask = document.createElement("div");
   newDivAddTask.classList.add("addWindowCss");
-  newDivAddTask.innerHTML = generate_addTask();
+  newDivAddTask.innerHTML = generate_addTask(statusFromUser);
   addBoard.appendChild(newDivAddTask);
   let contactsList = document.getElementById("contactList");
   contactsList.innerHTML = "";

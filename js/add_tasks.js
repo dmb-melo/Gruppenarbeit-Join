@@ -40,7 +40,7 @@ let currentId = 3;
 let taskStatus = [];
 let selectedPriorityContent = "";
 let preselectedCategory = "Medium";
-let statusFromUser;
+let statusFromUser = [];
 
 function addTaskInit() {
   load();
@@ -180,31 +180,24 @@ function clearAllSelections() {
 }
 
 
-function addTask() {
+function addTask(statusFromUser) {
   switchColorpriorityContent();
   const titleValue = getValueAndClearInput("title");
   const descriptionValue = getValueAndClearInput("description");
   const dueDateValue = getValueAndClearInput("dueDate");
-  
   checkboxAddTask();
-  
   const { priorityContent, selectedPriorityID } = getPriorityInfo();
   const categoryValue = getTaskCategoryValue();
-  
   if (!checkRequiredFields(titleValue, dueDateValue, categoryValue)) {
     return;
   }
-  
   priorityContentArray.unshift(priorityContent);
-  
   currentId++;
-  
-  const newTask = createNewTask(titleValue, descriptionValue, dueDateValue, priorityContent, selectedPriorityID);
-  
+  const newTask = createNewTask(titleValue, descriptionValue, dueDateValue, priorityContent, selectedPriorityID, statusFromUser);
   updateArrays(newTask);
-  
   clearUIElements();
   saveRenderAndReset();
+ 
 }
 
 function getValueAndClearInput(inputId) {
@@ -225,7 +218,10 @@ function getTaskCategoryValue() {
   return categoryElement ? categoryElement.textContent : "Select a task category";
 }
 
-function createNewTask(title, description, dueDate, priorityContent, selectedPriorityID) {
+function createNewTask(title, description, dueDate, priorityContent, selectedPriorityID, statusFromUser) {
+  if (statusFromUser.length === 0) {
+    statusFromUser = "todo";
+  }
   return {
     id: currentId,
     title,
@@ -235,7 +231,7 @@ function createNewTask(title, description, dueDate, priorityContent, selectedPri
     priorityContent,
     priorityID: selectedPriorityID,
     subtasks: subtasks.slice(),
-    taskStatus: 'todo',
+    taskStatus: statusFromUser,
     category: category
   };
 }
@@ -244,6 +240,8 @@ function updateArrays(newTask) {
   subT.unshift(subtasks.slice());
   tasks.unshift(newTask);
   localStorage.setItem("selectedPriorityContent", newTask.priorityContent);
+  debugger;
+  statusFromUser = [];
 }
 
 function clearUIElements() {

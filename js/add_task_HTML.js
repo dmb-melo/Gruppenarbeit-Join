@@ -18,7 +18,7 @@ function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
     `;
 }
 
-function generate_addTask(){
+function generate_addTask(statusFromUser){
     return /*html*/`  
      <div class = "contentTask">  
         <div class="content_addTask">
@@ -213,7 +213,7 @@ function generate_addTask(){
                             </svg>
                         </div>
                     </div>
-                    <a class="leadsToBoard" href="./board.html" id="leadsToBoard" onclick="handleTaskClick(event)">
+                    <a class="leadsToBoard" href="./board.html" id="leadsToBoard" onclick="handleTaskClick(event, statusFromUser)">
                         <div class="primary">
                             <div class="textCreateTask">Create task</div>
                             <img class="imgCheckBlack" src="./assets/img/check.png" alt="">              
