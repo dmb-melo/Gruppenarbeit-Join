@@ -8,6 +8,7 @@ let dateOfTheNextUpcomingTask = [];
 
 async function initSummary() {
   await includeHTML();
+  await loadContactsFromServer();
   generateGreetingText();
   loadUserData();
   setInitialsInTheHeader();

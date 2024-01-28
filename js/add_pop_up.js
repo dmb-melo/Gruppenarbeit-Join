@@ -1,6 +1,5 @@
-function generatePopUpWindowAdd(){
-    
-    return /*html*/`  
+function generatePopUpWindowAdd() {
+  return /*html*/ `  
      <div class = "contentTask">  
         <div class="content_addTask">
                 <div class = "textContainer_addTask">
@@ -203,8 +202,146 @@ function generatePopUpWindowAdd(){
             </div>
         </div>        
     </div>
-    `
-;}
+    `;
+}
 
+function generateContactsAddTaskBoard(name, firstname, surname, i) {
+  return /*html*/ `
+      <div class="circleAvatarBoard" id="circle-${i}" style="background-color: ${colors[i]}">
+        <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+      </div>                
+      <div class="custom-checkbox-board">            
+        <input class="inputCheckBox" type="checkbox" id="myCheckbox_Edit${i}">                    
+        <label class="nameContact ResVersion" for="myCheckbox_Edit${i}">${name}</label>                              
+      </div>`;
+}
 
+function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) {
+  return /*html*/ `
+          <div>
+              <div class="circleAvatarBoard" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+                  <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+              </div>
+          </div>
+      `;
+}
 
+function generateDisplaySubtasksHTML(i, subtask) {
+  return /*html*/ `
+        <div class="subtaskItem" id="subsTaskEdit${i}">
+          <span><li>${subtask}</li></span>
+          <div class="subtaskButtons">
+            <button id="editButton_${i}" onclick="editSub('${i}')"><img src="../assets/img/edit_task.png"></button>
+            <button id="deleteButton_${i}" onclick="deleteSubs('${i}')"><img src="./assets/img/delete_contacts.png"></button>
+          </div>
+        </div>`;
+}
+
+function generateInputEditSubtask(index) {
+  return /*html*/ `
+         <div class="subtaskItem" style="background-color: white;">
+          <input type="text" id="subtaskEditeBoard${index}" style="outline: none; border: none;" >
+            <div class="iconsContainer"><img onclick="deleteSubTaskEdite(${index})" class="delete" src="./assets/img/delete_contacts.png">
+              <img class="vector" src="./assets/img/vector.png"><img class="subtaskCheck subtasksCheck" onclick="saveEditetSubTask(${index})"  src="./assets/img/done.png">
+            </div>
+         </div>`;
+}
+
+function generateContactsAddTask(name, firstname, surname, i) {
+  return /*html*/ `
+      <div class="circleAvatar" id="circle-${i}" style="background-color: ${colors[i]}">
+        <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+      </div>                
+      <div class="custom-checkbox-board">            
+        <input class="inputCheckBox" type="checkbox" id="myCheckbox_${i}">                    
+        <label class="nameContact" for="myCheckbox_${i}">${name}</label>                              
+      </div>`;
+}
+
+function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
+  return /*html*/ `
+          <div>
+              <div class="circleAvatarBoard" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+                  <p class="nameIdList" id="name-id">${firstname}${surname}</p>
+              </div>
+          </div>
+      `;
+}
+
+function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv, i, taskID) {
+  return /*html*/ `
+        <div class="smallCard cardA" id="smallCardId-${taskID}" draggable="true" ondragstart="startDragged(${taskID})" onclick="openCard(${taskID})"> 
+          <div class="smallCardcategory"><p id="category" class="${className}">${task.category[0]}</p></div>
+          <div class="taskText">
+            <div class="taskTitle">${task.title}</div>
+            <div class="taskDescription">${task.description}</div>
+          </div>
+          ${smallProgressDiv}
+          <div class="smallCardFooter">
+            <div id="boardAssigend-${taskID}" class="boardAssigend"></div>
+            <div class="smallPrio" id="smallCardPrio">${clonedContentDiv.innerHTML}</div>
+          </div>  
+        </div>
+      `;
+}
+
+function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
+  var dueDate = new Date(task.dueDate);
+  var formattedDueDate = `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`;
+  return /*html*/ `
+        <div class="desingLagrCard" id="desingLagrCard">
+          <div class="largeCardA" id="largeCardA">
+            <div id="addTaskLargeCard" class="d-None"></div>
+            <div class="largesCard" id="largesCard">
+              <div class="largeCardInside">
+                <div class="largCardHeader">
+                  <div class="lardCardCategory">
+                    <p id="largeCategory" class="${className}">${task.category[0]}</p>
+                  </div>
+                  <div class="closeLargeCardButton">
+                    <button onclick="closeCard()" class="close-button-edite"><img class="close-img" src="./assets/img/cancel.png"></button>
+                  </div>
+                </div>
+                <div class="largCardText">
+                  <div class="largCardTitle">
+                    <h1>${task.title}</h1>
+                  </div>
+                  <div class="largCardTextArea">
+                    <p>${task.description}</p>
+                  </div>
+                </div>
+                <div class="largeTaskDetails">
+                  <div class="largTaskDueDat">
+                    <div class="largDueDate"><span>Due Date:</span><span>${formattedDueDate}</span></div>
+                  </div>
+                  <div class="largPrioDetail">
+                    <p  class="boardText">Priority:</p><p class="blackImport">${clonedContentDiv.innerHTML}</p>
+                  </div>
+                  <div class="assigendLarge">
+                    <p  class="boardText">Assigned To:</p>
+                    <div  id="boardAssigendLargCard"></div>
+                  </div>
+                  <div class="subtasks wd100">
+                    <p>Subtasks</p>
+                    <p>${subsHtml}</p>
+                  </div>
+                  <div class="largCardFooter">
+                    <div class="deleteAndEdit">
+                    <div class="delete_task" onmouseover="changeImage(true)" onmouseout="changeImage(false)" onclick="deleteTask(event)">
+                      <img id="delete-task-image" class="delete-task-bt" src="../assets/img/delete_contacts.png">
+                           <p class="delete-task-title" id="delete-task-title">Delete</p>
+                      </div>
+                      <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
+                      <div class="edit_task" onmouseover="changeEditImage(true)" onmouseout="changeEditImage(false)" onclick="editLargCard(${task.id})" style="display: flex; align-items: center; gap: 4px; cursor:pointer;">
+               <img id="edit-task-image" class="imgEdit_task" src="./assets/img/edit_task.png" alt="">
+               <p class="edit-task-title">Edit</p>
+                  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+}

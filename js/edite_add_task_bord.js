@@ -184,7 +184,7 @@ function displaySubtasks() {
       <div class="subtaskItem" id="subsTaskEdit${i}">
         <span><li>${subtask}</li></span>
         <div class="subtaskButtons">
-          <button id="editButton_${i}" onclick="editSub('${i}')"><img src="../assets/img/edit_task.png"></button>
+          <button id="editButton_${i}" onclick="editSub('${i}')"><img src="./assets/img/edit_task.png"></button>
           <button id="deleteButton_${i}" onclick="deleteSubs('${i}')"><img src="./assets/img/delete_contacts.png"></button>
         </div>
       </div>`;

@@ -1,5 +1,50 @@
+/*SCROLL BAR*/
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track:vertical {
+  background-color: transparent;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: #a8a8a8;
+  border-radius: 10px;
+}
+
+/* Buttons */
+::-webkit-scrollbar-button:vertical:single-button {
+  background-color: #bbbbbb;
+  display: block;
+  border-style: solid;
+  height: 13px;
+  width: 16px;
+}
+
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px;
+  border-color: white white#bbbbbb White;
+}
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 8px 8px 0px 8px;
+  border-color: #bbbbbb White White White;
+}
+
+::-webkit-scdrollbar-button:single-button:horizontal {
+  display: none;
+  background-color: #0038ff;
+}
+
+/**/
+
 body {
   font-family: "Inter", sans-serif;
+  overflow: hidden;
 }
 .inputField::-webkit-outer-spin-button,
 .inputField::-webkit-inner-spin-button {
@@ -48,7 +93,7 @@ hr {
   margin-left: 280px;
   margin-top: 10px;
   width: 30%;
-  height: 88vh;
+  height: calc(100vh - 96px);
   -webkit-box-shadow: 3px 0px 4px -4px rgba(77, 77, 77, 0.53);
   -moz-box-shadow: 3px 0px 4px -4px rgba(77, 77, 77, 0.53);
   box-shadow: 3px 0px 4px -4px rgba(77, 77, 77, 0.53);
@@ -70,7 +115,7 @@ hr {
   border: 1px;
   border-radius: 9px;
   width: 90%;
-  margin-bottom: 24px;
+  margin-top: 24px;
   height: 42px;
   font-size: 15px;
   font-weight: 600;
@@ -826,8 +871,7 @@ hr {
   .contact-list {
     width: 100%;
     margin-left: 30px;
-    margin-top: 30px;
-    height: 78vh;
+    height: calc(100vh - 174px);
   }
   .slide-left {
     animation: none;

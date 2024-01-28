@@ -70,13 +70,11 @@ function showContacts() {
   let contactsdiv = document.getElementById("contacts");
   contactsdiv.innerHTML = "";
   let currentLetter = "";
-
   for (let i = 0; i < contacts.length; i++) {
     let name = contacts[i][0];
     let firstname = name[0].toUpperCase();
     let names = name.split(" ");
     let surname = names[1].toUpperCase().charAt(0);
-
     if (firstname !== currentLetter) {
       contactsdiv.innerHTML += `<div class="group-header">${firstname}</div><hr>`;
       currentLetter = firstname;
@@ -397,7 +395,7 @@ function generateFormDivHTML(i) {
 }
 
 function generateMiniPopUpHTML(i) {
-  return /*html*/` 
+  return /*html*/ ` 
       <div class="editCard-mini" id="editCard-mini" onclick="editContact(${i})"
           onmouseover="hoverEdit(this, true)" onmouseout="hoverEdit(this, false)">
           <img class="logo-mini logo-mini-2" src="./assets/img/edit_contacts.png">
@@ -410,4 +408,4 @@ function generateMiniPopUpHTML(i) {
           <img class="logo-mini-hover logo-mini-hover-2" src="./assets/img/delete.png">
           <span class="textEdit textEdit-2">Delete</span>
       </div>`;
-  }
+}

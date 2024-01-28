@@ -23,7 +23,6 @@ body{
 
 .sidebarLinkResponsiv {
     display: flex;
-    padding: 2px 16px;
     justify-content: space-around;
     align-items: center;
     display: flex;
@@ -137,6 +136,19 @@ body{
 
 .sidebarCategoryResponsiv:hover .contactsBt{
     display: none;
+}
+
+
+@media (min-width: 1000px){
+    .box-sizingResponsiv {
+      display: none;
+    }
+}
+
+@media (max-width: 1000px){
+    .box-sizing {
+      display: none;
+    }
 }
 
 

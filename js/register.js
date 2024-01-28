@@ -14,7 +14,7 @@ function login() {
   if (user) {
     let name = user["name"];
     setInitialsOfTheUser(name);
-    window.location.href = "./join.html";
+    window.location.href = "./summary.html";
     rememberMe();
   } else {
     document.getElementById("inputFieldPassword").style = `border: 1px solid rgb(255,128,143) !important;`;

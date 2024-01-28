@@ -10,6 +10,7 @@ let subtaskLevel = [
 
 async function boardInit() {
   await includeHTML();
+  await loadContactsFromServer();
   load();
   loadUserData();
   setInitialsInTheHeader();
@@ -20,7 +21,7 @@ async function boardInit() {
   document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive");
   updateHtml();
   renderSmallContats();
-  renderProgressbar;
+  renderProgressbar();
 }
 
 function filterTasksByStatus(taskStatus) {
@@ -251,9 +252,7 @@ function loadLevelOfSubtask() {
 }
 
 function generateLargeCard(task) {
-  let blackColor = document.getElementById("");
   let currentPriorityContent = task.priorityContent || "";
-  let currentSubTasks = subT[task];
   let tempDiv = document.createElement("div");
   tempDiv.innerHTML = currentPriorityContent;
   tempDiv.classList.add("selectedPriorityContentDiv");
@@ -300,21 +299,26 @@ function renderSmallContats() {
   }
   for (let i = 0; i < tasks.length; i++) {
     let assigned = tasks[i]["assigned"];
-    let idTask =  tasks[i]["id"];
-    let contactsSmallCard = document.getElementById(`boardAssigend-${idTask}`)
+    let idTask = tasks[i]["id"];
+    let contactsSmallCard = document.getElementById(`boardAssigend-${idTask}`);
     let maxContactsToShow = 3;
     let totalAssigned = assigned.length;
-    for (let a = 0; a < Math.min(maxContactsToShow, totalAssigned); a++) {
-      let name = assigned[a];
-      let firstname = name[0].toUpperCase();
-      let names = assigned[a].split(" ");
-      let surname = names[1].toUpperCase().charAt(0);
-      contactsSmallCard.innerHTML += generateContactsSmalCard(a, firstname, surname);
-    }
+    renderContentUserLargeCard(assigned, idTask, contactsSmallCard, maxContactsToShow, totalAssigned);
     if (totalAssigned > maxContactsToShow) {
       contactsSmallCard.innerHTML += generateManyContactsSmalCard(totalAssigned, maxContactsToShow);
     }
   }
+}
+
+function renderContentUserLargeCard(assigned, idTask, contactsSmallCard, maxContactsToShow, totalAssigned) {
+  for (let a = 0; a < Math.min(maxContactsToShow, totalAssigned); a++) {
+    let name = assigned[a];
+    let firstname = name[0].toUpperCase();
+    let names = assigned[a].split(" ");
+    let surname = names[1].toUpperCase().charAt(0);
+    contactsSmallCard.innerHTML += generateContactsSmalCard(a, firstname, surname);
+  }
+  return totalAssigned;
 }
 
 function renderLargeContats(task) {
