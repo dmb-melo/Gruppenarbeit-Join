@@ -25,7 +25,7 @@ function login() {
 function guestLogin() {
   let name = "Guest";
   setInitialsOfTheUser(name);
-  window.location.href = "./join.html";
+  window.location.href = "./summary.html";
 }
 
 function setInitialsOfTheUser(name) {

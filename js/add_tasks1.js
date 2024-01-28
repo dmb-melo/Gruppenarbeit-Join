@@ -1,4 +1,3 @@
-
 function getCategoryForPriority(priority) {
     switch (priority) {
       case "priorityUrgent":
@@ -358,12 +357,6 @@ function getCategoryForPriority(priority) {
     if (selectedPriority) {
       preselectedCategory = getCategoryForPriority(selectedPriority.id);
     }
-  }
-  
-  async function renderBoardHTML() {
-    document.getElementById("contentJoin").innerHTML = await generateBoardHTML();
-    await boardInit();
-    window.location.href = "./board.html";
   }
   
   function taskSuccess() {

@@ -6,12 +6,18 @@ let numberDone;
 let expirationDateOfTask = [];
 let dateOfTheNextUpcomingTask = [];
 
-async function summraryInit() {
+async function initSummary() {
   await includeHTML();
+  generateGreetingText();
   loadUserData();
   setInitialsInTheHeader();
-  renderSummaryContent();
   loadContentGreeting();
+  load();
+  determineNumberTasks();
+  removeStyleSidebar();
+  addTextColor();
+  document.getElementById("sidebarCategorySummary").classList.add("sidebarCategoryLinkActive");
+  loadContentToSummary()
 }
 
 function generateGreetingText() {
@@ -92,4 +98,16 @@ function resetNumbersTasks() {
 function loadContentGreeting() {
   document.getElementById("greetingTextResponsive").innerHTML = greetingText;
   document.getElementById("userNameResponsive").innerHTML = userName;
+}
+
+function loadContentToSummary() {
+  document.getElementById('todosCrowd').innerHTML = numberToDo;
+  document.getElementById('doneCrowd').innerHTML = numberDone;
+  document.getElementById('urgendCrowd').innerHTML = numberOfUrgentTasks;
+  document.getElementById('dateSummary').innerHTML = dateOfTheNextUpcomingTask;
+  document.getElementById('tasksNumber').innerHTML = numberOfTasks;
+  document.getElementById('tasksNumberProgress').innerHTML = numberProgress;
+  document.getElementById('tasksNumberFeedback').innerHTML = numberFeedback;
+  document.getElementById('greetingTextSummary').innerHTML = greetingText;
+  document.getElementById('userNameSummary').innerHTML = userName;
 }

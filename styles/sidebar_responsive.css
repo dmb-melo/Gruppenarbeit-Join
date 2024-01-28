@@ -43,6 +43,10 @@ body{
     display:none;
 }
 
+.sidebarCategoryResponsiv {
+    text-decoration: none;
+}
+
 .sidebarCategoryResponsiv:hover .summaryBtHover{
     display: block;
     display: flex;

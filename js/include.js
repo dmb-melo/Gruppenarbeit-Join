@@ -13,32 +13,19 @@ async function includeHTML() {
 }
 
 async function renderSummaryContent() {
-  load();
-  generateGreetingText();
-  determineNumberTasks();
-  document.getElementById("contentJoin").innerHTML = ``;
-  document.getElementById("contentJoin").innerHTML = generateSummaryContent();
-  removeStyleSidebar();
-  addTextColor();
-  document.getElementById("sidebarCategorySummary").classList.add("sidebarCategoryLinkActive");
+  window.location.href = "./summary.html";
 }
 
 function render_addTask() {
-  document.getElementById("contentJoin").innerHTML = ``;
-  document.getElementById("contentJoin").innerHTML = generate_addTask();
-  removeStyleSidebar();
-  addTextColor();
-  document.getElementById("sidebarCategoryAddTask").classList.add("sidebarCategoryLinkActive");
-  addTaskInit();
+  window.location.href = "./add_task.html";
+}
+
+function renderBoardHTML() {
+  window.location.href = "./board.html";
 }
 
 function render_contactsHtml() {
-  document.getElementById("contentJoin").innerHTML = ``;
-  document.getElementById("contentJoin").innerHTML = generate_contactsHtml();
-  removeStyleSidebar();
-  addTextColor();
-  document.getElementById("sidebarCategoryContacts").classList.add("sidebarCategoryLinkActive");
-  renderContacts();
+  window.location.href = "./contacts.html";
 }
 
 function renderPrivacyPolicyContent() {

@@ -8,21 +8,19 @@ let subtaskLevel = [
   },
 ];
 
-function renderBoardHTML() {
+async function boardInit() {
+  await includeHTML();
+  load();
+  loadUserData();
+  setInitialsInTheHeader();
   loadStateOfSubTask();
   loadLevelOfSubtask();
-  document.getElementById("contentJoin").innerHTML = ``;
-  document.getElementById("contentJoin").innerHTML = generateBoardHTML();
-  boardInit();
   removeStyleSidebar();
   addTextColor();
   document.getElementById("sidebarCategoryBorard").classList.add("sidebarCategoryLinkActive");
-  renderProgressbar();
-}
-
-async function boardInit() {
   updateHtml();
   renderSmallContats();
+  renderProgressbar;
 }
 
 function filterTasksByStatus(taskStatus) {
@@ -75,6 +73,7 @@ function generateSmallCard(task, i) {
   let currenCategory = task.category[0];
   let currentPriorityContent = task.priorityContent || "";
   let tempDiv = document.createElement("div");
+  let taskID = task["id"];
   tempDiv.innerHTML = currentPriorityContent;
   tempDiv.classList.add("selectedPriorityContentDiv");
   removeActiveClassFromSvgElements(tempDiv);
@@ -93,7 +92,7 @@ function generateSmallCard(task, i) {
   if (task.subtasks.length > 0) {
     smallProgressDiv = generateProgressBar(task.id, task.subtasks.length);
   }
-  return generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv, i);
+  return generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv, i, taskID);
 }
 
 function deleteTask(event) {
@@ -295,18 +294,17 @@ function closeCard() {
 }
 
 function renderSmallContats() {
-  const contactsSmallCard = document.getElementById("boardAssigend");
   contacts.innerHTML = "";
   if (tasks.length === 0) {
     return;
   }
   for (let i = 0; i < tasks.length; i++) {
-    const assigned = tasks[i]["assigned"];
-    const contactsSmallCard = document.getElementById(`boardAssigend-${tasks[i]["id"]}`);
-    const maxContactsToShow = 3;
-    const totalAssigned = assigned.length;
+    let assigned = tasks[i]["assigned"];
+    let idTask =  tasks[i]["id"];
+    let contactsSmallCard = document.getElementById(`boardAssigend-${idTask}`)
+    let maxContactsToShow = 3;
+    let totalAssigned = assigned.length;
     for (let a = 0; a < Math.min(maxContactsToShow, totalAssigned); a++) {
-      const assigendAvatar = assigned[a];
       let name = assigned[a];
       let firstname = name[0].toUpperCase();
       let names = assigned[a].split(" ");
