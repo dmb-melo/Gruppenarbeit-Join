@@ -102,23 +102,23 @@ function generateAddEditeTask(taskId) {
                 </div>
                 <div class ="inputLeft_addTaskBoard">
                     <div class="title_v1 wd100">               
-                        <div class="title">Title<span class="spanClass">*</span>
+                        <div class="title">Title
                             <div class="frame203Board edittitle" onclick="required(this)">
                                 <div class="title_frame14Board">
                                     <input  type="text"  class="text_enterTitle" placeholder="Enter a Title" id="editTitle" required oninput="handleInput(this)">
                                 </div> 
-                                <div class="titleFieldRequired" id="titleFieldRequired" onclick="required(this)">This field is required</div> 
+                                <div class="titleFieldRequired" id="titleFieldRequired" onclick="required(this)"></div> 
                             </div>                  
                         </div>                         
                     </div>
                     <div class="description_v1 wd100">
-                        <div class="description">Description<span class="spanClass">*</span></div>             
+                        <div class="description">Description</div>            
                         <div class="frame207 wd100" onclick="required(this)">
                         <div class="frame17Borad titleEditCard">
                             <textarea  class="text_enterDescription" type="text"  id="editDescription" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
                             <img class ="recursor" src="./assets/img/Recurso 1 1.png">
                         </div>                       
-                        <div class="descriptionFieldRequired" id="descriptionFieldRequired" onclick="required(this)">This field is required</div> 
+                        <div class="descriptionFieldRequired" id="descriptionFieldRequired" onclick="required(this)"></div> 
                         </div>
                     </div>
                     <div class="asignedTo_v1 wd100">
@@ -149,7 +149,7 @@ function generateAddEditeTask(taskId) {
                                 <div class="dueDate_frame14">
                                     <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="editDueDate" required oninput="handleInput(this)" >   
                                 </div>
-                                <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
+                                <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)"></div> 
                         </div>
                     </div>
                     <div class="frame28 wd100">
