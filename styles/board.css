@@ -10,9 +10,6 @@
   line-height: 120%;
 }
 
-.wd100 {
-  width: 100% !important;
-}
 
 .d-None {
   display: none;
@@ -44,7 +41,9 @@
   align-items: center;
   padding: 1px 88px 1px 0px;
 }
-
+.frame28  {
+  width: 100%;
+}
 .searchbarIn {
   display: flex;
   width: 1215px;
@@ -82,15 +81,15 @@
 }
 
 .textCreateTaskBoard {
-  display: flex;
-  width: 100px;
-  color: white;
-  color: var(--white, #FFF);
-  font-family: Inter;
+  width: 123px;
+  height: 24px;
+  color: #FFF;
+  font-family: "Inter", sans-serif;
   font-size: 21px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 120%;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
 }
 
 .primaryBoard:hover {
@@ -1063,6 +1062,7 @@
   align-items: center;
   gap: 16px;
   margin-top: 8px;
+  width: 80px;
 }
 
 .edit_task:hover .edit-task-title {
@@ -1219,6 +1219,11 @@
 .contactListSelected {
   background-color: #2A3647;
 
+}
+.saveContainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
 .nameIdList {
@@ -1528,7 +1533,8 @@ fill: #fff !important;
   align-items: center;
   gap: 4px;
   border-radius: 10px;
-  background: #2A3647;    
+  background: #2A3647;
+  width: 80%;
 }
 
 .primary:hover{   
@@ -1546,6 +1552,8 @@ fill: #fff !important;
   font-size: 21px;
   font-weight: 700;
   line-height: 24px;
+  display: flex;
+  align-items: center;
 }
 
 .edit_task{
@@ -1727,4 +1735,14 @@ fill: #fff !important;
 
 .importWhitColor {
   color: white !important;
+}
+
+.leadsToBoard  {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.leadsToBoard a {
+  text-decoration: none;
+  width: 100%;
 }
