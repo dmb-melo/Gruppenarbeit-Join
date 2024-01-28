@@ -224,7 +224,8 @@ function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
                   <div class="largDueDate"><span>Due Date:</span><span>${formattedDueDate}</span></div>
                 </div>
                 <div class="largPrioDetail">
-                  <p  class="boardText">Priority:</p><p class="blackImport">${clonedContentDiv.innerHTML}</p>
+                  <p  class="boardText">Priority:</p>
+                  <p class="blackImport">${clonedContentDiv.innerHTML}</p>
                 </div>
                 <div class="assigendLarge">
                   <p  class="boardText">Assigned To:</p>

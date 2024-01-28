@@ -1,3 +1,7 @@
+.openAddWindow  {
+  padding-left: 550px;
+}
+
 .addWindowCss {
   width: auto;
   background: white;
@@ -31,16 +35,7 @@
   width: 976.25px;
   margin-top: 70px;
 }
-.closeAddBoard {
-  position: fixed;
-  top: 20%;
-  right: 20%;
-  border: 0;
-  background: transparent;
-  font-weight: bold;
-  font-size: 20px;
-  cursor: pointer;
-}
+
 .categoryFrame_74PopUp {
   z-index: 6;
   cursor: pointer;
@@ -197,13 +192,11 @@ input::placeholder {
 
 .selectedPriorityContentDiv {
   display: flex;
-  /* padding: 4px 18px; */
   align-items: center;
   margin-left: 10px;
   gap: 10px;
   width: 100px;
-  height: 32px;
-  justify-content: end;
+  height: 32px; 
 }
 
 .frame207 {
@@ -1219,6 +1212,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: white;
   font-size: 24px;
   border: solid;
+  margin-left: 5px;
   font-family: "Inter", sans-serif;
 }
 
@@ -1387,10 +1381,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* Responsev */
 @media (max-width: 1455px) {
-  .closeAddBoard {
-    position: relative;
-    top: 55px;
-    left: 450px;
+  .openAddWindow  {
+    padding-left: 0;
   }
   .addWindowCss {
     width: 480px;
@@ -1413,47 +1405,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-top: 40px;
     margin-left: 0;
   }
-  .closeAddBoard {
-    right: 33%;
-  }
-
+ 
   .inputLeft_addTask {
     width: 90%;
     padding-bottom: 12px;
   }
   .title {
-    width: 270px;
+    width: 100px;
   }
   .title_v1 {
-    width: 270px;
+    width: 100px;
   }
   .frame203 {
-    width: 270px;
+    width: 100px;
   }
   .description_v1 {
-    width: 270px;
+    width: 100px;
   }
   .frame207 {
-    width: 270px;
-  }
-  .frame17 {
-    width: 270px;
-  }
-
-  .text_enterDescription {
-    font-size: 12px;
-  }
-
-  .inputDate {
-    font-size: 12px;
-  }
-
-  .frame211 {
-    width: 270px;
-}
-
-  .searchContacts {
-    font-size: 12px;
+    width: 100px;
   }
 
   .priority {
@@ -1517,11 +1487,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 @media (max-width: 550px) {
-  .closeAddBoard {
-    position: relative;
-    top: 55px;
-    left: 280px;
-  }
   .addWindowCss {
     width: 290px;
   }
@@ -1566,5 +1531,63 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   .list_addTask_Board {
     position: relative;
+  }
+
+  .title {
+    width: 270px;
+  }
+  .title_v1 {
+    width: 270px;
+  }
+  .frame203 {
+    width: 270px;
+  }
+  .description_v1 {
+    width: 270px;
+  }
+  .frame207 {
+    width: 270px;
+  }
+  .frame17 {
+    width: 270px;
+  }
+
+  .text_enterDescription {
+    font-size: 16px;
+  }
+
+  .inputDate {
+    font-size: 16px;
+  }
+
+  .frame211 {
+    width: 270px;
+  }
+  .searchContacts {
+    font-size: 16px;
+  }
+
+  .categoryFrame_74 {
+    width: 240px;
+  }
+
+  .options {
+    width: 240px;
+  }
+
+  .subtasksFrame14 {
+    width: 240px;
+  }
+
+  .subtaskItem {
+    width: 240px;
+  }
+
+  .allSubtasks {
+    width: 240px;
+  }
+
+  .textCreateTask {
+    width: 85px;
   }
 }

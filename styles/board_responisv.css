@@ -21,12 +21,7 @@
     border-style: none;
     font-size: 16px;
   }
-}
 
-@media (max-width: 444px) {
-  .largeCardA {
-    width: 336px
-  }
 
   .searchContactsBoard {
     outline: none;
@@ -42,18 +37,56 @@
 }
 }
 
-@media (max-width: 375px) {
-  .titleBoard {
-    font-size: 47px !important;
+@media (max-width: 320px) and (max-width: 375px) {
 
+  .title{
+    width: 53px;
+    margin-left: 139px;
   }
+
+   .frame203Board {
+    display: flex;
+    flex-direction: column;
+    height: 64px;
+    border: 1px;
+    gap: 4px;
+    width: 242px;
+  }
+
+  .description {
+    width: 50px;
+  }
+
+.text_enterTitle {
+  background-color: transparent;
+}
+
+.frame17Borad {
+  width: 241px;
+  margin-left: 139px;
+}
+
+/* .asignedTo_v1 {
+  width: 0;
+  margin-left: 139px;
+} */
+
+.categoryFrame74Board {
+  width: 205px;
+  margin-top: 8px;}
+
+.titleBoard {
+  font-size: 47px !important;
+}
+
   #addTaskLargeCard {
     width: 334px !important;
 }
   .searchContactsBoard {
     outline: none;
     border-style: none;
-    font-size: 16px;
+    font-size: 12px;
+    background-color: transparent;
   }
 
   .desingLagrCard {
@@ -189,6 +222,36 @@
   .progressTitles {
     font-size: 27px !important;
   }
+  .dueDateBoard{
+    width: 54%;
+    margin-left: 143px;
+  }
+  .dueDate_frame14 {
+    width: 192px;
+  }
+
+  .description {
+    margin-left: 141px;}
+
+    .underListContactBoard {     
+      width: 222px;   
+  }
+
+  .contactListBoard {
+    width: 203px;
+}
+
+.circleAvatarBoard {
+  width: 30px;
+  height: 30px; 
+  border-radius: 45px;
+}
+.nameIdList {
+  margin-top: 0;
+  color: white;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+}
 }
 
 @media (min-width: 376px) and (max-width: 648px) {
@@ -197,6 +260,25 @@
     font-size: 47px !important;
   }
 
+  .largeCardA {
+    width: 300px;
+    max-height: 94%;
+    border: solid;
+    display: flex;
+    padding: 14px 24px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    border-radius: 30px;
+    background: #fff;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    width: 89%;
+  }
+
+  .boardcontentTask{
+    margin-left: 2px;
+  }
+  
   .searchContactsBoard {
     outline: none;
     border-style: none;
@@ -210,6 +292,14 @@
     width: 100%;
   }
 
+  .frame211 {
+
+    width: 438px;}
+
+  .saveContainer {
+    width: 95%;
+  }
+
   .plusImgMobile:hover .plus_add_task_mobile {
     display: none;
   }
@@ -220,6 +310,10 @@
 
   .plusImgMobile:hover .plus_add_task_mobileHover {
     display: block;
+  }
+
+  .imputLeft_addTaskBoard{
+   margin-right: 5px;
   }
 
   .searchbarIn {
@@ -294,7 +388,17 @@
   .progressTitles {
     font-size: 27px !important;
   }
+
+  .categoryFrame74Board{
+    width: 406px;
+  }
+
+  .dueDateBoard{
+    width: 54%;
+    margin-left: 143px;
 }
+  }
+
 
 @media (min-width: 649px) and (max-width: 900px) {
   .titleBoard {
@@ -451,6 +555,7 @@
   .searchBar {
     width: 98%;
   }
+  
 
   .searchContactsBoard {
     outline: none;
@@ -481,6 +586,7 @@
     padding: 1px 88px 1px 0px;
     margin-left: 20px !important;
   }
+
 
   .searchContactsBoard {
     outline: none;
@@ -528,11 +634,11 @@
     margin-left: 250px;
     width: 87%;
   }
-
+  
   .searchContactsBoard {
     outline: none;
     border-style: none;
-    font-size: 20px;
+    font-size: 13px;
   }
 
   .tasksToDo {
@@ -575,6 +681,7 @@
     margin-top: 79.5px;
     margin-bottom: 48px;
   }
+
 }
 
 @media (max-width: 1700px) {
@@ -588,6 +695,7 @@
     margin-top: 79.5px;
     margin-bottom: 48px;
   }
+  
 }
 
 
@@ -598,6 +706,8 @@
     align-items: center;
     width: 100%;
   }
+
+
 
   .inputLeft_addTaskBoard {
     width: 100%;
@@ -782,6 +892,8 @@
     width: 350px;
   }
 
+
+
   .edittitle {
     display: flex;
     flex-direction: column;
@@ -899,13 +1011,19 @@
     border-radius: 30px;
     background: #fff;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
-    width: 89%;
-}
-}
+    width: 89%;}
+} 
+
+
 @media (max-width: 444px) {
   #addTaskLargeCard {
     width: 330px !important;
   }
+
+
+
+  .largeCardA {
+    width: 336px}
 
   .inputLeft_addTaskBoard {
     width: 289px;
@@ -1001,8 +1119,8 @@
     border-style: none;
     outline: none;
     overflow: hidden;
-  }
-
+  } 
+  
   .inputRight_addTaskEdit {
     display: flex;
     width: 265px;
@@ -1011,23 +1129,20 @@
     align-items: flex-start;
     gap: 24px;
     margin-top: 80px;
-  }
-
+  } 
+  
   .description {
     width: 200px;
-  }
-}
-
+  } 
 
 @media (max-width: 1520px) {
 
   .taskAria {
     width: 91%;
   }
-}
 
-
-@media (max-width: 1405px) {
+ 
+}  @media (max-width: 1405px) {
 
   .taskAria {
     display: flex;
@@ -1040,14 +1155,17 @@
     flex-shrink: 0;
     flex-wrap: wrap;
   }
-}
+
+} }
 
 @media (max-width: 1382px) {
 
   .taskAria {
     width: 93%;
   }
-}
+  
+  
+} 
 
 
 @media (max-width: 1205px) {
@@ -1066,7 +1184,7 @@
     flex-wrap: wrap;
     padding: 0;
   }
-}
+} 
 
 @media (max-width: 366px) {
 
@@ -1075,4 +1193,5 @@
     flex-wrap: wrap;
     padding: 0;
   }
+  
 }

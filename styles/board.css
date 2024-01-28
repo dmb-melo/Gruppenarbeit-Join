@@ -538,7 +538,7 @@
   line-height: 27.6px;
 }
 
-.blackImport {
+/* .blackImport {
   display: flex;
   padding: 4px 8px;
   align-items: center;
@@ -548,7 +548,7 @@
   height: 32px;
   justify-content: end;
   color: black !important;
-}
+} */
 
 .largCardHeader button {
   border: 0;
@@ -737,7 +737,7 @@
 }
 
 .closeLargeEditCardButton {
-  width: 85%;
+  width: 100%;
   display: flex;
   justify-content: end;
 }
@@ -883,6 +883,7 @@
   max-height: 293px;
   width: 424px;
   overflow: auto;
+  margin-top: 16px;
 }
 
 .inputRight_addTaskEdit {
@@ -1273,6 +1274,11 @@ line-height: 24px;
 .contactListBoard {
   display: flex;
   align-items: center;
+  width: 405px;
+  border-radius: 10px;
+  padding: 4px;
+  /* height: 116px; */
+
 }
 
 
@@ -1595,6 +1601,23 @@ fill: #fff !important;
   font-family: "Inter", sans-serif;
   font-size: 20px;    
 }
+
+
+.priorityUrgent-active {
+  background-color: #FF3D00;
+  color: white;
+}
+
+.priorityMedium-active {
+  background-color: #FFA800;
+  color: white;
+}
+
+.priorityLow-active {
+  background-color: #7AE229;
+  color: white;
+}
+
 
 .priorityUrgent-active {
   background-color: #FF3D00;
