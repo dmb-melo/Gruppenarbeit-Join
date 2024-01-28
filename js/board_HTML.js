@@ -442,7 +442,7 @@ function generateEditContacts(assignedItem, color) {
 
   return /*html*/ `
       <div class="boardLargContactsAvatar">
-        <div class="circle" style="background-color: ${color}">
+        <div class="editVersionCircel" style="background-color: ${color}">
           <p class="nameIdList">${firstname}${surname}</p>
         </div>
         <p>${assignedItem}</p>
@@ -463,7 +463,7 @@ function generateInputEditSubtask(index) {
 function generatCircleContactsLargeCard(d, firstname, surname, assigendAvatar) {
   return /*html*/ `
       <div class="boardLargContactsAvatar">
-         <div class="circle" id="circle-${d}" style="background-color: ${colors[d]}">
+         <div class="boardVersionCircel" id="circle-${d}" style="background-color: ${colors[d]}">
             <p class="nameIdList" id="name-id">${firstname}${surname}</p>
          </div>
          <p>${assigendAvatar}</p>
@@ -474,7 +474,7 @@ function generatCircleContactsLargeCard(d, firstname, surname, assigendAvatar) {
 function generateContactsSmalCard(a, firstname, surname) {
   return /*html*/ `
           <div class="">
-              <div class="smallCardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}">
+              <div class="boardVersionCircel" id="circle-${a}" style="background-color: ${colors[a]}">
                   <p class="nameIdList" id="name-id">${firstname}${surname}</p>
               </div>
           </div>
@@ -484,7 +484,7 @@ function generateContactsSmalCard(a, firstname, surname) {
 function generateManyContactsSmalCard(totalAssigned, maxContactsToShow) {
   return /*html*/ `
       <div class="">
-          <div class="smallCardVersionCircel lastSmallCircel " style="background-color: #ccc;">
+          <div class="boardVersionCircel lastSmallCircel " style="background-color: #ccc;">
              <p class="nameIdList lastCircel" id="name-id">${totalAssigned - maxContactsToShow}+</p>
           </div>
        </div>

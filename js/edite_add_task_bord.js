@@ -67,7 +67,7 @@ function displayAssignedContacts(assignedContacts) {
     const newContactElement = document.createElement("div");
     newContactElement.classList.add("boardLargContactsAvatar");
     newContactElement.innerHTML = /*html*/ `
-      <div class="circle" id="circle-${index}" style="background-color: ${colors[index]}">
+      <div class="EditVersionCircel" id="circle-${index}" style="background-color: ${colors[index]}">
         <p class="nameIdList" id="name-id">${firstnameInitial}${surnameInitial}</p>
       </div>
     `;

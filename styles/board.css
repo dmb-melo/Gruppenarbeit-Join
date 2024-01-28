@@ -374,8 +374,18 @@
 .textLow {
   overflow: hidden;
 }
-
-.smallCardVersionCircel {
+.editVersionCircel {
+  border-radius: 100px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  color: white;
+  border: solid 1px white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.boardVersionCircel {
   border-radius: 100px;
   width: 36px;
   height: 36px;
@@ -387,6 +397,7 @@
   justify-content: center;
   margin-left: -8px;
 }
+
 
 .lastCircel {
   color: black !important;
@@ -529,13 +540,14 @@
 
 .blackImport {
   display: flex;
-  /* padding: 4px 18px; */
+  padding: 4px 8px;
   align-items: center;
   margin-left: 10px;
   gap: 10px;
   width: 100px;
   height: 32px;
   justify-content: end;
+  color: black !important;
 }
 
 .largCardHeader button {
@@ -601,6 +613,8 @@
 #boardAssigendLargCard {
   display: flex;
   flex-direction: column;
+  margin-left: 31px;
+  gap: 10px;
 }
 
 .largCardContactContainer {
@@ -646,6 +660,7 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
+  gap: 16px;
 }
 
 .largCardFooter {
@@ -799,7 +814,11 @@
   background: #fff;
   margin-top: 8px;
 }
-
+.subtasks {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 .subtasksFrame14Board {
   cursor: pointer;
   display: flex;
@@ -1057,6 +1076,7 @@
   width: 92%;
   border-radius: 20px;
   cursor: pointer;
+  margin-left: 29px;
 }
 
 .subtasksContents:hover {
