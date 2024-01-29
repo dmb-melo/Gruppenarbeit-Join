@@ -101,7 +101,6 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
-  /* max-height: 437px; */
   margin-bottom: 94px;
 }
 
@@ -1389,6 +1388,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     position: relative;
   }
 }
+
 @media (max-width: 763px) {
   .group66_addTaskPopUp {
     flex-direction: column;
@@ -1410,9 +1410,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .listPopUp {
     width: 90%;
   }
-.underListContactPopUp {
-  width: 100%;
-}
+  .underListContactPopUp {
+    width: 100%;
+  }
   .inputLeft_addTaskPopUp,
   .title_v1PopUp,
   .titletitlePopUp,
@@ -1467,6 +1467,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media (max-width: 635px) {
   .underListContactPopUp {
+    width: 100%;
+  }
+  .underListContactPopUp {
     width: 434px !important;
   }
 }
@@ -1507,6 +1510,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     left: 300px;
   }
 }
+@media (max-width: 579px) {
+  .underListContactPopUp {
+    width: 100%;
+  }
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 230px;
+  }
+}
+@media (max-width: 508px) {
+  .underListContactPopUp {
+    width: 100%;
+  }
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 200px;
+  }
+}
 
 @media (max-width: 508px) {
   .underListContactPopUp {
@@ -1535,18 +1554,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
+@media (max-width: 444px) {
+  .underListContactPopUp {
+    width: 100%;
+  }
+}
+
 @media (max-width: 421px) {
   .textContainer_addTask {
     margin-top: 0;
   }
-}
-}
-@media (max-width: 398px) {
-.text_addTask {
-  font-size: 29px;
-}
-.underListContactPopUp{
-  width: 100%;
 }
 
 @media (max-width: 398px) {
@@ -1554,7 +1571,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 29px;
   }
   .underListContactPopUp {
-    width: 70% !important;
+    width: 100%;
+  }
+
+  @media (max-width: 398px) {
+    .text_addTask {
+      font-size: 29px;
+    }
+    .underListContactPopUp {
+      width: 70% !important;
+    }
   }
 }
 
@@ -1594,33 +1620,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .underListContactPopUp {
     width: 100%;
-  }
-}
-
-@media (max-width: 635px) {
-  .underListContactPopUp {
-    width: 100%;
-  }
-}
-@media (max-width: 579px) {
-  .underListContactPopUp {
-    width: 100%;
-  }
-  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
-    left: 230px;
-  }
-}
-@media (max-width: 508px) {
-  .underListContactPopUp {
-    width: 100%;
-  }
-  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
-    left: 200px;
-  }
-}
-@media (max-width: 444px) {
-  .underListContactPopUp {
-    width:100%;
   }
 }
 

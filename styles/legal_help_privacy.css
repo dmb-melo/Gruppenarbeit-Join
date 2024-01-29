@@ -142,18 +142,6 @@ body {
   font-weight: 700;
 }
 
-@media (max-width: 1000px) {
-  .close-arrow-container {
-    top: 200px;
-    right: 48px;
-  }
-  .content-container {
-    margin-top: 48px;
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-}
-
 @media (max-width: 520px) {
   .close-arrow-container {
     top: 150px;
@@ -182,5 +170,17 @@ body {
 
   p {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .close-arrow-container {
+    top: 200px;
+    right: 48px;
+  }
+  .content-container {
+    margin-top: 48px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 }

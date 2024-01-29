@@ -504,6 +504,78 @@ body {
   }
 }
 
+@media (max-width: 500px) {
+  .log-in-container {
+    width: 320px;
+  }
+
+  .sign-up-container {
+    width: 320px;
+  }
+
+  .input-field {
+    width: 220px;
+  }
+
+  .input-field-container {
+    width: 240px;
+  }
+
+  .remember-me-container {
+    width: 240px;
+  }
+
+  .headline-log-in {
+    font-size: 37px !important;
+  }
+}
+
+@media (max-height: 700px) {
+  .headline-log-in-mobile {
+    margin-top: 0 !important;
+  }
+
+  .log-in-container {
+    height: 390px;
+  }
+
+  .remember-me-container {
+    padding-top: 0;
+  }
+
+  .input-field-container {
+    margin-top: 0;
+  }
+  .headline-log-in {
+    margin-top: 22px;
+  }
+  .sign-up-container {
+    margin-top: 58px;
+    height: 460px;
+  }
+
+  .arrow-back-sign-up-container {
+    top: 22px;
+    left: 32px;
+  }
+
+  .input-log-in {
+    gap: 8px;
+  }
+
+  .input-field-container {
+    height: 40px;
+  }
+
+  .accept-privacy-policy-container {
+    padding-top: 8px;
+  }
+
+  .submit-sign-up-container {
+    padding-top: 0;
+  }
+}
+
 @media (min-width: 900px) {
   .sign-up-button-container-responsive {
     display: none;
@@ -598,74 +670,3 @@ body {
   }
 }
 
-@media (max-width: 500px) {
-  .log-in-container {
-    width: 320px;
-  }
-
-  .sign-up-container {
-    width: 320px;
-  }
-
-  .input-field {
-    width: 220px;
-  }
-
-  .input-field-container {
-    width: 240px;
-  }
-
-  .remember-me-container {
-    width: 240px;
-  }
-
-  .headline-log-in {
-    font-size: 37px !important;
-  }
-}
-
-@media (max-height: 700px) {
-  .headline-log-in-mobile {
-    margin-top: 0 !important;
-  }
-
-  .log-in-container {
-    height: 390px;
-  }
-
-  .remember-me-container {
-    padding-top: 0;
-  }
-
-  .input-field-container {
-    margin-top: 0;
-  }
-  .headline-log-in {
-    margin-top: 22px;
-  }
-  .sign-up-container {
-    margin-top: 58px;
-    height: 460px;
-  }
-
-  .arrow-back-sign-up-container {
-    top: 22px;
-    left: 32px;
-  }
-
-  .input-log-in {
-    gap: 8px;
-  }
-
-  .input-field-container {
-    height: 40px;
-  }
-
-  .accept-privacy-policy-container {
-    padding-top: 8px;
-  }
-
-  .submit-sign-up-container {
-    padding-top: 0;
-  }
-}
