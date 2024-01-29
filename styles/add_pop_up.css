@@ -1408,6 +1408,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .underListContactPopUp {
   }
+  .underList {
+    position: relative;
+  }
 }
 @media (max-width: 763px) {
   .group66_addTaskPopUp {
@@ -1420,6 +1423,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100%;
     flex-direction: column
   }
+  .underList {
+    position: relative;
+  }
+
   .inputLeft_addTaskPopUp,
   .title_v1PopUp, 
   .titletitlePopUp, 
