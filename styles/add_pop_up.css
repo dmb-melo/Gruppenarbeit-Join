@@ -1,6 +1,3 @@
-.openAddWindow {
-}
-
 .addWindowCss {
   width: 100%;
   background: white;
@@ -71,14 +68,7 @@ body {
   width: 95%;
   justify-content: space-between;
 }
-.closeAddBoard {
-  margin-right: 52px;
-  border: 0;
-  background: transparent;
-  font-weight: bold;
-  font-size: 20px;
-  cursor: pointer;
-}
+
 .text_addTask {
   font-family: "Inter", sans-serif;
   font-weight: 700;
@@ -1464,15 +1454,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .asignedTo_v1PopUp {
     width: 100%;
   }
-  .asignedToPopUP {
-  }
+ 
   .categoryFrame74_addTask_Board {
     width: 85%;
   }
-  .searchContacts {
-  }
-  .underListContactPopUp {
-  }
+
   .inputRight_addTaskPopUp {
     width: 95%;
   }
@@ -1535,21 +1521,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 }
 @media (max-width: 398px) {
-<<<<<<< HEAD
-  .text_addTask {
-    font-size: 43px;
-  }
-  .underListContactPopUp {
-    width: 70% !important;
-  }
-=======
 .text_addTask {
   font-size: 29px;
 }
 .underListContactPopUp{
   width: 70% !important;
 }
->>>>>>> 7554ce67b1169bd76bfa85e47cf6597f4095e795
+
 }
 @media (max-width: 386px) {
   .textCreateTask {
