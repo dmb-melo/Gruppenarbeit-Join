@@ -283,6 +283,7 @@
   }
   .titleEditCard {
     width: 283px;
+    
   }
   .contactListBoard:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 230px;
@@ -655,6 +656,7 @@
   .searchBar {
     width: 98%;
   }
+<<<<<<< HEAD
 
   .searchContactsBoard {
     outline: none;
@@ -667,6 +669,8 @@
   .searchBar {
     width: 98%;
   }
+=======
+>>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 
   .searchContactsBoard {
     outline: none;
@@ -781,9 +785,9 @@
     margin-top: 79.5px;
     margin-bottom: 48px;
   }
-}
+} 
 
-@media (max-width: 1373px) {
+ @media (max-width: 1373px) {
   .searchbarIn {
     display: flex;
     width: 100% !important;
@@ -799,17 +803,30 @@
 
 @media (max-width: 1700px) {
   .searchbarIn {
-    display: flex;
-    height: 73px;
-    justify-content: space-around;
-    align-items: center;
-    margin-left: 0 !important;
-    margin-right: 82px;
-    margin-top: 79.5px;
-    margin-bottom: 48px;
+    margin-left: 50x; 
+  }
+<<<<<<< HEAD
+}
+
+=======
+
+  .taskAria {
+    margin-left: 28px;
+    padding: 0;
+  }
+
+  .todoHeadline,
+  .awaitFeedbackHeadline,  
+  .doneHeadline{
+    margin-left: 30px;
+  }
+
+  .searchbarIn{
+    margin-left: 64px;
   }
 }
 
+>>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 @media (max-width: 622px) {
   .BoardcontentTask {
     display: flex;
@@ -1252,6 +1269,7 @@
 
   .description {
     width: 200px;
+<<<<<<< HEAD
   }
 
   @media (max-width: 1520px) {
@@ -1273,12 +1291,68 @@
     }
   }
 }
+=======
+  } 
+  }
+
+
+  @media (min-width: 1521px){
+    .taskAria {
+      margin-left: 28px;
+      padding: 0;
+  }
+
+  .todoHeadline,
+  .awaitFeedbackHeadline,  
+  .doneHeadline{
+    margin-left: 30px;
+  }
+
+  .searchbarIn{
+    margin-left: 64px;
+  }
+
+  }
+
+@media (max-width: 1520px) {
+  .taskAria {
+    margin-left: -45px;
+  }
+
+  .searchbarIn{
+    margin-left: 30px; 
+  }
+
+  .searchBoxLeft{
+    margin-right: 100px;
+  }
+
+ 
+}  @media (max-width: 1405px) {
+  .taskAria {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 64px;
+    height: 688px;
+    width: 1071px;
+    align-items: flex-start;
+    gap: 26px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+} 
+>>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 
 @media (max-width: 1382px) {
   .taskAria {
     width: 93%;
   }
+<<<<<<< HEAD
 }
+=======
+} 
+
+>>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 
 @media (max-width: 1205px) {
   .taskAria {
@@ -1290,10 +1364,43 @@
 
 @media (max-width: 1156px) {
   .taskAria {
-    width: 77%;
+    width: 73%;
     flex-wrap: wrap;
     padding: 0;
   }
+<<<<<<< HEAD
+=======
+
+  .todoHeadline {
+    margin-left: 34px;
+    display: flex;
+    max-width: 244px;
+    justify-content: space-between;
+    align-items: center;}
+
+    .awaitFeedbackHeadline{
+      margin-left: 34px;
+    }
+
+    .doneHeadline{
+      margin-left: 34px;
+    }
+
+
+  .headlineCss {
+    /* margin-left: 34px; */
+    display: flex;
+    max-width: 244px;
+    justify-content: space-between;
+    align-items: center;}
+
+    .searchBoxLeft {
+      display: flex;
+      width: 504px;
+      gap: 32px;
+      margin-right: 95px;
+  }
+>>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 }
 
 @media (max-width: 366px) {
