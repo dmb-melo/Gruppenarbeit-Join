@@ -656,7 +656,6 @@
   .searchBar {
     width: 98%;
   }
-<<<<<<< HEAD
 
   .searchContactsBoard {
     outline: none;
@@ -669,8 +668,6 @@
   .searchBar {
     width: 98%;
   }
-=======
->>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 
   .searchContactsBoard {
     outline: none;
@@ -806,10 +803,6 @@
   .searchbarIn {
     margin-left: 50x; 
   }
-<<<<<<< HEAD
-}
-
-=======
 
   .taskAria {
     margin-left: 28px;
@@ -827,7 +820,6 @@
   }
 }
 
->>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 @media (max-width: 622px) {
   .BoardcontentTask {
     display: flex;
@@ -1270,29 +1262,6 @@
 
   .description {
     width: 200px;
-<<<<<<< HEAD
-  }
-
-  @media (max-width: 1520px) {
-    .taskAria {
-      width: 91%;
-    }
-  }
-  @media (max-width: 1405px) {
-    .taskAria {
-      display: flex;
-      justify-content: space-between;
-      padding: 0px 64px;
-      height: 688px;
-      width: 1071px;
-      align-items: flex-start;
-      gap: 26px;
-      flex-shrink: 0;
-      flex-wrap: wrap;
-    }
-  }
-}
-=======
   } 
   }
 
@@ -1342,18 +1311,13 @@
     flex-wrap: wrap;
   }
 } 
->>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 
 @media (max-width: 1382px) {
   .taskAria {
     width: 93%;
   }
-<<<<<<< HEAD
-}
-=======
 } 
 
->>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 
 @media (max-width: 1205px) {
   .taskAria {
@@ -1369,8 +1333,6 @@
     flex-wrap: wrap;
     padding: 0;
   }
-<<<<<<< HEAD
-=======
 
   .todoHeadline {
     margin-left: 34px;
@@ -1401,7 +1363,6 @@
       gap: 32px;
       margin-right: 95px;
   }
->>>>>>> 41ee1bfc2f7bf29a2b009e1a4425a38b3e65b5e3
 }
 
 @media (max-width: 366px) {
