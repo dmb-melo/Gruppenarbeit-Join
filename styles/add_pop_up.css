@@ -63,7 +63,7 @@ body {
 .textContainer_addTask {
   height: 73px;
   margin-top: 40px;
-  margin-left:auto;
+  margin-left: auto;
   display: flex;
   width: 95%;
   justify-content: space-between;
@@ -95,8 +95,6 @@ body {
   align-items: center;
 }
 
-/* input left */
-
 .inputLeft_addTaskPopUp {
   display: flex;
   width: 440px;
@@ -108,7 +106,6 @@ body {
 .title_v1PopUp {
   display: flex;
   height: 96px;
-  /*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
   width: 440px;
   flex-direction: column;
   align-items: flex-start;
@@ -116,7 +113,6 @@ body {
 
 .titlePopUp {
   height: 24px;
-  /*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -128,11 +124,9 @@ body {
   display: flex;
   flex-direction: column;
   height: 64px;
-  /*wird wahrscheinlich nicht benötigt - figma ist ohne height*/
   border: 1px;
   gap: 4px;
   width: 440px;
-  /*wird wahrscheinlich nicht benötigt - figma ist ohne width*/
 }
 
 .title_frame14 {
@@ -160,7 +154,6 @@ body {
 }
 
 input::placeholder {
-  /*changes the colour of the placeholder text in the input field*/
   color: #d1d1d1;
 }
 
@@ -246,7 +239,6 @@ input::placeholder {
 }
 
 textarea::placeholder {
-  /*changes the colour of the placeholder text in the textarea*/
   color: #d1d1d1;
 }
 
@@ -320,17 +312,14 @@ textarea::placeholder {
 
 .arrow_drop_downHover {
   display: none;
-  /* Hide the hover image by default */
 }
 
 .imgArrows:hover .arrow_drop_downHover {
   display: block;
-  /* Show the hover image when the container is being hovered */
 }
 
 .imgArrows:hover:hover .arrow_drop_down {
   display: none;
-  /* Hide the normal image when the container is being hovered */
 }
 
 .circleAvatar {
@@ -368,8 +357,6 @@ textarea::placeholder {
   line-height: 24px;
 }
 
-/* input left end*/
-
 .vector4 {
   width: 2px;
   height: 424px;
@@ -377,8 +364,6 @@ textarea::placeholder {
   border-style: #d1d1d1;
   background-color: #d1d1d1;
 }
-
-/* input right */
 
 .inputRight_addTaskPopUp {
   display: flex;
@@ -703,17 +688,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /* Apply the background image to the select element */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 25 24' fill='none'%3E%3Cmask id='mask0_116471_1860' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.144531' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_116471_1860)'%3E%3Cpath d='M11.4445 14.3L8.84451 11.7C8.52784 11.3833 8.45701 11.0208 8.63201 10.6125C8.80701 10.2042 9.11951 10 9.56951 10H14.7195C15.1695 10 15.482 10.2042 15.657 10.6125C15.832 11.0208 15.7612 11.3833 15.4445 11.7L12.8445 14.3C12.7445 14.4 12.6362 14.475 12.5195 14.525C12.4028 14.575 12.2778 14.6 12.1445 14.6C12.0112 14.6 11.8862 14.575 11.7695 14.525C11.6528 14.475 11.5445 14.4 11.4445 14.3Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: calc(100% - 16px) center;
-  /* Adjusted position with margin-right */
 }
 
 .custom-select:hover {
   background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 24 25' fill='none'%3E%3Cg id='Property 1=Variant2'%3E%3Crect y='0.96582' width='24' height='24' rx='12' fill='%23EEEEEE'/%3E%3Cmask id='mask0_75597_14127' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='24' height='25'%3E%3Crect id='Bounding box' y='0.96582' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75597_14127)'%3E%3Cpath id='arrow_drop_down' d='M11.3005 15.2658L8.70046 12.6658C8.3838 12.3492 8.31296 11.9867 8.48796 11.5783C8.66296 11.17 8.97546 10.9658 9.42546 10.9658H14.5755C15.0255 10.9658 15.338 11.17 15.513 11.5783C15.688 11.9867 15.6171 12.3492 15.3005 12.6658L12.7005 15.2658C12.6005 15.3658 12.4921 15.4408 12.3755 15.4908C12.2588 15.5408 12.1338 15.5658 12.0005 15.5658C11.8671 15.5658 11.7421 15.5408 11.6255 15.4908C11.5088 15.4408 11.4005 15.3658 11.3005 15.2658Z' fill='%232A3647'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-position: calc(100% - 16px) center;
-  /* Adjusted position with margin-right on hover */
 }
 
 .subtasks {
@@ -740,21 +722,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .subtasksContents {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-  /* Adjust margin between checkboxes */
 }
 
 .subtasksContents {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-  /* Adjust margin between checkboxes */
 }
 
 .subTasksCard {
@@ -823,17 +802,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .imgPlusHover {
   display: none;
-  /* Hide the hover image by default */
 }
 
 .imgPlusContainer:hover .imgPlusHover {
   display: block;
-  /* Show the hover image when the container is being hovered */
 }
 
 .imgPlusContainer:hover .imgPlus {
   display: none;
-  /* Hide the normal image when the container is being hovered */
 }
 
 .vectorAndImgCheck {
@@ -871,7 +847,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 24px;
 }
 
-/* Hide the hover image by default */
 .subtaskCheckHover {
   display: none;
 }
@@ -880,12 +855,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Crect x='0.144531' width='24' height='24' rx='12' fill='%23EEEEEE'/%3E%3Cmask id='mask0_75592_9966' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='25' height='24'%3E%3Crect x='0.144531' width='24' height='24' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_75592_9966)'%3E%3Cpath d='M9.69474 15.15L18.1697 6.675C18.3697 6.475 18.6072 6.375 18.8822 6.375C19.1572 6.375 19.3947 6.475 19.5947 6.675C19.7947 6.875 19.8947 7.1125 19.8947 7.3875C19.8947 7.6625 19.7947 7.9 19.5947 8.1L10.3947 17.3C10.1947 17.5 9.96141 17.6 9.69474 17.6C9.42807 17.6 9.19474 17.5 8.99474 17.3L4.69474 13C4.49474 12.8 4.3989 12.5625 4.40724 12.2875C4.41557 12.0125 4.51974 11.775 4.71974 11.575C4.91974 11.375 5.15724 11.275 5.43224 11.275C5.70724 11.275 5.94474 11.375 6.14474 11.575L9.69474 15.15Z' fill='%232A3647'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Show the hover image when hovering over the parent */
 .subtasksImgCheck:hover .subtaskCheckHover {
   display: block;
 }
 
-/* Hide the normal image when the container is being hovered */
 .subtasksImgCheck:hover .subtaskCheck {
   display: none;
 }
@@ -905,7 +878,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  /* margin-top: 26px; */
   align-items: center;
   height: 100%;
   display: flex;
@@ -966,17 +938,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .imgCancelHover {
   display: none;
-  /* Hide the hover image by default */
 }
 
 .secondary:hover .imgCancelHover {
   display: block;
-  /* Show the hover image when the container is being hovered */
 }
 
 .secondary:hover .imgCancel {
   display: none;
-  /* Hide the normal image when the container is being hovered */
 }
 
 .primary {
@@ -1012,9 +981,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 24px;
 }
 
-/* input right end*/
-
-/*delete and edit*/
 .deleteAndEdit {
   display: flex;
   justify-content: end;
@@ -1091,8 +1057,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #7ae229;
 }
 
-/*assigned*/
-
 .assigned {
   display: flex;
   flex-direction: column;
@@ -1118,8 +1082,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   overflow: auto;
 }
 
-/*SCROLL BAR*/
-
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -1134,7 +1096,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 10px;
 }
 
-/* Buttons */
 ::-webkit-scrollbar-button:vertical:single-button {
   background-color: #bbbbbb;
   display: block;
@@ -1143,13 +1104,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 16px;
 }
 
-/* Down */
 ::-webkit-scrollbar-button:single-button:vertical:increment {
   border-width: 8px;
   border-color: white white#bbbbbb White;
 }
 
-/* Up */
 ::-webkit-scrollbar-button:single-button:vertical:decrement {
   border-width: 8px 8px 0px 8px;
   border-color: #bbbbbb White White White;
@@ -1159,8 +1118,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   background-color: #0038ff;
 }
-
-/**/
 
 .custom-checkbox-board {
   font-size: 20px;
@@ -1242,7 +1199,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #eeeeee;
 }
 
-/*SUBTASK*/
 .subtaskItemPopUp {
   cursor: pointer;
   display: flex;
@@ -1283,8 +1239,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   line-height: 120%;
 }
 
-/*Category*/
-
 .underList {
   cursor: pointer;
   position: absolute;
@@ -1324,8 +1278,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .rotate {
   transform: rotate(180deg);
 }
-
-/*success add task*/
 
 .leadsToBoard {
   text-decoration: none;
@@ -1394,7 +1346,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .addBoard {
   width: 100%;
 }
-/* Responsev */
+
 @media (max-width: 1510px) {
   .group66_addTaskPopUp {
     width: 898.25px;
@@ -1406,6 +1358,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin: 0;
   }
 }
+
 @media (max-width: 1393px) {
   .group66_addTaskPopUp {
     flex-direction: column;
@@ -1466,7 +1419,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .asignedTo_v1PopUp {
     width: 100%;
   }
- 
+
   .categoryFrame74_addTask_Board {
     width: 85%;
   }
@@ -1500,6 +1453,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
+@media (max-width: 635px) {
+  .underListContactPopUp {
+    width: 434px !important;
+  }
+}
+
 @media (max-width: 589px) {
   .priority {
     flex-direction: column;
@@ -1524,40 +1483,70 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 90%;
   }
 }
-@media (max-width: 498px) {
-.text_addTask {
-  font-size: 30px;
-}
-.underListContactPopUp{
-  width: 70% !important;
-}
-.textContainer_addTask {
-  margin-top: 0;
+
+@media (max-width: 579px) {
+  .underListContactPopUp {
+    width: 380px !important;
+  }
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 300px;
+  }
+  .contactListBoard:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 300px;
   }
 }
+
+@media (max-width: 508px) {
+  .underListContactPopUp {
+    width: 330px !important;
+  }
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 200px;
+  }
+}
+
+@media (max-width: 498px) {
+  .text_addTask {
+    font-size: 30px;
+  }
+  .underListContactPopUp {
+    width: 70% !important;
+  }
+  .textContainer_addTask {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 444px) {
+  .underListContactPopUp {
+    width: 270px !important;
+  }
+}
+
 @media (max-width: 421px) {
-.textContainer_addTask {
-margin-top: 0;
+  .textContainer_addTask {
+    margin-top: 0;
+  }
 }
-}
-.underListContactPopUp{
-  width: 70% !important;
-}
-@media (max-width: 398px) {
-.text_addTask {
-  font-size: 29px;
-}
-.underListContactPopUp{
+.underListContactPopUp {
   width: 70% !important;
 }
 
+@media (max-width: 398px) {
+  .text_addTask {
+    font-size: 29px;
+  }
+  .underListContactPopUp {
+    width: 70% !important;
+  }
 }
+
 @media (max-width: 386px) {
   .textCreateTask {
     font-size: 18px;
   }
   .leadsToBoardPopUp {
-    width: 95%!important;
+    width: 95% !important;
   }
   .searchContacts {
     font-size: 16px;
@@ -1591,33 +1580,6 @@ margin-top: 0;
   }
 }
 
-@media (max-width: 635px) {
-  .underListContactPopUp {
-    width: 434px !important;
-  }
-}
-@media (max-width: 579px) {
-  .underListContactPopUp {
-    width: 380px !important;
-  }
-  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
-    left: 230px;
-  }
-}
-@media (max-width: 508px) {
-  .underListContactPopUp {
-    width: 330px !important;
-  }
-  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
-    left: 200px;
-  }
-}
-@media (max-width: 444px) {
-  .underListContactPopUp {
-    width: 270px !important;
-  }
-}
-
 @media (max-width: 360px) {
   .textContainer_addTask {
     margin-top: 0px;
@@ -1632,5 +1594,3 @@ margin-top: 0;
     width: 270px !important;
   }
 }
-
-/* responsev */
