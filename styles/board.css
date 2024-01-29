@@ -528,6 +528,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  height: 100%;
+  justify-content: space-between;
 }
 
 .largCardHeader {
@@ -607,6 +609,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  justify-content: space-between;
+  height: 58vh;
 }
 
 .largPrioDetail {
@@ -904,7 +908,7 @@ width: 100%;
   border-radius: 10px;
   background: var(--white, #FFF);
   z-index: 1;
-  max-height: 293px;
+  max-height: 394px;
   width: 424px;
   overflow: auto;
   margin-top: 16px;
@@ -1349,6 +1353,7 @@ line-height: 24px;
   font-size: 20px;
   line-height: 24px;    
   color: var(--Version-2-main-color, #2A3647);    
+  margin-top: 57px;
 }
 
 

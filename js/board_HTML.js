@@ -211,7 +211,7 @@ function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
               <div class="largCardText">
                 <!-- Title and description -->
                 <div class="largCardTitle">
-                  <h1>${task.title}</h1>
+                  <h1 class="largTitle">${task.title}</h1>
                 </div>
                 <div class="largCardTextArea">
                   <p>${task.description}</p>
