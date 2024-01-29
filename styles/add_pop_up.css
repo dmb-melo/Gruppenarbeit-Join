@@ -77,6 +77,15 @@ body {
   line-height: 73.2px;
 }
 
+.closeAddBoard {
+  margin-right: 52px;
+  border: 0;
+  background: transparent;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .group66_addTaskPopUp {
   width: 976.25px;
   display: flex;
