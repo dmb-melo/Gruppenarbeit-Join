@@ -1,4 +1,268 @@
-@media (max-width: 320px) {
+@media (min-width: 292px) and (max-width: 320px){
+  .box-sizing {
+    display: none;
+  }
+
+
+  .span,
+  .nameIdList,
+  .nameContact,
+  .text_DueDate,
+  .inputDate,
+  .titlePrio,
+  .inputDate,
+  .textCategory,
+  .categoryFrame74,
+  .textSubtasks,
+  .textAddSubtasks,
+  .description, .asignedTo {
+    font-size: 16px;
+  }
+
+  .description_v1,
+  .frame207,
+  .frame17,
+  .asignedTo_v1,
+  .underListContact,
+  .contactAvatar,
+  .dueDate,
+  .frame211,
+  .priority,
+  .inputLeft_addTask,
+  .frame203 {
+    width: 263px;
+  }
+
+  .contentTask {
+    overflow: scroll !important;
+    height: calc(100vh - 176px);
+  }
+
+  .textContainer_addTask {    
+    margin-left: 27px;
+    width: 263px;   
+  }
+
+  .text_addTask{
+    font-size: 48px;
+  }
+
+  .group66_addTask {  
+    margin-left: 27px;
+    flex-direction: column;
+    justify-content: center;
+    width: 0;
+  }
+
+  .vector4 {
+    display: none;
+  }
+
+  .inputRight_addTask {
+    margin-top: 50px;
+    width: 263px;
+  }
+
+  .title_v1 {
+    width: 10px;   
+  }
+
+  .title {
+    font-size: 16px;
+    width: 263px;
+  }
+
+  .title_frame14 {
+    padding: 10px 21px;
+    gap: 10px;
+    width: 212px;
+  }
+
+  .text_enterTitle {
+    font-size: 16px;
+    width: 255px;
+  }
+
+  .text_enterDescription {
+    height: 88px;
+    padding: 18px 21px;
+    font-size: 16px;
+    width: 255px;
+  }
+
+  .recursor {
+    display: none;
+  }
+
+  .categoryFrame_74 {
+    padding: 10px 21px;    
+    width: 212px;
+  }  
+
+  .categoryFrame74 {
+    padding: 10px 13px;
+    width: 231px;
+}
+
+.circleAvatar{
+  height: 34px;
+  width: 34px;
+}
+  
+
+  .list{
+    height: 0px;
+  }
+
+  .searchContacts {
+    width: 195px;
+    font-size: 16px;
+  }
+
+  .underListContact {
+    position: relative;
+    height: 76px;
+  }
+
+  .contactList{
+    height: 40px; 
+  }
+
+  .custom-checkbox {
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 210px;
+  }
+
+  .custom-checkbox-board label:before {
+    left: 147px;
+}
+
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 147px;
+  }
+
+  .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+    left: 147px;
+}
+ 
+
+  .contactList:hover .custom-checkbox input[type="checkbox"]:checked + label:before {
+    left: 210px;
+}
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    width: 20px;
+  }
+
+  .frame28{
+    width: 260px;
+  }
+
+  .priority{
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .priorityUrgent,
+  .priorityMedium,
+  .priorityLow {
+    width: 80px;
+    padding: 13px 8px;
+    gap: 8px;
+  }
+
+  .textUrgent {
+    font-size: 16px;
+  }
+
+  .textMedium {
+    font-size: 15px;
+  }
+
+  .textLow {
+    font-size: 16px;
+  }
+
+  .category {
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+  }
+
+  .underlist{
+    position: relative;    
+  }
+
+  .options {
+    width: 221px;
+  }
+
+  .subtasks {
+    width: 258px;
+  }
+
+  .subtasksFrame14 {
+    padding: 10px 21px;
+  }
+
+  .subtaskItem {
+    width: 224px;
+  }
+
+  .addTasksFooter{  
+    margin-bottom: 25px;
+    margin-left: 27px;
+    width: 256px;   
+  }
+
+  .comment{
+    display: flex;
+    margin-top: 0px;
+    text-wrap: wrap;
+    font-size: 14px;
+  }
+
+  .secondary {
+    display: none;
+  }
+
+  .primary {
+    gap: 4px;
+    padding: 13px;
+  }
+
+  .textCreateTask {
+    font-size: 17px;
+    gap: 4px;
+    width: 105px;
+  }
+
+  .task_succes{
+    margin-left: 0%;
+    margin-bottom: 400px;
+  }
+
+  .task_succes_container{
+    width: 214px;
+    margin-left: 0px;
+    display: flex;
+
+  }
+
+  .task_succes_message {
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    text-align: center;
+}
+
+}
+
+
+
+
+
+@media (min-width: 321px) and (max-width: 345px) {
   .box-sizing {
     display: none;
   }
@@ -256,7 +520,7 @@
 }
 }
 
-@media (min-width: 321px) and (max-width: 375px) {
+@media (min-width: 346px) and (max-width: 547px) {
   .box-sizing {
     display: none;
   }
@@ -521,7 +785,7 @@
   }
 }
 
-@media (min-width: 376px) and (max-width: 599px) {
+@media (min-width: 547px) and (max-width: 550px) {
   .box-sizing {
     display: none;    
   }
@@ -684,6 +948,7 @@
   .priority {
     width: 100%;
     gap: 60px;
+    margin-left: 0px;
   }
 
   .priorityUrgent,
@@ -774,7 +1039,7 @@
 }
 }
 
-@media (min-width: 600px) and (max-width: 799px) {
+@media (min-width: 555px) and (max-width: 799px) {
   .box-sizing {
     display: none;
   }
