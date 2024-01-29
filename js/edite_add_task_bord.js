@@ -11,7 +11,7 @@ function editLargCard(taskId) {
   let editCard = document.getElementById("desingLagrCard");
   editCard.style.display = "flex";
   editCard.style.alignItems = "center";
-  editCard.style.height = "100%";
+  editCard.style.height = "97%";
   document.getElementById("largesCard").classList.add("d-None");
   document.getElementById("addTaskLargeCard").innerHTML = "";
   document.getElementById("addTaskLargeCard").innerHTML = generateAddEditeTask(taskId);
@@ -19,6 +19,7 @@ function editLargCard(taskId) {
   document.getElementById("addTaskLargeCard").style.width = "100%";
   document.getElementById("addTaskLargeCard").style.overflow = "scroll";
   document.getElementById("addTaskLargeCard").style.justifyContent = "center";
+  document.getElementById("addTaskLargeCard").style.marginTop = "22üx";
   edittaskArea(taskId);
   renderEditTask();
   saveUneditedAssigned(taskId);
