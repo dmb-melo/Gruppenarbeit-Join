@@ -1,5 +1,4 @@
-.openAddWindow  {
-
+.openAddWindow {
 }
 
 .addWindowCss {
@@ -73,7 +72,6 @@ body {
   justify-content: space-between;
 }
 .closeAddBoard {
-
   border: 0;
   background: transparent;
   font-weight: bold;
@@ -126,7 +124,7 @@ body {
   color: var(--Version-2-main-color, #2a3647);
 }
 
-.frame203PopUp{
+.frame203PopUp {
   display: flex;
   flex-direction: column;
   height: 64px;
@@ -199,10 +197,10 @@ input::placeholder {
   margin-left: 10px;
   gap: 10px;
   width: 100px;
-  height: 32px; 
+  height: 32px;
 }
 
-.frame207PopUp{
+.frame207PopUp {
   width: 440px;
   display: flex;
   flex-direction: column;
@@ -263,7 +261,7 @@ textarea::placeholder {
 .popUpContainer {
   width: 64%;
 }
-.asignedToPopUP{
+.asignedToPopUP {
   width: 112px;
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -470,7 +468,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 24px;
 }
 
-.dueDateFieldRequiredPopUp{
+.dueDateFieldRequiredPopUp {
   display: none;
   width: 119px;
   height: 12px;
@@ -1260,7 +1258,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   gap: 4px;
 }
 
-.subtaskItem:hoverPopUp {
+.subtaskItem:hoverpopup {
   background-color: #eeeeee;
 }
 
@@ -1423,7 +1421,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     position: relative;
   }
   .contactAvatar {
-   margin-top: -130px;
+    margin-top: -130px;
   }
   .underList {
     position: relative;
@@ -1438,7 +1436,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .addTasksFooter {
     width: 100%;
-    flex-direction: column
+    flex-direction: column;
   }
   .leadsToBoardPopUp {
     width: 38% !important;
@@ -1448,11 +1446,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 
   .inputLeft_addTaskPopUp,
-  .title_v1PopUp, 
-  .titletitlePopUp, 
+  .title_v1PopUp,
+  .titletitlePopUp,
   .frame203PopUp,
   .title_frame14,
-  .text_enterTitle{
+  .text_enterTitle {
     width: 95%;
   }
   .description_v1_add_task_pop_up,
@@ -1466,16 +1464,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100%;
   }
   .asignedToPopUP {
-
   }
   .categoryFrame74_addTask_Board {
-width: 85%;
+    width: 85%;
   }
   .searchContacts {
-
   }
   .underListContactPopUp {
-
   }
   .inputRight_addTaskPopUp {
     width: 95%;
@@ -1483,7 +1478,7 @@ width: 85%;
 
   .dueDatePopUp,
   .frame211PopUp,
-  .dueDate_frame14PopUp{
+  .dueDate_frame14PopUp {
     width: 94%;
   }
 
@@ -1507,106 +1502,101 @@ width: 85%;
 }
 
 @media (max-width: 589px) {
-.priority {
-  flex-direction: column;
-  width: 100%;
-}
-.textCreateTask {
-  font-size: 18px;
-}
-.leadsToBoardPopUp {
-  width: 40%;
-}
-.categoryFrame74_addTask_Board {
-  width: 82%;
-}
-.searchContacts {
-  font-size: 16px;
-}
-.dueDate_frame14PopUp {
-  width: 92%;
-}
-.categoryFrame_74  {
-  width: 90%;
-}
+  .priority {
+    flex-direction: column;
+    width: 100%;
+  }
+  .textCreateTask {
+    font-size: 18px;
+  }
+  .leadsToBoardPopUp {
+    width: 40%;
+  }
+  .categoryFrame74_addTask_Board {
+    width: 82%;
+  }
+  .searchContacts {
+    font-size: 16px;
+  }
+  .dueDate_frame14PopUp {
+    width: 92%;
+  }
+  .categoryFrame_74 {
+    width: 90%;
+  }
 }
 @media (max-width: 398px) {
-.text_addTask {
-  font-size: 43px;
-}
-.underListContactPopUp{
-  width: 70% !important;
-}
+  .text_addTask {
+    font-size: 43px;
+  }
+  .underListContactPopUp {
+    width: 70% !important;
+  }
 }
 @media (max-width: 386px) {
-
-.textCreateTask {
-font-size: 18px;
-}
-.leadsToBoardPopUp {
-  width: 95%;
-}
-.searchContacts {
-  font-size: 16px;
-}
-.dueDate_frame14PopUp {
-  width: 92%;
-}
-.categoryFrame_74  {
-  width: 90%;
-}
-.inputLeft_addTaskPopUp {
-  width: 99%;
-}
-.text_enterDescription  {
-  width: 99%;
-}
-.searchContacts {
-  width: 195px;
-}
-.title_frame14 {
-  width: 94%;
-}
-.leadsToBoard {
-  justify-content: end;
-
-}
-.primary{ width: 50%;}
-.underListContactPopUp{
-  width: 270px !important;
-}
+  .textCreateTask {
+    font-size: 18px;
+  }
+  .leadsToBoardPopUp {
+    width: 95%;
+  }
+  .searchContacts {
+    font-size: 16px;
+  }
+  .dueDate_frame14PopUp {
+    width: 92%;
+  }
+  .categoryFrame_74 {
+    width: 90%;
+  }
+  .inputLeft_addTaskPopUp {
+    width: 99%;
+  }
+  .text_enterDescription {
+    width: 99%;
+  }
+  .searchContacts {
+    width: 195px;
+  }
+  .title_frame14 {
+    width: 94%;
+  }
+  .leadsToBoard {
+    justify-content: end;
+  }
+  .primary {
+    width: 50%;
+  }
+  .underListContactPopUp {
+    width: 270px !important;
+  }
 }
 
 @media (max-width: 635px) {
-
-  .underListContactPopUp{
-     width: 434px !important;
+  .underListContactPopUp {
+    width: 434px !important;
   }
 }
 @media (max-width: 579px) {
-
-  .underListContactPopUp{
-     width: 380px !important;
+  .underListContactPopUp {
+    width: 380px !important;
   }
   .custom-checkbox-board input[type="checkbox"]:checked + label:before {
-left: 230px;
+    left: 230px;
   }
 }
 @media (max-width: 508px) {
-
-  .underListContactPopUp{
-     width: 330px !important;
+  .underListContactPopUp {
+    width: 330px !important;
   }
   .custom-checkbox-board input[type="checkbox"]:checked + label:before {
-left: 200px;
+    left: 200px;
   }
 }
 @media (max-width: 444px) {
-
-  .underListContactPopUp{
-     width: 270px !important;
+  .underListContactPopUp {
+    width: 270px !important;
   }
-
 }
 
 @media (max-width: 360px) {
@@ -1619,8 +1609,8 @@ left: 200px;
   .popUpContainer {
     margin-right: 40px;
   }
-  .underListContactPopUp{
-     width: 270px !important;
+  .underListContactPopUp {
+    width: 270px !important;
   }
 }
 
