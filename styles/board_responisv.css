@@ -753,9 +753,9 @@
     margin-top: 79.5px;
     margin-bottom: 48px;
   }
-}
+} 
 
-@media (max-width: 1373px) {
+ @media (max-width: 1373px) {
   .searchbarIn {
     display: flex;
     width: 100% !important;
@@ -772,18 +772,24 @@
 
 @media (max-width: 1700px) {
   .searchbarIn {
-    display: flex;
-    height: 73px;
-    justify-content: space-around;
-    align-items: center;
-    margin-left: 0 !important;
-    margin-right: 82px;
-    margin-top: 79.5px;
-    margin-bottom: 48px;
+    margin-left: 50x; 
   }
-  
-}
 
+  .taskAria {
+    margin-left: 28px;
+    padding: 0;
+  }
+
+  .todoHeadline,
+  .awaitFeedbackHeadline,  
+  .doneHeadline{
+    margin-left: 30px;
+  }
+
+  .searchbarIn{
+    margin-left: 64px;
+  }
+}
 
 @media (max-width: 622px) {
   .BoardcontentTask {
@@ -1213,16 +1219,42 @@ width: 319px;
   .description {
     width: 200px;
   } 
+  }
+
+
+  @media (min-width: 1521px){
+    .taskAria {
+      margin-left: 28px;
+      padding: 0;
+  }
+
+  .todoHeadline,
+  .awaitFeedbackHeadline,  
+  .doneHeadline{
+    margin-left: 30px;
+  }
+
+  .searchbarIn{
+    margin-left: 64px;
+  }
+
+  }
 
 @media (max-width: 1520px) {
-
   .taskAria {
-    width: 91%;
+    margin-left: -45px;
+  }
+
+  .searchbarIn{
+    margin-left: 30px; 
+  }
+
+  .searchBoxLeft{
+    margin-right: 100px;
   }
 
  
 }  @media (max-width: 1405px) {
-
   .taskAria {
     display: flex;
     justify-content: space-between;
@@ -1234,16 +1266,12 @@ width: 319px;
     flex-shrink: 0;
     flex-wrap: wrap;
   }
-
-} }
+} 
 
 @media (max-width: 1382px) {
-
   .taskAria {
     width: 93%;
   }
-  
-  
 } 
 
 
@@ -1259,11 +1287,41 @@ width: 319px;
 @media (max-width: 1156px) {
 
   .taskAria {
-    width: 77%;
+    width: 73%;
     flex-wrap: wrap;
     padding: 0;
   }
-} 
+
+  .todoHeadline {
+    margin-left: 34px;
+    display: flex;
+    max-width: 244px;
+    justify-content: space-between;
+    align-items: center;}
+
+    .awaitFeedbackHeadline{
+      margin-left: 34px;
+    }
+
+    .doneHeadline{
+      margin-left: 34px;
+    }
+
+
+  .headlineCss {
+    /* margin-left: 34px; */
+    display: flex;
+    max-width: 244px;
+    justify-content: space-between;
+    align-items: center;}
+
+    .searchBoxLeft {
+      display: flex;
+      width: 504px;
+      gap: 32px;
+      margin-right: 95px;
+  }
+}
 
 @media (max-width: 366px) {
 

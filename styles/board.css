@@ -20,12 +20,6 @@
   display: none;
 }
 
-#tasks {
-  overflow-y: scroll !important;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 .tasksToDo {
   width: calc(100% - 232px);
   height: calc(100vh - 96px);
