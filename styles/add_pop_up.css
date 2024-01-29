@@ -914,6 +914,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 30%;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 .frame27 {
   display: inline-flex;
@@ -987,6 +988,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   gap: 4px;
   border-radius: 10px;
   background: #2a3647;
+  text-decoration: none;
 }
 
 .primary:hover {
@@ -1440,6 +1442,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .leadsToBoardPopUp {
     width: 38% !important;
+    text-decoration: none !important;
   }
   .underList {
     position: relative;
