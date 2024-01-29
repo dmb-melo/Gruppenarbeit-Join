@@ -16,6 +16,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 .d-None {
   display: none;
 }
@@ -1069,7 +1070,6 @@ width: 100%;
   background-repeat: no-repeat;
   position: absolute;
   left: 300px;
-  /* Adjust this as needed */
 }
 
 .save-button {
