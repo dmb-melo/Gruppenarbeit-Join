@@ -1577,6 +1577,38 @@ font-size: 18px;
 }
 }
 
+@media (max-width: 635px) {
+
+  .underListContactPopUp{
+     width: 434px !important;
+  }
+}
+@media (max-width: 579px) {
+
+  .underListContactPopUp{
+     width: 380px !important;
+  }
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+left: 230px;
+  }
+}
+@media (max-width: 508px) {
+
+  .underListContactPopUp{
+     width: 330px !important;
+  }
+  .custom-checkbox-board input[type="checkbox"]:checked + label:before {
+left: 200px;
+  }
+}
+@media (max-width: 444px) {
+
+  .underListContactPopUp{
+     width: 270px !important;
+  }
+
+}
+
 @media (max-width: 360px) {
   .textContainer_addTask {
     margin-top: 0px;
@@ -1588,7 +1620,7 @@ font-size: 18px;
     margin-right: 40px;
   }
   .underListContactPopUp{
-     width: 234px !important;
+     width: 270px !important;
   }
 }
 
