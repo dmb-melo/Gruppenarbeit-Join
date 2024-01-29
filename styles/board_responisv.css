@@ -627,19 +627,6 @@
   .searchBar {
     width: 98%;
   }
-  
-
-  .searchContactsBoard {
-    outline: none;
-    border-style: none;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 646px) {
-  .searchBar {
-    width: 98%;
-  }
 
   .searchContactsBoard {
     outline: none;
