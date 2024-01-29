@@ -60,7 +60,7 @@
     margin: 0px;
   }
 } 
-@media (max-width: 320px) and (max-width: 375px) {
+@media (max-width: 320px) and (max-width: 376px) {
 
   .title{
     width: 53px;
@@ -287,9 +287,14 @@
     width: 283px;
   }
 }
+@media (max-width: 367px) { 
+  .largeCardA {
+  width: 270px !important;
+}
+}
 @media (max-width: 417px) { 
   .largeCardA {
-  width: 260px !important;
+  width: 307px ;
 }
 }
 @media (max-width: 422px) { 
@@ -315,7 +320,7 @@
   }
 }
 
-@media (min-width: 376px) and (max-width: 648px) {
+@media (min-width: 320px) and (max-width: 648px) {
   .titleBoard {
     width: 100% !important;
     font-size: 47px !important;
@@ -702,9 +707,6 @@
   }
   .searchBox {
     width: 170px;
-  }
-  .textCreateTask {
-    display: none;
   }
   .primaryBoard {
     width: 20px;
@@ -1100,7 +1102,7 @@ width: 319px;
     width: 330px;
   }
   .largeCardA {
-    width: 300px}
+    width: 300px !important;}
 
   .inputLeft_addTaskBoard {
     width: 289px;

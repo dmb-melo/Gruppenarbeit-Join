@@ -1531,6 +1531,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .underListContactPopUp{
   width: 70% !important;
 }
+.textContainer_addTask {
+  margin-top: 0;
+  }
+}
+@media (max-width: 421px) {
+.textContainer_addTask {
+margin-top: 0;
+}
+}
+.underListContactPopUp{
+  width: 70% !important;
 }
 @media (max-width: 398px) {
 .text_addTask {
@@ -1546,7 +1557,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 18px;
   }
   .leadsToBoardPopUp {
-    width: 95%;
+    width: 95%!important;
   }
   .searchContacts {
     font-size: 16px;
