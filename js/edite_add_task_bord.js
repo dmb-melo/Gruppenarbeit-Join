@@ -150,9 +150,7 @@ function deleteSubs(index) {
 }
 
 function deleteSubTaskById(id) {
-  console.log("stateOfTask:", stateOfTask);
   const index = stateOfTask.findIndex((item) => item === id);
-  console.log("Gefundener Index:", index);
   if (index !== 0) {
     stateOfTask.splice(index, 1);
     let idAtText = JSON.stringify(stateOfTask);
@@ -271,7 +269,6 @@ function checkboxAddTaskEdit() {
       assigned.push(label.textContent);
     }
   });
-  console.log("Assigned Contacts:", assigned);
 }
 
 function getStatusTaskId(taskId) {

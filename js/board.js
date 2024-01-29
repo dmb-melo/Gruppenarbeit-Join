@@ -81,6 +81,10 @@ function generateSmallCard(task, i) {
   let clonedContentDiv = document.createElement("div");
   clonedContentDiv.appendChild(tempDiv.cloneNode(true));
   removeActiveClassFromSvgElements(clonedContentDiv);
+  return generateSelectedPriorityContent(currenCategory, clonedContentDiv, taskID, task, i);
+}
+
+function generateSelectedPriorityContent(currenCategory, clonedContentDiv, taskID, task, i) {
   let className = typeof currenCategory === "string" ? currenCategory.replace(/\s+/g, "") : "";
   let selectedPriorityContentDiv = clonedContentDiv.querySelector(".selectedPriorityContentDiv");
   ["textUrgent", "textMedium", "textLow"].forEach((className) => {
@@ -356,6 +360,10 @@ function appendGeneratedAddTask(taskStatusFromBoard) {
   addBoard.appendChild(newDivAddTask);
   let contactsList = document.getElementById("contactList");
   contactsList.innerHTML = "";
+  generateContentAppendAddTask(contactsList, handleContactSearch);
+}
+
+function generateContentAppendAddTask(contactsList, handleContactSearch) {
   sortContacts();
   for (let i = 0; i < contacts.length; i++) {
     renderContactsAddTask(i, contactsList);

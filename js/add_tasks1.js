@@ -184,11 +184,14 @@ function hide(event) {
 
 function addSubtasks() {
   const subtaskInput = document.getElementById("inputSubtasks").value;
-  document.getElementById("inputSubtasks").value = "";
-  subtasks.unshift(subtaskInput);
-  updateSubtasksDisplay();
-  save();
-  hideVectorAndImgCheck();
+  if (!subtaskInput) {
+    return;
+  } else {
+    document.getElementById("inputSubtasks").value = "";
+    subtasks.unshift(subtaskInput);
+    updateSubtasksDisplay();
+    hideVectorAndImgCheck();
+  }
 }
 
 function updateSubtasksDisplay() {
@@ -257,7 +260,6 @@ function createIconsContainerWhenEdit(subtaskItemDiv, subtaskText, index) {
 function handleDeleteClick(subtaskItemDiv, index) {
   subtasks.splice(index, 1);
   subtaskItemDiv.remove();
-  save();
 }
 
 function handleEditClick(subtaskItemDiv, subtaskText) {
@@ -297,7 +299,6 @@ function finishEditing(editInput, subtaskItemText, subtaskText) {
   if (newText !== "") {
     subtaskItemText.innerText = newText;
     subtasks[subtasks.indexOf(subtaskText)] = newText;
-    save();
   } else {
     editInput.value = subtaskItemText.innerText;
   }
@@ -314,7 +315,6 @@ function handleCheckClick(subtaskItemDiv, iconsContainer, subtaskText) {
       const updatedSubtaskText = document.createElement("li");
       updatedSubtaskText.innerText = newText;
       subtasks[subtasks.indexOf(subtaskText)] = newText;
-      save();
       const newIconsContainer = createIconsContainer(subtaskItemDiv, newText, subtasks.indexOf(newText));
       subtaskItemDiv.innerHTML = "";
       subtaskItemDiv.appendChild(updatedSubtaskText);
