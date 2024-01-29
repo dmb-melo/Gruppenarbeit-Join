@@ -413,6 +413,7 @@
     margin-left: 10px;
     margin-right: 0px;
     font-size: 27px;
+    width: 99% !important;
   }
 
   .headLineCss {
@@ -619,7 +620,9 @@
     padding: 1px 88px 1px 0px;
     margin-left: 20px !important;
   }
-
+  .taskAria {
+    width: 100% !important;
+}
 
   .searchContactsBoard {
     outline: none;
@@ -655,7 +658,7 @@
     gap: 16px;
     display: flex;
     flex-direction: column;
-    width: 96%;
+    width: 100%;
   }
 }
 @media (max-width: 376px) {
@@ -681,7 +684,7 @@
     flex-wrap: wrap;
     padding: 0;
     margin-left: 250px;
-    width: 75% !important;
+    width: 75% ;
   }
   
   .searchContactsBoard {
@@ -696,7 +699,7 @@
   }
 
   .searchBar {
-    width: 77%;
+    width: 84%;
     height: 232px;
     flex-shrink: 0;
     justify-content: center;
@@ -932,6 +935,11 @@
   }
 }
 
+@media (max-width: 835px) {
+  #addTaskLargeCard {
+    width: 100%;
+  }
+}
 @media (max-width: 510px) {
   #addTaskLargeCard {
     width: 100%;
