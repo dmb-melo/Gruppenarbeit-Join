@@ -520,7 +520,7 @@ function generate_addTask(statusFromUser){
             <div class="frame27">
                    
                 </div>
-                <a class="leadsToBoard" href="./board.html" id="leadsToBoard" onclick="handleTaskClick(event, statusFromUser)">
+                <a class="leadsToBoardPopUp" href="./board.html" id="leadsToBoard" onclick="handleTaskClick(event, statusFromUser)">
                     <div class="primary">
                         <div class="textCreateTask">Create task</div>
                         <img class="imgCheckBlack" src="./assets/img/check.png" alt="">              

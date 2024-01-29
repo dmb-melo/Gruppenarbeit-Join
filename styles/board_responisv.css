@@ -11,9 +11,7 @@
 }
 
 @media (max-width: 510px) { 
-  .frame17Borad {
 
-  } 
 }
 @media (max-width: 513px) {
   .largeCardA {
@@ -660,14 +658,30 @@
     width: 96%;
   }
 }
-
+@media (max-width: 376px) {
+  .tasksToDo {
+    margin-left: 10px;
+  }
+  .searchbarIn {
+    flex-direction: column
+  }
+  .searchBox {
+    width: 170px;
+  }
+  .textCreateTask {
+    display: none;
+  }
+  .primaryBoard {
+    width: 20px;
+  }
+}
 @media (max-width: 1200px) {
   .taskAria {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
     margin-left: 250px;
-    width: 87%;
+    width: 75% !important;
   }
   
   .searchContactsBoard {

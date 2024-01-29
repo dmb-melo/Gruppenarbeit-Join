@@ -396,7 +396,7 @@ textarea::placeholder {
   width: 440px;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 .dueDate_frame14PopUp {
@@ -901,15 +901,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .comment {
-  width: 170px;
+  width: 219px;
   height: 27px;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  margin-top: 33px;
+  /* margin-top: 26px; */
+  align-items: center;
+  height: 100%;
+  display: flex;
 }
-
+.leadsToBoardPopUp {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
 .frame27 {
   display: inline-flex;
   justify-content: center;
@@ -1395,6 +1402,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .addTasksFooter {
     width: 912.25px;
   }
+  .dueDatePopUp {
+    margin: 0;
+  }
 }
 @media (max-width: 1393px) {
   .group66_addTaskPopUp {
@@ -1406,7 +1416,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .addTasksFooter {
     width: 100%;
   }
+  .dueDatePopUp {
+    margin-top: 40px;
+  }
   .underListContactPopUp {
+    position: relative;
+  }
+  .contactAvatar {
+   margin-top: -130px;
   }
   .underList {
     position: relative;
@@ -1422,6 +1439,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .addTasksFooter {
     width: 100%;
     flex-direction: column
+  }
+  .leadsToBoardPopUp {
+    width: 38% !important;
   }
   .underList {
     position: relative;
@@ -1491,6 +1511,12 @@ width: 85%;
   flex-direction: column;
   width: 100%;
 }
+.textCreateTask {
+  font-size: 18px;
+}
+.leadsToBoardPopUp {
+  width: 40%;
+}
 .categoryFrame74_addTask_Board {
   width: 82%;
 }
@@ -1508,11 +1534,17 @@ width: 85%;
 .text_addTask {
   font-size: 43px;
 }
+.underListContactPopUp{
+  width: 70% !important;
+}
 }
 @media (max-width: 386px) {
 
 .textCreateTask {
 font-size: 18px;
+}
+.leadsToBoardPopUp {
+  width: 95%;
 }
 .searchContacts {
   font-size: 16px;
@@ -1540,6 +1572,9 @@ font-size: 18px;
 
 }
 .primary{ width: 50%;}
+.underListContactPopUp{
+  width: 270px !important;
+}
 }
 
 @media (max-width: 360px) {
@@ -1552,4 +1587,9 @@ font-size: 18px;
   .popUpContainer {
     margin-right: 40px;
   }
+  .underListContactPopUp{
+     width: 234px !important;
+  }
 }
+
+/* responsev */
