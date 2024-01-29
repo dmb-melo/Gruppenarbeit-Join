@@ -72,10 +72,7 @@ body {
   justify-content: space-between;
 }
 .closeAddBoard {
-<<<<<<< HEAD
-=======
-margin-right: 52px;
->>>>>>> 7554ce67b1169bd76bfa85e47cf6597f4095e795
+  margin-right: 52px;
   border: 0;
   background: transparent;
   font-weight: bold;
