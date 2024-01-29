@@ -10,6 +10,11 @@
   }
 }
 
+@media (max-width: 510px) { 
+  .frame17Borad {
+
+  } 
+}
 @media (max-width: 513px) {
   .largeCardA {
     width: 400px;
@@ -36,7 +41,11 @@
     align-items: center;
 }
 }
-
+@media (max-width: 340px) {
+  .largeCardA {
+    width: 70% !important
+  }
+} 
 @media (max-width: 320px) and (max-width: 375px) {
 
   .title{
@@ -223,8 +232,7 @@
     font-size: 27px !important;
   }
   .dueDateBoard{
-    width: 54%;
-    margin-left: 143px;
+    width: 100%;
   }
   .dueDate_frame14 {
     width: 192px;
@@ -254,12 +262,44 @@
 }
 }
 
+@media (max-width: 570px) { 
+  .largeCardA {
+    width: 400px !important;
+  }
+  .description_v1 {
+    margin-top: 23px;
+  }
+  .titleEditCard {
+    width: 283px;
+  }
+}
+@media (max-width: 459px) { 
+  .largeCardA {
+    width: 350px !important;
+  }
+
+}
+@media (max-width: 381px) { 
+  .largeCardA {
+    width: 300px !important;
+  }
+}
+
 @media (min-width: 376px) and (max-width: 648px) {
   .titleBoard {
     width: 100% !important;
     font-size: 47px !important;
   }
-
+  .inputRight_addTask {
+    width: 98%;
+    align-items: flex-start;
+  }
+  .inputLeft_addTaskBoard {
+    width: 87%;
+  }
+  .closeLargeEditCardButton {
+    width: 86%;
+  }
   .largeCardA {
     width: 300px;
     max-height: 94%;
@@ -272,13 +312,9 @@
     border-radius: 30px;
     background: #fff;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
-    width: 89%;
+    width: 500px;
   }
 
-  .boardcontentTask{
-    margin-left: 2px;
-  }
-  
   .searchContactsBoard {
     outline: none;
     border-style: none;
@@ -294,10 +330,10 @@
 
   .frame211 {
 
-    width: 438px;}
+    width: 94%;}
 
   .saveContainer {
-    width: 95%;
+    width: 83%;
   }
 
   .plusImgMobile:hover .plus_add_task_mobile {
@@ -390,12 +426,11 @@
   }
 
   .categoryFrame74Board{
-    width: 406px;
+   width: 93%;
   }
 
   .dueDateBoard{
-    width: 54%;
-    margin-left: 143px;
+ width: 100%;
 }
   }
 
@@ -889,10 +924,12 @@
   }
 
   .inputLeft_addTaskBoard {
-    width: 350px;
+    width: 91%;
   }
 
-
+.frame17Borad  {
+width: 319px;
+}
 
   .edittitle {
     display: flex;
@@ -910,7 +947,7 @@
     display: flex;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
-    width: 328px;
+    width:324px;
     border-radius: 10px;
   }
 
@@ -1000,8 +1037,7 @@
 
 @media (max-width: 397px) { 
   .largeCardA {
-    width: 300px;
-    max-height: 94%;
+    max-height: 85%;
     border: solid;
     display: flex;
     padding: 14px 24px;
@@ -1011,19 +1047,21 @@
     border-radius: 30px;
     background: #fff;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
-    width: 89%;}
+    width: 80%;}
 } 
 
 
 @media (max-width: 444px) {
   #addTaskLargeCard {
-    width: 330px !important;
+    width: 330px;
   }
 
 
-
+  .frame17Borad  {
+    width: ;
+  }
   .largeCardA {
-    width: 336px}
+    width: 300px}
 
   .inputLeft_addTaskBoard {
     width: 289px;
@@ -1078,7 +1116,7 @@
   .underListContactBoardEdit {
     cursor: pointer;
     position: absolute;
-    top: 55px;
+    top: 33px;
     padding-inline-start: 0px;
     flex-direction: column;
     border-radius: 10px;

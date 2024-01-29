@@ -4,7 +4,7 @@ function generateAddEditeTask(taskId) {
      <div class="closeLargeEditCardButton">
            <button onclick="closeCard()" class="close-button-edite"><img class="close-img" src="./assets/img/cancel.png"></button>
         </div>
-            <div style="width:80%;">
+            <div class="boardTaskContainer">
                 <div class="task_succes d-none" id="task_succes">
                     <div class="task_succes_container">
                         <span  class="task_succes_message">Task added to board</span>
@@ -26,7 +26,7 @@ function generateAddEditeTask(taskId) {
                         <div class="description">Description</div>             
                         <div class="frame207 wd100" onclick="required(this)">
                         <div class="frame17Borad titleEditCard">
-                            <textarea  class="text_enterDescription" type="text"  id="editDescription" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
+                            <textarea  class="text_enterDescriptionPop" type="text"  id="editDescription" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
                             <img class ="recursor" src="./assets/img/Recurso 1 1.png">
                         </div>                       
                         <div class="descriptionFieldRequired" id="descriptionFieldRequired"></div> 
@@ -190,12 +190,11 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
       </div>
     `;
 }
-
 function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
   var dueDate = new Date(task.dueDate);
   var formattedDueDate = `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`;
   return /*html*/ `
-      <div class="desingLagrCard" id="desingLagrCard">
+      <div class="desingLagrCard LargCardes" id="desingLagrCard">
         <div class="largeCardA" id="largeCardA">
           <div id="addTaskLargeCard" class="d-None"></div>
           <div class="largesCard" id="largesCard">
@@ -341,20 +340,20 @@ function generate_addTask(statusFromUser){
     <div class="content_addTask">
             <div class = "textContainer_addTask">
                 <div class ="text_addTask">Add Task</div>
-           
+                <button class="closeAddBoard" onclick="closeAddBoard()">X</button>
             </div>
         </div>   
-        <div class ="group66_addTask" >
+        <div class ="group66_addTaskPopUp" >
             <div class="task_succes d-none" id="task_succes">
                 <div class="task_succes_container">
                     <span  class="task_succes_message">Task added to board</span>
                     <img class="task_success_icon_board" src="./assets/img/Icons_board_white.png">
                 </div>
             </div>
-            <div class ="inputLeft_addTask">
-                <div class="title_v1">               
-                    <div class="title">Title<span class="spanClass">*</span>
-                        <div class="frame203" onclick="required(this)">
+            <div class ="inputLeft_addTaskPopUp">
+                <div class="title_v1PopUp">               
+                    <div class="titletitlePopUp">Title<span class="spanClass">*</span>
+                        <div class="frame203PopUp" onclick="required(this)">
                             <div class="title_frame14">
                                 <input  type="text"  class="text_enterTitle" placeholder="Enter a Title" id="title" required oninput="handleInput(this)">
                             </div> 
@@ -363,16 +362,16 @@ function generate_addTask(statusFromUser){
                     </div>                         
                 </div>
                 <div class="description_v1_add_task_pop_up" >
-                    <div class="description">Description</div>             
-                    <div class="frame207" onclick="required(this)">
+                    <div class="descriptionPopUp">Description</div>             
+                    <div class="frame207PopUp" onclick="required(this)">
                     <div class="frame17">
                         <textarea  class="text_enterDescription" type="text"  id="description" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
                         <img class ="recursor" src="./assets/img/Recurso 1 1.png">
                     </div>               
                     </div>
                 </div>
-                <div class="asignedTo_v1">
-                    <div class="asignedTo">Assigned to</div>                     
+                <div class="asignedTo_v1PopUp">
+                    <div class="asignedToPopUP">Assigned to</div>                     
                     <div class="categoryFrame74_addTask_Board" id="assigned" onclick="hideAssigned(event)">                    
                         <input class="searchContacts" type="text" id="searchContacts" placeholder="Select contacts to assign">
                         <div class ="imgArrows" id="imgArrows" onclick="hideAssigned(event)">
@@ -381,7 +380,7 @@ function generate_addTask(statusFromUser){
                         </div>
                     </div>                    
                     <div class="list" class="hide">
-                        <ul id="listContact" class="hide underListContact"> 
+                        <ul id="listContact" class="hide underListContactPopUp"> 
                             <li id ="contactList"></li>                       
                         </ul>
                     </div>                     
@@ -389,12 +388,12 @@ function generate_addTask(statusFromUser){
                 </div>
             </div>
             <div class="vector4"></div>
-            <div class ="inputRight_addTask">
-                <div class="dueDate">
+            <div class ="inputRight_addTaskPopUp">
+                <div class="dueDatePopUp">
                     <div class="text_DueDateAdTask">Due date<span class="spanClass">*</span></div>
-                    <div class="frame211" onclick="required(this)">                    
-                            <div class="dueDate_frame14">
-                                <input class="inputDate"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" >   
+                    <div class="frame211PopUp" onclick="required(this)">                    
+                            <div class="dueDate_frame14PopUp">
+                                <input class="inputDatePopUp"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" >   
                             </div>
                             <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
                     </div>
@@ -519,16 +518,7 @@ function generate_addTask(statusFromUser){
             <div class="addTasksFooter">
             <div class="comment"><span class="spanClass">*</span>This field is required</div>
             <div class="frame27">
-                <div class="secondary" onclick="clearTask()">
-                    <div class="textClear">Clear</div>
-                    <div class="clear">
-                        <img class="imgCancel" src="./assets/img/cancel.png" alt="">                    
-                        <svg class="imgCancelHover" xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                            <g id="iconoir:cancel">
-                                <path id="Vector" d="M12.0692 12.0001L17.3122 17.2431M6.82617 17.2431L12.0692 12.0001L6.82617 17.2431ZM17.3122 6.75708L12.0682 12.0001L17.3122 6.75708ZM12.0682 12.0001L6.82617 6.75708L12.0682 12.0001Z" stroke="#29ABE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </g>
-                        </svg>
-                    </div>
+                   
                 </div>
                 <a class="leadsToBoard" href="./board.html" id="leadsToBoard" onclick="handleTaskClick(event, statusFromUser)">
                     <div class="primary">

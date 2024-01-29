@@ -10,7 +10,12 @@
   line-height: 120%;
 }
 
-
+.boardTaskContainer {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .d-None {
   display: none;
 }
@@ -357,7 +362,7 @@
   pointer-events: none;
 }
 
-.text_enterDescription {
+.text_enterDescriptionPop{
   cursor: pointer;
   display: flex;
   font-family: "Inter", sans-serif;
@@ -454,6 +459,21 @@
   transform: translateX(400%);
   transition: 550ms ease-in-out;
 }
+/* #largeCardA 
+  {
+    width: 300px;
+    max-height: 94%;
+    border: solid;
+    display: flex;
+    padding: 14px 24px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    border-radius: 30px;
+    background: #fff;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+    width: 100%;
+} */
 
 .openAddWindow {
   position: fixed;
@@ -465,17 +485,6 @@
   z-index: 999;
   transform: translateX(0px);
   transition: 550ms ease-in-out;
-}
-
-.closeAddBoard {
-  position: fixed;
-  top: 10%;
-  right: 10%;
-  border: 0;
-  background: transparent;
-  font-weight: bold;
-  font-size: 20px;
-  cursor: pointer;
 }
 
 .largeCardA {
@@ -716,7 +725,9 @@
   align-items: center;
   gap: 20px;
 }
-
+.wd100 { 
+  width: 100%;
+}
 /* editAddBoard */
 .boardUnserList {
   position: relative;
@@ -729,11 +740,20 @@
   background: var(--white, #fff);
   z-index: 1;
 }
-
+.title_v1Edit{
+  width: 100%;
+}
+.inputLeft_addTaskBoard {
+  width: 92%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .desingLagrCardEdit {
   height: 80%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .closeLargeEditCardButton {
@@ -766,7 +786,7 @@
   display: flex;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
-  width: 440px;
+width: 100%;
   border-radius: 10px;
 }
 
@@ -799,7 +819,7 @@
   height: 64px;
   border: 1px;
   gap: 4px;
-  width: 440px;
+width: 100%;
 }
 
 .title_frame14Board {
@@ -845,10 +865,10 @@
   gap: 13px;
 }
 
-.addBoard {
-  width: 69%;
-}
 
+.LargCardes {
+  width: 100%;
+}
 .subtaskItemBoard {
   cursor: pointer;
   display: flex;
@@ -865,6 +885,7 @@
   position: fixed;
   bottom: 114px;
   top: 4px;
+  justify-content: center;
 }
 
 .listBoard {
@@ -885,7 +906,13 @@
   overflow: auto;
   margin-top: 16px;
 }
-
+.inputRight_addTask{
+  width: 94%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
 .inputRight_addTaskEdit {
   display: flex;
   width: 440px;
@@ -1222,7 +1249,7 @@
 
 }
 .saveContainer {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: end;
 }
@@ -1255,7 +1282,7 @@
 
 .asignedTo_v1{
   display: flex;
-  width: 440px;
+  width: 100%;
   height: 80px;
   flex-direction: column;
   align-items: flex-start;

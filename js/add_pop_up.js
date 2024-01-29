@@ -4,30 +4,31 @@ function generatePopUpWindowAdd() {
         <div class="content_addTask">
                 <div class = "textContainer_addTask">
                     <div class ="text_addTask">Add Task</div>
+                    <button class="closeAddBoard" onclick="closeAddBoard()">X</button>
                 </div>
             </div>   
             <div class ="group66_addTaskPopUp">
                 <div class="task_succes d-none" id="task_succes">
-                    <div class="task_succes_container">
+                    <div class="task_succes_containerPopUp">
                         <span  class="task_succes_message">Task added to board</span>
                         <img class="task_success_icon_board" src="./assets/img/Icons_board_white.png">
                     </div>
                 </div>
-                <div class ="inputLeft_addTask">
-                    <div class="title_v1">               
-                        <div class="title">Title<span class="spanClass">*</span>
-                            <div class="frame203" onclick="required(this)">
-                                <div class="title_frame14">
+                <div class ="inputLeft_addTaskPopUp">
+                    <div class="title_v1PopUp">               
+                        <div class="titlePopUp">Title<span class="spanClass">*</span>
+                            <div class="frame203PopUp" onclick="required(this)">
+                                <div class="title_frame14PopUp">
                                     <input  type="text"  class="text_enterTitle" placeholder="Enter a Title" id="title" required oninput="handleInput(this)">
                                 </div> 
                                 <div class="titleFieldRequired" id="titleFieldRequired" onclick="required(this)">This field is required</div> 
                             </div>                  
                         </div>                         
                     </div>
-                    <div class="description_v1">
-                        <div class="description">Description</div>             
-                        <div class="frame207" onclick="required(this)">
-                        <div class="frame17">
+                    <div class="description_v1PopUp">
+                        <div class="descriptionPopUp">Description</div>             
+                        <div class="frame207PopUp" onclick="required(this)">
+                        <div class="frame17PopUp">
                             <textarea  class="text_enterDescription" type="text"  id="description" placeholder="Enter a Description" required oninput="handleInput(this)"></textarea>
                             <img class ="recursor" src="./assets/img/Recurso 1 1.png">
                         </div>               
@@ -61,9 +62,9 @@ function generatePopUpWindowAdd() {
                                 <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
                         </div>
                     </div>
-                    <div class="frame28">
-                        <div class="titlePrio">Prio</div>
-                        <div class="priority">
+                    <div class="frame28PopUp">
+                        <div class="titlePrioPopUp">Prio</div>
+                        <div class="priorityPopUp">
                             <div class="priorityUrgent"  onclick="changeColour('priorityUrgent')" id ="priorityUrgent">                    
                                 <div class="textUrgent" id="textUrgent">Urgent</div>                       
                                 <svg class="img-priorityUrgentSize" xmlns="http://www.w3.org/2000/svg" width="21" height="16" viewBox="0 0 21 16">
