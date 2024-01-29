@@ -793,8 +793,6 @@
     width: 100%;
   }
 
-
-
   .inputLeft_addTaskBoard {
     width: 100%;
     display: flex;
@@ -940,7 +938,7 @@
   .underListContactBoardEdit {
     cursor: pointer;
     position: absolute;
-    top: 55px;
+    top: 35px;
     padding-inline-start: 0px;
     flex-direction: column;
     border-radius: 10px;
@@ -1030,7 +1028,7 @@ width: 319px;
   .underListContactBoardEdit {
     cursor: pointer;
     position: absolute;
-    top: 55px;
+    top: 35px;
     padding-inline-start: 0px;
     flex-direction: column;
     border-radius: 10px;
@@ -1175,7 +1173,7 @@ width: 319px;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    left: 170px;
+    left: 300px;
   }
 
   .contactList {
