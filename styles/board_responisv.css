@@ -684,7 +684,7 @@
     display: flex;
     flex-direction: row;
     gap: 16px;
-    height: 30vh;
+    height: 40vh;
     overflow-x: scroll;
     display: flex;
     align-items: center;
@@ -701,6 +701,7 @@
 @media (max-width: 376px) {
   .tasksToDo {
     margin-left: 10px;
+    height: 75vh;
   }
   .searchbarIn {
     flex-direction: column

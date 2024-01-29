@@ -103,6 +103,8 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  /* max-height: 437px; */
+  margin-bottom: 94px;
 }
 
 .title_v1PopUp {
@@ -1113,7 +1115,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 10px;
   background: var(--white, #fff);
   max-height: 130px;
-  width: 435px;
+  width: 444px;
   z-index: 1;
   overflow: auto;
 }
@@ -1312,7 +1314,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   line-height: 24px;
   width: 410px;
 }
-
+.sub {
+  min-height: 100px;
+  height: 100px;
+  overflow: scroll;
+  width: 100%;
+}
 .options:hover {
   background: #eeeeee;
 }
@@ -1447,7 +1454,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .underList {
     position: relative;
   }
-
+  .listPopUp {
+    width: 90%;
+  }
+.underListContactPopUp {
+  width: 100%;
+}
   .inputLeft_addTaskPopUp,
   .title_v1PopUp,
   .titletitlePopUp,
@@ -1529,7 +1541,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 30px;
 }
 .underListContactPopUp{
-  width: 70% !important;
+  width: 100%;
 }
 .textContainer_addTask {
   margin-top: 0;
@@ -1540,15 +1552,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 margin-top: 0;
 }
 }
-.underListContactPopUp{
-  width: 70% !important;
-}
 @media (max-width: 398px) {
 .text_addTask {
   font-size: 29px;
 }
 .underListContactPopUp{
-  width: 70% !important;
+  width: 100%;
 }
 
 }
@@ -1587,18 +1596,18 @@ margin-top: 0;
     width: 50%;
   }
   .underListContactPopUp {
-    width: 270px !important;
+    width: 100%;
   }
 }
 
 @media (max-width: 635px) {
   .underListContactPopUp {
-    width: 434px !important;
+    width: 100%;
   }
 }
 @media (max-width: 579px) {
   .underListContactPopUp {
-    width: 380px !important;
+    width: 100%;
   }
   .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 230px;
@@ -1606,7 +1615,7 @@ margin-top: 0;
 }
 @media (max-width: 508px) {
   .underListContactPopUp {
-    width: 330px !important;
+    width: 100%;
   }
   .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 200px;
@@ -1614,7 +1623,7 @@ margin-top: 0;
 }
 @media (max-width: 444px) {
   .underListContactPopUp {
-    width: 270px !important;
+    width:100%;
   }
 }
 
@@ -1629,7 +1638,7 @@ margin-top: 0;
     margin-right: 40px;
   }
   .underListContactPopUp {
-    width: 270px !important;
+    width: 100%;
   }
 }
 

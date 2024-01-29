@@ -379,7 +379,7 @@ function generate_addTask(statusFromUser){
                             <img class="arrow_drop_downHover" src="./assets/img/arrow_drop_down_hover.png"  id="arrow_drop_downHoverAssigned" onclick="hideAssigned(event)">                            
                         </div>
                     </div>                    
-                    <div class="list" class="hide">
+                    <div class="listPopUp" class="hide">
                         <ul id="listContact" class="hide underListContactPopUp"> 
                             <li id ="contactList"></li>                       
                         </ul>
@@ -511,7 +511,9 @@ function generate_addTask(statusFromUser){
                                 </div>
                             </div>                        
                         </div>
-                        <div class="allSubtasks" id ="allSubtasks"></div>
+                       <div class="sub">
+                       <div class="allSubtasks" id ="allSubtasks"></div>
+                       </div>
                     </div>                    
                 </div>
             </div>

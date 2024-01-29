@@ -21,7 +21,6 @@
 }
 
 #tasks {
-  overflow-y: scroll !important;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -44,7 +43,7 @@
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  padding: 1px 88px 1px 0px;
+  padding: 1px 1px 0px;
 }
 .frame28  {
   width: 100%;
@@ -185,7 +184,7 @@
   justify-content: space-between;
   padding: 0px 64px;
   max-height: 688px;
-  width: 1208px;
+  width: 90%;
   align-items: flex-start;
   gap: 26px;
   flex-shrink: 0;
@@ -593,14 +592,7 @@
   line-height: 120%;
 }
 
-.largeTaskDetails {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  justify-content: space-between;
-  height: 58vh;
-}
+
 
 .largPrioDetail {
   display: flex;
