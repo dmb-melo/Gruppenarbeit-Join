@@ -303,7 +303,7 @@ body {
 }
 
 .toDoPanelBig:hover .taskNumber,
-.toDoPanelBig:hover .taskText, 
+.toDoPanelBig:hover .taskText,
 .toDoPanelBig:hover .date-summary-text {
   color: white;
 }
@@ -418,6 +418,15 @@ body {
     margin-left: 0;
   }
 
+  .summaryUrgendDeadLine {
+    padding-left: 8px;
+  }
+
+  .urgend {
+    width: 162px;
+    padding-right: 12px;
+  }
+
   .summaryTaskContainer {
     gap: 12px;
     width: 100%;
@@ -430,7 +439,7 @@ body {
   }
 }
 
-@media (min-width: 650px) {
+@media (min-width: 680px) {
   .blueLineResponsive {
     display: none;
   }
@@ -481,12 +490,12 @@ body {
     margin-top: 60px;
     font-size: 14px;
   }
-  
+
   .tasksTextFeedback {
     margin-top: 80px;
     font-size: 14px;
   }
-  
+
   .tasksNumber {
     margin-top: -30px;
   }
@@ -498,9 +507,12 @@ body {
     margin-left: 0px;
     height: 128px;
   }
+  .summaryUrgendDeadLine {
+    padding-left: 21px;
+  }
 
   .urgend {
-    width: 140px;
+    width: 130px;
   }
 
   #date {
@@ -522,7 +534,6 @@ body {
   }
 }
 
-
 @media (max-width: 480px) {
   .summaryLeft {
     margin-top: 48px;
@@ -531,7 +542,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
   .blueLineResponsive {
     margin-bottom: 24px;
   }
@@ -547,11 +558,11 @@ body {
   .tasksText {
     margin-top: 35px;
   }
-  
+
   .tasksTextFeedback {
     margin-top: 55px;
   }
-  
+
   .tasksNumber {
     margin-top: -50px;
   }
@@ -586,6 +597,7 @@ body {
   .summaryUrgendDeadLine {
     margin-left: 0px !important;
     width: 310px !important;
+    padding-left: 8px;
   }
 
   .urgend-svg {
@@ -600,10 +612,10 @@ body {
     align-items: flex-start;
     gap: 28px;
     width: 100%;
-}
+  }
   .urgend {
     gap: 8px;
-    width: 57px !important;
+    width: 76px !important;
     padding-right: 12px;
   }
 
@@ -643,7 +655,7 @@ body {
   .summaryUrgendDeadLine {
     height: 100px;
     padding: 10px 12px;
-    gap: 70px;
+    gap: 58px;
   }
 
   .summaryTodoDone {
@@ -672,7 +684,5 @@ body {
   .tasksTextFeedback {
     font-size: 14px;
     margin-top: 38px;
+  }
 }
-
-}
-
