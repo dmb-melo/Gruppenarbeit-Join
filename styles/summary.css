@@ -22,7 +22,6 @@ body {
   height: calc(100vh - 96px);
 }
 
-/* Der Header */
 .summaryHeader {
   display: inline-flex;
   justify-content: center;
@@ -397,27 +396,26 @@ body {
   }
 }
 
-@media (min-width: 1100px) and (max-width: 1400px) {
+@media (min-width: 1150px) and (max-width: 1400px) {
   .greeting-text-summary {
     font-size: 32px !important;
   }
   .greetin p {
     font-size: 24px;
   }
-
   .greetin {
     margin-left: 50px;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1150px) {
   .greetin {
     display: none;
   }
   .summaryMain {
     display: flex;
     justify-content: center;
-    margin-left: 0;
+    margin-left: 62px;
   }
 
   .summaryHeader {
@@ -456,6 +454,12 @@ body {
 }
 
 @media (max-width: 680px) {
+  .summaryMain {
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+  }
+
   .summaryHeader {
     flex-direction: column;
     margin-left: 56px;
