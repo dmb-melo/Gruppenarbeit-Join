@@ -1,5 +1,3 @@
-/* Allround Class */
-
 body {
   overflow-x: hidden;
 }
@@ -18,9 +16,9 @@ body {
   justify-content: space-around;
 }
 
-/* Linke Seite des Mains */
 .summaryLeft {
   margin-top: 48px;
+  max-width: 560px;
   height: calc(100vh - 96px);
 }
 
@@ -74,7 +72,6 @@ body {
   gap: 28px;
 }
 
-/* Die zweit Buttons oben */
 .summaryTodoDone {
   display: flex;
   width: 560px;
@@ -99,7 +96,6 @@ body {
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
-/* der Button in der Mitte */
 .summaryUrgendDeadLine {
   display: flex;
   width: 560px;
@@ -134,7 +130,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  color: #000;
 }
 
 #date {
@@ -146,7 +141,6 @@ body {
   line-height: 120%;
 }
 
-/* Die Drei Button Unten */
 .summaryTasks {
   display: flex;
   width: 560px;
@@ -160,7 +154,7 @@ body {
 .summaryTasks a {
   text-decoration: none;
 }
-/* desing der Drei buttons */
+
 .taskspanels {
   display: flex;
   width: 168px;
@@ -209,9 +203,6 @@ body {
   margin-top: -40px;
 }
 
-/* left End */
-
-/* RightSide */
 .summaryRight {
   width: 50%;
   height: calc(100vh - 96px);
@@ -249,9 +240,6 @@ body {
   white-space: nowrap;
 }
 
-/* Rightend */
-
-/* text Inside Dialog */
 .toDoIcon {
   width: 69px;
   height: 69px;
@@ -268,7 +256,6 @@ body {
 
 .taskText {
   color: #2a3647;
-  /* Version 2/t6 */
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -285,14 +272,13 @@ body {
   display: flex;
 }
 
-/* Hover */
 .toDoPanel:hover,
 .toDoPanelBig:hover,
 .taskspanels:hover {
   transform: scale(1.05);
   background: #2a3647;
   transition: 225ms ease-in-out;
-  color: white !important;
+  color: white;
 }
 
 .toDoPanel:hover .editHover img {
@@ -316,12 +302,9 @@ body {
   color: white;
 }
 
-.toDoPanelBig:hover .deadline {
-  color: white !important;
-}
-
 .toDoPanelBig:hover .taskNumber,
-.toDoPanelBig:hover .taskText {
+.toDoPanelBig:hover .taskText, 
+.toDoPanelBig:hover .date-summary-text {
   color: white;
 }
 .taskspanels:hover .tasksNumber,
@@ -331,6 +314,10 @@ body {
 }
 .partingLine:hover {
   background-color: white;
+}
+
+.date-summary-text {
+  color: #000;
 }
 
 .summary-responsive-greeting {
@@ -398,6 +385,144 @@ body {
   }
 }
 
+@media (min-height: 1100px) {
+  .summaryLeft {
+    margin-top: 160px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .summary-responsive-greeting {
+    display: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .greetin {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .summaryMain {
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .summaryHeader {
+    margin-bottom: 24px;
+  }
+
+  .summaryContainer {
+    margin-left: 0;
+  }
+
+  .summaryTaskContainer {
+    gap: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .summaryTodoDone {
+    height: 144px;
+  }
+}
+
+@media (min-width: 650px) {
+  .blueLineResponsive {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .summaryHeader {
+    flex-direction: column;
+    margin-left: 56px;
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .blueLine {
+    display: none;
+  }
+
+  .blueLineText {
+    display: block;
+  }
+
+  .summaryTodoDone {
+    height: 114px;
+  }
+
+  .summaryTodoDone a {
+    width: 30%;
+  }
+
+  .toDoIcon {
+    transform: scale(0.6);
+  }
+
+  .taskNumber {
+    font-size: 24px !important;
+  }
+
+  .tasksNumber {
+    font-size: 24px !important;
+    line-height: 80%;
+  }
+
+  .taskText {
+    font-size: 14px;
+  }
+
+  .tasksText {
+    margin-top: 60px;
+    font-size: 14px;
+  }
+  
+  .tasksTextFeedback {
+    margin-top: 80px;
+    font-size: 14px;
+  }
+  
+  .tasksNumber {
+    margin-top: -30px;
+  }
+
+  .summaryUrgendDeadLine {
+    display: flex;
+    justify-content: center;
+    width: 450px !important;
+    margin-left: 0px;
+    height: 128px;
+  }
+
+  .urgend {
+    width: 140px;
+  }
+
+  #date {
+    font-size: 14px;
+  }
+
+  .deadLineText {
+    font-size: 14px;
+  }
+
+  .taskspanels {
+    width: 130px;
+    height: 116px;
+    padding: 25px 0px;
+    gap: 13px;
+  }
+  .summary-headline {
+    font-size: 61px !important;
+  }
+}
+
+
 @media (max-width: 480px) {
   .summaryLeft {
     margin-top: 48px;
@@ -406,7 +531,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+}
   .blueLineResponsive {
     margin-bottom: 24px;
   }
@@ -422,11 +547,11 @@ body {
   .tasksText {
     margin-top: 35px;
   }
-
+  
   .tasksTextFeedback {
     margin-top: 55px;
   }
-
+  
   .tasksNumber {
     margin-top: -50px;
   }
@@ -475,7 +600,7 @@ body {
     align-items: flex-start;
     gap: 28px;
     width: 100%;
-  }
+}
   .urgend {
     gap: 8px;
     width: 57px !important;
@@ -495,106 +620,6 @@ body {
   .taskspanels {
     width: 84px;
     height: 84px;
-  }
-}
-
-@media (min-width: 650px) {
-  .blueLineResponsive {
-    display: none;
-  }
-}
-
-@media (max-width: 680px) {
-  .summaryMain {
-    padding-left: 0px;
-  }
-
-  .summaryHeader {
-    flex-direction: column;
-    margin-left: 56px;
-    gap: 16px;
-    margin-bottom: 56px;
-  }
-
-  .urgend-svg {
-    height: 40px;
-  }
-
-  .blueLine {
-    display: none;
-  }
-
-  .blueLineText {
-    display: block;
-  }
-
-  .summaryTodoDone {
-    height: 114px;
-  }
-
-  .summaryTodoDone a {
-    width: 30%;
-  }
-
-  .toDoIcon {
-    transform: scale(0.6);
-  }
-
-  .taskNumber {
-    font-size: 24px !important;
-  }
-
-  .tasksNumber {
-    font-size: 24px !important;
-    line-height: 80%;
-  }
-
-  .taskText {
-    font-size: 14px;
-  }
-
-  .tasksText {
-    margin-top: 60px;
-    font-size: 14px;
-  }
-
-  .tasksTextFeedback {
-    margin-top: 80px;
-    font-size: 14px;
-  }
-
-  .tasksNumber {
-    margin-top: -30px;
-  }
-
-  .summaryUrgendDeadLine {
-    display: flex;
-    justify-content: center;
-    width: 450px !important;
-    margin-left: 0px;
-    height: 128px;
-  }
-
-  .urgend {
-    width: 140px;
-  }
-
-  #date {
-    font-size: 14px;
-  }
-
-  .deadLineText {
-    font-size: 14px;
-  }
-
-  .taskspanels {
-    width: 130px;
-    height: 116px;
-    padding: 25px 0px;
-    gap: 13px;
-  }
-  .summary-headline {
-    font-size: 61px !important;
   }
 }
 
@@ -647,52 +672,7 @@ body {
   .tasksTextFeedback {
     font-size: 14px;
     margin-top: 38px;
-  }
 }
 
-@media (min-width: 1000px) {
-  .summary-responsive-greeting {
-    display: none;
-  }
 }
 
-@media (max-width: 1000px) {
-  .summaryMain {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 80px;
-    margin-left: 0;
-  }
-
-  .summaryHeader {
-    margin-bottom: 24px;
-  }
-
-  .summaryContainer {
-    margin-left: 0;
-  }
-
-  .summaryTaskContainer {
-    gap: 12px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  .summaryTodoDone {
-    height: 144px;
-  }
-}
-
-@media (min-height: 1100px) {
-  .summaryLeft {
-    margin-top: 160px;
-  }
-}
-
-@media (max-width: 1500px) {
-  .greetin {
-    display: none;
-  }
-}
