@@ -1,9 +1,12 @@
-@media (min-width: 292px) and (max-width: 320px){
+@media(min-width: 0px) and (max-width: 999px){
   .box-sizing {
     display: none;
   }
 
+}
 
+
+@media  (max-width: 320px){
   .span,
   .nameIdList,
   .nameContact,
@@ -102,13 +105,17 @@
   .categoryFrame74 {
     padding: 10px 13px;
     width: 231px;
-}
+  }
 
-.circleAvatar{
-  height: 34px;
-  width: 34px;
-}
-  
+  .circleAvatarBoard{
+    margin-left: -20px;   
+    height: 34px;
+    width: 34px;
+  }
+
+  .contactAvatar{
+    padding-left: 20px;
+  } 
 
   .list{
     height: 0px;
@@ -136,7 +143,7 @@
 
   .custom-checkbox-board label:before {
     left: 147px;
-}
+  }
 
   .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 147px;
@@ -144,12 +151,12 @@
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 147px;
-}
+  }
  
 
   .contactList:hover .custom-checkbox input[type="checkbox"]:checked + label:before {
     left: 210px;
-}
+  }
 
   input[type="date"]::-webkit-calendar-picker-indicator {
     width: 20px;
@@ -254,19 +261,10 @@
     color: rgb(255, 255, 255);
     font-size: 17px;
     text-align: center;
+  }
 }
-
-}
-
-
-
-
 
 @media (min-width: 321px) and (max-width: 345px) {
-  .box-sizing {
-    display: none;
-  }
-
   .span,
   .nameIdList,
   .nameContact,
@@ -366,12 +364,15 @@
     padding: 10px 13px;
     width: 231px;
 }
-
-.circleAvatar{
-  height: 34px;
-  width: 34px;
-}
+   .circleAvatarBoard{
+    margin-left: -20px;     
+    height: 34px;
+    width: 34px;
+  }
   
+  .contactAvatar{
+    padding-left: 10px;
+  }   
 
   .list{
     height: 0px;
@@ -399,7 +400,7 @@
 
   .custom-checkbox-board label:before {
     left: 147px;
-}
+  }
 
   .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 147px;
@@ -407,12 +408,11 @@
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 147px;
-}
- 
+  } 
 
   .contactList:hover .custom-checkbox input[type="checkbox"]:checked + label:before {
     left: 210px;
-}
+  }
 
   input[type="date"]::-webkit-calendar-picker-indicator {
     width: 20px;
@@ -517,14 +517,10 @@
     color: rgb(255, 255, 255);
     font-size: 17px;
     text-align: center;
-}
-}
-
-@media (min-width: 346px) and (max-width: 547px) {
-  .box-sizing {
-    display: none;
   }
+}
 
+@media (min-width: 321px) and (max-width: 387px) {
   .span,
   .nameIdList,
   .nameContact,
@@ -638,13 +634,18 @@
   .categoryFrame74 {
     padding: 10px 13px;
     width: 326px;
-}
+  }
 
-.circleAvatar{
-  height: 34px;
-  width: 34px;
-}
-  
+  .circleAvatarBoard{
+    margin-left: -20px;
+    height: 34px;
+    width: 34px;
+    background-color: aquamarine; 
+  }
+
+  .contactAvatar{
+    padding-left: 18px;
+  }
 
   .list{
     height: 0px;
@@ -672,7 +673,7 @@
 
   .custom-checkbox-board label:before {
     left: 240px;
-}
+  }
 
   .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 240px;
@@ -680,12 +681,11 @@
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 240px;
-}
- 
+  } 
 
   .contactList:hover .custom-checkbox input[type="checkbox"]:checked + label:before {
     left: 210px;
-}
+  }
 
   input[type="date"]::-webkit-calendar-picker-indicator {
     width: 20px;
@@ -697,8 +697,7 @@
 
   .priority{
     width: 100%;
-    margin-left: 45px;
-   
+    margin-left: 45px;   
   }
 
   .priorityUrgent,
@@ -785,10 +784,7 @@
   }
 }
 
-@media (min-width: 547px) and (max-width: 550px) {
-  .box-sizing {
-    display: none;    
-  }
+@media (min-width: 388px) and (max-width: 556px) {
 
   .span,
   .nameContact,
@@ -962,7 +958,7 @@
     display: flex;
     width: 468px;
     justify-content: space-between;
-}
+  }
 
   .category {
     width: 100%;
@@ -1036,14 +1032,10 @@
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 378px;
-}
-}
-
-@media (min-width: 555px) and (max-width: 799px) {
-  .box-sizing {
-    display: none;
   }
+}
 
+@media (min-width: 557px) and (max-width: 799px) {
   .header {
     position: relative;
   }
@@ -1089,7 +1081,7 @@
 
   .textContainer_addTask {
     font-size: 47px;
-    margin-top: 120px;
+    margin-top: 439px;
     margin-left: 18px;
   }
 
@@ -1254,7 +1246,6 @@
     margin-top: 139px;
   }
 
-
   .custom-checkbox-board label:before {
     left: 400px;
   }
@@ -1265,13 +1256,10 @@
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 400px;
-}
+  }
 }
 
 @media (min-width: 800px) and (max-width: 999px) {
-  .box-sizing {
-    display: none;
-  }
 
   .header {
     position: relative;
