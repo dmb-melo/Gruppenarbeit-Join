@@ -1195,22 +1195,26 @@ hr {
     margin: 16px;
     font-weight: 300;
   }
-  
+
   .buttonsCard {
     display: none;
   }
+
   .nameCard {
     font-size: 30px;
     font-weight: 700;
   }
+
   .textCard {
     margin-bottom: 24px;
   }
+
   .logo-mini {
     width: 25px;
     height: 25px;
     margin-bottom: -4px;
   }
+
   .editContactMain {
     flex-direction: column;
     height: 650px;
@@ -1218,15 +1222,18 @@ hr {
     margin-right: 0px;
     margin-top: 200px;
   }
+
   .editContactPopup {
     left: 6px;
   }
+
   .editContactMiddle {
     height: 0;
     width: 95vw;
     justify-content: center;
     align-items: center;
   }
+
   .editContactLeft {
     margin-top: 0px;
     border-bottom-left-radius: 0px;
@@ -1235,6 +1242,7 @@ hr {
     width: 95vw;
     height: 291px;
   }
+
   .editContactRight {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 25px;
@@ -1242,9 +1250,11 @@ hr {
     height: 350px;
     width: 95vw;
   }
+
   .editContactLogo {
     display: none;
   }
+
   .editContactHeadline {
     font-weight: 600;
     font-size: 36px;
@@ -1252,21 +1262,25 @@ hr {
     margin-bottom: 9px;
     margin-left: 20px;
   }
+
   .closeEditContact-mobile {
     display: block;
     position: fixed;
     right: 20px;
     top: 225px;
   }
+
   .line2 {
     margin-bottom: 100px;
     margin-left: 20px;
   }
+
   .editCircle {
     position: fixed;
     margin-top: 0px;
     margin-left: 0px;
   }
+
   .contacts-headline-arrow {
     display: block;
     position: fixed;
@@ -1274,16 +1288,20 @@ hr {
     width: 35px;
     cursor: pointer;
   }
+
   .formDiv {
     margin-right: 0;
   }
+
   .inputFieldName {
     margin-bottom: 20px;
     width: 90vw;
   }
+
   .inputField {
     width: 86vw;
   }
+  
   .nameIdEdit {
     font-size: 40px;
   }
