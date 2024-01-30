@@ -1,12 +1,10 @@
-@media(min-width: 0px) and (max-width: 999px){
+@media (min-width: 0px) and (max-width: 999px) {
   .box-sizing {
     display: none;
   }
-
 }
 
-
-@media  (max-width: 320px){
+@media (max-width: 320px) {
   .span,
   .nameIdList,
   .nameContact,
@@ -18,7 +16,8 @@
   .categoryFrame74,
   .textSubtasks,
   .textAddSubtasks,
-  .description, .asignedTo {
+  .description,
+  .asignedTo {
     font-size: 16px;
   }
 
@@ -41,16 +40,16 @@
     height: calc(100vh - 176px);
   }
 
-  .textContainer_addTask {    
+  .textContainer_addTask {
     margin-left: 27px;
-    width: 263px;   
+    width: 263px;
   }
 
-  .text_addTask{
+  .text_addTask {
     font-size: 48px;
   }
 
-  .group66_addTask {  
+  .group66_addTask {
     margin-left: 27px;
     flex-direction: column;
     justify-content: center;
@@ -67,7 +66,7 @@
   }
 
   .title_v1 {
-    width: 10px;   
+    width: 10px;
   }
 
   .title {
@@ -98,26 +97,26 @@
   }
 
   .categoryFrame_74 {
-    padding: 10px 21px;    
+    padding: 10px 21px;
     width: 212px;
-  }  
+  }
 
   .categoryFrame74 {
     padding: 10px 13px;
     width: 231px;
   }
 
-  .circleAvatarBoard{
-    margin-left: -20px;   
+  .circleAvatarBoard {
+    margin-left: -20px;
     height: 34px;
     width: 34px;
   }
 
-  .contactAvatar{
+  .contactAvatar {
     padding-left: 20px;
-  } 
+  }
 
-  .list{
+  .list {
     height: 0px;
   }
 
@@ -131,11 +130,11 @@
     height: 76px;
   }
 
-  .contactList{
-    height: 40px; 
+  .contactList {
+    height: 40px;
   }
 
-  .asignedTo_v1{
+  .asignedTo_v1 {
     margin-top: -33px;
   }
 
@@ -156,7 +155,6 @@
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 147px;
   }
- 
 
   .contactList:hover .custom-checkbox input[type="checkbox"]:checked + label:before {
     left: 210px;
@@ -166,11 +164,11 @@
     width: 20px;
   }
 
-  .frame28{
+  .frame28 {
     width: 260px;
   }
 
-  .priority{
+  .priority {
     width: 100%;
     flex-direction: column;
   }
@@ -201,8 +199,8 @@
     font-size: 16px;
   }
 
-  .underlist{
-    position: relative;    
+  .underlist {
+    position: relative;
   }
 
   .options {
@@ -221,13 +219,13 @@
     width: 224px;
   }
 
-  .addTasksFooter{  
+  .addTasksFooter {
     margin-bottom: 25px;
     margin-left: 27px;
-    width: 256px;   
+    width: 256px;
   }
 
-  .comment{
+  .comment {
     display: flex;
     margin-top: 0px;
     text-wrap: wrap;
@@ -249,16 +247,15 @@
     width: 105px;
   }
 
-  .task_succes{
+  .task_succes {
     margin-left: 0%;
     margin-bottom: 400px;
   }
 
-  .task_succes_container{
+  .task_succes_container {
     width: 214px;
     margin-left: 0px;
     display: flex;
-
   }
 
   .task_succes_message {
@@ -280,7 +277,8 @@
   .categoryFrame74,
   .textSubtasks,
   .textAddSubtasks,
-  .description, .asignedTo {
+  .description,
+  .asignedTo {
     font-size: 16px;
   }
 
@@ -303,16 +301,16 @@
     height: calc(100vh - 176px);
   }
 
-  .textContainer_addTask {    
+  .textContainer_addTask {
     margin-left: 27px;
-    width: 263px;   
+    width: 263px;
   }
 
-  .text_addTask{
+  .text_addTask {
     font-size: 48px;
   }
 
-  .group66_addTask {  
+  .group66_addTask {
     margin-left: 27px;
     flex-direction: column;
     justify-content: center;
@@ -329,7 +327,7 @@
   }
 
   .title_v1 {
-    width: 10px;   
+    width: 10px;
   }
 
   .title {
@@ -360,25 +358,25 @@
   }
 
   .categoryFrame_74 {
-    padding: 10px 21px;    
+    padding: 10px 21px;
     width: 212px;
-  }  
+  }
 
   .categoryFrame74 {
     padding: 10px 13px;
     width: 231px;
-}
-   .circleAvatarBoard{
-    margin-left: -20px;     
+  }
+  .circleAvatarBoard {
+    margin-left: -20px;
     height: 34px;
     width: 34px;
   }
-  
-  .contactAvatar{
-    padding-left: 10px;
-  }   
 
-  .list{
+  .contactAvatar {
+    padding-left: 10px;
+  }
+
+  .list {
     height: 0px;
   }
 
@@ -392,8 +390,8 @@
     height: 76px;
   }
 
-  .contactList{
-    height: 40px; 
+  .contactList {
+    height: 40px;
   }
 
   .custom-checkbox {
@@ -412,7 +410,7 @@
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 147px;
-  } 
+  }
 
   .contactList:hover .custom-checkbox input[type="checkbox"]:checked + label:before {
     left: 210px;
@@ -422,11 +420,11 @@
     width: 20px;
   }
 
-  .frame28{
+  .frame28 {
     width: 260px;
   }
 
-  .priority{
+  .priority {
     width: 100%;
     flex-direction: column;
   }
@@ -457,8 +455,8 @@
     font-size: 16px;
   }
 
-  .underlist{
-    position: relative;    
+  .underlist {
+    position: relative;
   }
 
   .options {
@@ -477,13 +475,13 @@
     width: 224px;
   }
 
-  .addTasksFooter{  
+  .addTasksFooter {
     margin-bottom: 25px;
     margin-left: 27px;
-    width: 256px;   
+    width: 256px;
   }
 
-  .comment{
+  .comment {
     display: flex;
     margin-top: 0px;
     text-wrap: wrap;
@@ -505,16 +503,15 @@
     width: 105px;
   }
 
-  .task_succes{
+  .task_succes {
     margin-left: 0%;
     margin-bottom: 400px;
   }
 
-  .task_succes_container{
+  .task_succes_container {
     width: 214px;
     margin-left: 0px;
     display: flex;
-
   }
 
   .task_succes_message {
@@ -536,7 +533,8 @@
   .categoryFrame74,
   .textSubtasks,
   .textAddSubtasks,
-  .description, .asignedTo {
+  .description,
+  .asignedTo {
     font-size: 16px;
   }
 
@@ -559,17 +557,17 @@
     height: calc(100vh - 176px);
   }
 
-  .textContainer_addTask {    
+  .textContainer_addTask {
     margin-left: 8px;
-    width: 263px;   
+    width: 263px;
     margin-top: 13px;
   }
 
-  .text_addTask{
+  .text_addTask {
     font-size: 48px;
   }
 
-  .group66_addTask {  
+  .group66_addTask {
     margin-left: 10px;
     flex-direction: column;
     justify-content: center;
@@ -592,7 +590,7 @@
   }
 
   .title_v1 {
-    width: 10px;   
+    width: 10px;
   }
 
   .title {
@@ -611,12 +609,12 @@
     width: 310px;
   }
 
-  .description_v1{
+  .description_v1 {
     width: 310px;
   }
 
-  .frame17{
-  width: 354px;
+  .frame17 {
+    width: 354px;
   }
 
   .text_enterDescription {
@@ -631,31 +629,31 @@
   }
 
   .categoryFrame_74 {
-    padding: 10px 21px;    
+    padding: 10px 21px;
     width: 307px;
-  }  
+  }
 
   .categoryFrame74 {
     padding: 10px 13px;
     width: 326px;
   }
 
-  .circleAvatarBoard{
+  .circleAvatarBoard {
     margin-left: -20px;
     height: 34px;
     width: 34px;
-    background-color: aquamarine; 
+    background-color: aquamarine;
   }
 
-  .contactAvatar{
+  .contactAvatar {
     padding-left: 18px;
   }
 
-  .list{
+  .list {
     height: 0px;
   }
 
-  .asignedTo_v1{
+  .asignedTo_v1 {
     margin-top: -33px;
   }
 
@@ -669,8 +667,8 @@
     height: 76px;
   }
 
-  .contactList{
-    height: 40px; 
+  .contactList {
+    height: 40px;
   }
 
   .custom-checkbox {
@@ -689,7 +687,7 @@
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 240px;
-  } 
+  }
 
   .contactList:hover .custom-checkbox input[type="checkbox"]:checked + label:before {
     left: 210px;
@@ -699,13 +697,13 @@
     width: 20px;
   }
 
-  .frame28{
+  .frame28 {
     width: 260px;
   }
 
-  .priority{
+  .priority {
     width: 100%;
-    margin-left: 45px;   
+    margin-left: 45px;
   }
 
   .priorityUrgent,
@@ -734,8 +732,8 @@
     font-size: 16px;
   }
 
-  .underlist{
-    position: relative;    
+  .underlist {
+    position: relative;
   }
 
   .options {
@@ -754,13 +752,13 @@
     width: 224px;
   }
 
-  .addTasksFooter{  
+  .addTasksFooter {
     margin-bottom: 25px;
     margin-left: 12px;
-    width: 342px;   
+    width: 342px;
   }
 
-  .comment{
+  .comment {
     display: flex;
     margin-top: 0px;
     font-size: 14px;
@@ -781,19 +779,18 @@
     width: 105px;
   }
 
-  .task_succes{
+  .task_succes {
     margin-left: 0%;
     margin-bottom: 400px;
   }
 
- .task_succes_container {
+  .task_succes_container {
     width: 256px;
     margin-left: 27px;
   }
 }
 
 @media (min-width: 388px) and (max-width: 556px) {
-
   .span,
   .nameContact,
   .nameContact,
@@ -805,7 +802,7 @@
   .categoryFrame74,
   .textUrgent,
   .textMedium,
-  .textLow,   
+  .textLow,
   .comment,
   .textSubtasks,
   .textAddSubtasks,
@@ -835,7 +832,7 @@
     overflow: scroll !important;
   }
 
-  .content_addTask{
+  .content_addTask {
     width: 100%;
   }
 
@@ -856,7 +853,7 @@
   .vector4 {
     display: none;
   }
- 
+
   .inputRight_addTask {
     margin-top: 50px;
     width: 500px;
@@ -923,7 +920,7 @@
     width: 501px;
   }
 
-  .asignedTo_v1{
+  .asignedTo_v1 {
     margin-top: -33px;
   }
 
@@ -932,7 +929,7 @@
     width: 458px;
   }
 
-  .inputDate{
+  .inputDate {
     width: 471px;
   }
 
@@ -1152,7 +1149,7 @@
     width: 475px;
   }
 
-  .asignedTo_v1{
+  .asignedTo_v1 {
     margin-top: -33px;
   }
 
@@ -1276,7 +1273,6 @@
 }
 
 @media (min-width: 800px) and (max-width: 999px) {
-
   .header {
     position: relative;
   }
@@ -1367,7 +1363,7 @@
     width: 668px;
   }
 
-  .asignedTo_v1{
+  .asignedTo_v1 {
     margin-top: -33px;
   }
 
@@ -1543,7 +1539,7 @@
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 520px;
-}
+  }
 
   .contactAvatar {
     margin-top: 2px;

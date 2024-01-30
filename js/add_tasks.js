@@ -396,7 +396,6 @@ function hideAssigned(event) {
   displayAvatar(selectedContacts, contacts, colors);
 }
 
-// Function to close the listContact if clicked outside
 document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (event) {
     let listContact = document.getElementById("listContact");
