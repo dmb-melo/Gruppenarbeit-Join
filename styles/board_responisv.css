@@ -1091,6 +1091,9 @@
   .taskAria {
     width: 95% !important;
 }
+.noTask {
+margin-left: 30px;
+}
 
 }
 
@@ -1302,7 +1305,6 @@
   }
   .noTask {
     margin-left: 29px;
-
   }
  }
 @media(min-width:1000px) and (max-width: 1201px) {
