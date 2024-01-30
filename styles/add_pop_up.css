@@ -1404,6 +1404,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 38% !important;
     text-decoration: none !important;
   }
+
+  .taskCategory {
+    width: 480px;
+  }
+
+  .inputDatePopUp {
+    width: 410px;
+  }
+
+  .options {
+    width: 92%;
+  }
   .underList {
     position: relative;
   }
@@ -1495,7 +1507,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 92%;
   }
   .categoryFrame_74 {
-    width: 90%;
+    width: 92%;
   }
 }
 

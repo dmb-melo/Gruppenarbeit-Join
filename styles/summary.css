@@ -316,7 +316,7 @@ body {
   color: white;
 }
 
-.toDoPanelBig:hover .deadline  {
+.toDoPanelBig:hover .deadline {
   color: white !important;
 }
 
@@ -326,7 +326,7 @@ body {
 }
 .taskspanels:hover .tasksNumber,
 .taskspanels:hover .tasksText,
-.taskspanels:hover .tasksTextFeedback{
+.taskspanels:hover .tasksTextFeedback {
   color: white;
 }
 .partingLine:hover {
@@ -398,50 +398,103 @@ body {
   }
 }
 
-@media (min-height: 1100px) {
+@media (max-width: 480px) {
   .summaryLeft {
-    margin-top: 160px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .summary-responsive-greeting {
-    display: none;
-  }
-}
-
-@media (max-width: 1500px) {
-  .greetin {
-    display: none;
-  }
-}
-
-@media (max-width: 1000px) {
-  .summaryMain {
+    margin-top: 48px;
+    max-width: 479px;
+    height: calc(100vh - 96px);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding-left: 80px;
-    margin-left: 0;
   }
-
-  .summaryHeader {
+  .blueLineResponsive {
     margin-bottom: 24px;
   }
 
-  .summaryContainer {
-    margin-left: 0;
+  .summaryHeader {
+    margin-left: 0px;
   }
 
-  .summaryTaskContainer {
+  .summaryHeader h1 {
+    font-size: 40px;
+  }
+
+  .tasksText {
+    margin-top: 35px;
+  }
+
+  .tasksTextFeedback {
+    margin-top: 55px;
+  }
+
+  .tasksNumber {
+    margin-top: -50px;
+  }
+
+  .summaryHeader {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .summaryTodoDone a {
+    padding: 10px;
+    width: 40%;
     gap: 12px;
-    width: 100%;
-    display: flex;
-    align-items: center;
   }
 
   .summaryTodoDone {
-    height: 144px;
+    gap: 20px;
+    height: 100px;
+    width: 100%;
+  }
+
+  .toDoIcon {
+    transform: scale(0.6);
+  }
+
+  .taskText {
+    font-size: 12px;
+    word-break: normal !important;
+  }
+
+  .summaryUrgendDeadLine {
+    margin-left: 0px !important;
+    width: 310px !important;
+  }
+
+  .urgend-svg {
+    transform: scale(0.6);
+  }
+  .summaryTasks {
+    display: flex;
+    width: 560px;
+    height: 170px;
+    padding: 1px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+    width: 100%;
+  }
+  .urgend {
+    gap: 8px;
+    width: 57px !important;
+    padding-right: 12px;
+  }
+
+  #date {
+    font-size: 10px;
+    width: 50px !important;
+  }
+
+  .deadLineText {
+    font-size: 10px;
+    width: 50px !important;
+  }
+
+  .taskspanels {
+    width: 84px;
+    height: 84px;
   }
 }
 
@@ -499,17 +552,17 @@ body {
   .taskText {
     font-size: 14px;
   }
-  
+
   .tasksText {
     margin-top: 60px;
     font-size: 14px;
   }
-  
+
   .tasksTextFeedback {
     margin-top: 80px;
     font-size: 14px;
   }
-  
+
   .tasksNumber {
     margin-top: -30px;
   }
@@ -542,107 +595,6 @@ body {
   }
   .summary-headline {
     font-size: 61px !important;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .summaryLeft {
-    margin-top: 48px;
-    max-width: 479px;
-    height: calc(100vh - 96px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-  .blueLineResponsive {
-    margin-bottom: 24px;
-  }
-
-  .summaryHeader {
-    margin-left: 0px;
-  }
-
-  .summaryHeader h1 {
-    font-size: 40px;
-  }
-
-  .tasksText {
-    margin-top: 35px;
-  }
-  
-  .tasksTextFeedback {
-    margin-top: 55px;
-  }
-  
-  .tasksNumber {
-    margin-top: -50px;
-  }
-
-  .summaryHeader {
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 56px;
-  }
-
-  .summaryTodoDone a {
-    padding: 10px;
-    width: 40%;
-    gap: 12px;
-  }
-
-  .summaryTodoDone {
-    gap: 20px;
-    height: 100px;
-    width: 100%;
-  }
-
-  .toDoIcon {
-    transform: scale(0.6);
-  }
-
-  .taskText {
-    font-size: 12px;
-    word-break: normal !important;
-  }
-
-  .summaryUrgendDeadLine {
-    margin-left: 0px !important;
-    width: 310px !important;
-  }
-
-  .urgend-svg {
-    transform: scale(0.6);
-  }
-  .summaryTasks {
-    display: flex;
-    width: 560px;
-    height: 170px;
-    padding: 1px 0px;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 28px;
-    width: 100%;
-}
-  .urgend {
-    gap: 8px;
-    width: 57px !important;
-    padding-right: 12px;
-  }
-
-  #date {
-    font-size: 10px;
-    width: 50px !important;
-  }
-
-  .deadLineText {
-    font-size: 10px;
-    width: 50px !important;
-  }
-
-  .taskspanels {
-    width: 84px;
-    height: 84px;
   }
 }
 
@@ -695,7 +647,52 @@ body {
   .tasksTextFeedback {
     font-size: 14px;
     margin-top: 38px;
+  }
 }
 
+@media (min-width: 1000px) {
+  .summary-responsive-greeting {
+    display: none;
+  }
 }
 
+@media (max-width: 1000px) {
+  .summaryMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 80px;
+    margin-left: 0;
+  }
+
+  .summaryHeader {
+    margin-bottom: 24px;
+  }
+
+  .summaryContainer {
+    margin-left: 0;
+  }
+
+  .summaryTaskContainer {
+    gap: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .summaryTodoDone {
+    height: 144px;
+  }
+}
+
+@media (min-height: 1100px) {
+  .summaryLeft {
+    margin-top: 160px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .greetin {
+    display: none;
+  }
+}
