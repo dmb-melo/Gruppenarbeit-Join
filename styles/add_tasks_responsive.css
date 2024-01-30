@@ -135,6 +135,10 @@
     height: 40px; 
   }
 
+  .asignedTo_v1{
+    margin-top: -33px;
+  }
+
   .custom-checkbox {
     margin-left: 10px;
     margin-top: 5px;
@@ -651,6 +655,10 @@
     height: 0px;
   }
 
+  .asignedTo_v1{
+    margin-top: -33px;
+  }
+
   .searchContacts {
     width: 195px;
     font-size: 16px;
@@ -915,6 +923,10 @@
     width: 501px;
   }
 
+  .asignedTo_v1{
+    margin-top: -33px;
+  }
+
   .contactList {
     height: 40px;
     width: 458px;
@@ -1140,6 +1152,10 @@
     width: 475px;
   }
 
+  .asignedTo_v1{
+    margin-top: -33px;
+  }
+
   .underList,
   .list,
   .listContact,
@@ -1351,6 +1367,10 @@
     width: 668px;
   }
 
+  .asignedTo_v1{
+    margin-top: -33px;
+  }
+
   .searchContacts {
     width: 300x;
   }
@@ -1451,7 +1471,7 @@
 
   .contactList:hover .custom-checkbox-board input[type="checkbox"]:checked + label:before {
     left: 585px;
-}
+  }
 }
 
 @media (min-width: 1000px) and (max-width: 1249px) {

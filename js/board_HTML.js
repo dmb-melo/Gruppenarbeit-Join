@@ -392,10 +392,10 @@ function generate_addTask(statusFromUser){
                 <div class="dueDatePopUp">
                     <div class="text_DueDateAdTask">Due date<span class="spanClass">*</span></div>
                     <div class="frame211PopUp" onclick="required(this)">                    
-                            <div class="dueDate_frame14PopUp">
+                            <div class="dueDate_frame14">
                                 <input class="inputDatePopUp"  type="date" name="date" max="2030-12-31" placeholder="dd/mm/yyyy" id="dueDate" required oninput="handleInput(this)" >   
                             </div>
-                            <div class="dueDateFieldRequired" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
+                            <div class="dueDateFieldRequiredPopUp" id="dueDateFieldRequired"   onclick="required(this)">This field is required</div> 
                     </div>
                 </div>
                 <div class="frame28">
