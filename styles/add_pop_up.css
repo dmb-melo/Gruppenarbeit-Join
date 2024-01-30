@@ -1398,7 +1398,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .addTasksFooter {
     width: 100%;
-    flex-direction: column;
   }
   .leadsToBoardPopUp {
     width: 38% !important;
@@ -1602,6 +1601,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .leadsToBoardPopUp {
     width: 95% !important;
+    display: flex;
+    justify-content: flex-end;
   }
   .searchContacts {
     font-size: 16px;
