@@ -232,7 +232,7 @@ function generateDisplaySubtasksHTML(i, subtask) {
         <div class="subtaskItem" id="subsTaskEdit${i}">
           <span><li>${subtask}</li></span>
           <div class="subtaskButtons">
-            <button id="editButton_${i}" onclick="editSub('${i}')"><img src="../assets/img/edit_task.png"></button>
+            <button id="editButton_${i}" onclick="editSub('${i}')"><img src="./assets/img/edit_task.png"></button>
             <button id="deleteButton_${i}" onclick="deleteSubs('${i}')"><img src="./assets/img/delete_contacts.png"></button>
           </div>
         </div>`;
@@ -329,7 +329,7 @@ function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
                   <div class="largCardFooter">
                     <div class="deleteAndEdit">
                     <div class="delete_task" onmouseover="changeImage(true)" onmouseout="changeImage(false)" onclick="deleteTask(event)">
-                      <img id="delete-task-image" class="delete-task-bt" src="../assets/img/delete_contacts.png">
+                      <img id="delete-task-image" class="delete-task-bt" src="./assets/img/delete_contacts.png">
                            <p class="delete-task-title" id="delete-task-title">Delete</p>
                       </div>
                       <img class="deleteAndEdit_vector" src="./assets/img/vector.png" alt="">
