@@ -521,7 +521,7 @@
   }
 }
 
-@media (min-width: 321px) and (max-width: 387px) {
+@media (min-width: 321px) and (max-width: 557px) {
   .span,
   .nameIdList,
   .nameContact,
@@ -642,7 +642,6 @@
     margin-left: -20px;
     height: 34px;
     width: 34px;
-    background-color: aquamarine;
   }
 
   .contactAvatar {
@@ -790,7 +789,7 @@
   }
 }
 
-@media (min-width: 388px) and (max-width: 556px) {
+@media (min-width: 558px) and (max-width: 600px) {
   .span,
   .nameContact,
   .nameContact,
@@ -1044,7 +1043,7 @@
   }
 }
 
-@media (min-width: 557px) and (max-width: 799px) {
+@media (min-width: 601px) and (max-width: 799px) {
   .header {
     position: relative;
   }
@@ -1090,8 +1089,8 @@
 
   .textContainer_addTask {
     font-size: 47px;
-    margin-top: 439px;
     margin-left: 18px;
+    margin-top: 417px;
   }
 
   .group66_addTask {
