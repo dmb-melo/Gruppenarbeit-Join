@@ -684,6 +684,10 @@ hr {
   font-size: 15px;
 }
 
+.textNameInput-contacts{
+  font-size: 12px;
+}
+
 .closeButton {
   width: 90px;
   height: 40px;
@@ -889,7 +893,7 @@ hr {
     width: 38vw;
   }
   .inputField {
-    width: 303px;
+    width: 317px;
   }
   .inputFieldName {
     width: 317px;

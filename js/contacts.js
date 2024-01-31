@@ -198,7 +198,7 @@ function validateInput(userName, userEmail, userPhone) {
   }
   let namePattern = /^[A-Za-z]+\s[A-Za-z]+$/;
   if (!namePattern.test(userName)) {
-    alert("Please enter a valid name (first name and last name).");
+    document.getElementById('textNameInput-contacts').innerHTML = "Please enter a valid name (first name and last name).";
     userNameInput.focus();
     return false;
   }
