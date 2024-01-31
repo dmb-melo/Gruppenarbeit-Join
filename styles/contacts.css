@@ -601,6 +601,7 @@ hr {
   display: flex;
   flex-direction: row;
   font-size: 15px;
+  margin-top: 30px;
 }
 
 .group-header {
@@ -636,7 +637,7 @@ hr {
   display: flex;
   border: 1px solid #d9d9d9;
   height: 36px;
-  margin-bottom: 30px;
+  margin-top: 30px;
   border-radius: 9px;
   justify-content: space-between;
   width: 360px;
@@ -685,7 +686,10 @@ hr {
 }
 
 .textNameInput-contacts{
-  font-size: 12px;
+  font-size: 10px;
+  color: #ff8190;
+  margin-left: 3px;
+  margin-top: 2px;
 }
 
 .closeButton {
