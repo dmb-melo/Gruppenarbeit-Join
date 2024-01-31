@@ -447,6 +447,12 @@ body {
   }
 }
 
+@media (max-width: 1000px) {
+  .summaryMain {
+    margin-left: 0;
+  }
+}
+
 @media (min-width: 680px) {
   .blueLineResponsive {
     display: none;
