@@ -142,6 +142,8 @@ function generateContactsAddTaskBoard(name, firstname, surname, i) {
     </div>`;
 }
 
+
+
 function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) {
   return /*html*/ `
         <div>

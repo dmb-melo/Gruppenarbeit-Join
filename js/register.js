@@ -8,6 +8,8 @@ const STORAGE_TOKEN = "XULVXKXQ87YFSN0Q9PFZSMP577RV8CAJX896XQXQ";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
 function login() {
+  loggedIn = false;
+  saveStatusOfLogin()
   let email = document.getElementById("emailInput").value;
   let password = document.getElementById("passwordInput").value;
   let user = users.find((u) => u.email == email && u.password == password);
@@ -23,6 +25,8 @@ function login() {
 }
 
 function guestLogin() {
+  loggedIn = false;
+  saveStatusOfLogin()
   let name = "Guest";
   setInitialsOfTheUser(name);
   window.location.href = "./summary.html";

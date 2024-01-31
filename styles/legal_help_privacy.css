@@ -175,8 +175,9 @@ body {
 
 @media (max-width: 1000px) {
   .close-arrow-container {
-    top: 200px;
-    right: 48px;
+    top: 96px;
+    right: 0;
+    padding: 16px;
   }
   .content-container {
     margin-top: 48px;

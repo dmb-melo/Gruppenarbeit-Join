@@ -5,10 +5,12 @@ let numberFeedback;
 let numberDone;
 let expirationDateOfTask = [];
 let dateOfTheNextUpcomingTask = [];
+let loggedIn = false;
 
 async function initSummary() {
   await includeHTML();
   await loadContactsFromServer();
+  loadStatusOfLogin()
   generateGreetingText();
   loadUserData();
   setInitialsInTheHeader();
@@ -97,8 +99,26 @@ function resetNumbersTasks() {
 }
 
 function loadContentGreeting() {
+  if (!loggedIn) {
   document.getElementById("greetingTextResponsive").innerHTML = greetingText;
   document.getElementById("userNameResponsive").innerHTML = userName;
+  } else {
+    document.getElementById("greetingBox").classList.add("d-none");
+  }
+  loggedIn = true;
+  saveStatusOfLogin();
+}
+
+function saveStatusOfLogin() {
+    let loggedInAtText = JSON.stringify(loggedIn);
+    localStorage.setItem('loggedIn', loggedInAtText);
+  }
+
+function loadStatusOfLogin() {
+  let loggedInAtText = localStorage.getItem('loggedIn');
+  if (loggedInAtText) {
+    loggedIn = JSON.parse(loggedInAtText);
+  }
 }
 
 function loadContentToSummary() {
@@ -112,3 +132,4 @@ function loadContentToSummary() {
   document.getElementById('greetingTextSummary').innerHTML = greetingText;
   document.getElementById('userNameSummary').innerHTML = userName;
 }
+

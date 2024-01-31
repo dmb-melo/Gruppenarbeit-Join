@@ -206,16 +206,6 @@ function generatePopUpWindowAdd() {
     `;
 }
 
-function generateContactsAddTaskBoard(name, firstname, surname, i) {
-  return /*html*/ `
-      <div class="circleAvatarBoard" id="circle-${i}" style="background-color: ${colors[i]}">
-        <p class="nameIdList" id="name-id">${firstname}${surname}</p>
-      </div>                
-      <div class="custom-checkbox-board">            
-        <input class="inputCheckBox" type="checkbox" id="myCheckbox_Edit${i}">                    
-        <label class="nameContact ResVersion" for="myCheckbox_Edit${i}">${name}</label>                              
-      </div>`;
-}
 
 function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) {
   return /*html*/ `
