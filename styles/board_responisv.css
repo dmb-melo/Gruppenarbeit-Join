@@ -220,7 +220,12 @@
     width: 98%;
     align-items: flex-start;
   }
-
+  .smallCardcategory img {
+    display: flex;
+  }
+  .TechnicalTask {
+    font-size: 19px;
+  }
   .inputLeft_addTaskBoard {
     width: 87%;
   }
@@ -776,7 +781,7 @@
     left: 230px;
   }
 
-  .circleAvatarBoard {
+  .circleAvatarBoardChecked{
     margin-left: -26px !important;
   }
 
@@ -934,7 +939,7 @@
     width: 600px;
     font-size: 47px !important;
   }
-
+  
   .searchContactsBoard {
     outline: none;
     border-style: none;
@@ -1042,6 +1047,12 @@
 
   .progressTitles {
     font-size: 27px !important;
+  }
+  .smallCardcategory img {
+    display: flex;
+  }
+  .TechnicalTask {
+    font-size: 19px;
   }
 }
 

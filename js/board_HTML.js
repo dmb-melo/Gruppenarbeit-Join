@@ -142,10 +142,11 @@ function generateContactsAddTaskBoard(name, firstname, surname, i) {
     </div>`;
 }
 
+
 function generateAvatarAddTaskBoard(selectedIndex, contact, firstname, surname) {
   return /*html*/ `
         <div>
-            <div class="circleAvatarBoard" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+            <div class="circleAvatarBoardChecked" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
             </div>
         </div>
@@ -167,17 +168,30 @@ function generateContactsAddTask(name, firstname, surname, i) {
 function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
   return /*html*/ `
         <div>
-            <div class="circleAvatarBoard" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
+            <div class="circleAvatarBoardChecked" id="circle-${selectedIndex}" style="background-color: ${colors[selectedIndex]}">
                 <p class="nameIdList" id="name-id">${firstname}${surname}</p>
             </div>
         </div>
     `;
 }
 
+
+function generateDisplaySubtasksHTML(i, subtask) {
+    return /*html*/ `
+          <div class="subtaskItem" id="subsTaskEdit${i}">
+            <span><li>${subtask}</li></span>
+            <div class="subtaskButtons">
+              <button id="editButton_${i}" onclick="editSub('${i}')"><img src="./assets/img/edit_task.png"></button>
+              <button id="deleteButton_${i}" onclick="deleteSubs('${i}')"><img src="./assets/img/delete_contacts.png"></button>
+            </div>
+          </div>`;
+  }
+
+
 function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressDiv, i, taskID) {
   return /*html*/ `
       <div class="smallCard cardA" id="smallCardId-${taskID}" draggable="true" ondragstart="startDragged(${taskID})" onclick="openCard(${taskID})"> 
-        <div class="smallCardcategory"><p id="category" class="${className}">${task.category[0]}</p></div>
+        <div class="smallCardcategory"><p id="category" class="${className}">${task.category[0]}</p><img class="d-none" id="moveMobileVersion-${task.id}" src="./assets/img/punkte.png" alt=""></div>
         <div class="taskText">
           <div class="taskTitle">${task.title}</div>
           <div class="taskDescription">${task.description}</div>
@@ -190,6 +204,7 @@ function generateSmallCardHTML(task, className, clonedContentDiv, smallProgressD
       </div>
     `;
 }
+
 function generateLargeCardHTML(task, className, clonedContentDiv, subsHtml) {
   var dueDate = new Date(task.dueDate);
   var formattedDueDate = `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`;
