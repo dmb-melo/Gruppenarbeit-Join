@@ -418,13 +418,6 @@ function getFrameSelector(fieldId) {
   }
 }
 
-function hideFieldIndicator(selector) {
-  const fieldIndicator = document.querySelector(selector);
-  if (fieldIndicator) {
-    fieldIndicator.style.display = "none";
-  }
-}
-
 function required(element) {
   if (element.classList.contains("frame211")) {
     changeBorderColorAndDisplayField(".dueDate_frame14", "#dueDateFieldRequired");
@@ -448,11 +441,3 @@ function changeBorderColorAndDisplayField(frameSelector, fieldIndicatorSelector)
   }
 }
 
-function hideFieldIndicatorsExcept(exceptSelector) {
-  const allIndicators = document.querySelectorAll("#titleFieldRequired, #dueDateFieldRequired");
-  allIndicators.forEach((indicator) => {
-    if (indicator !== document.querySelector(exceptSelector)) {
-      indicator.style.display = "none";
-    }
-  });
-}

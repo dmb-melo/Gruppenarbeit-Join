@@ -297,7 +297,7 @@ function clearTask() {
   selectedContacts = [];
   clearTaskValues();
   removeBorderColorAndHideIndicator("titleFieldRequired");
-  removeBorderColorAndHideIndicator("dueDateFieldRequired");
+  removeBorderColorAndHideIndicator("dueDateFieldRequired"); 
   clearContactAvatar();
   clearAllSelections();
   clearPrioActiveClass();
@@ -452,3 +452,20 @@ function generateAvatarAddTask(selectedIndex, contact, firstname, surname) {
       </div>
   `;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    let categoryFrame = document.getElementById("categoryFrame_74");  
+    let list = document.getElementById("list");
+    let isClickInsideCategoryFrame = categoryFrame && categoryFrame.contains(event.target);
+    let isClickInsideList = list && list.contains(event.target);
+    let arrow = document.getElementById("arrow");
+    let arrowDrop = document.getElementById("arrow_drop_downHover");    
+    if (!isClickInsideCategoryFrame && categoryFrame && categoryFrame.offsetParent !== null && !isClickInsideList) {
+      list.classList.add("hide");
+      arrow.classList.remove("rotate");
+      arrowDrop.classList.remove("rotate");
+      categoryFrame.style.border = "";
+    }  
+  });
+});
